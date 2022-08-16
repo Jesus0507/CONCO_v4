@@ -1,0 +1,87 @@
+.form-holder {
+    clear: both;
+    padding: 30px;
+}
+form .required {
+    color: #cd0000;
+}
+form .field {
+    margin-top: -10px;
+    margin-bottom: 0px;
+}
+form .field:first-child {
+    margin-top: 0;
+}
+form .field:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    clear: both;
+    overflow: hidden;
+    visibility: hidden;
+}
+/******************
+    - Captcha -
+******************/
+
+.captcha {
+    clear: both;
+    display: inline-block;
+    border: 1px solid #ddd;
+    padding: 10px;
+    background-color: #f6f6f6;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+.captcha img {
+    display: block;
+    float: left;
+}
+.captcha img.captcha-img {
+    border: 1px solid #ccc;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+.captcha>i.change-captcha {
+    cursor: pointer;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+input.captcha[type=text] {
+    width: 200px !important;
+    margin-top: 5px;
+}
+input.aweform, select.aweform, textarea.aweform {
+    font-family: Arial, Tahoma, Sans-Serif;
+    font-size: 13px;
+    line-height: 18px;
+}
+input.aweform[type=text] {
+    position: relative;
+    background: #fff;
+    width: 300px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    color: #7e7e7e;
+    height: 32px;
+    margin: 0;
+    outline: 0;
+    padding: 5px 10px;
+    -webkit-transition: background-position 0s, border .3s, color .3s;
+    -moz-transition: background-position 0s, border .3s, color .3s;
+    transition: background-position 0s, border .3s, color .3s;
+}
+input.aweform[type=text]:focus {
+    border-color: #999;
+    color: #333;
+}
+input.small[type=text] {
+    width: 200px;
+}
+::-webkit-input-placeholder, input.aweform:-moz-placeholder {
+    color: #bbb;
+}
