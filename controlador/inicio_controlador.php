@@ -55,7 +55,6 @@ class Inicio extends Controlador
     {
         $this->Seguridad_de_Session();$this->Establecer_Consultas();
         $this->vista->Cargar_Vistas('inicio/index');
-        unset($this->datos,$this->vista->datos,);
     }
 
 }

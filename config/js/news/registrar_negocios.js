@@ -1,6 +1,6 @@
-$(document).ready(function() { 
-    $("#enviar").on("click", function() {
-        var form = $("#formulario"); 
+$(document).ready(function () {
+    $("#enviar").on("click", function () {
+        var form = $("#formulario");
         var id_calle = document.getElementById("id_calle");
         var nombre_negocio = document.getElementById("nombre_negocio");
         var direccion = document.getElementById("direccion");
@@ -11,7 +11,7 @@ $(document).ready(function() {
         var mensaje_direccion = document.getElementById("mensaje_direccion");
         var mensaje_cedula = document.getElementById("mensaje_cedula");
         var mensaje_rif = document.getElementById("mensaje_rif");
-        var retornar = false; 
+        var retornar = false;
         if (id_calle.value == 0 && direccion.value == '' || direccion.value == null && nombre_negocio.value == '' || nombre_negocio.value == null && cedula_propietario.value == '' || cedula_propietario.value == null && rif_negocio.value == '' || rif_negocio.value == null) {
             mensaje_calle.innerHTML = 'Debe seleccionar una Calle';
             id_calle.style.borderColor = 'red';
@@ -83,65 +83,77 @@ $(document).ready(function() {
                                 estado: 1
                             };
                             $.ajax({
-                                type: 'POST',
-                                url: BASE_URL + 'Negocios/Administrar',
+                                type: "POST",
+                                url: BASE_URL + "app/Direcciones.php",
                                 data: {
-                                    'datos': datos,
-                                    peticion: "Existente"
+                                    direction: 'Negocios/Administrar',
+                                    accion: "codificar"
                                 },
-                            }).done(function(respuesta) {
-                                if (respuesta != 0) {
-                                    mensaje_rif.innerHTML = 'Ya hay un negocio registrado con este rif.';
-                                    rif_negocio.style.borderColor = 'red';
-                                    mensaje_rif.style.color = 'red';
-                                    rif_negocio.focus();
-                                } else {
+                                success: function (direccion_segura) {
                                     $.ajax({
                                         type: 'POST',
-                                        url: BASE_URL + 'Negocios/Administrar',
+                                        url: BASE_URL + direccion_segura,
                                         data: {
                                             'datos': datos,
-                                            peticion: "Administrar",
-                                            sql: "SQL_02",
-                                            accion: "Se ha registrado un nuevo negocio: "+datos.nombre_negocio,
+                                            peticion: "Existente"
                                         },
-                                        success: function(respuesta) {
-                                            if (respuesta == 1) {
-                                                swal({
-                                                    title: "Exito!",
-                                                    text: "Se ha registrado de forma exitosa",
-                                                    type: "success",
-                                                    showConfirmButton: false,
-                                                });
-                                                setTimeout(function() {
-                                                    location.href = BASE_URL + 'Negocios/Administrar/Consultas';
-                                                }, 2000);
-                                            } else {
-                                                swal({
-                                                    title: "ERROR!",
-                                                    text: "Ha ocurrido un Error.</br>" + respuesta,
-                                                    type: "error",
-                                                    html: true,
-                                                    showConfirmButton: true,
-                                                    customClass: "bigSwalV2",
-                                                });
-                                            }
-                                        },
-                                        error: function(respuesta) {
-                                            alert("Error al enviar Controlador")
+                                    }).done(function (respuesta) {
+                                        if (respuesta != 0) {
+                                            mensaje_rif.innerHTML = 'Ya hay un negocio registrado con este rif.';
+                                            rif_negocio.style.borderColor = 'red';
+                                            mensaje_rif.style.color = 'red';
+                                            rif_negocio.focus();
+                                        } else {
+                                            $.ajax({
+                                                type: 'POST',
+                                                url: BASE_URL + direccion_segura,
+                                                data: {
+                                                    'datos': datos,
+                                                    peticion: "Administrar",
+                                                    sql: "SQL_02",
+                                                    accion: "Se ha registrado un nuevo negocio: " + datos.nombre_negocio,
+                                                },
+                                                success: function (respuesta) {
+                                                    if (respuesta == 1) {
+                                                        swal({
+                                                            title: "Exito!",
+                                                            text: "Se ha registrado de forma exitosa",
+                                                            type: "success",
+                                                            showConfirmButton: false,
+                                                        });
+                                                        Direccionar('Negocios/Administrar/Consultas');
+                                                    } else {
+                                                        swal({
+                                                            title: "ERROR!",
+                                                            text: "Ha ocurrido un Error.</br>" + respuesta,
+                                                            type: "error",
+                                                            html: true,
+                                                            showConfirmButton: true,
+                                                            customClass: "bigSwalV2",
+                                                        });
+                                                    }
+                                                },
+                                                error: function (respuesta) {
+                                                    alert("Error al enviar Controlador")
+                                                }
+                                            });
                                         }
-                                    });
+                                    }).fail(function () {
+                                        swal("ERROR", "Ha ocurrido un Error.", "error");
+                                    })
+                                },
+                                error: function () {
+                                    alert('Error al codificar dirreccion');
                                 }
-                            }).fail(function() {
-                                swal("ERROR", "Ha ocurrido un Error.", "error");
-                            })
+                            });
+
                         }
                     }
                 }
             }
         }
     });
-    document.onkeypress = function(e) {
+    document.onkeypress = function (e) {
         if (e.which == 13 || e.keyCode == 13) {
             return false;
         } else {

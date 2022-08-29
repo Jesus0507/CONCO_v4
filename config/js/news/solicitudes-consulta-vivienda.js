@@ -7,148 +7,159 @@ var rechazar = document.getElementById("rechazar");
 var solicitante = "";
 var id_servicio = document.getElementById("id_servicio");
 
+
 $.ajax({
   type: "POST",
-  url: BASE_URL + "Solicitudes/Consultar_solicitudes_vivienda",
-  data: { id: id.value },
-}).done(function (datos) {
-  var result_s = JSON.parse(datos);
-  console.log(result_s);
-  var cuerpo_s = "";
-  var titulo_solicitud = "";
+  url: BASE_URL + "app/Direcciones.php",
+  data: {
+    direction: "Solicitudes/Consultar_solicitudes_vivienda",
+    accion: "codificar"
+  },
+  success: function (direccion_segura) {
+    $.ajax({
+      type: "POST",
+      url: BASE_URL + direccion_segura,
+      data: { id: id.value },
+    }).done(function (datos) {
+      var result_s = JSON.parse(datos);
 
-  for (var i = 0; i < result_s.length; i++) {
-    if (result_s[i]["id_solicitud"] == id.value) {
-      solicitante = result_s[i];
-      // document.getElementById("email_boton").click();
-      //      enviar_correo();
+      var cuerpo_s = "";
+      var titulo_solicitud = "";
 
-      switch (result_s[i]["tipo_constancia"]) {
-        case "Residencia":
-          titulo_solicitud =
-            "<em class='fas fa-home'></em> Solicitud de constancia de " +
-            result_s[i]["tipo_constancia"];
-          break;
-        case "Buena conducta":
-          titulo_solicitud =
-            "<em class='fas fa-address-card'></em> Solicitud de constancia de " +
-            result_s[i]["tipo_constancia"];
-          break;
-        case "No poseer vivienda":
-          titulo_solicitud =
-            "<em class='fas fa-hotel'></em> Solicitud de constancia de " +
-            result_s[i]["tipo_constancia"];
-          break;
-        case "Vivienda":
-          titulo_solicitud =
-            "<em class='fas fa-plus-square'></em> Solicitud de registro de " +
-            result_s[i]["tipo_constancia"];
-          break;
+      for (var i = 0; i < result_s.length; i++) {
+        if (result_s[i]["id_solicitud"] == id.value) {
+          solicitante = result_s[i];
+
+          switch (result_s[i]["tipo_constancia"]) {
+            case "Residencia":
+              titulo_solicitud =
+                "<em class='fas fa-home'></em> Solicitud de constancia de " +
+                result_s[i]["tipo_constancia"];
+              break;
+            case "Buena conducta":
+              titulo_solicitud =
+                "<em class='fas fa-address-card'></em> Solicitud de constancia de " +
+                result_s[i]["tipo_constancia"];
+              break;
+            case "No poseer vivienda":
+              titulo_solicitud =
+                "<em class='fas fa-hotel'></em> Solicitud de constancia de " +
+                result_s[i]["tipo_constancia"];
+              break;
+            case "Vivienda":
+              titulo_solicitud =
+                "<em class='fas fa-plus-square'></em> Solicitud de registro de " +
+                result_s[i]["tipo_constancia"];
+              break;
+          }
+
+          var fecha_s = new Date(result_s[i]["fecha_solicitud"]);
+
+          var fecha_soli =
+            fecha_s.getDate() +
+            "-" +
+            (fecha_s.getMonth() + 1) +
+            "-" +
+            fecha_s.getFullYear();
+
+          date.innerHTML = fecha_soli;
+
+          persona.innerHTML =
+            result_s[i]["primer_nombre"] + " " + result_s[i]["primer_apellido"];
+          title.innerHTML = titulo_solicitud;
+          document.getElementById("calle").innerHTML = result_s[i]["nombre_calle"];
+          document.getElementById("direccion").innerHTML =
+            result_s[i]["direccion_vivienda"];
+          document.getElementById("nro_vivienda").innerHTML =
+            result_s[i]["numero_casa"];
+
+          document.getElementById("habitaciones").innerHTML =
+            result_s[i]["cantidad_habitaciones"];
+          document.getElementById("tipo_vivienda").innerHTML =
+            result_s[i]["nombre_tipo_vivienda"];
+          document.getElementById("condicion").innerHTML = result_s[i]["condicion"];
+
+          result_s[i]["hacinamiento"] == 1
+            ? (document.getElementById("hacinamiento").innerHTML =
+              "<span class='fa fa-check'></span>")
+            : (document.getElementById("hacinamiento").innerHTML =
+              "<span class='fa fa-times'></span>");
+          result_s[i]["espacio_siembra"] == 1
+            ? (document.getElementById("espacio_siembra").innerHTML =
+              "<span class='fa fa-check'></span>")
+            : (document.getElementById("espacio_siembra").innerHTML =
+              "<span class='fa fa-times'></span>");
+          result_s[i]["banio_sanitario"] == 1
+            ? (document.getElementById("sanitario").innerHTML =
+              "<span class='fa fa-check'></span>")
+            : (document.getElementById("sanitario").innerHTML =
+              "<span class='fa fa-times'></span>");
+
+          document.getElementById("agua_consumo").innerHTML =
+            result_s[i]["agua_consumo"];
+          document.getElementById("aguas_negras").innerHTML =
+            result_s[i]["aguas_negras"];
+          document.getElementById("residuos_solidos").innerHTML =
+            result_s[i]["residuos_solidos"];
+
+          result_s[i]["servicio_electrico"] == 1
+            ? (document.getElementById("cableado_electrico").innerHTML =
+              "<span class='fa fa-check'></span>")
+            : (document.getElementById("cableado_electrico").innerHTML =
+              "<span class='fa fa-times'></span>");
+          result_s[i]["cable_telefonico"] == 1
+            ? (document.getElementById("cableado_telefonico").innerHTML =
+              "<span class='fa fa-check'></span>")
+            : (document.getElementById("cableado_telefonico").innerHTML =
+              "<span class='fa fa-times'></span>");
+          result_s[i]["internet"] == 1
+            ? (document.getElementById("internet").innerHTML =
+              "<span class='fa fa-check'></span>")
+            : (document.getElementById("internet").innerHTML =
+              "<span class='fa fa-times'></span>");
+
+          result_s[0]["servicio_gas"].length != 0
+            ? (document.getElementById("gas").innerHTML =
+              "<span class='fa fa-check'></span>")
+            : (document.getElementById("gas").innerHTML =
+              "<span class='fa fa-times'></span>");
+          result_s[i]["animales domesticos"] == 1
+            ? (document.getElementById("animales").innerHTML =
+              "<span class='fa fa-check'></span>")
+            : (document.getElementById("animales").innerHTML =
+              "<span class='fa fa-times'></span>");
+          result_s[i]["insectos_roedores"] == 1
+            ? (document.getElementById("plagas").innerHTML =
+              "<span class='fa fa-check'></span>")
+            : (document.getElementById("plagas").innerHTML =
+              "<span class='fa fa-times'></span>");
+
+          document.getElementById("descripcion").innerHTML =
+            result_s[i]["descripcion"];
+          document.getElementById("tipo_techo").innerHTML =
+            result_s[i]["tipos_techo"];
+          document.getElementById("tipo_piso").innerHTML =
+            result_s[i]["tipos_piso"];
+          document.getElementById("tipo_pared").innerHTML =
+            result_s[i]["tipos_pared"];
+
+          id_servicio.value = result_s[i]["id_servicio"] + "-" + result_s[i]['observaciones'];
+
+          document.getElementById("tipo_gas").innerHTML =
+            result_s[i]["gas_detalle"];
+
+          document.getElementById("electrodomestico").innerHTML =
+            result_s[i]["electrodomesticos"];
+
+
+        }
       }
-
-      var fecha_s = new Date(result_s[i]["fecha_solicitud"]);
-
-      var fecha_soli =
-        fecha_s.getDate() +
-        "-" +
-        (fecha_s.getMonth() + 1) +
-        "-" +
-        fecha_s.getFullYear();
-
-      date.innerHTML = fecha_soli;
-
-      persona.innerHTML =
-        result_s[i]["primer_nombre"] + " " + result_s[i]["primer_apellido"];
-      title.innerHTML = titulo_solicitud;
-      document.getElementById("calle").innerHTML = result_s[i]["nombre_calle"];
-      document.getElementById("direccion").innerHTML =
-        result_s[i]["direccion_vivienda"];
-      document.getElementById("nro_vivienda").innerHTML =
-        result_s[i]["numero_casa"];
-
-      document.getElementById("habitaciones").innerHTML =
-        result_s[i]["cantidad_habitaciones"];
-      document.getElementById("tipo_vivienda").innerHTML =
-        result_s[i]["nombre_tipo_vivienda"];
-      document.getElementById("condicion").innerHTML = result_s[i]["condicion"];
-
-      result_s[i]["hacinamiento"] == 1
-        ? (document.getElementById("hacinamiento").innerHTML =
-            "<span class='fa fa-check'></span>")
-        : (document.getElementById("hacinamiento").innerHTML =
-            "<span class='fa fa-times'></span>");
-      result_s[i]["espacio_siembra"] == 1
-        ? (document.getElementById("espacio_siembra").innerHTML =
-            "<span class='fa fa-check'></span>")
-        : (document.getElementById("espacio_siembra").innerHTML =
-            "<span class='fa fa-times'></span>");
-      result_s[i]["banio_sanitario"] == 1
-        ? (document.getElementById("sanitario").innerHTML =
-            "<span class='fa fa-check'></span>")
-        : (document.getElementById("sanitario").innerHTML =
-            "<span class='fa fa-times'></span>");
-
-      document.getElementById("agua_consumo").innerHTML =
-        result_s[i]["agua_consumo"];
-      document.getElementById("aguas_negras").innerHTML =
-        result_s[i]["aguas_negras"];
-      document.getElementById("residuos_solidos").innerHTML =
-        result_s[i]["residuos_solidos"];
-
-      result_s[i]["servicio_electrico"] == 1
-        ? (document.getElementById("cableado_electrico").innerHTML =
-            "<span class='fa fa-check'></span>")
-        : (document.getElementById("cableado_electrico").innerHTML =
-            "<span class='fa fa-times'></span>");
-      result_s[i]["cable_telefonico"] == 1
-        ? (document.getElementById("cableado_telefonico").innerHTML =
-            "<span class='fa fa-check'></span>")
-        : (document.getElementById("cableado_telefonico").innerHTML =
-            "<span class='fa fa-times'></span>");
-      result_s[i]["internet"] == 1
-        ? (document.getElementById("internet").innerHTML =
-            "<span class='fa fa-check'></span>")
-        : (document.getElementById("internet").innerHTML =
-            "<span class='fa fa-times'></span>");
-
-      result_s[0]["servicio_gas"].length != 0
-        ? (document.getElementById("gas").innerHTML =
-            "<span class='fa fa-check'></span>")
-        : (document.getElementById("gas").innerHTML =
-            "<span class='fa fa-times'></span>");
-      result_s[i]["animales domesticos"] == 1
-        ? (document.getElementById("animales").innerHTML =
-            "<span class='fa fa-check'></span>")
-        : (document.getElementById("animales").innerHTML =
-            "<span class='fa fa-times'></span>");
-      result_s[i]["insectos_roedores"] == 1
-        ? (document.getElementById("plagas").innerHTML =
-            "<span class='fa fa-check'></span>")
-        : (document.getElementById("plagas").innerHTML =
-            "<span class='fa fa-times'></span>");
-
-      document.getElementById("descripcion").innerHTML =
-        result_s[i]["descripcion"];
-      document.getElementById("tipo_techo").innerHTML =
-        result_s[i]["tipos_techo"];
-      document.getElementById("tipo_piso").innerHTML =
-        result_s[i]["tipos_piso"];
-      document.getElementById("tipo_pared").innerHTML =
-        result_s[i]["tipos_pared"];
-
-      id_servicio.value = result_s[i]["id_servicio"]+"-"+result_s[i]['observaciones'];
-
-      document.getElementById("tipo_gas").innerHTML =
-        result_s[i]["gas_detalle"];
-
-      document.getElementById("electrodomestico").innerHTML =
-        result_s[i]["electrodomesticos"];
-
-      console.log(result_s[i]["servicio_gas"]);
-    }
+    });
+  },
+  error: function () {
+    alert('Error al codificar dirreccion');
   }
 });
-
 rechazar.onclick = function () {
   var textoSwal =
     "Está por rechazar la solicitud de un registro de vivienda ¿desea continuar?<br><br>";
@@ -180,7 +191,7 @@ rechazar.onclick = function () {
           document.getElementById("valid-text-area").innerHTML = "";
           document.getElementById("text-area").style.borderColor = "";
           document.getElementById("text-area").blur();
-          rechazoSolicitud(document.getElementById("text-area").value,id_servicio.value);
+          rechazoSolicitud(document.getElementById("text-area").value, id_servicio.value);
           var datos_notificacion = new Object();
           datos_notificacion["tipo_notificacion"] = 5;
           datos_notificacion["usuario_receptor"] =
@@ -192,7 +203,7 @@ rechazar.onclick = function () {
             document.getElementById("text-area").value +
             ".";
 
-          console.log(datos_notificacion);
+
           nueva_notificacion(datos_notificacion);
           swal({
             title: "Exito",
@@ -212,11 +223,23 @@ rechazar.onclick = function () {
           if (solicitante["correo"] != "No posee") {
             document.getElementById("btn_correo").click();
           }
-          else{
-            setTimeout(function(){location.href=BASE_URL+"Solicitudes/"},1000);
+          else {
+            $.ajax({
+              type: "POST",
+              url: BASE_URL + "app/Direcciones.php",
+              data: {
+                direction: "Solicitudes/",
+                accion: "codificar"
+              },
+              success: function (direccion_segura) {
+                setTimeout(function () { location.href = BASE_URL + direccion_segura }, 1000);
+              },
+              error: function () {
+                alert('Error al codificar dirreccion');
+              }
+            });
           }
 
-          // setTimeout(function(){location.href=BASE_URL+"Solicitudes/"},1000);
         }
       }
     }
@@ -232,65 +255,102 @@ aprobar.onclick = function () {
     "-" +
     fecha_actual.getFullYear();
 
+
+  $.ajax({
+    type: "POST",
+    url: BASE_URL + "app/Direcciones.php",
+    data: {
+      direction: "Solicitudes/Set_status",
+      accion: "codificar"
+    },
+    success: function (direccion_segura) {
+      $.ajax({
+        type: "POST",
+        url: BASE_URL + direccion_segura,
+        data: {
+          id: id.value,
+          procesada: 1,
+          observaciones: "Aprobada el " + fecha_actual,
+        },
+      }).done(function () {
+
         $.ajax({
           type: "POST",
-          url: BASE_URL + "Solicitudes/Set_status",
+          url: BASE_URL + "app/Direcciones.php",
           data: {
-            id: id.value,
-            procesada: 1,
-            observaciones: "Aprobada el " + fecha_actual,
+            direction: "Viviendas/activar_vivienda",
+            accion: "codificar"
           },
-        }).done(function(){
-          $.ajax({
-            type: "POST",
-            url: BASE_URL + "Viviendas/activar_vivienda",
-            data: {
-              "id_vivienda": id_servicio.value,
-            },
-          }).done(function(result){
-          })   
+          success: function (direccion_segura) {
+            $.ajax({
+              type: "POST",
+              url: BASE_URL + direccion_segura,
+              data: {
+                "id_vivienda": id_servicio.value,
+              },
+            }).done(function (result) {
+            })
+          },
+          error: function () {
+            alert('Error al codificar dirreccion');
+          }
         });
+      });
+    },
+    error: function () {
+      alert('Error al codificar dirreccion');
+    }
+  });
 
-        swal({
-          title: "Exito",
-          text: "La solicitud ha sido aprobada",
-          type: "success",
-          showConfirmButton: false,
-          timer: 2000,
-        });
+  swal({
+    title: "Exito",
+    text: "La solicitud ha sido aprobada",
+    type: "success",
+    showConfirmButton: false,
+    timer: 2000,
+  });
 
-        var datos_notificacion = new Object();
-        datos_notificacion["tipo_notificacion"] = 4;
-        datos_notificacion["usuario_receptor"] = solicitante["cedula_persona"];
-        datos_notificacion["accion"] =
-          "Aprobó su solicitud para registro de " +
-          solicitante["tipo_constancia"] +
-          ".";
+  var datos_notificacion = new Object();
+  datos_notificacion["tipo_notificacion"] = 4;
+  datos_notificacion["usuario_receptor"] = solicitante["cedula_persona"];
+  datos_notificacion["accion"] =
+    "Aprobó su solicitud para registro de " +
+    solicitante["tipo_constancia"] +
+    ".";
 
-        console.log(datos_notificacion);
 
-        solicitante["asunto"] = "Se ha aprobado su solicitud";
-        solicitante["mensaje"] =
-          "Su solicitud para registro de " +
-          solicitante["tipo_constancia"] +
-          " ha sido aprobada.";
 
-        if (solicitante["correo"] != "No posee") {
-          document.getElementById("btn_correo").click();
-        }
-        else{
-          setTimeout(function(){location.href=BASE_URL+"Solicitudes/"},1000);
-        }
+  solicitante["asunto"] = "Se ha aprobado su solicitud";
+  solicitante["mensaje"] =
+    "Su solicitud para registro de " +
+    solicitante["tipo_constancia"] +
+    " ha sido aprobada.";
 
-        nueva_notificacion(datos_notificacion);
-
-        // setTimeout(function(){
-
-        //   print_pdf();
-        //   window.open(BASE_URL+"Solicitudes/");
-
-        // },1000);
+  if (solicitante["correo"] != "No posee") {
+    document.getElementById("btn_correo").click();
+  }
+  else {
+    $.ajax({
+      type: "POST",
+      url: BASE_URL + "app/Direcciones.php",
+      data: {
+        direction: "Solicitudes/",
+        accion: "codificar"
+      },
+      success: function (direccion_segura) {
+        setTimeout(function () { location.href = BASE_URL + direccion_segura }, 1000);
+      },
+      error: function () {
+        alert('Error al codificar dirreccion');
       }
+    });
+    
+  }
+
+  nueva_notificacion(datos_notificacion);
+
+  
+}
 
 function rechazoSolicitud(motivo) {
   var fecha_actual = new Date();
@@ -301,22 +361,50 @@ function rechazoSolicitud(motivo) {
     "-" +
     fecha_actual.getFullYear();
 
+
   $.ajax({
     type: "POST",
-    url: BASE_URL + "Solicitudes/Set_status",
+    url: BASE_URL + "app/Direcciones.php",
     data: {
-      id: id.value,
-      procesada: 2,
-      observaciones: "Rechazada el " + fecha_actual + "/" + motivo,
+      direction: "Solicitudes/Set_status",
+      accion: "codificar"
     },
-  }).done(function(){
-    $.ajax({
-      type: "POST",
-      url: BASE_URL + "Viviendas/eliminar_vivienda",
-      data: {
-        "id": id_servicio.value
-      },
-    });
+    success: function (direccion_segura) {
+      $.ajax({
+        type: "POST",
+        url: BASE_URL + direccion_segura,
+        data: {
+          id: id.value,
+          procesada: 2,
+          observaciones: "Rechazada el " + fecha_actual + "/" + motivo,
+        },
+      }).done(function () {
+
+        $.ajax({
+          type: "POST",
+          url: BASE_URL + "app/Direcciones.php",
+          data: {
+            direction: "Viviendas/eliminar_vivienda",
+            accion: "codificar"
+          },
+          success: function (direccion_segura) {
+            $.ajax({
+              type: "POST",
+              url: BASE_URL + direccion_segura,
+              data: {
+                "id": id_servicio.value
+              },
+            });
+          },
+          error: function () {
+            alert('Error al codificar dirreccion');
+          }
+        });
+      });
+    },
+    error: function () {
+      alert('Error al codificar dirreccion');
+    }
   });
 }
 
@@ -398,17 +486,40 @@ const vue = new Vue({
       emailjs.send("service_rbn54tj", "template_vqh9lqb", data).then(
         function (response) {
           if (response.text === "OK") {
-            location.href = BASE_URL + "Solicitudes/";
+            $.ajax({
+              type: "POST",
+              url: BASE_URL + "app/Direcciones.php",
+              data: {
+                direction: "Solicitudes/",
+                accion: "codificar"
+              },
+              success: function (direccion_segura) {
+                location.href = BASE_URL + direccion_segura;
+              },
+              error: function () {
+                alert('Error al codificar dirreccion');
+              }
+            });
           }
-          console.log(
-            "Exito. status=%d, text=%s",
-            response.status,
-            response.text
-          );
+
+
         },
         function (err) {
-          console.log("Fallo. error=", err);
-          location.href = BASE_URL + "Solicitudes/";
+          $.ajax({
+            type: "POST",
+            url: BASE_URL + "app/Direcciones.php",
+            data: {
+              direction: "Solicitudes/",
+              accion: "codificar"
+            },
+            success: function (direccion_segura) {
+              location.href = BASE_URL + direccion_segura;
+            },
+            error: function () {
+              alert('Error al codificar dirreccion');
+            }
+          });
+
         }
       );
     },

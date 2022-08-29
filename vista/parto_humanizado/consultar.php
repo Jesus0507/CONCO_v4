@@ -37,7 +37,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                    <script src="<?php echo constant('URL')?>config/js/ajax/Ajax_Consultas_Parto_Humanizado.js"></script>
+                        <script src="<?php echo constant('URL')?>config/js/ajax/Ajax_Consultas_Parto_Humanizado.js">
+                        </script>
                     </tbody>
                     <tfoot>
                         <tr>

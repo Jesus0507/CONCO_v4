@@ -1,40 +1,54 @@
-$(function() {
+$(function () {
     $.ajax({
         type: "POST",
-        url: BASE_URL + "Viviendas/Administrar",
+        url: BASE_URL + "app/Direcciones.php",
         data: {
-            peticion: "Consulta_Ajax",
+            direction: "Viviendas/Administrar",
+            accion: "codificar"
         },
-    }).done(function(datos) {
-        var data = JSON.parse(datos);
-        $("#example1").DataTable({
-            "data": data,
-            "columns": [{
-                "data": "numero_casa"
-            }, {
-                "data": "nombre_calle"
-            }, {
-                "data": "direccion_vivienda"
-            }, {
-                "data": "nombre_tipo_vivienda"
-            }, {
-                "data": "ver"
-            }, {
-                "data": "editar"
-            }, {
-                "data": "eliminar"
-            }, ],
-            "responsive": true,
-            "autoWidth": false,
-            "ordering": true,
-            "info": true,
-            "processing": true,
-            "pageLength": 10,
-            "lengthMenu": [5, 10, 20, 30, 40, 50, 100]
-        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    }).fail(function() {
-        alert("error")
-    })
+        success: function (direccion_segura) {
+            $.ajax({
+                type: "POST",
+                url: BASE_URL + direccion_segura,
+                data: {
+                    peticion: "Consulta_Ajax",
+                },
+            }).done(function (datos) {
+                var data = JSON.parse(datos);
+                $("#example1").DataTable({
+                    "data": data,
+                    "columns": [{
+                        "data": "numero_casa"
+                    }, {
+                        "data": "nombre_calle"
+                    }, {
+                        "data": "direccion_vivienda"
+                    }, {
+                        "data": "nombre_tipo_vivienda"
+                    }, {
+                        "data": "ver"
+                    }, {
+                        "data": "editar"
+                    }, {
+                        "data": "eliminar"
+                    },],
+                    "responsive": true,
+                    "autoWidth": false,
+                    "ordering": true,
+                    "info": true,
+                    "processing": true,
+                    "pageLength": 10,
+                    "lengthMenu": [5, 10, 20, 30, 40, 50, 100]
+                }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+            }).fail(function () {
+                alert("error")
+            })
+        },
+        error: function () {
+            alert('Error al codificar dirreccion');
+        }
+    });
+
 });
 
 function Eliminar(id, id_servicio) {
@@ -51,41 +65,55 @@ function Eliminar(id, id_servicio) {
         showCancelButton: true,
         cancelButtonText: "No",
         confirmButtonText: "Si",
-    }, function(isConfirm) {
+    }, function (isConfirm) {
         if (isConfirm) {
             $.ajax({
-                url: BASE_URL + "Viviendas/Administrar",
                 type: "POST",
+                url: BASE_URL + "app/Direcciones.php",
                 data: {
-                    peticion: "Eliminar_Vivienda",
-                    estado: estado,
-                    sql: "ACT_DES",
-                    accion: "Se ha Eliminado la  vivienda",
+                    direction: "Viviendas/Administrar",
+                    accion: "codificar"
                 },
-            }).done(function(result) {
-                if (result == 1) {
-                    swal({
-                        title: "Eliminado!",
-                        text: "El elemento fue eliminado con exito.",
-                        type: "success",
-                        showConfirmButton: false,
+                success: function (direccion_segura) {
+                    $.ajax({
+                        url: BASE_URL + direccion_segura,
+                        type: "POST",
+                        data: {
+                            peticion: "Eliminar_Vivienda",
+                            estado: estado,
+                            sql: "ACT_DES",
+                            accion: "Se ha Eliminado la  vivienda",
+                        },
+                    }).done(function (result) {
+                        if (result == 1) {
+                            swal({
+                                title: "Eliminado!",
+                                text: "El elemento fue eliminado con exito.",
+                                type: "success",
+                                showConfirmButton: false,
+                            });
+                            setTimeout(function () {
+                                location.reload();
+                            }, 2000);
+                        } else {
+                            swal({
+                                title: "ERROR!",
+                                text: "Ha ocurrido un Error.</br>" + result,
+                                type: "error",
+                                html: true,
+                                showConfirmButton: true,
+                                customClass: "bigSwalV2",
+                            });
+                        }
                     });
-                    setTimeout(function() {
-                        location.reload();
-                    }, 2000);
-                } else {
-                    swal({
-                        title: "ERROR!",
-                        text: "Ha ocurrido un Error.</br>" + result,
-                        type: "error",
-                        html: true,
-                        showConfirmButton: true,
-                        customClass: "bigSwalV2",
-                    });
+                },
+                error: function () {
+                    alert('Error al codificar dirreccion');
                 }
             });
+
         } else {
-            setTimeout(function() {
+            setTimeout(function () {
                 swal("Cancelado", "La accion fue cancelada, la informacion esta segura.", "error");
             }, 100);
         }
@@ -204,18 +232,32 @@ function Modificar(id, vivienda, techos, paredes, pisos, gas, electrodomesticos)
 
 function cargar_techos(id_vivienda) {
     document.getElementById("tabla_techo").innerHTML = "";
+
     $.ajax({
-        url: BASE_URL + "Viviendas/Administrar",
         type: "POST",
+        url: BASE_URL + "app/Direcciones.php",
         data: {
-            peticion: "Obtener",
-            id: id_vivienda,
-            sql: "SQL_03",
+            direction: "Viviendas/Administrar",
+            accion: "codificar"
         },
-    }).done(function(result) {
-        var techos = JSON.parse(result);
-        for (var i = 0; i < techos.length; i++) {
-            document.getElementById("tabla_techo").innerHTML += "<tr><td><input readOnly='readOnly' type='text' value='" + techos[i]["techo"] + "' class='form-control' placeholder='Tipo techo'></td><td><button type='button' class='btn btn-danger' onclick='borrar_techo(" + techos[i]["id_vivienda_tipo_techo"] + "," + id_vivienda + ")'>X</button></td></tr>";
+        success: function (direccion_segura) {
+            $.ajax({
+                url: BASE_URL + direccion_segura,
+                type: "POST",
+                data: {
+                    peticion: "Obtener",
+                    id: id_vivienda,
+                    sql: "SQL_03",
+                },
+            }).done(function (result) {
+                var techos = JSON.parse(result);
+                for (var i = 0; i < techos.length; i++) {
+                    document.getElementById("tabla_techo").innerHTML += "<tr><td><input readOnly='readOnly' type='text' value='" + techos[i]["techo"] + "' class='form-control' placeholder='Tipo techo'></td><td><button type='button' class='btn btn-danger' onclick='borrar_techo(" + techos[i]["id_vivienda_tipo_techo"] + "," + id_vivienda + ")'>X</button></td></tr>";
+                }
+            });
+        },
+        error: function () {
+            alert('Error al codificar dirreccion');
         }
     });
 }
@@ -228,39 +270,53 @@ function borrar_techo(id, id_vivienda) {
         showCancelButton: true,
         confirmButtonText: "Sí",
         cancelButtonText: "No",
-    }, function(isConfirm) {
+    }, function (isConfirm) {
         if (isConfirm) {
             $.ajax({
-                url: BASE_URL + "Viviendas/Administrar",
                 type: "POST",
+                url: BASE_URL + "app/Direcciones.php",
                 data: {
-                    peticion: "Eliminar",
-                    datos: {
-                        tabla: "vivienda_tipo_techo",
-                        id_tabla: "id_vivienda_tipo_techo",
-                        id: id
-                    }
+                    direction: "Viviendas/Administrar",
+                    accion: "codificar"
                 },
-            }).done(function(result) {
-                if (result == 1) {
-                    cargar_techos(id_vivienda);
-                } else {
-                    setTimeout(function() {
-                        swal({
-                            title: "ERROR!",
-                            text: "Ha ocurrido un Error.</br>" + result,
-                            type: "error",
-                            html: true,
-                            showConfirmButton: true,
-                            customClass: "bigSwalV2",
-                        });
-                    }, 100);
+                success: function (direccion_segura) {
+                    $.ajax({
+                        url: BASE_URL + direccion_segura,
+                        type: "POST",
+                        data: {
+                            peticion: "Eliminar",
+                            datos: {
+                                tabla: "vivienda_tipo_techo",
+                                id_tabla: "id_vivienda_tipo_techo",
+                                id: id
+                            }
+                        },
+                    }).done(function (result) {
+                        if (result == 1) {
+                            cargar_techos(id_vivienda);
+                        } else {
+                            setTimeout(function () {
+                                swal({
+                                    title: "ERROR!",
+                                    text: "Ha ocurrido un Error.</br>" + result,
+                                    type: "error",
+                                    html: true,
+                                    showConfirmButton: true,
+                                    customClass: "bigSwalV2",
+                                });
+                            }, 100);
+                        }
+                    });
+                },
+                error: function () {
+                    alert('Error al codificar dirreccion');
                 }
             });
+
         }
     });
 }
-document.getElementById("agregar").onclick = function() {
+document.getElementById("agregar").onclick = function () {
     if (document.getElementById("tipo_techo").value == "0") {
         swal({
             type: "error",
@@ -272,48 +328,62 @@ document.getElementById("agregar").onclick = function() {
         document.getElementById("tipo_techo").style.borderColor = "red";
     } else {
         $.ajax({
-            url: BASE_URL + "Viviendas/Administrar",
             type: "POST",
+            url: BASE_URL + "app/Direcciones.php",
             data: {
-                peticion: "Agregar",
-                sql: "SQL_13",
-                datos: {
-                    tabla: "vivienda_tipo_techo",
-                    columna: "id_vivienda",
-                    data: id_vivienda,
-                    buscar: "id_tipo_techo",
-                    id: document.getElementById("tipo_techo").value,
-                    estado: 1
-                }
+                direction: "Viviendas/Administrar",
+                accion: "codificar"
             },
-        }).done(function(result) {
-            if (result == 1) {
-                cargar_techos(id_vivienda);
-            } else {
-                swal({
-                    title: "ERROR!",
-                    text: "Ha ocurrido un Error.</br>" + result,
-                    type: "error",
-                    html: true,
-                    showConfirmButton: true,
-                    customClass: "bigSwalV2",
+            success: function (direccion_segura) {
+                $.ajax({
+                    url: BASE_URL + direccion_segura,
+                    type: "POST",
+                    data: {
+                        peticion: "Agregar",
+                        sql: "SQL_13",
+                        datos: {
+                            tabla: "vivienda_tipo_techo",
+                            columna: "id_vivienda",
+                            data: id_vivienda,
+                            buscar: "id_tipo_techo",
+                            id: document.getElementById("tipo_techo").value,
+                            estado: 1
+                        }
+                    },
+                }).done(function (result) {
+                    if (result == 1) {
+                        cargar_techos(id_vivienda);
+                    } else {
+                        swal({
+                            title: "ERROR!",
+                            text: "Ha ocurrido un Error.</br>" + result,
+                            type: "error",
+                            html: true,
+                            showConfirmButton: true,
+                            customClass: "bigSwalV2",
+                        });
+                    }
+                    document.getElementById("tipo_techo").value = "0";
                 });
+            },
+            error: function () {
+                alert('Error al codificar dirreccion');
             }
-            document.getElementById("tipo_techo").value = "0";
         });
+
     }
 };
-document.getElementById("tipo_techo").onchange = function() {
+document.getElementById("tipo_techo").onchange = function () {
     if (document.getElementById("tipo_techo").value != "0") {
         document.getElementById("tipo_techo").style.borderColor = "";
     }
 };
-document.getElementById("tipo_piso").onchange = function() {
+document.getElementById("tipo_piso").onchange = function () {
     if (document.getElementById("tipo_piso").value != "0") {
         document.getElementById("tipo_piso").style.borderColor = "";
     }
 };
-document.getElementById("tipo_pared").onchange = function() {
+document.getElementById("tipo_pared").onchange = function () {
     if (document.getElementById("tipo_pared").value != "0") {
         document.getElementById("tipo_pared").style.borderColor = "";
     }
@@ -321,18 +391,32 @@ document.getElementById("tipo_pared").onchange = function() {
 
 function cargar_paredes(id_vivienda) {
     document.getElementById("tabla_pared").innerHTML = "";
+
     $.ajax({
-        url: BASE_URL + "Viviendas/Administrar",
         type: "POST",
+        url: BASE_URL + "app/Direcciones.php",
         data: {
-            peticion: "Obtener",
-            id: id_vivienda,
-            sql: "SQL_07",
+            direction: "Viviendas/Administrar",
+            accion: "codificar"
         },
-    }).done(function(result) {
-        var paredes = JSON.parse(result);
-        for (var i = 0; i < paredes.length; i++) {
-            document.getElementById("tabla_pared").innerHTML += "<tr><td><input readOnly='readOnly' type='text' value='" + paredes[i]["pared"] + "' class='form-control'></td><td><button type='button' class='btn btn-danger' onclick='borrar_pared(" + paredes[i]["id_vivienda_tipo_pared"] + "," + id_vivienda + ")'>X</button></td></tr>";
+        success: function (direccion_segura) {
+            $.ajax({
+                url: BASE_URL + direccion_segura,
+                type: "POST",
+                data: {
+                    peticion: "Obtener",
+                    id: id_vivienda,
+                    sql: "SQL_07",
+                },
+            }).done(function (result) {
+                var paredes = JSON.parse(result);
+                for (var i = 0; i < paredes.length; i++) {
+                    document.getElementById("tabla_pared").innerHTML += "<tr><td><input readOnly='readOnly' type='text' value='" + paredes[i]["pared"] + "' class='form-control'></td><td><button type='button' class='btn btn-danger' onclick='borrar_pared(" + paredes[i]["id_vivienda_tipo_pared"] + "," + id_vivienda + ")'>X</button></td></tr>";
+                }
+            });
+        },
+        error: function () {
+            alert('Error al codificar dirreccion');
         }
     });
 }
@@ -345,39 +429,53 @@ function borrar_pared(id, id_vivienda) {
         showCancelButton: true,
         confirmButtonText: "Sí",
         cancelButtonText: "No",
-    }, function(isConfirm) {
+    }, function (isConfirm) {
         if (isConfirm) {
             $.ajax({
-                url: BASE_URL + "Viviendas/Administrar",
                 type: "POST",
+                url: BASE_URL + "app/Direcciones.php",
                 data: {
-                    peticion: "Eliminar",
-                    datos: {
-                        tabla: "vivienda_tipo_pared",
-                        id_tabla: "id_vivienda_tipo_pared",
-                        id: id
-                    }
+                    direction: "Viviendas/Administrar",
+                    accion: "codificar"
                 },
-            }).done(function(result) {
-                if (result == 1) {
-                    cargar_paredes(id_vivienda);
-                } else {
-                    setTimeout(function() {
-                        swal({
-                            title: "ERROR!",
-                            text: "Ha ocurrido un Error.</br>" + result,
-                            type: "error",
-                            html: true,
-                            showConfirmButton: true,
-                            customClass: "bigSwalV2",
-                        });
-                    }, 100);
+                success: function (direccion_segura) {
+                    $.ajax({
+                        url: BASE_URL + direccion_segura,
+                        type: "POST",
+                        data: {
+                            peticion: "Eliminar",
+                            datos: {
+                                tabla: "vivienda_tipo_pared",
+                                id_tabla: "id_vivienda_tipo_pared",
+                                id: id
+                            }
+                        },
+                    }).done(function (result) {
+                        if (result == 1) {
+                            cargar_paredes(id_vivienda);
+                        } else {
+                            setTimeout(function () {
+                                swal({
+                                    title: "ERROR!",
+                                    text: "Ha ocurrido un Error.</br>" + result,
+                                    type: "error",
+                                    html: true,
+                                    showConfirmButton: true,
+                                    customClass: "bigSwalV2",
+                                });
+                            }, 100);
+                        }
+                    });
+                },
+                error: function () {
+                    alert('Error al codificar dirreccion');
                 }
             });
+
         }
     });
 }
-document.getElementById("agregar2").onclick = function() {
+document.getElementById("agregar2").onclick = function () {
     if (document.getElementById("tipo_pared").value == "0") {
         swal({
             type: "error",
@@ -388,53 +486,82 @@ document.getElementById("agregar2").onclick = function() {
         });
         document.getElementById("tipo_pared").style.borderColor = "red";
     } else {
+
+
         $.ajax({
-            url: BASE_URL + "Viviendas/Administrar",
             type: "POST",
+            url: BASE_URL + "app/Direcciones.php",
             data: {
-                peticion: "Agregar",
-                sql: "SQL_14",
-                datos: {
-                    tabla: "vivienda_tipo_pared",
-                    columna: "id_vivienda",
-                    data: id_vivienda,
-                    buscar: "id_tipo_pared",
-                    id: document.getElementById("tipo_pared").value,
-                    estado: 1
-                }
+                direction: "Viviendas/Administrar",
+                accion: "codificar"
             },
-        }).done(function(result) {
-            if (result == 1) {
-                cargar_paredes(id_vivienda);
-            } else {
-                swal({
-                    title: "ERROR!",
-                    text: "Ha ocurrido un Error.</br>" + result,
-                    type: "error",
-                    html: true,
-                    showConfirmButton: true,
-                    customClass: "bigSwalV2",
+            success: function (direccion_segura) {
+                $.ajax({
+                    url: BASE_URL + direccion_segura,
+                    type: "POST",
+                    data: {
+                        peticion: "Agregar",
+                        sql: "SQL_14",
+                        datos: {
+                            tabla: "vivienda_tipo_pared",
+                            columna: "id_vivienda",
+                            data: id_vivienda,
+                            buscar: "id_tipo_pared",
+                            id: document.getElementById("tipo_pared").value,
+                            estado: 1
+                        }
+                    },
+                }).done(function (result) {
+                    if (result == 1) {
+                        cargar_paredes(id_vivienda);
+                    } else {
+                        swal({
+                            title: "ERROR!",
+                            text: "Ha ocurrido un Error.</br>" + result,
+                            type: "error",
+                            html: true,
+                            showConfirmButton: true,
+                            customClass: "bigSwalV2",
+                        });
+                    }
+                    document.getElementById("tipo_pared").value = "0";
                 });
+            },
+            error: function () {
+                alert('Error al codificar dirreccion');
             }
-            document.getElementById("tipo_pared").value = "0";
         });
     }
 };
 
 function cargar_pisos(id_vivienda) {
     document.getElementById("tabla_piso").innerHTML = "";
+
     $.ajax({
-        url: BASE_URL + "Viviendas/Administrar",
         type: "POST",
+        url: BASE_URL + "app/Direcciones.php",
         data: {
-            peticion: "Obtener",
-            id: id_vivienda,
-            sql: "SQL_05",
+            direction: "Viviendas/Administrar",
+            accion: "codificar"
         },
-    }).done(function(result) {
-        var pisos = JSON.parse(result);
-        for (var i = 0; i < pisos.length; i++) {
-            document.getElementById("tabla_piso").innerHTML += "<tr><td><input readOnly='readOnly' type='text' value='" + pisos[i]["piso"] + "' class='form-control'></td><td><button type='button' class='btn btn-danger' onclick='borrar_piso(" + pisos[i]["id_vivienda_tipo_piso"] + "," + id_vivienda + ")'>X</button></td></tr>";
+        success: function (direccion_segura) {
+            $.ajax({
+                url: BASE_URL + direccion_segura,
+                type: "POST",
+                data: {
+                    peticion: "Obtener",
+                    id: id_vivienda,
+                    sql: "SQL_05",
+                },
+            }).done(function (result) {
+                var pisos = JSON.parse(result);
+                for (var i = 0; i < pisos.length; i++) {
+                    document.getElementById("tabla_piso").innerHTML += "<tr><td><input readOnly='readOnly' type='text' value='" + pisos[i]["piso"] + "' class='form-control'></td><td><button type='button' class='btn btn-danger' onclick='borrar_piso(" + pisos[i]["id_vivienda_tipo_piso"] + "," + id_vivienda + ")'>X</button></td></tr>";
+                }
+            });
+        },
+        error: function () {
+            alert('Error al codificar dirreccion');
         }
     });
 }
@@ -447,39 +574,53 @@ function borrar_piso(id, id_vivienda) {
         showCancelButton: true,
         confirmButtonText: "Sí",
         cancelButtonText: "No",
-    }, function(isConfirm) {
+    }, function (isConfirm) {
         if (isConfirm) {
             $.ajax({
-                url: BASE_URL + "Viviendas/Administrar",
                 type: "POST",
+                url: BASE_URL + "app/Direcciones.php",
                 data: {
-                    peticion: "Eliminar",
-                    datos: {
-                        tabla: "vivienda_tipo_piso",
-                        id_tabla: "id_vivienda_tipo_piso",
-                        id: id
-                    }
+                    direction: "Viviendas/Administrar",
+                    accion: "codificar"
                 },
-            }).done(function(result) {
-                if (result == 1) {
-                    cargar_pisos(id_vivienda);
-                } else {
-                    setTimeout(function() {
-                        swal({
-                            title: "ERROR!",
-                            text: "Ha ocurrido un Error.</br>" + result,
-                            type: "error",
-                            html: true,
-                            showConfirmButton: true,
-                            customClass: "bigSwalV2",
-                        });
-                    }, 100);
+                success: function (direccion_segura) {
+                    $.ajax({
+                        url: BASE_URL + direccion_segura,
+                        type: "POST",
+                        data: {
+                            peticion: "Eliminar",
+                            datos: {
+                                tabla: "vivienda_tipo_piso",
+                                id_tabla: "id_vivienda_tipo_piso",
+                                id: id
+                            }
+                        },
+                    }).done(function (result) {
+                        if (result == 1) {
+                            cargar_pisos(id_vivienda);
+                        } else {
+                            setTimeout(function () {
+                                swal({
+                                    title: "ERROR!",
+                                    text: "Ha ocurrido un Error.</br>" + result,
+                                    type: "error",
+                                    html: true,
+                                    showConfirmButton: true,
+                                    customClass: "bigSwalV2",
+                                });
+                            }, 100);
+                        }
+                    });
+                },
+                error: function () {
+                    alert('Error al codificar dirreccion');
                 }
             });
+
         }
     });
 }
-document.getElementById("agregar3").onclick = function() {
+document.getElementById("agregar3").onclick = function () {
     if (document.getElementById("tipo_piso").value == "0") {
         swal({
             type: "error",
@@ -491,38 +632,52 @@ document.getElementById("agregar3").onclick = function() {
         document.getElementById("tipo_piso").style.borderColor = "red";
     } else {
         $.ajax({
-            url: BASE_URL + "Viviendas/Administrar",
             type: "POST",
+            url: BASE_URL + "app/Direcciones.php",
             data: {
-                peticion: "Agregar",
-                sql: "SQL_15",
-                datos: {
-                    tabla: "vivienda_tipo_piso",
-                    columna: "id_vivienda",
-                    data: id_vivienda,
-                    buscar: "id_tipo_piso",
-                    id: document.getElementById("tipo_piso").value,
-                    estado: 1
-                }
+                direction: "Viviendas/Administrar",
+                accion: "codificar"
             },
-        }).done(function(result) {
-            if (result == 1) {
-                cargar_pisos(id_vivienda);
-            } else {
-                swal({
-                    title: "ERROR!",
-                    text: "Ha ocurrido un Error.</br>" + result,
-                    type: "error",
-                    html: true,
-                    showConfirmButton: true,
-                    customClass: "bigSwalV2",
+            success: function (direccion_segura) {
+                $.ajax({
+                    url: BASE_URL + direccion_segura,
+                    type: "POST",
+                    data: {
+                        peticion: "Agregar",
+                        sql: "SQL_15",
+                        datos: {
+                            tabla: "vivienda_tipo_piso",
+                            columna: "id_vivienda",
+                            data: id_vivienda,
+                            buscar: "id_tipo_piso",
+                            id: document.getElementById("tipo_piso").value,
+                            estado: 1
+                        }
+                    },
+                }).done(function (result) {
+                    if (result == 1) {
+                        cargar_pisos(id_vivienda);
+                    } else {
+                        swal({
+                            title: "ERROR!",
+                            text: "Ha ocurrido un Error.</br>" + result,
+                            type: "error",
+                            html: true,
+                            showConfirmButton: true,
+                            customClass: "bigSwalV2",
+                        });
+                    }
+                    document.getElementById("tipo_piso").value = "0";
                 });
+            },
+            error: function () {
+                alert('Error al codificar dirreccion');
             }
-            document.getElementById("tipo_piso").value = "0";
         });
+
     }
 };
-document.getElementById("guardar").onclick = function() {
+document.getElementById("guardar").onclick = function () {
     if (document.getElementById("direccion_vivienda").value == "") {
         document.getElementById("valid_direccion").innerHTML = "Debe ingresar la dirección de la vivienda";
         document.getElementById("direccion_vivienda").focus();
@@ -601,42 +756,56 @@ document.getElementById("guardar").onclick = function() {
                                 info_vivienda['descripcion'] = document.getElementById("descripcion").value;
                                 info_vivienda['animales_domesticos'] = document.getElementById("animales_domesticos").value;
                                 info_vivienda['insectos_roedores'] = document.getElementById("insectos_roedores").value;
+
                                 $.ajax({
-                                    url: BASE_URL + "Viviendas/Administrar",
                                     type: "POST",
+                                    url: BASE_URL + "app/Direcciones.php",
                                     data: {
-                                        peticion: "Actualizar",
-                                        sql: "SQL_11",
-                                        vivienda: info_vivienda,
-                                        accion: "La vivienda: " + document.getElementById("numero_casa").value + " fue actualizada exitosamente.",
-                                        datos: {
-                                            tabla: "vivienda",
-                                            columna: "id_vivienda",
-                                            estado: 1
-                                        }
+                                        direction: "Viviendas/Administrar",
+                                        accion: "codificar"
                                     },
-                                }).done(function(datos) {
-                                    if (datos == 1) {
-                                        swal({
-                                            title: "Actualizado!",
-                                            text: "El elemento fue Actualizado con exito.",
-                                            type: "success",
-                                            showConfirmButton: false
-                                        });
-                                        setTimeout(function() {
-                                            location.reload();
-                                        }, 2000);
-                                    } else {
-                                        swal({
-                                            title: "ERROR!",
-                                            text: "Ha ocurrido un Error.</br>" + datos,
-                                            type: "error",
-                                            html: true,
-                                            showConfirmButton: true,
-                                            customClass: "bigSwalV2",
-                                        });
+                                    success: function (direccion_segura) {
+                                        $.ajax({
+                                            url: BASE_URL + direccion_segura,
+                                            type: "POST",
+                                            data: {
+                                                peticion: "Actualizar",
+                                                sql: "SQL_11",
+                                                vivienda: info_vivienda,
+                                                accion: "La vivienda: " + document.getElementById("numero_casa").value + " fue actualizada exitosamente.",
+                                                datos: {
+                                                    tabla: "vivienda",
+                                                    columna: "id_vivienda",
+                                                    estado: 1
+                                                }
+                                            },
+                                        }).done(function (datos) {
+                                            if (datos == 1) {
+                                                swal({
+                                                    title: "Actualizado!",
+                                                    text: "El elemento fue Actualizado con exito.",
+                                                    type: "success",
+                                                    showConfirmButton: false
+                                                });
+                                                setTimeout(function () {
+                                                    location.reload();
+                                                }, 2000);
+                                            } else {
+                                                swal({
+                                                    title: "ERROR!",
+                                                    text: "Ha ocurrido un Error.</br>" + datos,
+                                                    type: "error",
+                                                    html: true,
+                                                    showConfirmButton: true,
+                                                    customClass: "bigSwalV2",
+                                                });
+                                            }
+                                        })
+                                    },
+                                    error: function () {
+                                        alert('Error al codificar dirreccion');
                                     }
-                                })
+                                });
                             }
                         }
                     }
@@ -645,25 +814,25 @@ document.getElementById("guardar").onclick = function() {
         }
     }
 };
-document.getElementById("direccion_vivienda").onkeyup = function() {
+document.getElementById("direccion_vivienda").onkeyup = function () {
     if (document.getElementById("direccion_vivienda").value != "") {
         document.getElementById("valid_direccion").innerHTML = "";
         document.getElementById("direccion_vivienda").style.borderColor = "";
     }
 };
-document.getElementById("cantidad_habitaciones").onkeyup = function() {
+document.getElementById("cantidad_habitaciones").onkeyup = function () {
     if (document.getElementById("cantidad_habitaciones").value != "") {
         document.getElementById("valid_cantidad_habitaciones").innerHTML = "";
         document.getElementById("cantidad_habitaciones").style.borderColor = "";
     }
 };
-document.getElementById("id_tipo_vivienda").onkeyup = function() {
+document.getElementById("id_tipo_vivienda").onkeyup = function () {
     if (document.getElementById("id_tipo_vivienda").value != "") {
         document.getElementById("valid_tipo_vivienda").innerHTML = "";
         document.getElementById("id_tipo_vivienda").style.borderColor = "";
     }
 };
-document.getElementById("numero_casa").onkeyup = function() {
+document.getElementById("numero_casa").onkeyup = function () {
     if (document.getElementById("numero_casa").value != "") {
         document.getElementById("valid_numero_casa").innerHTML = "";
         document.getElementById("numero_casa").style.borderColor = "";
@@ -672,34 +841,48 @@ document.getElementById("numero_casa").onkeyup = function() {
 
 function cargar_servicio_gas(id_vivienda) {
     document.getElementById("gases_agregados").innerHTML = "";
+
     $.ajax({
-        url: BASE_URL + "Viviendas/Administrar",
         type: "POST",
+        url: BASE_URL + "app/Direcciones.php",
         data: {
-            peticion: "Obtener",
-            id: id_vivienda,
-            sql: "SQL_08",
+            direction: "Viviendas/Administrar",
+            accion: "codificar"
         },
-    }).done(function(result) {
-        var gases = JSON.parse(result);
-        var texto = "";
-        for (var i = 0; i < gases.length; i++) {
-            texto += "<div><table style='width:100%'><tr><td style='width:25%;text-align:center'>" + gases[i]["nombre_servicio_gas"] + "</td>";
-            texto += "<td style='width:25%;text-align:center'>" + gases[i]["tipo_bombona"] + "</td>";
-            texto += "<td style='width:25%;text-align:center'>" + gases[i]["dias_duracion"] + " días</td>";
-            texto += "<td style='width:25%;text-align:right'><button style='width:20%;margin-top:10px' type='button' class='btn btn-danger' onclick='borrar_gases(" + gases[i]["id_vivienda_servicio_gas"] + "," + id_vivienda + ")'>X</button></td>";
-            texto += "</tr></table></div><hr>";
+        success: function (direccion_segura) {
+            $.ajax({
+                url: BASE_URL + direccion_segura,
+                type: "POST",
+                data: {
+                    peticion: "Obtener",
+                    id: id_vivienda,
+                    sql: "SQL_08",
+                },
+            }).done(function (result) {
+                var gases = JSON.parse(result);
+                var texto = "";
+                for (var i = 0; i < gases.length; i++) {
+                    texto += "<div><table style='width:100%'><tr><td style='width:25%;text-align:center'>" + gases[i]["nombre_servicio_gas"] + "</td>";
+                    texto += "<td style='width:25%;text-align:center'>" + gases[i]["tipo_bombona"] + "</td>";
+                    texto += "<td style='width:25%;text-align:center'>" + gases[i]["dias_duracion"] + " días</td>";
+                    texto += "<td style='width:25%;text-align:right'><button style='width:20%;margin-top:10px' type='button' class='btn btn-danger' onclick='borrar_gases(" + gases[i]["id_vivienda_servicio_gas"] + "," + id_vivienda + ")'>X</button></td>";
+                    texto += "</tr></table></div><hr>";
+                }
+                document.getElementById("gases_agregados").innerHTML = texto;
+            });
+            $.ajax({
+                url: BASE_URL + direccion_segura,
+                type: "POST",
+                data: {
+                    peticion: "Cargar_Gas",
+                },
+            }).done(function (result) {
+                document.getElementById("gas_select").innerHTML = result;
+            });
+        },
+        error: function () {
+            alert('Error al codificar dirreccion');
         }
-        document.getElementById("gases_agregados").innerHTML = texto;
-    });
-    $.ajax({
-        url: BASE_URL + "Viviendas/Administrar",
-        type: "POST",
-        data: {
-            peticion: "Cargar_Gas",
-        },
-    }).done(function(result) {
-        document.getElementById("gas_select").innerHTML = result;
     });
 }
 
@@ -711,39 +894,53 @@ function borrar_gases(id, id_vivienda) {
         showCancelButton: true,
         confirmButtonText: "Si",
         cancelButtonText: "No",
-    }, function(isConfirm) {
+    }, function (isConfirm) {
         if (isConfirm) {
+
             $.ajax({
-                url: BASE_URL + "Viviendas/Administrar",
                 type: "POST",
+                url: BASE_URL + "app/Direcciones.php",
                 data: {
-                    peticion: "Eliminar",
-                    datos: {
-                        tabla: "vivienda_servicio_gas",
-                        id_tabla: "id_vivienda_servicio_gas",
-                        id: id
-                    }
+                    direction: "Viviendas/Administrar",
+                    accion: "codificar"
                 },
-            }).done(function(result) {
-                if (result == 1) {
-                    cargar_servicio_gas(id_vivienda);
-                } else {
-                    setTimeout(function() {
-                        swal({
-                            title: "ERROR!",
-                            text: "Ha ocurrido un Error.</br>" + result,
-                            type: "error",
-                            html: true,
-                            showConfirmButton: true,
-                            customClass: "bigSwalV2",
-                        });
-                    }, 100);
+                success: function (direccion_segura) {
+                    $.ajax({
+                        url: BASE_URL + direccion_segura,
+                        type: "POST",
+                        data: {
+                            peticion: "Eliminar",
+                            datos: {
+                                tabla: "vivienda_servicio_gas",
+                                id_tabla: "id_vivienda_servicio_gas",
+                                id: id
+                            }
+                        },
+                    }).done(function (result) {
+                        if (result == 1) {
+                            cargar_servicio_gas(id_vivienda);
+                        } else {
+                            setTimeout(function () {
+                                swal({
+                                    title: "ERROR!",
+                                    text: "Ha ocurrido un Error.</br>" + result,
+                                    type: "error",
+                                    html: true,
+                                    showConfirmButton: true,
+                                    customClass: "bigSwalV2",
+                                });
+                            }, 100);
+                        }
+                    });
+                },
+                error: function () {
+                    alert('Error al codificar dirreccion');
                 }
             });
         }
     });
 }
-document.getElementById("agregar_servicio").onclick = function() {
+document.getElementById("agregar_servicio").onclick = function () {
     if (document.getElementById("gas_select").style.display == "none") {
         document.getElementById("gas_input").style.display = "none";
         document.getElementById("gas_select").style.display = "";
@@ -755,7 +952,7 @@ document.getElementById("agregar_servicio").onclick = function() {
         document.getElementById("gas_select").value = "vacio";
     }
 }
-document.getElementById("agregar_gas").onclick = function() {
+document.getElementById("agregar_gas").onclick = function () {
     if ((document.getElementById("gas_select").style.display != "none" && document.getElementById("gas_select").value == "vacio") || (document.getElementById("gas_select").style.display == "none" && document.getElementById("gas_input").value == "")) {
         document.getElementById("gas_select").style.borderColor = "red";
         document.getElementById("gas_input").style.borderColor = "red";
@@ -787,63 +984,77 @@ document.getElementById("agregar_gas").onclick = function() {
                 }
                 inf_gas['tipo_bombona'] = document.getElementById("tipo_bombona").value;
                 inf_gas['tiempo_duracion'] = document.getElementById("tiempo_duracion").value;
+
                 $.ajax({
-                    url: BASE_URL + "Viviendas/Administrar",
                     type: "POST",
+                    url: BASE_URL + "app/Direcciones.php",
                     data: {
-                        peticion: "Servicio_Gas",
-                        sql: "SQL_16",
-                        gas: inf_gas,
-                        datos: {
-                            tabla: "vivienda_servicio_gas",
-                            columna: "id_vivienda",
-                            id: id_vivienda,
-                            estado: 1
-                        }
+                        direction: "Viviendas/Administrar",
+                        accion: "codificar"
                     },
-                }).done(function(result) {
-                    if (result == 1) {
-                        cargar_servicio_gas(id_vivienda);
-                    } else {
-                        setTimeout(function() {
-                            swal({
-                                title: "ERROR!",
-                                text: "Ha ocurrido un Error.</br>" + result,
-                                type: "error",
-                                html: true,
-                                showConfirmButton: true,
-                                customClass: "bigSwalV2",
-                            });
-                        }, 100);
+                    success: function (direccion_segura) {
+                        $.ajax({
+                            url: BASE_URL + direccion_segura,
+                            type: "POST",
+                            data: {
+                                peticion: "Servicio_Gas",
+                                sql: "SQL_16",
+                                gas: inf_gas,
+                                datos: {
+                                    tabla: "vivienda_servicio_gas",
+                                    columna: "id_vivienda",
+                                    id: id_vivienda,
+                                    estado: 1
+                                }
+                            },
+                        }).done(function (result) {
+                            if (result == 1) {
+                                cargar_servicio_gas(id_vivienda);
+                            } else {
+                                setTimeout(function () {
+                                    swal({
+                                        title: "ERROR!",
+                                        text: "Ha ocurrido un Error.</br>" + result,
+                                        type: "error",
+                                        html: true,
+                                        showConfirmButton: true,
+                                        customClass: "bigSwalV2",
+                                    });
+                                }, 100);
+                            }
+                            document.getElementById("gas_input").style.display = "none";
+                            document.getElementById("gas_select").style.display = "";
+                            document.getElementById("gas_input").value = "";
+                            document.getElementById("gas_select").value = document.getElementById("tipo_bombona").value = document.getElementById("tiempo_duracion").value = 'vacio';
+                        });
+                    },
+                    error: function () {
+                        alert('Error al codificar dirreccion');
                     }
-                    document.getElementById("gas_input").style.display = "none";
-                    document.getElementById("gas_select").style.display = "";
-                    document.getElementById("gas_input").value = "";
-                    document.getElementById("gas_select").value = document.getElementById("tipo_bombona").value = document.getElementById("tiempo_duracion").value = 'vacio';
                 });
             }
         }
     }
 }
-document.getElementById("gas_select").onchange = function() {
+document.getElementById("gas_select").onchange = function () {
     if (document.getElementById("gas_select").value != "vacio") {
         document.getElementById("gas_select").style.borderColor = "";
         document.getElementById("valid_gases_agregados").innerHTML = "";
     }
 }
-document.getElementById("gas_input").onkeyup = function() {
+document.getElementById("gas_input").onkeyup = function () {
     if (document.getElementById("gas_input").value != "vacio") {
         document.getElementById("gas_input").style.borderColor = "";
         document.getElementById("valid_gases_agregados").innerHTML = "";
     }
 }
-document.getElementById("tipo_bombona").onchange = function() {
+document.getElementById("tipo_bombona").onchange = function () {
     if (document.getElementById("tipo_bombona").value != "vacio") {
         document.getElementById("tipo_bombona").style.borderColor = "";
         document.getElementById("valid_gases_agregados").innerHTML = "";
     }
 }
-document.getElementById("tiempo_duracion").onchange = function() {
+document.getElementById("tiempo_duracion").onchange = function () {
     if (document.getElementById("tiempo_duracion").value != "vacio") {
         document.getElementById("tiempo_duracion").style.borderColor = "";
         document.getElementById("valid_gases_agregados").innerHTML = "";
@@ -852,33 +1063,47 @@ document.getElementById("tiempo_duracion").onchange = function() {
 
 function cargar_electrodomesticos(id_vivienda) {
     document.getElementById("electrodomesticos_agregados").innerHTML = "";
+
     $.ajax({
-        url: BASE_URL + "Viviendas/Administrar",
         type: "POST",
+        url: BASE_URL + "app/Direcciones.php",
         data: {
-            peticion: "Obtener",
-            id: id_vivienda,
-            sql: "SQL_09",
+            direction: "Viviendas/Administrar",
+            accion: "codificar"
         },
-    }).done(function(result) {
-        var electrodomesticos = JSON.parse(result);
-        var texto = "";
-        for (var i = 0; i < electrodomesticos.length; i++) {
-            texto += "<div><table style='width:100%'><tr><td style='width:25%;text-align:center'>" + electrodomesticos[i]["nombre_electrodomestico"] + "</td>";
-            texto += "<td style='width:25%;text-align:center'>" + electrodomesticos[i]["cantidad"] + " Unidades</td>";
-            texto += "<td style='width:25%;text-align:right'><button style='width:20%;margin-top:10px' type='button' class='btn btn-danger' onclick='borrar_electrodomesticos(" + electrodomesticos[i]["id_vivienda_electrodomestico"] + "," + id_vivienda + ")'>X</button></td>";
-            texto += "</tr></table></div><hr>";
+        success: function (direccion_segura) {
+            $.ajax({
+                url: BASE_URL + direccion_segura,
+                type: "POST",
+                data: {
+                    peticion: "Obtener",
+                    id: id_vivienda,
+                    sql: "SQL_09",
+                },
+            }).done(function (result) {
+                var electrodomesticos = JSON.parse(result);
+                var texto = "";
+                for (var i = 0; i < electrodomesticos.length; i++) {
+                    texto += "<div><table style='width:100%'><tr><td style='width:25%;text-align:center'>" + electrodomesticos[i]["nombre_electrodomestico"] + "</td>";
+                    texto += "<td style='width:25%;text-align:center'>" + electrodomesticos[i]["cantidad"] + " Unidades</td>";
+                    texto += "<td style='width:25%;text-align:right'><button style='width:20%;margin-top:10px' type='button' class='btn btn-danger' onclick='borrar_electrodomesticos(" + electrodomesticos[i]["id_vivienda_electrodomestico"] + "," + id_vivienda + ")'>X</button></td>";
+                    texto += "</tr></table></div><hr>";
+                }
+                document.getElementById("electrodomesticos_agregados").innerHTML = texto;
+            });
+            $.ajax({
+                url: BASE_URL + direccion_segura,
+                type: "POST",
+                data: {
+                    peticion: "Cargar_Electrodomesticos",
+                },
+            }).done(function (result) {
+                document.getElementById("electrodomestico_select").innerHTML = result;
+            });
+        },
+        error: function () {
+            alert('Error al codificar dirreccion');
         }
-        document.getElementById("electrodomesticos_agregados").innerHTML = texto;
-    });
-    $.ajax({
-        url: BASE_URL + "Viviendas/Administrar",
-        type: "POST",
-        data: {
-            peticion: "Cargar_Electrodomesticos",
-        },
-    }).done(function(result) {
-        document.getElementById("electrodomestico_select").innerHTML = result;
     });
 }
 
@@ -890,39 +1115,53 @@ function borrar_electrodomesticos(id, id_vivienda) {
         showCancelButton: true,
         confirmButtonText: "Si",
         cancelButtonText: "No",
-    }, function(isConfirm) {
+    }, function (isConfirm) {
         if (isConfirm) {
+
             $.ajax({
-                url: BASE_URL + "Viviendas/Administrar",
                 type: "POST",
+                url: BASE_URL + "app/Direcciones.php",
                 data: {
-                    peticion: "Eliminar",
-                    datos: {
-                        tabla: "vivienda_electrodomesticos",
-                        id_tabla: "id_vivienda_electrodomestico",
-                        id: id
-                    }
+                    direction: "Viviendas/Administrar",
+                    accion: "codificar"
                 },
-            }).done(function(result) {
-                if (result == 1) {
-                    cargar_electrodomesticos(id_vivienda);
-                } else {
-                    setTimeout(function() {
-                        swal({
-                            title: "ERROR!",
-                            text: "Ha ocurrido un Error.</br>" + result,
-                            type: "error",
-                            html: true,
-                            showConfirmButton: true,
-                            customClass: "bigSwalV2",
-                        });
-                    }, 100);
+                success: function (direccion_segura) {
+                    $.ajax({
+                        url: BASE_URL + direccion_segura,
+                        type: "POST",
+                        data: {
+                            peticion: "Eliminar",
+                            datos: {
+                                tabla: "vivienda_electrodomesticos",
+                                id_tabla: "id_vivienda_electrodomestico",
+                                id: id
+                            }
+                        },
+                    }).done(function (result) {
+                        if (result == 1) {
+                            cargar_electrodomesticos(id_vivienda);
+                        } else {
+                            setTimeout(function () {
+                                swal({
+                                    title: "ERROR!",
+                                    text: "Ha ocurrido un Error.</br>" + result,
+                                    type: "error",
+                                    html: true,
+                                    showConfirmButton: true,
+                                    customClass: "bigSwalV2",
+                                });
+                            }, 100);
+                        }
+                    });
+                },
+                error: function () {
+                    alert('Error al codificar dirreccion');
                 }
             });
         }
     });
 }
-document.getElementById("nuevo_electrodomestico").onclick = function() {
+document.getElementById("nuevo_electrodomestico").onclick = function () {
     if (document.getElementById("electrodomestico_select").style.display == "none") {
         document.getElementById("electrodomestico_input").style.display = "none";
         document.getElementById("electrodomestico_select").style.display = "";
@@ -934,7 +1173,7 @@ document.getElementById("nuevo_electrodomestico").onclick = function() {
         document.getElementById("electrodomestico_select").value = "vacio";
     }
 }
-document.getElementById("agregar_electrodomestico").onclick = function() {
+document.getElementById("agregar_electrodomestico").onclick = function () {
     if ((document.getElementById("electrodomestico_select").style.display != "none" && document.getElementById("electrodomestico_select").value == "vacio") || (document.getElementById("electrodomestico_select").style.display == "none" && document.getElementById("electrodomestico_input").value == "")) {
         document.getElementById("electrodomestico_select").style.borderColor = "red";
         document.getElementById("electrodomestico_input").style.borderColor = "red";
@@ -959,57 +1198,71 @@ document.getElementById("agregar_electrodomestico").onclick = function() {
                 inf_electrodomestico['electrodomestico'] = document.getElementById("electrodomestico_select").value;
             }
             inf_electrodomestico['cantidad'] = document.getElementById("cantidad_electrodomestico").value;
+
             $.ajax({
-                url: BASE_URL + "Viviendas/Administrar",
                 type: "POST",
+                url: BASE_URL + "app/Direcciones.php",
                 data: {
-                    peticion: "Electrodomesticos",
-                    sql: "SQL_17",
-                    electrodomestico: inf_electrodomestico,
-                    datos: {
-                        tabla: "vivienda_electrodomesticos",
-                        columna: "id_vivienda",
-                        id: id_vivienda,
-                        estado: 1
-                    }
+                    direction: "Viviendas/Administrar",
+                    accion: "codificar"
                 },
-            }).done(function(result) {
-                if (result == 1) {
-                    cargar_electrodomesticos(id_vivienda);
-                } else {
-                    setTimeout(function() {
-                        swal({
-                            title: "ERROR!",
-                            text: "Ha ocurrido un Error.</br>" + result,
-                            type: "error",
-                            html: true,
-                            showConfirmButton: true,
-                            customClass: "bigSwalV2",
-                        });
-                    }, 100);
+                success: function (direccion_segura) {
+                    $.ajax({
+                        url: BASE_URL + direccion_segura,
+                        type: "POST",
+                        data: {
+                            peticion: "Electrodomesticos",
+                            sql: "SQL_17",
+                            electrodomestico: inf_electrodomestico,
+                            datos: {
+                                tabla: "vivienda_electrodomesticos",
+                                columna: "id_vivienda",
+                                id: id_vivienda,
+                                estado: 1
+                            }
+                        },
+                    }).done(function (result) {
+                        if (result == 1) {
+                            cargar_electrodomesticos(id_vivienda);
+                        } else {
+                            setTimeout(function () {
+                                swal({
+                                    title: "ERROR!",
+                                    text: "Ha ocurrido un Error.</br>" + result,
+                                    type: "error",
+                                    html: true,
+                                    showConfirmButton: true,
+                                    customClass: "bigSwalV2",
+                                });
+                            }, 100);
+                        }
+                        document.getElementById("electrodomestico_input").value = "";
+                        document.getElementById("electrodomestico_input").style.display = "none";
+                        document.getElementById("electrodomestico_select").value = "vacio";
+                        document.getElementById("electrodomestico_select").style.display = "";
+                        document.getElementById("cantidad_electrodomestico").value = "";
+                    })
+                },
+                error: function () {
+                    alert('Error al codificar dirreccion');
                 }
-                document.getElementById("electrodomestico_input").value = "";
-                document.getElementById("electrodomestico_input").style.display = "none";
-                document.getElementById("electrodomestico_select").value = "vacio";
-                document.getElementById("electrodomestico_select").style.display = "";
-                document.getElementById("cantidad_electrodomestico").value = "";
-            })
+            });
         }
     }
 }
-document.getElementById("electrodomestico_select").onchange = function() {
+document.getElementById("electrodomestico_select").onchange = function () {
     if (document.getElementById("electrodomestico_select").value != "vacio") {
         document.getElementById("electrodomestico_select").style.borderColor = "";
         document.getElementById("valid_electrodomesticos_agregados").innerHTML = "";
     }
 }
-document.getElementById("electrodomestico_input").onkeyup = function() {
+document.getElementById("electrodomestico_input").onkeyup = function () {
     if (document.getElementById("electrodomestico_input").value != "") {
         document.getElementById("electrodomestico_input").style.borderColor = "";
         document.getElementById("valid_electrodomesticos_agregados").innerHTML = "";
     }
 }
-document.getElementById("cantidad_electrodomestico").onkeyup = function() {
+document.getElementById("cantidad_electrodomestico").onkeyup = function () {
     if (document.getElementById("cantidad_electrodomestico").value != "") {
         document.getElementById("cantidad_electrodomestico").style.borderColor = "";
         document.getElementById("valid_electrodomesticos_agregados").innerHTML = "";

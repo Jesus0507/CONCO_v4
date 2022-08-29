@@ -6,7 +6,7 @@ function eliminar(id) {
         showCancelButton: true,
         cancelButtonText: "No",
         confirmButtonText: "Si"
-    }, function(isConfirm) {
+    }, function (isConfirm) {
         if (isConfirm) {
             var ids = JSON.parse(id);
             for (var i = 0; i < ids.length; i++) {
@@ -16,36 +16,50 @@ function eliminar(id) {
                     param: ids[i],
                     estado: 0
                 };
+
                 $.ajax({
                     type: "POST",
-                    url: BASE_URL + "Enfermos/Administrar",
-                    type: "POST",
+                    url: BASE_URL + "app/Direcciones.php",
                     data: {
-                        peticion: "Eliminar",
-                        estado: estado,
-                        sql: "_07_",
-                        accion: "Se ha Eliminado el  Discapacitado ",
+                        direction: "Enfermos/Administrar",
+                        accion: "codificar"
                     },
-                }).done(function(result) {
-                    if (result == 1) {
-                        swal({
-                            title: "Eliminado!",
-                            text: "El elemento fue eliminado con exito.",
-                            type: "success",
-                            showConfirmButton: false,
+                    success: function (direccion_segura) {
+                        $.ajax({
+                            type: "POST",
+                            url: BASE_URL + direccion_segura,
+                            type: "POST",
+                            data: {
+                                peticion: "Eliminar",
+                                estado: estado,
+                                sql: "_07_",
+                                accion: "Se ha Eliminado el  Discapacitado ",
+                            },
+                        }).done(function (result) {
+                            if (result == 1) {
+                                swal({
+                                    title: "Eliminado!",
+                                    text: "El elemento fue eliminado con exito.",
+                                    type: "success",
+                                    showConfirmButton: false,
+                                });
+                                setTimeout(function () {
+                                    location.reload();
+                                }, 2000);
+                            } else {
+                                swal({
+                                    title: "ERROR!",
+                                    text: "Ha ocurrido un Error.</br>" + result,
+                                    type: "error",
+                                    html: true,
+                                    showConfirmButton: true,
+                                    customClass: "bigSwalV2",
+                                });
+                            }
                         });
-                        setTimeout(function() {
-                            location.reload();
-                        }, 2000);
-                    } else {
-                        swal({
-                            title: "ERROR!",
-                            text: "Ha ocurrido un Error.</br>" + result,
-                            type: "error",
-                            html: true,
-                            showConfirmButton: true,
-                            customClass: "bigSwalV2",
-                        });
+                    },
+                    error: function () {
+                        alert('Error al codificar dirreccion');
                     }
                 });
             }
@@ -56,24 +70,37 @@ function eliminar(id) {
 function editar(cedula) {
     $.ajax({
         type: "POST",
-        url: BASE_URL + "Enfermos/Administrar",
-        type: "POST",
+        url: BASE_URL + "app/Direcciones.php",
         data: {
-            peticion: "Datos",
-            'cedula': cedula
+            direction: "Enfermos/Administrar",
+            accion: "codificar"
         },
-    }).done(function(datos) {
-        var data = JSON.parse(datos);
-        var enfermedades = document.getElementById('enfermedades_agregadas');
-        if (data.length == 0) {
-            enfermedades.innerHTML = "No aplica";
-        } else {
-            enfermedades.innerHTML = "";
-            for (var i = 0; i < data.length; i++) {
-                var tabl = enfermedades.innerHTML += " <table style='width:95%'><tr><hr><td>-" + data[i]["nombre_enfermedad"] + "</td><td style='text-align:right'><span onclick='borrar_enfermedad(" + data[i]['id_persona_enfermedad'] + "," + data[i]["cedula_persona"] + ")' class='iconDelete fa fa-times-circle' title='Eliminar Enfermedad' style='font-size:22px'></span></td></tr></table><br><hr>";
-            }
-        }
+        success: function (direccion_segura) {
+            $.ajax({
+                type: "POST",
+                url: BASE_URL + direccion_segura,
+                type: "POST",
+                data: {
+                    peticion: "Datos",
+                    'cedula': cedula
+                },
+            }).done(function (datos) {
+                var data = JSON.parse(datos);
+                var enfermedades = document.getElementById('enfermedades_agregadas');
+                if (data.length == 0) {
+                    enfermedades.innerHTML = "No aplica";
+                } else {
+                    enfermedades.innerHTML = "";
+                    for (var i = 0; i < data.length; i++) {
+                        var tabl = enfermedades.innerHTML += " <table style='width:95%'><tr><hr><td>-" + data[i]["nombre_enfermedad"] + "</td><td style='text-align:right'><span onclick='borrar_enfermedad(" + data[i]['id_persona_enfermedad'] + "," + data[i]["cedula_persona"] + ")' class='iconDelete fa fa-times-circle' title='Eliminar Enfermedad' style='font-size:22px'></span></td></tr></table><br><hr>";
+                    }
+                }
 
+            });
+        },
+        error: function () {
+            alert('Error al codificar dirreccion');
+        }
     });
 }
 
@@ -85,23 +112,37 @@ function borrar_enfermedad(id, cedula_param) {
         showCancelButton: true,
         confirmButtonText: "Si, continuar",
         cancelButtonText: "No"
-    }, function(isConfirm) {
+    }, function (isConfirm) {
         if (isConfirm) {
             $.ajax({
                 type: "POST",
-                url: BASE_URL + "Enfermos/Administrar",
-                type: "POST",
+                url: BASE_URL + "app/Direcciones.php",
                 data: {
-                    peticion: "Eliminar_Enfermedad",
-                    "id_persona_enfermedad": id,
-                    "cedula_persona": cedula_param
+                    direction: "Enfermos/Administrar",
+                    accion: "codificar"
                 },
-            }).done(function(result) {
-                result = JSON.parse(result);
-                actualizar_enfermedad(result, cedula_param);
-                editar(cedula_param);
-                console.log(result);
-            })
+                success: function (direccion_segura) {
+                    $.ajax({
+                        type: "POST",
+                        url: BASE_URL + direccion_segura,
+                        type: "POST",
+                        data: {
+                            peticion: "Eliminar_Enfermedad",
+                            "id_persona_enfermedad": id,
+                            "cedula_persona": cedula_param
+                        },
+                    }).done(function (result) {
+                        result = JSON.parse(result);
+                        actualizar_enfermedad(result, cedula_param);
+                        editar(cedula_param);
+
+                    })
+                },
+                error: function () {
+                    alert('Error al codificar dirreccion');
+                }
+            });
+
         }
     });
 }

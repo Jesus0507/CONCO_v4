@@ -6,7 +6,7 @@ function eliminar(id) {
         showCancelButton: true,
         cancelButtonText: "No",
         confirmButtonText: "Si"
-    }, function(isConfirm) {
+    }, function (isConfirm) {
         if (isConfirm) {
             var ids = JSON.parse(id);
             for (var i = 0; i < ids.length; i++) {
@@ -16,40 +16,54 @@ function eliminar(id) {
                     param: ids[i],
                     estado: 0
                 };
+                
                 $.ajax({
                     type: "POST",
-                    url: BASE_URL + "Discapacitados/Administrar",
-                    type: "POST",
+                    url: BASE_URL + "app/Direcciones.php",
                     data: {
-                        peticion: "Eliminar",
-                        estado: estado,
-                        sql: "_07_",
-                        accion: "Se ha Eliminado el  Discapacitado ",
+                        direction: "Discapacitados/Administrar",
+                        accion: "codificar"
                     },
-                }).done(function(result) {
-                    if (result == 1) {
-                        swal({
-                            title: "Eliminado!",
-                            text: "El elemento fue eliminado con exito.",
-                            type: "success",
-                            showConfirmButton: false,
+                    success: function(direccion_segura) {
+                        $.ajax({
+                            type: "POST",
+                            url: BASE_URL + direccion_segura,
+                            type: "POST",
+                            data: {
+                                peticion: "Eliminar",
+                                estado: estado,
+                                sql: "_07_",
+                                accion: "Se ha Eliminado el  Discapacitado ",
+                            },
+                        }).done(function (result) {
+                            if (result == 1) {
+                                swal({
+                                    title: "Eliminado!",
+                                    text: "El elemento fue eliminado con exito.",
+                                    type: "success",
+                                    showConfirmButton: false,
+                                });
+                                setTimeout(function () {
+                                    location.reload();
+                                }, 2000);
+                            } else {
+                                swal({
+                                    title: "ERROR!",
+                                    text: "Ha ocurrido un Error.</br>" + result,
+                                    type: "error",
+                                    html: true,
+                                    showConfirmButton: true,
+                                    customClass: "bigSwalV2",
+                                });
+                            }
                         });
-                        setTimeout(function() {
-                            location.reload();
-                        }, 2000);
-                    } else {
-                        swal({
-                            title: "ERROR!",
-                            text: "Ha ocurrido un Error.</br>" + result,
-                            type: "error",
-                            html: true,
-                            showConfirmButton: true,
-                            customClass: "bigSwalV2",
-                        });
+                    },
+                    error: function() {
+                        alert('Error al codificar dirreccion');
                     }
                 });
             }
-            setTimeout(function() {
+            setTimeout(function () {
                 swal({
                     type: "success",
                     title: "Éxito",
@@ -57,7 +71,7 @@ function eliminar(id) {
                     timer: 2000,
                     showConfirmButton: false
                 });
-                setTimeout(function() {
+                setTimeout(function () {
                     location.reload();
                 }, 1000);
             }, 500);
@@ -66,24 +80,38 @@ function eliminar(id) {
 }
 
 function editar(cedula) {
+    
     $.ajax({
         type: "POST",
-        url: BASE_URL + "Discapacitados/Administrar",
-        type: "POST",
+        url: BASE_URL + "app/Direcciones.php",
         data: {
-            peticion: "Datos",
-            'cedula': cedula
+            direction: "Discapacitados/Administrar",
+            accion: "codificar"
         },
-    }).done(function(datos) {
-        var data = JSON.parse(datos);
-        var discapacidades = document.getElementById('discapacidades_agregadas');
-        if (data.length === 0) {
-            discapacidades.innerHTML = "No aplica";
-        } else {
-            discapacidades.innerHTML = "";
-            for (var i = 0; i < data.length; i++) {
-                var tabl = discapacidades.innerHTML += " <table style='width:95%'><tr><hr><td>-" + data[i]["nombre_discapacidad"] + "</td><td>-" + data[i]["observacion_discapacidad"] + "</td><td style='text-align:right'><span onclick='borrar_discapacidad(" + data[i]['id_discapacidad_persona'] + "," + data[i]["cedula_persona"] + ")' class='iconDelete fa fa-times-circle' title='Eliminar Enfermedad' style='font-size:22px'></span></td></tr></table><br><hr>";
-            }
+        success: function(direccion_segura) {
+            $.ajax({
+                type: "POST",
+                url: BASE_URL + direccion_segura,
+                type: "POST",
+                data: {
+                    peticion: "Datos",
+                    'cedula': cedula
+                },
+            }).done(function (datos) {
+                var data = JSON.parse(datos);
+                var discapacidades = document.getElementById('discapacidades_agregadas');
+                if (data.length === 0) {
+                    discapacidades.innerHTML = "No aplica";
+                } else {
+                    discapacidades.innerHTML = "";
+                    for (var i = 0; i < data.length; i++) {
+                        var tabl = discapacidades.innerHTML += " <table style='width:95%'><tr><hr><td>-" + data[i]["nombre_discapacidad"] + "</td><td>-" + data[i]["observacion_discapacidad"] + "</td><td style='text-align:right'><span onclick='borrar_discapacidad(" + data[i]['id_discapacidad_persona'] + "," + data[i]["cedula_persona"] + ")' class='iconDelete fa fa-times-circle' title='Eliminar Enfermedad' style='font-size:22px'></span></td></tr></table><br><hr>";
+                    }
+                }
+            });
+        },
+        error: function() {
+            alert('Error al codificar dirreccion');
         }
     });
 }
@@ -96,23 +124,35 @@ function borrar_discapacidad(id, cedula_param) {
         showCancelButton: true,
         confirmButtonText: "Si, continuar",
         cancelButtonText: "No"
-    }, function(isConfirm) {
+    }, function (isConfirm) {
         if (isConfirm) {
             $.ajax({
-               
                 type: "POST",
-                url: BASE_URL + "Discapacitados/Administrar",
-                type: "POST",
+                url: BASE_URL + "app/Direcciones.php",
                 data: {
-                    peticion: "Eliminar_Discapacidad",
-                    id_discapacidad_persona: id,
-                    cedula_persona: cedula_param
+                    direction: "Discapacitados/Administrar",
+                    accion: "codificar"
                 },
-            }).done(function(result) {
-                result = JSON.parse(result);
-                actualizar_discapacidad(result, cedula_param);
-                editar(cedula_param);
-            })
+                success: function(direccion_segura) {
+                    $.ajax({
+                        type: "POST",
+                        url: BASE_URL + direccion_segura,
+                        type: "POST",
+                        data: {
+                            peticion: "Eliminar_Discapacidad",
+                            id_discapacidad_persona: id,
+                            cedula_persona: cedula_param
+                        },
+                    }).done(function (result) {
+                        result = JSON.parse(result);
+                        actualizar_discapacidad(result, cedula_param);
+                        editar(cedula_param);
+                    })
+                },
+                error: function() {
+                    alert('Error al codificar dirreccion');
+                }
+            });
         }
     });
 }

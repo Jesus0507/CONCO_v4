@@ -8,60 +8,72 @@ var aprobar = document.getElementById("aprobar");
 var rechazar = document.getElementById("rechazar");
 var solicitante = "";
 
+
+
 $.ajax({
   type: "POST",
-  url: BASE_URL + "Solicitudes/Consultar_solicitudes",
-}).done(function (datos) {
-  var result_s = JSON.parse(datos);
-  var cuerpo_s = "";
-  var titulo_solicitud = "";
-
-  for (var i = 0; i < result_s.length; i++) {
-    if (result_s[i]["id_solicitud"] == id.value) {
-      solicitante = result_s[i];
-      // document.getElementById("email_boton").click();
-      //      enviar_correo();
-
-      console.log(solicitante);
-
-      switch (result_s[i]["tipo_constancia"]) {
-        case "Residencia":
-          titulo_solicitud =
-            "<em class='fas fa-home'></em> Solicitud de constancia de " +
-            result_s[i]["tipo_constancia"];
-          break;
-        case "Buena conducta":
-          titulo_solicitud =
-            "<em class='fas fa-address-card'></em> Solicitud de constancia de " +
-            result_s[i]["tipo_constancia"];
-          break;
-        case "No poseer vivienda":
-          titulo_solicitud =
-            "<em class='fas fa-hotel'></em> Solicitud de constancia de " +
-            result_s[i]["tipo_constancia"];
-          break;
+  url: BASE_URL + "app/Direcciones.php",
+  data: {
+      direction: "Solicitudes/Consultar_solicitudes",
+      accion: "codificar"
+  },
+  success: function(direccion_segura) {
+    $.ajax({
+      type: "POST",
+      url: BASE_URL + direccion_segura,
+    }).done(function (datos) {
+      var result_s = JSON.parse(datos);
+      var cuerpo_s = "";
+      var titulo_solicitud = "";
+    
+      for (var i = 0; i < result_s.length; i++) {
+        if (result_s[i]["id_solicitud"] == id.value) {
+          solicitante = result_s[i];
+         
+    
+          switch (result_s[i]["tipo_constancia"]) {
+            case "Residencia":
+              titulo_solicitud =
+                "<em class='fas fa-home'></em> Solicitud de constancia de " +
+                result_s[i]["tipo_constancia"];
+              break;
+            case "Buena conducta":
+              titulo_solicitud =
+                "<em class='fas fa-address-card'></em> Solicitud de constancia de " +
+                result_s[i]["tipo_constancia"];
+              break;
+            case "No poseer vivienda":
+              titulo_solicitud =
+                "<em class='fas fa-hotel'></em> Solicitud de constancia de " +
+                result_s[i]["tipo_constancia"];
+              break;
+          }
+    
+          var fecha_s = new Date(result_s[i]["fecha_solicitud"]);
+    
+          var fecha_soli =
+            fecha_s.getDate() +
+            "-" +
+            (fecha_s.getMonth() + 1) +
+            "-" +
+            fecha_s.getFullYear();
+    
+          date.innerHTML = fecha_soli;
+    
+          persona.innerHTML =
+            result_s[i]["primer_nombre"] + " " + result_s[i]["primer_apellido"];
+    
+          tipo.innerHTML = "Constancia de " + result_s[i]["tipo_constancia"];
+    
+          motivo.innerHTML = result_s[i]["motivo_constancia"];
+    
+          title.innerHTML = titulo_solicitud;
+        }
       }
-
-      var fecha_s = new Date(result_s[i]["fecha_solicitud"]);
-
-      var fecha_soli =
-        fecha_s.getDate() +
-        "-" +
-        (fecha_s.getMonth() + 1) +
-        "-" +
-        fecha_s.getFullYear();
-
-      date.innerHTML = fecha_soli;
-
-      persona.innerHTML =
-        result_s[i]["primer_nombre"] + " " + result_s[i]["primer_apellido"];
-
-      tipo.innerHTML = "Constancia de " + result_s[i]["tipo_constancia"];
-
-      motivo.innerHTML = result_s[i]["motivo_constancia"];
-
-      title.innerHTML = titulo_solicitud;
-    }
+    });
+  },
+  error: function() {
+      alert('Error al codificar dirreccion');
   }
 });
 
@@ -108,7 +120,7 @@ rechazar.onclick = function () {
             document.getElementById("text-area").value +
             ".";
 
-          console.log(datos_notificacion);
+         
           nueva_notificacion(datos_notificacion);
           swal({
             title: "Exito",
@@ -128,8 +140,22 @@ rechazar.onclick = function () {
           if (solicitante["correo"] != "No posee") {
             document.getElementById("btn_correo").click();
           }
-          else{
-           setTimeout(function(){location.href=BASE_URL+"Solicitudes/"},1000);
+          else {
+            $.ajax({
+              type: "POST",
+              url: BASE_URL + "app/Direcciones.php",
+              data: {
+                direction: "Solicitudes/",
+                accion: "codificar"
+              },
+              success: function (direccion_segura) {
+                setTimeout(function () { location.href = BASE_URL + direccion_segura }, 1000);
+              },
+              error: function () {
+                alert('Error al codificar dirreccion');
+              }
+            });
+            
           }
         }
       }
@@ -165,16 +191,29 @@ aprobar.onclick = function () {
     },
     function (isConfirm) {
       if (isConfirm) {
+        
         $.ajax({
           type: "POST",
-          url: BASE_URL + "Solicitudes/Set_status",
+          url: BASE_URL + "app/Direcciones.php",
           data: {
-            id: id.value,
-            procesada: 1,
-            observaciones: "Aprobada el " + fecha_actual,
+              direction: "Solicitudes/Set_status",
+              accion: "codificar"
           },
-        });
-
+          success: function(direccion_segura) {
+            $.ajax({
+              type: "POST",
+              url: BASE_URL + direccion_segura,
+              data: {
+                id: id.value,
+                procesada: 1,
+                observaciones: "Aprobada el " + fecha_actual,
+              },
+            });
+          },
+          error: function() {
+              alert('Error al codificar dirreccion');
+          }
+      });
         swal({
           title: "Exito",
           text: "La solicitud ha sido aprobada",
@@ -191,7 +230,7 @@ aprobar.onclick = function () {
           solicitante["tipo_constancia"] +
           " puede retirarla cuando desee.";
 
-        console.log(datos_notificacion);
+       
 
         solicitante["asunto"] = "Se ha aprobado su solicitud";
         solicitante["mensaje"] =
@@ -202,8 +241,22 @@ aprobar.onclick = function () {
         if (solicitante["correo"] != "No posee") {
           document.getElementById("btn_correo").click();
         }
-        else{
-          setTimeout(function(){location.href=BASE_URL+"Solicitudes/"},1000);
+        else {
+          $.ajax({
+            type: "POST",
+            url: BASE_URL + "app/Direcciones.php",
+            data: {
+              direction: "Solicitudes/",
+              accion: "codificar"
+            },
+            success: function (direccion_segura) {
+              setTimeout(function () { location.href = BASE_URL + direccion_segura }, 1000);
+            },
+            error: function () {
+              alert('Error al codificar dirreccion');
+            }
+          });
+          
         }
 
         nueva_notificacion(datos_notificacion);
@@ -231,39 +284,67 @@ function rechazoSolicitud(motivo) {
     "-" +
     fecha_actual.getFullYear();
 
+ 
   $.ajax({
     type: "POST",
-    url: BASE_URL + "Solicitudes/Set_status",
+    url: BASE_URL + "app/Direcciones.php",
     data: {
-      id: id.value,
-      procesada: 2,
-      observaciones: "Rechazada el " + fecha_actual + "/" + motivo,
+        direction:"Solicitudes/Set_status" ,
+        accion: "codificar"
     },
-  });
+    success: function(direccion_segura) {
+      $.ajax({
+        type: "POST",
+        url: BASE_URL + direccion_segura,
+        data: {
+          id: id.value,
+          procesada: 2,
+          observaciones: "Rechazada el " + fecha_actual + "/" + motivo,
+        },
+      });
+    },
+    error: function() {
+        alert('Error al codificar dirreccion');
+    }
+});
 }
 
 function print_pdf() {
+  
   $.ajax({
     type: "POST",
-    url: BASE_URL + "Solicitudes/Consultar_solicitudes_all",
-  }).done(function (datos) {
-    var result = JSON.parse(datos);
-    var header = "";
-    var body = "";
-    var footer = "";
-
-    for (var i = 0; i < result.length; i++) {
-      if (result[i]["id_solicitud"] == id.value) {
-        content = get_formato(result[i]);
-      }
+    url: BASE_URL + "app/Direcciones.php",
+    data: {
+        direction: "Solicitudes/Consultar_solicitudes_all",
+        accion: "codificar"
+    },
+    success: function(direccion_segura) {
+      $.ajax({
+        type: "POST",
+        url: BASE_URL + direccion_segura,
+      }).done(function (datos) {
+        var result = JSON.parse(datos);
+        var header = "";
+        var body = "";
+        var footer = "";
+    
+        for (var i = 0; i < result.length; i++) {
+          if (result[i]["id_solicitud"] == id.value) {
+            content = get_formato(result[i]);
+          }
+        }
+    
+        var myWindow = window.open("", "", "");
+        myWindow.document.write(content);
+        myWindow.blur();
+        myWindow.print();
+        myWindow.close();
+      });
+    },
+    error: function() {
+        alert('Error al codificar dirreccion');
     }
-
-    var myWindow = window.open("", "", "");
-    myWindow.document.write(content);
-    myWindow.blur();
-    myWindow.print();
-    myWindow.close();
-  });
+});
 }
 
 function get_formato(solicitud) {
@@ -535,17 +616,39 @@ const vue = new Vue({
       emailjs.send("service_rbn54tj", "template_vqh9lqb", data).then(
         function (response) {
           if (response.text === "OK") {
-            location.href = BASE_URL + "Solicitudes/";
+            $.ajax({
+            type: "POST",
+            url: BASE_URL + "app/Direcciones.php",
+            data: {
+              direction: "Solicitudes/",
+              accion: "codificar"
+            },
+            success: function (direccion_segura) {
+              location.href = BASE_URL + direccion_segura;
+            },
+            error: function () {
+              alert('Error al codificar dirreccion');
+            }
+          });
           }
-          console.log(
-            "Exito. status=%d, text=%s",
-            response.status,
-            response.text
-          );
+         
         },
         function (err) {
-          console.log("Fallo. error=", err);
-          location.href = BASE_URL + "Solicitudes/";
+          
+          $.ajax({
+            type: "POST",
+            url: BASE_URL + "app/Direcciones.php",
+            data: {
+              direction: "Solicitudes/",
+              accion: "codificar"
+            },
+            success: function (direccion_segura) {
+              location.href = BASE_URL + direccion_segura;
+            },
+            error: function () {
+              alert('Error al codificar dirreccion');
+            }
+          });
         }
       );
     },

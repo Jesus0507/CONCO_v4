@@ -20,11 +20,7 @@
     </div>
     <div class="row" style="position: absolute;top: 40%;left: 27%;">
         <div class="col-12">
-            <center>
-                <h1 class="">
-                    <a href="<?php echo constant('URL');?>Login/" class='btn btn-primary'>Regresar </a>
-                </h1>
-            </center>
+            
         </div>
         <div class="col-12">
             <h2 class="" style="color: gray;">

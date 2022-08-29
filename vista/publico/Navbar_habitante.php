@@ -40,16 +40,16 @@
                  <i class="far fa-bell"></i>
                  <span class="badge badge-warning navbar-badge" id="cant_notificaciones">0</span>
              </a>
-             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right" >
+             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                  <span class="dropdown-item dropdown-header" id="notificaciones-no-leidas">15 Notifications</span>
                  <div class="dropdown-divider"></div>
                  <div style="height: 30vh;width: 100%;overflow-y: scroll;" id="body-notificaciones">
 
-             </div>
-             <div id="ver-todas">
-                 <div class="dropdown-divider"></div>
-       
-             </div>
+                 </div>
+                 <div id="ver-todas">
+                     <div class="dropdown-divider"></div>
+
+                 </div>
              </div>
          </li>
          <li class="nav-item">
@@ -57,12 +57,14 @@
                  <i class="fas fa-expand-arrows-alt"></i>
              </a>
          </li>
-         
+
          <li class="nav-item dropdown user-menu">
              <a href="javascript:void(0)" class="nav-link dropdown-toggle" data-toggle="dropdown">
                  <img src="<?php echo constant('URL')?>config/img/users/user-3.png"
                      class="user-image img-circle elevation-2" alt="User Image">
-                 <span class="d-none d-md-inline" id='nombres_habitante'><?php echo $_SESSION['nombre']." ".$_SESSION['apellido'] ; ?></span><i class="fas fa-sort-down fa-fw"></i>
+                 <span class="d-none d-md-inline"
+                     id='nombres_habitante'><?php echo $_SESSION['nombre']." ".$_SESSION['apellido'] ; ?></span><i
+                     class="fas fa-sort-down fa-fw"></i>
              </a>
              <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                  <!-- User image -->
@@ -70,18 +72,18 @@
                      <img src="<?php echo constant('URL')?>config/img/users/user-3.png" class="img-circle elevation-2"
                          alt="User Image">
                      <p>
-                     <?php echo $_SESSION['nombre']." ".$_SESSION['apellido'] ; ?>
+                         <?php echo $_SESSION['nombre']." ".$_SESSION['apellido'] ; ?>
                          <small>
-                            <?php echo $_SESSION['cedula_usuario']; ?>
+                             <?php echo $_SESSION['cedula_usuario']; ?>
                          </small>
                      </p>
                  </li>
                  <!-- Menu Body -->
-                 
+
                  <!-- Menu Footer-->
                  <li class="user-footer">
-                    
-                     <a href="<?php echo constant('URL'); ?>login/Salir" class="btn btn-danger btn-flat float-right">
+
+                     <a href="<?php Direcciones::_005_();?>" class="btn btn-danger btn-flat float-right">
                          <i class="fas fa-power-off fa-fw"></i>
                          Salir
                      </a>

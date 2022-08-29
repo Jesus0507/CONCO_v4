@@ -8,7 +8,7 @@ var desde = document.getElementById("desde_evento");
 var hasta = document.getElementById("hasta_evento");
 
 function editar_evento(data, data_complete) {
-    setTimeout(function() {
+    setTimeout(function () {
         var datos = JSON.parse(data);
         titulo.innerHTML = datos['tipo_evento'];
         tipo_evento.value = datos['tipo_evento'];
@@ -21,7 +21,7 @@ function editar_evento(data, data_complete) {
         $("#ver").modal().show();
     }, 100);
 }
-btn_guardar.onclick = function() {
+btn_guardar.onclick = function () {
     if (tipo_evento.value == "") {
         tipo_evento.style.borderColor = "red";
         swal({
@@ -78,41 +78,55 @@ function eliminar_evento(id) {
         cancelButtonText: "No, cancelar",
         confirmButtonText: "Si, continuar",
         closeOnConfirm: true
-    }, function(isConfirm) {
+    }, function (isConfirm) {
         if (isConfirm) {
+
             $.ajax({
-                url: BASE_URL + "Agenda/Administrar",
                 type: "POST",
+                url: BASE_URL + "app/Direcciones.php",
                 data: {
-                    peticion: "Administrar",
-                    datos: datos,
-                    sql: "SQL_06",
-                    accion: "Se ha Eliminado un Evento ",
+                    direction: "Agenda/Administrar",
+                    accion: "codificar"
                 },
-            }).done(function(result) {
-                if (result == 1) {
-                    setTimeout(function() {
-                        swal({
-                            title: "Eliminado!",
-                            text: "El elemento fue eliminado con exito.",
-                            type: "success",
-                            showConfirmButton: false,
-                        });
-                        setTimeout(function() {
-                            location.reload();
-                        }, 2000);
-                    }, 100);
-                } else {
-                    setTimeout(function() {
-                        swal({
-                            title: "ERROR!",
-                            text: "Ha ocurrido un Error.</br>" + result,
-                            type: "error",
-                            html: true,
-                            showConfirmButton: true,
-                            customClass: "bigSwalV2",
-                        });
-                    }, 100);
+                success: function (direccion_segura) {
+                    $.ajax({
+                        url: BASE_URL + direccion_segura,
+                        type: "POST",
+                        data: {
+                            peticion: "Administrar",
+                            datos: datos,
+                            sql: "SQL_06",
+                            accion: "Se ha Eliminado un Evento ",
+                        },
+                    }).done(function (result) {
+                        if (result == 1) {
+                            setTimeout(function () {
+                                swal({
+                                    title: "Eliminado!",
+                                    text: "El elemento fue eliminado con exito.",
+                                    type: "success",
+                                    showConfirmButton: false,
+                                });
+                                setTimeout(function () {
+                                    location.reload();
+                                }, 2000);
+                            }, 100);
+                        } else {
+                            setTimeout(function () {
+                                swal({
+                                    title: "ERROR!",
+                                    text: "Ha ocurrido un Error.</br>" + result,
+                                    type: "error",
+                                    html: true,
+                                    showConfirmButton: true,
+                                    customClass: "bigSwalV2",
+                                });
+                            }, 100);
+                        }
+                    });
+                },
+                error: function () {
+                    alert('Error al codificar dirreccion');
                 }
             });
         } else {
@@ -188,95 +202,108 @@ function get_time(hora) {
 function valid_ubicacion_horas() {
     $.ajax({
         type: "POST",
-        url: BASE_URL + "Agenda/Administrar",
+        url: BASE_URL + "app/Direcciones.php",
         data: {
-            peticion: "Consulta_Ajax",
+            direction: "Agenda/Administrar",
+            accion: "codificar"
         },
-    }).done(function(result) {
-        var eventos_registrados = [];
-        var resultado = JSON.parse(result);
-        for (var i = 0; i < resultado.length; i++) {
-            var fecha_event = new Date(resultado[i]['fecha']);
-            if (fecha_event >= new Date()) {
-                eventos_registrados.push(resultado[i]);
-            }
-        }
-        var mensaje = "";
-        var texto_horas = [];
-        var mensaje_horas = "";
-        var validar = true;
-        for (var i = 0; i < eventos_registrados.length; i++) {
-            if (eventos_registrados[i]['fecha'] == datos_evento['fecha'] && datos_evento['id_agenda'] != eventos_registrados[i]['id_agenda'] && datos_evento['ubicacion'].toLowerCase() == eventos_registrados[i]['ubicacion'].toLowerCase()) {
-                var separado = eventos_registrados[i]['horas'].split(" ");
-                var inicio = get_time(separado[1] + " " + separado[2]);
-                var fin = get_time(separado[4] + " " + separado[5]);
-                for (j = parseInt(desde.value); j <= parseInt(hasta.value); j++) {
-                    if (j == inicio || j == fin) {
-                        validar = false;
+        success: function (direccion_segura) {
+            $.ajax({
+                type: "POST",
+                url: BASE_URL + direccion_segura,
+                data: {
+                    peticion: "Consulta_Ajax",
+                },
+            }).done(function (result) {
+                var eventos_registrados = [];
+                var resultado = JSON.parse(result);
+                for (var i = 0; i < resultado.length; i++) {
+                    var fecha_event = new Date(resultado[i]['fecha']);
+                    if (fecha_event >= new Date()) {
+                        eventos_registrados.push(resultado[i]);
+                    }
+                }
+                var mensaje = "";
+                var texto_horas = [];
+                var mensaje_horas = "";
+                var validar = true;
+                for (var i = 0; i < eventos_registrados.length; i++) {
+                    if (eventos_registrados[i]['fecha'] == datos_evento['fecha'] && datos_evento['id_agenda'] != eventos_registrados[i]['id_agenda'] && datos_evento['ubicacion'].toLowerCase() == eventos_registrados[i]['ubicacion'].toLowerCase()) {
+                        var separado = eventos_registrados[i]['horas'].split(" ");
+                        var inicio = get_time(separado[1] + " " + separado[2]);
+                        var fin = get_time(separado[4] + " " + separado[5]);
+                        for (j = parseInt(desde.value); j <= parseInt(hasta.value); j++) {
+                            if (j == inicio || j == fin) {
+                                validar = false;
+                            }
+                        }
+                        if (!validar) {
+                            texto_horas.push(eventos_registrados[i]['horas']);
+                        }
                     }
                 }
                 if (!validar) {
-                    texto_horas.push(eventos_registrados[i]['horas']);
-                }
-            }
-        }
-        if (!validar) {
-            if (texto_horas.length > 1) {
-                for (var i = 0; i < texto_horas.length; i++) {
-                    if (i == texto_horas - 1) {
-                        mensaje_horas += " y " + texto_horas[i];
+                    if (texto_horas.length > 1) {
+                        for (var i = 0; i < texto_horas.length; i++) {
+                            if (i == texto_horas - 1) {
+                                mensaje_horas += " y " + texto_horas[i];
+                            } else {
+                                mensaje_horas += texto_horas[i] + " , ";
+                            }
+                        }
                     } else {
-                        mensaje_horas += texto_horas[i] + " , ";
+                        mensaje_horas = texto_horas[0];
                     }
+                    mensaje = "Ya existen otros eventos creados " + mensaje_horas;
                 }
-            } else {
-                mensaje_horas = texto_horas[0];
-            }
-            mensaje = "Ya existen otros eventos creados " + mensaje_horas;
-        }
-        if (!validar) {
-            swal({
-                title: "Error",
-                text: mensaje,
-                type: "error"
-            });
-        } else {
-            datos_evento['tipo_evento'] = tipo_evento.value;
-            datos_evento['detalle'] = detalle_evento.value;
-            datos_evento['ubicacion'] = ubicacion.value;
-            datos_evento['horas'] = "De " + desde.options[desde.selectedIndex].text + " hasta " + hasta.options[hasta.selectedIndex].text;
-            $.ajax({
-                type: "POST",
-                url: BASE_URL + "Agenda/Administrar",
-                data: {
-                    datos: datos_evento,
-                    peticion: "Administrar",
-                    sql: "SQL_03",
-                    accion: "Se ha Actualizado el  Evento: " + datos_evento.tipo_evento,
-                },
-            }).done(function(result) {
-                if (result == 1) {
+                if (!validar) {
                     swal({
-                        title: "Éxito",
-                        text: "El evento ha sido modificado exitosamente",
-                        timer: 2000,
-                        showConfirmButton: false,
-                        type: "success"
+                        title: "Error",
+                        text: mensaje,
+                        type: "error"
                     });
-                    setTimeout(function() {
-                        location.reload();
-                    }, 1000);
                 } else {
-                    swal({
-                        title: "ERROR!",
-                        text: "Ha ocurrido un Error.</br>" + result,
-                        type: "error",
-                        html: true,
-                        showConfirmButton: true,
-                        customClass: "bigSwalV2",
-                    });
+                    datos_evento['tipo_evento'] = tipo_evento.value;
+                    datos_evento['detalle'] = detalle_evento.value;
+                    datos_evento['ubicacion'] = ubicacion.value;
+                    datos_evento['horas'] = "De " + desde.options[desde.selectedIndex].text + " hasta " + hasta.options[hasta.selectedIndex].text;
+                    $.ajax({
+                        type: "POST",
+                        url: BASE_URL + direccion_segura,
+                        data: {
+                            datos: datos_evento,
+                            peticion: "Administrar",
+                            sql: "SQL_03",
+                            accion: "Se ha Actualizado el  Evento: " + datos_evento.tipo_evento,
+                        },
+                    }).done(function (result) {
+                        if (result == 1) {
+                            swal({
+                                title: "Éxito",
+                                text: "El evento ha sido modificado exitosamente",
+                                timer: 2000,
+                                showConfirmButton: false,
+                                type: "success"
+                            });
+                            setTimeout(function () {
+                                location.reload();
+                            }, 1000);
+                        } else {
+                            swal({
+                                title: "ERROR!",
+                                text: "Ha ocurrido un Error.</br>" + result,
+                                type: "error",
+                                html: true,
+                                showConfirmButton: true,
+                                customClass: "bigSwalV2",
+                            });
+                        }
+                    })
                 }
-            })
+            });
+        },
+        error: function () {
+            alert('Error al codificar dirreccion');
         }
     });
 }

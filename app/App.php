@@ -15,6 +15,7 @@ final class Iniciar_Sistema
         $this->Errores = new Errores;
 
         $this->url = isset($_GET['url']) ? $_GET['url'] : null;
+        $this->url = Direcciones::Seguridad($this->url, 'decodificar');
         $this->url = rtrim($this->url, '/');
         $this->url = explode('/', $this->url);
 
@@ -27,36 +28,32 @@ final class Iniciar_Sistema
                         require_once 'controlador/inicio_controlador.php';
                         $this->controlador = new Inicio();
                         $this->controlador->Cargar_Modelo('inicio');
-                        $this->controlador->Inicio();
+                        $this->controlador->Cargar_Vistas();
                     } else {
-                        if ($this->Validar_URL()) {
-                            if ($this->Validar_Archivos() || $this->Validar_Controlador() || $this->Validar_Modelo()) {
-                                $this->Cargar_Controladores();
-                                $N_parametors = sizeof($this->url);
-                                if ($N_parametors > 1) {
-                                    if ($N_parametors > 2) {
-                                        $parametros = [];
-                                        for ($i = 2; $i < $N_parametors; $i++) {
-                                            array_push($parametros, $this->url[$i]);
-                                        }
-                                        $this->parametros = $parametros;
-                                        if ($this->Validar_Funcion() == true) {
-                                            $this->controlador->{$this->url[1]}($this->parametros);
-                                        } else {
-                                            $this->Errores->Error_409($this->error);
-                                        }
+                        if ($this->Validar_Archivos() || $this->Validar_Controlador() || $this->Validar_Modelo()) {
+                            $this->Cargar_Controladores();
+                            $N_parametors = sizeof($this->url);
+                            if ($N_parametors > 1) {
+                                if ($N_parametors > 2) {
+                                    $parametros = [];
+                                    for ($i = 2; $i < $N_parametors; $i++) {
+                                        array_push($parametros, $this->url[$i]);
+                                    }
+                                    $this->parametros = $parametros;
+                                    if ($this->Validar_Funcion() == true) {
+                                        $this->controlador->{$this->url[1]}($this->parametros);
                                     } else {
-                                        $this->Cargar_Funciones();
+                                        $this->Errores->Error_409($this->error);
                                     }
                                 } else {
-                                    $this->controlador->Cargar_Vistas();
+                                    $this->Cargar_Funciones();
                                 }
                             } else {
-                                $this->Errores->Error_404($this->error);
-                                $this->Guardar_Error();
+                                $this->controlador->Cargar_Vistas();
                             }
                         } else {
                             $this->Errores->Error_404($this->error);
+                            $this->Guardar_Error();
                         }
                     }
                 } else {
@@ -145,7 +142,7 @@ final class Iniciar_Sistema
             return false;
         } else {
             return true;
-        } 
+        }
     }
     private function Validar_Funcion()
     {
@@ -198,7 +195,7 @@ final class Iniciar_Sistema
         $error_log->Fecha   = $GLOBALS['fecha_larga'];
         $error_log->Hora    = date('h:i:s a');
         $error_log->Mensaje = $this->error;
-        error_log(print_r($error_log, true), 3, "errores.log"); 
+        error_log(print_r($error_log, true), 3, "errores.log");
     }
-     
+
 }

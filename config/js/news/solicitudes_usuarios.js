@@ -54,26 +54,41 @@ function send_request() {
     datos_persona['cedula_persona'] = "<?php echo $_SESSION['cedula_usuario'] ?>";
     datos_persona['tipo_constancia'] = doc.value;
     datos_persona['motivo_constancia'] = mot.value;
+    
+
     $.ajax({
         type: "POST",
-        url: BASE_URL + "Solicitudes/Nueva_solicitud",
+        url: BASE_URL + "app/Direcciones.php",
         data: {
-            "datos": datos_persona
-        }
-    }).done(function(result) {
-        console.log(result);
-        if (result == 1) {
-            swal({
-                title: "Éxito",
-                type: "success",
-                text: "Su solicitud de documento ha sido enviada satisfactoriamente",
-                showConfirmButton: false,
-                timer: 2000,
+            direction: "Solicitudes/Nueva_solicitud",
+            accion: "codificar"
+        },
+        success: function(direccion_segura) {
+            $.ajax({
+                type: "POST",
+                url: BASE_URL + direccion_segura,
+                data: {
+                    "datos": datos_persona
+                }
+            }).done(function(result) {
+                
+                if (result == 1) {
+                    swal({
+                        title: "Éxito",
+                        type: "success",
+                        text: "Su solicitud de documento ha sido enviada satisfactoriamente",
+                        showConfirmButton: false,
+                        timer: 2000,
+                    });
+                    doc.value = '0';
+                    mot.value = '';
+                    index = 1;
+                    cambio_vista();
+                }
             });
-            doc.value = '0';
-            mot.value = '';
-            index = 1;
-            cambio_vista();
+        },
+        error: function() {
+            alert('Error al codificar dirreccion');
         }
     });
 }

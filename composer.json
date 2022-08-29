@@ -9,17 +9,17 @@
     "version": "2.0",
     "license": "SETH",
     "autoload": {
-        "classmap": ["app/","controlador/", "modelo/", "tests/"],
+        "classmap": ["app/", "controlador/", "modelo/", "tests/"],
         "psr-4": {
             "App\\": "app/",
             "Controlador\\": "controlador/",
             "Modulo\\": "modelo/",
             "Prueba\\": "tests/"
         },
-        "files": ["app/Config.php", "app/App.php", "app/Base_Datos.php", "app/Modelo.php", "app/Vista.php", "app/Controlador.php"]
+        "files": ["app/Direcciones.php", "app/Config.php", "app/App.php", "app/Base_Datos.php", "app/Modelo.php", "app/Vista.php", "app/Controlador.php"]
     },
     "autoload-dev": {
-        "classmap": ["app/","controlador/", "modelo/", "tests/"],
+        "classmap": ["app/", "controlador/", "modelo/", "tests/"],
         "psr-4": {
             "App\\": "app/",
             "Controlador\\": "controlador/",

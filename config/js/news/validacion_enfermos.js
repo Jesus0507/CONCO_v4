@@ -13,7 +13,7 @@ var medicamentos = document.getElementById("medicamentos");
 var btn_agregar = document.getElementById("agregar");
 var enfermedades = [];
 var div_enfermedaedes = document.getElementById("enfermedades_agregadas");
-enfermedad_select.onchange = function() {
+enfermedad_select.onchange = function () {
     if (enfermedad_select.value == 'vacio') {
         valid_enfermedad.innerHTML = 'Ingrese la enfermedad';
         enfermedad_select.style.borderColor = 'red';
@@ -23,7 +23,7 @@ enfermedad_select.onchange = function() {
         enfermedad_select.style.borderColor = '';
     }
 }
-enfermedad_input.onchange = function() {
+enfermedad_input.onchange = function () {
     if (enfermedad_input.value == '') {
         valid_enfermedad.innerHTML = 'Ingrese la enfermedad';
         enfermedad_input.style.borderColor = 'red';
@@ -33,7 +33,7 @@ enfermedad_input.onchange = function() {
         enfermedad_input.style.borderColor = '';
     }
 }
-btn_nueva_enfermedad.onclick = function() {
+btn_nueva_enfermedad.onclick = function () {
     if (enfermedad_input.style.display == 'none') {
         valid_enfermedad.innerHTML = '';
         enfermedad_input.style.display = '';
@@ -50,7 +50,7 @@ btn_nueva_enfermedad.onclick = function() {
         btn_nueva_enfermedad.innerHTML = 'Nueva enfermedad';
     }
 }
-persona.onkeyup = function() {
+persona.onkeyup = function () {
     if (persona.value == '' || persona.value == null) {
         valid_persona.innerHTML = "Debe ingresar una persona";
         persona.focus();
@@ -61,7 +61,7 @@ persona.onkeyup = function() {
         persona.style.borderColor = '';
     }
 }
-btn_seleccionar.onclick = function() {
+btn_seleccionar.onclick = function () {
     if (persona.value == '' || persona.value == null) {
         valid_persona.innerHTML = "Debe ingresar una persona";
         persona.focus();
@@ -70,29 +70,44 @@ btn_seleccionar.onclick = function() {
         valid_persona.innerHTML = "";
         persona.focus();
         persona.style.borderColor = '';
+
         $.ajax({
             type: "POST",
-            url: BASE_URL + "Enfermos/Administrar",
+            url: BASE_URL + "app/Direcciones.php",
             data: {
-                peticion: "Personas",
-                "cedula": persona.value
+                direction: "Enfermos/Administrar",
+                accion: "codificar"
             },
-        }).done(function(result) {
-            if (result == 0) {
-                valid_persona.innerHTML = "Esta persona no se encuentra registrada";
-            } else {
-                valid_persona.innerHTML = "";
-                var datos = JSON.parse(result);
-                span_persona.innerHTML = datos[0]['primer_nombre'] + " " + datos[0]['primer_apellido'];
-                persona.disabled = 'disabled';
-                btn_seleccionar.style.display = 'none';
-                div_info.style.display = '';
-                registrar_btn.style.display = 'none';
+            success: function (direccion_segura) {
+                $.ajax({
+                    type: "POST",
+                    url: BASE_URL + direccion_segura,
+                    data: {
+                        peticion: "Personas",
+                        "cedula": persona.value
+                    },
+                }).done(function (result) {
+                    if (result == 0) {
+                        valid_persona.innerHTML = "Esta persona no se encuentra registrada";
+                    } else {
+                        valid_persona.innerHTML = "";
+                        var datos = JSON.parse(result);
+                        span_persona.innerHTML = datos[0]['primer_nombre'] + " " + datos[0]['primer_apellido'];
+                        persona.disabled = 'disabled';
+                        btn_seleccionar.style.display = 'none';
+                        div_info.style.display = '';
+                        registrar_btn.style.display = 'none';
+                    }
+                })
+            },
+            error: function () {
+                alert('Error al codificar dirreccion');
             }
-        })
+        });
+
     }
 }
-btn_agregar.onclick = function() {
+btn_agregar.onclick = function () {
     if ((enfermedad_input.style.display != 'none' && enfermedad_input.value == '') || (enfermedad_input.style.display == 'none' && enfermedad_select.value == 'vacio')) {
         valid_enfermedad.innerHTML = 'Ingrese la enfermedad';
         enfermedad_input.style.borderColor = 'red';
@@ -134,15 +149,15 @@ btn_agregar.onclick = function() {
         enfermedades.push(enfer);
         div.appendChild(hr);
         div_enfermedaedes.appendChild(div);
-        console.log(enfermedades);
-        button.onclick = function() {
-            div_enfermedaedes.removeChild(div);		
+
+        button.onclick = function () {
+            div_enfermedaedes.removeChild(div);
             enfermedades.splice(enfermedades.indexOf(enfer), 1);
-            console.log(enfermedades);
+
         }
     }
 }
-btn_guardar.onclick = function() {
+btn_guardar.onclick = function () {
     if (enfermedades.length == 0) {
         swal({
             type: "error",
@@ -152,38 +167,52 @@ btn_guardar.onclick = function() {
             showConfirmButton: false
         })
     } else {
+
         $.ajax({
-           
             type: "POST",
-            url: BASE_URL + "Enfermos/Administrar",
+            url: BASE_URL + "app/Direcciones.php",
             data: {
-                "cedula": persona.value,
-                "enfermedades": enfermedades,	
-                peticion: "Registrar",
-                sql: "SQL_05",
-                accion: "Se ha Registrado el  Enfermos pordator de la Cedula: " + $('#cedula').val(),
+                direction: "Enfermos/Administrar",
+                accion: "codificar"
             },
-        }).done(function(result) {
-            if (result == 1) {
-                swal({
-                    title: "Registrado!",
-                    text: "El elemento fue Registrado con exito.",
-                    type: "success",
-                    showConfirmButton: false
+            success: function (direccion_segura) {
+                $.ajax({
+
+                    type: "POST",
+                    url: BASE_URL + direccion_segura,
+                    data: {
+                        "cedula": persona.value,
+                        "enfermedades": enfermedades,
+                        peticion: "Registrar",
+                        sql: "SQL_05",
+                        accion: "Se ha Registrado el  Enfermos pordator de la Cedula: " + $('#cedula').val(),
+                    },
+                }).done(function (result) {
+                    if (result == 1) {
+                        swal({
+                            title: "Registrado!",
+                            text: "El elemento fue Registrado con exito.",
+                            type: "success",
+                            showConfirmButton: false
+                        });
+
+                        Direccionar("Enfermos/Administrar/Consultas");
+                    } else {
+                        swal({
+                            title: "ERROR!",
+                            text: "Ha ocurrido un Error.</br>" + result,
+                            type: "error",
+                            html: true,
+                            showConfirmButton: true,
+                            customClass: "bigSwalV2",
+                        });
+                    }
                 });
-                setTimeout(function() {
-                    location.href = BASE_URL + "Enfermos/Administrar/Consultas"
-                }, 1000);
-            } else {
-                swal({
-                    title: "ERROR!",
-                    text: "Ha ocurrido un Error.</br>" + result,
-                    type: "error",
-                    html: true,
-                    showConfirmButton: true,
-                    customClass: "bigSwalV2",
-                });
+            },
+            error: function () {
+                alert('Error al codificar dirreccion');
             }
         });
+
     }
 }

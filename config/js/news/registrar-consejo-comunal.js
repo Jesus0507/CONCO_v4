@@ -17,7 +17,7 @@
               fecha_ingreso: $("#fecha_ingreso").val(),
               fecha_salida: $("#fecha_salida").val(),
           };
-          var retornar = false;
+          
           if (cedula_persona.value == '' || cedula_persona.value == null) {
               mensaje_1.innerHTML = 'Debe escribir una cedula ';
               cedula_persona.style.borderColor = 'red';
@@ -50,41 +50,53 @@
                       } else {
                           mensaje_4.innerHTML = '';
                           fecha_ingreso.style.borderColor = '';
+                          
                           $.ajax({
-                              type: "POST",
-                              url: BASE_URL + "Consejo_Comunal/Administrar",
-                              data: {
-                                  datos: datos,
-                                  peticion: "Registrar",
-                                  sql: "SQL_02",
-                                  accion: "El portador de la cedula" + datos.cedula_persona + " fue Registrado como vocero \\Exitosamente.",
-                              },
-                              success: function(datos) {
-                                  if (datos == 1) {
-                                      swal({
-                                          title: "Registrado!",
-                                          text: "El elemento fue Registrado con exito.",
-                                          type: "success",
-                                          showConfirmButton: false
-                                      });
-                                      setTimeout(function() {
-                                          location.href = BASE_URL + 'Consejo_Comunal/Administrar/Consultas';
-                                      }, 2000);
-                                  } else {
-                                      swal({
-                                          title: "ERROR!",
-                                          text: "Ha ocurrido un Error.</br>" + datos,
-                                          type: "error",
-                                          html: true,
-                                          showConfirmButton: true,
-                                          customClass: "bigSwalV2",
-                                      });
-                                  }
-                              },
-                              error: function(datos) {
-                                  alert("Error al enviar Controlador")
-                              }
-                          });
+                            type: "POST",
+                            url: BASE_URL + "app/Direcciones.php",
+                            data: {
+                                direction: "Consejo_Comunal/Administrar",
+                                accion: "codificar"
+                            },
+                            success: function(direccion_segura) {
+                                $.ajax({
+                                    type: "POST",
+                                    url: BASE_URL + direccion_segura,
+                                    data: {
+                                        datos: datos,
+                                        peticion: "Registrar",
+                                        sql: "SQL_02",
+                                        accion: "El portador de la cedula" + datos.cedula_persona + " fue Registrado como vocero \\Exitosamente.",
+                                    },
+                                    success: function(datos) {
+                                        if (datos == 1) {
+                                            swal({
+                                                title: "Registrado!",
+                                                text: "El elemento fue Registrado con exito.",
+                                                type: "success",
+                                                showConfirmButton: false
+                                            });
+                                            Direccionar('Consejo_Comunal/Administrar/Consultas');
+                                        } else {
+                                            swal({
+                                                title: "ERROR!",
+                                                text: "Ha ocurrido un Error.</br>" + datos,
+                                                type: "error",
+                                                html: true,
+                                                showConfirmButton: true,
+                                                customClass: "bigSwalV2",
+                                            });
+                                        }
+                                    },
+                                    error: function(datos) {
+                                        alert("Error al enviar Controlador")
+                                    }
+                                });
+                            },
+                            error: function() {
+                                alert('Error al codificar dirreccion');
+                            }
+                        });
                       }
                   }
               }

@@ -1,6 +1,4 @@
-<?php include (call."Inicio.php"); 
-
-?>
+<?php include (call."Inicio.php"); ?>
 
 <!-- Contenido de la pagina -->
 <div class="content-wrapper">
@@ -10,7 +8,7 @@
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <h1 class="m-0">Consejo Comunal Prados de Occidente</h1>
-                    
+
                 </div><!-- /.col -->
                 <!-- /.col -->
             </div><!-- /.row -->
@@ -31,7 +29,7 @@
                     <div class="info-box-content">
                         <a href="javascript:void(0)">
                             <span class="info-box-text">
-                                <h3>Personas</h3> 
+                                <h3>Personas</h3>
                             </span>
                         </a>
                         <h4>
@@ -51,7 +49,8 @@
             <!-- /.col -->
             <div class="col-12 col-sm-6 col-md-4">
                 <div class="info-box mb-3">
-                    <span class="info-box-icon elevation-1" style="background: #00535E;color: white;"><i class="mdi mdi-home-outline"></i></span>
+                    <span class="info-box-icon elevation-1" style="background: #00535E;color: white;"><i
+                            class="mdi mdi-home-outline"></i></span>
 
                     <div class="info-box-content">
                         <a href="javascript:void(0)">
@@ -80,12 +79,12 @@
 
             <div class="col-12 col-sm-6 col-md-4">
                 <div class="info-box mb-3">
-                    <span class="info-box-icon  elevation-1" style="background: #00535E;color: white;"><i class="mdi mdi-view-parallel"
-                            style="color: white;"></i></span>
+                    <span class="info-box-icon  elevation-1" style="background: #00535E;color: white;"><i
+                            class="mdi mdi-view-parallel" style="color: white;"></i></span>
 
                     <div class="info-box-content">
                         <a href="javascript:void(0)">
-                            <span class="" >
+                            <span class="">
                                 <h3>Calles</h3>
                             </span>
                         </a>
@@ -129,36 +128,40 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body p-0">
-                   <center>
-                       <div id='calendario_eventos_habitante'>
-              <table style="width:100%" >
-                  <tr>
-                    <td style="text-align:right;font-size:28px;cursor:pointer;color:#299287;" onmouseover="this.style.color='#49C5B8'" onmouseout="this.style.color='#299287'">
-                        <em class="fas fa-arrow-circle-left" id="back-mes"></em>
-                    </td>
-                      <td style="text-align:center;font-size:26px;font-weight: bold">
-                           <span id="mes-name">Mes</span> <span id="anio-name">Año</span>
-                      </td>
-                      <td style="text-align:left;font-size:28px;cursor:pointer;color:#299287;" onmouseover="this.style.color='#49C5B8'" onmouseout="this.style.color='#299287'">
-                        <em class="fas fa-arrow-circle-right" id="next-mes" ></em>
-                    </td>
-                  </tr>
-              </table>
-              <div style="width:100%;height:2px;background:#299287"></div>
-              <br>
-              <div id="calendario-view"style='width:90%'></div>
-              <br>
-<br>
-</div>
-                   </center>
+                        <center>
+                            <div id='calendario_eventos_habitante'>
+                                <table style="width:100%">
+                                    <tr>
+                                        <td style="text-align:right;font-size:28px;cursor:pointer;color:#299287;"
+                                            onmouseover="this.style.color='#49C5B8'"
+                                            onmouseout="this.style.color='#299287'">
+                                            <em class="fas fa-arrow-circle-left" id="back-mes"></em>
+                                        </td>
+                                        <td style="text-align:center;font-size:26px;font-weight: bold">
+                                            <span id="mes-name">Mes</span> <span id="anio-name">Año</span>
+                                        </td>
+                                        <td style="text-align:left;font-size:28px;cursor:pointer;color:#299287;"
+                                            onmouseover="this.style.color='#49C5B8'"
+                                            onmouseout="this.style.color='#299287'">
+                                            <em class="fas fa-arrow-circle-right" id="next-mes"></em>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <div style="width:100%;height:2px;background:#299287"></div>
+                                <br>
+                                <div id="calendario-view" style='width:90%'></div>
+                                <br>
+                                <br>
+                            </div>
+                        </center>
                     </div>
                     <!-- /.card-body -->
-  
+
                     <!-- /.card-footer -->
                 </div>
                 <!-- /.card -->
             </div>
-  
+
             <div class="col-md-4">
                 <!-- Info Boxes Style 2 -->
                 <div class="info-box mb-3 " style="background: #02A2A1;color: white;">
@@ -213,4 +216,4 @@
 <!-- /.content-wrapper -->
 <?php include (call."Fin.php"); ?>
 <?php include (call."style-agenda.php"); ?>
-<script src="<?php echo constant('URL')?>config/js/news/consulta-eventos-habitante.js"></script> 
+<script src="<?php echo constant('URL')?>config/js/news/consulta-eventos-habitante.js"></script>

@@ -9,104 +9,112 @@ var texto_click_notificaciones = [];
 getNotifications_habitante();
 
 function getNotifications_habitante() {
+
   $.ajax({
     type: "POST",
-    url: BASE_URL + "Notificaciones/Consultar_notificaciones",
-  }).done(function (datos) {
-    var result = JSON.parse(datos);
+    url: BASE_URL + "app/Direcciones.php",
+    data: {
+      direction: "Notificaciones/Consultar_notificaciones",
+      accion: "codificar"
+    },
+    success: function (direccion_segura) {
+      $.ajax({
+        type: "POST",
+        url: BASE_URL + direccion_segura,
+      }).done(function (datos) {
+        var result = JSON.parse(datos);
 
-    var cant = 0;
-    var cuerpo = "";
+        var cant = 0;
+        var cuerpo = "";
 
-    for (var i = 0; i < result.length; i++) {
-      var tipo = result[i]["accion"];
-      tipo = tipo.split("/");
-      var icono = "";
-      var fechaNotificacion = new Date(result[i]["fecha"]);
-      var fechaActual = new Date();
-      var span = getSpan(fechaNotificacion, fechaActual);
+        for (var i = 0; i < result.length; i++) {
+          var tipo = result[i]["accion"];
+          tipo = tipo.split("/");
+          var icono = "";
+          var fechaNotificacion = new Date(result[i]["fecha"]);
+          var fechaActual = new Date();
+          var span = getSpan(fechaNotificacion, fechaActual);
 
-      switch (parseInt(tipo[0])) {
-        case 1:
-          icono = "<i class='fas fa-unlock'></i>";
-          break;
-        case 2:
-          icono = "<i class='fas fa-lock'></i>";
-          break;
-        case 3:
-          icono = "<i class='fas fa-calendar'></i>";
-          break;
-        case 4:
-          icono = "<i class='fas fa-check'></i>";
-          break;
-        case 5:
-          icono = "<i class='fas fa-times'></i>";
-          break;
-      }
+          switch (parseInt(tipo[0])) {
+            case 1:
+              icono = "<i class='fas fa-unlock'></i>";
+              break;
+            case 2:
+              icono = "<i class='fas fa-lock'></i>";
+              break;
+            case 3:
+              icono = "<i class='fas fa-calendar'></i>";
+              break;
+            case 4:
+              icono = "<i class='fas fa-check'></i>";
+              break;
+            case 5:
+              icono = "<i class='fas fa-times'></i>";
+              break;
+          }
+          var mensaje = getRecortado(tipo[1]);
 
-      var mensaje = getRecortado(tipo[1]);
+          if (result[i]["leido"] == 0) {
+            texto_click_notificaciones.push(JSON.stringify(result[i]));
+            cant++;
+            cuerpo +=
+              "<a title='" +
+              tipo[1] +
+              "' href='javascript:void(0)' class='dropdown-item' style='font-size:12px !important' onclick='setStatus(`" +
+              result[i]["id_notificacion"] +
+              "`,`" +
+              tipo[1] +
+              "`)'>";
+            cuerpo += icono + " " + mensaje + span;
+            cuerpo += "</a><div class='dropdown-divider'></div>";
+          } else {
+            texto_click_notificaciones.push(JSON.stringify(result[i]));
 
+            cuerpo +=
+              "<a title='" +
+              tipo[1] +
+              "' href='javascript:void(0)' class='dropdown-item' style='background:#BFBFBF;font-size:12px !important;' onclick='setStatus(`" +
+              result[i]["id_notificacion"] +
+              "`,`" +
+              tipo[1] +
+              "`)'>";
+            cuerpo += icono + " " + mensaje + span;
+            cuerpo += "</a><div class='dropdown-divider'></div>";
+          }
+        }
 
+        if (result.length == 0) {
+          verTodas.style.display = "none";
+          notificaciones_no_leidas.innerHTML = "No hay notificaciones";
+          notificaciones.style.display = "none";
+          cantidad.innerHTML = "0";
+          cantidad.style.display = "none";
+        } else {
+          verTodas.style.display = "";
 
-      if (result[i]["leido"] == 0) {
-        texto_click_notificaciones.push(JSON.stringify(result[i]));
+          if (cant == 0) {
+            notificaciones_no_leidas.innerHTML = "No hay notificaciones nuevas";
+            cantidad.style.display = "none";
+            cantidad.innerHTML = "0";
+            document.getElementById("page-title").innerHTML =
+              "C.C Prados de Occidente";
+          } else {
+            notificaciones_no_leidas.innerHTML = cant + " Notificaciones";
+            cantidad.style.display = "";
+            cantidad.innerHTML = cant;
+            document.getElementById("page-title").innerHTML =
+              "(" + cant + ") Notificaciones";
+          }
 
-
-        cant++;
-        cuerpo +=
-          "<a title='" +
-          tipo[1] +
-          "' href='javascript:void(0)' class='dropdown-item' style='font-size:12px !important' onclick='setStatus(`" +
-          result[i]["id_notificacion"] +
-          "`,`" +
-          tipo[1] +
-          "`)'>";
-        cuerpo += icono + " " + mensaje + span;
-        cuerpo += "</a><div class='dropdown-divider'></div>";
-      } else {
-        texto_click_notificaciones.push(JSON.stringify(result[i]));
-
-        cuerpo +=
-          "<a title='" +
-          tipo[1] +
-          "' href='javascript:void(0)' class='dropdown-item' style='background:#BFBFBF;font-size:12px !important;' onclick='setStatus(`" +
-          result[i]["id_notificacion"] +
-          "`,`" +
-          tipo[1]+
-          "`)'>";
-        cuerpo += icono + " " + mensaje + span;
-        cuerpo += "</a><div class='dropdown-divider'></div>";
-      }
-    }
-
-    if (result.length == 0) {
-      verTodas.style.display = "none";
-      notificaciones_no_leidas.innerHTML = "No hay notificaciones";
-      notificaciones.style.display = "none";
-      cantidad.innerHTML = "0";
-      cantidad.style.display = "none";
-    } else {
-      verTodas.style.display = "";
-
-      if (cant == 0) {
-        notificaciones_no_leidas.innerHTML = "No hay notificaciones nuevas";
-        cantidad.style.display = "none";
-        cantidad.innerHTML = "0";
-        document.getElementById("page-title").innerHTML =
-          "C.C Prados de Occidente";
-      } else {
-        notificaciones_no_leidas.innerHTML = cant + " Notificaciones";
-        cantidad.style.display = "";
-        cantidad.innerHTML = cant;
-        document.getElementById("page-title").innerHTML =
-          "(" + cant + ") Notificaciones";
-      }
-
-      notificaciones.innerHTML = cuerpo;
-      notificaciones.style.display = "";
+          notificaciones.innerHTML = cuerpo;
+          notificaciones.style.display = "";
+        }
+      });
+    },
+    error: function () {
+      alert('Error al codificar dirreccion');
     }
   });
-
   setTimeout(function () {
     getNotifications_habitante();
   }, 5000);
@@ -150,8 +158,6 @@ function getSpan(fechaN, fechaA) {
 }
 
 function setStatus(id, texto) {
-//   var notificacion = JSON.parse(texto_click_notificaciones[indice]);
-//   var texto_notificacion = notificacion["accion"].split("/");
 
   swal({
     title: "Información de la notificación",
@@ -159,14 +165,26 @@ function setStatus(id, texto) {
     html: true,
   });
 
+
   $.ajax({
     type: "POST",
-    url: BASE_URL + "Notificaciones/Set_status",
-    data: { id: id },
-  }).done(function (datos) {
-    getNotifications_habitante();
-
-    // window.open(BASE_URL + 'Notificaciones/Notificacion&id='+id);
+    url: BASE_URL + "app/Direcciones.php",
+    data: {
+      direction: "Notificaciones/Set_status",
+      accion: "codificar"
+    },
+    success: function (direccion_segura) {
+      $.ajax({
+        type: "POST",
+        url: BASE_URL + direccion_segura,
+        data: { id: id },
+      }).done(function (datos) {
+        getNotifications_habitante();
+      });
+    },
+    error: function () {
+      alert('Error al codificar dirreccion');
+    }
   });
 }
 
@@ -190,9 +208,22 @@ function getRecortado(text) {
 function nueva_notificacion(datos) {
   $.ajax({
     type: "POST",
-    url: BASE_URL + "Notificaciones/Nueva_notificacion",
-    data: { datos: datos },
-  }).done(function (result) {
-    getNotifications();
+    url: BASE_URL + "app/Direcciones.php",
+    data: {
+      direction: "Notificaciones/Nueva_notificacion",
+      accion: "codificar"
+    },
+    success: function (direccion_segura) {
+      $.ajax({
+        type: "POST",
+        url: BASE_URL + direccion_segura,
+        data: { datos: datos },
+      }).done(function (result) {
+        getNotifications();
+      });
+    },
+    error: function () {
+      alert('Error al codificar dirreccion');
+    }
   });
 }

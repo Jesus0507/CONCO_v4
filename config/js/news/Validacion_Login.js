@@ -30,28 +30,42 @@ function envioFormulario() {
     var errores = "";
     var form = $("#formulario_login");
     if (Validar_Datos()) {
+       
         $.ajax({
             type: "POST",
-            url: BASE_URL + "Usuario/Usuario_Existente",
+            url: BASE_URL + "app/Direcciones.php",
             data: {
-                cedula: $("#cedula").val(),
-                contrasenia: $("#contrasenia").val(),
-                captcha: $("#captcha_code").val(),
+                direction: "Usuario/Usuario_Existente",
+                accion: "codificar"
             },
-            beforeSend: function() {
-                $("#enviar").text("Enviando...");
-                $("#enviar").attr("disabled", true);
+            success: function(direccion_segura) {
+                $.ajax({
+                    type: "POST",
+                    url: BASE_URL + direccion_segura,
+                    data: {
+                        cedula: $("#cedula").val(),
+                        contrasenia: $("#contrasenia").val(),
+                        captcha: $("#captcha_code").val(),
+                    },
+                    beforeSend: function() {
+                        $("#enviar").text("Enviando...");
+                        $("#enviar").attr("disabled", true);
+                    },
+                    complete: function(respuesta) {
+                        $("#enviar").text("Entrar");
+                        $("#enviar").attr("disabled", false);
+                    },
+                    success: function(respuesta) {
+                        Respuesta_Controlador(respuesta, form);
+                    },
+                    error: function(respuesta) {
+                        alert("Error al enviar Controlador");
+                    },
+                });
             },
-            complete: function(respuesta) {
-                $("#enviar").text("Entrar");
-                $("#enviar").attr("disabled", false);
-            },
-            success: function(respuesta) {
-                Respuesta_Controlador(respuesta, form);
-            },
-            error: function(respuesta) {
-                alert("Error al enviar Controlador");
-            },
+            error: function() {
+                alert('Error al codificar dirreccion');
+            }
         });
     }
 }
@@ -157,40 +171,54 @@ document.getElementById("modificarContrasenia").onclick = function() {
         } else {
             document.getElementById("cedulaEmergente").style.borderColor = "";
             document.getElementById("textoCedula").innerHTML = "";
+            
             $.ajax({
                 type: "POST",
-                url: BASE_URL + "login/Administrar",
-                type: "POST",
+                url: BASE_URL + "app/Direcciones.php",
                 data: {
-                    peticion: "Consultar",
-                    cedula: document.getElementById("cedulaEmergente").value,
+                    direction: "Login/Administrar",
+                    accion: "codificar"
                 },
-            }).done(function(result) {
-                var resultado = JSON.parse(result);
-                if (resultado.length == 0 || resultado[0]["estado"] == 0) {
-                    document.getElementById("cedulaEmergente").style.borderColor = "red";
-                    document.getElementById("textoCedula").innerHTML = "Usuario no válido";
-                    document.getElementById("textoCedula").style.color = 'red';
-                    document.getElementById("cedulaEmergente").focus();
-                } else {
-                    if (resultado[0]['preguntas_seguridad'] == "" || resultado[0]['preguntas_seguridad'] == null) {
-                        swal({
-                            type: "error",
-                            title: "Error",
-                            text: "Su usuario no posee preguntas de seguridad registradas. Colóquese en contacto con un super usuario para recuperar su contraseña",
-                            timer: 3000,
-                            showConfirmButton: false
-                        });
-                    } else {
-                        document.getElementById("cedulaEmergente").style.borderColor = "";
-                        document.getElementById("textoCedula").innerHTML = "";
-                        document.getElementById("cedulaEmergente").readOnly = "readOnly";
-                        document.getElementById("textoCedula").style.color = "green";
-                        document.getElementById("textoCedula").innerHTML = resultado[0]["primer_nombre"] + " " + resultado[0]["primer_apellido"];
-                        info = resultado[0];
-                        document.getElementById("modificarContrasenia").value = 'Listo';
-                        $("#info").show(500);
-                    }
+                success: function(direccion_segura) {
+                    $.ajax({
+                        type: "POST",
+                        url: BASE_URL + direccion_segura,
+                        type: "POST",
+                        data: {
+                            peticion: "Consultar",
+                            cedula: document.getElementById("cedulaEmergente").value,
+                        },
+                    }).done(function(result) {
+                        var resultado = JSON.parse(result);
+                        if (resultado.length == 0 || resultado[0]["estado"] == 0) {
+                            document.getElementById("cedulaEmergente").style.borderColor = "red";
+                            document.getElementById("textoCedula").innerHTML = "Usuario no válido";
+                            document.getElementById("textoCedula").style.color = 'red';
+                            document.getElementById("cedulaEmergente").focus();
+                        } else {
+                            if (resultado[0]['preguntas_seguridad'] == "" || resultado[0]['preguntas_seguridad'] == null) {
+                                swal({
+                                    type: "error",
+                                    title: "Error",
+                                    text: "Su usuario no posee preguntas de seguridad registradas. Colóquese en contacto con un super usuario para recuperar su contraseña",
+                                    timer: 3000,
+                                    showConfirmButton: false
+                                });
+                            } else {
+                                document.getElementById("cedulaEmergente").style.borderColor = "";
+                                document.getElementById("textoCedula").innerHTML = "";
+                                document.getElementById("cedulaEmergente").readOnly = "readOnly";
+                                document.getElementById("textoCedula").style.color = "green";
+                                document.getElementById("textoCedula").innerHTML = resultado[0]["primer_nombre"] + " " + resultado[0]["primer_apellido"];
+                                info = resultado[0];
+                                document.getElementById("modificarContrasenia").value = 'Listo';
+                                $("#info").show(500);
+                            }
+                        }
+                    });
+                },
+                error: function() {
+                    alert('Error al codificar dirreccion');
                 }
             });
         }
@@ -215,27 +243,41 @@ document.getElementById("modificarContrasenia").onclick = function() {
                         showConfirmButton: false
                     });
                 } else {
+                    
                     $.ajax({
                         type: "POST",
-                        url: BASE_URL + "login/Administrar",
-                        type: "POST",
+                        url: BASE_URL + "app/Direcciones.php",
                         data: {
-                            peticion: "Recuperar",
-                            cedula: document.getElementById("cedulaEmergente").value,
-                            clave: document.getElementById("passwordEmergente").value
+                            direction: "Login/Administrar",
+                            accion: "codificar"
                         },
-                    }).done(function(datos) {
-                        if (datos) {
-                            swal({
-                                type: "success",
-                                title: "Éxito",
-                                text: "Su contraseña ha sido cambiada exitosamente",
-                                timer: 3000,
-                                showConfirmButton: false
-                            });
-                            $('#password').modal('hide');
+                        success: function(direccion_segura) {
+                            $.ajax({
+                                type: "POST",
+                                url: BASE_URL + direccion_segura,
+                                type: "POST",
+                                data: {
+                                    peticion: "Recuperar",
+                                    cedula: document.getElementById("cedulaEmergente").value,
+                                    clave: document.getElementById("passwordEmergente").value
+                                },
+                            }).done(function(datos) {
+                                if (datos) {
+                                    swal({
+                                        type: "success",
+                                        title: "Éxito",
+                                        text: "Su contraseña ha sido cambiada exitosamente",
+                                        timer: 3000,
+                                        showConfirmButton: false
+                                    });
+                                    $('#password').modal('hide');
+                                }
+                            })
+                        },
+                        error: function() {
+                            alert('Error al codificar dirreccion');
                         }
-                    })
+                    });
                 }
             } else {
                 swal({

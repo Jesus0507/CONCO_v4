@@ -49,39 +49,51 @@
                         } else {
                             mensaje_4.innerHTML = '';
                             tipo_inmueble.style.borderColor = '';
+                            
                             $.ajax({
-                                type: 'POST',
-                                url: BASE_URL + 'Inmuebles/Administrar',
+                                type: "POST",
+                                url: BASE_URL + "app/Direcciones.php",
                                 data: {
-                                    'datos': datos,
-                                    peticion: "Administrar",
-                                    sql: "SQL_02",
-                                    accion: "Se ha registrado un nuevo Inmueble: " + datos.nombre_inmueble,
+                                    direction: 'Inmuebles/Administrar',
+                                    accion: "codificar"
                                 },
-                                success: function(respuesta) {
-                                    if (respuesta == 1) {
-                                        swal({
-                                            title: "Exito!",
-                                            text: "Se ha registrado de forma exitosa",
-                                            type: "success",
-                                            showConfirmButton: false,
-                                        });
-                                        setTimeout(function() {
-                                            location.href = BASE_URL + 'Inmuebles/Administrar/Consultas';
-                                        }, 2000);
-                                    } else {
-                                        swal({
-                                            title: "ERROR!",
-                                            text: "Ha ocurrido un Error.</br>" + respuesta,
-                                            type: "error",
-                                            html: true,
-                                            showConfirmButton: true,
-                                            customClass: "bigSwalV2",
-                                        });
-                                    }
+                                success: function(direccion_segura) {
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: BASE_URL + direccion_segura,
+                                        data: {
+                                            'datos': datos,
+                                            peticion: "Administrar",
+                                            sql: "SQL_02",
+                                            accion: "Se ha registrado un nuevo Inmueble: " + datos.nombre_inmueble,
+                                        },
+                                        success: function(respuesta) {
+                                            if (respuesta == 1) {
+                                                swal({
+                                                    title: "Exito!",
+                                                    text: "Se ha registrado de forma exitosa",
+                                                    type: "success",
+                                                    showConfirmButton: false,
+                                                });
+                                                Direccionar('Inmuebles/Administrar/Consultas');
+                                            } else {
+                                                swal({
+                                                    title: "ERROR!",
+                                                    text: "Ha ocurrido un Error.</br>" + respuesta,
+                                                    type: "error",
+                                                    html: true,
+                                                    showConfirmButton: true,
+                                                    customClass: "bigSwalV2",
+                                                });
+                                            }
+                                        },
+                                        error: function(respuesta) {
+                                            alert("Error al enviar Controlador")
+                                        }
+                                    });
                                 },
-                                error: function(respuesta) {
-                                    alert("Error al enviar Controlador")
+                                error: function() {
+                                    alert('Error al codificar dirreccion');
                                 }
                             });
                         }

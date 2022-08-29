@@ -37,7 +37,7 @@
                                                         class="fas fa-lg fa-building"></i></span> Direccion: Prados de
                                                 Occidente Calle 16.</li>
                                             <li class="small"><span class="fa-li"><i
-                                                        class="fas fa-lg fa-phone"></i></span> Tlf #: (0426) 355-0689
+                                                        class="fas fa-lg fa-phone"></i></span> Tlf #: (0416) 183-5429
                                             </li>
                                         </ul>
                                     </div>
@@ -49,14 +49,7 @@
                             </div>
                             <div class="card-footer">
                                 <div class="text-right">
-                                    <!-- <a href="javascript:void(0)" class="btn btn-sm bg-danger" title="Email"
-                                        type="button" data-toggle="modal" data-target="#correo">
-                                        <i class="fa fa-envelope" style="font-size: 20px;"></i>
-                                    </a>
-                                    <a href="javascript:void(0)" class="btn btn-sm bg-teal" title="WhatsApp"
-                                        type="button" data-toggle="modal" data-target="#actualizar">
-                                        <i class="fa fa-whatsapp" style="font-size: 20px;"></i>
-                                    </a> -->
+                                   
                                 </div>
                             </div>
                         </div>
@@ -89,14 +82,7 @@
                             </div>
                             <div class="card-footer">
                                 <div class="text-right">
-                                    <!-- <a href="javascript:void(0)" class="btn btn-sm bg-danger" title="Email"
-                                        type="button" data-toggle="modal" data-target="#correo">
-                                        <i class="fa fa-envelope" style="font-size: 20px;"></i>
-                                    </a>
-                                    <a href="javascript:void(0)" class="btn btn-sm bg-teal" title="WhatsApp"
-                                        type="button" data-toggle="modal" data-target="#actualizar">
-                                        <i class="fa fa-whatsapp" style="font-size: 20px;"></i>
-                                    </a> -->
+                                   
                                 </div>
                             </div>
                         </div>

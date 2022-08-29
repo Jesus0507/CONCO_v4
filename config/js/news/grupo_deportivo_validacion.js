@@ -1,15 +1,15 @@
-$(document).ready(function() {
+$(document).ready(function () {
     var btn_agregar = document.getElementById("agregar");
     var div_integrantes = document.getElementById("integrantes_agregados");
     var integrantes = [];
     var integrantes_input = document.getElementById("integrantes");
     var valid_integrantes = document.getElementById("valid_integrantes");
-    btn_agregar.onclick = function() {
+    btn_agregar.onclick = function () {
         if ((integrantes_input.style.display != 'none' && integrantes_input.value == '')) {
             valid_integrantes.innerHTML = 'Ingrese el integrante';
             integrantes_input.style.borderColor = 'red';
             integrantes_input.focus();
-        } else { 
+        } else {
             valid_integrantes.innerHTML = '';
             integrantes_input.style.borderColor = '';
             var enfer = new Object();
@@ -40,16 +40,16 @@ $(document).ready(function() {
             integrantes.push(enfer);
             div.appendChild(hr);
             div_integrantes.appendChild(div);
-            
-            button.onclick = function() {
+
+            button.onclick = function () {
                 div_integrantes.removeChild(div);
                 integrantes.splice(integrantes.indexOf(enfer), 1);
-                
+
             }
         }
     }
-    $(document).on('click', '#guardar', function() {
-        
+    $(document).on('click', '#guardar', function () {
+
         var datos = {
             id_deporte: $('#id_deporte').val(),
             nombre_grupo_deportivo: $('#nombre_grupo_deportivo').val(),
@@ -58,37 +58,49 @@ $(document).ready(function() {
         };
         $.ajax({
             type: "POST",
-            url: BASE_URL + "Grupos_Deportivos/Administrar",
+            url: BASE_URL + "app/Direcciones.php",
             data: {
-                peticion: "Administrar",
-                sql: "SQL_01",
-                datos: datos,
-                integrantes: integrantes,   
-                accion: "Se ha Registrado el  Grupos Deportivo pordator de la Cedula: " + $('#nombre_grupo_deportivo').val(),
+                direction: "Grupos_Deportivos/Administrar",
+                accion: "codificar"
             },
-        }).done(function(result) {
-           if (result == 1) {
-                swal({
-                    title: "Registrado!",
-                    text: "El elemento fue Registrado con exito.",
-                    type: "success",
-                    showConfirmButton: false
-                });
-                setTimeout(function() {
-                    location.href = BASE_URL + "Grupos_Deportivos/Administrar/Consultas"
-                }, 1000);
-            } else {
-                swal({
-                    title: "ERROR!",
-                    text: "Ha ocurrido un Error.</br>" + result,
-                    type: "error",
-                    html: true,
-                    showConfirmButton: true,
-                    customClass: "bigSwalV2",
-                });
+            success: function (direccion_segura) {
+                $.ajax({
+                    type: "POST",
+                    url: BASE_URL + direccion_segura,
+                    data: {
+                        peticion: "Administrar",
+                        sql: "SQL_01",
+                        datos: datos,
+                        integrantes: integrantes,
+                        accion: "Se ha Registrado el  Grupos Deportivo pordator de la Cedula: " + $('#nombre_grupo_deportivo').val(),
+                    },
+                }).done(function (result) {
+                    if (result == 1) {
+                        swal({
+                            title: "Registrado!",
+                            text: "El elemento fue Registrado con exito.",
+                            type: "success",
+                            showConfirmButton: false
+                        });
+                        Direccionar("Grupos_Deportivos/Administrar/Consultas");
+                    } else {
+                        swal({
+                            title: "ERROR!",
+                            text: "Ha ocurrido un Error.</br>" + result,
+                            type: "error",
+                            html: true,
+                            showConfirmButton: true,
+                            customClass: "bigSwalV2",
+                        });
+                    }
+                }).fail(function () {
+                    alert("error")
+                })
+            },
+            error: function () {
+                alert('Error al codificar dirreccion');
             }
-        }).fail(function() {
-            alert("error")
-        })
+        });
     });
+   
 });

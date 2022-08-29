@@ -1,6 +1,6 @@
 <?php include call . "Inicio.php";?>
 <?php include (call."data-table.php"); ?>
- 
+
 <!-- Contenido de la pagina -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -47,7 +47,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                    <script src="<?php echo constant('URL')?>config/js/ajax/Ajax_Consultas_Bitacora.js"></script>
+                        <script src="<?php echo constant('URL')?>config/js/ajax/Ajax_Consultas_Bitacora.js"></script>
                     </tbody>
                     <tfoot>
                         <tr>

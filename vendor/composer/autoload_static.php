@@ -10,6 +10,7 @@ class ComposerStaticInit2a8b9cfa11dbcd502b3063f9f8235c8c
         'ec07570ca5a812141189b1fa81503674' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert/Functions.php',
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
+        '2d9eac33ac1a55533c8262a0fd2e2c82' => __DIR__ . '/../..' . '/app/Direcciones.php',
         'a2c9b60a31662db3fa324e21415a4936' => __DIR__ . '/../..' . '/app/Config.php',
         '87fbf896c2e050df8a34c5a57cdb1f51' => __DIR__ . '/../..' . '/app/App.php',
         '709248c3c42e6e199a15ee82b046c917' => __DIR__ . '/../..' . '/app/Base_Datos.php',
@@ -27,6 +28,10 @@ class ComposerStaticInit2a8b9cfa11dbcd502b3063f9f8235c8c
         array (
             'Webmozart\\Assert\\' => 17,
         ),
+        'T' => 
+        array (
+            'Tests\\' => 6,
+        ),
         'S' => 
         array (
             'Symfony\\Polyfill\\Ctype\\' => 23,
@@ -40,6 +45,7 @@ class ComposerStaticInit2a8b9cfa11dbcd502b3063f9f8235c8c
         'M' => 
         array (
             'Modulo\\' => 7,
+            'Modelo\\' => 7,
         ),
         'D' => 
         array (
@@ -49,6 +55,10 @@ class ComposerStaticInit2a8b9cfa11dbcd502b3063f9f8235c8c
         'C' => 
         array (
             'Controlador\\' => 12,
+        ),
+        'A' => 
+        array (
+            'App\\' => 4,
         ),
     );
 
@@ -63,6 +73,10 @@ class ComposerStaticInit2a8b9cfa11dbcd502b3063f9f8235c8c
         array (
             0 => __DIR__ . '/..' . '/webmozart/assert/src',
         ),
+        'Tests\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/tests',
+        ),
         'Symfony\\Polyfill\\Ctype\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
@@ -70,7 +84,6 @@ class ComposerStaticInit2a8b9cfa11dbcd502b3063f9f8235c8c
         'Prueba\\' => 
         array (
             0 => __DIR__ . '/../..' . '/tests',
-            1 => __DIR__ . '/../..' . '/tests',
         ),
         'Prophecy\\' => 
         array (
@@ -83,7 +96,10 @@ class ComposerStaticInit2a8b9cfa11dbcd502b3063f9f8235c8c
         'Modulo\\' => 
         array (
             0 => __DIR__ . '/../..' . '/modelo',
-            1 => __DIR__ . '/../..' . '/modelo',
+        ),
+        'Modelo\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/modelo',
         ),
         'Doctrine\\Instantiator\\' => 
         array (
@@ -98,6 +114,11 @@ class ComposerStaticInit2a8b9cfa11dbcd502b3063f9f8235c8c
             0 => __DIR__ . '/../..' . '/controlador',
             1 => __DIR__ . '/../..' . '/controlador',
         ),
+        'App\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/app',
+            1 => __DIR__ . '/../..' . '/app',
+        ),
     );
 
     public static $classMap = array (
@@ -106,24 +127,21 @@ class ComposerStaticInit2a8b9cfa11dbcd502b3063f9f8235c8c
         'Agenda_Class' => __DIR__ . '/../..' . '/modelo/agenda_class.php',
         'Ayuda' => __DIR__ . '/../..' . '/controlador/ayuda_controlador.php',
         'Ayuda_Class' => __DIR__ . '/../..' . '/modelo/ayuda_class.php',
+        'BASE_DATOS' => __DIR__ . '/../..' . '/app/Base_Datos.php',
         'Base_DatosTest' => __DIR__ . '/../..' . '/tests/Base_DatosTest.php',
         'Bitacora' => __DIR__ . '/../..' . '/controlador/bitacora_controlador.php',
         'Bitacora_Class' => __DIR__ . '/../..' . '/modelo/bitacora_class.php',
-        'Calles' => __DIR__ . '/../..' . '/controlador/calles_controlador.php',
         'CallesTest' => __DIR__ . '/../..' . '/tests/CallesTest.php',
-        'Calles_Class' => __DIR__ . '/../..' . '/modelo/calles_class.php',
-        'Censos_Class' => __DIR__ . '/../..' . '/modelo/censos_class.php',
         'Centro_Votacion' => __DIR__ . '/../..' . '/controlador/centro_votacion_controlador.php',
         'Centro_VotacionTest' => __DIR__ . '/../..' . '/tests/Centro_VotacionTest.php',
         'Centro_Votacion_Class' => __DIR__ . '/../..' . '/modelo/centro_votacion_class.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'Configuracion' => __DIR__ . '/../..' . '/controlador/configuracion_controlador.php',
-        'Configuracion_Class' => __DIR__ . '/../..' . '/modelo/configuracion_class.php',
         'Consejo_Comunal' => __DIR__ . '/../..' . '/controlador/consejo_comunal_controlador.php',
         'Consejo_ComunalTest' => __DIR__ . '/../..' . '/tests/Consejo_ComunalTest.php',
         'Consejo_Comunal_Class' => __DIR__ . '/../..' . '/modelo/consejo_comunal_class.php',
         'Contacto' => __DIR__ . '/../..' . '/controlador/contacto_controlador.php',
         'Contacto_Class' => __DIR__ . '/../..' . '/modelo/contacto_class.php',
+        'Controlador' => __DIR__ . '/../..' . '/app/Controlador.php',
         'DeepCopy\\DeepCopy' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/DeepCopy.php',
         'DeepCopy\\Exception\\CloneException' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/Exception/CloneException.php',
         'DeepCopy\\Exception\\PropertyException' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/Exception/PropertyException.php',
@@ -148,6 +166,7 @@ class ComposerStaticInit2a8b9cfa11dbcd502b3063f9f8235c8c
         'DeepCopy\\TypeFilter\\Spl\\SplDoublyLinkedListFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeFilter/Spl/SplDoublyLinkedListFilter.php',
         'DeepCopy\\TypeFilter\\TypeFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeFilter/TypeFilter.php',
         'DeepCopy\\TypeMatcher\\TypeMatcher' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeMatcher/TypeMatcher.php',
+        'Direcciones' => __DIR__ . '/../..' . '/app/Direcciones.php',
         'Discapacitados' => __DIR__ . '/../..' . '/controlador/discapacitados_controlador.php',
         'DiscapacitadosTest' => __DIR__ . '/../..' . '/tests/DiscapacitadosTest.php',
         'Discapacitados_Class' => __DIR__ . '/../..' . '/modelo/discapacitados_class.php',
@@ -168,6 +187,7 @@ class ComposerStaticInit2a8b9cfa11dbcd502b3063f9f8235c8c
         'Grupos_Deportivos_Class' => __DIR__ . '/../..' . '/modelo/grupos_deportivos_class.php',
         'Habitante' => __DIR__ . '/../..' . '/controlador/habitante_controlador.php',
         'Habitante_Class' => __DIR__ . '/../..' . '/modelo/habitante_class.php',
+        'Iniciar_Sistema' => __DIR__ . '/../..' . '/app/App.php',
         'Inicio' => __DIR__ . '/../..' . '/controlador/inicio_controlador.php',
         'Inicio_Class' => __DIR__ . '/../..' . '/modelo/inicio_class.php',
         'Inmuebles' => __DIR__ . '/../..' . '/controlador/inmuebles_controlador.php',
@@ -176,6 +196,7 @@ class ComposerStaticInit2a8b9cfa11dbcd502b3063f9f8235c8c
         'Login' => __DIR__ . '/../..' . '/controlador/login_controlador.php',
         'LoginTest' => __DIR__ . '/../..' . '/tests/LoginTest.php',
         'Login_Class' => __DIR__ . '/../..' . '/modelo/login_class.php',
+        'Modelo' => __DIR__ . '/../..' . '/app/Modelo.php',
         'Negocios' => __DIR__ . '/../..' . '/controlador/negocios_controlador.php',
         'NegociosTest' => __DIR__ . '/../..' . '/tests/NegociosTest.php',
         'Negocios_Class' => __DIR__ . '/../..' . '/modelo/negocios_class.php',
@@ -1171,6 +1192,8 @@ class ComposerStaticInit2a8b9cfa11dbcd502b3063f9f8235c8c
         'TheSeer\\Tokenizer\\XMLSerializer' => __DIR__ . '/..' . '/theseer/tokenizer/src/XMLSerializer.php',
         'Usuario' => __DIR__ . '/../..' . '/controlador/usuario_controlador.php',
         'Usuario_Class' => __DIR__ . '/../..' . '/modelo/usuario_class.php',
+        'Validations' => __DIR__ . '/../..' . '/app/Validacion.php',
+        'Vista' => __DIR__ . '/../..' . '/app/Vista.php',
         'Viviendas' => __DIR__ . '/../..' . '/controlador/viviendas_controlador.php',
         'ViviendasTest' => __DIR__ . '/../..' . '/tests/ViviendasTest.php',
         'Viviendas_Class' => __DIR__ . '/../..' . '/modelo/viviendas_class.php',

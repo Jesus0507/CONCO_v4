@@ -33,68 +33,82 @@
                             <th>Evento</th>
                             <th>Horas</th>
                             <th style="width: 20px;">Ver</th>
-                          <?php if ($_SESSION['Agenda']['modificar']) {?>
+                            <?php if ($_SESSION['Agenda']['modificar']) {?>
                             <th style="width: 20px;">Editar</th>
-                        <?php }?>
-                        <?php if ($_SESSION['Agenda']['eliminar']) {?>
+                            <?php }?>
+                            <?php if ($_SESSION['Agenda']['eliminar']) {?>
                             <th style="width: 20px;">Eliminar</th>
-                        <?php }?>
+                            <?php }?>
                         </tr>
                     </thead>
                     <tbody>
                         <script>
                         $(function() {
+
                             $.ajax({
                                 type: "POST",
-                                url: BASE_URL + "Agenda/Administrar",
+                                url: BASE_URL + "app/Direcciones.php",
                                 data: {
-                                    peticion: "Consulta_Ajax",
+                                    direction: "Agenda/Administrar",
+                                    accion: "codificar"
                                 },
-                            }).done(function(datos) {
-                                var data = JSON.parse(datos);
-                                
-                                $("#example1").DataTable({
-                                    "data": data,
-                                    "columns": [{
-                                            "data": "usuario"
+                                success: function(direccion_segura) {
+                                    $.ajax({
+                                        type: "POST",
+                                        url: BASE_URL + direccion_segura,
+                                        data: {
+                                            peticion: "Consulta_Ajax",
                                         },
-                                        {
-                                            "data": "fecha"
-                                        },
-                                        {
-                                            "data": "tipo_evento"
-                                        },
-                                        {
-                                            "data":"horas"
-                                        },
-                                        {
-                                            "data": "ver"
-                                        },
-                                        <?php if ($_SESSION['Agenda']['modificar']) {?>
-                                        {
-                                            "data": "editar"
-                                        },
-                                    <?php }?>
-                                    <?php if ($_SESSION['Agenda']['eliminar']) {?>
-                                        {
-                                            "data": "eliminar"
-                                        }
-                                    <?php }?>
-                                    ],
-                                    "responsive": true,
-                                    "autoWidth": false,
-                                    "ordering": true,
-                                    "info": true,
-                                    "processing": true,
-                                    "pageLength": 10,
-                                    "lengthMenu": [5, 10, 20, 30, 40, 50, 100]
-                                }).buttons().container().appendTo(
-                                    '#example1_wrapper .col-md-6:eq(0)');
+                                    }).done(function(datos) {
+                                        var data = JSON.parse(datos);
+
+                                        $("#example1").DataTable({
+                                            "data": data,
+                                            "columns": [{
+                                                    "data": "usuario"
+                                                },
+                                                {
+                                                    "data": "fecha"
+                                                },
+                                                {
+                                                    "data": "tipo_evento"
+                                                },
+                                                {
+                                                    "data": "horas"
+                                                },
+                                                {
+                                                    "data": "ver"
+                                                },
+                                                <?php if ($_SESSION['Agenda']['modificar']) {?> {
+                                                    "data": "editar"
+                                                },
+                                                <?php }?>
+                                                <?php if ($_SESSION['Agenda']['eliminar']) {?> {
+                                                    "data": "eliminar"
+                                                }
+                                                <?php }?>
+                                            ],
+                                            "responsive": true,
+                                            "autoWidth": false,
+                                            "ordering": true,
+                                            "info": true,
+                                            "processing": true,
+                                            "pageLength": 10,
+                                            "lengthMenu": [5, 10, 20, 30, 40, 50,
+                                                100
+                                            ]
+                                        }).buttons().container().appendTo(
+                                            '#example1_wrapper .col-md-6:eq(0)');
 
 
-                            }).fail(function() {
-                                alert("error")
-                            })
+                                    }).fail(function() {
+                                        alert("error")
+                                    })
+                                },
+                                error: function() {
+                                    alert('Error al codificar dirreccion');
+                                }
+                            });
 
                         });
                         </script>
@@ -106,12 +120,12 @@
                             <th>Evento</th>
                             <th>Horas</th>
                             <th>Ver</th>
-                           <?php if ($_SESSION['Agenda']['modificar']) {?>
+                            <?php if ($_SESSION['Agenda']['modificar']) {?>
                             <th>Editar</th>
-                        <?php }?>
-                        <?php if ($_SESSION['Agenda']['eliminar']) {?>
+                            <?php }?>
+                            <?php if ($_SESSION['Agenda']['eliminar']) {?>
                             <th>Eliminar</th>
-                        <?php }?>
+                            <?php }?>
                         </tr>
                     </tfoot>
                 </table>

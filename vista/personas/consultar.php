@@ -1,5 +1,5 @@
-<?php include (call."Inicio.php"); ?>
-<?php include (call."data-table.php"); ?>
+<?php include call . "Inicio.php";?>
+<?php include call . "data-table.php";?>
 
 <!-- Contenido de la pagina -->
 <div class="content-wrapper">
@@ -10,7 +10,7 @@
                 <div class="col-sm-6">
                     <h1 class="m-0">Consulta de Personas </h1>
                 </div><!-- /.col -->
-                <!-- /.col --> 
+                <!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
     </div>
@@ -25,7 +25,7 @@
                 <h3 class="card-title">Consulta y Exportacion de Datos de Personas</h3>
             </div>
             <!-- /.card-header -->
-            <div class="card-body" >
+            <div class="card-body">
                 <table id="example1" class="table table-bordered  table-hover">
                     <thead>
                         <tr>
@@ -34,79 +34,88 @@
                             <th>Apellido</th>
                             <th>Teléfono</th>
                             <th>Género</th>
-                            <th style="width: 20px;">Ver</th> 
-                            <?php if($_SESSION['Personas']['modificar']){ ?>  
+                            <th style="width: 20px;">Ver</th>
+                            <?php if ($_SESSION['Personas']['modificar']) {?>
                             <th style="width: 20px;">Editar</th>
-                        <?php } ?>
-                        <?php if($_SESSION['Personas']['eliminar']){ ?>  
+                            <?php }?>
+                            <?php if ($_SESSION['Personas']['eliminar']) {?>
                             <th style="width: 20px;">Eliminar</th>
-                        <?php } ?>
+                            <?php }?>
                         </tr>
                     </thead>
                     <tbody>
                         <script type="text/javascript">
+                        cargar_tabla_personas();
 
-                  cargar_tabla_personas();
+                        function cargar_tabla_personas() {
+                            $(function() {
+                                $.ajax({
+                                    type: "POST",
+                                    url: BASE_URL + "app/Direcciones.php",
+                                    data: {
+                                        direction: 'Personas/consultar_informacion_persona',
+                                        accion: "codificar"
+                                    },
+                                    success: function(direccion_segura) {
+                                        $.ajax({
+                                            type: 'POST',
+                                            url: BASE_URL + direccion_segura
+                                        }).done(function(datos) {
+                                            var data = JSON.parse(datos);
+                                            console.log(data);
+                                            $("#example1").DataTable({
+                                                "data": data,
+                                                "columns": [{
+                                                        "data": "cedula"
+                                                    },
+                                                    {
+                                                        "data": "primer_nombre"
+                                                    },
+                                                    {
+                                                        "data": "primer_apellido"
+                                                    },
+                                                    {
+                                                        "data": "telefono"
+                                                    },
+                                                    {
+                                                        "data": "genero"
+                                                    },
+                                                    {
+                                                        "data": "ver"
+                                                    },
+                                                    <?php if ($_SESSION['Personas']['modificar']) {?> {
+                                                        "data": "editar"
+                                                    },
+                                                    <?php }?>
+                                                    <?php if ($_SESSION['Personas']['eliminar']) {?> {
+                                                        "data": "eliminar"
+                                                    }
+                                                    <?php }?>
+                                                ],
+                                                "responsive": true,
+                                                "autoWidth": false,
+                                                "ordering": true,
+                                                "info": true,
+                                                "processing": true,
+                                                "pageLength": 10,
+                                                "lengthMenu": [5, 10, 20, 30, 40,
+                                                    50, 100
+                                                ]
+                                            }).buttons().container().appendTo(
+                                                '#example1_wrapper .col-md-6:eq(0)');
 
- 
 
-                            function cargar_tabla_personas(){
-    $(function() {
-   $.ajax({
-    type: 'POST',
-    url: BASE_URL + 'Personas/consultar_informacion_persona'
-}).done(function(datos) {
-    var data = JSON.parse(datos);
-    console.log(data);
-    $("#example1").DataTable({
-        "data": data,
-        "columns": [{
-            "data": "cedula"
-        },
-        {
-            "data": "primer_nombre"
-        },
-        {
-            "data": "primer_apellido"
-        },
-        {
-            "data":"telefono"
-        },
-        {
-            "data":"genero"
-        },
-        {
-            "data": "ver"
-        },
-         <?php if($_SESSION['Personas']['modificar']){ ?> 
-        {
-            "data": "editar"
-        },
-    <?php } ?>
-     <?php if($_SESSION['Personas']['eliminar']){ ?> 
-        {
-            "data": "eliminar"
-        }
-    <?php } ?>
-        ],
-        "responsive": true,
-        "autoWidth": false,
-        "ordering": true,
-        "info": true,
-        "processing": true,
-        "pageLength": 10,
-        "lengthMenu": [5, 10, 20, 30, 40, 50, 100]
-    }).buttons().container().appendTo(
-    '#example1_wrapper .col-md-6:eq(0)');
+                                        }).fail(function() {
+                                            alert("error")
+                                        })
+                                    },
+                                    error: function() {
+                                        alert('Error al codificar dirreccion');
+                                    }
+                                });
 
-
-}).fail(function() {
-    alert("error")
-})
-
-});
-}
-
+                            });
+                        }
                         </script>
                     </tbody>
                     <tfoot>
@@ -116,13 +125,13 @@
                             <th>Apellido</th>
                             <th>Teléfono</th>
                             <th>Género</th>
-                            <th>Ver</th> 
-                             <?php if($_SESSION['Personas']['modificar']){ ?> 
+                            <th>Ver</th>
+                            <?php if ($_SESSION['Personas']['modificar']) {?>
                             <th>Editar</th>
-                        <?php } ?>
-                         <?php if($_SESSION['Personas']['eliminar']){ ?> 
+                            <?php }?>
+                            <?php if ($_SESSION['Personas']['eliminar']) {?>
                             <th>Eliminar</th>
-                        <?php } ?>
+                            <?php }?>
                         </tr>
                     </tfoot>
                 </table>
@@ -137,8 +146,8 @@
 </div>
 
 <!-- /.content-wrapper -->
-<?php include (call."Fin.php"); ?>
-<?php include (modal."editar_persona.php"); ?>
-<?php include (call."Style-agenda.php"); ?>
+<?php include call . "Fin.php";?>
+<?php include modal . "editar_persona.php";?>
+<?php include call . "Style-agenda.php";?>
 
-<script type="text/javascript" src="<?php echo constant('URL')?>config/js/news/consulta-personas.js"></script>
+<script type="text/javascript" src="<?php echo constant('URL') ?>config/js/news/consulta-personas.js"></script>

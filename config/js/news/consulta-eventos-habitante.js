@@ -15,18 +15,27 @@ setTimeout(function() {
 function get_eventos() {
     $.ajax({
         type: "POST",
-        url: BASE_URL + "Agenda/Administrar",
+        url: BASE_URL + "app/Direcciones.php",
         data: {
-            peticion: "Consulta_Ajax",
+            direction: "Agenda/Administrar",
+            accion: "codificar"
         },
-    }).done(function(result) {
-        var resultado = JSON.parse(result);
-        for (var i = 0; i < resultado.length; i++) {
-            var fecha_event = new Date(resultado[i]['fecha']);
-            if (fecha_event >= new Date()) {
-                eventos_registrados.push(resultado[i]);
+    }).done(function(direccion_segura) {
+        $.ajax({
+            type: "POST",
+            url: BASE_URL + direccion_segura,
+            data: {
+                peticion: "Consulta_Ajax",
+            },
+        }).done(function(result) {
+            var resultado = JSON.parse(result);
+            for (var i = 0; i < resultado.length; i++) {
+                var fecha_event = new Date(resultado[i]['fecha']);
+                if (fecha_event >= new Date()) {
+                    eventos_registrados.push(resultado[i]);
+                }
             }
-        }
+        });
     });
 }
 //===========================================================================//

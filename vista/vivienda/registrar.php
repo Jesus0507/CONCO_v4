@@ -13,7 +13,7 @@
         </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-
+ 
     <!-- Main content -->
     <section class="content">
         <!-- Default box -->
@@ -391,7 +391,7 @@
                                 </datalist>
                                 <button id='agregar_techo' class="btn btn-info" type="button">Agregar</button>
                             </div>
-                        </div>
+                    </div>
 
                     <div class="col-md-4 mt-2">
                         <label for="">
@@ -435,7 +435,6 @@
                         <div class="text-center" style='width:95%;height:200px;overflow-y: scroll;background: #C5F3F2'>
                             <center><div id='techos_agregados' style='width:95%;margin-top:10px;'></div></center>
                         </div>
-
                     </div>
 
                     <div class="col-md-4">
@@ -446,7 +445,6 @@
                         <div class="text-center" style='width:95%;height:200px;overflow-y: scroll;background: #C5F3F2'>
                             <center><div id='paredes_agregados' style='width:95%;margin-top:10px;'></div></center>
                         </div>
-
                     </div>
 
                     <div class="col-md-4">
@@ -457,7 +455,6 @@
                         <div class="text-center" style='width:95%;height:200px;overflow-y: scroll;background: #C5F3F2'>
                             <center><div id='pisos_agregados' style='width:95%;margin-top:10px;'></div></center>
                         </div>
-
                     </div>
 
                     <div class="col-md-12 mt-2">

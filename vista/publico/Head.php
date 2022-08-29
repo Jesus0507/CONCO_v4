@@ -40,8 +40,7 @@
     <script>
         const BASE_URL = 'http://localhost/dashboard/www/CONCO%20V3/';
         typeof BASE_URL;
-
     </script>
-
+    
     <script src="<?php echo constant('URL')?>config/js/news/validacion-generica.js"></script>
 </head>

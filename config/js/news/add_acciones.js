@@ -13,13 +13,26 @@ function agregar_accion(accion, tipo) {
     accion += " a las " + horas + " con " + minutos + " minutos";
     $.ajax({
         type: "POST",
-        url: BASE_URL + "Bitacora/Administrar",
+        url: BASE_URL + "app/Direcciones.php",
         data: {
-            nueva_accion: accion,
-            tipo :tipo,
-            peticion: "Nueva",
+            direction: "Bitacora/Administrar",
+            accion: "codificar"
         },
-    })
+        success: function(direccion_segura) {
+            $.ajax({
+                type: "POST",
+                url: BASE_URL + direccion_segura,
+                data: {
+                    nueva_accion: accion,
+                    tipo: tipo,
+                    peticion: "Nueva",
+                },
+            })
+        },
+        error: function() {
+            alert('Error al codificar dirreccion');
+        }
+    });
 }
 
 function obtenerHoras(hora) {

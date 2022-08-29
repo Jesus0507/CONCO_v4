@@ -14,11 +14,7 @@
 
     <div class="row" style="position: absolute;top: 70%;left: 25%;">
         <div class="col-10">
-            <center>
-                <h1 class="">
-                    <a href="<?php echo constant('URL');?>Inicio/" class='btn btn-primary'>Regresar </a>
-                </h1>
-            </center>
+            
         </div>
         <div class="col-12">
             <h2 class="" style="color: gray;">

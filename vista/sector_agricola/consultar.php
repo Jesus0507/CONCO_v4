@@ -10,7 +10,7 @@
                 <div class="col-sm-6">
                     <h1 class="m-0">Consulta de Personas en Sector Agricola </h1>
                 </div><!-- /.col -->
-                
+
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
     </div>
@@ -38,7 +38,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                    <script src="<?php echo constant('URL')?>config/js/ajax/Ajax_Consultas_Sector_Agricola.js"></script>
+                        <script src="<?php echo constant('URL')?>config/js/ajax/Ajax_Consultas_Sector_Agricola.js">
+                        </script>
                     </tbody>
                     <tfoot>
                         <tr>

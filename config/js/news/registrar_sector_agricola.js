@@ -1,19 +1,6 @@
-$(document).ready(function() {
-    var form = $("#formulario");
-    var mensaje_cedula = document.getElementById("mensaje_cedula");
-    var mensaje_area = document.getElementById("mensaje_area");
-    var mensaje_experiencia = document.getElementById("mensaje_experiencia");
-    var mensaje_organizacion = document.getElementById("mensaje_organizacion");
-    var mensaje_rubro = document.getElementById("mensaje_rubro");
-    var mensaje_alternativo = document.getElementById("mensaje_alternativo");
-    var mensaje_financiado = document.getElementById("mensaje_financiado");
-    var mensaje_registro = document.getElementById("mensaje_registro");
-    var mensaje_constancia = document.getElementById("mensaje_constancia");
-    var mensaje_hierro = document.getElementById("mensaje_hierro");
-    var mensaje_agua = document.getElementById("mensaje_agua");
-    var mensaje_produccion = document.getElementById("mensaje_produccion");
-    var retornar = false;
-    $("#enviar").on("click", function() {
+$(document).ready(function () {
+    
+    $("#enviar").on("click", function () {
         var datos = {
             cedula_persona: document.getElementById("cedula_persona").value,
             area_produccion: document.getElementById("area_produccion").value,
@@ -83,39 +70,51 @@ $(document).ready(function() {
                                         mensaje("financiado", "mensaje_financiado", "Debe Ingresar el financiamiento");
                                     } else {
                                         limpiar("financiado", "mensaje_financiado");
+                                        
                                         $.ajax({
-                                            type: 'POST',
-                                            url: BASE_URL + 'Sector_Agricola/Administrar',
+                                            type: "POST",
+                                            url: BASE_URL + "app/Direcciones.php",
                                             data: {
-                                                'datos': datos,
-                                                peticion: "Administrar",
-                                                sql: "SQL_01",
-                                                accion: "Se ha registrado Agricola portador de la cedula: " + datos.cedula_persona,
+                                                direction: 'Sector_Agricola/Administrar',
+                                                accion: "codificar"
                                             },
-                                            success: function(respuesta) {
-                                                if (respuesta == 1) {
-                                                    swal({
-                                                        title: "Exito!",
-                                                        text: "Se ha registrado de forma exitosa",
-                                                        type: "success",
-                                                        showConfirmButton: false,
-                                                    });
-                                                    setTimeout(function() {
-                                                        location.href = BASE_URL + 'Sector_Agricola/Administrar/Consultas';
-                                                    }, 2000);
-                                                } else {
-                                                    swal({
-                                                        title: "ERROR!",
-                                                        text: "Ha ocurrido un Error.</br>" + respuesta,
-                                                        type: "error",
-                                                        html: true,
-                                                        showConfirmButton: true,
-                                                        customClass: "bigSwalV2",
-                                                    });
-                                                }
+                                            success: function(direccion_segura) {
+                                                $.ajax({
+                                                    type: 'POST',
+                                                    url: BASE_URL + direccion_segura,
+                                                    data: {
+                                                        'datos': datos,
+                                                        peticion: "Administrar",
+                                                        sql: "SQL_01",
+                                                        accion: "Se ha registrado Agricola portador de la cedula: " + datos.cedula_persona,
+                                                    },
+                                                    success: function (respuesta) {
+                                                        if (respuesta == 1) {
+                                                            swal({
+                                                                title: "Exito!",
+                                                                text: "Se ha registrado de forma exitosa",
+                                                                type: "success",
+                                                                showConfirmButton: false,
+                                                            });
+                                                            Direccionar('Sector_Agricola/Administrar/Consultas');
+                                                        } else {
+                                                            swal({
+                                                                title: "ERROR!",
+                                                                text: "Ha ocurrido un Error.</br>" + respuesta,
+                                                                type: "error",
+                                                                html: true,
+                                                                showConfirmButton: true,
+                                                                customClass: "bigSwalV2",
+                                                            });
+                                                        }
+                                                    },
+                                                    error: function (respuesta) {
+                                                        alert("Error al enviar Controlador")
+                                                    }
+                                                });
                                             },
-                                            error: function(respuesta) {
-                                                alert("Error al enviar Controlador")
+                                            error: function() {
+                                                alert('Error al codificar dirreccion');
                                             }
                                         });
                                     }
@@ -127,7 +126,7 @@ $(document).ready(function() {
             }
         }
     });
-    document.onkeypress = function(e) {
+    document.onkeypress = function (e) {
         if (e.which == 13 || e.keyCode == 13) {
             return false;
         } else {
@@ -135,11 +134,11 @@ $(document).ready(function() {
         }
     }
     $(".dinero").on({
-        "focus": function(event) {
+        "focus": function (event) {
             $(event.target).select();
         },
-        "keyup": function(event) {
-            $(event.target).val(function(index, value) {
+        "keyup": function (event) {
+            $(event.target).val(function (index, value) {
                 return value.replace(/\D/g, "").replace(/([0-9])([0-9]{2})$/, '$1,$2').replace(/\B(?=(\d{3})+(?!\d)\.?)/g, ".");
             });
         }
