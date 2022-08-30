@@ -133,11 +133,13 @@ class Usuario extends Controlador
                 if ($contrasenia == $password) {
                     $securimage = new Securimage();
                     if ($securimage->check($captcha) == true || $captcha == "123456") {
+                         $this->modelo->Locked_Login($existe,1);
                         echo 1;
                     } else {
                         echo 2;
                     }
                 } else {
+                     $this->modelo->Locked_Login($existe,0);
                     echo "Contraseña Incorrecta.";
                 }
             }

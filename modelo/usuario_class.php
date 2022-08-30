@@ -240,5 +240,41 @@ class Usuario_Class extends Modelo
 
          return $ejecucion;
     }
+
+    public function Locked_Login($user,$accion){
+        $intentos=$user['user_locked'];
+        $respuesta="";
+        if($intentos!="locked"){
+            $intentos=intval($intentos);
+            if($intentos<3){
+                $intentos++;
+            }
+            else{
+                $intentos="locked";
+            }
+            $accion==0?$intentos=$intentos:$intentos=0;
+            try {
+                $query = $this->conexion->prepare("UPDATE personas  SET
+                    user_locked              =:user_locked
+
+                    WHERE cedula_persona    =:cedula_persona"
+                );
+    
+                $query->execute([
+                    'cedula_persona'            =>$user['cedula_persona'], 
+                    'user_locked'               =>$intentos
+    
+                ]);
+    
+                $respuesta=$intentos;
+    
+            } catch (PDOException $e) {
+                $respuesta=$this->Capturar_Error($e);
+            }
+        }
+        else{
+            $respuesta="Locked";
+        }
+    }
 }
 ?>
