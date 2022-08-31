@@ -1,0 +1,23 @@
+stdClass Object
+(
+    [Fecha] => Miercoles , 31 de Agosto del 2022
+    [Hora] => 06:25:50 am
+    [Mensaje] => Array
+        (
+            [0] => [Error Direccion] => "El Directorrio: [ CONCO_v4 ] Es diferente a la configuracion del sistema,</br>
+            Configuracion: [CONCO_v4]. </br>
+            Actualice la configuracion en el archivo: app/Config.php </br>
+            Linea: ( 3 )
+        )
+
+)
+stdClass Object
+(
+    [Fecha] => Miercoles , 31 de Agosto del 2022
+    [Hora] => 07:08:46 am
+    [Mensaje] => Array
+        (
+            [0] => [Error Funcion] => "La Funcion: [ Usuario_Existente() ] No se encuentra definida, en el controlador: [ Usuario ]"
+        )
+
+)

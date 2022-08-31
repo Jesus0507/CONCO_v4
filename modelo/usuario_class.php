@@ -246,7 +246,7 @@ class Usuario_Class extends Modelo
         $respuesta="";
         if($intentos!="locked"){
             $intentos=intval($intentos);
-            if($intentos<3){
+            if($intentos<2){
                 $intentos++;
             }
             else{
@@ -273,8 +273,10 @@ class Usuario_Class extends Modelo
             }
         }
         else{
-            $respuesta="Locked";
+            $respuesta="locked";
         }
+
+        return $respuesta;
     }
 }
 ?>

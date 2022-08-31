@@ -1,6 +1,6 @@
 <?php 
 //-------------------------URL PRINCIPAL--------------------
-define('SISTEMA', 	'CONCO%20V3');
+define('SISTEMA', 	'CONCO_v4');
 define('URL', 'http://localhost/dashboard/www/'.SISTEMA."/");
 
 //--------------Base de Datos--------------------

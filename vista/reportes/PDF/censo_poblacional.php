@@ -16,7 +16,7 @@
   <!-- Content Header (Page header) -->
   <script src="<?php echo constant('URL') ?>config/plugins/jquery/jquery.min.js"></script>
   <script>
-    const BASE_URL = 'http://localhost/dashboard/www/CONCO%20V3/';
+    const BASE_URL = 'http://localhost/dashboard/www/CONCO_v4/';
     $.ajax({
       type: "POST",
       url: BASE_URL + "Reportes/info_censo_poblacional",

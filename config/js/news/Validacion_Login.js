@@ -101,32 +101,49 @@ function Validar_Datos() {
 }
 
 function Respuesta_Controlador(respuesta, form) {
-    if (respuesta == 0) {
-        $("#cedula").css("border-color", "#F14B4B");
-        $("#cedula").focus();
-        $("#mensaje-cedula").html("Usuario No Registrado.");
-    } else {
-        if (respuesta == 1) {
+    console.log(respuesta);
+    switch (respuesta){
+        case '0':
+            $("#cedula").css("border-color", "#F14B4B");
+            $("#cedula").focus();
+            $("#mensaje-cedula").html("Usuario No Registrado.");
+        break;
+        case '1':
             $("#contrasenia").blur();
             form.serialize();
             form.submit();
-        } else {
-            if (respuesta == 2) {
-                if ($("#captcha_code").val() == "") {
-                    errores = "Debe ingresar el codigo de seguridad.";
-                    $("#captcha_code").css("border-color", "#F14B4B");
-                    $("#texto").html(errores);
-                } else {
-                    $("#captcha_code").css("border-color", "#F14B4B");
-                    $("#captcha_code").focus();
-                    $("#texto").html("Captcha Inconrrecto, Inntente de Nuevo.");
-                }
+        break;
+        case '2':
+            if ($("#captcha_code").val() == "") {
+                errores = "Debe ingresar el codigo de seguridad.";
+                $("#captcha_code").css("border-color", "#F14B4B");
+                $("#texto").html(errores);
             } else {
-                $("#contrasenia").css("border-color", "#F14B4B");
-                $("#contrasenia").focus();
-                $("#mensaje-contrasenia").html(respuesta);
+                $("#captcha_code").css("border-color", "#F14B4B");
+                $("#captcha_code").focus();
+                $("#texto").html("Captcha Inconrrecto, Inntente de Nuevo.");
             }
-        }
+        break;
+        case '3':
+            swal({
+                type:"warning",
+                title:"Atención",
+                text:"Ha intentado iniciar sesión erróneamente demasiadas veces, por favor ingrese las preguntas de seguridad para poder cambiar de contraseña",
+                showConfirmButton:false,
+                timer:5000
+            });
+            setTimeout(function(){
+                document.getElementById("olvidado").click();
+                $("#password").modal("show");
+             document.getElementById("cedulaEmergente").value=document.getElementById("cedula").value;
+             document.getElementById("modificarContrasenia").click();
+            },4000);
+        break;
+        default:
+            $("#contrasenia").css("border-color", "#F14B4B");
+            $("#contrasenia").focus();
+            $("#mensaje-contrasenia").html(respuesta);
+        break;
     }
 }
 
