@@ -8,6 +8,10 @@
     <meta name="distribution" content="global" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
     <meta http-equiv="Content-Language" content="es" />
+    
+    <meta http-equiv='cache-control' content='no-cache'>
+    <meta http-equiv='expires' content='0'>
+    <meta http-equiv='pragma' content='no-cache'>
     <!--=======================Titolu del Sistema============================ -->
     <title id="page-title">
         C.C Prados de Occidente
@@ -37,7 +41,7 @@
     </style>
     <script src="<?php echo constant('URL')?>config/js/news/validacion-generica.js"></script>
 <script type="text/javascript">
-    const BASE_URL = 'http://localhost/dashboard/www/CONCO%20V3/';
+    const BASE_URL = 'http://localhost/dashboard/www/CONCO_v4/';
         typeof BASE_URL;
 </script>
 

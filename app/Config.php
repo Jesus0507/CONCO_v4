@@ -12,7 +12,7 @@ define('BD', 		'conco');
 // MYSQL contraseña
 define('PORT_MYSQL', 		'3306');
 define('USER_MYSQL', 		'root');
-define('PASSWORD_MYSQL', 	'root');
+define('PASSWORD_MYSQL', 	'');
 
 //--------------Direcciones--------------------
 

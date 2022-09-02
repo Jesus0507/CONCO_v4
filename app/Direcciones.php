@@ -67,12 +67,12 @@ class Direcciones
 
     public static function _010_()
     {
-        echo URL . self::Seguridad('Familias/Registros/', 'codificar');
+        echo URL . self::Seguridad('Familias/Administrar/Registros/', 'codificar');
     }
 
     public static function _011_()
     {
-        echo URL . self::Seguridad('Familias/Consultas/', 'codificar');
+        echo URL . self::Seguridad('Familias/Administrar/Consultas/', 'codificar');
     }
 
     public static function _012_()

@@ -20,7 +20,7 @@
                         <div class="input-group">
                             <select id='vivienda_familia' class='form-control'>
                                 <option value='vacio'>-Seleccione-</option>
-                                <?php foreach ($this->viviendas as $v) { ?>
+                                <?php foreach ($this->datos["viviendas"] as $v) { ?>
                                    <option value='<?php echo $v["id_vivienda"] ;?>'><?php echo $v['numero_casa']; ?></option>
                                <?php } ?>
                            </select>
@@ -98,7 +98,7 @@
 
         <div class="col-md-12 mt-2">
             <label for="segundo_apellido">
-                Integrantes
+                Integrantes 
             </label><span id='valid_5' style="color:red;"></span>
             <div class="input-group">
                <table style='width:100%'>
@@ -106,7 +106,7 @@
                     <td>
                         <input type="number" class='form-control' id='integrante_input' placeholder="Buscar cédula" name="" list='lista_personas'>
                         <datalist id='lista_personas'>
-                            <?php foreach ($this->personas as $p) { ?>
+                            <?php foreach ($this->datos["personas"] as $p) { ?>
                              <option value='<?php echo $p['cedula_persona']; ?>'><?php echo $p['primer_nombre']." ".$p['primer_apellido']; ?></option>
                          <?php    } ?>
                      </datalist>

@@ -2,191 +2,355 @@
 
 class Familias extends Controlador
 {
-    public function __construct() 
+    public function __construct()
     {
         parent::__construct();
-     //   $this->Cargar_Modelo("familias");
+        //   $this->Cargar_Modelo("familias");
     }
 
     public function Cargar_Vistas()
     {
         $this->Seguridad_de_Session();
-        $this->vista->Cargar_Vistas('familia/consultar'); 
-    }   
-    public function Registros()
-    {
-        $this->Seguridad_de_Session();
-        $viviendas=$this->modelo->Consultar_viviendas();
-        $this->vista->viviendas=$viviendas;
-        $persona=$this->modelo->Consultar_personas();
-        $this->vista->personas=$persona;
-        $this->vista->Cargar_Vistas('familia/registrar');
-    }
-
-    public function Consultas()
-    {
-        $this->Seguridad_de_Session();
-        #$this->Establecer_Consultas();
-         $viviendas=$this->modelo->Consultar_viviendas();
-        $this->vista->viviendas=$viviendas;
-        $persona=$this->modelo->Consultar_personas();
-        $this->vista->personas=$persona;
         $this->vista->Cargar_Vistas('familia/consultar');
     }
+    // public function Registros()
+    // {
+    //     $this->Seguridad_de_Session();
+    //     $viviendas              = $this->modelo->Consultar_viviendas();
+    //     $this->vista->viviendas = $viviendas;
+    //     $persona                = $this->modelo->Consultar_personas();
+    //     $this->vista->personas  = $persona;
+    //     $this->vista->Cargar_Vistas('familia/registrar');
+    // }
 
-    public function registrar_familia(){
-        $datos_familia=$_POST['datos'];
+    // public function Consultas()
+    // {
+    //     $this->Seguridad_de_Session();
+    //     #$this->Establecer_Consultas();
+    //     $viviendas              = $this->modelo->Consultar_viviendas();
+    //     $this->vista->viviendas = $viviendas;
+    //     $persona                = $this->modelo->Consultar_personas();
+    //     $this->vista->personas  = $persona;
+    //     $this->vista->Cargar_Vistas('familia/consultar');
+    // }
 
-        $resultado= $this->modelo->Registrar_Familia($datos_familia);
-        
-        if($resultado){
-           $id=$this->Ultimo_Ingresado("familia","id_familia");
-           foreach ($id as  $i) {
-            foreach ($datos_familia['integrantes'] as $inte) {
-             $this->modelo->Registrar_persona_familia([
-                "cedula_persona"         =>  $inte,
-                "id_familia"            =>   $i['MAX(id_familia)']
-            ]);
-         }
-     }
- }
-echo $resultado;
+    public function registrar_familia()
+    {
+        $datos_familia = $_POST['datos'];
 
-}
+        $resultado = $this->modelo->Registrar_Familia($datos_familia);
 
-
-public function consultar_info_familia(){
-     $familias=$this->modelo->get_familias();
-     $retornar=[];
-
-     foreach ($familias as $f) {
-        
-        $integrantes=$this->modelo->get_integrantes($f['id_familia']);
- 
-
-
-         $retornar[]=[
-                "familia" => $f['nombre_familia'],
-                "telefono" => $f['telefono_familia'],
-                "direccion" => $f['direccion_vivienda'],
-                "Nro Casa" => $f['numero_casa'],
-                "ingreso_mensual"=> $f['ingreso_mensual_aprox'],
-                "ver"  => "<button class='btn btn-primary' onclick='ver_familia(`".json_encode($integrantes)."`,`".$f['nombre_familia']."`,`".$f['telefono_familia']."`,`".$f['direccion_vivienda']."`,`".$f['numero_casa']."`,`".$f['ingreso_mensual_aprox']."`)' type='button'><em class='fa fa-eye'></em></button>",
-                "editar" => "<button type='button' class='btn btn-success' data-toggle='modal' data-target='#actualizar' onclick='editar(".$f['id_familia'].",".$f['id_familia_persona'].")'><em class='fa fa-edit'></em></button>",
-                "eliminar" =>"<button class='btn btn-danger' onclick='eliminar(`".$f['id_familia']."`)' type='button'><em class='fa fa-trash'></em></button>"
-         ];
-     }
-
-      
-
-
-     $this->Escribir_JSON($retornar);
-}
-
-public function consultar_familia_datos(){
-     
-     $familias=$this->modelo->get_familias();
-     $retornar=[];
-
-     foreach ($familias as $f) {
-        
-        if ($f['id_familia'] == $_POST['id_familia']) {
-            
-            $integrantes=$this->modelo->get_integrantes($_POST['id_familia']);
-
-
-         $retornar[]=[
-                "id_familia" => $f['id_familia'],
-                "familia" => $f['nombre_familia'],
-                "telefono" => $f['telefono_familia'],
-                "direccion" => $f['direccion_vivienda'],
-                "id_vivienda" => $f['id_vivienda'],
-                "ingreso_mensual"=> $f['ingreso_mensual_aprox'],
-                "condicion_ocupacion"=> $f['condicion_ocupacion'],
-                "observacion"=> $f['observacion'],
-                "integrantes"  => json_encode($integrantes),
-         ];
+        if ($resultado) {
+            $id = $this->Ultimo_Ingresado("familia", "id_familia");
+            foreach ($id as $i) {
+                foreach ($datos_familia['integrantes'] as $inte) {
+                    $this->modelo->Registrar_persona_familia([
+                        "cedula_persona" => $inte,
+                        "id_familia"     => $i['MAX(id_familia)'],
+                    ]);
+                }
+            }
         }
-     }
+        echo $resultado;
 
-      
+    }
 
+    // public function consultar_info_familia()
+    // {
+    //     $familias = $this->modelo->get_familias();
+    //     $retornar = [];
 
-     $this->Escribir_JSON($retornar);
-}
+    //     foreach ($familias as $f) {
 
+    //         $integrantes = $this->modelo->get_integrantes($f['id_familia']);
 
-public function eliminar_logica(){
-  echo $this->Desactivar("familia","id_familia",$_POST['id']);
-}
+    //         $retornar[] = [
+    //             "familia"         => $f['nombre_familia'],
+    //             "telefono"        => $f['telefono_familia'],
+    //             "direccion"       => $f['direccion_vivienda'],
+    //             "Nro Casa"        => $f['numero_casa'],
+    //             "ingreso_mensual" => $f['ingreso_mensual_aprox'],
+    //             "ver"             => "<button class='btn btn-primary' onclick='ver_familia(`" . json_encode($integrantes) . "`,`" . $f['nombre_familia'] . "`,`" . $f['telefono_familia'] . "`,`" . $f['direccion_vivienda'] . "`,`" . $f['numero_casa'] . "`,`" . $f['ingreso_mensual_aprox'] . "`)' type='button'><em class='fa fa-eye'></em></button>",
+    //             "editar"          => "<button type='button' class='btn btn-success' data-toggle='modal' data-target='#actualizar' onclick='editar(" . $f['id_familia'] . "," . $f['id_familia_persona'] . ")'><em class='fa fa-edit'></em></button>",
+    //             "eliminar"        => "<button class='btn btn-danger' onclick='eliminar(`" . $f['id_familia'] . "`)' type='button'><em class='fa fa-trash'></em></button>",
+    //         ];
+    //     }
 
-public function eliminar_familia(){
-   $integrantes=$this->Consultar_Columna("familia_personas","id_familia",$_POST['id']);
+    //     $this->Escribir_JSON($retornar);
+    // }
 
-   foreach($integrantes as $i){
-       $persona=$this->Consultar_Columna("personas","cedula_persona",$i['cedula_persona']);
-       if($persona[0]['estado']==2){
-        $this->Eliminar_Tablas("personas","cedula_persona",$persona[0]['cedula_persona']);
-       }
-   }
+    // public function consultar_familia_datos()
+    // {
 
-    echo $this->Eliminar_Tablas("familia","id_familia",$_POST['id']);
-  }
+    //     $familias = $this->modelo->get_familias();
+    //     $retornar = [];
 
-  public function activar_familia(){
-    $integrantes=$this->Consultar_Columna("familia_personas","id_familia",$_POST['id_familia']);
+    //     foreach ($familias as $f) {
 
-    foreach($integrantes as $i){
-        $persona=$this->Consultar_Columna("personas","cedula_persona",$i['cedula_persona']);
-        if($persona[0]['estado']==2){
-         $this->Activar("personas","cedula_persona",$persona[0]['cedula_persona']);
+    //         if ($f['id_familia'] == $_POST['id_familia']) {
+
+    //             $integrantes = $this->modelo->get_integrantes($_POST['id_familia']);
+
+    //             $retornar[] = [
+    //                 "id_familia"          => $f['id_familia'],
+    //                 "familia"             => $f['nombre_familia'],
+    //                 "telefono"            => $f['telefono_familia'],
+    //                 "direccion"           => $f['direccion_vivienda'],
+    //                 "id_vivienda"         => $f['id_vivienda'],
+    //                 "ingreso_mensual"     => $f['ingreso_mensual_aprox'],
+    //                 "condicion_ocupacion" => $f['condicion_ocupacion'],
+    //                 "observacion"         => $f['observacion'],
+    //                 "integrantes"         => json_encode($integrantes),
+    //             ];
+    //         }
+    //     }
+
+    //     $this->Escribir_JSON($retornar);
+    // }
+
+    // public function eliminar_logica()
+    // {
+    //     echo $this->Desactivar("familia", "id_familia", $_POST['id']);
+    // }
+
+    public function eliminar_familia()
+    {
+        $integrantes = $this->Consultar_Columna("familia_personas", "id_familia", $_POST['id']);
+
+        foreach ($integrantes as $i) {
+            $persona = $this->Consultar_Columna("personas", "cedula_persona", $i['cedula_persona']);
+            if ($persona[0]['estado'] == 2) {
+                $this->Eliminar_Tablas("personas", "cedula_persona", $persona[0]['cedula_persona']);
+            }
         }
+
+        echo $this->Eliminar_Tablas("familia", "id_familia", $_POST['id']);
     }
-    echo $this->Activar("familia","id_familia",$_POST['id_familia']);
-  }
 
-  public function eliminar_integrantes(){
-  $retornar=0;
-  
-  if($this->Eliminar_Tablas("familia_personas","cedula_persona",$_POST['cedula_persona'])){
-    $integrantes=$this->Consultar_Columna("familia_personas","cedula_persona",$_POST['cedula_persona']);
-    if(count($integrantes)!=0){
-      $retornar=[];
-      for($i=0;$i<count($integrantes);$i++){
+    public function activar_familia()
+    {
+        $integrantes = $this->Consultar_Columna("familia_personas", "id_familia", $_POST['id_familia']);
 
-         $retornar[]=[
-           "cedula_persona"=>$integrantes[0]['cedula_persona'],
-           "id_familia_persona"=>$integrantes[$i]['id_familia_persona']
-         ];
-      }
+        foreach ($integrantes as $i) {
+            $persona = $this->Consultar_Columna("personas", "cedula_persona", $i['cedula_persona']);
+            if ($persona[0]['estado'] == 2) {
+                $this->Activar("personas", "cedula_persona", $persona[0]['cedula_persona']);
+            }
+        }
+        echo $this->Activar("familia", "id_familia", $_POST['id_familia']);
     }
-  }
 
-  echo json_encode($retornar);
+    // public function eliminar_integrantes()
+    // {
+    //     $retornar = 0;
 
-}
+    //     if ($this->Eliminar_Tablas("familia_personas", "cedula_persona", $_POST['cedula_persona'])) {
+    //         $integrantes = $this->Consultar_Columna("familia_personas", "cedula_persona", $_POST['cedula_persona']);
+    //         if (count($integrantes) != 0) {
+    //             $retornar = [];
+    //             for ($i = 0; $i < count($integrantes); $i++) {
 
-  public function actualizar_familia(){
-        $datos_familia=$_POST['datos'];
+    //                 $retornar[] = [
+    //                     "cedula_persona"     => $integrantes[0]['cedula_persona'],
+    //                     "id_familia_persona" => $integrantes[$i]['id_familia_persona'],
+    //                 ];
+    //             }
+    //         }
+    //     }
 
-        $resultado= $this->modelo->Actualizar_Familia($datos_familia);
+    //     echo json_encode($retornar);
+
+    // }
+
+    // public function actualizar_familia()
+    // {
+    //     $datos_familia = $_POST['datos'];
+
+    //     $resultado = $this->modelo->Actualizar_Familia($datos_familia);
+
+    //     if ($resultado) {
+    //         $id = $this->Ultimo_Ingresado("familia", "id_familia");
+    //         foreach ($id as $i) {
+    //             foreach ($datos_familia['integrantes'] as $inte) {
+    //                 $this->modelo->Registrar_persona_familia([
+    //                     "cedula_persona" => $inte,
+    //                     "id_familia"     => $i['MAX(id_familia)'],
+    //                 ]);
+    //             }
+    //         }
+    //     }
+    //     echo $resultado;
+
+    // }
+    // ===============================================================================
+    public function Establecer_Consultas()
+    {
+        $this->modelo->__SET("tipo", "0");
+        $this->modelo->__SET("SQL", "SQL_06");
+        $this->datos["personas"] = $this->modelo->Administrar();
+        $this->modelo->__SET("SQL", "_01_");
+        $this->modelo->__SET("consultar", array("tabla" => "vivienda", "estado" => 1, "orden" => "numero_casa"));
+        $this->datos["viviendas"] = $this->modelo->Administrar();
+        $this->modelo->__SET("SQL", "SQL_01");
+        $this->datos["familias"] = $this->modelo->Administrar();
+        $this->vista->datos      = $this->datos;
+    }
+
+    public function Administrar($peticion = null)
+    {
+        $this->Seguridad_de_Session();
+        $this->Establecer_Consultas();
+        if (isset($_POST['peticion'])) {$peticion = $_POST['peticion'];} else { $peticion = $peticion[0];}
+
+        switch ($peticion) {
+            case 'Registros':$this->vista->Cargar_Vistas('familia/registrar');
+                break;
+            case 'Consultas':$this->vista->Cargar_Vistas('familia/consultar');
+                break;
+
+            case 'Administrar':
         
-        if($resultado){
-           $id=$this->Ultimo_Ingresado("familia","id_familia");
-           foreach ($id as  $i) {
-            foreach ($datos_familia['integrantes'] as $inte) {
-             $this->modelo->Registrar_persona_familia([
-                "cedula_persona"         =>  $inte,
-                "id_familia"            =>   $i['MAX(id_familia)']
-            ]);
-         }
-     }
- }
-echo $resultado;
+                $this->modelo->__SET("SQL", $_POST['sql']);
+                $this->modelo->__SET("tipo", "1");
+                $this->modelo->Datos($_POST['datos']);
+                if ($this->modelo->Administrar()) {
+                    
+                        foreach ($_POST['integrantes'] as $inte) {
+                            $this->modelo->__SET("SQL", "SQL_05");
+                            $this->modelo->__SET("tipo", "1");
+                            $this->modelo->Datos([
+                                "cedula_persona"     => $inte,
+                                "id_familia" => $_POST['datos']["id_familia"],
+                            
+                            ]);
+                            if ($this->modelo->Administrar()) {$this->mensaje = 1;}
+                        }
+                    
+                }
+                $this->Accion($_POST['accion']);
+                echo $this->mensaje;unset($_POST, $this->mensaje);
+                break;
 
+            case 'Eliminar':
+                $this->modelo->Estado($_POST['estado']);
+                $this->modelo->Datos([
+                    $_POST['estado']["id_tabla"] => $_POST['estado']["param"],
+                    "estado"                     => $_POST['estado']["estado"],
+                ]);
+                $this->modelo->__SET("SQL", $_POST['sql']);
+                $this->modelo->__SET("tipo", "1");
+
+                if ($this->modelo->Administrar()) {
+                    $this->mensaje = 1;
+                    $this->Accion($_POST['accion']);}
+
+                echo $this->mensaje;unset($_POST, $this->mensaje);
+                break;
+
+            case 'Consulta_Ajax':
+
+                $retornar = [];
+
+                foreach ($this->datos["familias"] as $f) {
+                    $this->modelo->__SET("SQL", "SQL_02");
+                    $this->modelo->__SET("tipo", "0");
+                    $this->modelo->__SET("id", $f['id_familia']);
+                    $integrantes = $this->modelo->Administrar();
+
+                    $retornar[] = [
+                        "familia"         => $f['nombre_familia'],
+                        "telefono"        => $f['telefono_familia'],
+                        "direccion"       => $f['direccion_vivienda'],
+                        "Nro Casa"        => $f['numero_casa'],
+                        "ingreso_mensual" => $f['ingreso_mensual_aprox'],
+                        "ver"             => "<button class='btn btn-primary' onclick='ver_familia(`" . json_encode($integrantes) . "`,`" . $f['nombre_familia'] . "`,`" . $f['telefono_familia'] . "`,`" . $f['direccion_vivienda'] . "`,`" . $f['numero_casa'] . "`,`" . $f['ingreso_mensual_aprox'] . "`)' type='button'><em class='fa fa-eye'></em></button>",
+                        "editar"          => "<button type='button' class='btn btn-success' data-toggle='modal' data-target='#actualizar' onclick='editar(" . $f['id_familia'] . "," . $f['id_familia_persona'] . ")'><em class='fa fa-edit'></em></button>",
+                        "eliminar"        => "<button class='btn btn-danger' onclick='eliminar(`" . $f['id_familia'] . "`)' type='button'><em class='fa fa-trash'></em></button>",
+                    ];
+                }
+
+                $this->Escribir_JSON($retornar);
+                unset($integrantes, $retornar);
+                break;
+
+            case 'Datos':
+
+                $retornar = [];
+
+                foreach ($this->datos["familias"] as $f) {
+
+                    if ($f['id_familia'] == $_POST['id_familia']) {
+                        $this->modelo->__SET("SQL", "SQL_02");
+                        $this->modelo->__SET("tipo", "0");
+                        $this->modelo->__SET("id", $_POST['id_familia']);
+                        $integrantes = $this->modelo->Administrar();
+
+                        $retornar[] = [
+                            "id_familia"          => $f['id_familia'],
+                            "familia"             => $f['nombre_familia'],
+                            "telefono"            => $f['telefono_familia'],
+                            "direccion"           => $f['direccion_vivienda'],
+                            "id_vivienda"         => $f['id_vivienda'],
+                            "ingreso_mensual"     => $f['ingreso_mensual_aprox'],
+                            "condicion_ocupacion" => $f['condicion_ocupacion'],
+                            "observacion"         => $f['observacion'],
+                            "integrantes"         => json_encode($integrantes),
+                        ];
+                    }
+                }
+                $this->Escribir_JSON($retornar);
+                unset($integrantes, $retornar);
+                break;
+
+            case 'Existente':
+                $this->modelo->__SET("tipo", "0");
+                $this->modelo->__SET("SQL", "_05_");
+                $this->modelo->__SET("consultar", array(
+                    "tabla"   => "personas",
+                    "columna" => "cedula_persona",
+                    "data"    => $_POST['cedula'],
+                ));
+                $consulta = $this->modelo->Administrar();
+                if (count($consulta) == 0) {
+                    echo 0;
+                } else {
+                    $this->Escribir_JSON($consulta);
+                }
+                unset($consulta);
+                break;
+
+            case 'Eliminar_Integrantes':
+                $retornar = 0;
+                $this->modelo->__SET("SQL", "_07_");$this->modelo->__SET("tipo", "1");
+                $this->modelo->__SET("eliminar", array(
+                    "tabla" => "familia_personas", "id_tabla" => "cedula_persona"));
+                $this->modelo->Datos(["cedula_persona" => $_POST['cedula_persona']]);
+
+                if ($this->modelo->Administrar()) {
+                    $this->modelo->__SET("tipo", "0");$this->modelo->__SET("SQL", "_05_");
+                    $this->modelo->__SET("consultar", array(
+                        "tabla"   => "familia_personas",
+                        "columna" => "cedula_persona",
+                        "data"    => $_POST['cedula_persona'],
+                    ));
+                    $integrantes = $this->modelo->Administrar();
+                    if (count($integrantes) != 0) {
+                        $retornar = [];
+                        for ($i = 0; $i < count($integrantes); $i++) {
+                            $retornar[] = [
+                                "cedula_persona"     => $integrantes[0]['cedula_persona'],
+                                "id_familia_persona" => $integrantes[$i]['id_familia_persona'],
+                            ];
+                        }
+                    }
+                }
+                echo json_encode($retornar);unset($integrantes, $retornar, $_POST);
+                break;
+
+            default:$this->vista->Cargar_Vistas('error/400');
+                break;
+        }
+        unset($peticion, $this->datos, $this->vista->datos);
+        exit();
+    }
 }
-
-
-}
-
-?> 
