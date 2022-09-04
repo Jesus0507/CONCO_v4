@@ -1,5 +1,5 @@
 var gases_agregados = [];
-document.getElementById("agregar_servicio").onclick = function () {
+document.getElementById("agregar_servicio").onclick = function() {
     if (document.getElementById("gas_input").style.display == 'none') {
         document.getElementById("gas_input").style.display = "";
         document.getElementById("gas_select").style.display = 'none';
@@ -13,7 +13,7 @@ document.getElementById("agregar_servicio").onclick = function () {
         document.getElementById("gas_input").value = '';
     }
 }
-document.getElementById("agregar_gas").onclick = function () {
+document.getElementById("agregar_gas").onclick = function() {
     var validacion = valid_gases_agregados();
     if (validacion['continuar']) {
         document.getElementById("gas_input").value = '';
@@ -21,7 +21,6 @@ document.getElementById("agregar_gas").onclick = function () {
         document.getElementById("tipo_bombona").value = 'vacio';
         document.getElementById("tiempo_duracion").value = 'vacio';
         gases_agregados.push(validacion['gas']);
-
         var div = document.createElement("div");
         var table = document.createElement("table");
         table.style.width = "100%";
@@ -54,10 +53,9 @@ document.getElementById("agregar_gas").onclick = function () {
         div.appendChild(table);
         div.appendChild(hr);
         document.getElementById("gases_agregados").appendChild(div);
-        button.onclick = function () {
+        button.onclick = function() {
             document.getElementById("gases_agregados").removeChild(div);
             gases_agregados.splice(gases_agregados.indexOf(validacion['gas']), 1);
-
         }
     }
 }
@@ -97,7 +95,6 @@ function valid_gases_agregados() {
                 gas['tiempo_duracion'] = document.getElementById("tiempo_duracion").value;
                 gas['tipo_bombona'] = document.getElementById("tipo_bombona").value;
                 for (var i = 0; i < gases_agregados.length; i++) {
-
                     if (JSON.stringify(gases_agregados[i]) == JSON.stringify(gas)) {
                         cont++;
                     }
@@ -115,7 +112,7 @@ function valid_gases_agregados() {
     return validar;
 }
 var electrodomesticos_agregados = [];
-document.getElementById("nuevo_electrodomestico").onclick = function () {
+document.getElementById("nuevo_electrodomestico").onclick = function() {
     if (document.getElementById("electrodomestico_input").style.display == 'none') {
         document.getElementById("electrodomestico_input").style.display = "";
         document.getElementById("electrodomestico_select").style.display = 'none';
@@ -129,14 +126,13 @@ document.getElementById("nuevo_electrodomestico").onclick = function () {
         document.getElementById("electrodomestico_input").value = '';
     }
 }
-document.getElementById("agregar_electrodomestico").onclick = function () {
+document.getElementById("agregar_electrodomestico").onclick = function() {
     var validacion = valid_electrodomesticos_agregados();
     if (validacion['continuar']) {
         document.getElementById("electrodomestico_select").value = 'vacio';
         document.getElementById("electrodomestico_input").value = '';
         document.getElementById("cantidad_electrodomestico").value = '';
         electrodomesticos_agregados.push(validacion['valor_electrodomestico']);
-
         var div = document.createElement("div");
         var table = document.createElement("table");
         table.style.width = "100%";
@@ -165,10 +161,9 @@ document.getElementById("agregar_electrodomestico").onclick = function () {
         div.appendChild(table);
         div.appendChild(hr);
         document.getElementById("electrodomesticos_agregados").appendChild(div);
-        button.onclick = function () {
+        button.onclick = function() {
             document.getElementById("electrodomesticos_agregados").removeChild(div);
             electrodomesticos_agregados.splice(electrodomesticos_agregados.indexOf(validacion['gas']), 1);
-
         }
     }
 }
@@ -202,7 +197,6 @@ function valid_electrodomesticos_agregados() {
             }
             electrodomestico['cantidad'] = document.getElementById("cantidad_electrodomestico").value;
             for (var i = 0; i < electrodomesticos_agregados.length; i++) {
-
                 if (JSON.stringify(electrodomesticos_agregados[i]) == JSON.stringify(electrodomestico)) {
                     cont++;
                 }
@@ -233,7 +227,7 @@ var pisos_input = document.getElementById("tabla_piso");
 var valid_techos = document.getElementById("valid_techos");
 var valid_paredes = document.getElementById("valid_paredes");
 var valid_pisos = document.getElementById("valid_pisos");
-btn_agregar_techo.onclick = function () {
+btn_agregar_techo.onclick = function() {
     if ((techos_input.style.display != 'none' && techos_input.value == '')) {
         valid_techos.innerHTML = 'Debe ingresar un techo';
         techos_input.style.borderColor = 'red';
@@ -269,13 +263,13 @@ btn_agregar_techo.onclick = function () {
         techos.push(tipos_techos);
         div.appendChild(hr);
         div_techos.appendChild(div);
-        button.onclick = function () {
+        button.onclick = function() {
             div_techos.removeChild(div);
             techos.splice(techos.indexOf(tipos_techos), 1);
         }
     }
 }
-btn_agregar_pared.onclick = function () {
+btn_agregar_pared.onclick = function() {
     if ((paredes_input.style.display != 'none' && paredes_input.value == '')) {
         valid_paredes.innerHTML = 'Debe ingresar una pared';
         paredes_input.style.borderColor = 'red';
@@ -311,13 +305,13 @@ btn_agregar_pared.onclick = function () {
         paredes.push(tipos_pared);
         div.appendChild(hr);
         div_paredes.appendChild(div);
-        button.onclick = function () {
+        button.onclick = function() {
             div_paredes.removeChild(div);
             paredes.splice(paredes.indexOf(tipos_pared), 1);
         }
     }
 }
-btn_agregar_piso.onclick = function () {
+btn_agregar_piso.onclick = function() {
     if ((pisos_input.style.display != 'none' && pisos_input.value == '')) {
         valid_pisos.innerHTML = 'Debe ingresar una pared';
         pisos_input.style.borderColor = 'red';
@@ -353,13 +347,13 @@ btn_agregar_piso.onclick = function () {
         pisos.push(tipos_piso);
         div.appendChild(hr);
         div_pisos.appendChild(div);
-        button.onclick = function () {
+        button.onclick = function() {
             div_pisos.removeChild(div);
             pisos.splice(pisos.indexOf(tipos_piso), 1);
         }
     }
 }
-document.getElementById("id_calle").onchange = function () {
+document.getElementById("id_calle").onchange = function() {
     if (document.getElementById("id_calle").value == "vacio") {
         document.getElementById("id_calle").style.borderColor = 'red';
         document.getElementById("id_calle").focus();
@@ -369,7 +363,7 @@ document.getElementById("id_calle").onchange = function () {
         document.getElementById("valid_calle").innerHTML = '';
     }
 }
-document.getElementById("direccion_vivienda").onkeyup = function () {
+document.getElementById("direccion_vivienda").onkeyup = function() {
     if (document.getElementById("direccion_vivienda").value == '' || document.getElementById("direccion_vivienda").value == null) {
         document.getElementById("direccion_vivienda").style.borderColor = 'red';
         document.getElementById("direccion_vivienda").focus();
@@ -379,7 +373,7 @@ document.getElementById("direccion_vivienda").onkeyup = function () {
         document.getElementById("valid_direccion").innerHTML = '';
     }
 }
-document.getElementById("numero_casa").onkeyup = function () {
+document.getElementById("numero_casa").onkeyup = function() {
     if (document.getElementById("numero_casa").value == '' || document.getElementById("numero_casa").value == null) {
         document.getElementById("numero_casa").focus();
         document.getElementById("numero_casa").style.borderColor = 'red';
@@ -389,7 +383,7 @@ document.getElementById("numero_casa").onkeyup = function () {
         document.getElementById("valid_numero_casa").innerHTML = '';
     }
 }
-document.getElementById("cantidad_habitaciones").onkeyup = function () {
+document.getElementById("cantidad_habitaciones").onkeyup = function() {
     if (document.getElementById("cantidad_habitaciones").value == '' || document.getElementById("cantidad_habitaciones").value == null) {
         document.getElementById("cantidad_habitaciones").style.borderColor = 'red';
         document.getElementById("cantidad_habitaciones").focus();
@@ -399,7 +393,7 @@ document.getElementById("cantidad_habitaciones").onkeyup = function () {
         document.getElementById("valid_cantidad_habitaciones").innerHTML = '';
     }
 }
-document.getElementById("id_tipo_vivienda").onkeyup = function () {
+document.getElementById("id_tipo_vivienda").onkeyup = function() {
     if (document.getElementById("id_tipo_vivienda").value == '' || document.getElementById("id_tipo_vivienda").value == null) {
         document.getElementById("id_tipo_vivienda").style.borderColor = 'red';
         document.getElementById("id_tipo_vivienda").focus();
@@ -409,7 +403,7 @@ document.getElementById("id_tipo_vivienda").onkeyup = function () {
         document.getElementById("valid_tipo_vivienda").innerHTML = '';
     }
 }
-document.getElementById("condicion").onchange = function () {
+document.getElementById("condicion").onchange = function() {
     if (document.getElementById("condicion").value == '0') {
         document.getElementById("condicion").focus();
         document.getElementById("condicion").style.borderColor = 'red';
@@ -419,7 +413,7 @@ document.getElementById("condicion").onchange = function () {
         document.getElementById("valid_condicion_vivienda").innerHTML = '';
     }
 }
-document.getElementById("agua_consumo").onchange = function () {
+document.getElementById("agua_consumo").onchange = function() {
     if (document.getElementById("agua_consumo").value == 'vacio') {
         document.getElementById("agua_consumo").style.borderColor = 'red';
         document.getElementById("agua_consumo").focus();
@@ -429,7 +423,7 @@ document.getElementById("agua_consumo").onchange = function () {
         document.getElementById("valid_agua_consumo").innerHTML = '';
     }
 }
-document.getElementById("aguas_negras").onchange = function () {
+document.getElementById("aguas_negras").onchange = function() {
     if (document.getElementById("aguas_negras").value == '0') {
         document.getElementById("aguas_negras").style.borderColor = 'red';
         document.getElementById("aguas_negras").focus();
@@ -505,7 +499,6 @@ function validar_vivienda() {
                                     } else {
                                         document.getElementById("residuos_solidos").style.borderColor = '';
                                         document.getElementById("valid_residuos_solidos").innerHTML = '';
-
                                         if (techos.length == 0) {
                                             swal({
                                                 type: "error",
@@ -568,15 +561,15 @@ function validar_vivienda() {
     }
     return validar;
 }
-$(document).ready(function () {
+$(document).ready(function() {
     var i = 1;
-    $("#gas").on("change", function () {
+    $("#gas").on("change", function() {
         var value = $("#gas").val();
         if (value == "1") {
             $("#tabla_gas").modal('show');
         }
     });
-    $(document).on('click', '#guardar', function () {
+    $(document).on('click', '#guardar', function() {
         var inf_servicio = new Object();
         inf_servicio['agua_consumo'] = document.getElementById("agua_consumo").value;
         inf_servicio['aguas_negras'] = document.getElementById("aguas_negras").value;
@@ -608,7 +601,7 @@ $(document).ready(function () {
                     direction: "Viviendas/Administrar",
                     accion: "codificar"
                 },
-                success: function (direccion_segura) {
+                success: function(direccion_segura) {
                     $.ajax({
                         url: BASE_URL + direccion_segura,
                         type: "POST",
@@ -623,8 +616,7 @@ $(document).ready(function () {
                             gases: gases_agregados,
                             accion: "La vivienda: " + document.getElementById("numero_casa").value + " fue puesta en solicitud de registro",
                         },
-                    }).done(function (datos) {
-                        
+                    }).done(function(datos) {
                         if (datos == 1) {
                             swal({
                                 title: "Éxito",
@@ -632,7 +624,7 @@ $(document).ready(function () {
                                 type: "success",
                                 showConfirmButton: false
                             });
-                            setTimeout(function () {
+                            setTimeout(function() {
                                 location.reload();
                             }, 1000);
                         } else {
@@ -647,11 +639,10 @@ $(document).ready(function () {
                         }
                     })
                 },
-                error: function () {
+                error: function() {
                     alert('Error al codificar dirreccion');
                 }
             });
-
         }
     });
 });
