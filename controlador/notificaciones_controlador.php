@@ -13,7 +13,7 @@ class Notificaciones extends Controlador
         $this->vista->Cargar_Vistas('notificaciones/index');
     }
     // ==============================================================================
-    public function Establecer_Consultas2()
+    public function Establecer_Consultas()
     {
         $this->modelo->__SET("tipo", "0");
         $this->modelo->__SET("consultar", $_SESSION['cedula_usuario']);
@@ -24,7 +24,7 @@ class Notificaciones extends Controlador
 
     public function Administrar($peticion = null)
     {
-        $this->Seguridad_de_Session();$this->Establecer_Consultas2();
+        $this->Seguridad_de_Session();$this->Establecer_Consultas();
         if (isset($_POST['peticion'])) {$peticion = $_POST['peticion'];} else { $peticion = $peticion[0];}
 
         switch ($peticion) {

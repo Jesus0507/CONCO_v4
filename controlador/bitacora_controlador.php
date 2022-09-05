@@ -5,7 +5,6 @@ class Bitacora extends Controlador
     public function __construct()
     {
         parent::__construct();
-        $this->vista->mensaje = "";
         // $this->Cargar_Modelo("bitacora");
     }
     public function Cargar_Vistas()

@@ -1,5 +1,5 @@
 <?php
-require_once 'vista/privado/securimage/securimage.php';
+
 class Solicitudes extends Controlador
 {
     public function __construct()
@@ -186,4 +186,91 @@ class Solicitudes extends Controlador
 
     }
 
+    // ==============================================================================
+    public function Establecer_Consultas2()
+    {
+        $this->modelo->__SET("tipo", "0");
+        $this->modelo->__SET("SQL", "SQL_02");
+        $this->datos["solicitudes"] = $this->modelo->Administrar();
+
+        $this->modelo->__SET("SQL", "_05_");
+        $this->modelo->__SET("consultar", array("tabla" => "solicitudes", "columna" => "id_solicitud", "data" => $_GET['id']));
+        $this->datos["solicitud"] = $this->modelo->Administrar();
+
+        $this->modelo->__SET("consultar", array(
+            "tabla" => "personas", "columna" => "cedula_persona",
+            "data"  => $this->datos["solicitud"][0]['cedula_persona'],
+        ));
+        $this->datos["solicitante"] = $this->modelo->Administrar();
+
+        $this->modelo->__SET("consultar", array(
+            "tabla" => "familia", "columna" => "id_familia",
+            "data"  => $this->datos["solicitud"][0]['observaciones'],
+        ));
+        $this->datos["familia"] = $this->modelo->Administrar();
+
+        $this->modelo->__SET("consultar", array(
+            "tabla" => "vivienda", "columna" => "id_vivienda",
+            "data"  => $this->datos["familia"][0]['id_vivienda'],
+        ));
+        $this->datos["vivienda"] = $this->modelo->Administrar();
+
+        $this->modelo->__SET("consultar", array(
+            "tabla" => "familia_personas", "columna" => "id_familia",
+            "data"  => $this->datos["solicitud"][0]['observaciones'],
+        ));
+        $this->datos["integrantes"] = $this->modelo->Administrar();
+
+        $personas_familia = [];
+
+        foreach ($this->datos["integrantes"] as $i) {
+            $this->modelo->__SET("consultar", array("tabla" => "personas", "columna" => "cedula_persona", "data" => $i['cedula_persona']));
+            $integrante         = $this->modelo->Administrar();
+            $personas_familia[] = $integrante[0];
+        }
+        $this->datos["integrantes"] = $personas_familia;
+
+        $this->vista->datos = $this->datos;
+    }
+
+    public function Administrar($peticion = null)
+    {
+        $this->Seguridad_de_Session();
+        $this->Establecer_Consultas2();
+        if (isset($_POST['peticion'])) {$peticion = $_POST['peticion'];} else { $peticion = $peticion[0];}
+
+        switch ($peticion) {
+            case 'Consultas':$this->vista->Cargar_Vistas('solicitudes/consultar');
+                break;
+
+            case 'Administrar':
+                if (isset($_POST['datos'])) {
+                    $this->modelo->Datos($_POST['datos']);
+                } else {
+                    $this->modelo->Estado($_POST['estado']);
+                    $this->modelo->Datos([
+                        $_POST['estado']["id_tabla"] => $_POST['estado']["param"],
+                        "estado"                     => $_POST['estado']["estado"],
+                    ]);
+                }
+
+                $this->modelo->__SET("SQL", $_POST['sql']);
+                $this->modelo->__SET("tipo", "1");
+
+                if ($this->modelo->Administrar()) {
+                    $this->mensaje = 1;
+                    $this->Accion($_POST['accion']);}
+
+                echo $this->mensaje;unset($_POST, $this->mensaje);
+                break;
+
+            case 'Consulta_Ajax':$this->Escribir_JSON($this->datos["negocios"]);
+                break;
+
+            default:$this->vista->Cargar_Vistas('error/400');
+                break;
+        }
+        unset($peticion, $this->datos, $this->vista->datos);
+        exit();
+    }
 }
