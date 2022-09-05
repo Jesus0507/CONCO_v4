@@ -1,5 +1,5 @@
 <?php include (call."Inicio.php"); ?>
-<?php include (call."data-table.php"); ?>
+
 
 <!-- Contenido de la pagina -->
 <div class="content-wrapper">
@@ -27,7 +27,7 @@
                     <div style="width:100%;background: #94EDE4;padding-left: 6%;padding-right: 6%;border-radius: 30px">
                         <br>
                         <em style="font-size:50px" class="fa fa-user"></em>
-                        <h4 id="usuario">Pruieba</h4>
+                        <h4 id="usuario">Prueba</h4>
                         <br>
                     </div>
                     <br>

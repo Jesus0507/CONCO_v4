@@ -2,22 +2,24 @@ var divNotificaciones = document.getElementById("divNotificaciones");
 chargeNotes();
 
 function chargeNotes() {
-    $.ajax({
+    $.ajax({ 
         type: "POST",
         url: BASE_URL + "app/Direcciones.php",
         data: {
-            direction: 'Notificaciones/Consultar_notificaciones',
+            direction: 'Notificaciones/Administrar',
             accion: "codificar"
         },
-        success: function (direccion_segura) {
+        success: function(direccion_segura) {
             $.ajax({
                 type: 'POST',
                 url: BASE_URL + direccion_segura,
-            }).done(function (datos) {
+                data: {
+                    peticion: "Consulta_Ajax",
+                },
+            }).done(function(datos) {
                 var result = JSON.parse(datos);
                 var cant = 0;
                 var body = "";
-
                 for (var i = 0; i < result.length; i++) {
                     var fechaN = new Date(result[i]['fecha'])
                     var fechaNoti = fechaN.getDate() + "-" + (fechaN.getMonth() + 1) + "-" + fechaN.getFullYear();
@@ -28,17 +30,13 @@ function chargeNotes() {
                     for (var j = 2; j < separado.length; j++) {
                         text += separado[j] + " ";
                     }
-
                     var color = "";
                     if (result[i]['leido'] == 1) {
                         color = '#BFBFBF';
-                    }
-                    else {
+                    } else {
                         color = '#94EDE4';
                     }
-
                     var clase = '';
-
                     switch (tipo[0]) {
                         case '1':
                             clase = 'fa fa-unlock';
@@ -63,14 +61,15 @@ function chargeNotes() {
                     body += '<td style="width:70%;text-align:center"><h5>' + text + '</h5></td>';
                     body += '<td style="width:20%;text-align:right"><em style="font-size:40px;padding-top:0px" class="' + clase + '"></em><br><br>';
                     body += '<b>' + fechaNoti + '</b></td></tr></table><br></div>';
-
                 }
                 divNotificaciones.innerHTML = body;
             });
         },
-        error: function () {
+        error: function() {
             alert('Error al codificar dirreccion');
         }
     });
-    setTimeout(function () { chargeNotes(); }, 30000);
+    setTimeout(function() {
+        chargeNotes();
+    }, 30000);
 }

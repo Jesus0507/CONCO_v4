@@ -37,7 +37,7 @@ class Direcciones
 
     public static function _004_()
     {
-        echo URL . self::Seguridad('Notificaciones/', 'codificar');
+        echo URL . self::Seguridad('Notificaciones/Administrar/Listar/', 'codificar');
     }
 
     public static function _005_()

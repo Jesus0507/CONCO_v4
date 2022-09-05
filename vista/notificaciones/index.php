@@ -26,7 +26,7 @@
         <br>
         <table style="width:100%">
           <tr>
-            <td style="width:7%;text-align: center"><em style="font-size:60px" class="fa fa-user"></em> <h3>Pruieba</h3></td>
+            <td style="width:7%;text-align: center"><em style="font-size:60px" class="fa fa-user"></em> <h3>Prueba</h3></td>
             <td style="width:70%;text-align:center"><h4>Notificación</h4></td>
 
            <td style="width:20%;text-align:right"><em style="font-size:40px;padding-top:0px" class="fa fa-clock-o"></em><br><br> <b>Fecha</b></td></tr>

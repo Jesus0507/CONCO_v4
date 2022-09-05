@@ -381,3 +381,106 @@ stdClass Object
     [Linea] => 52
     [Mensaje] => There is already an active transaction
 )
+stdClass Object
+(
+    [Fecha] => Domingo , 04 de Septiembre del 2022
+    [Hora] => 12:07:19 pm
+    [Mensaje] => Array
+        (
+            [0] => [Error Funcion] => "La Funcion: [ Consultar_notificaciones() ] No se encuentra definida, en el controlador: [ Notificaciones ]"
+        )
+
+)
+stdClass Object
+(
+    [Fecha] => Domingo , 04 de Septiembre del 2022
+    [Hora] => 12:07:24 pm
+    [Mensaje] => Array
+        (
+            [0] => [Error Funcion] => "La Funcion: [ Consultar_notificaciones() ] No se encuentra definida, en el controlador: [ Notificaciones ]"
+        )
+
+)
+stdClass Object
+(
+    [Fecha] => Domingo , 04 de Septiembre del 2022
+    [Hora] => 12:07:35 pm
+    [Mensaje] => Array
+        (
+            [0] => [Error Funcion] => "La Funcion: [ Consultar_notificaciones() ] No se encuentra definida, en el controlador: [ Notificaciones ]"
+        )
+
+)
+stdClass Object
+(
+    [Fecha] => Domingo , 04 de Septiembre del 2022
+    [Hora] => 12:07:41 pm
+    [Mensaje] => Array
+        (
+            [0] => [Error Funcion] => "La Funcion: [ Consultar_notificaciones() ] No se encuentra definida, en el controlador: [ Notificaciones ]"
+        )
+
+)
+stdClass Object
+(
+    [Fecha] => Domingo , 04 de Septiembre del 2022
+    [Hora] => 12:12:36 pm
+    [Mensaje] => Array
+        (
+            [0] => [Error Funcion] => "La Funcion: [ Notificacion() ] No se encuentra definida, en el controlador: [ Notificaciones ]"
+        )
+
+)
+stdClass Object
+(
+    [Fecha] => Domingo , 04 de Septiembre del 2022
+    [Hora] => 05:33:50 pm
+    [Mensaje] => Array
+        (
+            [0] => [Error Funcion] => "La Funcion: [ Notificacion() ] No se encuentra definida, en el controlador: [ Notificaciones ]"
+        )
+
+)
+stdClass Object
+(
+    [Fecha] => Domingo , 04 de Septiembre del 2022
+    [Hora] => 06:14:47 pm
+    [Mensaje] => Array
+        (
+            [0] => [Error Funcion] => "La Funcion: [ Notificacion() ] No se encuentra definida, en el controlador: [ Notificaciones ]"
+        )
+
+)
+stdClass Object
+(
+    [Fecha] => Domingo , 04 de Septiembre del 2022
+    [Hora] => 08:04:57 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Modelo.php
+    [Linea] => 53
+    [Mensaje] => SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+)
+stdClass Object
+(
+    [Fecha] => Domingo , 04 de Septiembre del 2022
+    [Hora] => 08:05:21 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Modelo.php
+    [Linea] => 53
+    [Mensaje] => SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+)
+stdClass Object
+(
+    [Fecha] => Domingo , 04 de Septiembre del 2022
+    [Hora] => 08:05:26 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Modelo.php
+    [Linea] => 53
+    [Mensaje] => SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+)
+stdClass Object
+(
+    [Fecha] => Domingo , 04 de Septiembre del 2022
+    [Hora] => 08:12:48 PM
+    [Modulo] => Agenda_Class
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Modelo.php
+    [Linea] => 52
+    [Mensaje] => SQLSTATE[42S02]: Base table or view not found: 1146 Table 'conco.genda' doesn't exist
+)

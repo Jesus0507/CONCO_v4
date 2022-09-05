@@ -70,10 +70,11 @@ class Modelo
     }
 
     // =========================================
-    public function Capturar_Error($e)
+    public function Capturar_Error($e,$modulo)
     {   
         $this->conexion->rollBack();
         $error_log          = new stdClass();
+        $error_log->Modulo  = $modulo;
         $error_log->Fecha   = $GLOBALS['fecha_larga'];
         $error_log->Hora    = date('h:i:s A');
         $error_log->Archivo = $e->getFile();

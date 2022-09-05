@@ -9,13 +9,16 @@ function getNotifications() {
         type: "POST",
         url: BASE_URL + "app/Direcciones.php",
         data: {
-            direction: 'Notificaciones/Consultar_notificaciones',
+            direction: 'Notificaciones/Administrar',
             accion: "codificar"
         },
     }).done(function(direccion_segura) {
         $.ajax({
             type: 'POST',
             url: BASE_URL + direccion_segura,
+            data: {
+                peticion: "Consulta_Ajax",
+            },
         }).done(function(datos) {
             var result = JSON.parse(datos);
             var cant = 0;
@@ -108,11 +111,15 @@ function getSpan(fechaN, fechaA) {
 }
 
 function setStatus(id) {
+    var datos = {
+        id_notificacion: id,
+        leido: 1
+    };
     $.ajax({
         type: "POST",
         url: BASE_URL + "app/Direcciones.php",
         data: {
-            direction: 'Notificaciones/Set_status',
+            direction: 'Notificaciones/Administrar',
             accion: "codificar"
         },
     }).done(function(direccion_segura) {
@@ -120,21 +127,33 @@ function setStatus(id) {
             type: 'POST',
             url: BASE_URL + direccion_segura,
             data: {
-                "id": id
+                datos: datos,
+                peticion: "Administrar",
+                sql: "SQL_03",
             },
         }).done(function(datos) {
-            getNotifications();
-            $.ajax({
-                type: "POST",
-                url: BASE_URL + "app/Direcciones.php",
-                data: {
-                    direction: "Notificaciones/Notificacion",
-                    accion: "codificar"
-                },
-            }).done(function(direccion) {
-                window.open(BASE_URL + direccion + '&id=' + id);
-            });
-            
+            if (datos == 1) {
+                getNotifications();
+                $.ajax({
+                    type: "POST",
+                    url: BASE_URL + "app/Direcciones.php",
+                    data: {
+                        direction: "Notificaciones/Administrar/Consultas",
+                        accion: "codificar"
+                    },
+                }).done(function(direccion) {
+                    window.open(BASE_URL + direccion + '&id=' + id);
+                });
+            } else {
+                swal({
+                    title: "ERROR!",
+                    text: "Ha ocurrido un Error.</br>" + datos,
+                    type: "error",
+                    html: true,
+                    showConfirmButton: true,
+                    customClass: "bigSwalV2",
+                });
+            }
         });
     });
 }
