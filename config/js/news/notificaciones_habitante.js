@@ -4,7 +4,7 @@ var notificaciones = document.getElementById("body-notificaciones");
 var verTodas = document.getElementById("ver-todas");
 var texto_click_notificaciones = [];
 getNotifications_habitante();
- 
+
 function getNotifications_habitante() {
     $.ajax({
         type: "POST",
@@ -168,15 +168,17 @@ function nueva_notificacion(datos) {
         type: "POST",
         url: BASE_URL + "app/Direcciones.php",
         data: {
-            direction: "Notificaciones/Nueva_notificacion",
+            direction: "Notificaciones/Administrar",
             accion: "codificar"
         },
         success: function(direccion_segura) {
             $.ajax({
-                type: "POST",
+                type: 'POST',
                 url: BASE_URL + direccion_segura,
                 data: {
-                    datos: datos
+                    datos: datos,
+                    peticion: "Nueva",
+                    sql: "SQL_01",
                 },
             }).done(function(result) {
                 getNotifications();

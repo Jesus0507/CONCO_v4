@@ -16,12 +16,11 @@ var ubicacion_evento = document.getElementById("ubicacion_evento");
 var hora_desde_evento = document.getElementById("hora_desde_evento");
 var hora_hasta_evento = document.getElementById("hora_hasta_evento");
 get_eventos();
-setTimeout(function () {
+setTimeout(function() {
     obtener_calendario("vacio", "vacio");
 }, 500);
 //===========================================================================//
 function get_eventos() {
-    
     $.ajax({
         type: "POST",
         url: BASE_URL + "app/Direcciones.php",
@@ -36,10 +35,9 @@ function get_eventos() {
                 data: {
                     peticion: "Consulta_Ajax",
                 },
-            }).done(function (result) {
+            }).done(function(result) {
                 var resultado = JSON.parse(result);
                 for (var i = 0; i < resultado.length; i++) {
-        
                     var fecha_event = new Date(resultado[i]['fecha']);
                     if (fecha_event >= new Date()) {
                         eventos_registrados.push(resultado[i]);
@@ -54,7 +52,6 @@ function get_eventos() {
 }
 //===========================================================================//
 function obtener_calendario(mes, anio) {
-
     if (anio == "vacio") {
         anio = new Date().getFullYear();
     }
@@ -67,7 +64,7 @@ function obtener_calendario(mes, anio) {
     llenar_calendario(ultimo_dia.getDate(), mes, anio);
 }
 //===========================================================================//
-btn_guardar_evento.onclick = function () {
+btn_guardar_evento.onclick = function() {
     if (tipo_evento.value == "") {
         swal({
             type: "error",
@@ -138,7 +135,6 @@ function guardar_eventos() {
     datos['detalle_evento'] = detalle_evento.value;
     datos['ubicacion'] = ubicacion_evento.value;
     datos['horas'] = "De " + hora_desde_evento.options[hora_desde_evento.selectedIndex].text + " hasta " + hora_hasta_evento.options[hora_hasta_evento.selectedIndex].text;
-    
     $.ajax({
         type: "POST",
         url: BASE_URL + "app/Direcciones.php",
@@ -156,23 +152,26 @@ function guardar_eventos() {
                     sql: "SQL_02",
                     accion: "Se ha Actualizado el  Evento: " + datos.tipo_evento,
                 },
-            }).done(function (result) {
+            }).done(function(result) {
                 if (result == 1) {
-                    
                     $.ajax({
                         type: "POST",
                         url: BASE_URL + "app/Direcciones.php",
                         data: {
-                            direction: "Notificaciones/Consultas_Receptores_Ajax",
+                            direction: "Notificaciones/Administrar",
                             accion: "codificar"
                         },
                         success: function(direccion_segura) {
                             $.ajax({
                                 type: "POST",
-                                url: BASE_URL + direccion_segura, 
-                            }).done(function (result) {
+                                url: BASE_URL + direccion_segura,
+                                data: {
+                                    datos: datos,
+                                    peticion: "Receptores",
+                                   
+                                },
+                            }).done(function(result) {
                                 var users = JSON.parse(result);
-                
                                 for (var i = 0; i < users.length; i++) {
                                     var datos_notificacion = new Object();
                                     datos_notificacion['tipo_notificacion'] = 3;
@@ -188,7 +187,7 @@ function guardar_eventos() {
                                     datos_notificacion['accion'] += " en " + ubicacion_evento.value + " " + datos['horas'];
                                     nueva_notificacion(datos_notificacion);
                                 }
-                                setTimeout(function () {
+                                setTimeout(function() {
                                     swal({
                                         title: "Éxito",
                                         text: "El evento ha sido creado exitosamente",
@@ -197,7 +196,6 @@ function guardar_eventos() {
                                         timer: 2000
                                     });
                                 }, 100);
-                                
                                 Direccionar("Agenda/Administrar/Consultas");
                             });
                         },
@@ -206,7 +204,7 @@ function guardar_eventos() {
                         }
                     });
                 } else {
-                    setTimeout(function () {
+                    setTimeout(function() {
                         swal({
                             title: "ERROR!",
                             text: "Ha ocurrido un Error.</br>" + result,
@@ -323,7 +321,7 @@ function get_time(hora) {
     return numero;
 }
 //===========================================================================//
-boton_crear.onclick = function () {
+boton_crear.onclick = function() {
     var fechas = "";
     if (lista_fechas.length == 0) {
         swal({
@@ -342,7 +340,7 @@ boton_crear.onclick = function () {
     }
 }
 //===========================================================================//
-back_mes.onclick = function () {
+back_mes.onclick = function() {
     var mes_back = 0;
     switch (mes_view.innerHTML) {
         case "Enero":
@@ -391,7 +389,7 @@ back_mes.onclick = function () {
     obtener_calendario(mes_back, retornar_anio);
 }
 //===========================================================================//
-next_mes.onclick = function () {
+next_mes.onclick = function() {
     var mes_next = 0;
     switch (mes_view.innerHTML) {
         case "Enero":
@@ -459,10 +457,8 @@ function llenar_calendario(ultimo, mes, anio) {
             day = i;
         }
         if (mes < 10) {
-
             var clase_td = getClassTd(anio + "-0" + (mes + 1) + "-" + day, i);
         } else {
-
             var clase_td = getClassTd(anio + "-" + (mes + 1) + "-" + day, i);
         }
         if (i == 1) {
@@ -535,7 +531,6 @@ function add_day(element, fecha) {
     var mes_event = get_mes_number(mes_view.innerHTML);
     var dia_event = element.innerHTML;
     var fecha_evento = new Date(anio_event, (mes_event - 1), dia_event);
-
     if (fecha_evento < new Date()) {
         swal({
             title: "Error",
@@ -548,10 +543,10 @@ function add_day(element, fecha) {
         if (lista_fechas.length == 0) {
             lista_fechas.push(fecha);
             element.style.background = "#00C428";
-            element.onmouseover = function () {
+            element.onmouseover = function() {
                 element.style.background = "#00C428";
             }
-            element.onmouseout = function () {
+            element.onmouseout = function() {
                 element.style.background = "#00C428";
             }
         } else {
@@ -564,28 +559,28 @@ function add_day(element, fecha) {
             if (existe == false) {
                 lista_fechas.push(fecha);
                 element.style.background = "#00C428";
-                element.onmouseover = function () {
+                element.onmouseover = function() {
                     element.style.background = "#00C428";
                 }
-                element.onmouseout = function () {
+                element.onmouseout = function() {
                     element.style.background = "#00C428";
                 }
             } else {
                 lista_fechas.splice(lista_fechas.indexOf(anio_event + "-" + mes_event + "-" + dia_event), 1);
                 if (element.className == "calendar_ocupado_selected" || element.className == "calendar_ocupado") {
                     element.style.background = "#85D7CF";
-                    element.onmouseover = function () {
+                    element.onmouseover = function() {
                         element.style.background = "#00C428";
                     }
-                    element.onmouseout = function () {
+                    element.onmouseout = function() {
                         element.style.background = "#85D7CF";
                     }
                 } else {
                     element.style.background = "#C7F2EE";
-                    element.onmouseover = function () {
+                    element.onmouseover = function() {
                         element.style.background = "#00C428";
                     }
-                    element.onmouseout = function () {
+                    element.onmouseout = function() {
                         element.style.background = "#C7F2EE";
                     }
                 }
@@ -701,10 +696,8 @@ function getClassTd(fecha, indice) {
     } else {
         var cont = 0;
         for (var i = 0; i < eventos_registrados.length; i++) {
-
             if (eventos_registrados[i]['fecha'] == fecha) {
                 cont++;
-
             }
         }
         if (cont == 0) {
@@ -713,7 +706,6 @@ function getClassTd(fecha, indice) {
             retornar = getClassTdAuxiliarOcupado(fecha, indice);
         }
     }
-
     if (fecha_act == fecha) {
         retornar = "style='color:#0682A1'" + retornar;
     }

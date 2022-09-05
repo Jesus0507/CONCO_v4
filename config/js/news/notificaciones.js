@@ -177,7 +177,7 @@ function nueva_notificacion(datos) {
         type: "POST",
         url: BASE_URL + "app/Direcciones.php",
         data: {
-            direction: "Notificaciones/Nueva_notificacion",
+            direction: "Notificaciones/Administrar",
             accion: "codificar"
         },
     }).done(function(direccion_segura) {
@@ -185,7 +185,9 @@ function nueva_notificacion(datos) {
             type: 'POST',
             url: BASE_URL + direccion_segura,
             data: {
-                "datos": datos
+                datos: datos,
+                peticion: "Nueva",
+                sql: "SQL_01",
             },
         }).done(function(result) {
             getNotifications();

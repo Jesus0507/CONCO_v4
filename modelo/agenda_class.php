@@ -32,7 +32,7 @@ class Agenda_Class extends Modelo
     }
     private function SQL_02()
     {
-        return "INSERT INTO genda (tipo_evento, fecha,  creador,  ubicacion, horas, detalle) VALUES (:tipo_evento,  :fecha, :creador, :ubicacion, :horas, :detalle)";
+        return "INSERT INTO agenda (tipo_evento, fecha,  creador,  ubicacion, horas, detalle) VALUES (:tipo_evento,  :fecha, :creador, :ubicacion, :horas, :detalle)";
     }
 
     private function SQL_03()
