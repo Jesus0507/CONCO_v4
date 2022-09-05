@@ -74,7 +74,7 @@ class Modelo
     {   
         $this->conexion->rollBack();
         $error_log          = new stdClass();
-        $error_log->Modulo  = $modulo;
+        $error_log->Modulo  = "------".$modulo."------";
         $error_log->Fecha   = $GLOBALS['fecha_larga'];
         $error_log->Hora    = date('h:i:s A');
         $error_log->Archivo = $e->getFile();
@@ -88,7 +88,7 @@ class Modelo
         "[ Codigo ]   => (" . $e->getCode() . ")</br>" .
         "[ Error PHP]   => (" . $e->getMessage() . ")</br>";
 
-        echo ($this->error);unset($this->error,$error_log );
+        echo ($this->error);unset($this->error,$error_log,$modulo );
         return false;
     }
 

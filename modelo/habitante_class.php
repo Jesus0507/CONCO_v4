@@ -2,13 +2,9 @@
 
 class Habitante_Class extends Modelo
 {
+    public function __construct(){parent::__construct();}
 
-    public function __construct()
-    {
-        parent::__construct();
-    } 
-
-   public function Administrar()
+    public function Administrar()
     {
         $this->sentencia = $this->{$this->SQL}();
         try {
@@ -24,13 +20,12 @@ class Habitante_Class extends Modelo
                     break;
             }
         } catch (PDOException $e) {
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e, "Habitante");
         }
     }
 
     private function SQL_01()
     {
         return "SELECT p.cedula_persona, p.fecha_nacimiento FROM personas p WHERE p.estado = 1 ORDER BY p.cedula_persona ASC";
-    }  
+    }
 }
-?>

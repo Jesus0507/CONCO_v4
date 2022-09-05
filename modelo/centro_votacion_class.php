@@ -2,11 +2,7 @@
 
 class Centro_Votacion_Class extends Modelo
 {
-
-    public function __construct()
-    {
-        parent::__construct();
-    }
+    public function __construct(){parent::__construct();}
 
     // ===============================================================================
 
@@ -26,7 +22,7 @@ class Centro_Votacion_Class extends Modelo
                     break;
             }
         } catch (PDOException $e) {
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Centro_Votacion");
         }
     }
 

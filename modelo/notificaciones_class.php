@@ -1,11 +1,7 @@
 <?php
 class Notificaciones_Class extends Modelo
 {
-
-    public function __construct()
-    {
-        parent::__construct();
-    }
+    public function __construct(){parent::__construct();}
 
     public function Registrar($data)
     {
@@ -130,7 +126,7 @@ class Notificaciones_Class extends Modelo
                     break;
             }
         } catch (PDOException $e) {
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Notificaciones");
         }
     }
 

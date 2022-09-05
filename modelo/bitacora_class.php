@@ -23,7 +23,7 @@ class Bitacora_Class extends Modelo
                     break;
             }
         } catch (PDOException $e) {
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Bitacora");
         }
     }
 
