@@ -36,7 +36,8 @@
 						<div id="textoColorFav" style='color:red'></div>
 
 						</br>
-
+                        
+						<div id="inputs_contrasenia" style="display:none">
 						<h5 class="modal-title text-center" style="margin-bottom: 8px;">Nueva contraseña</h5>
 
 
@@ -46,7 +47,7 @@
 
 
 						<div id="textoClave2" style='color:red'></div>
-
+						</div>
 					</div>
 				</div>
 				<div class="modal-footer">
