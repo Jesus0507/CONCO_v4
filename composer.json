@@ -5,24 +5,30 @@
         "name": "Jossseth Arroyo",
         "email": "cheche482010@gmail.com",
         "role": "Programador"
+    }, {
+        "name": "Jesus Cuicas",
+        "email": "jesuscuigo22@gmail.com",
+        "role": "Programador"
     }],
-    "version": "2.0",
+    "version": "3.0",
     "license": "SETH",
     "autoload": {
-        "classmap": ["app/", "controlador/", "modelo/", "tests/"],
+        "classmap": ["app/", "controlador/", "controlador/backend/", "modelo/", "tests/"],
         "psr-4": {
             "App\\": "app/",
             "Controlador\\": "controlador/",
+            "Validacion\\": "controlador/backend/",
             "Modulo\\": "modelo/",
             "Prueba\\": "tests/"
         },
-        "files": ["app/Direcciones.php", "app/Config.php", "app/App.php", "app/Base_Datos.php", "app/Modelo.php", "app/Vista.php", "app/Controlador.php"]
+        "files": ["app/Direcciones.php", "app/Config.php", "app/App.php", "app/Base_Datos.php", "app/Modelo.php", "app/Vista.php","app/Validacion.php", "app/Controlador.php"]
     },
     "autoload-dev": {
-        "classmap": ["app/", "controlador/", "modelo/", "tests/"],
+        "classmap": ["app/", "controlador/", "controlador/backend/", "modelo/", "tests/"],
         "psr-4": {
             "App\\": "app/",
             "Controlador\\": "controlador/",
+            "Validacion\\": "controlador/backend/",
             "Modelo\\": "modelo/",
             "Tests\\": "tests/"
         }

@@ -1,12 +1,11 @@
 <?php
 
-/* clases que valida los campos ingresado en lo formularios por el metodo POST */
-
-class Validations
+class Validacion
 {
     private $validate = false;
     public $mensaje;
 
+    public function __construct(){}
     /*
      * Esta función valida si lo campos son o no requerido y si esta definidos por el metodo POST
      * Ademas de hacer la diferente validaciones depenediente del tipo la cuales retorna siempre el dato validado.
@@ -15,27 +14,21 @@ class Validations
 
     public function input($nombre, $requerido = false, $tipo = null, $max = null, $min = null)
     {
-        if (isset($_POST[$nombre])) {
-//si no esta definida(No existe)
+        if (isset($_POST[$nombre])) {//si no esta definida(No existe)
             $value = $_POST[$nombre];
-            if (($requerido && !empty($value)) || !$requerido) {
-//si es requiridad y la variable no esta vacia
+            if (($requerido && !empty($value)) || !$requerido) { //si es requiridad y la variable no esta vacia
                 if ($tipo === null) {
                     return $value;
-                } else if ($tipo === 'string') {
-//verificar si es un string
+                } else if ($tipo === 'string') { //verificar si es un string
                     $var = $this->Tipo_String($nombre, $value, $max, $min);
                     return $var;
-                } else if ($tipo === 'int') {
-//verifica si es un numero
+                } else if ($tipo === 'int') { //verifica si es un numero
                     $var = $this->Tipo_Entero($nombre, $value, $max, $min);
                     return $var;
-                } else if ($tipo === 'date') {
-//verifa si es una fecha
+                } else if ($tipo === 'date') { //verifa si es una fecha
                     $var = $this->Fecha($nombre, $value);
                     return $var;
-                } else if ($tipo === 'email') {
-//verifa si es es correo valido
+                } else if ($tipo === 'email') { //verifa si es es correo valido
                     $var = $this->Correo($nombre, $value);
                     return $var;
                 }
@@ -52,7 +45,7 @@ class Validations
     /*verifica si es un string*/
     public function Fecha($nombre, $value)
     {
-        $values = explode('-', $value); //separa la fecha donde se encuentre el caracter - y lo convierte en array
+        $values = explode('-', $value);//separa la fecha donde se encuentre el caracter - y lo convierte en array
         if (count($values) === 3 && checkdate($values[1], $values[2], $values[0])) {
             return $value;
         } else {
@@ -65,12 +58,10 @@ class Validations
     //verifica que se un string valido
     public function Tipo_String($nombre, $value, $max, $min)
     {
-        if (is_string($value)) {
-//si es de type string
-            if (($max === null) || strlen($value) <= $max) { //si es mayor a la logintud maxima
+        if (is_string($value)) {//si es de type string
+            if (($max === null) || strlen($value) <= $max) {//si es mayor a la logintud maxima
 
-                if (($min === null) || strlen($value) >= $min) {
-//si es menor a la logintud min
+                if (($min === null) || strlen($value) >= $min) {//si es menor a la logintud min
                     return $value;
                 } else {
                     $this->valido  = true;
@@ -85,17 +76,14 @@ class Validations
             $this->mensaje = 'El campo ' . $nombre . ' tiene que ser de tipo texto.';
         }
     }
+
     //verifica que se un entero valido
     public function Tipo_Entero($nombre, $value, $max = null, $min = null)
     {
-        if (is_numeric($value)) {
-//si es de type es entero
+        if (is_numeric($value)) {//si es de type es entero
 
             if (($max === null) || strlen($value) <= $max) {
-//si es mayor a la logintud maxima
-
-                if (($min === null) || strlen($value) >= $min) {
-//si es menor a la logintud min
+                if (($min === null) || strlen($value) >= $min) {//si es menor a la logintud min
                     return $value;
                 } else {
                     $this->valido  = true;

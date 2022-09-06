@@ -32,6 +32,11 @@ class Negocios extends Controlador
             case 'Registros':$this->vista->Cargar_Vistas('negocios/registrar');break;
             case 'Consultas':$this->vista->Cargar_Vistas('negocios/consultar');break;
 
+            case 'Validacion':
+                $this->Validacion("negocios",$this->modelo);
+                $this->validacion->{$_POST['validacion']}();
+            break;
+
             case 'Administrar':
                 if (isset($_POST['datos'])) {
                     $this->modelo->Datos($_POST['datos']);

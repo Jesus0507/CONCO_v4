@@ -15,5 +15,6 @@ return array(
     '709248c3c42e6e199a15ee82b046c917' => $baseDir . '/app/Base_Datos.php',
     '1fec60ba75ef50468f070154edb485da' => $baseDir . '/app/Modelo.php',
     '0be03f91d5c2966ec1ffc960daf1f183' => $baseDir . '/app/Vista.php',
+    'f5d7b1c8476d4e7e16af086819b5ccee' => $baseDir . '/app/Validacion.php',
     '17998c6198cc7334d84e7abacdcdd929' => $baseDir . '/app/Controlador.php',
 );

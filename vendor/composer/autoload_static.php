@@ -16,6 +16,7 @@ class ComposerStaticInit2a8b9cfa11dbcd502b3063f9f8235c8c
         '709248c3c42e6e199a15ee82b046c917' => __DIR__ . '/../..' . '/app/Base_Datos.php',
         '1fec60ba75ef50468f070154edb485da' => __DIR__ . '/../..' . '/app/Modelo.php',
         '0be03f91d5c2966ec1ffc960daf1f183' => __DIR__ . '/../..' . '/app/Vista.php',
+        'f5d7b1c8476d4e7e16af086819b5ccee' => __DIR__ . '/../..' . '/app/Validacion.php',
         '17998c6198cc7334d84e7abacdcdd929' => __DIR__ . '/../..' . '/app/Controlador.php',
     );
 
@@ -27,6 +28,10 @@ class ComposerStaticInit2a8b9cfa11dbcd502b3063f9f8235c8c
         'W' => 
         array (
             'Webmozart\\Assert\\' => 17,
+        ),
+        'V' => 
+        array (
+            'Validacion\\' => 11,
         ),
         'T' => 
         array (
@@ -72,6 +77,11 @@ class ComposerStaticInit2a8b9cfa11dbcd502b3063f9f8235c8c
         'Webmozart\\Assert\\' => 
         array (
             0 => __DIR__ . '/..' . '/webmozart/assert/src',
+        ),
+        'Validacion\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/controlador/backend',
+            1 => __DIR__ . '/../..' . '/controlador/backend',
         ),
         'Tests\\' => 
         array (
@@ -200,6 +210,7 @@ class ComposerStaticInit2a8b9cfa11dbcd502b3063f9f8235c8c
         'Negocios' => __DIR__ . '/../..' . '/controlador/negocios_controlador.php',
         'NegociosTest' => __DIR__ . '/../..' . '/tests/NegociosTest.php',
         'Negocios_Class' => __DIR__ . '/../..' . '/modelo/negocios_class.php',
+        'Negocios_Validacion' => __DIR__ . '/../..' . '/controlador/backend/negocios_valicacion.php',
         'Notificaciones' => __DIR__ . '/../..' . '/controlador/notificaciones_controlador.php',
         'NotificacionesTest' => __DIR__ . '/../..' . '/tests/NotificacionesTest.php',
         'Notificaciones_Class' => __DIR__ . '/../..' . '/modelo/notificaciones_class.php',
@@ -1192,7 +1203,7 @@ class ComposerStaticInit2a8b9cfa11dbcd502b3063f9f8235c8c
         'TheSeer\\Tokenizer\\XMLSerializer' => __DIR__ . '/..' . '/theseer/tokenizer/src/XMLSerializer.php',
         'Usuario' => __DIR__ . '/../..' . '/controlador/usuario_controlador.php',
         'Usuario_Class' => __DIR__ . '/../..' . '/modelo/usuario_class.php',
-        'Validations' => __DIR__ . '/../..' . '/app/Validacion.php',
+        'Validacion' => __DIR__ . '/../..' . '/app/Validacion.php',
         'Vista' => __DIR__ . '/../..' . '/app/Vista.php',
         'Viviendas' => __DIR__ . '/../..' . '/controlador/viviendas_controlador.php',
         'ViviendasTest' => __DIR__ . '/../..' . '/tests/ViviendasTest.php',
