@@ -132,4 +132,3 @@
 <script src="<?php echo constant('URL')?>config/js/news/registrar_negocios.js"></script> 
 <?php include (call."Fin.php"); ?>
 <?php include (call."Style-seguridad.php"); ?>
-

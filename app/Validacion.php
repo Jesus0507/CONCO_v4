@@ -2,8 +2,8 @@
 
 class Validacion
 {
-    private $validate = false;
-    public $mensaje;
+    private $valido = false;
+    public  $mensaje;
 
     public function __construct(){}
     /*
@@ -12,7 +12,7 @@ class Validacion
      * Los parametros obligatorio solamente es el nombre(nombre del campo) y requerido(si es requerido es true , si no false),
      */
 
-    public function input($nombre, $requerido = false, $tipo = null, $max = null, $min = null)
+    public function input($nombre, $requerido = false, $tipo = null, $max = null, $min = null, $campo = null)
     {
         if (isset($_POST[$nombre])) {//si no esta definida(No existe)
             $value = $_POST[$nombre];
@@ -20,10 +20,10 @@ class Validacion
                 if ($tipo === null) {
                     return $value;
                 } else if ($tipo === 'string') { //verificar si es un string
-                    $var = $this->Tipo_String($nombre, $value, $max, $min);
+                    $var = $this->Tipo_String($nombre, $value, $max, $min,$campo);
                     return $var;
                 } else if ($tipo === 'int') { //verifica si es un numero
-                    $var = $this->Tipo_Entero($nombre, $value, $max, $min);
+                    $var = $this->Tipo_Entero($nombre, $value, $max, $min,$campo);
                     return $var;
                 } else if ($tipo === 'date') { //verifa si es una fecha
                     $var = $this->Fecha($nombre, $value);
@@ -34,7 +34,7 @@ class Validacion
                 }
             } else {
                 $this->valido  = true;
-                $this->mensaje = 'El campo ' . $nombre . ' es obligatorio';
+                $this->mensaje = 'El campo ' . $campo . ' es obligatorio';
             }
         } else {
             $this->valido  = true;
@@ -56,7 +56,7 @@ class Validacion
     }
 
     //verifica que se un string valido
-    public function Tipo_String($nombre, $value, $max, $min)
+    public function Tipo_String($nombre, $value, $max, $min,$campo = null)
     {
         if (is_string($value)) {//si es de type string
             if (($max === null) || strlen($value) <= $max) {//si es mayor a la logintud maxima
@@ -65,20 +65,20 @@ class Validacion
                     return $value;
                 } else {
                     $this->valido  = true;
-                    $this->mensaje = 'El campo ' . $nombre . ' tiene que tener una longitud minima de ' . $min;
+                    $this->mensaje = 'El campo ' . $campo. ' tiene que tener una longitud minima de ' . $min;
                 }
             } else {
                 $this->valido  = true;
-                $this->mensaje = 'El campo ' . $nombre . ' no puede execeder de ' . $max . ' longitud';
+                $this->mensaje = 'El campo ' . $campo. ' no puede execeder de ' . $max . ' longitud';
             }
         } else {
             $this->valido  = true;
-            $this->mensaje = 'El campo ' . $nombre . ' tiene que ser de tipo texto.';
+            $this->mensaje = 'El campo ' . $campo. ' tiene que ser de tipo texto.';
         }
     }
 
     //verifica que se un entero valido
-    public function Tipo_Entero($nombre, $value, $max = null, $min = null)
+    public function Tipo_Entero($nombre, $value, $max = null, $min = null, $campo = null)
     {
         if (is_numeric($value)) {//si es de type es entero
 
@@ -87,15 +87,15 @@ class Validacion
                     return $value;
                 } else {
                     $this->valido  = true;
-                    $this->mensaje = 'El campo ' . $nombre . ' tiene que tener una longitud minima de ' . $min;
+                    $this->mensaje = 'El campo ' . $campo . ' tiene que tener una longitud minima de ' . $min;
                 }
             } else {
                 $this->valido  = true;
-                $this->mensaje = 'El campo ' . $nombre . ' no puede exceder de ' . $max . ' longitud.';
+                $this->mensaje = 'El campo ' . $campo . ' no puede exceder de ' . $max . ' longitud.';
             }
         } else {
             $this->valido  = true;
-            $this->mensaje = 'El campo ' . $nombre . ' tiene que ser de tipo numérico.';
+            $this->mensaje = 'El campo ' . $campo . ' tiene que ser de tipo numérico.';
         }
     }
 

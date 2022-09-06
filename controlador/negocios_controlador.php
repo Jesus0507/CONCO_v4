@@ -2,7 +2,7 @@
 
 class Negocios extends Controlador
 {
-    public function __construct()
+    public function __construct() 
     {
         parent::__construct();
         //   $this->Cargar_Modelo("negocios");
@@ -32,9 +32,9 @@ class Negocios extends Controlador
             case 'Registros':$this->vista->Cargar_Vistas('negocios/registrar');break;
             case 'Consultas':$this->vista->Cargar_Vistas('negocios/consultar');break;
 
-            case 'Validacion':
+            case 'Validar':
                 $this->Validacion("negocios",$this->modelo);
-                $this->validacion->{$_POST['validacion']}();
+                $this->validacion->{ $_POST['validacion']}();
             break;
 
             case 'Administrar':
