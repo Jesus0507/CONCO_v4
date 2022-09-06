@@ -251,6 +251,7 @@ document.getElementById("modificarContrasenia").onclick = function() {
         } else {
             var pregunta = document.getElementById("colorFav").value + document.getElementById("animFav").value + document.getElementById("mascota").value;
             if (pregunta.toLowerCase() == info['preguntas_seguridad'].toLowerCase()) {
+                document.getElementById("inputs_contrasenia").style.display="";
                 if (document.getElementById("passwordEmergente").value == "" || document.getElementById("passwordEmergente2").value == "" || document.getElementById("passwordEmergente").value != document.getElementById("passwordEmergente2").value) {
                     swal({
                         type: "error",
