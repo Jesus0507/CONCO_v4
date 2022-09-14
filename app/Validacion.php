@@ -1,6 +1,6 @@
 <?php
 
-class Validacion
+class Validacion 
 {
     private $valido = false;
     public  $mensaje;
@@ -14,8 +14,8 @@ class Validacion
 
     public function input($nombre, $requerido = false, $tipo = null, $max = null, $min = null, $campo = null)
     {
-        if (isset($_POST[$nombre])) {//si no esta definida(No existe)
-            $value = $_POST[$nombre];
+        if (isset($_POST["datos"][$nombre])) {//si no esta definida(No existe)
+            $value = $_POST["datos"][$nombre];
             if (($requerido && !empty($value)) || !$requerido) { //si es requiridad y la variable no esta vacia
                 if ($tipo === null) {
                     return $value;
@@ -99,6 +99,14 @@ class Validacion
         }
     }
 
+    public function Comprobar($value)
+    {
+        return (empty($value) && isset($value)) ? true : false;
+    }
+    public function Validar_Caracteres($valor)
+    {
+        return (!preg_match_all("/^[a-zA-Z0-9]{1,100}$/", $valor)) ? true : false;
+    }
     //verifica que sea un email valido
     public function Correo($nombre, $value)
     {
@@ -113,5 +121,4 @@ class Validacion
     {
         return $this->valido;
     }
-
 }

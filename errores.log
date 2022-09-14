@@ -1,0 +1,45 @@
+stdClass Object
+(
+    [Modulo] => ------Negocios------
+    [Fecha] => Domingo , 11 de Septiembre del 2022
+    [Hora] => 03:16:16 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Modelo.php
+    [Linea] => 52
+    [Mensaje] => SQLSTATE[42S02]: Base table or view not found: 1146 Table 'conco.egocios' doesn't exist
+)
+stdClass Object
+(
+    [Modulo] => ------Negocios------
+    [Fecha] => Domingo , 11 de Septiembre del 2022
+    [Hora] => 03:29:47 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Modelo.php
+    [Linea] => 52
+    [Mensaje] => SQLSTATE[42S02]: Base table or view not found: 1146 Table 'conco.egocios' doesn't exist
+)
+stdClass Object
+(
+    [Modulo] => ------Negocios------
+    [Fecha] => Domingo , 11 de Septiembre del 2022
+    [Hora] => 03:29:49 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Modelo.php
+    [Linea] => 52
+    [Mensaje] => SQLSTATE[42S02]: Base table or view not found: 1146 Table 'conco.egocios' doesn't exist
+)
+stdClass Object
+(
+    [Modulo] => ------Negocios------
+    [Fecha] => Martes , 13 de Septiembre del 2022
+    [Hora] => 12:51:27 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Modelo.php
+    [Linea] => 52
+    [Mensaje] => SQLSTATE[42S02]: Base table or view not found: 1146 Table 'conco.egocios' doesn't exist
+)
+stdClass Object
+(
+    [Modulo] => ------Negocios------
+    [Fecha] => Martes , 13 de Septiembre del 2022
+    [Hora] => 12:51:41 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Modelo.php
+    [Linea] => 52
+    [Mensaje] => SQLSTATE[42S02]: Base table or view not found: 1146 Table 'conco.egocios' doesn't exist
+)

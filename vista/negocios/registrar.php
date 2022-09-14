@@ -13,7 +13,7 @@
         </div><!-- /.container-fluid --> 
     </div>
     <!-- /.content-header --> 
-    
+     
     <!-- Main content -->
     <section class="content"> 
         <!-- Default box -->
@@ -31,7 +31,6 @@
                 <div class="card-body">
                     <div class="card-block">
                         <div class="form-group row justify-content-center">
-
                             <div class="col-md-6 mt-2">
                                 <label for="id_calle">
                                     Calle
@@ -82,7 +81,7 @@
                                 </label>
                                 <div class="input-group">
                                     <input list="cedula" id="cedula_propietario" name="datos[cedula_propietario]"
-                                        class="form-control no-simbolos letras_numeros" placeholder="Cedula" oninput="Limitar(this,15);"/>
+                                        class="form-control no-simbolos letras_numeros" placeholder="Cedula" oninput="Limitar(this,9);"/>
                                     <datalist id="cedula">
                                         <?php foreach($this->datos["personas"] as $persona){   ?>
                                         <option value="<?php echo $persona["cedula_persona"];?>">
@@ -101,7 +100,7 @@
                                 </label>
                                 <div class="input-group">
                                     <input class="form-control mb-10 letras_numeros" id="rif_negocio" name="datos[rif_negocio]"
-                                        placeholder="Rif del Negocio" type="text" onkeyup="Filtro(this,'-',RIF,false)" oninput="Limitar(this,12);"/>
+                                        placeholder="Rif del Negocio" type="text" oninput="Limitar(this,12);"/>
                                 </div>
                                 <span id="mensaje_rif"></span>
                             </div>

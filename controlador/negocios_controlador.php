@@ -1,7 +1,7 @@
 <?php
 
 class Negocios extends Controlador
-{
+{ 
     public function __construct() 
     {
         parent::__construct();
@@ -32,28 +32,30 @@ class Negocios extends Controlador
             case 'Registros':$this->vista->Cargar_Vistas('negocios/registrar');break;
             case 'Consultas':$this->vista->Cargar_Vistas('negocios/consultar');break;
 
-            case 'Validar':
-                $this->Validacion("negocios",$this->modelo);
-                $this->validacion->{ $_POST['validacion']}();
-            break;
-
             case 'Administrar':
-                if (isset($_POST['datos'])) {
+                $this->Validacion("negocios",$this->modelo);
+                if ($this->validacion->Validacion_Registro()) {
                     $this->modelo->Datos($_POST['datos']);
-                } else {
-                    $this->modelo->Estado($_POST['estado']);
-                    $this->modelo->Datos([
-                        $_POST['estado']["id_tabla"] => $_POST['estado']["param"],
-                        "estado"                     => $_POST['estado']["estado"],
-                    ]);
+                    $this->modelo->__SET("SQL", $_POST['sql']);$this->modelo->__SET("tipo", "1");
+                    if ($this->modelo->Administrar()) {$this->mensaje = 1; $this->Accion($_POST['accion']);}
+                    echo $this->mensaje;
+                }else{
+                    echo $this->validacion->Fallo();
                 }
-
+                unset($_POST, $this->mensaje);
+                break;
+            case 'Eliminar':
+                $this->modelo->Estado($_POST['estado']);
+                $this->modelo->Datos([
+                    $_POST['estado']["id_tabla"] => $_POST['estado']["param"],
+                    "estado"                     => $_POST['estado']["estado"],
+                ]);
                 $this->modelo->__SET("SQL", $_POST['sql']);$this->modelo->__SET("tipo", "1");
 
                 if ($this->modelo->Administrar()) {$this->mensaje = 1; $this->Accion($_POST['accion']);}
 
                 echo $this->mensaje;unset($_POST, $this->mensaje);
-                break;
+            break;
 
             case 'Consulta_Ajax':$this->Escribir_JSON($this->datos["negocios"]);break;
 

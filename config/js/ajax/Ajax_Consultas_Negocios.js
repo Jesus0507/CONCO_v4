@@ -65,7 +65,7 @@ $(function() {
                                 url: BASE_URL + direccion_segura,
                                 type: "POST",
                                 data: {
-                                    peticion: "Administrar",
+                                    peticion: "Eliminar",
                                     estado: estado,
                                     sql: "ACT_DES",
                                     accion: "Se ha Eliminado el  negocio: " + fila.find("td:eq(2)").text(),

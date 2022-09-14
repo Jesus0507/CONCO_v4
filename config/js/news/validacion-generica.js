@@ -7,7 +7,7 @@ $(document).ready(function () {
         this.value = this.value.replace(/[^0-9]/g, '');
     });
     $('.letras_numeros').on('input', function () {
-        this.value = this.value.replace(/[^A-Za-z0-9]/g, '');
+        this.value = this.value.replace(/[^A-Za-z0-9 ]/g, '');
     });
     $(".solo-letras").bind('keypress', function (event) {
         var regex = new RegExp("^[a-zA-Z ]+$");
