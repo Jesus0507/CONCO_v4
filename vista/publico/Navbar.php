@@ -42,7 +42,15 @@
                  </form>
              </div>
          </li>
-
+         
+        <li class="nav-item dropdown">
+            <div class="theme-switch-wrapper nav-link">
+                <label class="theme-switch" for="checkbox">
+                    <input type="checkbox" id="checkbox" />
+                    <span class="slider round"></span>
+                </label>
+            </div>     
+         </li>
          <!-- Dak Modo  -->
          <?php if($_SESSION['Solicitudes']['registrar']=='1'){ ?>
          <li class="nav-item dropdown">
