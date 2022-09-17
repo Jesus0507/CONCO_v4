@@ -29,7 +29,7 @@ function switchTheme(e) {
         if (mainHeader.classList.contains('navbar-dark')) {
             mainHeader.classList.add('navbar-dark');
         }
-        localStorage.setItem('theme', 'dark');
+        localStorage.setItem('theme', 'light');
     }
 }
 toggleSwitch.addEventListener('change', switchTheme, false);
