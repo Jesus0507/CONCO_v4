@@ -45,6 +45,10 @@ function getSolicitudes() {
                         icono_s = "<i class='fas fa-users'></i>";
                         texto_mensaje += "Ha realizado una solicitud de registro de " + result_s[i]['tipo_constancia'];
                         break;
+                    case 'Cambio de contraseña':
+                        icono_s = "<i class='fas fa-key'></i>";
+                        texto_mensaje += "Ha realizado una solicitud de " + result_s[i]['tipo_constancia'];
+                        break;
                 }
                 var mensaje_s = getRecortado(texto_mensaje);
                 cuerpo_s += "<a title='" + texto_mensaje + "' href='javascript:void(0)' style='font-size:12px !important' class='dropdown-item' onclick='goToSolicitud(`" + result_s[i]['id_solicitud'] + "`,`" + result_s[i]['tipo_constancia'] + "`)'>";

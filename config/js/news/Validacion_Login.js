@@ -251,8 +251,11 @@ document.getElementById("modificarContrasenia").onclick = function() {
         } else {
             var pregunta = document.getElementById("colorFav").value + document.getElementById("animFav").value + document.getElementById("mascota").value;
             if (pregunta.toLowerCase() == info['preguntas_seguridad'].toLowerCase()) {
-                document.getElementById("inputs_contrasenia").style.display="";
                 if (document.getElementById("passwordEmergente").value == "" || document.getElementById("passwordEmergente2").value == "" || document.getElementById("passwordEmergente").value != document.getElementById("passwordEmergente2").value) {
+                   if(document.getElementById("inputs_contrasenia").style.display=="none"){
+                    $("#inputs_contrasenia").show(500);
+                   }
+                   else{
                     swal({
                         type: "error",
                         title: "Error",
@@ -260,8 +263,8 @@ document.getElementById("modificarContrasenia").onclick = function() {
                         timer: 3000,
                         showConfirmButton: false
                     });
+                   }
                 } else {
-                    
                     $.ajax({
                         type: "POST",
                         url: BASE_URL + "app/Direcciones.php",
@@ -280,12 +283,13 @@ document.getElementById("modificarContrasenia").onclick = function() {
                                     clave: document.getElementById("passwordEmergente").value
                                 },
                             }).done(function(datos) {
+                                solicitar_cambio();
                                 if (datos) {
                                     swal({
                                         type: "success",
                                         title: "Éxito",
-                                        text: "Su contraseña ha sido cambiada exitosamente",
-                                        timer: 3000,
+                                        text: "Su solicitud de cambio de contraseña ha sido enviada, a la espera de ser aprobada por los adminsitradores",
+                                        timer: 5000,
                                         showConfirmButton: false
                                     });
                                     $('#password').modal('hide');
@@ -309,6 +313,35 @@ document.getElementById("modificarContrasenia").onclick = function() {
         }
     }
 }
+
+function solicitar_cambio() {
+    var datos_persona = new Object();
+    datos_persona['cedula_persona'] = document.getElementById("cedulaEmergente").value;
+    datos_persona['tipo_constancia'] = "Cambio de contraseña";
+    datos_persona['motivo_constancia'] = "Olvido de contraseña";
+    $.ajax({
+        type: "POST",
+        url: BASE_URL + "app/Direcciones.php",
+        data: {
+            direction: "Solicitudes/Nueva_solicitud",
+            accion: "codificar"
+        },
+        success: function(direccion_segura) {
+            $.ajax({
+                type: "POST",
+                url: BASE_URL + direccion_segura,
+                data: {
+                    "datos": datos_persona
+                }
+            });
+        },
+        error: function() {
+            alert('Error al codificar dirreccion');
+        }
+    });
+}
+ 
+
 document.getElementById("cedulaEmergente").onkeyup = function() {
     if (document.getElementById("cedulaEmergente").value != "") {
         document.getElementById("cedulaEmergente").style.borderColor = "";
@@ -321,6 +354,7 @@ document.getElementById("olvidado").onclick = function() {
     document.getElementById("cedulaEmergente").readOnly = "";
     document.getElementById("textoCedula").innerHTML = "";
     document.getElementById("info").style.display = 'none';
+    document.getElementById("inputs_contrasenia").style.display="none";
     document.getElementById("modificarContrasenia").value = 'Consultar';
     var inputs = document.getElementById("info").querySelectorAll("input");
     for (var i = 0; i < inputs.length; i++) {

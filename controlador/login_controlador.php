@@ -128,9 +128,9 @@ class Login extends Controlador
                 $this->modelo->__SET("tipo", "1");$this->modelo->__SET("SQL", "_04_");
                 $this->modelo->__SET("actualizar", array(
                     "tabla"    => "personas",
-                    "columna"  => "contrasenia",
+                    "columna"  => "contrasenia_nueva",
                     "id_tabla" => "cedula_persona"));
-                $this->modelo->Datos(["contrasenia" => $this->Codificar($_POST['clave']), "cedula_persona" => $_POST['cedula']]);
+                $this->modelo->Datos(["contrasenia_nueva" => $this->Codificar($_POST['clave']), "cedula_persona" => $_POST['cedula']]);
 
                 if ($this->modelo->Administrar()) {$this->mensaje = true;}
 

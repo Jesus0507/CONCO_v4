@@ -43,3 +43,23 @@ stdClass Object
     [Linea] => 52
     [Mensaje] => SQLSTATE[42S02]: Base table or view not found: 1146 Table 'conco.egocios' doesn't exist
 )
+stdClass Object
+(
+    [Fecha] => Miercoles , 14 de Septiembre del 2022
+    [Hora] => 09:19 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 15 de Septiembre del 2022
+    [Hora] => 12:12 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
