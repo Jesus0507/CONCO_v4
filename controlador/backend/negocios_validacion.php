@@ -40,13 +40,13 @@ class Negocios_Validacion extends Validacion
                                     if ($this->Comprobar($_POST["datos"]["cedula_propietario"])) {
                                         $Errores[] = 'El campo cedula del propietario es obligatorio';
                                     } else {
-                                        if ($this->Validar_Caracteres($_POST["datos"]["cedula_propietario"])) {
-                                            $Errores[] = "El campo cedula del propietario no debe tener caracteres especiales.";
+                                        if ($this->Validar_Cedula($_POST["datos"]["cedula_propietario"])) {
+                                            $Errores[] = "La cedula es invalida.";
                                         } else {
                                             if ($this->Comprobar($_POST["datos"]["rif_negocio"])) {
                                                 $Errores[] = 'El campo rif del negocio es obligatorio';
                                             }else{
-                                                if (!preg_match("/^([vejpgVEJPG]{1})([0-9]{9})$/", $_POST["datos"]["rif_negocio"])) {
+                                                if ($this->Validar_Rif($_POST["datos"]["rif_negocio"])) {
                                                     $Errores[] = 'El rif es inválido verifique que la informacion sea correcta.';
                                                 }
                                             }

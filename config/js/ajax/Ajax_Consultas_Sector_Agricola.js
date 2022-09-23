@@ -66,7 +66,7 @@ $(function() {
                                 url: BASE_URL + direccion_segura,
                                 type: "POST",
                                 data: {
-                                    peticion: "Administrar",
+                                    peticion: "Eliminar",
                                     estado: estado,
                                     sql: "ACT_DES",
                                     accion: "Se ha Eliminado el  Agricola: " + fila.find("td:eq(1)").text(),
@@ -199,7 +199,7 @@ $(function() {
                             } else {
                                 swal({
                                     title: "ERROR!",
-                                    text: "Ha ocurrido un Error.</br>" + datos,
+                                    text:  datos,
                                     type: "error",
                                     html: true,
                                     showConfirmButton: true,

@@ -105,7 +105,23 @@ class Validacion
     }
     public function Validar_Caracteres($valor)
     {
-        return (!preg_match_all("/^[a-zA-Z0-9]{1,100}$/", $valor)) ? true : false;
+        return (!preg_match_all("/^[a-zA-Z0-9Ññáéíóú \b]{1,100}$/", $valor)) ? true : false;
+    }
+    public function Validar_Cedula($valor)
+    {
+        return (!preg_match_all("/^([0-9]{7,9})$/", $valor)) ? true : false;
+    }
+    public function Validar_Rif($valor)
+    {
+        return (!preg_match_all("/^([vejpgVEJPG]{1})([0-9]{9})$/", $valor)) ? true : false;
+    }
+    public function Validar_Entero($valor)
+    {
+        return (!preg_match_all("/^([0-9]{2})$/", $valor)) ? true : false;
+    }
+    public function Validar_Dinero($valor)
+    {
+        return (!preg_match_all("/^^\d{1,3}(?:\.\d\d\d)*(?:,\d{1,2})?$/", $valor)) ? true : false;
     }
     //verifica que sea un email valido
     public function Correo($nombre, $value)

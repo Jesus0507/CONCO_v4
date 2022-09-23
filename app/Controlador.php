@@ -36,7 +36,7 @@ class Controlador
     }
     public function Validacion($modulo, $modelo)
     {
-        $url = 'controlador/backend/' . $modulo . '_valicacion.php';
+        $url = 'controlador/backend/' . $modulo . '_validacion.php';
 
         if (file_exists($url)) {
             require $url;

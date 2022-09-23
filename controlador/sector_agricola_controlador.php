@@ -2,7 +2,7 @@
 class Sector_Agricola extends Controlador
 {
     public function __construct()
-    {
+    { 
         parent::__construct();
         // $this->Cargar_Modelo("sector_agricola");
     }
@@ -35,20 +35,26 @@ class Sector_Agricola extends Controlador
                 break;
 
             case 'Administrar':
-                if (isset($_POST['datos'])) {
+                $this->Validacion("Sector_Agricola",$this->modelo);
+                if ($this->validacion->Validacion_Registro()) {
                     $this->modelo->Datos($_POST['datos']);
-                } else {
-                    $this->modelo->Estado($_POST['estado']);
-                    $this->modelo->Datos([
-                        $_POST['estado']["id_tabla"] => $_POST['estado']["param"],
-                        "estado"                     => $_POST['estado']["estado"],
-                    ]);
+                    $this->Ejecutar_Sentencia();
+                    echo $this->mensaje;
+                }else{
+                    echo $this->validacion->Fallo();
                 }
-                $this->modelo->__SET("SQL", $_POST['sql']);$this->modelo->__SET("tipo", "1");
+                unset($_POST, $this->mensaje);
+                break;
 
-                if ($this->modelo->Administrar()) {$this->mensaje = 1;$this->Accion($_POST['accion']);}
-
-                echo $this->mensaje;unset($_POST, $this->mensaje);
+            case 'Eliminar':
+                $this->modelo->Estado($_POST['estado']);
+                $this->modelo->Datos([
+                    $_POST['estado']["id_tabla"] => $_POST['estado']["param"],
+                    "estado"                     => $_POST['estado']["estado"],
+                ]);
+                $this->Ejecutar_Sentencia();
+                echo $this->mensaje;
+                unset($_POST, $this->mensaje);
                 break;
 
             case 'Existente':
