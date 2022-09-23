@@ -39,24 +39,19 @@ class Inmuebles extends Controlador
                     $_POST['estado']["id_tabla"] => $_POST['estado']["param"],
                     "estado"                     => $_POST['estado']["estado"],
                 ]);
-                $this->modelo->__SET("SQL", $_POST['sql']);$this->modelo->__SET("tipo", "1");
-
-                if ($this->modelo->Administrar()) { $this->mensaje = 1;$this->Accion($_POST['accion']);}
-
+                $this->Ejecutar_Sentencia();
                 echo $this->mensaje;unset($_POST, $this->mensaje);
                 break;
 
-            case 'Administrar':
+            case 'Administrar': 
                 $cont = 0;
-                foreach ($this->datos["tipo_inmueble"] as $datos_t) {
+                $this->Validacion("inmuebles",$this->modelo);
+                if ($this->validacion->Validacion_Registro()) {
+                    foreach ($this->datos["tipo_inmueble"] as $datos_t) {
                     if ($datos_t["nombre_tipo"] == $_POST['datos']['id_tipo_inmueble']) {
                         $_POST['datos']["id_tipo_inmueble"] = $datos_t["id_tipo_inmueble"];
-
-                        $this->modelo->__SET("SQL", $_POST['sql']);$this->modelo->__SET("tipo", "1");
                         $this->modelo->Datos($_POST['datos']);
-
-                        if ($this->modelo->Administrar()) { $this->mensaje = 1; $this->Accion($_POST['accion']);} 
-
+                        $this->Ejecutar_Sentencia();
                         echo $this->mensaje;$cont++;
                     }
                 }
@@ -67,20 +62,22 @@ class Inmuebles extends Controlador
                     $this->modelo->Datos(["nombre_tipo" => $_POST['datos']["id_tipo_inmueble"], "estado" => 1]);
 
                     if ($this->modelo->Administrar()) {
-
                         $this->modelo->__SET("SQL", "_03_");$this->modelo->__SET("tipo", "0");
                         $this->modelo->__SET("ultimo", array("tabla" => "tipo_inmueble", "id" => "id_tipo_inmueble"));
                         $id = $this->modelo->Administrar();
                         foreach ($id as $i) {
                             $_POST['datos']["id_tipo_inmueble"] = $i['MAX(id_tipo_inmueble)'];
                             $this->modelo->Datos($_POST['datos']);
-                            $this->modelo->__SET("SQL", $_POST['sql']);$this->modelo->__SET("tipo", "1");
-
-                            if ($this->modelo->Administrar()) {$this->mensaje = 1;$this->Accion($_POST['accion']);}
+                            $this->Ejecutar_Sentencia();
                             echo $this->mensaje;
                         }
                     }
                 }
+
+                }else{
+                    echo $this->validacion->Fallo();
+                }
+                
                 unset($cont,$id,$_POST,$this->mensaje);
                 break;
 

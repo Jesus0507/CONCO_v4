@@ -288,6 +288,17 @@ class Controlador
         }
 
     }
+
+    public function Ejecutar_Sentencia()
+    {
+        $this->modelo->__SET("SQL", $_POST['sql']);
+        $this->modelo->__SET("tipo", "1");
+        if ($this->modelo->Administrar()) {
+            $this->mensaje = 1;
+            $this->Accion($_POST['accion']);
+        }
+    }
+
     public function ERROR()
     {
         return $this->modelo->error;

@@ -63,3 +63,22 @@ stdClass Object
     [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
     [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
 )
+stdClass Object
+(
+    [Fecha] => Viernes , 23 de Septiembre del 2022
+    [Hora] => 09:23 AM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Modulo] => ------Negocios------
+    [Fecha] => Viernes , 23 de Septiembre del 2022
+    [Hora] => 10:13:39 AM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Modelo.php
+    [Linea] => 63
+    [Mensaje] => SQLSTATE[42S22]: Column not found: 1054 Unknown column 'sda' in 'where clause'
+)

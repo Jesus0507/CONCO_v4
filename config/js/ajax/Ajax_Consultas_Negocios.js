@@ -135,17 +135,7 @@ $(function() {
                         alert("error")
                     })
                     $(document).on("click", "#enviar", function() {
-                        var form = $("#formulario");
-                        var id_calle = document.getElementById("calle2");
-                        var nombre_negocio = document.getElementById("nombre_negocio2");
-                        var direccion = document.getElementById("direccion_negocio2");
-                        var cedula_propietario = document.getElementById("cedula_propietario2");
-                        var rif_negocio = document.getElementById("rif_negocio2");
-                        var mensaje_calle = document.getElementById("mensaje_calle");
-                        var mensaje_negocio = document.getElementById("mensaje_negocio");
-                        var mensaje_direccion = document.getElementById("mensaje_direccion");
-                        var mensaje_cedula = document.getElementById("mensaje_cedula");
-                        var mensaje_rif = document.getElementById("mensaje_rif");
+                        
                         var datos = {
                             id_negocio: id,
                             id_calle: $("#calle2").val(),
@@ -155,84 +145,39 @@ $(function() {
                             rif_negocio: $("#rif_negocio2").val(),
                             estado: 1
                         };
-                        if (id_calle.value == 0) {
-                            mensaje_calle.innerHTML = 'Debe seleccionar una Calle';
-                            id_calle.style.borderColor = 'red';
-                            mensaje_calle.style.color = 'red';
-                            id_calle.focus();
-                        } else {
-                            mensaje_calle.innerHTML = '';
-                            id_calle.style.borderColor = '';
-                            if (direccion.value == '' || direccion.value == null) {
-                                mensaje_direccion.innerHTML = 'el campo direccion no puede estar vacio';
-                                direccion.style.borderColor = 'red';
-                                mensaje_direccion.style.color = 'red';
-                                direccion.focus();
+                        $.ajax({
+                            type: "POST",
+                            url: BASE_URL + direccion_segura,
+                            data: {
+                                datos: datos,
+                                peticion: "Administrar",
+                                sql: "SQL_03",
+                                accion: "Se ha Actualizado el  negocio: " + datos.nombre_negocio,
+                            },
+                        }).done(function(datos) {
+                            if (datos == 1) {
+                                swal({
+                                    title: "Actualizado!",
+                                    text: "El elemento fue Actualizado con exito.",
+                                    type: "success",
+                                    showConfirmButton: false
+                                });
+                                setTimeout(function() {
+                                    location.reload();
+                                }, 2000);
                             } else {
-                                mensaje_direccion.innerHTML = '';
-                                direccion.style.borderColor = '';
-                                if (nombre_negocio.value == '' || nombre_negocio.value == null) {
-                                    mensaje_negocio.innerHTML = 'el campo nombre no puede estar vacio';
-                                    nombre_negocio.style.borderColor = 'red';
-                                    mensaje_negocio.style.color = 'red';
-                                    nombre_negocio.focus();
-                                } else {
-                                    mensaje_negocio.innerHTML = '';
-                                    nombre_negocio.style.borderColor = '';
-                                    if (cedula_propietario.value == '' || cedula_propietario.value == null) {
-                                        mensaje_cedula.innerHTML = 'el campo cedula no puede estar vacio';
-                                        cedula_propietario.style.borderColor = 'red';
-                                        mensaje_cedula.style.color = 'red';
-                                        cedula_propietario.focus();
-                                    } else {
-                                        mensaje_cedula.innerHTML = '';
-                                        cedula_propietario.style.borderColor = '';
-                                        if (rif_negocio.value == '' || rif_negocio.value == null) {
-                                            mensaje_rif.innerHTML = 'el campo rif no puede estar vacio';
-                                            rif_negocio.style.borderColor = 'red';
-                                            mensaje_rif.style.color = 'red';
-                                            rif_negocio.focus();
-                                        } else {
-                                            mensaje_rif.innerHTML = '';
-                                            rif_negocio.style.borderColor = '';
-                                            $.ajax({
-                                                type: "POST",
-                                                url: BASE_URL + direccion_segura,
-                                                data: {
-                                                    datos: datos,
-                                                    peticion: "Administrar",
-                                                    sql: "SQL_03",
-                                                    accion: "Se ha Actualizado el  negocio: " + datos.nombre_negocio,
-                                                },
-                                            }).done(function(datos) {
-                                                if (datos == 1) {
-                                                    swal({
-                                                        title: "Actualizado!",
-                                                        text: "El elemento fue Actualizado con exito.",
-                                                        type: "success",
-                                                        showConfirmButton: false
-                                                    });
-                                                    setTimeout(function() {
-                                                        location.reload();
-                                                    }, 2000);
-                                                } else {
-                                                    swal({
-                                                        title: "ERROR!",
-                                                        text: "Ha ocurrido un Error.</br>" + datos,
-                                                        type: "error",
-                                                        html: true,
-                                                        showConfirmButton: true,
-                                                        customClass: "bigSwalV2",
-                                                    });
-                                                }
-                                            }).fail(function() {
-                                                alert("error");
-                                            });
-                                        }
-                                    }
-                                }
+                                swal({
+                                    title: "ERROR!",
+                                    text: datos,
+                                    type: "error",
+                                    html: true,
+                                    showConfirmButton: true,
+                                    customClass: "bigSwalV2",
+                                });
                             }
-                        }
+                        }).fail(function() {
+                            alert("error");
+                        });
                     });
                 });
             }).fail(function() {

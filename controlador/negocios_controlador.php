@@ -36,13 +36,12 @@ class Negocios extends Controlador
                 $this->Validacion("negocios",$this->modelo);
                 if ($this->validacion->Validacion_Registro()) {
                     $this->modelo->Datos($_POST['datos']);
-                    $this->modelo->__SET("SQL", $_POST['sql']);$this->modelo->__SET("tipo", "1");
-                    if ($this->modelo->Administrar()) {$this->mensaje = 1; $this->Accion($_POST['accion']);}
+                    $this->Ejecutar_Sentencia();
                     echo $this->mensaje;
                 }else{
                     echo $this->validacion->Fallo();
                 }
-                unset($_POST, $this->mensaje);
+                unset($_POST, $this->mensaje); 
                 break;
             case 'Eliminar':
                 $this->modelo->Estado($_POST['estado']);
@@ -50,10 +49,7 @@ class Negocios extends Controlador
                     $_POST['estado']["id_tabla"] => $_POST['estado']["param"],
                     "estado"                     => $_POST['estado']["estado"],
                 ]);
-                $this->modelo->__SET("SQL", $_POST['sql']);$this->modelo->__SET("tipo", "1");
-
-                if ($this->modelo->Administrar()) {$this->mensaje = 1; $this->Accion($_POST['accion']);}
-
+                $this->Ejecutar_Sentencia();
                 echo $this->mensaje;unset($_POST, $this->mensaje);
             break;
 
@@ -78,4 +74,5 @@ class Negocios extends Controlador
         unset($peticion, $this->datos, $this->vista->datos);
         exit();
     }
+
 }
