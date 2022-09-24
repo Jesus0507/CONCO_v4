@@ -92,6 +92,83 @@ class Controlador
         return $decodec;
     }
 
+    public function GenerateRSAKeys($keys)
+    {   
+        $bits              = [128,160,256,320];
+        $privateKeyWord    = $keys[array_rand($keys)];
+        $publicKeyWord     = $keys[array_rand($keys)];
+        $encryptValPrivate = $bits[array_rand($bits)];
+        $encryptValPublic  = $bits[array_rand($bits)];
+
+        while ($privateKeyWord == $publicKeyWord) {
+           $publicKeyWord     = $keys[array_rand($keys)];
+        }
+
+        while ($encryptValPrivated == $encryptValPublic) {
+            $encryptValPublic  = $bits[array_rand($bits)];
+         }
+        
+        $hashValPrivate=hash('ripemd'.$encryptValPrivate, $privateKeyWord);
+        $hashValPublic=hash('ripemd'.$encryptValPrivate, $privateKeyWord);
+
+        $privateKey = $this->Codificar($hashValPrivate);
+        $publicKey  = $this->Codificar($hashValPublic);
+
+        $encryptValPrivate = $this->EncryptBits($encryptValPrivate);
+        $encryptValPublic = $this->EncryptBits($encryptValPublic);
+
+        $privateKey = $encryptValPrivate . '#' . $privateKey;
+        $publicKey  = $encryptValPublic . '#' . $publicKey;
+        
+        $userKeys = [
+            "privateKey" => $privateKey,
+            "publicKey"  => $publicKey
+        ];
+
+        return $userKeys;
+    }
+
+    public function EncryptBits($bits) {
+    $array  = array_map('intval', str_split($bits));
+    $encrypt = '';
+
+    for ($i = 0; $i < count($array); $i++) {
+       switch ($array[$i]){
+            case 1:
+              $encrypt.='!';
+            break;
+            case 2:
+              $encrypt.='A';
+            break;
+            case 3:
+              $encrypt.='?';
+            break;
+            case 4:
+              $encrypt.='M';
+            break;
+            case 5:
+              $encrypt.='Z';
+            break;
+            case 6:
+              $encrypt.='@';
+            break;
+            case 7:
+              $encrypt.='<';
+            break;
+            case 8:
+              $encrypt.='>';
+            break;
+            case 9:
+              $encrypt.='B';
+            break;
+            default:
+              $encrypt.='X';
+            break;
+       }
+   }
+        return $encrypt;
+    }
+
     public function Escribir_JSON($array)
     {
         echo json_encode($array, JSON_UNESCAPED_UNICODE);

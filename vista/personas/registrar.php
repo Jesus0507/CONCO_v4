@@ -480,21 +480,6 @@
 
 </select>
 </div>
-<!-- 
-                                            <div class="col-md-6 mt-2">
-                                                <label for="institucion">
-                                                    Institucion Academica
-                                                </label>
-                                                <div class="input-group">
-                                                    <input class="form-control mb-10" id="institucion"
-                                                        name="datos[institucion]" placeholder="Institucion Academica"
-                                                        type="text" />
-                                                </div>
-                                            </div> -->
-
-
-
-
                                         </div>
 
                                     </div>
@@ -658,17 +643,6 @@
                                     </select>
                                 </div>
                             </div>
-                                          <!--   <div class="col-md-12 mt-2">
-                                                <label for="telefono_casa">
-                                                    Telefono de Casa
-                                                </label>
-                                                <div class="input-group">
-                                                    <input class="form-control mb-10" id="telefono_casa"
-                                                        name="datos[telefono_casa]" placeholder="0000-000-0000"
-                                                        type="text" />
-                                                </div>
-
-                                            </div> -->
                                         </div>
                                     </div>
                                     <div class="tab-pane" id="panel4" role="tabpanel">
@@ -993,6 +967,17 @@
 
 
     </div>
+    <div class="col-md-12 mt-2">
+                            <label for="nombre_calle">
+                               Firma digital
+                            </label> <span id='valid_firma' style='display:none;color:red'></span>
+                            <div class="input-group">
+                            <input class="form-control mb-10" id="firma_digital"
+                            placeholder="Coloque una palabra como firma digital"
+                            type="text"  oninput="Limitar(this,10)" />
+                            </div>
+                        </div>
+</div>
 
     <div class="col-md-12 mt-2" id='ver_rol' style='display:none'>
                             <label for="nombre_calle">

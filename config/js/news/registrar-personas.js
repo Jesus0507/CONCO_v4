@@ -136,6 +136,8 @@ var valid_mascota = document.getElementById("valid_mascota");
 var btn_ver_clave = document.getElementById("ver_clave");
 var rol = document.getElementById("rol_usuario");
 var ver_rol = document.getElementById("ver_rol");
+var valid_firma = document.getElementById("valid_firma");
+var firma_digital = document.getElementById("firma_digital");
 
 //--------------------------------Avanzar con enter-------------------------------------------//
 
@@ -1192,6 +1194,7 @@ function valid_info_usuario() {
         if (valid_element("Indique el color favorito", color, valid_color)) {
           if (valid_element("Indique el animal favorito", animal, valid_animal)) {
             if (valid_element("Indique el nombre de la mascota", mascota, valid_mascota)) {
+              if (valid_element("Ingrese una firma digital", firma_digital, valid_firma)) {
 
               if (seguridad['registrar'] == '1') {
                 if (valid_element("Seleccione el rol del usuario", rol, document.getElementById("valid_rol"))) {
@@ -1201,7 +1204,7 @@ function valid_info_usuario() {
               else {
                 validar = true;
               }
-
+             }
             }
           }
         }
@@ -1799,7 +1802,8 @@ function enviar_informacion() {
   datos_persona['whatsapp'] = whatsapp.value;
   correo.value == "" ? datos_persona['correo'] = "No posee" : datos_persona['correo'] = correo.value + tipo_correo.value;
   datos_persona['contrasenia'] = contrasenia.value;
-  datos_persona['preguntas_seguridad'] = color.value.toLowerCase() + animal.value.toLowerCase() + mascota.value.toLowerCase();
+  datos_persona['preguntas_seguridad'] = color.value.toLowerCase() + "/" + animal.value.toLowerCase() + "/" + mascota.value.toLowerCase();
+  datos_persona['firma_digital'] = firma_digital.value.toLowerCase();
   seguridad['registrar'] == '1' ? datos_persona['rol_inicio'] = rol.value : datos_persona['rol_inicio'] = 'Habitante';
 
   if (codigo_patria.value != '' && serial_patria.value != '') {
@@ -1848,9 +1852,7 @@ function enviar_informacion() {
         url: BASE_URL + direccion_segura,
         data: { "datos": datos_persona }
       }).done(function (result) {
-
-       
-
+      console.log(result);
         if (result == 1) {
 
           if (transporte.value != "0") {

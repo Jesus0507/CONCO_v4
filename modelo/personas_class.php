@@ -79,6 +79,10 @@ class Personas_Class extends Modelo
                 contrasenia,
                 rol_inicio,
                 preguntas_seguridad,
+                user_locked,
+                digital_sign,
+                public_key,
+                private_key,
                 estado
                 ) VALUES (
                 :cedula_persona,
@@ -105,6 +109,10 @@ class Personas_Class extends Modelo
                 :contrasenia,
                 :rol_inicio,
                 :preguntas_seguridad,
+                :user_locked,
+                :digital_sign,
+                :public_key,
+                :private_key,
                 :estado
                 )');
 
@@ -133,6 +141,10 @@ class Personas_Class extends Modelo
                 'contrasenia'           =>       $data['contrasenia'],
                 'rol_inicio'            =>       $data['rol_inicio'],
                 'preguntas_seguridad'   =>       $data['preguntas_seguridad'],
+                'user_locked'           =>       $data['user_locked'],
+                'digital_sign'          =>       $data['firma_digital'],
+                'public_key'            =>       $data['user_rsa_keys']['publicKey'],
+                'private_key'           =>       $data['user_rsa_keys']['privateKey'],
                 'estado'                =>       $data['estado']
             ]);
 
