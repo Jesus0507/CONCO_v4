@@ -36,6 +36,11 @@
 						<div id="textoColorFav" style='color:red'></div>
 
 						</br>
+						<div>
+							<input class="form-control validar-letras validar-simbolos" id="firmaDigital" placeholder='Coloque su firma digital' name="firmaDigital">
+
+						</div>
+						<div id="textoFirmaDigital" style='color:red'></div>
                         
 						<div id="inputs_contrasenia" style="display:none">
 						<h5 class="modal-title text-center" style="margin-bottom: 8px;">Nueva contraseña</h5>

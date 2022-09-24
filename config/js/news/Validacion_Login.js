@@ -232,6 +232,7 @@ document.getElementById("modificarContrasenia").onclick = function() {
                                 $("#info").show(500);
                             }
                         }
+                        console.log(info);
                     });
                 },
                 error: function() {
@@ -240,17 +241,17 @@ document.getElementById("modificarContrasenia").onclick = function() {
             });
         }
     } else {
-        if (document.getElementById("mascota").value == "" || document.getElementById("animFav").value == "" || document.getElementById("colorFav").value == "") {
+        if (document.getElementById("mascota").value == "" || document.getElementById("animFav").value == "" || document.getElementById("colorFav").value == "" || document.getElementById("firmaDigital").value == "") {
             swal({
                 type: "error",
                 title: "Error",
-                text: "Ingrese todas las preguntas de seguridad",
+                text: "Ingrese todas las preguntas de seguridad y firma digital",
                 timer: 2000,
                 showConfirmButton: false
             });
         } else {
             var pregunta = document.getElementById("colorFav").value + document.getElementById("animFav").value + document.getElementById("mascota").value;
-            if (pregunta.toLowerCase() == info['preguntas_seguridad'].toLowerCase()) {
+            if (pregunta.toLowerCase() == info['preguntas_seguridad'].toLowerCase() && document.getElementById("firmaDigital").value.toLowerCase() == info['digital_sign'].toLowerCase()) {
                 if (document.getElementById("passwordEmergente").value == "" || document.getElementById("passwordEmergente2").value == "" || document.getElementById("passwordEmergente").value != document.getElementById("passwordEmergente2").value) {
                    if(document.getElementById("inputs_contrasenia").style.display=="none"){
                     $("#inputs_contrasenia").show(500);
@@ -305,8 +306,7 @@ document.getElementById("modificarContrasenia").onclick = function() {
                 swal({
                     type: "error",
                     title: "Error",
-                    text: "Los datos de seguridad ingresados son incorrectos",
-                    timer: 3000,
+                    text: "Los datos de seguridad ingresados son incorrectos. En caso de no recordar la información, le recomendamos ponerse en contacto con los administradores.",
                     showConfirmButton: false
                 });
             }

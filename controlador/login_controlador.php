@@ -121,6 +121,11 @@ class Login extends Controlador
                 if ($resultado[0]['preguntas_seguridad'] != '' || $resultado[0]['preguntas_seguridad'] != null) {
                     $resultado[0]['preguntas_seguridad'] = $this->Decodificar($resultado[0]['preguntas_seguridad']);
                 }
+
+                if ($resultado[0]['digital_sign'] != '' || $resultado[0]['digital_sign'] != null) {
+                    $resultado[0]['digital_sign'] = $this->Decodificar($resultado[0]['digital_sign']);
+                }
+
                 $this->Escribir_JSON($resultado);unset($resultado);
                 break;
 

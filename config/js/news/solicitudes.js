@@ -2,6 +2,7 @@ var cantidad_s = document.getElementById("cant_solicitudes");
 var solicitudes_no_leidas = document.getElementById("solicitudes-no-leidas");
 var solicitudes = document.getElementById("body-solicitudes");
 var page_title = document.getElementById("page-title");
+var role = document.getElementById('rol_inicio').value;
 getSolicitudes();
 
 function getSolicitudes() {
@@ -19,6 +20,8 @@ function getSolicitudes() {
         }).done(function (datos) {
             var result_s = JSON.parse(datos);
             var cuerpo_s = "";
+            var cuerpo_sa = "";
+            var contSA = 0;
             for (var i = 0; i < result_s.length; i++) {
                 var icono_s = "";
                 var fecha_s = new Date(result_s[i]['fecha_solicitud']);
@@ -48,12 +51,22 @@ function getSolicitudes() {
                     case 'Cambio de contraseña':
                         icono_s = "<i class='fas fa-key'></i>";
                         texto_mensaje += "Ha realizado una solicitud de " + result_s[i]['tipo_constancia'];
+                        contSA++;
                         break;
                 }
+
+                
                 var mensaje_s = getRecortado(texto_mensaje);
-                cuerpo_s += "<a title='" + texto_mensaje + "' href='javascript:void(0)' style='font-size:12px !important' class='dropdown-item' onclick='goToSolicitud(`" + result_s[i]['id_solicitud'] + "`,`" + result_s[i]['tipo_constancia'] + "`)'>";
-                cuerpo_s += icono_s + " " + mensaje_s + span_s;
-                cuerpo_s += "</a><div class='dropdown-divider'></div>";
+                var elementS = "";
+                elementS += "<a title='" + texto_mensaje + "' href='javascript:void(0)' style='font-size:12px !important' class='dropdown-item' onclick='goToSolicitud(`" + result_s[i]['id_solicitud'] + "`,`" + result_s[i]['tipo_constancia'] + "`)'>";
+                elementS += icono_s + " " + mensaje_s + span_s;
+                elementS += "</a><div class='dropdown-divider'></div>";
+                console.log(role);
+               if (role == 'Administrador' && result_s[i]['tipo_constancia'] == 'Cambio de contraseña' ) { 
+                cuerpo_sa += elementS;
+               } else {
+                cuerpo_s += elementS;
+            }
             }
             if (result_s.length == 0) {
                 solicitudes_no_leidas.innerHTML = "No hay solcitudes pendientes";
@@ -63,8 +76,25 @@ function getSolicitudes() {
             } else {
                 solicitudes_no_leidas.innerHTML = result_s.length + " Solicitudes";
                 cantidad_s.style.display = "";
-                cantidad_s.innerHTML = result_s.length;
-                solicitudes.innerHTML = cuerpo_s;
+                if (role == 'Administrador') {
+                cantidad_s.innerHTML = contSA ;
+                if( contSA == 0 ) { 
+                cantidad_s.style.display = "none";
+                solicitudes_no_leidas.innerHTML = "No hay solcitudes pendientes";
+                solicitudes.style.display = "none";
+                }
+                } else{
+                cantidad_s.innerHTML = (result_s.length - contSA);
+                if( (result_s.length - contSA) == 0 ) { 
+                    cantidad_s.style.display = "none";
+                    solicitudes_no_leidas.innerHTML = "No hay solcitudes pendientes";
+                    solicitudes.style.display = "none";
+                    }
+                }
+
+                console.log(cuerpo_s);
+                console.log(cuerpo_sa);
+                role == 'Administrador' ? solicitudes.innerHTML = cuerpo_sa : solicitudes.innerHTML = cuerpo_s;
                 solicitudes.style.display = "";
             }
             var texto_titulo = "C.C Prados de Occidente";

@@ -4,6 +4,7 @@
          height="60" width="60">
  </div>
  <input type="hidden" id="last_accion" value="<?php echo $_SESSION['modulo_actual']; ?>">
+ <input type="hidden" id="rol_inicio" value="<?php echo $_SESSION['rol_inicio']; ?>">
  <!-- Barra superior -->
  <nav class="main-header navbar navbar-expand navbar-dark">
      <!-- Left navbar links -->
@@ -62,7 +63,7 @@
          </li>
          <?php }?>
 
-         <?php if($_SESSION['Solicitudes']['consultar']=='1'){ ?>
+         <?php if($_SESSION['Solicitudes']['consultar']=='1' || $_SESSION['rol_inicio'] == 'Administrador'){ ?>
          <li class="nav-item dropdown">
              <a class="nav-link" data-toggle="dropdown" href="javascript:void(0)">
                  <i class="far fa-file-text"></i>
