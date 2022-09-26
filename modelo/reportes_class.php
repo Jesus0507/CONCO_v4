@@ -17,7 +17,7 @@ class Reportes_Class extends Modelo
             return $respuesta_arreglo;
         } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Reportes");
         }
     }
 
@@ -34,7 +34,7 @@ class Reportes_Class extends Modelo
             return $respuesta_arreglo;
         } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Reportes");
         }
     }
 
@@ -51,7 +51,7 @@ class Reportes_Class extends Modelo
             return $respuesta_arreglo;
         } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Reportes");
         }
     }
 
@@ -68,7 +68,7 @@ class Reportes_Class extends Modelo
             return $respuesta_arreglo;
         } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Reportes");
         }
     }
 
@@ -85,7 +85,7 @@ class Reportes_Class extends Modelo
             return $respuesta_arreglo;
         } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Reportes");
         }
     }
 
@@ -102,7 +102,7 @@ class Reportes_Class extends Modelo
             return $respuesta_arreglo;
         } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Reportes");
         }
     }
 
@@ -119,7 +119,7 @@ class Reportes_Class extends Modelo
             return $respuesta_arreglo;
         } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Reportes");
         }
     }
 
@@ -136,7 +136,7 @@ class Reportes_Class extends Modelo
             return $respuesta_arreglo;
         } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Reportes");
         }
     }
 
@@ -153,7 +153,7 @@ class Reportes_Class extends Modelo
             return $respuesta_arreglo;
         } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Reportes");
         }
     }
 
@@ -170,7 +170,7 @@ class Reportes_Class extends Modelo
             return $respuesta_arreglo;
         } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Reportes");
         }
     }
 
@@ -187,7 +187,7 @@ class Reportes_Class extends Modelo
             return $respuesta_arreglo;
         } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Reportes");
         }
     }
 
@@ -204,7 +204,7 @@ class Reportes_Class extends Modelo
             return $respuesta_arreglo;
         } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Reportes");
         }
     }
 
@@ -221,7 +221,7 @@ class Reportes_Class extends Modelo
             return $respuesta_arreglo;
         } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Reportes");
         }
     }
 
@@ -238,7 +238,7 @@ class Reportes_Class extends Modelo
             return $respuesta_arreglo;
         } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Reportes");
         }
     }
     public function Enfermos()
@@ -254,7 +254,7 @@ class Reportes_Class extends Modelo
             return $respuesta_arreglo;
         } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Reportes");
         }
     }
 
@@ -271,7 +271,7 @@ class Reportes_Class extends Modelo
             return $respuesta_arreglo;
         } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Reportes");
         }
     }
 
@@ -288,7 +288,7 @@ class Reportes_Class extends Modelo
             return $respuesta_arreglo;
         } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Reportes");
         }
     }
 
@@ -305,7 +305,7 @@ class Reportes_Class extends Modelo
             return $respuesta_arreglo;
         } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Reportes");
         }
     }
 
@@ -322,7 +322,7 @@ class Reportes_Class extends Modelo
             return $respuesta_arreglo;
         } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Reportes");
         }
     }
 
@@ -339,7 +339,7 @@ class Reportes_Class extends Modelo
             return $respuesta_arreglo;
         } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Reportes");
         }
     }
 
@@ -356,7 +356,7 @@ class Reportes_Class extends Modelo
             return $respuesta_arreglo;
         } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Reportes");
         }
     }
 
@@ -373,7 +373,7 @@ class Reportes_Class extends Modelo
             return $respuesta_arreglo;
         } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Reportes");
         }
     }
 
@@ -390,7 +390,7 @@ class Reportes_Class extends Modelo
             return $respuesta_arreglo;
         } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Reportes");
         }
     }
 
@@ -408,7 +408,7 @@ class Reportes_Class extends Modelo
             return $respuesta_arreglo;
         } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Reportes");
         }
     }
 
@@ -425,7 +425,7 @@ class Reportes_Class extends Modelo
             return $respuesta_arreglo;
         } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Reportes");
         }
     }
 }

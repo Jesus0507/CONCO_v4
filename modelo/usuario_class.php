@@ -44,7 +44,7 @@ class Usuario_Class extends Modelo
             return true;
 
         } catch (PDOException $e) {
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Usuario");
         }
     }
 
@@ -62,7 +62,7 @@ class Usuario_Class extends Modelo
             return $respuesta_arreglo;
         } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Usuario");
         }
     }
 
@@ -99,7 +99,7 @@ class Usuario_Class extends Modelo
             return true;
 
         } catch (PDOException $e) {
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Usuario");
         }
     }
 
@@ -114,7 +114,7 @@ class Usuario_Class extends Modelo
 
         } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Usuario");
         }
     }
     //=======================================================================
@@ -132,7 +132,7 @@ class Usuario_Class extends Modelo
             $respuestaArreglo = $datos->fetchAll(PDO::FETCH_ASSOC);
             return $respuestaArreglo;
         } catch (PDOException $e) {
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Usuario");
         }
     }
 
@@ -149,7 +149,7 @@ class Usuario_Class extends Modelo
             return $respuestaArreglo;
         } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Usuario");
         }
     }
 
@@ -265,7 +265,7 @@ class Usuario_Class extends Modelo
                 $respuesta=$intentos;
     
             } catch (PDOException $e) {
-                $respuesta=$this->Capturar_Error($e);
+                $respuesta=$this->Capturar_Error($e,"Usuario");
             }
         }
         else{

@@ -19,7 +19,7 @@ class Seguridad_Class extends Modelo
             $respuestaArreglo = $datos->fetchAll(PDO::FETCH_ASSOC);
             return $respuestaArreglo;
         } catch (PDOException $e) {
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Seguridad");
         }
     }
 
@@ -36,7 +36,7 @@ class Seguridad_Class extends Modelo
             $respuestaArreglo = $datos->fetchAll(PDO::FETCH_ASSOC);
             return $respuestaArreglo;
         } catch (PDOException $e) {
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Seguridad");
         }
     }
 
@@ -78,7 +78,7 @@ class Seguridad_Class extends Modelo
 
         } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Seguridad");
         }
     }
 
@@ -102,7 +102,7 @@ class Seguridad_Class extends Modelo
 
         } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Seguridad");
         }
     }
 
@@ -125,7 +125,7 @@ class Seguridad_Class extends Modelo
 
         } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Seguridad");
         }
     }
 

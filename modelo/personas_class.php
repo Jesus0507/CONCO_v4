@@ -17,7 +17,7 @@ class Personas_Class extends Modelo
             return $respuesta_arreglo;
         } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Personas");
         }
     }
 
@@ -47,7 +47,7 @@ class Personas_Class extends Modelo
             return true;
 
         } catch (PDOException $e) {
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Personas");
         }
     }
     public function Registrar($data)
@@ -151,7 +151,7 @@ class Personas_Class extends Modelo
             return true;
 
         } catch (PDOException $e) {
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Personas");
         }
     }
 
@@ -179,7 +179,7 @@ class Personas_Class extends Modelo
             return true;
 
         } catch (PDOException $e) {
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Personas");
         }
     }
 
@@ -207,7 +207,7 @@ class Personas_Class extends Modelo
             return true;
 
         } catch (PDOException $e) {
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Personas");
         }
     }
 
@@ -373,7 +373,7 @@ class Personas_Class extends Modelo
             return true;
 
         } catch (PDOException $e) {
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Personas");
         }
     }
 
@@ -401,7 +401,7 @@ class Personas_Class extends Modelo
             return true;
 
         } catch (PDOException $e) {
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Personas");
         }
     }
 
@@ -429,7 +429,7 @@ class Personas_Class extends Modelo
             return true;
 
         } catch (PDOException $e) {
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Personas");
         }
     }
 
@@ -456,7 +456,7 @@ class Personas_Class extends Modelo
             return true;
 
         } catch (PDOException $e) {
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Personas");
         }
     }
 
@@ -480,7 +480,7 @@ class Personas_Class extends Modelo
             return true;
 
         } catch (PDOException $e) {
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Personas");
         }
     }
 
@@ -511,7 +511,7 @@ class Personas_Class extends Modelo
             return true;
 
         } catch (PDOException $e) {
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Personas");
         }
     }
 
@@ -545,7 +545,7 @@ class Personas_Class extends Modelo
             return true;
 
         } catch (PDOException $e) {
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Personas");
         }
     }
    
@@ -577,7 +577,7 @@ class Personas_Class extends Modelo
             return true;
 
         } catch (PDOException $e) {
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Personas");
         }
    }
 
@@ -594,7 +594,7 @@ class Personas_Class extends Modelo
             return $respuesta_arreglo;
         } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Personas");
         }
     }
 
@@ -655,7 +655,7 @@ class Personas_Class extends Modelo
             return true;
 
         } catch (PDOException $e) {
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Personas");
         }
     }
 
@@ -684,7 +684,7 @@ class Personas_Class extends Modelo
             return true;
 
         } catch (PDOException $e) {
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Personas");
         }
     }
 
@@ -699,7 +699,7 @@ class Personas_Class extends Modelo
 
         } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Personas");
         }
     }
     //=======================================================================
@@ -719,7 +719,7 @@ class Personas_Class extends Modelo
              return $respuestaArreglo;
          } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Personas");
          }
      }
 
@@ -737,7 +737,7 @@ class Personas_Class extends Modelo
              return $respuestaArreglo;
          } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Personas");
          }
      }
 
@@ -754,7 +754,7 @@ class Personas_Class extends Modelo
              return $respuestaArreglo;
          } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Personas");
          }
      }
 
@@ -771,7 +771,7 @@ class Personas_Class extends Modelo
              return $respuestaArreglo;
          } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Personas");
          }
      }
 
@@ -788,7 +788,7 @@ class Personas_Class extends Modelo
              return $respuestaArreglo;
          } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Personas");
          }
      }
 
@@ -805,7 +805,7 @@ public function get_organizaciones()
              return $respuestaArreglo;
          } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Personas");
          }
      }
 
@@ -823,7 +823,7 @@ public function get_organizaciones()
              return $respuestaArreglo;
          } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Personas");
          }
      }
 
@@ -840,7 +840,7 @@ public function get_organizaciones()
              return $respuestaArreglo;
          } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Personas");
          }
      }
 
@@ -858,7 +858,7 @@ public function get_organizaciones()
              return $respuestaArreglo;
          } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Personas");
          }
      }
 
@@ -875,7 +875,7 @@ public function get_organizaciones()
              return $respuestaArreglo;
          } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Personas");
          }
      }
 
@@ -893,7 +893,7 @@ public function get_organizaciones()
              return $respuestaArreglo;
          } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Personas");
          }
      }
 
@@ -911,7 +911,7 @@ public function get_organizaciones()
              return $respuestaArreglo;
          } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Personas");
          }
      }
 
@@ -929,7 +929,7 @@ public function get_organizaciones()
              return $respuestaArreglo;
          } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Personas");
          }
      }
 
@@ -946,7 +946,7 @@ public function get_organizaciones()
              return $respuestaArreglo;
          } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Personas");
          }
      }
 
@@ -963,7 +963,7 @@ public function get_organizaciones()
              return $respuestaArreglo;
          } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Personas");
          }
      }
 
@@ -982,7 +982,7 @@ public function get_organizaciones()
              return $respuestaArreglo;
          } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Personas");
          }
      }
 
@@ -1000,7 +1000,7 @@ public function get_organizaciones()
              return $respuestaArreglo;
          } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Personas");
          }
      }
 
@@ -1019,7 +1019,7 @@ public function get_organizaciones()
              return $respuestaArreglo;
          } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Personas");
          }
      }
 
@@ -1038,7 +1038,7 @@ public function get_organizaciones()
              return $respuestaArreglo;
          } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Personas");
          }
      }
 
@@ -1055,7 +1055,7 @@ public function get_organizaciones()
              return $respuestaArreglo;
          } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Personas");
          }
      }
 
@@ -1073,7 +1073,7 @@ public function get_organizaciones()
              return $respuestaArreglo;
          } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Personas");
          }
      }
 
@@ -1090,7 +1090,7 @@ public function get_organizaciones()
              return $respuestaArreglo;
          } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Personas");
          }
      }
 
@@ -1108,7 +1108,7 @@ public function get_organizaciones()
              return $respuestaArreglo;
          } catch (PDOException $e) {
 
-            return $this->Capturar_Error($e);
+            return $this->Capturar_Error($e,"Personas");
          }
      }
 
