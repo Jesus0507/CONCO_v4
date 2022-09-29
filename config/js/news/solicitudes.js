@@ -61,11 +61,11 @@ function getSolicitudes() {
                 elementS += "<a title='" + texto_mensaje + "' href='javascript:void(0)' style='font-size:12px !important' class='dropdown-item' onclick='goToSolicitud(`" + result_s[i]['id_solicitud'] + "`,`" + result_s[i]['tipo_constancia'] + "`)'>";
                 elementS += icono_s + " " + mensaje_s + span_s;
                 elementS += "</a><div class='dropdown-divider'></div>";
-                console.log(role);
-               if (role == 'Administrador' && result_s[i]['tipo_constancia'] == 'Cambio de contraseña' ) { 
-                cuerpo_sa += elementS;
+
+               if (role == 'Administrador') { 
+                   if (result_s[i]['tipo_constancia'] == 'Cambio de contraseña' ) cuerpo_sa += elementS;
                } else {
-                cuerpo_s += elementS;
+                if (result_s[i]['tipo_constancia'] != 'Cambio de contraseña' ) cuerpo_s += elementS;
             }
             }
             if (result_s.length == 0) {
