@@ -45,7 +45,7 @@ class Inmuebles extends Controlador
 
             case 'Administrar': 
                 $cont = 0;
-                $this->Validacion("inmuebles",$this->modelo);
+                $this->Validacion("inmuebles");
                 if ($this->validacion->Validacion_Registro()) {
                     foreach ($this->datos["tipo_inmueble"] as $datos_t) {
                     if ($datos_t["nombre_tipo"] == $_POST['datos']['id_tipo_inmueble']) {

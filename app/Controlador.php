@@ -34,7 +34,7 @@ class Controlador
             }
         }
     }
-    public function Validacion($modulo, $modelo)
+    public function Validacion($modulo)
     {
         $url = 'controlador/backend/' . $modulo . '_validacion.php';
 
@@ -45,7 +45,7 @@ class Controlador
             $reflectionClass = new ReflectionClass($modelName);
 
             if ($reflectionClass->IsInstantiable()) {
-                $this->validacion = new $modelName($modelo);
+                $this->validacion = new $modelName();
             } else {
                 $this->error = '[Error Objeto] => "El Objeto: [ ' . $modelName . ' ] No puede ser Instanciado."';
                 return $this->Capturar_Error($this->error);

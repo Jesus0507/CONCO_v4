@@ -103,6 +103,10 @@ class Validacion
     {
         return (empty($value) && isset($value)) ? true : false;
     }
+    public function Validar_Estado($value)
+    {
+        if (!is_numeric($value) || $value !== 0  && $value !== 1 && $value !== 2) {return false;}else{return true;}
+    }
     public function Validar_Caracteres($valor)
     {
         return (!preg_match_all("/^[a-zA-Z0-9Ññáéíóú \b]{1,100}$/", $valor)) ? true : false;

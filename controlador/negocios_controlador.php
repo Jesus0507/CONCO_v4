@@ -33,7 +33,7 @@ class Negocios extends Controlador
             case 'Consultas':$this->vista->Cargar_Vistas('negocios/consultar');break;
 
             case 'Administrar':
-                $this->Validacion("negocios",$this->modelo);
+                $this->Validacion("negocios");
                 if ($this->validacion->Validacion_Registro()) {
                     $this->modelo->Datos($_POST['datos']);
                     $this->Ejecutar_Sentencia();

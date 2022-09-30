@@ -4,10 +4,9 @@ class Negocios_Validacion extends Validacion
 {
     public $mensaje;
 
-    public function __construct($modelo)
+    public function __construct()
     {
         parent::__construct();
-        $this->modelo = $modelo;
     }
 
     public function Validacion_Registro()
@@ -25,29 +24,46 @@ class Negocios_Validacion extends Validacion
                 if ($_POST["datos"]["id_calle"] == 0) {
                     $Errores[] = 'El campo calle es obligatorio';
                 } else {
-                    if ($this->Comprobar($_POST["datos"]["direccion_negocio"])) {
-                        $Errores[] = 'El campo direccion del negocio es obligatorio';
+                    if (!is_numeric($_POST["datos"]["id_calle"])) {
+                        $Errores[] = 'la id es invalida.';
                     } else {
-                        if ($this->Validar_Caracteres($_POST["datos"]["direccion_negocio"])) {
-                            $Errores[] = "El campo direccion del negocio no debe tener caracteres especiales.";
+                        if ($this->Comprobar($_POST["datos"]["direccion_negocio"])) {
+                            $Errores[] = 'El campo direccion del negocio es obligatorio';
                         } else {
-                            if ($this->Comprobar($_POST["datos"]["nombre_negocio"])) {
-                                $Errores[] = 'El campo nombre del negocio es obligatorio';
+                            if ($this->Validar_Caracteres($_POST["datos"]["direccion_negocio"])) {
+                                $Errores[] = "El campo direccion del negocio no debe tener caracteres especiales.";
                             } else {
-                                if ($this->Validar_Caracteres($_POST["datos"]["nombre_negocio"])) {
-                                    $Errores[] = "El campo nombre del negocio no debe tener caracteres especiales.";
+                                if ($this->Comprobar($_POST["datos"]["nombre_negocio"])) {
+                                    $Errores[] = 'El campo nombre del negocio es obligatorio';
                                 } else {
-                                    if ($this->Comprobar($_POST["datos"]["cedula_propietario"])) {
-                                        $Errores[] = 'El campo cedula del propietario es obligatorio';
+                                    if ($this->Validar_Caracteres($_POST["datos"]["nombre_negocio"])) {
+                                        $Errores[] = "El campo nombre del negocio no debe tener caracteres especiales.";
                                     } else {
-                                        if ($this->Validar_Cedula($_POST["datos"]["cedula_propietario"])) {
-                                            $Errores[] = "La cedula es invalida.";
+                                        if ($this->Comprobar($_POST["datos"]["cedula_propietario"])) {
+                                            $Errores[] = 'El campo cedula del propietario es obligatorio';
                                         } else {
-                                            if ($this->Comprobar($_POST["datos"]["rif_negocio"])) {
-                                                $Errores[] = 'El campo rif del negocio es obligatorio';
-                                            }else{
-                                                if ($this->Validar_Rif($_POST["datos"]["rif_negocio"])) {
-                                                    $Errores[] = 'El rif es inválido verifique que la informacion sea correcta.';
+                                            if ($this->Validar_Cedula($_POST["datos"]["cedula_propietario"])) {
+                                                $Errores[] = "La cedula es invalida.";
+                                            } else {
+                                                if ($this->Comprobar($_POST["datos"]["rif_negocio"])) {
+                                                    $Errores[] = 'El campo rif del negocio es obligatorio';
+                                                } else {
+                                                    if ($this->Validar_Rif($_POST["datos"]["rif_negocio"])) {
+                                                        $Errores[] = 'El rif es inválido verifique que la informacion sea correcta.';
+                                                    } else {
+                                                        if ($this->Validar_Estado($_POST["datos"]["estado"])) {
+                                                            $Errores[] = 'el estado es invalido ';
+                                                        } else {
+                                                            $_POST["datos"] = array(
+                                                                "id_calle"           => $this->Datos_Limpios($_POST["datos"]["id_calle"]),
+                                                                "direccion_negocio"  => $this->Datos_Limpios($_POST["datos"]["direccion_negocio"]),
+                                                                "nombre_negocio"     => $this->Datos_Limpios($_POST["datos"]["nombre_negocio"]),
+                                                                "cedula_propietario" => $this->Datos_Limpios($_POST["datos"]["cedula_propietario"]),
+                                                                "rif_negocio"        => $this->Datos_Limpios($_POST["datos"]["rif_negocio"]),
+                                                                "estado"             => $this->Datos_Limpios($_POST["datos"]["estado"]),
+                                                            );
+                                                        }
+                                                    }
                                                 }
                                             }
                                         }
@@ -55,7 +71,6 @@ class Negocios_Validacion extends Validacion
                                 }
                             }
                         }
-
                     }
                 }
             }
