@@ -220,9 +220,14 @@ class Direcciones
         echo URL . self::Seguridad('Ayuda/', 'codificar');
     }
 
-    public static function _0_()
+    public static function _041_()
     {
-        echo URL . self::Seguridad('', 'codificar');
+        echo URL . self::Seguridad('Habitante/', 'codificar');
+    }
+
+    public static function _042_()
+    {
+        echo URL . self::Seguridad('Login/Administrar/', 'codificar');
     }
 
 }

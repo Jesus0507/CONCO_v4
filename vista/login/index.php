@@ -29,7 +29,7 @@
                     <div class="tab-content" id="custom-tabs-three-tabContent">
                         <div class="tab-pane fade show active" id="login2" role="tabpanel" aria-labelledby="login">
 
-                            <form action="<?php echo constant('URL');?>Login/Administrar" method="POST"
+                            <form action="<?php Direcciones::_042_(); ?>" method="POST"
                                 id="formulario_login">
                                 <input type="hidden" name="peticion" value="Ingreso">
                                 <div id="mensaje-cedula" style="color:red;"></div>

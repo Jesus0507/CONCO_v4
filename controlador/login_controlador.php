@@ -99,9 +99,9 @@ class Login extends Controlador
                             );
 
                             if ($tabla_usuario['rol_inicio'] != 'Habitante') {
-                                header('location:' . constant('URL') . "inicio/");
+                                $this->vista->Cargar_Vistas('inicio/index');
                             } else {
-                                header('location:' . constant('URL') . "habitante/");
+                                $this->vista->Cargar_Vistas('habitante/index');
                             }
                         }
                     }
