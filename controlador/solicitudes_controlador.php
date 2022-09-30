@@ -1,5 +1,5 @@
 <?php
-
+require_once 'vista/privado/securimage/securimage.php';
 class Solicitudes extends Controlador
 {
     public function __construct()

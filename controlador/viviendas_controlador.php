@@ -558,6 +558,22 @@ class Viviendas extends Controlador
                 echo $this->mensaje;unset($_POST, $this->mensaje);
                 break;
 
+             case 'Activar_Vivienda':
+                $ids = explode("-",$_POST['id_vivienda']);
+                $this->modelo->Estado([
+                    "tabla"     => "viviendas",
+                    "id_tabla"  => "id_vivienda",
+                    "param"     => $ids,
+                    "estado"    => 1
+                ]);
+                $this->modelo->Datos([
+                    "id_vivienda"    => $ids[0],
+                    "estado"         => 1,
+                ]);
+                $this->Ejecutar_Sentencia();
+                echo $this->mensaje;unset($_POST, $this->mensaje);
+                break;
+
             default:$this->vista->Cargar_Vistas('error/400');break;
         }
         unset($peticion, $this->datos, $this->vista->datos);

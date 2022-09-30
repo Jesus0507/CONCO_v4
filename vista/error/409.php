@@ -21,7 +21,7 @@
         <div class="col-12">
             
         </div>
-        <div class="col-12">
+        <div class="col-12" style="margin-top:150px;">
             <h2 class="" style="color: gray;">
                 Detalles:
             </h2>

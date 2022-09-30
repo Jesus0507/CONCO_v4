@@ -132,6 +132,15 @@ class Validacion
         $this->mensaje = 'El campo ' . $nombre . ' no tiene una dirección de correo electronico válida.';
     }
 
+    public function Datos_Limpios($data)
+    {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = strip_tags($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
+
     //devuelve validade para comprobar si hubo algun error en la validacion
     public function Fallo_Validacion()
     {
