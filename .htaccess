@@ -30,7 +30,7 @@ RewriteCond %{HTTP_USER_AGENT} !msnbot [NC]
 #Permitir acceso redes sociales
 RewriteCond %{HTTP_REFERER} !^http(s)?://(www.)?pinterest.com [NC]
 RewriteCond %{HTTP_REFERER} !^http(s)?://(www.)?tumblr.com [NC]
-RewriteRule \.(jpg|jpeg|png|gif)$ - [NC,F,L]
+
 
 RewriteCond %{HTTP_USER_AGENT} ^BlackWidow [OR]
 RewriteCond %{HTTP_USER_AGENT} ^Bot\ mailto:craftbot@yahoo.com [OR]

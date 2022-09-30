@@ -43,6 +43,6 @@ class Parto_Humanizado_Class extends Modelo
 
     private function SQL_04()
     {
-        return "SELECT p.cedula_persona, p.primer_nombre, p.primer_apellido, p.genero, p.estado FROM personas p WHERE p.estado = 1 ORDER BY p.cedula_persona ASC";
+        return 'SELECT p.cedula_persona, p.primer_nombre, p.primer_apellido, p.genero, p.estado FROM personas p WHERE p.estado = 1 AND p.genero = "F" ORDER BY p.cedula_persona ASC';
     }
 }
