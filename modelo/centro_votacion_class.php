@@ -30,7 +30,7 @@ class Centro_Votacion_Class extends Modelo
 
     private function SQL_01()
     {
-        return "SELECT id_centro_votacion, nombre_centro, p.id_parroquia, p.nombre_parroquia, c.estado FROM parroquias p INNER JOIN centros_votacion c WHERE c.estado = 1 AND c.id_parroquia = p.id_parroquia";
+        return "SELECT * FROM  centros_votacion WHERE estado = 1"; 
     }
 
     private function SQL_02()

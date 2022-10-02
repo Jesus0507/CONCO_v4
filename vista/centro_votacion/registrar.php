@@ -78,7 +78,7 @@
                                            Seleccione ...
                                         </option>
                                     <?php foreach($this->datos["parroquias"] as $parroquia){   ?>
-                                        <option value="<?php echo $parroquia["id_parroquia "];?>">
+                                        <option value="<?php echo $parroquia["id_parroquia"];?>">
                                             <?php echo $parroquia["nombre_parroquia"];?>
                                         </option>
                                     <?php  }   ?>

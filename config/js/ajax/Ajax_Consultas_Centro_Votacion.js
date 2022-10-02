@@ -115,6 +115,7 @@
                       peticion: "Consulta_Ajax",
                   },
               }).done(function(datos) {
+                alert(datos);
                   var data = JSON.parse(datos);
                   var tabla = $("#example1").DataTable({
                       "data": data,

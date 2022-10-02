@@ -10,7 +10,7 @@ class Centro_Votacion extends Controlador
     public function Cargar_Vistas()
     {
         $this->Seguridad_de_Session();$this->vista->Cargar_Vistas('centro_votacion/consultar');
-    }
+    } 
     // ==============================================================================
 
     public function Establecer_Consulta()
@@ -19,7 +19,7 @@ class Centro_Votacion extends Controlador
         $this->modelo->__SET("SQL", "SQL_01");$this->datos["centros_votacion"] = $this->modelo->Administrar();
         $this->modelo->__SET("SQL", "SQL_02");$this->datos["persona_centro_votacion"] = $this->modelo->Administrar();
         $this->modelo->__SET("SQL", "_01_");
-        $this->modelo->__SET("consultar", array("tabla" => "parroquias", "estado" => 1, "orden" => "id_parroquia"));
+        $this->modelo->__SET("consultar", array("tabla" => "parroquias", "estado" => 1, "orden" => "nombre_parroquia"));
         $this->datos["parroquias"] = $this->modelo->Administrar();
         $this->modelo->__SET("SQL", "SQL_06");$this->datos["personas"] = $this->modelo->Administrar();
         $this->vista->datos = $this->datos;
@@ -36,15 +36,22 @@ class Centro_Votacion extends Controlador
 
             case 'Registrar':
 
+                $this->Validacion("centro_votacion");
+                // if ($this->validacion->Validacion_Registro()) {
+
+                // }else{
+                //     echo $this->validacion->Fallo();
+                // }
+            
                 $cont = 0;
                 foreach ($this->datos["centros_votacion"] as $cv) {
-                    if (strtolower($cv['nombre_centro']) == strtolower($_POST['nombre_centro'])) {
+                    if (strtolower($cv['nombre_centro']) !== strtolower($_POST["datos"]['nombre_centro'])) {
                         $this->modelo->__SET("SQL", "SQL_03");$this->modelo->__SET("tipo", "1");
                         $this->modelo->Datos($_POST['datos']);
                         if ($this->modelo->Administrar()) {$this->mensaje = 1;}
                         $cont++;
                     } 
-                }
+                } 
                 if ($cont == 0) {
                     $this->modelo->__SET("SQL", "SQL_04");$this->modelo->__SET("tipo", "1");
                     $this->modelo->Datos([
@@ -69,7 +76,7 @@ class Centro_Votacion extends Controlador
                         }
                     }
                 }
-                echo $this->mensaje;unset($cont,$id,$this->mensaje);
+                echo $this->mensaje;unset($cont,$id,$this->mensaje);               
                 break;
 
             case 'Administrar':
@@ -95,7 +102,7 @@ class Centro_Votacion extends Controlador
                     }
                 }
                 if ($cont == 0) {$parroquia = "vacio";}
-                echo $parroquia;unset($cont, $parroquia);
+                echo $parroquia;unset($cont, $parroquia,$_POST);
                 break;
 
             case 'Parroquias':
