@@ -36,22 +36,21 @@ class Consejo_Comunal extends Controlador
             case 'Consulta_Ajax':$this->Escribir_JSON($this->datos["consejo_comunal"]);break;
 
             case 'Registrar':
-                foreach ($this->datos["comite"] as $tabla_comite) {
-                    if ($tabla_comite["nombre_comite"] == $_POST['datos']["nombre_comite"]) {
+                $this->Validacion("consejo_comunal");
+                if ($this->validacion->Validacion_Registro()) {
+                    foreach ($this->datos["comite"] as $tabla_comite) {
+                    if ($tabla_comite["nombre_comite"] == $_POST["nombre_comite"]) {
                         $id_comite = $tabla_comite["id_comite"];
                     }
                 }
-                $this->modelo->__SET("SQL", $_POST['sql']);$this->modelo->__SET("tipo", "1");
-                $this->modelo->Datos([
-                    'id_comite'      => $id_comite,
-                    'cedula_persona' => $_POST['datos']["cedula_persona"],
-                    'cargo_persona'  => $_POST['datos']["cargo_persona"],
-                    'fecha_ingreso'  => $_POST['datos']["fecha_ingreso"],
-                    'fecha_salida'   => $_POST['datos']["fecha_salida"],
-                ]);
-                if ($this->modelo->Administrar()) {$this->mensaje = 1;$this->Accion($_POST['accion']);}
-
-                echo $this->mensaje;unset($this->mensaje,$_POST,$id_comite);
+                    $_POST['datos']["id_comite"] = $this->validacion->Datos_Limpios($id_comite);
+                    $this->modelo->Datos($_POST['datos']);
+                    $this->Ejecutar_Sentencia();
+                    echo $this->mensaje;
+                }else{
+                    echo $this->validacion->Fallo();
+                }
+                unset($this->mensaje,$_POST,$id_comite);
                 break;
             case 'Eliminar':
                 $this->modelo->__SET("eliminar", array(
@@ -66,27 +65,22 @@ class Consejo_Comunal extends Controlador
                 break;
 
             case 'Editar':
+                $this->Validacion("consejo_comunal");
+                if ($this->validacion->Validacion_Registro()) {
                 foreach ($this->datos["comite"] as $tabla_comite) {
-                    if ($tabla_comite["nombre_comite"] == $_POST['datos']["nombre_comite"]) {
+                    if ($tabla_comite["nombre_comite"] == $_POST["nombre_comite"]) {
                         $id_comite = $tabla_comite["id_comite"];
                     }
                 }
-                $this->modelo->__SET("SQL", "_07_");$this->modelo->__SET("tipo", "1");
-                $this->modelo->__SET("eliminar", array("tabla" => "comite_persona", "id_tabla" => "id_comite_persona"));
-                $this->modelo->Datos(["id_comite_persona" => $_POST['datos']["id_comite_persona"]]);
-
-                if ($this->modelo->Administrar()) {
-                    $this->modelo->__SET("SQL", $_POST['sql']);$this->modelo->__SET("tipo", "1");
-                    $this->modelo->Datos([
-                        'id_comite'      => $id_comite,
-                        'cedula_persona' => $_POST['datos']["cedula_persona"],
-                        'cargo_persona'  => $_POST['datos']["cargo_persona"],
-                        'fecha_ingreso'  => $_POST['datos']["fecha_ingreso"],
-                        'fecha_salida'   => $_POST['datos']["fecha_salida"],
-                    ]);
-                    if ($this->modelo->Administrar()) {$this->mensaje = 1;$this->Accion($_POST['accion']);}
+                    $_POST['datos']["id_comite"] = $this->validacion->Datos_Limpios($id_comite);
+                    $_POST['datos']["id_comite_persona"] = $this->validacion->Datos_Limpios($_POST["id_comite_persona"]);
+                    $this->modelo->Datos($_POST['datos']);
+                    $this->Ejecutar_Sentencia();
+                    echo $this->mensaje;
+                }else{
+                    echo $this->validacion->Fallo();
                 }
-                echo $this->mensaje;unset($this->mensaje, $_POST, $id_comite);
+                unset($this->mensaje,$_POST,$id_comite);
                 break;
 
             default:$this->vista->Cargar_Vistas('error/400');break;
