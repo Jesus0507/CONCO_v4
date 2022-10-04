@@ -97,3 +97,93 @@ stdClass Object
     [Linea] => 53
     [Mensaje] => SQLSTATE[HY093]: Invalid parameter number
 )
+stdClass Object
+(
+    [Modulo] => ------Familias------
+    [Fecha] => Martes , 04 de Octubre del 2022
+    [Hora] => 05:44:26 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Modelo.php
+    [Linea] => 53
+    [Mensaje] => SQLSTATE[HY093]: Invalid parameter number
+)
+stdClass Object
+(
+    [Modulo] => ------Familias------
+    [Fecha] => Martes , 04 de Octubre del 2022
+    [Hora] => 06:02:03 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Modelo.php
+    [Linea] => 53
+    [Mensaje] => SQLSTATE[HY093]: Invalid parameter number
+)
+stdClass Object
+(
+    [Modulo] => ------Familias------
+    [Fecha] => Martes , 04 de Octubre del 2022
+    [Hora] => 06:04:08 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Modelo.php
+    [Linea] => 53
+    [Mensaje] => SQLSTATE[HY093]: Invalid parameter number
+)
+stdClass Object
+(
+    [Modulo] => ------Familias------
+    [Fecha] => Martes , 04 de Octubre del 2022
+    [Hora] => 06:04:31 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Modelo.php
+    [Linea] => 53
+    [Mensaje] => SQLSTATE[HY093]: Invalid parameter number
+)
+stdClass Object
+(
+    [Modulo] => ------Familias------
+    [Fecha] => Martes , 04 de Octubre del 2022
+    [Hora] => 06:05:50 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Modelo.php
+    [Linea] => 53
+    [Mensaje] => SQLSTATE[HY093]: Invalid parameter number
+)
+stdClass Object
+(
+    [Modulo] => ------Familias------
+    [Fecha] => Martes , 04 de Octubre del 2022
+    [Hora] => 06:06:01 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Modelo.php
+    [Linea] => 53
+    [Mensaje] => SQLSTATE[HY093]: Invalid parameter number
+)
+stdClass Object
+(
+    [Modulo] => ------Familias------
+    [Fecha] => Martes , 04 de Octubre del 2022
+    [Hora] => 06:09:45 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Modelo.php
+    [Linea] => 53
+    [Mensaje] => SQLSTATE[HY093]: Invalid parameter number
+)
+stdClass Object
+(
+    [Modulo] => ------Familias------
+    [Fecha] => Martes , 04 de Octubre del 2022
+    [Hora] => 06:11:19 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Modelo.php
+    [Linea] => 53
+    [Mensaje] => SQLSTATE[HY093]: Invalid parameter number
+)
+stdClass Object
+(
+    [Modulo] => ------Familias------
+    [Fecha] => Martes , 04 de Octubre del 2022
+    [Hora] => 06:11:24 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Modelo.php
+    [Linea] => 53
+    [Mensaje] => SQLSTATE[HY093]: Invalid parameter number
+)
+stdClass Object
+(
+    [Modulo] => ------Familias------
+    [Fecha] => Martes , 04 de Octubre del 2022
+    [Hora] => 06:17:27 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Modelo.php
+    [Linea] => 53
+    [Mensaje] => SQLSTATE[HY093]: Invalid parameter number
+)

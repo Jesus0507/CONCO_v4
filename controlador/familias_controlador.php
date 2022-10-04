@@ -34,17 +34,15 @@ class Familias extends Controlador
             case 'Consultas':$this->vista->Cargar_Vistas('familia/consultar');break;
 
             case 'Administrar':
+                $this->Validacion("familias");
+                if ($this->validacion->Validacion_Registro()) {
                 $this->modelo->__SET("SQL", $_POST['sql']);
                 $this->modelo->__SET("tipo", "1");$this->modelo->Datos($_POST['datos']);
                 if ($this->modelo->Administrar()) {
-                    if (isset($_POST['datos']["id_familia"])) {
-                        $id = $_POST['datos']["id_familia"];
-                    } else {
                         $this->modelo->__SET("SQL", "_03_");$this->modelo->__SET("tipo", "0");
                         $this->modelo->__SET("ultimo", array("tabla" => "familia", "id" => "id_familia"));
                         $id = $this->modelo->Administrar();
                         $id = $id[0]['MAX(id_familia)'];
-                    }
                     foreach ($_POST['integrantes'] as $inte) {
                         $this->modelo->__SET("SQL", "SQL_05");$this->modelo->__SET("tipo", "1");
                         $this->modelo->Datos([
@@ -56,7 +54,35 @@ class Familias extends Controlador
                     }
                 }
                 $this->Accion($_POST['accion']);
-                echo $this->mensaje;unset($_POST, $this->mensaje,$id);
+                echo $this->mensaje;
+                }else{
+                    echo $this->validacion->Fallo();
+                }
+                unset($_POST, $this->mensaje,$id);
+                break;
+
+            case 'Editar':
+                $this->Validacion("familias");
+                if ($this->validacion->Validacion_Registro()) {
+                $this->modelo->__SET("SQL", $_POST['sql']);
+                $this->modelo->__SET("tipo", "1");$this->modelo->Datos($_POST['datos']);
+                if ($this->modelo->Administrar()) {
+                    foreach ($_POST['integrantes'] as $inte) {
+                        $this->modelo->__SET("SQL", "SQL_05");$this->modelo->__SET("tipo", "1");
+                        $this->modelo->Datos([
+                            "cedula_persona" => $inte,
+                            "id_familia"     => $_POST["id_familia"],
+
+                        ]);
+                        if ($this->modelo->Administrar()) {$this->mensaje = 1;}
+                    }
+                }
+                $this->Accion($_POST['accion']);
+                echo $this->mensaje;
+                }else{
+                    echo $this->validacion->Fallo();
+                }
+                unset($_POST, $this->mensaje,$id);
                 break;
 
             case 'Eliminar':

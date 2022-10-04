@@ -65,7 +65,7 @@
                     Téléfono de familia
                 </label><span id='valid_3' style="color:red;"></span>
                 <div class="input-group">
-                    <input class="form-control mb-10" id="telefono_familia" oninput="Limitar(this,10);"
+                    <input class="form-control mb-10" id="telefono_familia" oninput="Limitar(this,12);"
                     name="datos[telefono_familia]" placeholder="telefono_familia"
                     type="number" />
                 </div>

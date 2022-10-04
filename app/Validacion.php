@@ -139,6 +139,16 @@ class Validacion
         return (!preg_match_all("/(?=^.{4,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/", $valor)) ? true : false;
     }
 
+    public function Validar_Telefono($valor)
+    {
+        return (!preg_match_all("/^([0-9]{11,13})$/", $valor)) ? true : false;
+    }
+
+    public function Normalizar_Telefono($valor)
+    {
+        return str_replace([' ', '.', '-', '(', ')'], '', $valor);
+    }
+
     //verifica que sea un email valido
     public function Correo($nombre, $value)
     {
