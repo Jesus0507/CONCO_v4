@@ -20,6 +20,7 @@ class Login extends Controlador
         $_SESSION['estado']         = $estado;
         $_SESSION['rol_inicio']     = $rol_inicio;
         $_SESSION['modulo_actual']  = "Inicio";
+        $_SESSION['token']          = bin2hex(openssl_random_pseudo_bytes(20));
 
         $this->Cargar_Modelo("seguridad");$permisos = $this->modelo->get_permisos_rol($rol_inicio);
 
@@ -44,7 +45,7 @@ class Login extends Controlador
     }
 
     public function Administrar($peticion = null)
-    {
+    { 
         if (isset($_POST['peticion'])) {$peticion = $_POST['peticion'];} else { $peticion = $peticion[0];}
 
         switch ($peticion) {
@@ -52,11 +53,12 @@ class Login extends Controlador
             case 'Login':$this->Cargar_Vistas();break;
 
             case 'Ingreso':
-                if (isset($_POST['datos']) && $_POST['captcha'] !== "") {
+                $this->Validacion("login");
+                $_POST["datos"]["password"] = $this->Codificar($_POST["datos"]['password']);
+                if ($this->validacion->Validacion_Registro()) {
+                if (isset($_POST['datos']) && $_POST['datos']['captcha'] !== "") {
                     session_start();
-                    $datos   = ($_POST['datos'] !== "") ? $_POST['datos'] : null;
-                    $captcha = $_POST['captcha'];
-                    $contrasenia = $this->Codificar($datos['password']);
+                    
                     $fecha       = date("Y") . "-" . date("m") . "-" . date("d");
                     $hora_inicio = date("h") . ":" . date("i") . ":" . date("s") . " " . date("A");
 
@@ -74,7 +76,7 @@ class Login extends Controlador
                     $this->Cargar_Modelo("personas");$datos_u = $this->modelo->Consultar();
 
                     foreach ($datos_u as $tabla_usuario) {
-                        if ($tabla_usuario['cedula_persona'] == $_POST['cedula_usuario'] && $tabla_usuario['contrasenia'] == $contrasenia) {
+                        if ($tabla_usuario['cedula_persona'] == $_POST['datos']['cedula_usuario'] && $tabla_usuario['contrasenia'] == $_POST["datos"]["password"]) {
 
                             $this->Cargar_Modelo("bitacora");
                             $this->modelo->__SET("SQL", "SQL_02");$this->modelo->__SET("tipo", "1");
@@ -109,7 +111,10 @@ class Login extends Controlador
                     $this->vista->mensaje = "";session_start();session_destroy();
                     $this->vista->Cargar_Vistas('login/index');
                 }
-                unset($_POST, $datos, $captcha, $contrasenia, $fecha, $hora_inicio, $dia, $acciones, $hora_fin, $datos_u);
+                }else{
+                    echo $this->validacion->Fallo();
+                }
+                unset($_POST, $datos, $fecha, $hora_inicio, $dia, $acciones, $hora_fin, $datos_u);
                 exit();
                 break;
 

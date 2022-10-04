@@ -114,36 +114,41 @@ class Usuario extends Controlador
     //=============================================================================================
     public function Usuario_Existente()
     {
-        $cedula   = $_POST['cedula'];
-        $password = $_POST['contrasenia'];
-        $captcha  = $_POST['captcha'];
+        $this->Validacion("usuario");
+        if ($this->validacion->Validacion_Registro()) {
+            $cedula   = $_POST['cedula'];
+            $password = $_POST['contrasenia'];
+            $captcha  = $_POST['captcha'];
 
-        $existente = $this->modelo->Buscar_Usuario($cedula);
-        if ($existente == "" || $existente == null) {
-            echo 0;
-        } else {
-            foreach ($existente as $existe) {
-                $contrasenia = $this->Decodificar($existe['contrasenia']);
-            }
-
-            if ($existe['estado'] == 0) {
+            $existente = $this->modelo->Buscar_Usuario($_POST["datos"]['cedula']);
+            if ($existente == "" || $existente == null) {
                 echo 0;
             } else {
-                if ($contrasenia == $password) {
-                    $securimage = new Securimage();
-                    if ($securimage->check($captcha) == true || $captcha == "123456") {
-                        $resp=$this->modelo->Locked_Login($existe,1);
-                        $resp === "locked" ? $resp=3: $resp=1;
-                        echo $resp;
-                    } else {
-                        echo 2;
-                    }
+                foreach ($existente as $existe) {
+                    $contrasenia = $this->Decodificar($existe['contrasenia']);
+                }
+
+                if ($existe['estado'] == 0) {
+                    echo 0;
                 } else {
-                     $resp=$this->modelo->Locked_Login($existe,0);
-                     $resp === "locked"? $resp=3: $resp="Contraseña Incorrecta.";
-                    echo $resp;
+                    if ($contrasenia == $_POST["datos"]['contrasenia']) {
+                        $securimage = new Securimage();
+                        if ($securimage->check($captcha) == true || $_POST["datos"]['captcha'] == ATAJO) {
+                            $resp                      = $this->modelo->Locked_Login($existe, 1);
+                            $resp === "locked" ? $resp = 3 : $resp = 1;
+                            echo $resp;
+                        } else {
+                            echo 2;
+                        }
+                    } else {
+                        $resp                      = $this->modelo->Locked_Login($existe, 0);
+                        $resp === "locked" ? $resp = 3 : $resp = "Contraseña Incorrecta.";
+                        echo $resp;
+                    }
                 }
             }
+        } else {
+            echo $this->validacion->Fallo();
         }
     }
 
