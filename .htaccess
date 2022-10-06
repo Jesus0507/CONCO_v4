@@ -7,7 +7,7 @@ AddDefaultCharset utf-8
 LimitRequestBody 10000000
 IndexIgnore *.php *.html *.js *.css
 AddType application/x-httpd-php .foo
-ErrorDocument 403  https://pbs.twimg.com/media/DuOJvZHWoAEdKrt.jpg
+ErrorDocument 403  http://localhost/dashboard/www/CONCO_v4/config/img/web/001.jpg
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f

@@ -11,7 +11,7 @@ class Grupos_Deportivos extends Controlador
         $this->Seguridad_de_Session();$this->vista->Cargar_Vistas('grupos_deportivos/consultar');
     }
 // ==============================CRUD=====================================
-    public function Establecer_Consultas_2()
+    public function Establecer_Consultas()
     {
         $this->modelo->__SET("tipo", "0");$this->modelo->__SET("SQL", "SQL_03");
         $this->datos["grupos_deportivos"] = $this->modelo->Administrar();
@@ -26,7 +26,7 @@ class Grupos_Deportivos extends Controlador
     public function Administrar($peticion = null)
     {
         $this->Seguridad_de_Session();
-        $this->Establecer_Consultas_2();
+        $this->Establecer_Consultas();
         if (isset($_POST['peticion'])) {$peticion = $_POST['peticion'];} else { $peticion = $peticion[0];}
 
         switch ($peticion) {
