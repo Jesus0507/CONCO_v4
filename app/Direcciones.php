@@ -230,6 +230,27 @@ class Direcciones
         echo URL . self::Seguridad('Login/Administrar/', 'codificar');
     }
 
+    public static function _043_()
+    {
+        echo URL . self::Seguridad('Reportes/Censo_Poblacional', 'codificar');
+    }
+
+    public static function _044_()
+    {
+        echo URL . self::Seguridad('Reportes/Reporte_Ninos', 'codificar');
+    }
+
+    public static function _045_()
+    {
+        echo URL . self::Seguridad('Reportes/Grupos_Deportivos', 'codificar');
+    }
+
+    public static function _000_($value)
+    {
+        echo URL . self::Seguridad($value, 'codificar');
+    }
+
+
 }
 if (isset($_POST['direction']) && isset($_POST['accion'])) {
     echo Direcciones::Seguridad($_POST['direction'], $_POST['accion']);

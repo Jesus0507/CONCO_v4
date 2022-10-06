@@ -28,8 +28,7 @@
                         class="fas fa-minus"></i> </button>
                     </div>
                 </div>
-                <form action="<?php echo constant('URL'); ?>Calles/Nueva_Calle" enctype="multipart/form-data"
-                    id="formulario" method="POST" name="formulario">
+                <form action="" enctype="multipart/form-data" id="formulario" method="POST" name="formulario">
                     <!-- card-body -->
                     <div class="card-body">
                         <div class="card-block">
@@ -111,7 +110,7 @@
                             <div class="form-group row justify-content-center">
                                 <div class="col-md-12 mt-2">
                                     <center>
-                                        <div id="edades" style="height: 370px; width: 100%;"></div></center>
+                                        <div id="edades" style="height: 370px; width: 50%;"></div></center>
                                         <script type="text/javascript">
                                             $(document).ready(function() {
                                                 var chart = new CanvasJS.Chart("edades", {
@@ -160,7 +159,7 @@
                                 <div class="form-group row justify-content-center">
                                     <div class="col-md-12 mt-2">
                                         <center>
-                                            <div id="embarazadas" style="height: 370px; width: 100%;"></div></center>
+                                            <div id="embarazadas" style="height: 370px; width: 50%;"></div></center>
                                             <script type="text/javascript">
                                                 $(document).ready(function() {
                                                     var chart = new CanvasJS.Chart("embarazadas", {
@@ -209,7 +208,7 @@
                                     <div class="form-group row justify-content-center">
                                         <div class="col-md-12 mt-2">
                                             <center>
-                                                <div id="votantes" style="height: 370px; width: 100%;"></div></center>
+                                                <div id="votantes" style="height: 370px; width: 50%;"></div></center>
                                                 <script type="text/javascript">
                                                     $(document).ready(function() {
                                                         var chart = new CanvasJS.Chart("votantes", {
@@ -258,7 +257,7 @@
                                         <div class="form-group row justify-content-center">
                                             <div class="col-md-12 mt-2">
                                                 <center>
-                                                    <div id="educacion" style="height: 370px; width: 100%;"></div></center>
+                                                    <div id="educacion" style="height: 370px; width: 50%;"></div></center>
                                                     <script type="text/javascript">
                                                         $(document).ready(function() {
                                                             var chart = new CanvasJS.Chart("educacion", {
@@ -306,7 +305,7 @@
                                             <div class="form-group row justify-content-center">
                                                 <div class="col-md-12 mt-2">
                                                     <center>
-                                                        <div id="vacunados" style="height: 370px; width: 100%;"></div></center>
+                                                        <div id="vacunados" style="height: 370px; width: 50%;"></div></center>
                                                         <script type="text/javascript">
                                                             $(document).ready(function() {
                                                                 var chart = new CanvasJS.Chart("vacunados", {
@@ -355,7 +354,7 @@
                                                 <div class="form-group row justify-content-center">
                                                     <div class="col-md-12 mt-2">
                                                         <center>
-                                                            <div id="discapacitados" style="height: 370px; width: 100%;"></div></center>
+                                                            <div id="discapacitados" style="height: 370px; width: 50%;"></div></center>
                                                             <script type="text/javascript">
                                                                 $(document).ready(function() {
                                                                     var chart = new CanvasJS.Chart("discapacitados", {
@@ -404,7 +403,7 @@
                                                     <div class="form-group row justify-content-center">
                                                         <div class="col-md-12 mt-2">
                                                             <center>
-                                                                <div id="bonificados" style="height: 370px; width: 100%;"></div></center>
+                                                                <div id="bonificados" style="height: 370px; width: 50%;"></div></center>
                                                                 <script type="text/javascript">
                                                                     $(document).ready(function() {
                                                                         var chart = new CanvasJS.Chart("bonificados", {
