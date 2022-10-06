@@ -1,0 +1,18 @@
+stdClass Object
+(
+    [Modulo] => ------Personas------
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 05:53:26 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\personas_class.php
+    [Linea] => 44
+    [Mensaje] => SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'
+)
+stdClass Object
+(
+    [Modulo] => ------Personas------
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 05:54:29 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\personas_class.php
+    [Linea] => 44
+    [Mensaje] => SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'
+)

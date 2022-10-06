@@ -66,4 +66,4 @@
 <!-- /.content-wrapper -->
 <?php include (call."Fin.php"); ?>
 
-<script type="text/javascript" src="<?php echo constant('URL')?>config/js/news/consultar-vacunados.js"></script>
+<script type="text/javascript" src="<?php echo constant('URL')?>config/js/news/consultar-vacunados.js"></script> 
