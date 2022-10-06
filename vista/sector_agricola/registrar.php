@@ -91,7 +91,7 @@
                                 </label>
                                 <div class="input-group">
                                     <input class="form-control no-simbolos mb-10 solo-letras" id="rubro_principal" name="datos[rubro_principal]"
-                                        placeholder="Rubro Principal" type="text" oninput="Limitar(this,15)"/>
+                                        placeholder="Rubro Principal" type="text" oninput="Limitar(this,30)"/>
                                 </div>
                                 <span id="mensaje_rubro"></span>
                             </div>
@@ -102,7 +102,7 @@
                                 </label>
                                 <div class="input-group">
                                     <input class="form-control no-simbolos mb-10 solo-letras" id="rubro_alternativo" name="datos[rubro_alternativo]"
-                                        placeholder=" Rubro Alternativo" type="text" oninput="Limitar(this,15)"/>
+                                        placeholder=" Rubro Alternativo" type="text" oninput="Limitar(this,30)"/>
                                 </div>
                                 <span id="mensaje_alternativo"></span>
                             </div>

@@ -35,7 +35,7 @@ class Sector_Agricola extends Controlador
                 break;
 
             case 'Administrar':
-                $this->Validacion("Sector_Agricola",$this->modelo);
+                $this->Validacion("Sector_Agricola");
                 if ($this->validacion->Validacion_Registro()) {
                     $this->modelo->Datos($_POST['datos']);
                     $this->Ejecutar_Sentencia();

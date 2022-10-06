@@ -136,16 +136,14 @@ $(function() {
                     $("#primer_nombre2").val(primer_nombre);
                     $("#nombre_comite2").val(nombre_comite);
                     $("#cargo_persona2").val(cargo_persona);
-                    $("#fecha_ingreso2").val(fecha_ingreso);
-                    $("#fecha_salida2").val();
+                    $("#fecha_ingreso2").val(fecha_ingreso); 
+                    $("#fecha_salida2").val(fecha_salida);
                     $(document).on("click", "#enviar", function() {
                         var datos = {
-                            id_comite_persona: id,
                             cedula_persona: $("#cedula_vocero2").val(),
-                            nombre_comite: $("#nombre_comite2").val(),
                             cargo_persona: $("#cargo_persona2").val(),
                             fecha_ingreso: $("#fecha_ingreso2").val(),
-                            fecha_salida: $("#fecha_salida2").val()
+                            fecha_salida: $("#fecha_salida2").val(),
                         };
                         $.ajax({
                             type: "POST",
@@ -153,7 +151,9 @@ $(function() {
                             data: {
                                 datos: datos,
                                 peticion: "Editar",
-                                sql: "SQL_02",
+                                id_comite_persona: id,
+                                nombre_comite: $("#nombre_comite2").val(),
+                                sql: "SQL_03",
                                 accion: "El portador de la cedula" + cedula_vocero + " fue Actualizado como vocero \\Exitosamente.",
                             },
                         }).done(function(datos) {

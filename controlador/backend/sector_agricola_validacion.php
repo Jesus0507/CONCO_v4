@@ -4,10 +4,9 @@ class Sector_Agricola_Validacion extends Validacion
 {
     public $mensaje;
 
-    public function __construct($modelo)
+    public function __construct()
     {
         parent::__construct();
-        $this->modelo = $modelo;
     }
 
     public function Validacion_Registro()
@@ -19,12 +18,7 @@ class Sector_Agricola_Validacion extends Validacion
                 $this->Comprobar($_POST["datos"]["anios_experiencia"]) &&
                 $this->Comprobar($_POST["datos"]["rubro_principal"]) &&
                 $this->Comprobar($_POST["datos"]["rubro_alternativo"]) &&
-                $this->Comprobar($_POST["datos"]["financiado"]) &&
-                $this->Comprobar($_POST["datos"]["registro_INTI"]) &&
-                $this->Comprobar($_POST["datos"]["constancia_productor"]) &&
-                $this->Comprobar($_POST["datos"]["senial_hierro"]) &&
-                $this->Comprobar($_POST["datos"]["senial_hierro"]) &&
-                $this->Comprobar($_POST["datos"]["org_agricola"])
+                $this->Comprobar($_POST["datos"]["financiado"])
             ) {
                 $Errores[] = 'Debe llenar los datos del formulario';
             } else {
@@ -69,6 +63,26 @@ class Sector_Agricola_Validacion extends Validacion
                                                                 } else {
                                                                     if ($this->Validar_Dinero($_POST["datos"]["financiado"])) {
                                                                         $Errores[] = "El monto financiado es inválido.";
+                                                                    } else {
+                                                                        if ($this->Validar_Estado($_POST["datos"]["estado"])) {
+                                                                            $Errores[] = 'el estado es invalido ';
+                                                                        } else {
+                                                                            $_POST["datos"] = array(
+                                                                                "cedula_persona"       => $this->Datos_Limpios($_POST["datos"]["cedula_persona"]),
+                                                                                "area_produccion"      => $this->Datos_Limpios($_POST["datos"]["area_produccion"]),
+                                                                                "anios_experiencia"    => $this->Datos_Limpios($_POST["datos"]["anios_experiencia"]),
+                                                                                "org_agricola"         => $this->Datos_Limpios($_POST["datos"]["org_agricola"]),
+                                                                                "rubro_principal"      => $this->Datos_Limpios($_POST["datos"]["rubro_principal"]),
+                                                                                "rubro_alternativo"    => $this->Datos_Limpios($_POST["datos"]["rubro_alternativo"]),
+                                                                                "financiado"           => $this->Datos_Limpios($_POST["datos"]["financiado"]),
+                                                                                "registro_INTI"        => $this->Datos_Limpios($_POST["datos"]["registro_INTI"]),
+                                                                                "constancia_productor" => $this->Datos_Limpios($_POST["datos"]["constancia_productor"]),
+                                                                                "senial_hierro"        => $this->Datos_Limpios($_POST["datos"]["senial_hierro"]),
+                                                                                "agua_riego"           => $this->Datos_Limpios($_POST["datos"]["agua_riego"]),
+                                                                                "produccion_actual"    => $this->Datos_Limpios($_POST["datos"]["produccion_actual"]),
+                                                                                "estado"               => $this->Datos_Limpios($_POST["datos"]["estado"]),
+                                                                            );
+                                                                        }
                                                                     }
                                                                 }
                                                             }
@@ -77,13 +91,10 @@ class Sector_Agricola_Validacion extends Validacion
                                                 }
                                             }
                                         }
-
                                     }
                                 }
-
                             }
                         }
-
                     }
                 }
             }

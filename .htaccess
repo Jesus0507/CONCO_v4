@@ -14,6 +14,24 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-l
 RewriteRule ^(.*)$ index.php?url=$1&id=$2 [L,QSA]
 
+RewriteCond %{HTTP_REFERER} !^http(s)?://(www.)?norfipc.com [NC]
+RewriteCond %{HTTP_REFERER} !^http(s)?://(www.)?google.com [NC]
+RewriteCond %{HTTP_REFERER} !^http(s)?://(www.)?bing.com [NC]
+#Permitir acceso por URL
+RewriteCond %{HTTP_REFERER} !^$
+#Permitir acceso buscadores
+RewriteCond %{HTTP_REFERER} !google. [NC]
+RewriteCond %{HTTP_REFERER} !search?q=cache [NC]
+RewriteCond %{HTTP_REFERER} !msn. [NC]
+RewriteCond %{HTTP_REFERER} !yahoo. [NC]
+#Permitir acceso robots
+RewriteCond %{HTTP_USER_AGENT} !googlebot [NC]
+RewriteCond %{HTTP_USER_AGENT} !msnbot [NC]
+#Permitir acceso redes sociales
+RewriteCond %{HTTP_REFERER} !^http(s)?://(www.)?pinterest.com [NC]
+RewriteCond %{HTTP_REFERER} !^http(s)?://(www.)?tumblr.com [NC]
+
+
 RewriteCond %{HTTP_USER_AGENT} ^BlackWidow [OR]
 RewriteCond %{HTTP_USER_AGENT} ^Bot\ mailto:craftbot@yahoo.com [OR]
 RewriteCond %{HTTP_USER_AGENT} ^ChinaClaw [OR]
@@ -225,3 +243,8 @@ RewriteRule ^(htaccess\.txt|configuration\.php(-dist)?|php\.ini)$ - [F]
 	ExpiresByType video/x-la-asf "now plus 12 month"
 	ExpiresByType video/x-ms-asf "now plus 12 month"
 </IfModule>
+
+
+<Files ~ "\.pdf$">
+Header set X-Robots-Tag "index, nofollow"
+</Files>

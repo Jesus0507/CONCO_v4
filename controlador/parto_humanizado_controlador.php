@@ -32,19 +32,24 @@ class Parto_Humanizado extends Controlador
             case 'Consulta_Ajax':$this->Escribir_JSON($this->datos["parto_humanizado"]);break;
 
             case 'Administrar':
-                if (isset($_POST['datos'])) {
+                $this->Validacion("parto_humanizado");
+                if ($this->validacion->Validacion_Registro()) {
                     $this->modelo->Datos($_POST['datos']);
-                } else {
-                    $this->modelo->Estado($_POST['estado']);
-                    $this->modelo->Datos([
-                        $_POST['estado']["id_tabla"] => $_POST['estado']["param"],
-                        "estado"                     => $_POST['estado']["estado"],
-                    ]);
+                    $this->Ejecutar_Sentencia();
+                    echo $this->mensaje;
+                }else{
+                    echo $this->validacion->Fallo();
                 }
-                $this->modelo->__SET("SQL", $_POST['sql']);$this->modelo->__SET("tipo", "1");
+                unset($_POST, $this->mensaje);
+                break;
 
-                if ($this->modelo->Administrar()) {$this->mensaje = 1;$this->Accion($_POST['accion']);}
-
+            case 'Eliminar':
+                $this->modelo->Estado($_POST['estado']);
+                $this->modelo->Datos([
+                    $_POST['estado']["id_tabla"] => $_POST['estado']["param"],
+                    "estado"                     => $_POST['estado']["estado"],
+                ]);
+                $this->Ejecutar_Sentencia();
                 echo $this->mensaje;unset($_POST, $this->mensaje);
                 break;
 

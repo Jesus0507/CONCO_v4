@@ -291,7 +291,7 @@ function Actualizar_Familia() {
     var condicion_ocupacion_select = document.getElementById("select-cond-ocupacion");
     var condicion_ocupacion_input = document.getElementById("input_condicion_ocupacion");
     var datos_familia = new Object();
-    datos_familia['id_familia'] = document.getElementById("id_familia").value;
+    // datos_familia['id_familia'] = document.getElementById("id_familia").value;
     datos_familia['id_vivienda'] = parseInt(vivienda.value);
     condicion_ocupacion_select.style.display != 'none' ? datos_familia['condicion_ocupacion'] = condicion_ocupacion_select.value : datos_familia['condicion_ocupacion'] = condicion_ocupacion_input.value
     datos_familia['nombre_familia'] = nombre_familia.value;
@@ -313,7 +313,8 @@ function Actualizar_Familia() {
                 data: {
                     datos: datos_familia,
                     integrantes: integrantes,
-                    peticion: "Administrar",
+                    id_familia: document.getElementById("id_familia").value,
+                    peticion: "Editar",
                     sql: "SQL_04",
                     accion: "Se ha Actualizado la  Familia: " + nombre_familia,
                 }

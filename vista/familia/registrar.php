@@ -116,11 +116,22 @@
                                                 Ingreso mensual Aprox
                                             </label><span id='valid_4' style="color:red;"></span>
                                             <div class="input-group">
-                                                <input class="form-control mb-10 no-acentos" id="ingreso_aprox"
+                                                <input class="form-control mb-10  dinero" id="ingreso_aprox"
                                                     name="datos[ingreso_aprox]" placeholder="Ingreso mensual aprox"
-                                                    type="text" oninput="Limitar(this,10)" />
+                                                    type="text" oninput="Limitar(this,15)" />
                                             </div>
-
+                                            <script type="text/javascript">
+                                                $(".dinero").on({
+                                                    "focus": function(event) {
+                                                        $(event.target).select();
+                                                    },
+                                                    "keyup": function(event) {
+                                                        $(event.target).val(function(index, value) {
+                                                            return value.replace(/\D/g, "").replace(/([0-9])([0-9]{2})$/, '$1,$2').replace(/\B(?=(\d{3})+(?!\d)\.?)/g, ".");
+                                                        });
+                                                    }
+                                                });
+                                            </script>
                                         </div>
 
 

@@ -4,10 +4,9 @@ class Inmuebles_Validacion extends Validacion
 {
     public $mensaje;
 
-    public function __construct($modelo)
+    public function __construct()
     {
         parent::__construct();
-        $this->modelo = $modelo;
     }
 
     public function Validacion_Registro()
@@ -24,20 +23,36 @@ class Inmuebles_Validacion extends Validacion
                 if ($_POST["datos"]["id_calle"] == 0) {
                     $Errores[] = 'El campo calle es obligatorio';
                 } else {
-                    if ($this->Comprobar($_POST["datos"]["nombre_inmueble"])) {
-                        $Errores[] = 'El campo nombre del inmueble es obligatorio';
+                    if (!is_numeric($_POST["datos"]["id_calle"])) {
+                        $Errores[] = 'la id es invalida.';
                     } else {
-                        if ($this->Validar_Caracteres($_POST["datos"]["nombre_inmueble"])) {
-                            $Errores[] = "El campo nombre del inmueble no debe tener caracteres especiales.";
+                        if ($this->Comprobar($_POST["datos"]["nombre_inmueble"])) {
+                            $Errores[] = 'El campo nombre del inmueble es obligatorio';
                         } else {
-                            if ($this->Comprobar($_POST["datos"]["direccion_inmueble"])) {
-                                $Errores[] = 'El campo direccion del inmueble es obligatorio';
+                            if ($this->Validar_Caracteres($_POST["datos"]["nombre_inmueble"])) {
+                                $Errores[] = "El campo nombre del inmueble no debe tener caracteres especiales.";
                             } else {
-                                if ($this->Validar_Caracteres($_POST["datos"]["direccion_inmueble"])) {
-                                    $Errores[] = "El campo direccion del inmueble no debe tener caracteres especiales.";
+                                if ($this->Comprobar($_POST["datos"]["direccion_inmueble"])) {
+                                    $Errores[] = 'El campo direccion del inmueble es obligatorio';
                                 } else {
-                                    if ($this->Comprobar($_POST["datos"]["id_tipo_inmueble"])) {
-                                        $Errores[] = 'El campo tipo  inmueble es obligatorio';
+                                    if ($this->Validar_Caracteres($_POST["datos"]["direccion_inmueble"])) {
+                                        $Errores[] = "El campo direccion del inmueble no debe tener caracteres especiales.";
+                                    } else {
+                                        if ($this->Comprobar($_POST["datos"]["id_tipo_inmueble"])) {
+                                            $Errores[] = 'El campo tipo  inmueble es obligatorio';
+                                        } else {
+                                            if ($this->Validar_Estado($_POST["datos"]["estado"])) {
+                                                $Errores[] = 'el estado es invalido ';
+                                            } else {
+                                                $_POST["datos"] = array(
+                                                    "id_calle"           => $this->Datos_Limpios($_POST["datos"]["id_calle"]),
+                                                    "nombre_inmueble"    => $this->Datos_Limpios($_POST["datos"]["nombre_inmueble"]),
+                                                    "direccion_inmueble" => $this->Datos_Limpios($_POST["datos"]["direccion_inmueble"]),
+                                                    "id_tipo_inmueble"   => $this->Datos_Limpios($_POST["datos"]["id_tipo_inmueble"]),
+                                                    "estado"             => $this->Datos_Limpios($_POST["datos"]["estado"]),
+                                                );
+                                            }
+                                        }
                                     }
                                 }
                             }

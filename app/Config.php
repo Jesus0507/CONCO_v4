@@ -2,7 +2,7 @@
 //-------------------------URL PRINCIPAL--------------------
 define('SISTEMA', 	'CONCO_v4');
 define('URL', 'http://localhost/dashboard/www/'.SISTEMA."/");
-
+define('ATAJO', 		'123456');
 //--------------Base de Datos--------------------
 
 define('SERVIDOR', 	'mysql'); 
