@@ -293,7 +293,7 @@ document.getElementById("modificarContrasenia").onclick = function() {
                                         timer: 5000,
                                         showConfirmButton: false
                                     });
-                                    $('#password').modal('hide');
+                                    setTimeout(function(){location.reload()},4000);
                                 }
                             })
                         },
@@ -307,7 +307,7 @@ document.getElementById("modificarContrasenia").onclick = function() {
                     type: "error",
                     title: "Error",
                     text: "Los datos de seguridad ingresados son incorrectos. En caso de no recordar la información, le recomendamos ponerse en contacto con los administradores.",
-                    showConfirmButton: false
+                    showConfirmButton: true
                 });
             }
         }

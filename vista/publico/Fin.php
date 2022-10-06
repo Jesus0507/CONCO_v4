@@ -7,9 +7,6 @@
 
 <?php include (modal."solicitudes_usuarios.php"); ?>
 
-
-
-
 </body>
 
 </html>

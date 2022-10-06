@@ -3,6 +3,8 @@ var solicitudes_no_leidas = document.getElementById("solicitudes-no-leidas");
 var solicitudes = document.getElementById("body-solicitudes");
 var page_title = document.getElementById("page-title");
 var role = document.getElementById('rol_inicio').value;
+var descartar=document.getElementById('descartar');
+var procesar=document.getElementById('procesar');
 getSolicitudes();
 
 function getSolicitudes() {
@@ -58,7 +60,13 @@ function getSolicitudes() {
                 
                 var mensaje_s = getRecortado(texto_mensaje);
                 var elementS = "";
-                elementS += "<a title='" + texto_mensaje + "' href='javascript:void(0)' style='font-size:12px !important' class='dropdown-item' onclick='goToSolicitud(`" + result_s[i]['id_solicitud'] + "`,`" + result_s[i]['tipo_constancia'] + "`)'>";
+                if(result_s[i]['tipo_constancia'] == 'Cambio de contraseña' ){
+                elementS += "<a title='" + texto_mensaje + "' href='javascript:void(0)' style='font-size:12px !important' class='dropdown-item' onclick='goToSolicitudAdministrador(`" + JSON.stringify(result_s[i]) + "`)'>";
+                }
+                else{
+                    elementS += "<a title='" + texto_mensaje + "' href='javascript:void(0)' style='font-size:12px !important' class='dropdown-item' onclick='goToSolicitud(`" + result_s[i]['id_solicitud'] + "`,`" + result_s[i]['tipo_constancia'] + "`)'>";
+                }
+               
                 elementS += icono_s + " " + mensaje_s + span_s;
                 elementS += "</a><div class='dropdown-divider'></div>";
 
@@ -91,9 +99,6 @@ function getSolicitudes() {
                     solicitudes.style.display = "none";
                     }
                 }
-
-                console.log(cuerpo_s);
-                console.log(cuerpo_sa);
                 role == 'Administrador' ? solicitudes.innerHTML = cuerpo_sa : solicitudes.innerHTML = cuerpo_s;
                 solicitudes.style.display = "";
             }
@@ -152,4 +157,46 @@ function goToSolicitud(id, tipo_solicitud) {
             });
         }
     }
+}
+
+function goToSolicitudAdministrador(info){
+    info=JSON.parse(info);
+    var cedula=document.getElementById('cedula_solicitud');
+    var descripcion=document.getElementById('descripcion_solicitud');
+    var firma=document.getElementById('firma_solicitud');
+
+    firma.value=info['digital_sign'];
+    cedula.innerHTML = info['cedula_persona'];
+    descripcion.innerHTML = info['primer_nombre'] + info['primer_apellido'];
+    
+    $('#change_password').modal('show');
+}
+
+descartar.onclick=function(){
+descartarSolicitud();
+}
+
+function descartarSolicitud(){
+    var texto = "<textarea placeholder='Motivo de rechazo' id='motivo'></textarea>";
+
+    swal({
+         type: 'warning',
+         title: 'Razón de descarte',
+         text: texto,
+         html:true,
+         showConfirmButton:true,
+         confirmButtonText: 'Continuar',
+         closeOnConfirm: false
+        },function(isConfirm){
+            if(isConfirm){
+                var textarea=document.getElementById('motivo');
+                if(textarea.value == '' || textarea.value == null){
+                  textarea.style.borderColor ='red';
+                  textarea.style.borderWidth = '2px';
+                }
+                else{
+                    textarea.style.borderColor ='';
+                }
+            }
+        });
 }
