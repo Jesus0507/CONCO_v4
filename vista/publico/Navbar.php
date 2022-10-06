@@ -118,9 +118,9 @@
              <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                  <!-- User image -->
                  <?php if ($_SESSION['rol_inicio'] != 'Super Usuario') { ?>
-                 <li class="user-header bg-primary" style='height:300px'>
+                 <li class="user-header bg-primary" style='height:250px'>
                  <?php } else { ?>
-                    <li class="user-header bg-primary" style='height:350px'>
+                    <li class="user-header bg-primary" style='height:300px'>
                     <?php } ?>
                      <img src="<?php echo constant('URL')?>config/img/users/user-3.png" class="img-circle elevation-2"
                          alt="User Image">
@@ -130,10 +130,6 @@
                              <?php echo $_SESSION['cedula_usuario']; ?>
                          </small>
                      </p>
-                     <div style='text-align:left'>
-                        Firma digital:
-                        <input type='text' class='form-control' disabled value='<?php echo $_SESSION['digital_sign']; ?>'>
-                     </div>
                      <div style='text-align:left'>
                         Clave pública:
                         <input type='text' class='form-control' disabled value='<?php echo $_SESSION['public_key']; ?>'>
@@ -146,7 +142,6 @@
                  <?php }  ?>
                    
                  </li>
-                 <script>console.log(<?php echo json_encode($_SESSION); ?>)</script>
                  <!-- Menu Body -->
 
                  <!-- Menu Footer-->

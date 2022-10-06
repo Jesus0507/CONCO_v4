@@ -106,8 +106,7 @@ class Solicitudes extends Controlador
     {
         $datos                  = $_POST['datos'];
         $datos['observaciones'] = "";
-
-        echo $this->modelo->Registrar($datos);
+         echo $this->modelo->Registrar($datos);
 
     }
 
@@ -142,8 +141,7 @@ class Solicitudes extends Controlador
     public function Consultar_solicitudes()
     {
         $this->Establecer_Consultas();
-
-        $this->Escribir_JSON($this->datos_solicitudes);
+       $this->Escribir_JSON($this->datos_solicitudes);
     }
 
     public function Consultar_solicitudes_vivienda()

@@ -5,6 +5,7 @@ var page_title = document.getElementById("page-title");
 var role = document.getElementById('rol_inicio').value;
 var descartar=document.getElementById('descartar');
 var procesar=document.getElementById('procesar');
+var solicitante = new Object();
 getSolicitudes();
 
 function getSolicitudes() {
@@ -164,6 +165,8 @@ function goToSolicitudAdministrador(info){
     var cedula=document.getElementById('cedula_solicitud');
     var descripcion=document.getElementById('descripcion_solicitud');
     var firma=document.getElementById('firma_solicitud');
+    solicitante['correo']=info['correo'];
+    solicitante['id']=info['id_solicitud'];
 
     firma.value=info['digital_sign'];
     cedula.innerHTML = info['cedula_persona'];
@@ -176,27 +179,162 @@ descartar.onclick=function(){
 descartarSolicitud();
 }
 
-function descartarSolicitud(){
-    var texto = "<textarea placeholder='Motivo de rechazo' id='motivo'></textarea>";
 
-    swal({
-         type: 'warning',
-         title: 'Razón de descarte',
-         text: texto,
-         html:true,
-         showConfirmButton:true,
-         confirmButtonText: 'Continuar',
-         closeOnConfirm: false
-        },function(isConfirm){
-            if(isConfirm){
-                var textarea=document.getElementById('motivo');
-                if(textarea.value == '' || textarea.value == null){
-                  textarea.style.borderColor ='red';
-                  textarea.style.borderWidth = '2px';
-                }
-                else{
-                    textarea.style.borderColor ='';
-                }
+function descartarSolicitud() {
+    var textoSwal =
+      "Está por descartar la solicitud de cambio de contraseña ¿desea continuar?<br><br>";
+    textoSwal +=
+      "<textArea class='form-control' placeholder='Motivo de rechazo' id='text-area'></textArea><br>";
+    textoSwal += "<div style='color:red' id='valid-text-area'></div>";
+  
+    swal(
+      {
+        title: "Atención",
+        type: "warning",
+        text: textoSwal,
+        showCancelButton: true,
+        confirmButtonText: "Si, rechazar",
+        cancelButtonText: "No, cancelar",
+        closeOnConfirm: false,
+        html: true,
+      },
+      function (isConfirm) {
+        if (isConfirm) {
+          //eliminarSolicitud();
+          if (document.getElementById("text-area").value == "") {
+            document.getElementById("text-area").focus();
+            document.getElementById("text-area").style.borderColor = "red";
+            document.getElementById("valid-text-area").innerHTML =
+              "Debe ingresar el motivo del rechazo de la solicitud";
+          } else {
+            var motivo_rechazo = document.getElementById("text-area").value;
+            document.getElementById("valid-text-area").innerHTML = "";
+            document.getElementById("text-area").style.borderColor = "";
+            document.getElementById("text-area").blur();
+            solicitante['cedula_persona'] = document.getElementById('cedula_solicitud').innerHTML;
+            solicitante["asunto"] = "Solicitud de cambio de contraseña rechazada";
+            solicitante["mensaje"] =
+              "Su solicitud  de cambio de contraseña ha sido rechazada. El motivo del rechazo es: " +
+              motivo_rechazo;
+
+            rechazoSolicitud(motivo_rechazo);
+
+            swal({
+                title: "Exito",
+                text: "La solicitud ha sido rechazada",
+                type: "success",
+                showConfirmButton: false,
+                timer: 2000,
+              });
+
+
+            if (solicitante["correo"] != "No posee") {
+                location.reload();
+         //   document.getElementById("btn_correo").click();
             }
+            else {
+              location.reload();
+            }
+          }
+        }
+      }
+    );
+  };
+
+//   (function () {
+//     emailjs.init("user_HmtuJhVZ1daCClSuC185g");
+//   })();
+//   const vue = new Vue({
+//     el: "#app",
+//     data() {
+//       return {
+//         from_name: "",
+//         from_email: "",
+//         message: "",
+//         subject: "",
+//       };
+//     },
+//     methods: {
+//       enviar() {
+//         let data = {
+//           from_name: "C.C Prados de Occidente",
+//           from_email: solicitante["correo"],
+//           message: solicitante["mensaje"],
+//           subject: solicitante["sujeto"],
+//         };
+  
+//         emailjs.send("service_rbn54tj", "template_vqh9lqb", data).then(
+//           function (response) {
+//             if (response.text === "OK") {
+//               $.ajax({
+//               type: "POST",
+//               url: BASE_URL + "app/Direcciones.php",
+//               data: {
+//                 direction: "Solicitudes/",
+//                 accion: "codificar"
+//               },
+//               success: function (direccion_segura) {
+//                 location.href = BASE_URL + direccion_segura;
+//               },
+//               error: function () {
+//                 alert('Error al codificar dirreccion');
+//               }
+//             });
+//             }
+           
+//           },
+//           function (err) {
+            
+//             $.ajax({
+//               type: "POST",
+//               url: BASE_URL + "app/Direcciones.php",
+//               data: {
+//                 direction: "Solicitudes/",
+//                 accion: "codificar"
+//               },
+//               success: function (direccion_segura) {
+//                 location.href = BASE_URL + direccion_segura;
+//               },
+//               error: function () {
+//                 alert('Error al codificar dirreccion');
+//               }
+//             });
+//           }
+//         );
+//       },
+//     },
+//   });
+
+function rechazoSolicitud(motivo) {
+    var fecha_actual = new Date();
+    fecha_actual =
+      fecha_actual.getDate() +
+      "-" +
+      (fecha_actual.getMonth() + 1) +
+      "-" +
+      fecha_actual.getFullYear();
+  
+   
+    $.ajax({
+      type: "POST",
+      url: BASE_URL + "app/Direcciones.php",
+      data: {
+          direction:"Solicitudes/Set_status" ,
+          accion: "codificar"
+      },
+      success: function(direccion_segura) {
+        $.ajax({
+          type: "POST",
+          url: BASE_URL + direccion_segura,
+          data: {
+            id: solicitante['id'],
+            procesada: 2,
+            observaciones: "Rechazada el " + fecha_actual + "/" + motivo,
+          },
         });
-}
+      },
+      error: function() {
+          alert('Error al codificar dirreccion');
+      }
+  });
+  }

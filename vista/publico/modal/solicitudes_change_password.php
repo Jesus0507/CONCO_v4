@@ -21,6 +21,45 @@
                 <button type="button" class="btn btn-danger" id="descartar">Descartar</button>
                 <button type="button" class="btn btn-primary" id="procesar">Procesar</button>
             </div>
+            <div id="app" style="padding-top: 8rem;display:none">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3 form-group">
+                        <label>
+                            Nombre:
+                        </label>
+                        <input class="form-control" id='email_name'  type="text" v-model="from_name">
+                        </input>
+                    </div>
+                    <div class="col-sm-6 col-sm-offset-3 form-group">
+                        <label>
+                            Asunto:
+                        </label>
+                        <input class="form-control" type="text" v-model="subject" id='email_subject'>
+                        </input>
+                    </div>
+                    <div class="col-sm-6 col-sm-offset-3 form-group">
+                        <label>
+                            Correo:
+                        </label>
+                        <input class="form-control" type="email" v-model="from_email"  id='email_email'>
+                        </input>
+                    </div>
+                    <div class="col-sm-6 col-sm-offset-3 form-group">
+                        <label>
+                            Mensaje:
+                        </label>
+                        <textarea class="form-control" v-model="message" id='email_message'>
+                        </textarea>
+                    </div>
+                    <div class="col-sm-6 col-sm-offset-3 text-center">
+                        <button @click="enviar" class="btn btn-success" id='btn_correo'>
+                            Enviar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
         </div>
         <!-- /.modal-content -->
     </div>

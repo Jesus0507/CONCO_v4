@@ -21,6 +21,8 @@
  } ?>
 <script src="<?php echo constant('URL')?>config/js/news/notificaciones.js"></script> 
 <?php if($_SESSION['Solicitudes']['consultar']!='0' || $_SESSION['rol_inicio'] == 'Administrador'){ ?>
+<script src="<?php echo constant('URL')?>config/js/vue.min.js"></script>
+<script type="text/javascript" src="<?php echo constant('URL')?>config/js/email.min.js"></script>
 <script src="<?php echo constant('URL')?>config/js/news/solicitudes.js"></script> 
 <?php } ?>
 <script src="<?php echo constant('URL')?>config/js/news/add_acciones.js"></script> 

@@ -8,8 +8,6 @@ var aprobar = document.getElementById("aprobar");
 var rechazar = document.getElementById("rechazar");
 var solicitante = "";
 
-
-
 $.ajax({
   type: "POST",
   url: BASE_URL + "app/Direcciones.php",
@@ -25,11 +23,9 @@ $.ajax({
       var result_s = JSON.parse(datos);
       var cuerpo_s = "";
       var titulo_solicitud = "";
-    
       for (var i = 0; i < result_s.length; i++) {
         if (result_s[i]["id_solicitud"] == id.value) {
           solicitante = result_s[i];
-         
     
           switch (result_s[i]["tipo_constancia"]) {
             case "Residencia":
@@ -57,7 +53,6 @@ $.ajax({
             (fecha_s.getMonth() + 1) +
             "-" +
             fecha_s.getFullYear();
-    
           date.innerHTML = fecha_soli;
     
           persona.innerHTML =

@@ -104,32 +104,40 @@
         datos_persona['tipo_constancia']=doc.value;
         datos_persona['motivo_constancia']=mot.value;
 
+           $.ajax({
+                 type: "POST",
+                 url: BASE_URL + "app/Direcciones.php",
+                 data: {
+                     direction: "Solicitudes/Nueva_solicitud",
+                     accion: "codificar"
+                 },
+                 success: function(direccion_segura) {
+                     $.ajax({
+                         type: "POST",
+                         url: BASE_URL + direccion_segura,
+                         type: "POST",
+                         data: {"datos":datos_persona},
+                     }).done(function(result){
+                    console.log(result);
+                    if(result==1){
+                        swal({
+                            title:"Éxito",
+                            type:"success",
+                            text:"Su solicitud de documento ha sido enviada satisfactoriamente",
+                            showConfirmButton:false,
+                            timer:2000,
+                        });
 
-        $.ajax({
-            type:"POST",
-            url:BASE_URL+"Solicitudes/Nueva_solicitud",
-            data:{"datos":datos_persona}
+                        doc.value='0';
+                        mot.value='';
 
-        }).done(function(result){
-            console.log(result);
-            if(result==1){
-                swal({
-                    title:"Éxito",
-                    type:"success",
-                    text:"Su solicitud de documento ha sido enviada satisfactoriamente",
-                    showConfirmButton:false,
-                    timer:2000,
-                });
-
-                doc.value='0';
-                mot.value='';
-
-                index=1;
-                cambio_vista();
-            }
-        });
-
+                    }
+                    });
+                 },
+                 error: function() {
+                     alert('Error al codificar dirreccion');
+                 }
+               });
     }
 
 </script>
-<!-- /.modal -->
