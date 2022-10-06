@@ -11,7 +11,7 @@ class Login extends Controlador
 
     public function Cargar_Vistas(){$this->vista->Cargar_Vistas('login/index');}
 
-    public function set_Usuario_Actual($cedula, $nombre, $apellido, $correo, $estado, $rol_inicio)
+    public function set_Usuario_Actual($cedula, $nombre, $apellido, $correo, $estado, $rol_inicio, $firma, $publica, $privada)
     {
         $_SESSION['cedula_usuario'] = $cedula;
         $_SESSION['nombre']         = $nombre;
@@ -20,6 +20,9 @@ class Login extends Controlador
         $_SESSION['estado']         = $estado;
         $_SESSION['rol_inicio']     = $rol_inicio;
         $_SESSION['modulo_actual']  = "Inicio";
+        $_SESSION['digital_sign']   = $firma;
+        $_SESSION['public_key']     = $publica;
+        $_SESSION['private_key']    = $privada;
 
         $this->Cargar_Modelo("seguridad");$permisos = $this->modelo->get_permisos_rol($rol_inicio);
 
@@ -95,7 +98,10 @@ class Login extends Controlador
                                 $tabla_usuario['primer_apellido'],
                                 $tabla_usuario['correo'],
                                 $tabla_usuario['estado'],
-                                $tabla_usuario['rol_inicio']
+                                $tabla_usuario['rol_inicio'],
+                                $tabla_usuario['digital_sign'],
+                                $tabla_usuario['public_key'],
+                                $tabla_usuario['private_key']
                             );
 
                             if ($tabla_usuario['rol_inicio'] != 'Habitante') {
