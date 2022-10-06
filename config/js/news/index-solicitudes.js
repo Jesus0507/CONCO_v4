@@ -141,7 +141,7 @@ function openLink(id, tipo) {
         accion: "codificar"
       },
       success: function (direccion_segura) {
-        window.open(BASE_URL + direccion_segura + '&id=' + id);
+        window.open(BASE_URL + direccion_segura + '?id=' + id);
       },
       error: function () {
         alert('Error al codificar dirreccion');
@@ -157,7 +157,7 @@ function openLink(id, tipo) {
         accion: "codificar"
       },
       success: function (direccion_segura) {
-        window.open(BASE_URL + direccion_segura + '&id=' + id);
+        window.open(BASE_URL + direccion_segura + '?id=' + id);
       },
       error: function () {
         alert('Error al codificar dirreccion');
