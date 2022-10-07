@@ -26,7 +26,7 @@
                         <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse"> <i class="fas fa-minus"></i> </button>
                     </div>
                 </div>
-                <form action="<?php echo constant('URL'); ?>Calles/Nueva_Calle" enctype="multipart/form-data" id="formulario" method="POST" name="formulario">
+                <form action="" enctype="multipart/form-data" id="formulario" method="POST" name="formulario">
                     <!-- card-body -->
                     <div class="card-body">
                         <div class="card-block">
@@ -76,6 +76,6 @@
 <script type="text/javascript">
     
     document.getElementById("imprimir").onclick=function(){
-       window.open(BASE_URL+"Reportes/Historial_Clinico"+"?id="+document.getElementById("familia").value);
+       window.open("<?php Direcciones::_000_("Reportes/Historial_Clinico");?>"+"?id="+document.getElementById("familia").value);
     }
 </script>

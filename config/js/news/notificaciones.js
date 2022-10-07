@@ -142,7 +142,7 @@ function setStatus(id) {
                         accion: "codificar"
                     },
                 }).done(function(direccion) {
-                    window.open(BASE_URL + direccion + '&id=' + id);
+                    window.open(BASE_URL + direccion + '?id=' + id);
                 });
             } else {
                 swal({

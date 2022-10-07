@@ -6,11 +6,12 @@ $(function () {
             direction: 'Personas/Consultas_Vacunas_Ajax',
             accion: "codificar"
         },
-        success: function (direccion_segura) {
+        success: function (direccion_segura) { 
             $.ajax({
                 type: 'POST',
                 url: BASE_URL + direccion_segura,
             }).done(function (datos) {
+                console.log(datos)
                 var data = JSON.parse(datos);
                 var tabla = $("#example1").DataTable({
                     "data": data,

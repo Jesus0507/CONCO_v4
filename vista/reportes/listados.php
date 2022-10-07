@@ -40,63 +40,63 @@
                                     <select class="custom-select" id="listados" name="listados">
                                         <option> ... </option>
 
-                                        <option value="Reportes/Grupos_Deportivos">
+                                        <option value="<?php Direcciones::_045_();?>">
                                             Listado de Grupos Deportivos
                                         </option>
 
-                                        <option value="Reportes/Milicianos">
+                                        <option value="<?php Direcciones::_000_("Reportes/Milicianos");?>">
                                             Listado de Milicianos
                                         </option>
 
-                                        <option value="Reportes/Jefe_Familias">
+                                        <option value="<?php Direcciones::_000_("Reportes/Jefe_Familias");?>">
                                             Listado de Jefes de Familia
                                         </option>
 
-                                        <option value="Reportes/Personas_Discapacidad">
+                                        <option value="<?php Direcciones::_000_("Reportes/Personas_Discapacidad");?>">
                                             Listado de Personas con Discapacidad
                                         </option>
 
-                                        <option value="Reportes/Consejo_Comunal">
+                                        <option value="<?php Direcciones::_000_("Reportes/Consejo_Comunal");?>">
                                             Listado de Estructura del Consejo Comunal
                                         </option>
 
-                                        <option value="Reportes/Embarazadas">
+                                        <option value="<?php Direcciones::_000_("Reportes/Embarazadas");?>">
                                             Listado de Embarazadas
                                         </option>
 
-                                        <option value="Reportes/Nivel_Educativo">
+                                        <option value="<?php Direcciones::_000_("Reportes/Nivel_Educativo");?>">
                                             Listado de Nivel Educativo de Personas
                                         </option>
 
-                                        <option value="Reportes/Carnet_Personas">
+                                        <option value="<?php Direcciones::_000_("Reportes/Carnet_Personas");?>">
                                             Listado de Personas con Carnet
                                         </option>
 
-                                        <option value="Reportes/Negocios">
+                                        <option value="<?php Direcciones::_000_("Reportes/Negocios");?>">
                                             Listado de Negocios
                                         </option>
 
-                                        <option value="Reportes/Inmuebles">
+                                        <option value="<?php Direcciones::_000_("Reportes/Inmuebles");?>">
                                             Listado de Inmuebles
                                         </option>
 
-                                        <option value="Reportes/Viviendas">
+                                        <option value="<?php Direcciones::_000_("Reportes/Viviendas");?>">
                                             Listado de Viviendas
                                         </option>
 
-                                        <option value="Reportes/Personas_Enfermedades">
+                                        <option value="<?php Direcciones::_000_("Reportes/Personas_Enfermedades");?>">
                                             Listado de Personas Enfermedades
                                         </option>
 
-                                        <option value="Reportes/Votantes">
+                                        <option value="<?php Direcciones::_000_("Reportes/Votantes");?>">
                                             Listado de Votantes
                                         </option>
 
-                                        <option value="Reportes/Poblacion_Edades">
+                                        <option value="<?php Direcciones::_000_("Reportes/Poblacion_Edades");?>">
                                             Listado de Poblacion Edades
                                         </option>
 
-                                        <option value="Reportes/Sexo_Diverso">
+                                        <option value="<?php Direcciones::_000_("Reportes/Sexo_Diverso");?>">
                                             Listado de Personas de Sexo Diverso
                                         </option>
 
@@ -132,29 +132,7 @@
 <script>
 
     document.getElementById("enviar").onclick=function(){
-       window.open(BASE_URL+document.getElementById("listados").value);
+       window.open(document.getElementById("listados").value);
     }
     
-/* $(document).on("change", "#listados", function () {
-
-    var listado = document.getElementById("listados").value;
-
-    $.ajax({
-        type: 'POST',
-        url: BASE_URL + 'Reportes/Consultas_Listados',
-        data: {
-            'listado': listado,          
-        }
-        }).done(function(datos) {
-            var data = JSON.parse(datos);
-            var tabla ="<tr>";
-            for ( i = 0; i < data.length; i++) {
-                tabla+= data[i];
-                
-            }
-            $("#datos").html(tabla);
-        }).fail(function() {
-        alert("error")
-        })
-}); */
 </script>

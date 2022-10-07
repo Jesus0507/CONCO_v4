@@ -131,7 +131,7 @@ function goToSolicitud(id, tipo_solicitud) {
                 accion: "codificar"
             },
         }).done(function (direccion_segura) {
-            window.open(BASE_URL + direccion_segura + '&id=' + id);
+            window.open(BASE_URL + direccion_segura + '?id=' + id);
         });
     } else {
         if (tipo_solicitud == "Familia") {
@@ -143,7 +143,7 @@ function goToSolicitud(id, tipo_solicitud) {
                     accion: "codificar"
                 },
             }).done(function (direccion_segura) {
-                window.open(BASE_URL + direccion_segura + '&id=' + id);
+                window.open(BASE_URL + direccion_segura + '?id=' + id);
             });
         } else {
             $.ajax({
@@ -154,7 +154,7 @@ function goToSolicitud(id, tipo_solicitud) {
                     accion: "codificar"
                 },
             }).done(function (direccion_segura) {
-                window.open(BASE_URL + direccion_segura + '&id=' + id);
+                window.open(BASE_URL + direccion_segura + '?id=' + id);
             });
         }
     }

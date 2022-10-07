@@ -28,8 +28,7 @@
                             class="fas fa-minus"></i> </button>
                 </div>
             </div>
-            <form action="<?php echo constant('URL'); ?>Calles/Nueva_Calle" enctype="multipart/form-data"
-                id="formulario" method="POST" name="formulario">
+            <form action="" enctype="multipart/form-data" id="formulario" method="POST" name="formulario">
                 <!-- card-body -->
                 <div class="card-body">
                     <div class="card-block">
