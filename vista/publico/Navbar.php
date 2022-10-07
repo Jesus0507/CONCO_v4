@@ -132,12 +132,12 @@
                      </p>
                      <div style='text-align:left'>
                         Clave pública:
-                        <input type='text' class='form-control' disabled value='<?php echo $_SESSION['public_key']; ?>'>
+                        <div ondblclick="copyPaste(this)" title='Doble click para copiar'><input style='cursor:pointer' type='text' class='form-control' disabled value='<?php echo $_SESSION['public_key']; ?>'></div>
                      </div>
                      <?php if ($_SESSION['rol_inicio'] == 'Super Usuario') { ?>
                         <div style='text-align:left'>
                         Clave privada:
-                        <input type='text' class='form-control' disabled value='<?php echo $_SESSION['private_key']; ?>'>
+                        <div ondblclick="copyPaste(this)" title='Doble click para copiar'><input style='cursor:pointer' type='text' class='form-control' disabled value='<?php echo $_SESSION['private_key']; ?>'></div>
                      </div>
                  <?php }  ?>
                    

@@ -3,8 +3,8 @@ var solicitudes_no_leidas = document.getElementById("solicitudes-no-leidas");
 var solicitudes = document.getElementById("body-solicitudes");
 var page_title = document.getElementById("page-title");
 var role = document.getElementById('rol_inicio').value;
-var descartar=document.getElementById('descartar');
-var procesar=document.getElementById('procesar');
+var descartar = document.getElementById('descartar');
+var procesar = document.getElementById('procesar');
 var solicitante = new Object();
 getSolicitudes();
 
@@ -58,24 +58,24 @@ function getSolicitudes() {
                         break;
                 }
 
-                
+
                 var mensaje_s = getRecortado(texto_mensaje);
                 var elementS = "";
-                if(result_s[i]['tipo_constancia'] == 'Cambio de contraseña' ){
-                elementS += "<a title='" + texto_mensaje + "' href='javascript:void(0)' style='font-size:12px !important' class='dropdown-item' onclick='goToSolicitudAdministrador(`" + JSON.stringify(result_s[i]) + "`)'>";
+                if (result_s[i]['tipo_constancia'] == 'Cambio de contraseña') {
+                    elementS += "<a title='" + texto_mensaje + "' href='javascript:void(0)' style='font-size:12px !important' class='dropdown-item' onclick='goToSolicitudAdministrador(`" + JSON.stringify(result_s[i]) + "`)'>";
                 }
-                else{
+                else {
                     elementS += "<a title='" + texto_mensaje + "' href='javascript:void(0)' style='font-size:12px !important' class='dropdown-item' onclick='goToSolicitud(`" + result_s[i]['id_solicitud'] + "`,`" + result_s[i]['tipo_constancia'] + "`)'>";
                 }
-               
+
                 elementS += icono_s + " " + mensaje_s + span_s;
                 elementS += "</a><div class='dropdown-divider'></div>";
 
-               if (role == 'Administrador') { 
-                   if (result_s[i]['tipo_constancia'] == 'Cambio de contraseña' ) cuerpo_sa += elementS;
-               } else {
-                if (result_s[i]['tipo_constancia'] != 'Cambio de contraseña' ) cuerpo_s += elementS;
-            }
+                if (role == 'Administrador') {
+                    if (result_s[i]['tipo_constancia'] == 'Cambio de contraseña') cuerpo_sa += elementS;
+                } else {
+                    if (result_s[i]['tipo_constancia'] != 'Cambio de contraseña') cuerpo_s += elementS;
+                }
             }
             if (result_s.length == 0) {
                 solicitudes_no_leidas.innerHTML = "No hay solcitudes pendientes";
@@ -86,18 +86,18 @@ function getSolicitudes() {
                 solicitudes_no_leidas.innerHTML = result_s.length + " Solicitudes";
                 cantidad_s.style.display = "";
                 if (role == 'Administrador') {
-                cantidad_s.innerHTML = contSA ;
-                if( contSA == 0 ) { 
-                cantidad_s.style.display = "none";
-                solicitudes_no_leidas.innerHTML = "No hay solcitudes pendientes";
-                solicitudes.style.display = "none";
-                }
-                } else{
-                cantidad_s.innerHTML = (result_s.length - contSA);
-                if( (result_s.length - contSA) == 0 ) { 
-                    cantidad_s.style.display = "none";
-                    solicitudes_no_leidas.innerHTML = "No hay solcitudes pendientes";
-                    solicitudes.style.display = "none";
+                    cantidad_s.innerHTML = contSA;
+                    if (contSA == 0) {
+                        cantidad_s.style.display = "none";
+                        solicitudes_no_leidas.innerHTML = "No hay solcitudes pendientes";
+                        solicitudes.style.display = "none";
+                    }
+                } else {
+                    cantidad_s.innerHTML = (result_s.length - contSA);
+                    if ((result_s.length - contSA) == 0) {
+                        cantidad_s.style.display = "none";
+                        solicitudes_no_leidas.innerHTML = "No hay solcitudes pendientes";
+                        solicitudes.style.display = "none";
                     }
                 }
                 role == 'Administrador' ? solicitudes.innerHTML = cuerpo_sa : solicitudes.innerHTML = cuerpo_s;
@@ -160,86 +160,145 @@ function goToSolicitud(id, tipo_solicitud) {
     }
 }
 
-function goToSolicitudAdministrador(info){
-    info=JSON.parse(info);
-    var cedula=document.getElementById('cedula_solicitud');
-    var descripcion=document.getElementById('descripcion_solicitud');
-    var firma=document.getElementById('firma_solicitud');
-    solicitante['correo']=info['correo'];
-    solicitante['id']=info['id_solicitud'];
+function goToSolicitudAdministrador(info) {
+    info = JSON.parse(info);
+    var cedula = document.getElementById('cedula_solicitud');
+    var descripcion = document.getElementById('descripcion_solicitud');
+    var firma = document.getElementById('firma_solicitud');
+    solicitante['correo'] = info['correo'];
+    solicitante['id'] = info['id_solicitud'];
 
-    firma.value=info['digital_sign'];
+    firma.value = info['digital_sign'];
     cedula.innerHTML = info['cedula_persona'];
     descripcion.innerHTML = info['primer_nombre'] + info['primer_apellido'];
-    
+
     $('#change_password').modal('show');
 }
 
-descartar.onclick=function(){
-descartarSolicitud();
+descartar.onclick = function () {
+    descartarSolicitud();
+}
+
+procesar.onclick = function () {
+    procesarSolicitud();
 }
 
 
 function descartarSolicitud() {
     var textoSwal =
-      "Está por descartar la solicitud de cambio de contraseña ¿desea continuar?<br><br>";
+        "Está por descartar la solicitud de cambio de contraseña ¿desea continuar?<br><br>";
     textoSwal +=
-      "<textArea class='form-control' placeholder='Motivo de rechazo' id='text-area'></textArea><br>";
+        "<textArea class='form-control' placeholder='Motivo de rechazo' id='text-area'></textArea><br>";
     textoSwal += "<div style='color:red' id='valid-text-area'></div>";
-  
+
     swal(
-      {
-        title: "Atención",
-        type: "warning",
-        text: textoSwal,
-        showCancelButton: true,
-        confirmButtonText: "Si, rechazar",
-        cancelButtonText: "No, cancelar",
-        closeOnConfirm: false,
-        html: true,
-      },
-      function (isConfirm) {
-        if (isConfirm) {
-          //eliminarSolicitud();
-          if (document.getElementById("text-area").value == "") {
-            document.getElementById("text-area").focus();
-            document.getElementById("text-area").style.borderColor = "red";
-            document.getElementById("valid-text-area").innerHTML =
-              "Debe ingresar el motivo del rechazo de la solicitud";
-          } else {
-            var motivo_rechazo = document.getElementById("text-area").value;
-            document.getElementById("valid-text-area").innerHTML = "";
-            document.getElementById("text-area").style.borderColor = "";
-            document.getElementById("text-area").blur();
-            solicitante['cedula_persona'] = document.getElementById('cedula_solicitud').innerHTML;
-            solicitante["asunto"] = "Solicitud de cambio de contraseña rechazada";
-            solicitante["mensaje"] =
-              "Su solicitud  de cambio de contraseña ha sido rechazada. El motivo del rechazo es: " +
-              motivo_rechazo;
+        {
+            title: "Atención",
+            type: "warning",
+            text: textoSwal,
+            showCancelButton: true,
+            confirmButtonText: "Si, rechazar",
+            cancelButtonText: "No, cancelar",
+            closeOnConfirm: false,
+            html: true,
+        },
+        function (isConfirm) {
+            if (isConfirm) {
+                //eliminarSolicitud();
+                if (document.getElementById("text-area").value == "") {
+                    document.getElementById("text-area").focus();
+                    document.getElementById("text-area").style.borderColor = "red";
+                    document.getElementById("valid-text-area").innerHTML =
+                        "Debe ingresar el motivo del rechazo de la solicitud";
+                } else {
+                    var motivo_rechazo = document.getElementById("text-area").value;
+                    document.getElementById("valid-text-area").innerHTML = "";
+                    document.getElementById("text-area").style.borderColor = "";
+                    document.getElementById("text-area").blur();
+                    solicitante['cedula_persona'] = document.getElementById('cedula_solicitud').innerHTML;
+                    solicitante["asunto"] = "Solicitud de cambio de contraseña rechazada";
+                    solicitante["mensaje"] =
+                        "Su solicitud  de cambio de contraseña ha sido rechazada. El motivo del rechazo es: " +
+                        motivo_rechazo;
 
-            rechazoSolicitud(motivo_rechazo);
+                    rechazoSolicitud(motivo_rechazo);
 
-            swal({
-                title: "Exito",
-                text: "La solicitud ha sido rechazada",
-                type: "success",
-                showConfirmButton: false,
-                timer: 2000,
-              });
+                    swal({
+                        title: "Exito",
+                        text: "La solicitud ha sido rechazada",
+                        type: "success",
+                        showConfirmButton: false,
+                        timer: 2000,
+                    });
 
 
-            if (solicitante["correo"] != "No posee") {
-                location.reload();
-         //   document.getElementById("btn_correo").click();
+                    if (solicitante["correo"] != "No posee") {
+                        location.reload();
+                        //   document.getElementById("btn_correo").click();
+                    }
+                    else {
+                        location.reload();
+                    }
+                }
             }
-            else {
-              location.reload();
-            }
-          }
         }
-      }
     );
-  };
+};
+
+
+function procesarSolicitud() {
+    var textoSwal =
+        "Necesitamos la siguiente información para poder procesar la solicitud:<br><br>";
+    textoSwal +=
+        "<textArea class='form-control' placeholder='Ingrese su firma digital' id='text-area-sign'></textArea><br>";
+    textoSwal += "<div style='color:red' id='valid-text-area-sign'></div>";
+    textoSwal +=
+        "<textArea class='form-control' placeholder='Ingrese su clave pública' id='text-area-public'></textArea><br>";
+    textoSwal += "<div style='color:red' id='valid-text-area-public'></div>";
+
+    swal(
+        {
+            title: "Atención",
+            type: "warning",
+            text: textoSwal,
+            showCancelButton: true,
+            confirmButtonText: "Si, procesar",
+            cancelButtonText: "No, cancelar",
+            closeOnConfirm: false,
+            html: true,
+        },
+        function (isConfirm) {
+            if (isConfirm) {
+                //eliminarSolicitud();
+                if (document.getElementById("text-area-sign").value == "") {
+                    document.getElementById("text-area-sign").focus();
+                    document.getElementById("text-area-sign").style.borderColor = "red";
+                    document.getElementById("valid-text-area-sign").innerHTML =
+                        "Debe ingresar su firma digital";
+                } else {
+                    document.getElementById("valid-text-area-sign").innerHTML = "";
+                        document.getElementById("text-area-sign").style.borderColor = "";
+                        document.getElementById("text-area-sign").blur();
+                    if (document.getElementById("text-area-public").value == "") {
+                        document.getElementById("text-area-public").focus();
+                        document.getElementById("text-area-public").style.borderColor = "red";
+                        document.getElementById("valid-text-area-public").innerHTML =
+                            "Debe ingresar su clave pública";
+                    }
+                    else {
+                        var sign = document.getElementById("text-area-sign").value;
+                        var public = document.getElementById("text-area-public").value;
+                        document.getElementById("valid-text-area-public").innerHTML = "";
+                        document.getElementById("text-area-public").style.borderColor = "";
+                        document.getElementById("text-area-public").blur();
+
+                        procesamientoSolicitud(sign, public);
+                    }
+                }
+            }
+        }
+    );
+};
 
 //   (function () {
 //     emailjs.init("user_HmtuJhVZ1daCClSuC185g");
@@ -262,7 +321,7 @@ function descartarSolicitud() {
 //           message: solicitante["mensaje"],
 //           subject: solicitante["sujeto"],
 //         };
-  
+
 //         emailjs.send("service_rbn54tj", "template_vqh9lqb", data).then(
 //           function (response) {
 //             if (response.text === "OK") {
@@ -281,10 +340,10 @@ function descartarSolicitud() {
 //               }
 //             });
 //             }
-           
+
 //           },
 //           function (err) {
-            
+
 //             $.ajax({
 //               type: "POST",
 //               url: BASE_URL + "app/Direcciones.php",
@@ -305,36 +364,97 @@ function descartarSolicitud() {
 //     },
 //   });
 
+function procesamientoSolicitud(firma,clave) {
+    var fecha_actual = new Date();
+    fecha_actual =
+        fecha_actual.getDate() +
+        "-" +
+        (fecha_actual.getMonth() + 1) +
+        "-" +
+        fecha_actual.getFullYear();
+
+
+    $.ajax({
+        type: "POST",
+        url: BASE_URL + "app/Direcciones.php",
+        data: {
+            direction: "Solicitudes/Set_status_contrasenia",
+            accion: "codificar"
+        },
+        success: function (direccion_segura) {
+            $.ajax({
+                type: "POST",
+                url: BASE_URL + direccion_segura,
+                data: {
+                    id: solicitante['id'],
+                    procesada: 3,
+                    observaciones: "Procesada el " + fecha_actual + "/" + firma + "/" + clave,
+                },
+            }).done(function(resp){
+                  if(resp=='proceder'){
+                    swal({
+                        title: "Exito",
+                        text: "La solicitud ha sido procesada",
+                        type: "success",
+                        showConfirmButton: false,
+                        timer: 2000,
+                    });
+                  }else{
+                    if(resp==0){
+                        swal({
+                            title: "Error",
+                            text: "Su firma digital es incorrecta",
+                            type: "error",
+                            showConfirmButton: false,
+                            timer: 2000,
+                        });
+                    }
+                    else{
+                        swal({
+                            title: "Error",
+                            text: "Clave pública no válida. Si no conoce su clave pública, puede acceder a ella en el panel de usuario arriba a la derecha. Allí podra copiarla",
+                            type: "warning",
+                        });
+                    }
+                }
+            })
+        },
+        error: function () {
+            alert('Error al codificar dirreccion');
+        }
+    });
+}
+
 function rechazoSolicitud(motivo) {
     var fecha_actual = new Date();
     fecha_actual =
-      fecha_actual.getDate() +
-      "-" +
-      (fecha_actual.getMonth() + 1) +
-      "-" +
-      fecha_actual.getFullYear();
-  
-   
+        fecha_actual.getDate() +
+        "-" +
+        (fecha_actual.getMonth() + 1) +
+        "-" +
+        fecha_actual.getFullYear();
+
+
     $.ajax({
-      type: "POST",
-      url: BASE_URL + "app/Direcciones.php",
-      data: {
-          direction:"Solicitudes/Set_status" ,
-          accion: "codificar"
-      },
-      success: function(direccion_segura) {
-        $.ajax({
-          type: "POST",
-          url: BASE_URL + direccion_segura,
-          data: {
-            id: solicitante['id'],
-            procesada: 2,
-            observaciones: "Rechazada el " + fecha_actual + "/" + motivo,
-          },
-        });
-      },
-      error: function() {
-          alert('Error al codificar dirreccion');
-      }
-  });
-  }
+        type: "POST",
+        url: BASE_URL + "app/Direcciones.php",
+        data: {
+            direction: "Solicitudes/Set_status",
+            accion: "codificar"
+        },
+        success: function (direccion_segura) {
+            $.ajax({
+                type: "POST",
+                url: BASE_URL + direccion_segura,
+                data: {
+                    id: solicitante['id'],
+                    procesada: 2,
+                    observaciones: "Rechazada el " + fecha_actual + "/" + motivo,
+                },
+            });
+        },
+        error: function () {
+            alert('Error al codificar dirreccion');
+        }
+    });
+}

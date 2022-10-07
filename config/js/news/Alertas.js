@@ -119,3 +119,15 @@ function($) {
     "use strict";
     $.SweetAlert.init()
 }(window.jQuery);
+
+
+function copyPaste(element){
+   navigator.clipboard.writeText(element.querySelector('input').value).then(() => {
+    swal({
+        type:'success',
+        title:'Copiado!',
+        showConfirmButton: false,
+        timer:2000
+    });
+});
+}

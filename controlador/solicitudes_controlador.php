@@ -184,4 +184,26 @@ class Solicitudes extends Controlador
 
     }
 
+    public function Set_status_contrasenia()
+    {   $confirm = explode('/',$_POST['observaciones']);
+        if($this->Codificar(strtolower($confirm[1])) != $_SESSION['digital_sign']){
+           echo 0;
+        }
+        else{
+            if($confirm[2] != $_SESSION['public_key']){
+                echo 1;
+            }
+            else{   
+        $data = [
+            "id_solicitud"  => $_POST['id'],
+            "procesada"     => $_POST['procesada'],
+            "observaciones" => $_POST['observaciones'],
+        ];
+
+        $this->modelo->setStatus($data);
+                echo 'proceder';
+            }
+        }
+    }
+
 }

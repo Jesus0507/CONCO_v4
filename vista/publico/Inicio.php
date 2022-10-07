@@ -16,9 +16,9 @@
         include (call."Menu.php"); 
 
         ?>
-<?php if($_SESSION['rol_inicio'] === 'Administrador'){ 
+<?php 
     include (modal."solicitudes_change_password.php");
- } ?>
+?>
 <script src="<?php echo constant('URL')?>config/js/news/notificaciones.js"></script> 
 <?php if($_SESSION['Solicitudes']['consultar']!='0' || $_SESSION['rol_inicio'] == 'Administrador'){ ?>
 <script src="<?php echo constant('URL')?>config/js/vue.min.js"></script>
