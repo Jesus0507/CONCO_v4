@@ -7718,6 +7718,6 @@ a.mytooltip {
 .scrollableDiv {
   background: red;
   height: 100px;
-  width: 100%
+  width: 100%;
   overflow-y: scroll;
 }

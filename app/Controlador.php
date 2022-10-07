@@ -195,6 +195,27 @@ class Controlador
         }
     }
 
+    public function validKeys($public,$private){
+        $sql = "SELECT * FROM  personas where public_key = $public OR private_key = $private";
+        $respuesta_arreglo = '';
+        $resp=false;
+        try {
+            $datos = $this->conexion->prepare($sql);
+            $datos->execute();
+            $datos->setFetchMode(PDO::FETCH_ASSOC);
+            $respuesta_arreglo = $datos->fetchAll(PDO::FETCH_ASSOC);
+            if(count($respuesta_arreglo)==2){
+                $resp=true;
+            }
+            return $resp;
+        } catch (PDOException $e) {
+
+            $errorReturn = ['estatus' => false];
+            $errorReturn += ['info' => "error sql:{$e}"];
+            return $errorReturn;
+        }
+    }
+
     public function Consultar_Tabla_sin_estado($tabla, $estado, $orden)
     {
 
@@ -272,12 +293,11 @@ class Controlador
 
         try {
             $query = $this->conexion->prepare("UPDATE " . $tabla . " SET " . $columna . " = :" . $columna . " WHERE " . $id_tabla . " =:" . $id_tabla . "");
-
             $query->execute([
                 $columna  => $data,
                 $id_tabla => $param,
             ]);
-
+             
             return true;
 
         } catch (PDOException $e) {

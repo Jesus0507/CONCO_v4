@@ -40,7 +40,7 @@ class Solicitudes_Class extends Modelo
     public function Consultar()
     {
 
-        $tabla             = "SELECT S.*, P.* FROM solicitudes S, personas P WHERE S.procesada = 0 AND P.cedula_persona = S.cedula_persona AND P.estado=1";
+        $tabla             = "SELECT S.*, P.* FROM solicitudes S, personas P WHERE S.procesada = 0 OR S.procesada=3 AND P.cedula_persona = S.cedula_persona AND P.estado=1";
         $respuesta_arreglo = '';
         try {
             $datos = $this->conexion->prepare($tabla);

@@ -16,3 +16,1323 @@ stdClass Object
     [Linea] => 44
     [Mensaje] => SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'
 )
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:40 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:40 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:40 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:40 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:40 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:40 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:40 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:40 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:40 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:40 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:40 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:40 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:40 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:40 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:40 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:40 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:40 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:40 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:40 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:40 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:41 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:41 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:41 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:41 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:41 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:41 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:41 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:41 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:41 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:41 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:41 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:41 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:41 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:41 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:41 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:41 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:41 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:41 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:41 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:41 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:41 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:41 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:41 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:41 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:41 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:41 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:42 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:42 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:42 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:42 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:42 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:42 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:42 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:42 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:42 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:42 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:42 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:42 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:42 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:42 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:42 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:42 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:42 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:42 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:42 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:42 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:42 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:42 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:42 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:42 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:42 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:43 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:43 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:43 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:43 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:43 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:43 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:43 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:43 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:43 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:43 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:43 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:43 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:43 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:43 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:43 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:43 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:43 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:43 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:43 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:43 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:43 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:43 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:43 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:43 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:43 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:43 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:44 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:44 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:44 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:44 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:44 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:44 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:44 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:44 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:44 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:44 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:44 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:44 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:44 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:44 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:44 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:44 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:44 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:44 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:44 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:44 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:44 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:44 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:44 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:44 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:44 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:45 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:45 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:45 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:45 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:45 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:45 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:45 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:45 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:45 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 06 de Octubre del 2022
+    [Hora] => 09:45 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 35
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)

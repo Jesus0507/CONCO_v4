@@ -194,10 +194,11 @@ class Solicitudes extends Controlador
                 echo 1;
             }
             else{   
+        $confirm=$confirm[0].'/'.$_SESSION['digital_sign'].'/'.$confirm[2];
         $data = [
             "id_solicitud"  => $_POST['id'],
             "procesada"     => $_POST['procesada'],
-            "observaciones" => $_POST['observaciones'],
+            "observaciones" => $confirm,
         ];
 
         $this->modelo->setStatus($data);
@@ -206,4 +207,39 @@ class Solicitudes extends Controlador
         }
     }
 
+    public function check_keys(){
+        $resp=[
+            'public'=>0,
+            'priv'=>0,
+            'firma' =>''
+        ];
+
+        if($this->validKeys($_POST['public_key'],$_POST['private_key'])){
+            $resp=[
+                'public'=>1,
+                'priv'=>1,
+                'firma' =>$this->Decodificar($_POST['firma'])
+            ];
+        }
+
+        echo json_encode($resp);
+    }
+
+    public function approve_change_password()
+     { 
+        $persona=$this->Consultar_Columna("personas","cedula_persona",$_POST['cedula']);
+        foreach($persona as $p){
+          $this->Actualizar_tablas('personas','contrasenia','cedula_persona',$p['contrasenia_nueva'],$_POST['cedula']);
+          $this->Actualizar_tablas('personas','user_locked','cedula_persona','0',$_POST['cedula']);
+        }
+        $data = [
+            "id_solicitud"  => $_POST['id'],
+            "procesada"     => $_POST['procesada'],
+            "observaciones" => $_POST['observaciones'],
+        ];
+
+        $this->modelo->setStatus($data);
+
+       echo true;
+}
 }

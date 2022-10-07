@@ -3,6 +3,7 @@ var solicitudes_no_leidas = document.getElementById("solicitudes-no-leidas");
 var solicitudes = document.getElementById("body-solicitudes");
 var page_title = document.getElementById("page-title");
 var role = document.getElementById('rol_inicio').value;
+var process='';
 var descartar = document.getElementById('descartar');
 var procesar = document.getElementById('procesar');
 var solicitante = new Object();
@@ -54,6 +55,7 @@ function getSolicitudes() {
                     case 'Cambio de contraseña':
                         icono_s = "<i class='fas fa-key'></i>";
                         texto_mensaje += "Ha realizado una solicitud de " + result_s[i]['tipo_constancia'];
+                        process=result_s[i]['procesada'];
                         contSA++;
                         break;
                 }
@@ -62,7 +64,12 @@ function getSolicitudes() {
                 var mensaje_s = getRecortado(texto_mensaje);
                 var elementS = "";
                 if (result_s[i]['tipo_constancia'] == 'Cambio de contraseña') {
+                   if(result_s[i]['procesada']==3){
+                    elementS += "<a title='" + texto_mensaje + "' href='javascript:void(0)' style='font-size:12px !important' class='dropdown-item' onclick='goToSolicitudSU(`" + JSON.stringify(result_s[i]) + "`)'>";
+                   }
+                   else{
                     elementS += "<a title='" + texto_mensaje + "' href='javascript:void(0)' style='font-size:12px !important' class='dropdown-item' onclick='goToSolicitudAdministrador(`" + JSON.stringify(result_s[i]) + "`)'>";
+                   }
                 }
                 else {
                     elementS += "<a title='" + texto_mensaje + "' href='javascript:void(0)' style='font-size:12px !important' class='dropdown-item' onclick='goToSolicitud(`" + result_s[i]['id_solicitud'] + "`,`" + result_s[i]['tipo_constancia'] + "`)'>";
@@ -71,7 +78,7 @@ function getSolicitudes() {
                 elementS += icono_s + " " + mensaje_s + span_s;
                 elementS += "</a><div class='dropdown-divider'></div>";
 
-                if (role == 'Administrador') {
+                if (role == 'Administrador' || (role=='Super Usuario' && result_s[i]['procesada']==3)) {
                     if (result_s[i]['tipo_constancia'] == 'Cambio de contraseña') cuerpo_sa += elementS;
                 } else {
                     if (result_s[i]['tipo_constancia'] != 'Cambio de contraseña') cuerpo_s += elementS;
@@ -85,7 +92,7 @@ function getSolicitudes() {
             } else {
                 solicitudes_no_leidas.innerHTML = result_s.length + " Solicitudes";
                 cantidad_s.style.display = "";
-                if (role == 'Administrador') {
+                if (role == 'Administrador'  || (role=='Super Usuario' && process==3)) {
                     cantidad_s.innerHTML = contSA;
                     if (contSA == 0) {
                         cantidad_s.style.display = "none";
@@ -100,7 +107,13 @@ function getSolicitudes() {
                         solicitudes.style.display = "none";
                     }
                 }
-                role == 'Administrador' ? solicitudes.innerHTML = cuerpo_sa : solicitudes.innerHTML = cuerpo_s;
+                if(role == 'Administrador'  || (role=='Super Usuario' && process==3)){
+                     solicitudes.innerHTML = cuerpo_sa ;
+                 }
+                 else{
+                 solicitudes.innerHTML = cuerpo_s
+                }
+
                 solicitudes.style.display = "";
             }
             var texto_titulo = "C.C Prados de Occidente";
@@ -180,7 +193,7 @@ descartar.onclick = function () {
 }
 
 procesar.onclick = function () {
-    procesarSolicitud();
+    process!=3?procesarSolicitud():procesarSolicitudSU();
 }
 
 
@@ -457,4 +470,151 @@ function rechazoSolicitud(motivo) {
             alert('Error al codificar dirreccion');
         }
     });
+}
+
+function goToSolicitudSU(info) {
+    info = JSON.parse(info);
+    var divs=document.getElementById('change_password').querySelectorAll('div');
+    divs[0].classList.remove('modal-xs');
+    divs[0].classList.add('modal-xl');
+    var cedula = document.getElementById('cedula_solicitud');
+    var descripcion = document.getElementById('descripcion_solicitud');
+    var firma = document.getElementById('firma_solicitud');
+    var claveAdmin = document.getElementById('clave_administrador');
+    var firma_label=document.getElementById('sign-label');
+    firma.classList.add('d-none');
+    firma_label.classList.add('d-none');
+    document.getElementById('adminInfo').classList.remove('d-none');
+    var observaciones = info['observaciones'];
+    var firma=observaciones.split('/');
+    // solicitante['correo'] = info['correo'];
+     solicitante['id'] = info['id_solicitud'];
+     solicitante['cedula'] = info['cedula_persona'];
+
+     cedula.innerHTML = info['cedula_persona'];
+     descripcion.innerHTML = info['primer_nombre'] + info['primer_apellido'];
+     document.getElementById('firma_administrador').value=firma[1];
+     claveAdmin.value=firma[2];
+     claveAdmin.disabled='disabled';
+     document.getElementById('firma_administrador').disabled='disabled';
+
+    $('#change_password').modal('show');
+}
+
+function procesarSolicitudSU(){
+    if(document.getElementById('clave_su').value==='' || document.getElementById('clave_su').value===null){
+        swal({
+            type:'error',
+            title:'Error',
+            text:'Debe ingresar su clave privada. Si no la conoce, puede acceder a ella a través del panel de usuario, arriba a la derecha'
+        });
+        document.getElementById('clave_su').style.borderColor='red';
+    }
+    else{
+        document.getElementById('clave_su').style.borderColor='';
+        if(document.getElementById('decodificarFirma').style.display!='none'){
+            swal({
+                type:'warning',
+                title:'Algo ha salido mal',
+                text:'Debe decodificar la firma digital del administrador, para poder comprobar su identidad y aprobar o rechazar la solicitud'
+            });
+        }
+        else{
+            var fecha_actual = new Date();
+            fecha_actual = fecha_actual.getDate() + "-" + (fecha_actual.getMonth() + 1) + "-" + fecha_actual.getFullYear();        
+            $.ajax({
+                type: "POST",
+                url: BASE_URL + "app/Direcciones.php",
+                data: {
+                    direction: "Solicitudes/approve_change_password",
+                    accion: "codificar"
+                },
+                success: function(direccion_segura) {
+                    $.ajax({
+                        type: "POST",
+                        url: BASE_URL + direccion_segura,
+                        data: {
+                            id: solicitante['id'],
+                            cedula:solicitante['cedula'],
+                            procesada: 1,
+                            observaciones: "Aprobada el " + fecha_actual,
+                        },
+                    }).done(function(resp){
+console.log(resp);
+if(resp){
+    swal({
+        type:'success',
+        title:'Exito!',
+        text:'Se ha aprobado el cambio de contraseña exitosamente!',
+        showConfirmButton:false,
+        timer:2000
+    });
+    setTimeout(function(){location.reload()},2000);
+}
+                    });
+                },
+                error: function() {
+                    alert('Error al codificar dirreccion');
+                }
+            });
+        }
+    }
+}
+
+document.getElementById('decodificarFirma').onclick=function(){
+    if(document.getElementById('clave_su').value==='' || document.getElementById('clave_su').value===null){
+        swal({
+            type:'error',
+            title:'Error',
+            text:'Debe ingresar su clave privada. Si no la conoce, puede acceder a ella a través del panel de usuario, arriba a la derecha'
+        });
+        document.getElementById('clave_su').style.borderColor='red';
+    }
+    else{
+        document.getElementById('clave_su').style.borderColor='';
+        document.getElementById('span_su').className=document.getElementById('span_admin').className='loader';
+       
+        $.ajax({
+            type: "POST",
+            url: BASE_URL + "app/Direcciones.php",
+            data: {
+                direction: "Solicitudes/check_keys",
+                accion: "codificar"
+            },
+            success: function (direccion_segura) {
+                $.ajax({
+                    type: "POST",
+                    url: BASE_URL + direccion_segura,
+                    data: {
+                        public_key: document.getElementById('clave_administrador').value,
+                        private_key: document.getElementById('clave_su').value,
+                        firma:document.getElementById('firma_administrador').value
+                    },
+                }).done(function(resp){
+                      resp=JSON.parse(resp);
+                      if(resp['public']===1){
+                        document.getElementById('span_admin').style.color='green';
+                        document.getElementById('span_admin').style.fontSize='23px';
+                        document.getElementById('span_admin').className='fa fa-check';
+                        setTimeout(function(){
+                            if(resp['priv']===1){
+                                document.getElementById('span_su').style.color='green';
+                                document.getElementById('span_su').className='fa fa-check';
+                                document.getElementById('span_su').style.fontSize='23px';
+                                setTimeout(function(){
+                                    document.getElementById('firma_administrador').value=resp['firma'];
+                                    document.getElementById('decodificarFirma').style.display='none';
+
+                                },2000)
+                              }
+                        },2000)
+                      }
+
+                });
+            },
+            error: function () {
+                alert('Error al codificar dirreccion');
+            }
+        });
+    }
 }
