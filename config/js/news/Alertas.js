@@ -122,7 +122,10 @@ function($) {
 
 
 function copyPaste(element){
-   navigator.clipboard.writeText(element.querySelector('input').value).then(() => {
+    var parent=element.parentElement;
+    parent=parent.parentElement;
+    parent=parent.parentElement;
+   navigator.clipboard.writeText(parent.querySelector('input').value).then(() => {
     swal({
         type:'success',
         title:'Copiado!',

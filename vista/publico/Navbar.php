@@ -132,12 +132,30 @@
                      </p>
                      <div style='text-align:left'>
                         Clave pública:
-                        <div ondblclick="copyPaste(this)" title='Doble click para copiar'><input style='cursor:pointer' type='text' class='form-control' disabled value='<?php echo $_SESSION['public_key']; ?>'></div>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Clave pública" disabled value='<?php echo $_SESSION['public_key']; ?>'>
+                                <div class="input-group-append">
+                                    <div class="input-group-text" style="background:#003886;">
+                                        <a href="javascript:void(0);" type="button" onclick="copyPaste(this)" class="btn" style="margin: 0px;padding: 0px; color:white" title="Click aquí para copiar la clave">
+                                           <span class="fas fa-copy"></span>
+                                        </a>
+                                    </div>
+                                </div>
+                         </div>
                      </div>
                      <?php if ($_SESSION['rol_inicio'] == 'Super Usuario') { ?>
                         <div style='text-align:left'>
                         Clave privada:
-                        <div ondblclick="copyPaste(this)" title='Doble click para copiar'><input style='cursor:pointer' type='text' class='form-control' disabled value='<?php echo $_SESSION['private_key']; ?>'></div>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Clave privada" disabled value='<?php echo $_SESSION['private_key']; ?>'>
+                                <div class="input-group-append">
+                                    <div class="input-group-text" style="background:#003886;">
+                                        <a href="javascript:void(0);" type="button" onclick="copyPaste(this)" class="btn" style="margin: 0px;padding: 0px; color:white" title="Click aquí para copiar la clave">
+                                           <span class="fas fa-copy"></span>
+                                        </a>
+                                    </div>
+                                </div>
+                         </div>
                      </div>
                  <?php }  ?>
                    
