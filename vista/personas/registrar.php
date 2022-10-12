@@ -942,6 +942,9 @@
         </label>
         <div class="col-md-12 mt-2">
             <table style='width:100%'><tr><td>
+                <label for="color_fav">
+                 Color favorito
+             </label>
             <span style='display:none;color:red' id='valid_color'>Ingrese el color favorito</span>
             <div class="input-group">
                 <input class="form-control mb-10" id="color_fav"
@@ -950,6 +953,7 @@
             </div></td>
 
 <td>
+        <label for="animal_fav">Animal Favorito</label>
             <span style='display:none;color:red' id='valid_animal'>Ingrese el animal favorito</span>
             <div class="input-group">
                 <input class="form-control mb-10" id="animal_fav"
@@ -957,6 +961,7 @@
                 type="text" oninput="Limitar(this,10)"/>
             </div>
 </td><td>
+    <label for="primera_mascota">Nombre de la primera mascota</label>
             <span style='display:none;color:red' id='valid_mascota'>Ingrese el nombre de la primera mascota</span>
             <div class="input-group">
                 <input class="form-control mb-10" id="primera_mascota"
