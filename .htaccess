@@ -146,6 +146,8 @@ RewriteCond %{REQUEST_FILENAME} -f
 RewriteCond %{REQUEST_URI} \.php|\.ini|\.xml [NC]
 RewriteCond %{REQUEST_URI} \/app\/ [OR]
 RewriteCond %{REQUEST_URI} \/config\/ [OR]
+RewriteCond %{REQUEST_URI} \/config/css\/ [OR]
+RewriteCond %{REQUEST_URI} \/config/js\/ [OR]
 RewriteCond %{REQUEST_URI} \/controlador\/ [OR]
 RewriteCond %{REQUEST_URI} \/modelo\/ [OR]
 RewriteCond %{REQUEST_URI} \/tests\/ [OR]
