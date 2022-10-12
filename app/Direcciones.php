@@ -13,11 +13,14 @@ class Direcciones
         $iv    = substr(hash(self::$algoritmo, self::$iniciador), 0, 16); // ciframos el vector de inicialización y acortamos con substr
         if ($accion == 'codificar') {
             $salida = openssl_encrypt($string, self::$metodo, $llave, self::$opcion, $iv); // ciframos la direccion obtenida con el metodo openssl_encrypt
-            $salida = base64_encode($salida); // ciframos la salida en bs64
+            $salida = $salida ."@". bin2hex(openssl_random_pseudo_bytes(20));
         } else if ($accion == 'decodificar') {
-            $salida = openssl_decrypt(base64_decode($string), self::$metodo, $llave, self::$opcion, $iv);
+            $string = explode('@', $string);
+            $salida = openssl_decrypt($string[0], self::$metodo, $llave, self::$opcion, $iv);
         }
+        
         return $salida;
+        unset($salida,$string,$llave,$iv);
     }
 
     public static function _001_()
@@ -249,7 +252,6 @@ class Direcciones
     {
         echo URL . self::Seguridad($value, 'codificar');
     }
-
 
 }
 if (isset($_POST['direction']) && isset($_POST['accion'])) {

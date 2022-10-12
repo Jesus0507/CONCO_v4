@@ -92,80 +92,112 @@ class Controlador
         return $decodec;
     }
 
+    public function Seguridad_Password($string, $accion = null)
+    {
+        $codec   = '';
+        $decodec = '';
+        $metodo  = "AES-128-CBC";
+        $ivlen   = openssl_cipher_iv_length($metodo);
+        $iv      = openssl_random_pseudo_bytes($ivlen);
+
+        if ($accion === 1) {
+            for ($i = 0; $i < strlen($string); $i++) {
+                $codec = $codec . base64_encode($string[$i]) . "#";
+            }
+            $string = $codec . "@" . bin2hex(openssl_random_pseudo_bytes(20));
+            $string = base64_encode(base64_encode(base64_encode($string)));
+            $salida = openssl_encrypt($string, $metodo, "2RKrLWk=", OPENSSL_RAW_DATA, $iv);
+        } else if ($accion === 0) {
+            $string = openssl_decrypt($string, $metodo, "2RKrLWk=", OPENSSL_RAW_DATA, $iv);
+            $string = base64_decode(base64_decode(base64_decode($string)));
+            $string = explode('@', $string);
+            $string = $string[0];
+            $string = explode("#", $string);
+
+            foreach ($string as $str) {
+                $decodec = $decodec . base64_decode($str);
+            }
+            $salida = filter_var($decodec, FILTER_SANITIZE_STRING);
+        }
+        return $salida;
+        unset($codec,$decodec,$metodo,$ivlen,$iv,$string,$accion,$salida);
+    }
+
     public function GenerateRSAKeys($keys)
-    {   
-        $bits              = [128,160,256,320];
+    {
+        $bits              = [128, 160, 256, 320];
         $privateKeyWord    = $keys[array_rand($keys)];
         $publicKeyWord     = $keys[array_rand($keys)];
         $encryptValPrivate = $bits[array_rand($bits)];
         $encryptValPublic  = $bits[array_rand($bits)];
 
         while ($privateKeyWord == $publicKeyWord) {
-           $publicKeyWord     = $keys[array_rand($keys)];
+            $publicKeyWord = $keys[array_rand($keys)];
         }
 
         while ($encryptValPrivated == $encryptValPublic) {
-            $encryptValPublic  = $bits[array_rand($bits)];
-         }
-        
-        $hashValPrivate=hash('ripemd'.$encryptValPrivate, $privateKeyWord);
-        $hashValPublic=hash('ripemd'.$encryptValPrivate, $privateKeyWord);
+            $encryptValPublic = $bits[array_rand($bits)];
+        }
+
+        $hashValPrivate = hash('ripemd' . $encryptValPrivate, $privateKeyWord);
+        $hashValPublic  = hash('ripemd' . $encryptValPrivate, $privateKeyWord);
 
         $privateKey = $this->Codificar($hashValPrivate);
         $publicKey  = $this->Codificar($hashValPublic);
 
         $encryptValPrivate = $this->EncryptBits($encryptValPrivate);
-        $encryptValPublic = $this->EncryptBits($encryptValPublic);
+        $encryptValPublic  = $this->EncryptBits($encryptValPublic);
 
         $privateKey = $encryptValPrivate . '#' . $privateKey;
         $publicKey  = $encryptValPublic . '#' . $publicKey;
-        
+
         $userKeys = [
             "privateKey" => $privateKey,
-            "publicKey"  => $publicKey
+            "publicKey"  => $publicKey,
         ];
 
         return $userKeys;
     }
 
-    public function EncryptBits($bits) {
-    $array  = array_map('intval', str_split($bits));
-    $encrypt = '';
+    public function EncryptBits($bits)
+    {
+        $array   = array_map('intval', str_split($bits));
+        $encrypt = '';
 
-    for ($i = 0; $i < count($array); $i++) {
-       switch ($array[$i]){
-            case 1:
-              $encrypt.='!';
-            break;
-            case 2:
-              $encrypt.='A';
-            break;
-            case 3:
-              $encrypt.='?';
-            break;
-            case 4:
-              $encrypt.='M';
-            break;
-            case 5:
-              $encrypt.='Z';
-            break;
-            case 6:
-              $encrypt.='@';
-            break;
-            case 7:
-              $encrypt.='<';
-            break;
-            case 8:
-              $encrypt.='>';
-            break;
-            case 9:
-              $encrypt.='B';
-            break;
-            default:
-              $encrypt.='X';
-            break;
-       }
-   }
+        for ($i = 0; $i < count($array); $i++) {
+            switch ($array[$i]) {
+                case 1:
+                    $encrypt .= '!';
+                    break;
+                case 2:
+                    $encrypt .= 'A';
+                    break;
+                case 3:
+                    $encrypt .= '?';
+                    break;
+                case 4:
+                    $encrypt .= 'M';
+                    break;
+                case 5:
+                    $encrypt .= 'Z';
+                    break;
+                case 6:
+                    $encrypt .= '@';
+                    break;
+                case 7:
+                    $encrypt .= '<';
+                    break;
+                case 8:
+                    $encrypt .= '>';
+                    break;
+                case 9:
+                    $encrypt .= 'B';
+                    break;
+                default:
+                    $encrypt .= 'X';
+                    break;
+            }
+        }
         return $encrypt;
     }
 
@@ -195,17 +227,18 @@ class Controlador
         }
     }
 
-    public function validKeys($public,$private){
-        $sql = "SELECT * FROM  personas where public_key = $public OR private_key = $private";
+    public function validKeys($public, $private)
+    {
+        $sql               = "SELECT * FROM  personas where public_key = $public OR private_key = $private";
         $respuesta_arreglo = '';
-        $resp=false;
+        $resp              = false;
         try {
             $datos = $this->conexion->prepare($sql);
             $datos->execute();
             $datos->setFetchMode(PDO::FETCH_ASSOC);
             $respuesta_arreglo = $datos->fetchAll(PDO::FETCH_ASSOC);
-            if(count($respuesta_arreglo)==2){
-                $resp=true;
+            if (count($respuesta_arreglo) == 2) {
+                $resp = true;
             }
             return $resp;
         } catch (PDOException $e) {
@@ -297,7 +330,7 @@ class Controlador
                 $columna  => $data,
                 $id_tabla => $param,
             ]);
-             
+
             return true;
 
         } catch (PDOException $e) {
@@ -409,6 +442,13 @@ class Controlador
         $error_log->Mensaje = $this->error;
         error_log(print_r($error_log, true), 3, "errores.log");
         die($this->error);
+    }
+
+    public function Ver_Array($value)
+    {
+        echo "<pre>";
+        echo var_dump($value);
+        echo "</pre>";
     }
 
 }
