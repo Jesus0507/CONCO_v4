@@ -36,7 +36,7 @@ $(function() {
                     "pageLength": 10,
                     "lengthMenu": [5, 10, 20, 30, 40, 50, 100],
                     "buttons": ["copy", "excel", "pdf", "print", "colvis"]
-                }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+                }).container().appendTo('#example1_wrapper .col-md-6:eq(0)');
             }).fail(function() {
                 alert("error")
             })

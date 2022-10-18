@@ -6,7 +6,7 @@ $(function() {
             direction: "Parto_Humanizado/Administrar",
             accion: "codificar"
         },
-        success: function(direccion_segura) {
+        success: function(direccion_segura) { 
             $.ajax({
                 type: "POST",
                 url: BASE_URL + direccion_segura,
@@ -35,7 +35,7 @@ $(function() {
                         },
                     }, {
                         "data": function(data) {
-                            return '<td class="text-center">' + '<a href="javascript:void(0)" style="margin-right: 5px;" class="btn bg-info ver-popup" title="Ver" type="button" data-toggle="modal" data-target="#ver">' + '<i class="fa fa-eye"></i>' + '</a>' + '<a href="javascript:void(0)" style="margin-right: 5px;" class="btn bg-success btnEditar"  title="Actualizar" type="button" data-toggle="modal" data-target="#actualizar">' + '<i class="fa fa-edit" style="color: white;"></i>' + '</a>' + '<a href="javascript:void(0)" style="margin-right: 5px;" class="btn bg-danger mensaje-eliminar" title="Eliminar">' + '<i class="fa fa-trash"></i>' + '</a>' + '<p style="display: none;">' + data.id_parto_humanizado + '</p>' + '</td>';
+                            return '<td class="text-center">' + '<a href="javascript:void(0)" style="background: #4dbdbd !important;margin-right: 5px;" class="btn bg-info ver-popup" title="Ver" type="button" data-toggle="modal" data-target="#ver">' + '<i class="fa fa-eye"></i>' + '</a>' + '<a href="javascript:void(0)" style="margin-right: 5px;" class="btn bg-info btnEditar"  title="Actualizar" type="button" data-toggle="modal" data-target="#actualizar">' + '<i class="fa fa-edit" style="color: white;"></i>' + '</a>' + '<a href="javascript:void(0)" style="margin-right: 5px;" class="btn bg-danger mensaje-eliminar" title="Eliminar">' + '<i class="fa fa-trash"></i>' + '</a>' + '<p style="display: none;">' + data.id_parto_humanizado + '</p>' + '</td>';
                         }
                     }, ],
                     "responsive": true,

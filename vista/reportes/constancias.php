@@ -76,7 +76,7 @@
                 <div class="card-footer">
                     <div class="text-center m-t-20">
                         <div class="col-xs-12">
-                            <input type="submit" class="btn  btn-success m-r-10" name="" id="" value="Guardar">
+                            <input type="submit" class="btn  btn-info m-r-10" name="" id="" value="Guardar">
                             <input type="button" class="btn btn-danger" id="" name="" value="Limpiar">
                         </div>
                     </div>

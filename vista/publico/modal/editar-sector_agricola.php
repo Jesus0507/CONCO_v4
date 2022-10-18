@@ -174,7 +174,7 @@
             </div>
             <div class="modal-footer justify-content-between">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                <input type="button" class="btn  btn-success m-r-10" name="" id="enviar" value="Guardar">
+                <input type="button" class="btn  btn-info m-r-10" name="" id="enviar" value="Guardar">
             </div>
         </div>
         <!-- /.modal-content -->

@@ -13,7 +13,7 @@
         </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-
+ 
     <!-- Main content -->
     <section class="content">
         <!-- Default box -->
@@ -41,7 +41,7 @@
                                             </h2>
                                         </div>
 
-                                        <div class="col-md-6 mt-4">
+                                        <div class="col-md-6 mt-2">
                                             <label for="primer_nombre">
                                                 Vivienda
                                             </label>
@@ -53,12 +53,13 @@
                                                     <option value='<?php echo $v["id_vivienda"] ;?>'>
                                                         <?php echo $v['numero_casa']; ?></option>
                                                     <?php } ?>
-                                                </select><button class='btn btn-info' type='button'
-                                                    id='nueva_vivienda'>Nuevo</button>
-                                            </div>
+                                                </select>
 
+                                            </div>
+                                            <button class='btn btn-info mt-2' type='button'
+                                                    id='nueva_vivienda'>Nuevo</button>
                                         </div>
-                                        <div class="col-md-6 mt-4">
+                                        <div class="col-md-6 mt-2">
                                             <label for="segundo_apellido">
                                                 Condición en que ocupa la vivienda
                                             </label> <span id='valid_cond_ocupacion' style='color:red'></span>
@@ -80,10 +81,12 @@
                                                             oninput="Limitar(this,15)">
 
                                                     </td>
-                                                    <td><button class='btn btn-info' type='button'
-                                                            id='nueva_condicion_ocupacion'>Otra</button></td>
+                                                    <td></td>
                                                 </tr>
+
                                             </table>
+                                            <button class='btn btn-info mt-2' type='button'
+                                                            id='nueva_condicion_ocupacion'>Otra</button>
                                         </div>
 
 
@@ -105,13 +108,13 @@
                                             </label><span id='valid_3' style="color:red;"></span>
                                             <div class="input-group">
                                                 <input class="form-control mb-10 solo-numeros" id="telefono_familia"
-                                                    name="datos[telefono_familia]" placeholder="telefono_familia"
+                                                    name="datos[telefono_familia]" placeholder="telefono familia"
                                                     type="number" oninput="Limitar(this,12)" />
                                             </div>
 
                                         </div>
 
-                                        <div class="col-md-6 mt-2">
+                                        <div class="col-md-12 mt-2">
                                             <label for="segundo_apellido">
                                                 Ingreso mensual Aprox
                                             </label><span id='valid_4' style="color:red;"></span>
@@ -136,12 +139,12 @@
 
 
 
-                                        <div class="col-md-6 mt-2">
+                                        <div class="col-md-12 mt-2">
                                             <label for="segundo_apellido">
                                                 Observaciones (opcional)
                                             </label>
                                             <div class="input-group">
-                                                <textarea class='form-control' id='observaciones_familia'></textarea>
+                                                <textarea rows="5" class='form-control' id='observaciones_familia'></textarea>
                                             </div>
 
                                         </div>
@@ -167,15 +170,18 @@
                                                                 <?php    } ?>
                                                             </datalist>
                                                         </td>
-                                                        <td><button class='btn btn-primary' type='button'
+                                                        <td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><button class='btn btn-info mt-2' type='button'
                                                                 id='btn_agregar'>Agregar</button>&nbsp;&nbsp;<button
-                                                                class='btn btn-info' type='button'
-                                                                id='btn_nuevo'>Nuevo</button></td>
+                                                                class='btn btn-info mt-2' type='button'
+                                                                id='btn_nuevo'>Nuevo</button></td></td>
                                                     </tr>
                                                     <tr>
                                                         <td colspan='2'><br>
                                                             <div
-                                                                style='background:#D0E8E7;overflow-y: scroll;width: 100%;height:200px;'>
+                                                                style='background:#C7F2EE;overflow-y: scroll;width: 100%;height:200px;'>
                                                                 <center>
                                                                     <div style='width:95%' id='integrantes_agregados'>
                                                                     </div>
@@ -194,7 +200,7 @@
                             <div class="card-footer">
                                 <div class="text-center m-t-20">
                                     <div class="col-xs-12">
-                                        <input type="button" class="btn  btn-success m-r-10" name="" id="guardar"
+                                        <input type="button" class="btn  btn-info m-r-10" name="" id="guardar"
                                             value="Guardar">
 
                                     </div>

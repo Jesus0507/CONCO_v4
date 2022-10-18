@@ -981,9 +981,9 @@ DROP TABLE IF EXISTS `personas`;
 CREATE TABLE `personas` (
   `cedula_persona` varchar(12) NOT NULL,
   `primer_nombre` varchar(15) NOT NULL,
-  `segundo_nombre` varchar(15) NOT NULL,
+  `segundo_nombre` varchar(15),
   `primer_apellido` varchar(15) NOT NULL,
-  `segundo_apellido` varchar(15) NOT NULL,
+  `segundo_apellido` varchar(15),
   `nacionalidad` varchar(15) NOT NULL,
   `jefe_familia` int NOT NULL,
   `propietario_vivienda` int NOT NULL,

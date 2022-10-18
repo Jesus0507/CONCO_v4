@@ -7,7 +7,7 @@ $(function () {
             accion: "codificar"
         },
         success: function (direccion_segura) { 
-            $.ajax({
+            $.ajax({ 
                 type: 'POST',
                 url: BASE_URL + direccion_segura,
             }).done(function (datos) {
@@ -30,7 +30,7 @@ $(function () {
                     {
                         "data": function (data) {
                             return '<td class="text-center">' +
-                                '<a href="javascript:void(0)" style="margin-right: 5px;" class="btn bg-success btnEditar" onclick="editar(this)"  title="Actualizar"  type="button" >' +
+                                '<a href="javascript:void(0)" style="margin-right: 5px;" class="btn bg-info btnEditar" onclick="editar(this)"  title="Actualizar"  type="button" >' +
                                 '<i class="fa fa-edit" style="color: white;"></i>' +
                                 '</a>' +
 

@@ -13,7 +13,7 @@
         </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-
+ 
     <!-- Main content -->
     <section class="content">
         <!-- Default box -->
@@ -38,10 +38,14 @@
                                      <option value='<?php echo $p['cedula_persona'];?>'><?php echo $p['primer_nombre']." ".$p['segundo_nombre']; ?></option>
                                  <?php   } ?>
                              </datalist></td>
-                             <td><button type='button' id='registrar_btn' class="btn btn-info" onclick='window.open(BASE_URL+"Personas/Registros")'>Registrar</button></td>
+                             
 
-                             <td><button type='button' class="btn btn-info" id='seleccionar_persona'>Seleccionar</button></td>
-                         </tr></table>
+                            
+                         </tr>
+                         <tr>
+                              <td><button type='button' class="btn btn-info mt-2" id='seleccionar_persona'>Seleccionar</button></td>
+                         </tr>
+                     </table>
 
                      </div>
                  </div>
@@ -53,7 +57,7 @@
                          <div class="col-md-12">
 
                              <label>Discapacidad</label> <span id='valid_discapacidad' style='color:red'></span>
-                             <table style='width:100%'><tr><td>
+                             <table style='width:100%'><tr><td class="col-md-3">
                                  <input type="text" style='display:none'  placeholder="Discapacidad..." class='form-control no-simbolos solo-letras' id='discapacidad_input' name="" oninput="Limitar(this,30)">
 
                                  <select class='form-control no-simbolos' id='discapacidad_select'> 
@@ -63,21 +67,24 @@
                                  <?php   } ?>
                              </select></td>
 
-                             <td>
+                             <td class="col-md-3">
                                 <select id='en_cama' class='form-control no-simbolos'>
                                     <option value='vacio'>-En cama-</option>
                                     <option value="1">Si</option>
                                     <option value='0'>No</option>
                                 </select>
                              </td>
-                             <td>
+                             <td class="col-md-3">
                                <input type="text" class='form-control no-simbolos' id='necesidades' placeholder="Necesidades (opcional)" name="">
                              </td>
-                            <td>
+                            <td class="col-md-3">
                                <input type="text" class='form-control no-simbolos' id='observaciones' placeholder="Observaciones (opcional)" name="">
                              </td>
-                             <td>
-                                <button id='agregar' class="btn btn-info" type="button">Agregar</button>&nbsp;&nbsp;<button type='button' class="btn btn-primary" id='btn_nueva_discapacidad' >Nueva discapacidad</button>
+                             
+                        </tr>
+                        <tr>
+                            <td>
+                                <button id='agregar' class="btn btn-info mt-2 ml-2" type="button">Agregar</button>&nbsp;&nbsp;<button type='button' class="btn btn-info mt-2" id='btn_nueva_discapacidad' >Nueva discapacidad</button>
                             </td>
                         </tr>
                     </table>
@@ -88,19 +95,15 @@
 
 
                      </div>
-                     <br>
+                    
 
-
-
-                     <br>
-
-                     <label>Discapacidades agregadas a <span id='nombre_persona'></span></label>
-                     <center><div style='width:95%;height:200px;overflow-y: scroll;background: #C5F3F2'>
-                         <center><div id='discapacidades_agregadas' style='width:95%'></div></div>
+                     <label class="mt-2">Discapacidades agregadas a <span id='nombre_persona'></span></label>
+                     <center><div style='width:100%;height:200px;overflow-y: scroll;background: #C7F2EE'>
+                         <center><div id='discapacidades_agregadas' style='width:100%'></div></div>
                          </center>
                          <br>
 
-                         <center><input type="button" class="btn  btn-success m-r-10" name="" id="guardar" value="Guardar"></center>
+                         <center><input type="button" class="btn  btn-info m-r-10" name="" id="guardar" value="Guardar"></center>
                      </div></center>
                  </div>
              </div>

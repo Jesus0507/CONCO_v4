@@ -17,7 +17,7 @@
     <!-- /.content-header -->
 
     <!-- Main content -->
-    <section class="content">
+    <section class="content"> 
 
         <!-- Default box -->
         <div class="card">

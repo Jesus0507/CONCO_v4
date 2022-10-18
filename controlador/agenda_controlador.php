@@ -84,9 +84,9 @@ class Agenda extends Controlador
                         "ubicacion"   => $this->datos["agenda"][$i]['ubicacion'],
                         "horas"       => $this->datos["agenda"][$i]['horas'],
                         "detalle"     => $this->datos["agenda"][$i]['detalle'],
-                        'editar'      => "<button title='Editar este evento' class='btn btn-success'><em class='fas fa-edit' onclick='editar_evento(`" . json_encode($this->datos["agenda"][$i]) . "`,`" . json_encode($this->datos["agenda"]) . "`)'></em></button>",
+                        'editar'      => "<button title='Editar este evento' class='btn btn-info'><em class='fas fa-edit' onclick='editar_evento(`" . json_encode($this->datos["agenda"][$i]) . "`,`" . json_encode($this->datos["agenda"]) . "`)'></em></button>",
                         'eliminar'    => "<button title='Eliminar este evento' class='btn btn-danger'><em class='fas fa-trash' onclick='eliminar_evento(`" . $this->datos["agenda"][$i]['id_agenda'] . "`)'></em></button>",
-                        'ver'         => "<button class='btn btn-info' title='Ver este evento' onclick='ver_evento(`" . json_encode($this->datos["agenda"][$i]) . "`,`" . $user . "`)'  ><em class='fas fa-eye'></em></button>",
+                        'ver'         => "<button style='background: #4dbdbd;' class='btn btn-info' title='Ver este evento' onclick='ver_evento(`" . json_encode($this->datos["agenda"][$i]) . "`,`" . $user . "`)'  ><em class='fas fa-eye'></em></button>",
                     ];
                 }
                 $this->Escribir_JSON($retornar);unset($retornar, $user);

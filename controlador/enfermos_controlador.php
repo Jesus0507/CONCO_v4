@@ -92,14 +92,14 @@ class Enfermos extends Controlador
                             $id_enfermedad_p[] = $en['id_persona_enfermedad'] . "/";
                         }
                     }
-                    $enfermedades_p = "<div style='overflow-y:scroll;width:100%;height:100px;background:#B4DFDE;'>" . $enfermedades_p . "</div>";
+                    $enfermedades_p = "<div style='overflow-y:scroll;width:100%;height:100px;background:#C7F2EE;'>" . $enfermedades_p . "</div>";
                     $retornar[] = [
                         "cedula"       => $e['cedula_persona'],
                         "nombre"       => $e['primer_nombre'] . " " . $e['primer_apellido'],
                         "enfermedades" => $enfermedades_p,
                         "medicamentos" => $medicamentos_p,
-                        "ver"          => "<button type='button' class='btn btn-info' data-toggle='modal' data-target='#ver_enfermos'><em class='fa fa-eye'></em></button>",
-                        "editar"       => "<button type='button' class='btn btn-success editar' data-toggle='modal' data-target='#actualizar'  onclick='editar(`" . $e['cedula_persona'] . "`)'><em class='fa fa-edit'></em></button>",
+                        "ver"          => "<button style='background: #4dbdbd !important;' type='button' class='btn btn-info' data-toggle='modal' data-target='#ver_enfermos'><em class='fa fa-eye'></em></button>",
+                        "editar"       => "<button type='button' class='btn btn-info editar' data-toggle='modal' data-target='#actualizar'  onclick='editar(`" . $e['cedula_persona'] . "`)'><em class='fa fa-edit'></em></button>",
                         "eliminar"     => "<button class='btn btn-danger' onclick='eliminar(`" . json_encode($id_enfermedad_p) . "`)' type='button'><em class='fa fa-trash'></em></button>",
                     ];
                 }

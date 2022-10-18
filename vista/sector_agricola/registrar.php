@@ -32,7 +32,7 @@
                     <div class="card-block">
                         <div class="form-group row justify-content-center">
 
-                            <div class="col-md-12 mt-2">
+                            <div class="col-md-6 mt-2">
                                 <label for="cedula_persona">
                                     Cedula de Persona
                                 </label>
@@ -74,7 +74,7 @@
                                 <span id="mensaje_experiencia"></span>
                             </div>
                             
-                            <div class="col-md-12 mt-2">
+                            <div class="col-md-6 mt-2">
                                 <label for="org_agricola">
                                     Pertenece a una Organizacion Agricola
                                 </label>
@@ -107,7 +107,7 @@
                                 <span id="mensaje_alternativo"></span>
                             </div>
 
-                            <div class="col-md-4 mt-2">
+                            <div class="col-md-6 mt-2">
                                 <label for="financiado">
                                     Financiamiento
                                 </label>
@@ -118,7 +118,7 @@
                                 <span id="mensaje_financiado"></span>
                             </div>
 
-                            <div class="col-md-4 mt-2">
+                            <div class="col-md-6 mt-2">
                                 <label for="registro_INTI">
                                     Posee Registro INTI
                                 </label>
@@ -136,7 +136,7 @@
                                 <span id="mensaje_registro"></span>
                             </div>
 
-                            <div class="col-md-4 mt-2">
+                            <div class="col-md-6 mt-2">
                                 <label for="constancia_productor">
                                     Posee Constancia de Productor
                                 </label>
@@ -154,7 +154,7 @@
                                 <span id="mensaje_constancia"></span>
                             </div>
 
-                            <div class="col-md-4 mt-2">
+                            <div class="col-md-6 mt-2">
                                 <label for="senial_hierro">
                                     Posee Señal de Hierro
                                 </label>
@@ -172,7 +172,7 @@
                                 <span id="mensaje_hierro"></span>
                             </div>
 
-                            <div class="col-md-4 mt-2">
+                            <div class="col-md-6 mt-2">
                                 <label for="agua_riego">
                                     Posee Agua de Riego
                                 </label>
@@ -190,7 +190,7 @@
                                 <span id="mensaje_agua"></span>
                             </div>
 
-                            <div class="col-md-4 mt-2">
+                            <div class="col-md-6 mt-2">
                                 <label for="produccion_actual">
                                     Produce Actulmente
                                 </label>
@@ -217,7 +217,7 @@
                 <div class="card-footer">
                     <div class="text-center m-t-20">
                         <div class="col-xs-12">
-                            <input type="button" class="btn  btn-success m-r-10" name="" id="enviar" value="Guardar">
+                            <input type="button" class="btn  btn-info m-r-10" name="" id="enviar" value="Guardar">
                             
                         </div>
                     </div>
