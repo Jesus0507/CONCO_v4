@@ -83,8 +83,8 @@ function enviar_informacion() {
                 }).done(function(result) {
                     if (result == 1) {
                         swal({
-                            title: "Actualizado!",
-                            text: "El elemento fue Actualizado con exito.",
+                            title: "Registrado!",
+                            text: "El elemento fue Registrado con exito.",
                             type: "success",
                             showConfirmButton: false,
                         });

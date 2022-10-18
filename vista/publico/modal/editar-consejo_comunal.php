@@ -90,7 +90,7 @@
                 </form>
             </div>
             <div class="modal-footer ">
-                <input type="button" class="btn  btn-success m-r-10" name="" id="enviar" value="Guardar">
+                <input type="button" class="btn  btn-info m-r-10" name="" id="enviar" value="Guardar">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
             </div>
         </div>

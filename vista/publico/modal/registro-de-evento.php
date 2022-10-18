@@ -25,7 +25,7 @@
                             </div>
                         </div>
 
-                         <div class="col-md-6 mt-2">
+                         <div class="col-md-12 mt-2">
                             <label for="nombre_calle">
                                 Ubicación del evento
                             </label>
@@ -39,7 +39,7 @@
                                     </datalist>
                             </div>
                         </div>
-                         <div class="col-md-3 mt-2">
+                         <div class="col-md-6 mt-2">
                             <label for="nombre_calle">
                                 Desde
                             </label>
@@ -61,7 +61,7 @@
                                 </select>
                             </div>
                         </div>
-                         <div class="col-md-3 mt-2">
+                         <div class="col-md-6 mt-2">
                             <label for="nombre_calle">
                                 Hasta
                             </label>
@@ -97,7 +97,7 @@
             </div>
             <div class="modal-footer ">
             <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-             <button type="button" class="btn btn-primary" id="crear_evento_guardar">Guardar</button>
+             <button type="button" class="btn btn-info" id="crear_evento_guardar">Guardar</button>
             </div>
         </div>
         <!-- /.modal-content -->

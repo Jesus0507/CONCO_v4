@@ -70,7 +70,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-6 mt-2">
+                            <div class="col-md-12 mt-2">
                                 <label for="">
                                     Integrantes <span id='valid_integrantes' style='color:red'>
                                 </label>
@@ -84,16 +84,17 @@
                                         </option>
                                     <?php }?>
                                     </datalist>
-                                    <button id='agregar' class="btn btn-info" type="button">Agregar</button>
+                                    
                                 </div>
+                                <button id='agregar' class="btn btn-info mt-2" type="button">Agregar</button>
                             </div>
-                            <div class="col-md-6 mt-3">
+                            <div class="col-md-12 mt-3">
                                   <label>Integrantes agregados a
                                     <span id='nombre_persona'></span>
                                     </label>
 
-                                <div class="text-center" style='width:95%;height:200px;overflow-y: scroll;background: #C5F3F2'>
-                                    <div id='integrantes_agregados' style='width:95%;margin-top:10px;'>
+                                <div class="text-center" style='width:100%;height:200px;overflow-y: scroll;background: #C7F2EE'>
+                                    <div id='integrantes_agregados' style='width:100%;margin-top:10px;'>
                                     </div>
                                 </div>
 
@@ -107,7 +108,7 @@
                 <div class="card-footer">
                     <div class="text-center m-t-20">
                         <div class="col-xs-12">
-                            <input type="button" class="btn  btn-success m-r-10" name="" id="guardar" value="Guardar">
+                            <input type="button" class="btn  btn-info m-r-10" name="" id="guardar" value="Guardar">
 
                         </div>
                     </div>

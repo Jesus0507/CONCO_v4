@@ -6,7 +6,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-            </div>
+            </div> 
             <div class="modal-body">
                 <form action="" enctype="multipart/form-data"
                 id="formulario" method="POST" name="formulario">
@@ -45,7 +45,13 @@
                            <?php }?>
                        </select></td>
 
-                       <td><textarea id='medicamentos' class='form-control no-simbolos letras_numeros' placeholder="Ej: Parecetamol, Loratadina, Lozartan, etc..." rows="1"></textarea></td><td><button id='agregar' class="btn btn-info" type="button">Agregar</button>&nbsp;&nbsp;<button type='button' class="btn btn-primary" id='btn_nueva_enfermedad' >Nueva enfermedad</button></td></tr></table>
+                       <td><textarea id='medicamentos' class='form-control no-simbolos letras_numeros' placeholder="Ej: Parecetamol, Loratadina, Lozartan, etc..." rows="1"></textarea>
+                       </td>
+                   </tr>
+                   <tr>
+                       <td><button id='agregar' class="btn btn-info mt-2" type="button">Agregar</button>&nbsp;&nbsp;<button type='button' class="btn btn-info mt-2" id='btn_nueva_enfermedad' >Nueva enfermedad</button></td>
+                   </tr>
+                   </table>
 
 
                    </div>
@@ -55,7 +61,7 @@
                         <span id='nombre_persona'></span>
                     </label>
                     <center>
-                        <div style='width:95%;height:200px;overflow-y: scroll;background: #C5F3F2'>
+                        <div style='width:100%;height:200px;overflow-y: scroll;background: #C7F2EE'>
                             <center>
                                 <div id='enfermedades_agregadas' style='width:95%'></div>
                             </div>
@@ -65,7 +71,7 @@
             </form>
         </div>
         <div class="modal-footer ">
-            <input type="submit" class="btn  btn-success m-r-10" name="" id="enviar" value="Guardar">
+            <input type="submit" class="btn  btn-info m-r-10" name="" id="enviar" value="Guardar">
             <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
         </div>
     </div>

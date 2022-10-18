@@ -23,7 +23,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6 mt-2">
+                        <div class="col-md-12 mt-2">
                             <label for="ubicacion_evento">
                                 Ubicación del evento
                             </label>
@@ -38,7 +38,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-3 mt-2">
+                        <div class="col-md-6 mt-2">
                             <label for="ubicacion_evento">
                                 Desde
                             </label>
@@ -59,7 +59,7 @@
                                 </select>
                         </div>
 
-                        <div class="col-md-3 mt-2">
+                        <div class="col-md-6 mt-2">
                             <label for="ubicacion_evento">
                                 Hasta
                             </label>
@@ -93,7 +93,7 @@
             </div>
             <div class="modal-footer ">
             <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-primary" id='guardar_cambios'>Guardar cambios</button>
+            <button type="button" class="btn btn-info" id='guardar_cambios'>Guardar cambios</button>
             </div>
         </div>
         <!-- /.modal-content -->

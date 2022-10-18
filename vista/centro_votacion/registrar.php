@@ -32,7 +32,7 @@
                     <div class="card-block">
                         <div class="form-group row justify-content-center">
 
-                            <div class="col-md-4 mt-2">
+                            <div class="col-md-12 mt-2">
                                 <label for="cedula_persona">
                                     Cedula de Persona
                                 </label>
@@ -51,7 +51,7 @@
                                 <span id="mensaje_1"></span>
                             </div>
                         
-                            <div class="col-md-4 mt-2">
+                            <div class="col-md-6 mt-2">
                                 <label for="nombre_centro">
                                     Centro de Votacion
                                 </label>
@@ -68,7 +68,7 @@
                                 <span id="mensaje_2"></span>
                             </div>
 
-                            <div class="col-md-4 mt-2">
+                            <div class="col-md-6 mt-2">
                                 <label for="id_parroquia ">
                                     Parroquia
                                 </label>
@@ -96,7 +96,7 @@
                 <div class="card-footer">
                     <div class="text-center m-t-20">
                         <div class="col-xs-12">
-                            <input type="button" class="btn  btn-success m-r-10" name="" id="enviar" value="Guardar">
+                            <input type="button" class="btn  btn-info m-r-10" name="" id="enviar" value="Guardar">
                             
                         </div>
                     </div>

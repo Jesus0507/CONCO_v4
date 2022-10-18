@@ -131,7 +131,7 @@
 
 
 
-                        <div class="col-md-4     mt-2">
+                        <div class="col-md-6     mt-2">
                             <label for="hacinamiento">
                                 La vivienda es Hacinamiento
                             </label>
@@ -148,7 +148,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-4     mt-2">
+                        <div class="col-md-6     mt-2">
                             <label for="espacio_siembra">
                                 Posee Espacio de Siembra
                             </label>
@@ -165,7 +165,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-4     mt-2">
+                        <div class="col-md-6     mt-2">
                             <label for="banio_sanitario">
                                 Tiene Baño Sanitario
                             </label>
@@ -184,7 +184,7 @@
 
 
 
-                        <div class="col-md-4 mt-2">
+                        <div class="col-md-6 mt-2">
                             <label for="agua_consumo">
                                 Agua de Consumo
                             </label>
@@ -208,7 +208,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-4 mt-2">
+                        <div class="col-md-6 mt-2">
                             <label for="aguas_negras">
                                 Aguas Negras
                             </label>
@@ -236,7 +236,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-4 mt-2">
+                        <div class="col-md-6 mt-2">
                             <label for="residuos_solidos">
                                 Residuos Solidos
                             </label>
@@ -376,7 +376,7 @@
                         name="descripcion" rows="5" placeholder="Descripcion"></textarea>
                     </div>
 
-                    <div class="col-md-4 mt-2">
+                    <div class="col-md-12 mt-2">
                         <label for="">
                             Tipos de Techo en el Hogar <span id='valid_techos' style='color:red'>
                         </label>
@@ -389,11 +389,22 @@
                                     </option>
                                     <?php }?>
                                 </datalist>
-                                <button id='agregar_techo' class="btn btn-info" type="button">Agregar</button>
+                                
                             </div>
+                            <button id='agregar_techo' class="btn btn-info mt-2" type="button">Agregar</button>
                     </div>
 
-                    <div class="col-md-4 mt-2">
+                    <div class="col-md-12 mt-2">
+                        <label>Techos agregados
+
+                        </label>
+
+                        <div class="text-center" style='width:100%;height:200px;overflow-y: scroll;background: #C7F2EE'>
+                            <center><div id='techos_agregados' style='width:100%;margin-top:10px;'></div></center>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 mt-2">
                         <label for="">
                             Tipos de Pared en el Hogar <span id='valid_paredes' style='color:red'>
                         </label>
@@ -406,11 +417,22 @@
                                             </option>
                                         <?php }?>
                                     </datalist>
-                                <button id='agregar_pared' class="btn btn-info" type="button">Agregar</button>
+                                
+                        </div>
+                        <button id='agregar_pared' class="btn btn-info mt-2" type="button">Agregar</button>
+                    </div>
+
+                    <div class="col-md-12 mt-2">
+                        <label>Paredes agregadas
+
+                        </label>
+
+                        <div class="text-center" style='width:100%;height:200px;overflow-y: scroll;background: #C7F2EE'>
+                            <center><div id='paredes_agregados' style='width:100%;margin-top:10px;'></div></center>
                         </div>
                     </div>
 
-                    <div class="col-md-4 mt-2">
+                    <div class="col-md-12 mt-2">
                         <label for="">
                             Tipos de Piso en el Hogar <span id='valid_pisos' style='color:red'>
                         </label>
@@ -423,37 +445,18 @@
                                             </option>
                                         <?php }?>
                                     </datalist>
-                                <button id='agregar_piso' class="btn btn-info" type="button">Agregar</button>
+                                
                         </div>
+                        <button id='agregar_piso' class="btn btn-info mt-2" type="button">Agregar</button>
                     </div>
 
-                    <div class="col-md-4">
-                        <label>Techos agregados
-
-                        </label>
-
-                        <div class="text-center" style='width:95%;height:200px;overflow-y: scroll;background: #C5F3F2'>
-                            <center><div id='techos_agregados' style='width:95%;margin-top:10px;'></div></center>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <label>Paredes agregadas
-
-                        </label>
-
-                        <div class="text-center" style='width:95%;height:200px;overflow-y: scroll;background: #C5F3F2'>
-                            <center><div id='paredes_agregados' style='width:95%;margin-top:10px;'></div></center>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
+                    <div class="col-md-12 mt-2">
                         <label>Pisos agregados
 
                         </label>
 
-                        <div class="text-center" style='width:95%;height:200px;overflow-y: scroll;background: #C5F3F2'>
-                            <center><div id='pisos_agregados' style='width:95%;margin-top:10px;'></div></center>
+                        <div class="text-center" style='width:100%;height:200px;overflow-y: scroll;background: #C7F2EE'>
+                            <center><div id='pisos_agregados' style='width:100%;margin-top:10px;'></div></center>
                         </div>
                     </div>
 
@@ -487,16 +490,18 @@
                                   </select>
                               </td>
 
-                              <td >
-                                <button type="button" name="agregar" id="agregar_gas" class="btn btn-success">Agregar</button>
-                            </td>
-                            <td >
-                                <button type="button" name="agregar" id="agregar_servicio" class="btn btn-info">Nuevo servicio</button>
-                            </td>
+                              
                         </tr>
                         <tr>
-                            <td colspan='4'><br>
-                                <div style='width:100%;height: 120px;background: #C6C5F3;overflow-y:scroll'><center><div id='gases_agregados' style='width:90%'></div></center></div>
+                            <td >
+                                <button type="button" name="agregar" id="agregar_gas" class="btn btn-info mt-2">Agregar</button>
+                                <button type="button" name="agregar" id="agregar_servicio" class="btn btn-info mt-2">Nuevo servicio</button>
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td colspan='5'><br>
+                                <div style='width:100%;height: 200px;background: #C7F2EE;overflow-y:scroll'><center><div id='gases_agregados' style='width:100%'></div></center></div>
                             </td>
                         </tr>
                     </table>
@@ -518,16 +523,18 @@
                               <input type="text" maxlength='30' class='form-control solo-letras' placeholder="Nombre del electrodoméstico.." name="" id='electrodomestico_input' style='display:none'>
                           </td>
                           <td> <input type="number" id='cantidad_electrodomestico' placeholder="Cantidad" class="form-control solo-numeros" name="" oninput="Limitar(this,15)"></td>
-                          <td >
-                            <button type="button" name="agregar" id="agregar_electrodomestico" class="btn btn-success">Agregar</button>
-                        </td>
+                          
+                    </tr>
+                    <tr>
                         <td >
-                            <button type="button" name="agregar" id="nuevo_electrodomestico" class="btn btn-info">Nuevo electrodoméstico</button>
+                            <button type="button" name="agregar" id="agregar_electrodomestico" class="btn btn-info mt-2">Agregar</button>
+                            <button type="button" name="agregar" id="nuevo_electrodomestico" class="btn btn-info mt-2">Nuevo electrodoméstico</button>
                         </td>
+                        
                     </tr>
                     <tr>
                         <td colspan='3'><br>
-                            <div style='width:100%;height: 120px;background: #D3F3C5;overflow-y:scroll'><center><div id='electrodomesticos_agregados' style='width:90%'></div></center></div>
+                            <div style='width:100%;height: 200px;background: #C7F2EE;overflow-y:scroll'><center><div id='electrodomesticos_agregados' style='width:100%'></div></center></div>
                         </td>
                     </tr>
                 </table>
@@ -541,7 +548,7 @@
 <div class="card-footer">
     <div class="text-center m-t-20">
         <div class="col-xs-12">
-            <input type="button" class="btn  btn-success m-r-10" name="" id="guardar" value="Guardar">
+            <input type="button" class="btn  btn-info m-r-10" name="" id="guardar" value="Guardar">
             <input type="button" class="btn btn-danger" id="" name="" value="Limpiar">
         </div>
     </div>

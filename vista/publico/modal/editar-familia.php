@@ -6,7 +6,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-            </div> 
+            </div>  
             <div class="modal-body">
                 <form action="" enctype="multipart/form-data"
                 id="formulario" method="POST" name="formulario">
@@ -72,7 +72,7 @@
 
             </div>
 
-            <div class="col-md-6 mt-2">
+            <div class="col-md-12 mt-2">
                 <label for="segundo_apellido">
                     Ingreso mensual Aprox
                 </label><span id='valid_4' style="color:red;"></span>
@@ -84,12 +84,12 @@
 
             </div>
 
-            <div class="col-md-6 mt-2">
+            <div class="col-md-12 mt-2">
                 <label for="segundo_apellido">
                     Observaciones (opcional)
                 </label>
                 <div class="input-group">
-                  <textarea class='form-control' id='observaciones_familia' oninput="Limitar(this,50);" ></textarea>
+                  <textarea rows="5" class='form-control' id='observaciones_familia' oninput="Limitar(this,50);" ></textarea>
               </div>
 
           </div>
@@ -110,10 +110,11 @@
                              <option value='<?php echo $p['cedula_persona']; ?>'><?php echo $p['primer_nombre']." ".$p['primer_apellido']; ?></option>
                          <?php    } ?>
                      </datalist>
-                 </td><td><button class='btn btn-primary' type='button' id='btn_agregar'>Agregar</button></td>
+                 </td>
              </tr>
+             <tr><td><button class='btn btn-info mt-2' type='button' id='btn_agregar'>Agregar</button></td></tr>
              <tr><td colspan='2'><br>
-               <div style='background:#D0E8E7;overflow-y: scroll;width: 95%;height:200px;'><center>
+               <div style='background:#C7F2EE;overflow-y: scroll;width: 100%;height:200px;'><center>
                 <div style='width:95%' id='integrantes_agregados'></div>
             </center>
         </div>
@@ -130,7 +131,7 @@
 </form>
 </div>
 <div class="modal-footer ">
-    <input type="submit" class="btn  btn-success m-r-10" name="" id="enviar" value="Guardar">
+    <input type="submit" class="btn  btn-info m-r-10" name="" id="enviar" value="Guardar">
 
     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
 </div>

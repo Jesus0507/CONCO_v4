@@ -39,9 +39,11 @@
                                      <option value='<?php echo $p['cedula_persona']; ?>'><?php echo $p['primer_nombre'] . " " . $p['segundo_nombre']; ?></option>
                                  <?php }?>
                              </datalist></td>
-                             <td><button type='button' id='registrar_btn' class="btn btn-info" onclick='window.open(BASE_URL+"Personas/Registros")'>Registrar</button></td>
-
-                             <td><button type='button' class="btn btn-info" id='seleccionar_persona'>Seleccionar</button></td>
+                             
+                             
+                         </tr>
+                         <tr class="text-center">
+                             <td><button type='button' class="btn btn-info mt-2" id='seleccionar_persona'>Seleccionar</button></td>
                          </tr></table>
 
                      </div>
@@ -54,7 +56,7 @@
                          <div class="col-md-12">
 
                              <label>Enfermedad</label> <span id='valid_enfermedad' style='color:red'></span>
-                             <table style='width:100%'><tr><td>
+                             <table style='width:100%'><tr><td class="col-md-6">
                                  <input type="text" style='display:none' maxlength="30" placeholder="Enfermedad..." class='form-control ' id='enfermedad_input' name="" oninput="Limitar(this,35)">
 
                                  <select class='form-control no-simbolos' id='enfermedad_select'>
@@ -64,27 +66,27 @@
                                  <?php }?>
                              </select></td>
 
-                             <td><textarea id='medicamentos' class='form-control no-simbolos' placeholder="Ej: Parecetamol, Loratadina, Lozartan, etc..." rows="1"></textarea></td><td><button id='agregar' class="btn btn-info" type="button">Agregar</button>&nbsp;&nbsp;<button type='button' class="btn btn-primary" id='btn_nueva_enfermedad' >Nueva enfermedad</button></td></tr></table>
+                             <td class="col-md-6"><textarea id='medicamentos' class='form-control no-simbolos' placeholder="Ej: Parecetamol, Loratadina, Lozartan, etc..." rows="1"></textarea></td>
+                            
+                         </tr></table>
 
-
+                         <tr>
+                              <td class="col-md-12"><button id='agregar' class="btn btn-info mt-2" type="button">Agregar</button>&nbsp;&nbsp;<button type='button' class="btn btn-info mt-2" id='btn_nueva_enfermedad' >Nueva enfermedad</button></td>
+                         </tr>
                          </div>
 
 
 
                      </div>
-                     <br>
+                    
 
-
-
-                     <br>
-
-                     <label>Enfermedades agregadas a <span id='nombre_persona'></span></label>
-                     <center><div style='width:95%;height:200px;overflow-y: scroll;background: #C5F3F2'>
-                         <center><div id='enfermedades_agregadas' style='width:95%'></div></div>
+                     <label class="mt-2">Enfermedades agregadas a <span id='nombre_persona'></span></label>
+                     <center><div style='width:100%;height:200px;overflow-y: scroll;background: #C7F2EE'>
+                         <center><div id='enfermedades_agregadas' style='width:100%'></div></div>
                          </center>
                          <br>
 
-                         <center><input type="button" class="btn  btn-success m-r-10" name="" id="guardar" value="Guardar"></center>
+                         <center><input type="button" class="btn  btn-info m-r-10" name="" id="guardar" value="Guardar"></center>
                      </div></center>
                  </div>
              </div>

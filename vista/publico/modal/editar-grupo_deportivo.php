@@ -62,18 +62,21 @@
                              <option value='<?php echo $p['cedula_persona']; ?>'><?php echo $p['primer_nombre']." ".$p['primer_apellido']; ?></option>
                          <?php    } ?>
                      </datalist>
-                 </td><td><button class='btn btn-primary' type='button' id='btn_agregar'>Agregar</button></td>
+                 </td>
+             </tr>
+             <tr>
+                 <td><button class='btn btn-info mt-2' type='button' id='btn_agregar'>Agregar</button></td>
              </tr>
              <tr><td colspan='2'><br>
-               <div style='background:#D0E8E7;overflow-y: scroll;width: 95%;height:200px;'><center>
-                <div style='width:95%' id='integrantes_agregados'></div>
+               <div style='background:#C7F2EE;overflow-y: scroll;width: 100%;height:200px;'><center>
+                <div style='width:100%' id='integrantes_agregados'></div>
             </center>
         </div>
                     </div>
                 </form>
             </div>
             <div class="modal-footer ">
-            <input type="button" class="btn  btn-success m-r-10" name="" id="enviar" value="Guardar">
+            <input type="button" class="btn  btn-info m-r-10" name="" id="enviar" value="Guardar">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
             </div>
         </div>

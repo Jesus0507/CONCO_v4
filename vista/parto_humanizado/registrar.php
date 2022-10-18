@@ -99,7 +99,7 @@
                 <div class="card-footer">
                     <div class="text-center m-t-20">
                         <div class="col-xs-12">
-                            <input type="button" class="btn  btn-success m-r-10" name="" id="boton" value="Guardar">
+                            <input type="button" class="btn  btn-info m-r-10" name="" id="boton" value="Guardar">
                             
                         </div>
                     </div>

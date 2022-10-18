@@ -145,19 +145,19 @@ function Ver(valores, techos, pisos, paredes, gas, electrodomesticos) {
     texto_tabla += "</table>";
     texto_tabla += "<br><table style='width:98%' border='1'><tr style='background:#057E9F;color:white;'>";
     texto_tabla += "<td style='width:33%'>Servicios</td><td style='width:33%'>Techo</td><td style='width:33%'>Pared</td></tr>";
-    texto_tabla += "<tr><td style='width:33%'><div style='width:100%;overflow-y:scroll;height:100px;background:#CFF3C5;'>";
+    texto_tabla += "<tr><td style='width:33%'><div style='width:100%;overflow-y:scroll;height:100px;background:#C7F2EE;'>";
     texto_tabla += "<em class='fa fa-tint'></em> Agua consumo: " + values["agua_consumo"] + "<br><hr>";
     texto_tabla += "<em class='fa fa-trash'></em> Residuos sólidos: " + values["residuos_solidos"] + "<br><hr>";
     texto_tabla += "<em class='fa fa-tint'></em> Aguas negras: " + values["aguas_negras"] + "<br><hr>";
     texto_tabla += "<em class='fa fa-phone'></em> Cable telefónico: " + get_letras(values["cable_telefonico"]) + "<br><hr>";
     texto_tabla += "<em class='fa fa-wifi'></em> Internet: " + get_letras(values["internet"]) + "<br><hr>";
     texto_tabla += "<em class='fa fa-plug'></em> Servicio eléctrico: " + get_letras(values["servicio_electrico"]) + "</div></td>";
-    texto_tabla += "<td style='width:33%'><div style='width:100%;overflow-y:scroll;height:100px;background:#CFF3C5;'>";
+    texto_tabla += "<td style='width:33%'><div style='width:100%;overflow-y:scroll;height:100px;background:#C7F2EE;'>";
     for (var i = 0; i < tipo_techos.length; i++) {
         texto_tabla += "<em class='fa fa-hand-pointer-o'></em>" + tipo_techos[i]["techo"] + "<br><hr>";
     }
     texto_tabla += "</div></td>";
-    texto_tabla += "<td style='width:33%'><div style='width:100%;overflow-y:scroll;height:100px;background:#CFF3C5;'>";
+    texto_tabla += "<td style='width:33%'><div style='width:100%;overflow-y:scroll;height:100px;background:#C7F2EE;'>";
     for (var i = 0; i < tipo_pisos.length; i++) {
         texto_tabla += "<em class='fa fa-hand-stop-o'></em>" + tipo_pisos[i]["pared"] + "<br><hr>";
     }
@@ -165,17 +165,17 @@ function Ver(valores, techos, pisos, paredes, gas, electrodomesticos) {
     texto_tabla += "</table>";
     texto_tabla += "<br><table style='width:98%' border='1'><tr style='background:#057E9F;color:white;'>";
     texto_tabla += "<td style='width:33%'>Piso</td><td style='width:33%'>Gas</td><td style='width:33%'>Electrodomésticos</td></tr>";
-    texto_tabla += "<td style='width:33%'><div style='width:100%;overflow-y:scroll;height:100px;background:#CFF3C5;'>";
+    texto_tabla += "<td style='width:33%'><div style='width:100%;overflow-y:scroll;height:100px;background:#C7F2EE;'>";
     for (var i = 0; i < tipo_paredes.length; i++) {
         texto_tabla += "<em class='fa fa-hand-o-down'></em> " + tipo_paredes[i]["piso"] + "<br><hr>";
     }
     texto_tabla += "</div></td>";
-    texto_tabla += "<td style='width:33%'><div style='width:100%;overflow-y:scroll;height:100px;background:#CFF3C5;'>";
+    texto_tabla += "<td style='width:33%'><div style='width:100%;overflow-y:scroll;height:100px;background:#C7F2EE;'>";
     for (var i = 0; i < gas_v.length; i++) {
         texto_tabla += "<em class='fa fa-fire'></em> " + gas_v[i]["nombre_servicio_gas"] + "<br><hr>";
     }
     texto_tabla += "</div></td>";
-    texto_tabla += "<td style='width:33%'><div style='width:100%;overflow-y:scroll;height:100px;background:#CFF3C5;'>";
+    texto_tabla += "<td style='width:33%'><div style='width:100%;overflow-y:scroll;height:100px;background:#C7F2EE;'>";
     for (var i = 0; i < electrodomestico_v.length; i++) {
         texto_tabla += "<em class='fa fa-cogs'></em> " + electrodomestico_v[i]["nombre_electrodomestico"] + "<br><hr>";
     }

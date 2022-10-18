@@ -203,9 +203,9 @@ class Personas extends Controlador
                 "primer_apellido" => $p['primer_apellido'],
                 "telefono"        => $p['telefono'],
                 "genero"          => $genero,
-                "ver"             => "<button class='btn btn-primary' type='button' title='Ver información de la persona' onclick='ver_datos(`" . $persona . "`,`" . $ocupacion . "`,`" . $condicion_lab . "`,`" . $transporte . "`,`" . $bonos . "`,`" . $misiones . "`,`" . $proyectos . "`,`" . $comunidad_i . "`,`" . $org_politica . "`)'><span class='fa fa-eye'></span></button>",
+                "ver"             => "<button style='background: #4dbdbd;' class='btn btn-info' type='button' title='Ver información de la persona' onclick='ver_datos(`" . $persona . "`,`" . $ocupacion . "`,`" . $condicion_lab . "`,`" . $transporte . "`,`" . $bonos . "`,`" . $misiones . "`,`" . $proyectos . "`,`" . $comunidad_i . "`,`" . $org_politica . "`)'><span class='fa fa-eye'></span></button>",
 
-                "editar"          => "<button class='btn btn-success' type='button' title='Editar información de la persona' onclick='editar_datos(`" . $persona . "`,`" . $ocupacion . "`,`" . $condicion_lab . "`,`" . $transporte . "`,`" . $bonos . "`,`" . $misiones . "`,`" . $proyectos . "`,`" . $comunidad_i . "`,`" . $org_politica . "`)'><span class='fa fa-edit'></span></button>",
+                "editar"          => "<button class='btn btn-info' type='button' title='Editar información de la persona' onclick='editar_datos(`" . $persona . "`,`" . $ocupacion . "`,`" . $condicion_lab . "`,`" . $transporte . "`,`" . $bonos . "`,`" . $misiones . "`,`" . $proyectos . "`,`" . $comunidad_i . "`,`" . $org_politica . "`)'><span class='fa fa-edit'></span></button>",
 
                 "eliminar"        => "<button class='btn btn-danger' type='button' title='Eliminar persona' onclick='eliminar_datos(`" . $p['cedula_persona'] . "`)'><span class='fa fa-trash'></span></button>",
             ];

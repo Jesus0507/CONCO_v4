@@ -110,8 +110,8 @@ class Familias extends Controlador
                         "direccion"       => $f['direccion_vivienda'],
                         "Nro Casa"        => $f['numero_casa'],
                         "ingreso_mensual" => $f['ingreso_mensual_aprox'],
-                        "ver"             => "<button class='btn btn-primary' onclick='ver_familia(`" . json_encode($integrantes) . "`,`" . $f['nombre_familia'] . "`,`" . $f['telefono_familia'] . "`,`" . $f['direccion_vivienda'] . "`,`" . $f['numero_casa'] . "`,`" . $f['ingreso_mensual_aprox'] . "`)' type='button'><em class='fa fa-eye'></em></button>",
-                        "editar"          => "<button type='button' class='btn btn-success' data-toggle='modal' data-target='#actualizar' onclick='editar(" . $f['id_familia'] . "," . $f['id_familia_persona'] . ")'><em class='fa fa-edit'></em></button>",
+                        "ver"             => "<button style='background: #4dbdbd !important;' class='btn btn-info' onclick='ver_familia(`" . json_encode($integrantes) . "`,`" . $f['nombre_familia'] . "`,`" . $f['telefono_familia'] . "`,`" . $f['direccion_vivienda'] . "`,`" . $f['numero_casa'] . "`,`" . $f['ingreso_mensual_aprox'] . "`)' type='button'><em class='fa fa-eye'></em></button>",
+                        "editar"          => "<button type='button' class='btn btn-info' data-toggle='modal' data-target='#actualizar' onclick='editar(" . $f['id_familia'] . "," . $f['id_familia_persona'] . ")'><em class='fa fa-edit'></em></button>",
                         "eliminar"        => "<button class='btn btn-danger' onclick='eliminar(`" . $f['id_familia'] . "`)' type='button'><em class='fa fa-trash'></em></button>",
                     ];
                 }

@@ -38,7 +38,7 @@ class Seguridad extends Controlador
                 "usuario"        => $u['primer_nombre'] . " " . $u['primer_apellido'],
                 "estado"         => $estado,
                 "rol"            => $u['rol_inicio'],
-                "editar"         => "<button class='btn btn-success' title='Modificar rol o clave de usuario'><span class='fa fa-edit' type='button' onclick='modificar_rol(`" . $u['rol_inicio'] . "`,`" . $this->Decodificar($u['contrasenia']) . "`,`" . $u['cedula_persona'] . "`)'></span></button>",
+                "editar"         => "<button class='btn btn-info' title='Modificar rol o clave de usuario'><span class='fa fa-edit' type='button' onclick='modificar_rol(`" . $u['rol_inicio'] . "`,`" . $this->Decodificar($u['contrasenia']) . "`,`" . $u['cedula_persona'] . "`)'></span></button>",
 
             ];
 

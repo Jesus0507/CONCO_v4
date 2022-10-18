@@ -444,7 +444,7 @@
       </div>
       <div class="modal-footer ">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary" id='guardar_cambios'>Guardar cambios</button>
+        <button type="button" class="btn btn-info" id='guardar_cambios'>Guardar cambios</button>
       </div>
     </div>
     <!-- /.modal-content -->
