@@ -91,3 +91,5 @@ class Negocios_Validacion extends Validacion
         return $this->mensaje;
     }
 }
+
+
