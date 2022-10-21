@@ -68,6 +68,12 @@ class Controlador
         }
     }
 
+    public function Seguridad_de_Modulo($accion,$modulo)
+    {
+        @session_start();
+       return $_SESSION[$modulo][$accion]; 
+    }
+
     public function Codificar($string)
     {
         $codec = '';
