@@ -8,7 +8,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Consulta de Grupos Deportivos </h1>
+                    <h1 class="m-0">Consulta de Grupos deportivos </h1>
                 </div><!-- /.col -->
                 <!-- /.col -->
             </div><!-- /.row -->
@@ -22,16 +22,16 @@
         <!-- Default box -->
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Consulta y Exportacion de Datos de Grupos Deportivos</h3>
+                <h3 class="card-title">Consulta y exportacion de datos de grupos deportivos</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
                 <table id="example1" class="table table-bordered  table-hover">
                     <thead>
                         <tr>
-                            <th>Nombre del Grupo</th>
+                            <th>Nombre del grupo</th>
                             <th>Deporte</th>
-                            <th>Descripcion</th>
+                            <th>Descripción</th>
                             <th style="width: 115px;">Acciones</th>
 
                         </tr>
@@ -41,9 +41,9 @@
                     <tfoot>
                         <tr>
 
-                            <th>Nombre del Grupo</th>
+                            <th>Nombre del grupo</th>
                             <th>Deporte</th>
-                            <th>Descripcion</th>
+                            <th>Descripción</th>
                             <th>Acciones</th>
 
                         </tr>

@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="row mb-2"> 
                 <div class="col-sm-6">
-                    <h1 class="m-0">Registrar Sector Agricola</h1>
+                    <h1 class="m-0">Registrar Sector agrícola</h1>
                 </div><!-- /.col -->
                
             </div><!-- /.row -->
@@ -31,10 +31,14 @@
                 <div class="card-body">
                     <div class="card-block">
                         <div class="form-group row justify-content-center">
-
+                        <div class="col-md-12 text-center">
+                                            <h2>
+                                                Información del productor
+                                            </h2>
+                                        </div>
                             <div class="col-md-6 mt-2">
                                 <label for="cedula_persona">
-                                    Cedula de Persona
+                                    Cédula
                                 </label>
                                 <div class="input-group">
                                     <input list="cedula_p" id="cedula_persona" name="datos[cedula_persona]"
@@ -53,7 +57,7 @@
 
                             <div class="col-md-6 mt-2">
                                 <label for="area_produccion">
-                                    Area de Produccion
+                                    Área de producción
                                 </label>
                                 <div class="input-group">
                                     <input class="form-control  no-simbolos mb-10 no-numeros" id="area_produccion" name="datos[area_produccion]"
@@ -65,7 +69,7 @@
                            
                             <div class="col-md-6 mt-2">
                                 <label for="anios_experiencia">
-                                    Años de Experiencia
+                                    Años de experiencia
                                 </label>
                                 <div class="input-group">
                                     <input class="form-control no-simbolos mb-10 solo-numeros" id="anios_experiencia" name="datos[anios_experiencia]"
@@ -76,7 +80,7 @@
                             
                             <div class="col-md-6 mt-2">
                                 <label for="org_agricola">
-                                    Pertenece a una Organizacion Agricola
+                                    Pertenece a una organización agrícola
                                 </label>
                                 <div class="input-group">
                                     <input class="form-control no-simbolos mb-10" id="org_agricola" name="datos[org_agricola]"
@@ -87,7 +91,7 @@
 
                             <div class="col-md-6 mt-2">
                                 <label for="rubro_principal">
-                                    Rubro Principal
+                                    Rubro principal
                                 </label>
                                 <div class="input-group">
                                     <input class="form-control no-simbolos mb-10 solo-letras" id="rubro_principal" name="datos[rubro_principal]"
@@ -98,7 +102,7 @@
 
                             <div class="col-md-6 mt-2">
                                 <label for="rubro_alternativo">
-                                    Rubro Alternativo
+                                    Rubro alternativo
                                 </label>
                                 <div class="input-group">
                                     <input class="form-control no-simbolos mb-10 solo-letras" id="rubro_alternativo" name="datos[rubro_alternativo]"
@@ -120,7 +124,7 @@
 
                             <div class="col-md-6 mt-2">
                                 <label for="registro_INTI">
-                                    Posee Registro INTI
+                                    Registro en el INTI
                                 </label>
                                 <div class="input-group">
                                     <select class="custom-select" id="registro_INTI" name="datos[registro_INTI]">
@@ -138,7 +142,7 @@
 
                             <div class="col-md-6 mt-2">
                                 <label for="constancia_productor">
-                                    Posee Constancia de Productor
+                                    Constancia de productor
                                 </label>
                                 <div class="input-group">
                                     <select class="custom-select" id="constancia_productor" name="datos[constancia_productor]">
@@ -156,7 +160,7 @@
 
                             <div class="col-md-6 mt-2">
                                 <label for="senial_hierro">
-                                    Posee Señal de Hierro
+                                    Posee señal de hierro
                                 </label>
                                 <div class="input-group">
                                     <select class="custom-select" id="senial_hierro" name="datos[senial_hierro]">
@@ -174,7 +178,7 @@
 
                             <div class="col-md-6 mt-2">
                                 <label for="agua_riego">
-                                    Posee Agua de Riego
+                                    Agua de riego
                                 </label>
                                 <div class="input-group">
                                     <select class="custom-select" id="agua_riego" name="datos[agua_riego]">
@@ -192,7 +196,7 @@
 
                             <div class="col-md-6 mt-2">
                                 <label for="produccion_actual">
-                                    Produce Actulmente
+                                    Produce actulmente
                                 </label>
                                 <div class="input-group">
                                     <select class="custom-select" id="produccion_actual" name="datos[produccion_actual]">

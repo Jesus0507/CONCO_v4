@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Registrar Vacuna</h1>
+                    <h1 class="m-0">Registrar Vacunados</h1>
                 </div><!-- /.col -->
                 <!-- /.col -->
             </div><!-- /.row -->
@@ -31,10 +31,14 @@
                 <div class="card-body">
                     <div class="card-block">
                         <div class="form-group row justify-content-center">
-
+                            <div class="col-md-12 text-center">  
+                             <h2 >
+                                    Información del vacunado
+                                   </h2>
+                                   </div>
                             <div class="col-md-12 mt-2">
                                 <label for="cedula_persona">
-                                    Cedula de Persona
+                                    Cédula de persona
                                 </label>
                                 <div class="input-group">
                                     <input list="cedula_p" id="cedula_persona" name="cedula_persona" class="form-control no-simbolos letras_numeros" placeholder="Cedula de Persona" oninput="Limitar(this,15)"/>

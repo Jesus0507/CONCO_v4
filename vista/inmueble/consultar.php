@@ -22,7 +22,7 @@
         <!-- Default box -->
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Consulta y Exportacion de Datos de Inmuebles</h3>
+                <h3 class="card-title">Consulta y exportación de datos de Inmuebles</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -30,9 +30,9 @@
                     <thead>
                         <tr>
                             <th>Calle</th>
-                            <th>Nombre de Inmueble</th>
-                            <th>Direccion</th>
-                            <th>Tipo Inmueble</th>
+                            <th>Nombre del inmueble</th>
+                            <th>Dirección</th>
+                            <th>Tipo de inmueble</th>
                             <th style="width: 115px;">Acciones</th>
                         </tr>
                     </thead>
@@ -45,9 +45,9 @@
                     <tfoot>
                         <tr>
                             <th>Calle</th>
-                            <th>Nombre de Inmueble</th>
-                            <th>Direccion</th>
-                            <th>Tipo Inmueble</th>
+                            <th>Nombre del inmueble</th>
+                            <th>Dirección</th>
+                            <th>Tipo inmueble</th>
                             <th style="width: 115px;">Acciones</th>
                         </tr>
                     </tfoot>

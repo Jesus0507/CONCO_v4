@@ -22,7 +22,7 @@
         <!-- Default box -->
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Consulta y Exportacion de Datos de Viviendas</h3>
+                <h3 class="card-title">Consulta y exportación de datos de viviendas</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -30,10 +30,10 @@
                     <thead>
                         <tr>
 
-                            <th>Numero de Casa</th>
+                            <th>Nro de Casa</th>
                             <th>Calle</th>
-                            <th>Direccion</th>
-                            <th>Tipo de Vivienda</th>
+                            <th>Dirección</th>
+                            <th>Tipo de vivienda</th>
                             <th>Ver</th>
                             <th>Editar</th>
                             <th>Eliminar</th>
@@ -46,10 +46,10 @@
                     <tfoot>
                         <tr>
 
-                            <th>Numero de Casa</th>
+                            <th>Nro de Casa</th>
                             <th>Calle</th>
-                            <th>Direccion</th>
-                            <th>Tipo de Vivienda</th>
+                            <th>Dirección</th>
+                            <th>Tipo de vivienda</th>
                             <th>Ver</th>
                             <th>Editar</th>
                             <th>Eliminar</th>

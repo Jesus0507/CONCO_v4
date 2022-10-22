@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Registrar Grupos Deportivos</h1>
+                    <h1 class="m-0">Registrar Grupos deportivos</h1>
                 </div><!-- /.col -->
                 <!-- /.col -->
             </div><!-- /.row -->
@@ -19,7 +19,7 @@
         <!-- Default box -->
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Formulario de Registro</h3>
+                <h3 class="card-title">Formulario de Registros</h3>
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                         <i class="fas fa-minus"></i>
@@ -51,7 +51,7 @@
 
                             <div class="col-md-6 mt-2">
                                 <label for="nombre_grupo_deportivo">
-                                    Nombre del Grupo Deportivo
+                                    Nombre del grupo deportivo
                                 </label>
                                 <div class="input-group">
                                     <input class="form-control no-simbolos mb-10" id="nombre_grupo_deportivo"
@@ -62,7 +62,7 @@
 
                             <div class="col-md-12 mt-2">
                                 <label for="descripcion">
-                                    Descripcion
+                                    Descripción
                                 </label>
                                 <div class="input-group">
                                     <input class="form-control no-simbolos mb-10" id="descripcion" name="datos[descripcion]"

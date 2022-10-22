@@ -54,7 +54,7 @@
                            
                             <div class="col-md-6 mt-2">
                                 <label for="direccion">
-                                    Direccion de Negocio
+                                    Dirección de negocio
                                 </label>
                                 <div class="input-group">
                                     <input class="form-control no-simbolos mb-10 letras_numeros" id="direccion" name="datos[direccion_negocio]"
@@ -65,7 +65,7 @@
 
                             <div class="col-md-12 mt-2">
                                 <label for="nombre_negocio">
-                                    Nombre de Negocio
+                                    Nombre de negocio
                                 </label>
                                 <div class="input-group">
                                     <input class="form-control letras_numeros mb-10" id="nombre_negocio" name="datos[nombre_negocio]"
@@ -96,7 +96,7 @@
 
                             <div class="col-md-6 mt-2">
                                 <label for="rif_negocio">
-                                    Rif del Negocio
+                                    Rif del negocio
                                 </label>
                                 <div class="input-group">
                                     <input class="form-control mb-10 letras_numeros" id="rif_negocio" name="datos[rif_negocio]"

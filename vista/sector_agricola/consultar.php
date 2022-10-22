@@ -8,7 +8,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Consulta de Personas en Sector Agricola </h1>
+                    <h1 class="m-0">Consulta del Sector agrícola </h1>
                 </div><!-- /.col -->
 
             </div><!-- /.row -->
@@ -22,18 +22,18 @@
         <!-- Default box -->
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Consulta y Exportacion de Datos de Sector Agricola </h3>
+                <h3 class="card-title">Consulta y exportacion de datos de sector agrícola </h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
                 <table id="example1" class="table table-bordered  table-hover">
                     <thead>
                         <tr>
-                            <th>Cedula</th>
-                            <th>Nombre y Apellido</th>
+                            <th>Cédula</th>
+                            <th>Nombre y apellido</th>
 
-                            <th>Area De Produccion</th>
-                            <th>Años de Experiencia</th>
+                            <th>Área de producción</th>
+                            <th>Años de experiencia</th>
                             <th style="width: 115px;">Acciones</th>
                         </tr>
                     </thead>
@@ -43,11 +43,11 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <th>Cedula</th>
-                            <th>Nombre y Apellido</th>
+                            <th>Cédula</th>
+                            <th>Nombre y apellido</th>
 
-                            <th>Area De Produccion</th>
-                            <th>Años de Experiencia</th>
+                            <th>Área de producción</th>
+                            <th>Años de experiencia</th>
                             <th>Acciones</th>
                         </tr>
                     </tfoot>

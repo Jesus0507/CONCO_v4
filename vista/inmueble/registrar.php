@@ -53,7 +53,7 @@
 
                             <div class="col-md-6 mt-2">
                                 <label for="nombre_inmueble">
-                                    Nombre de Inmueble
+                                    Nombre del inmueble
                                 </label>
                                 <div class="input-group">
                                     <input class="form-control no-simbolos mb-10" id="nombre_inmueble" name="datos[nombre_inmueble]"
@@ -64,7 +64,7 @@
 
                             <div class="col-md-6 mt-2">
                                 <label for="direccion">
-                                    Direccion
+                                    Dirección
                                 </label>
                                 <div class="input-group">
                                     <input class="form-control no-simbolos mb-10" id="direccion" name="datos[direccion_inmueble]"
@@ -75,7 +75,7 @@
 
                             <div class="col-md-6 mt-2">
                                 <label for="tipo_inmueble">
-                                    Tipo Inmueble
+                                    Tipo inmueble
                                 </label>
                                 <div class="input-group">
                                     <input list="tipo_I" id="tipo_inmueble" name="datos[id_tipo_inmueble]" class="form-control no-simbolos solo-letras " placeholder="Tipo de Inmueble" oninput="Limitar(this,20)"/>

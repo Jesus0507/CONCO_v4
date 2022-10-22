@@ -22,7 +22,7 @@
         <!-- Default box -->
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Consulta y Exportacion de Datos de Negocios</h3>
+                <h3 class="card-title">Consulta y exportacion de datos de negocios</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -30,10 +30,10 @@
                     <thead>
                         <tr>
                             <th>Calle</th>
-                            <th>Direccion</th>
-                            <th>Nombre de Negocio</th>
+                            <th>Dirección</th>
+                            <th>Nombre del negocio</th>
                             <th>Propietario</th>
-                            <th>Rif de Negocio</th>
+                            <th>Rif de negocio</th>
                             <th style="width: 115px;">Acciones</th>
                         </tr>
                     </thead>
@@ -46,10 +46,10 @@
                     <tfoot>
                         <tr>
                             <th>Calle</th>
-                            <th>Direccion</th>
-                            <th>Nombre de Negocio</th>
+                            <th>Dirección</th>
+                            <th>Nombre del negocio</th>
                             <th>Propietario</th>
-                            <th>Rif de Negocio</th>
+                            <th>Rif de negocio</th>
                             <th style="width: 115px;">Acciones</th>
                         </tr>
                     </tfoot>

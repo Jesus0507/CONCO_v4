@@ -95,7 +95,7 @@
                     <a href="javascript:void(0)" class="nav-link">
                         <i class="nav-icon mdi mdi-account-multiple-plus"></i>
                         <p>
-                            Gestionar Nucleo Familiar
+                            Gestionar Núcleo Familiar
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
@@ -281,7 +281,7 @@
                     <a href="javascript:void(0)" class="nav-link">
                         <i class="nav-icon fa fa-tree"></i>
                         <p>
-                            Gestionar Sector Agricola
+                            Gestionar Sector Agrícola
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
@@ -289,7 +289,7 @@
                         <li class="nav-item" onclick="cambio_modulo('Registrar Sector agrícola')">
                             <a href="<?php Direcciones::_022_();?>" class="nav-link">
                                 <i class="fa fa-plus-circle nav-icon text-success"></i>
-                                <p>Registrar Agricola</p>
+                                <p>Registrar Agrícola</p>
                             </a>
                         </li>
                         <?php }?>
@@ -297,7 +297,7 @@
                         <li class="nav-item" onclick="cambio_modulo('Consultar sectores agrícolas')">
                             <a href="<?php Direcciones::_023_();?>" class="nav-link">
                                 <i class="fa fa-list nav-icon text-info"></i>
-                                <p>Consultar Agricola</p>
+                                <p>Consultar Agrícola</p>
                             </a>
                         </li>
                         <?php }?>
@@ -411,7 +411,7 @@
                     <a href="javascript:void(0)" class="nav-link">
                         <i class="nav-icon fa fa-user"></i>
                         <p>
-                            Gestionar Comite
+                            Gestionar Comité
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
@@ -419,7 +419,7 @@
                         <li class="nav-item" onclick="cambio_modulo('Consejo Comunal Asignar Comite')">
                             <a href="<?php Direcciones::_030_();?>" class="nav-link">
                                 <i class="fa fa-plus-circle nav-icon text-success"></i>
-                                <p>Asignar Comite</p>
+                                <p>Asignar Comité</p>
                             </a>
                         </li>
                         <?php }?>
@@ -427,7 +427,7 @@
                         <li class="nav-item" onclick="cambio_modulo('Consejo Comunal Consultas')">
                             <a href="<?php Direcciones::_031_();?>" class="nav-link">
                                 <i class="fa fa-list nav-icon text-info"></i>
-                                <p>Consultar Comite</p>
+                                <p>Consultar Comité</p>
                             </a>
                         </li>
                         <?php }?>
@@ -446,7 +446,7 @@
                     <a href="javascript:void(0)" class="nav-link">
                         <i class="nav-icon fa fa-building-o"></i>
                         <p>
-                            Gestionar Centro de Votacion
+                            Gestionar Centro de Votación
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
@@ -454,7 +454,7 @@
                         <li class="nav-item" onclick="cambio_modulo('Registrar centro de votación')">
                             <a href="<?php Direcciones::_032_();?>" class="nav-link">
                                 <i class="fa fa-plus-circle nav-icon text-success"></i>
-                                <p>Asignar Centro de Votacion</p>
+                                <p>Asignar Centro de Votación</p>
                             </a>
                         </li>
                         <?php }?>
@@ -503,7 +503,7 @@
                             <a href="<?php Direcciones::_035_();?>" class="nav-link">
                                 <i class="nav-icon fa fa-list-ul"></i>
                                 <p>
-                                    Consultar Bitacora
+                                    Consultar Bitácora
                                 </p>
                             </a>
                         </li>
@@ -567,7 +567,7 @@
                             <a href="<?php Direcciones::_039_(); ?>" class="nav-link">
                                 <i class="fa fa-signal nav-icon"></i>
                                 <p>
-                                    Generar Estadisticas
+                                    Generar Estadísticas
                                 </p>
                             </a>
                         </li>

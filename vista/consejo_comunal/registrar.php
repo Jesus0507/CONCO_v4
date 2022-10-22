@@ -34,7 +34,7 @@
 
                             <div class="col-md-12 mt-2">
                                 <label for="cedula_persona">
-                                    Cedula de Persona
+                                    Cédula
                                 </label>
                                 <div class="input-group">
                                     <input list="cedula_p" id="cedula_persona" name="datos[cedula_persona]"
@@ -53,7 +53,7 @@
 
                             <div class="col-md-6 mt-2">
                                 <label for="nombre_comite">
-                                    Comite
+                                    Comité
                                 </label>
                                 <div class="input-group">
                                     <input list="comite" id="nombre_comite" name="datos[nombre_comite]" class="form-control no-simbolos solo-letras" placeholder="Comite" oninput="Limitar(this,40)"/>
@@ -70,7 +70,7 @@
 
                             <div class="col-md-6 mt-2">
                                 <label for="cargo_persona">
-                                    Cargo de Vocero
+                                    Cargo del vocero
                                 </label>
                                 <div class="input-group">
                                     <select class="custom-select" id="cargo_persona" name="datos[cargo_persona]">
@@ -78,10 +78,10 @@
                                             Seleccione ...
                                         </option>
                                         <option value="Vocero Principal">
-                                            Vocero Principal
+                                            Vocero principal
                                         </option>
                                         <option value="Vocero Suplente">
-                                            Vocero Suplente
+                                            Vocero suplente
                                         </option>
                                     </select>
                                 </div>
@@ -90,7 +90,7 @@
 
                             <div class="col-md-6 mt-2">
                     <label for="fecha_ingreso">
-                        Fecha de Ingreso
+                        Fecha de ingreso
                     </label>
                     <div class="input-group">
                         <input class="form-control  mb-10" id="fecha_ingreso" name="datos[fecha_ingreso]"
@@ -101,7 +101,7 @@
 
                 <div class="col-md-6 mt-2">
                     <label for="fecha_salida">
-                        Fecha de Salida
+                        Fecha de salida
                     </label>
                     <div class="input-group">
                         <input class="form-control  mb-10" id="fecha_salida" name="datos[fecha_salida]"

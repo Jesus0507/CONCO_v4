@@ -8,7 +8,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Consulta de Personas Enfermas</h1>
+                    <h1 class="m-0">Consulta de Personas enfermas</h1>
                 </div><!-- /.col -->
                 <!-- /.col -->
             </div><!-- /.row -->
@@ -22,14 +22,14 @@
         <!-- Default box -->
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Consulta y Exportacion de Datos de Usuarios</h3>
+                <h3 class="card-title">Consulta y exportación de datos de personas con alguna enfermedad</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
                 <table id="example1" class="table table-bordered  table-hover">
                     <thead>
                         <tr>
-                            <th>Cedula</th>
+                            <th>Cédula</th>
                             <th>Nombre</th>
                             <th>Enfermedades</th>
                             <th>Medicamentos</th>
@@ -280,7 +280,7 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <th>Cedula</th>
+                            <th>Cédula</th>
                             <th>Nombre</th>
                             <th>Enfermedades</th>
                             <th>Medicamentos</th>

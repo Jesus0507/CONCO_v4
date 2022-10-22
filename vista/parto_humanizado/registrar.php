@@ -31,10 +31,10 @@
                 <div class="card-body">
                     <div class="card-block">
                         <div class="form-group row justify-content-center">
-
+                        
                             <div class="col-md-6 mt-2">
                                 <label for="cedula_persona">
-                                    Cedula de Persona
+                                    Cédula 
                                 </label>
                                 <div class="input-group">
                                     <input list="cedula_p" id="cedula_persona" name="datos[cedula_persona]"
@@ -53,7 +53,7 @@
 
                             <div class="col-md-6 mt-2">
                                 <label for="recibe_micronutrientes">
-                                    Recibe Micronutrientes
+                                    Recibe micronutrientes
                                 </label>
                                 <div class="input-group">
                                     <select class="custom-select" id="recibe_micronutrientes" name="datos[recibe_micronutrientes]">
@@ -73,7 +73,7 @@
                            
                             <div class="col-md-6 mt-2">
                                 <label for="tiempo_gestacion">
-                                    Tiempo de Gestacion
+                                    Tiempo de gestación
                                 </label>
                                 <div class="input-group">
                                     <input class="form-control no-simbolos " placeholder="Tiempo de Gestacion" id="tiempo_gestacion" name="datos[tiempo_gestacion]" type="text" oninput="Limitar(this,15)">
@@ -82,7 +82,7 @@
                             
                             <div class="col-md-6 mt-2">
                                 <label for="fecha_aprox_parto">
-                                    Fecha Aproximada de Parto
+                                    Fecha aproximada de parto
                                 </label>
                                 <div class="input-group">
                                     <input class="form-control no-simbolos" id="fecha_aprox_parto" name="datos[fecha_aprox_parto]" type="date" >

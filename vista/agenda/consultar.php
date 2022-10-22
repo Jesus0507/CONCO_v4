@@ -29,7 +29,7 @@
                     <thead>
                         <tr>
                             <th>Creador</th>
-                            <th>fecha</th>
+                            <th>Fecha</th>
                             <th>Evento</th>
                             <th>Horas</th>
                             <th style="width: 20px;">Ver</th>

@@ -22,17 +22,17 @@
         <!-- Default box -->
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Consulta y Exportacion de Datos de Personas</h3>
+                <h3 class="card-title">Consulta y exportación de datos de embarazadas</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
                 <table id="example1" class="table table-bordered  table-hover">
                     <thead>
                         <tr>
-                            <th>Cedula</th>
-                            <th>Nommbre y Apellido</th>
-                            <th>Tiempo de Gestacion</th>
-                            <th>Fecha Aprosimada de Parto</th>
+                            <th>Cédula</th>
+                            <th>Nombre y Apellido</th>
+                            <th>Tiempo de gestación</th>
+                            <th>Fecha aproximada de parto</th>
                             <th style="width: 115px;">Acciones</th>
                         </tr>
                     </thead>
@@ -42,10 +42,10 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <th>Cedula</th>
-                            <th>Nommbre y Apellido </th>
-                            <th>Tiempo de Gestacion</th>
-                            <th>Fecha Aprosimada de Parto</th>
+                            <th>Cédula</th>
+                            <th>Nombre y Apellido </th>
+                            <th>Tiempo de gestación</th>
+                            <th>Fecha aproximada de parto</th>
                             <th style="width: 115px;">Acciones</th>
                         </tr>
                     </tfoot>

@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Registrar Familia</h1>
+                    <h1 class="m-0">Registrar Familias</h1>
                 </div><!-- /.col -->
                 <!-- /.col -->
             </div><!-- /.row -->
@@ -37,7 +37,7 @@
                                     <div class="row">
                                         <div class="col-md-12 text-center">
                                             <h2>
-                                                Familia
+                                                Información del Núcleo familiar
                                             </h2>
                                         </div>
 
@@ -116,7 +116,7 @@
 
                                         <div class="col-md-12 mt-2">
                                             <label for="segundo_apellido">
-                                                Ingreso mensual Aprox
+                                                Ingreso mensual aproximado
                                             </label><span id='valid_4' style="color:red;"></span>
                                             <div class="input-group">
                                                 <input class="form-control mb-10  dinero" id="ingreso_aprox"

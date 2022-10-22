@@ -22,7 +22,7 @@
         <!-- Default box -->
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Consulta y Exportacion de Datos de Usuarios</h3>
+                <h3 class="card-title">Consulta y exportación de datos de familias</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">

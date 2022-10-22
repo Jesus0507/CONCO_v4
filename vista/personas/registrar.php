@@ -1,4 +1,5 @@
-<?php include (call."Inicio.php"); ?>
+
+    <?php include (call."Inicio.php"); ?>
 <!-- Contenido de la pagina -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -98,7 +99,7 @@
                                         <div class="row">
                                             <div class="col-md-12 text-center">
                                                 <h2>
-                                                    Información de Personal
+                                                    Información personal
                                                 </h2>
                                             </div>
                                             
@@ -202,7 +203,7 @@
                                         </div>
                                         <div class="col-md-6 mt-2">
                                             <label for="genero">
-                                                Genero
+                                                Género
                                             </label>
                                             <span style='display:none;color:red' id='valid_8'>Ingrese el género</span>
                                             <div class="input-group">
@@ -254,7 +255,7 @@
                                         <span style='display:none;color:red' id='valid_10'>Ingrese la nacionalidad</span>
                                         <div class="input-group">
                                             <input class="form-control mb-10 solo-letras" id="nacionalidad"
-                                            name="datos[nacionalidad]" placeholder="Nacionalidad" type="text" oninput="Limitar(this,15)" />
+                                            name="datos[nacionalidad]" placeholder="Nacionalidad" value="Venezolana" type="text" oninput="Limitar(this,15)" />
                                         </div>
 
                                     </div>
@@ -430,7 +431,7 @@
 
 <div class="col-md-6 mt-2">
     <label for="comunidad_indigena">
-        Comunidad indigena
+        Comunidad indígena
     </label>
     <span style='display:none;color:red' id='valid_19'>Campo vacío</span>
     <table style="width:100%">
@@ -497,7 +498,7 @@
                                                 <label for=""> Carnet de la Patria</label>
                                             </div>
                                             <div class="col-md-6 mt-4">
-                                                <label for=""> Carnet de el PSUV (opcional)</label>
+                                                <label for=""> Carnet del PSUV (opcional)</label>
                                             </div>
                                             <div class="col-md-6 mt-2">
                                                 <label for="serial_patria">
@@ -523,7 +524,7 @@
 
                                             <div class="col-md-6 mt-2">
                                                 <label for="codigo_patria">
-                                                    Codigo Patria
+                                                    Código Patria
                                                 </label>
                                                 <span style='color:red' id='valid_codigo_patria'></span>
                                                 <div class="input-group">
@@ -535,7 +536,7 @@
 
                                             <div class="col-md-6 mt-2">
                                                 <label for="codigo_psuv">
-                                                    Codigo PSUV
+                                                    Código PSUV
                                                 </label>
                                                 <span style='color:red' id='valid_codigo_psuv'></span>
                                                 <div class="input-group">
@@ -547,7 +548,7 @@
 
                                             <div class="col-md-6 mt-2">
                                                 <label for="certificado">
-                                                    Certificado de discapacidad
+                                                    Carnet de discapacidad
                                                 </label>
                                                 <br>
                                                 <label for="serial_discapacidad">
@@ -580,7 +581,7 @@
                                             <div class="col-md-12 mt-2">
                                                 <div class="form-group">
                                                     <label for="correo">
-                                                        Correo Electronico
+                                                        Correo Electrónico
                                                     </label>
                                                     <div class="input-group">
                                                         <input class="form-control no-espacios" id="correo" name="datos[correo]"
@@ -614,7 +615,7 @@
 
                                     <div class="col-md-9 mt-2">
                                         <label for="telefono_personal">
-                                            Telefono Personal
+                                            Teléfono Personal
                                         </label>
                                         <span style='display:none;color:red' id='valid_21'>Ingrese el número de teléfono</span>
                                         <div class="input-group">
@@ -791,7 +792,7 @@
 
                         <div class="col-md-12 mt-2">
                             <label for="ocupacion">
-                             Ocupacion
+                             Ocupación
                          </label>
                          <span style='display:none;color:red' id='valid_26'>Ingrese la ocupación</span>
                          <table style='width:100%'>
@@ -882,7 +883,7 @@
                  <option value='Alimentación'>Alimentación</option>
                  <option value='Comunicación'>Comunicación</option>
                  <option value='Textil o Artesanal'>Textil o Artesanal</option>
-                 <option value='Agricola'>Agricola</option>
+                 <option value='Agricola'>Agrícola</option>
                  <option value='Cultural'>Cultural</option>
                  <option value='Educativo'>Educativo</option>
              </select>
@@ -912,10 +913,10 @@
                 <label for="correo">
                  Contraseña
              </label> <span id='valid_contrasenia' style='color:red;display:none'>Debe ingresar la contraseña del usuario</span>
-             <div class="input-group">
+             <div class="input-group" >
                 <table style='width:100%'>
                     <tr><td>
-                        <input class="form-control no-espacios" id="contrasenia" name=""
+                        <input  class="form-control no-espacios" id="contrasenia" name=""
                         placeholder="Contraseña de ingreso" type="password" oninput="Limitar(this,10)">
                     </td><td><button type='button' class='btn btn-default' id='ver_clave'><em class='fa fa-eye'></em></button></td></tr></table>
                 </table>
@@ -930,7 +931,7 @@
              </label> <span id='valid_confirmar' style='color:red;display:none'>Debe confirmar la contraseña del usuario</span>
              <div class="input-group">
                         <input class="form-control no-espacios" id="confirmar" name=""
-                        placeholder="Contraseña de ingreso" type="password" oninput="Limitar(this,10)">
+                        placeholder="Contraseña de ingreso"   type="password" oninput="Limitar(this,10)">
 
             </div>
         </div>
@@ -948,16 +949,16 @@
             <span style='display:none;color:red' id='valid_color'>Ingrese el color favorito</span>
             <div class="input-group">
                 <input class="form-control mb-10" id="color_fav"
-                placeholder="Color favorito"
+                placeholder="Color favorito" 
                 type="text" oninput="Limitar(this,10)" />
             </div></td>
 
 <td>
-        <label for="animal_fav">Animal Favorito</label>
+        <label for="animal_fav">Animal favorito</label>
             <span style='display:none;color:red' id='valid_animal'>Ingrese el animal favorito</span>
             <div class="input-group">
                 <input class="form-control mb-10" id="animal_fav"
-                placeholder="Animal favorito"
+                placeholder="Animal favorito" 
                 type="text" oninput="Limitar(this,10)"/>
             </div>
 </td><td>
@@ -966,7 +967,7 @@
             <div class="input-group">
                 <input class="form-control mb-10" id="primera_mascota"
                 placeholder="Nombre de la primera mascota"
-                type="text"  oninput="Limitar(this,10)" />
+                type="text"  oninput="Limitar(this,10)"  />
             </div>
 </td></tr></table>  
 
@@ -979,7 +980,7 @@
                             <div class="input-group">
                             <input class="form-control mb-10" id="firma_digital"
                             placeholder="Coloque una palabra como firma digital"
-                            type="text"  oninput="Limitar(this,10)" />
+                            type="text"  oninput="Limitar(this,10)"  />
                             </div>
                         </div>
 </div>

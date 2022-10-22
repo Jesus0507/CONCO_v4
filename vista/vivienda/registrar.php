@@ -31,7 +31,11 @@
                 <div class="card-body">
                     <div class="card-block">
                         <div class="form-group row justify-content-center">
-
+                        <div class="col-md-12 text-center">
+                            <h2>
+                             Información de la Vivienda
+                                     </h2>
+                                          </div>
                             <div class="col-md-6 mt-2">
                                 <label for="id_calle">
                                     Calle
@@ -52,7 +56,7 @@
 
                             <div class="col-md-6 mt-2">
                                 <label for="direccion_vivienda">
-                                    Direccion de la Vivienda
+                                    Dirección de la vivienda
                                 </label> <span id='valid_direccion' style='color:red'></span>
                                 <div class="input-group">
                                     <input class="form-control mb-10" id="direccion_vivienda"
@@ -64,7 +68,7 @@
 
                             <div class="col-md-6 mt-2">
                                 <label for="numero_casa">
-                                    Numero de vivienda
+                                    Nro de vivienda
                                 </label> <span id='valid_numero_casa' style='color:red'></span>
                                 <div class="input-group">
                                     <input class="form-control mb-10 letras_numeros" id="numero_casa" name="datos[numero_casa]"
@@ -76,7 +80,7 @@
 
                             <div class="col-md-6 mt-2">
                                 <label for="cantidad_habitaciones">
-                                    Cantidad de Habitaciones
+                                    Cantidad de habitaciones
                                 </label> <span id='valid_cantidad_habitaciones' style='color:red'></span>
                                 <div class="input-group">
                                     <input class="form-control mb-10 solo-numeros" id="cantidad_habitaciones"
@@ -87,7 +91,7 @@
 
                             <div class="col-md-6 mt-2">
                                 <label for="id_tipo_vivienda">
-                                    Tipo de Vivienda
+                                    Tipo de vivienda
                                 </label>
                                 <span id='valid_tipo_vivienda' style='color:red'></span>
                                 <div class="input-group">
@@ -107,7 +111,7 @@
 
                             <div class="col-md-6 mt-2">
                                 <label for="condicion">
-                                    Condicion de la Vivienda
+                                    Condición de la vivienda
                                 </label>
                                 <span id='valid_condicion_vivienda' style='color:red'></span>
                                 <div class="input-group">
@@ -133,7 +137,7 @@
 
                         <div class="col-md-6     mt-2">
                             <label for="hacinamiento">
-                                La vivienda es Hacinamiento
+                                Vivienda en hacinamiento
                             </label>
                             <div class="input-group">
                                 <select class="custom-select" id="hacinamiento" name="datos[hacinamiento]">
@@ -150,7 +154,7 @@
 
                         <div class="col-md-6     mt-2">
                             <label for="espacio_siembra">
-                                Posee Espacio de Siembra
+                                Espacio de siembra
                             </label>
                             <div class="input-group">
                                 <select class="custom-select" id="espacio_siembra" name="datos[espacio_siembra]">
@@ -167,7 +171,7 @@
 
                         <div class="col-md-6     mt-2">
                             <label for="banio_sanitario">
-                                Tiene Baño Sanitario
+                                Tiene baño sanitario
                             </label>
                             <div class="input-group">
                                 <select class="custom-select" id="banio_sanitario" name="datos[banio_sanitario]">
@@ -186,7 +190,7 @@
 
                         <div class="col-md-6 mt-2">
                             <label for="agua_consumo">
-                                Agua de Consumo
+                                Agua de consumo
                             </label>
                             <span id='valid_agua_consumo' style='color:red'></span>
                             <div class="input-group">
@@ -202,7 +206,7 @@
                                         Cisterna
                                     </option>
                                     <option value="Pipa Publica">
-                                        Pipa Publica
+                                        Pipa Pública
                                     </option>
                                 </select>
                             </div>
@@ -210,7 +214,7 @@
 
                         <div class="col-md-6 mt-2">
                             <label for="aguas_negras">
-                                Aguas Negras
+                                Aguas negras
                             </label>
                             <span id='valid_aguas_negras' style='color:red'></span>
                             <div class="input-group">
@@ -238,7 +242,7 @@
 
                         <div class="col-md-6 mt-2">
                             <label for="residuos_solidos">
-                                Residuos Solidos
+                                Residuos sólidos
                             </label>
                             <span id='valid_residuos_solidos' style='color:red'></span>
                             <div class="input-group">
@@ -264,7 +268,7 @@
 
                         <div class="col-md-6 mt-2">
                             <label for="servicio_electrico">
-                                Cableado Electrico
+                                Cableado Eléctrico
                             </label>
                             <div class="input-group">
                                 <select class="custom-select" id="servicio_electrico" name="datos[servicio_electrico]">
@@ -281,7 +285,7 @@
 
                         <div class="col-md-6 mt-2">
                             <label for="cable_telefonico">
-                                Cableado Telefonico
+                                Cableado Telefónico
                             </label>
                             <div class="input-group">
                                 <select class="custom-select" id="cable_telefonico" name="datos[cable_telefonico]">
@@ -298,7 +302,7 @@
 
                         <div class="col-md-6 mt-2">
                             <label for="internet">
-                                Servicio de Internet
+                                Servicio de internet
                             </label>
                             <div class="input-group">
                                 <select class="custom-select" id="internet" name="datos[internet]">
@@ -315,7 +319,7 @@
 
                         <div class="col-md-6 mt-2">
                             <label for="gas">
-                                Posee Servicio de Gas Domestico
+                                Servicio de gas doméstico
                             </label>
                             <div class="input-group">
                                 <select class="custom-select" id="gas" name="datos[gas]">
@@ -331,7 +335,7 @@
 
                         <div class="col-md-6 mt-2">
                             <label for="animales_domesticos">
-                                Animales Domesticos
+                                Animales domésticos
                             </label>
                             <div class="input-group">
                                 <select class="custom-select" id="animales_domesticos"
@@ -350,7 +354,7 @@
 
                     <div class="col-md-6 mt-2">
                         <label for="insectos_roedores">
-                            Posee Plagas en la Vievienda
+                            Plagas en la vivienda
                         </label>
                         <div class="input-group">
                             <select class="custom-select" id="insectos_roedores" name="datos[insectos_roedores]">
@@ -369,7 +373,7 @@
 
                     <div class="col-md-12 mt-2">
                         <label for="descripcion">
-                            Describir la Condicion de la Vivienda
+                            Describir la condición de la vivienda
                         </label>
                         <span id='valid_descripcion' style='color:red'></span>
                         <textarea class="form-control" cols="5" id="descripcion"
@@ -378,7 +382,7 @@
 
                     <div class="col-md-12 mt-2">
                         <label for="">
-                            Tipos de Techo en el Hogar <span id='valid_techos' style='color:red'>
+                            Tipos de techo en el hogar <span id='valid_techos' style='color:red'>
                         </label>
 
                         <div class="input-group">
@@ -406,7 +410,7 @@
 
                     <div class="col-md-12 mt-2">
                         <label for="">
-                            Tipos de Pared en el Hogar <span id='valid_paredes' style='color:red'>
+                            Tipos de pared en el hogar <span id='valid_paredes' style='color:red'>
                         </label>
 
                         <div class="input-group">
@@ -434,7 +438,7 @@
 
                     <div class="col-md-12 mt-2">
                         <label for="">
-                            Tipos de Piso en el Hogar <span id='valid_pisos' style='color:red'>
+                            Tipos de piso en el hogar <span id='valid_pisos' style='color:red'>
                         </label>
 
                         <div class="input-group">
