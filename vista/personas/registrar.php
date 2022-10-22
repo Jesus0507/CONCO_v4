@@ -37,7 +37,9 @@
                                                 <i class="ti-home"></i>
                                             </span>
                                             <span class="hidden-xs-down">
+                                                    
                                                 Información Personal
+                                                
                                             </span>
                                         </a>
                                     </li>

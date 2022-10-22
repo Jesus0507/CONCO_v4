@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="<?php echo constant('URL') ?>config/css/dark.css">
     <link rel="stylesheet" href="<?php echo constant('URL') ?>config/plugins/font-awesome/css/all.min.css">
     <link rel="stylesheet" href="<?php echo constant('URL') ?>config/plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?php echo constant('URL') ?>config/css/style-3.css">
     <!-- SweetAlert2 -->
     <link href="<?php echo constant('URL') ?>config/plugins/sweetalert/sweetalert.css" rel="stylesheet">
 

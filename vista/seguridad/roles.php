@@ -22,10 +22,13 @@
         <!-- Default box -->
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Permisos y Roles del Usuario</h3>
+            <h3 class="card-title">Consulta de permisos de usuarios</h3>
+                
             </div>
             <!-- /.card-header -->
             <div class="card-body" >
+
+            <h2 class="tipogra" >Permisos y roles del usuario</h2>
                 <table style="width:100%">
                     <tr><td>
                 <div style="width:95%">

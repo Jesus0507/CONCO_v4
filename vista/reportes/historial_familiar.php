@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Generar Historial Clinico</h1> </div>
+                    <h1 class="m-0">Generar Historial Clínico</h1> </div>
                     <!-- /.col -->
                     
                     <!-- /.col -->
