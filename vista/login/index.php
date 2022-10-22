@@ -20,7 +20,8 @@
         <div class="col-11">
             <div class="card card-outline card-primary card-outline-tabs">
                 <div class="card-header text-center">
-                    <h3 href="" class="h3">Consejo Comunal Prados de Occidente</h3>
+                    <h2 class="tipogra">Consejo Comunal </h2>
+                    <h2 >   Prados de Occidente</h2>
                 </div>
                 <div class="card-header p-0 pt-1 border-bottom-0">
 
