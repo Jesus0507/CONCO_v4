@@ -1,12 +1,11 @@
-<!-- Menu Lateral -->
+<!-- Menu Lateral --> 
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="javascript:void(0)" class="brand-link">
         <img src="<?php echo constant('URL') ?>config/img/web/navigation.png" alt="AdminLTE Logo"
             class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">Prados de Occidente</span>
+        <span  class="tipografi" class="brand-text font-weight-light"  > Prados de Occidente </span>
     </a>
-
     <!-- Sidebar -->
     <div class="sidebar">
 
@@ -31,7 +30,7 @@
                     <?php if ($_SESSION['Agenda']['registrar'] == '1') {?>
                     <a href="javascript:void(0)" class="nav-link">
                         <i class="nav-icon fa fa-calendar"></i>
-                        <p>
+                        <p >
                             Gestionar Agenda
                         </p>
                     </a>
@@ -446,7 +445,7 @@
                     <a href="javascript:void(0)" class="nav-link">
                         <i class="nav-icon fa fa-building-o"></i>
                         <p>
-                            Gestionar Centro de Votación
+                         Gestionar Centro de Votación
                         </p>
                     </a>
                     <ul class="nav nav-treeview">

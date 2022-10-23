@@ -108,7 +108,7 @@
                                             </label><span id='valid_3' style="color:red;"></span>
                                             <div class="input-group">
                                                 <input class="form-control mb-10 solo-numeros" id="telefono_familia"
-                                                    name="datos[telefono_familia]" placeholder="telefono familia"
+                                                    name="datos[telefono_familia]" placeholder="Teléfono de familia"
                                                     type="number" oninput="Limitar(this,12)" />
                                             </div>
 

@@ -2,14 +2,14 @@ h1,
 h3
 {
 
-    font-family: "Bodoni MT Black"; 
+    font-family: "Source Sans Pro","  -apple-system ","Segoe UI";
      font-size: 30px;
 }
 
 h2
 {
 
-    font-family: "Bodoni MT Black";
+    font-family: "Source Sans Pro","  -apple-system ","Segoe UI";
     font-weight:bold;
     font-size: 40px
     
@@ -18,7 +18,7 @@ h2
 h2.tipogra
 {
 
-    font-family: "Bodoni MT Black";
+    font-family: "Source Sans Pro","  -apple-system ","Segoe UI";
     font-weight:bold;
     font-size: 30px;
     text-align: left
@@ -28,7 +28,19 @@ h2.tipogra
 
 
 .tipogra {
-
+    
     font-size: 33px;
     text-indent: 70px
 }
+
+.tipografi{
+    font-family: "Source Sans Pro","  -apple-system ","Segoe UI";
+}
+/*p{
+class="brand-text font-weight-light"
+    font-family: "Bodoni MT Black"; 
+    letter-spacing: 0.30px;
+    font-size: 15px;
+    
+}
+*/

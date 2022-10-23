@@ -107,6 +107,7 @@
                                             
                                             <div class="col-md-12 mt-2">
                                                 <label for="cedula">
+                                                    
                                                 Documento de identidad                                               </label> <span style='color:red;display:none' id='valid_1'>Ingrese el documento de identidad</span>
 
                                                 <div class="input-group">

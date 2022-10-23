@@ -72,7 +72,7 @@
                         <center>
                             <br>
                             <span style="font-size:80px" class="fa fa-user-o"></span>
-                            <h4 id="persona">Pruieba</h4>
+                            <h4 id="persona">Prueba</h4>
                             <input type='hidden' id='id_servicio'>
                         </center>
                         <br>
