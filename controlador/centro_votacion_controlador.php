@@ -31,18 +31,19 @@ class Centro_Votacion extends Controlador
         if (isset($_POST['peticion'])) {$peticion = $_POST['peticion'];} else { $peticion = $peticion[0];}
 
         switch ($peticion) {
-            case 'Registros':$this->vista->Cargar_Vistas('centro_votacion/registrar');break;
-            case 'Consultas': $this->vista->Cargar_Vistas('centro_votacion/consultar');break;
+            case 'Registros':
+            if ($_SESSION["Centros votacion"]["registrar"] === 1) {
+                $this->vista->Cargar_Vistas('centro_votacion/registrar');
+            }else{$this->_403_();}
+                break;
+            case 'Consultas':
+            if ($_SESSION["Centros votacion"]["consultar"] === 1) {
+                $this->vista->Cargar_Vistas('centro_votacion/consultar');
+            }else{$this->_403_();}
+                break;
 
             case 'Registrar':
-
-                $this->Validacion("centro_votacion");
-                // if ($this->validacion->Validacion_Registro()) {
-
-                // }else{
-                //     echo $this->validacion->Fallo();
-                // }
-            
+            if ($_SESSION["Centros votacion"]["registrar"] === 1) {
                 $cont = 0;
                 foreach ($this->datos["centros_votacion"] as $cv) {
                     if (strtolower($cv['nombre_centro']) !== strtolower($_POST["datos"]['nombre_centro'])) {
@@ -76,10 +77,12 @@ class Centro_Votacion extends Controlador
                         }
                     }
                 }
-                echo $this->mensaje;unset($cont,$id,$this->mensaje);               
+                echo $this->mensaje;unset($cont,$id,$this->mensaje); 
+            }else{$this->_403_();}              
                 break;
 
             case 'Administrar':
+            if ($_SESSION["Centros votacion"]["eliminar"] === 1) {
                 $this->modelo->Estado($_POST['estado']);
                 $this->modelo->Datos([
                     $_POST['estado']["id_tabla"] => $_POST['estado']["param"],
@@ -89,6 +92,7 @@ class Centro_Votacion extends Controlador
                 if ($this->modelo->Administrar()) {$this->mensaje = 1;$this->Accion($_POST['accion']);}
 
                 echo $this->mensaje;unset($_POST, $this->mensaje);
+            }else{$this->_403_();}
                 break;
 
             case 'Consulta_Ajax':$this->Escribir_JSON($this->datos["persona_centro_votacion"]);break;
@@ -113,6 +117,7 @@ class Centro_Votacion extends Controlador
                 break;
 
             case 'Editar':
+            if ($_SESSION["Centros votacion"]["modificar"] === 1) {
                 $cont   = 0;
                 $existe = 0;
                 foreach ($this->datos["centros_votacion"] as $cv) {
@@ -157,6 +162,7 @@ class Centro_Votacion extends Controlador
                 }
                 echo $this->mensaje;
                 unset($cont,$existe,$id,$this->mensaje);
+            }else{$this->_403_();}
                 break;
 
             default:$this->vista->Cargar_Vistas('error/400');break;

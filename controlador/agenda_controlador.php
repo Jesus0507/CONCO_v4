@@ -32,12 +32,20 @@ class Agenda extends Controlador
 
         switch ($peticion) {
 
-            case 'Registros':$this->vista->Cargar_Vistas('agenda/registrar');break;
-            case 'Consultas':$this->vista->Cargar_Vistas('agenda/consultar');break;
+            case 'Registros':
+            if ($_SESSION["Agenda"]["registrar"] === 1) {
+               $this->vista->Cargar_Vistas('agenda/registrar');
+            }else{$this->_403_();}
+                break;
+            case 'Consultas':
+            if ($_SESSION["Agenda"]["consultar"] === 1) {
+                $this->vista->Cargar_Vistas('agenda/consultar');
+            }else{$this->_403_();}
+            break;
 
             case 'Administrar':
+            if ($_SESSION["Agenda"]["eliminar"] === 1 || $_SESSION["Agenda"]["modificar"] === 1) {
                 if (isset($_POST['datos'])) {
-
                 unset($_POST['datos']["primer_nombre"],$_POST['datos']["primer_apellido"],$_POST['datos']["cedula_persona"]);
                     $this->modelo->Datos($_POST['datos']);
                 } else {
@@ -52,9 +60,11 @@ class Agenda extends Controlador
                 if ($this->modelo->Administrar()) {$this->mensaje = 1;$this->Accion($_POST['accion']);}
 
                 echo $this->mensaje;unset($_POST, $this->mensaje);
+            }else{$this->_403_();}
                 break;
             case 'Registrar':
-
+            if ($_SESSION["Agenda"]["registrar"] === 1) {
+               
                 $this->modelo->__SET("SQL", $_POST['sql']);$this->modelo->__SET("tipo", "1");
 
                 for ($i = 0; $i < count($_POST['datos']['fechas']); $i++) {
@@ -69,6 +79,7 @@ class Agenda extends Controlador
                     if ($this->modelo->Administrar()) {$this->mensaje = 1;$this->Accion($_POST['accion']);}
                 }
                 echo $this->mensaje;unset($_POST, $this->mensaje);
+                }else{$this->_403_();}
                 break;
 
             case 'Consulta_Ajax':
