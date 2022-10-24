@@ -18,7 +18,7 @@
             </center>
         </div>
     </div>
-    <div class="row" style="position: absolute;top: 40%;left: 27%;">
+    <div class="row" style="position: absolute;top: 50%;left: 27%;">
         <div class="col-12">
             
         </div>

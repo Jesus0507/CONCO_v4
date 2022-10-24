@@ -53,15 +53,6 @@ class Negocios_Validacion extends Validacion
                                                     } else {
                                                         if ($this->Validar_Estado($_POST["datos"]["estado"])) {
                                                             $Errores[] = 'el estado es invalido ';
-                                                        } else {
-                                                            $_POST["datos"] = array(
-                                                                "id_calle"           => $this->Datos_Limpios($_POST["datos"]["id_calle"]),
-                                                                "direccion_negocio"  => $this->Datos_Limpios($_POST["datos"]["direccion_negocio"]),
-                                                                "nombre_negocio"     => $this->Datos_Limpios($_POST["datos"]["nombre_negocio"]),
-                                                                "cedula_propietario" => $this->Datos_Limpios($_POST["datos"]["cedula_propietario"]),
-                                                                "rif_negocio"        => $this->Datos_Limpios($_POST["datos"]["rif_negocio"]),
-                                                                "estado"             => $this->Datos_Limpios($_POST["datos"]["estado"]),
-                                                            );
                                                         }
                                                     }
                                                 }

@@ -29,10 +29,18 @@ class Negocios extends Controlador
         if (isset($_POST['peticion'])) {$peticion = $_POST['peticion'];} else { $peticion = $peticion[0];}
 
         switch ($peticion) {
-            case 'Registros':$this->vista->Cargar_Vistas('negocios/registrar');break;
-            case 'Consultas':$this->vista->Cargar_Vistas('negocios/consultar');break;
-
+            case 'Registros':
+            if ($_SESSION["Negocios"]["registrar"] === 1) {
+                $this->vista->Cargar_Vistas('negocios/registrar');
+            }else{$this->_403_();}
+                break;
+            case 'Consultas':
+            if ($_SESSION["Negocios"]["consultar"] === 1) {
+                $this->vista->Cargar_Vistas('negocios/consultar');
+            }else{$this->_403_();}
+                break;
             case 'Administrar':
+            if ($_SESSION["Negocios"]["registrar"] === 1 || $_SESSION["Negocios"]["modificar"] === 1) {
                 $this->Validacion("negocios");
                 if ($this->validacion->Validacion_Registro()) {
                     $this->modelo->Datos($_POST['datos']);
@@ -42,8 +50,10 @@ class Negocios extends Controlador
                     echo $this->validacion->Fallo();
                 }
                 unset($_POST, $this->mensaje); 
+            }else{$this->_403_();} 
                 break;
             case 'Eliminar':
+            if ($_SESSION["Negocios"]["eliminar"] === 1) {
                 $this->modelo->Estado($_POST['estado']);
                 $this->modelo->Datos([
                     $_POST['estado']["id_tabla"] => $_POST['estado']["param"],
@@ -51,6 +61,7 @@ class Negocios extends Controlador
                 ]);
                 $this->Ejecutar_Sentencia();
                 echo $this->mensaje;unset($_POST, $this->mensaje);
+            }else{$this->_403_();}
             break;
 
             case 'Consulta_Ajax':$this->Escribir_JSON($this->datos["negocios"]);break;

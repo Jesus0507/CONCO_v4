@@ -63,15 +63,13 @@ class Controlador
         if ($var == null || $var == '') {
             session_start();
             session_destroy();
-            $this->vista->Cargar_Vistas('error/403');
-            die();
+            $this->_403_();
         }
     }
 
-    public function Seguridad_de_Modulo($accion,$modulo)
+    public function _403_()
     {
-        @session_start();
-       return $_SESSION[$modulo][$accion]; 
+        die($this->vista->Cargar_Vistas('error/403'));  
     }
 
     public function Codificar($string)
