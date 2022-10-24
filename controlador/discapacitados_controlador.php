@@ -28,10 +28,19 @@ class Discapacitados extends Controlador
         if (isset($_POST['peticion'])) {$peticion = $_POST['peticion'];} else { $peticion = $peticion[0];}
 
         switch ($peticion) {
-            case 'Registros':$this->vista->Cargar_Vistas('discapacitados/registrar');break;
-            case 'Consultas':$this->vista->Cargar_Vistas('discapacitados/consultar');break;
+            case 'Registros':
+            if ($_SESSION["Discapacitados"]["registrar"] === 1) {
+                $this->vista->Cargar_Vistas('discapacitados/registrar');
+            }else{$this->_403_();}
+                break;
+            case 'Consultas':
+            if ($_SESSION["Discapacitados"]["consultar"] === 1) {
+                $this->vista->Cargar_Vistas('discapacitados/consultar');
+            }else{$this->_403_();}
+                break;
 
             case 'Eliminar':
+            if ($_SESSION["Discapacitados"]["eliminar"] === 1) {
                 $this->modelo->__SET("eliminar", array(
                     "tabla"    => $_POST['estado']["tabla"],
                     "id_tabla" => $_POST['estado']["id_tabla"])
@@ -42,8 +51,10 @@ class Discapacitados extends Controlador
                 if ($this->modelo->Administrar()) {$this->mensaje = 1;$this->Accion($_POST['accion']);}
 
                 echo $this->mensaje;unset($_POST, $this->mensaje);
+            }else{$this->_403_();}
                 break;
             case 'Registrar':
+            if ($_SESSION["Discapacitados"]["registrar"] === 1) {
                 for ($i = 0; $i < count($_POST['discapacidades']); $i++) {
                     if ($_POST['discapacidades'][$i]['nuevo'] == '0') {
                         $this->modelo->__SET("SQL", $_POST['sql']); $this->modelo->__SET("tipo", "1");
@@ -80,6 +91,7 @@ class Discapacitados extends Controlador
                     }
                 }
                 echo $this->mensaje;unset($this->mensaje, $id, $_POST);
+            }else{$this->_403_();}
                 break;
             case 'Consulta_Ajax':
                 $retornar = [];

@@ -31,11 +31,20 @@ class Consejo_Comunal extends Controlador
         if (isset($_POST['peticion'])) {$peticion = $_POST['peticion'];} else { $peticion = $peticion[0];}
 
         switch ($peticion) {
-            case 'Registros':$this->vista->Cargar_Vistas('consejo_comunal/registrar');break;
-            case 'Consultas':$this->vista->Cargar_Vistas('consejo_comunal/consultar');break;
+            case 'Registros':
+            if ($_SESSION["Comite"]["registrar"] === 1) {
+               $this->vista->Cargar_Vistas('consejo_comunal/registrar');
+            }else{$this->_403_();}
+                break;
+            case 'Consultas':
+            if ($_SESSION["Comite"]["consultar"] === 1) {
+               $this->vista->Cargar_Vistas('consejo_comunal/consultar');
+            }else{$this->_403_();}
+                break;
             case 'Consulta_Ajax':$this->Escribir_JSON($this->datos["consejo_comunal"]);break;
 
             case 'Registrar':
+            if ($_SESSION["Comite"]["registrar"] === 1) {
                 $this->Validacion("consejo_comunal");
                 if ($this->validacion->Validacion_Registro()) {
                     foreach ($this->datos["comite"] as $tabla_comite) {
@@ -51,8 +60,10 @@ class Consejo_Comunal extends Controlador
                     echo $this->validacion->Fallo();
                 }
                 unset($this->mensaje,$_POST,$id_comite);
+            }else{$this->_403_();}
                 break;
             case 'Eliminar':
+            if ($_SESSION["Comite"]["eliminar"] === 1) {
                 $this->modelo->__SET("eliminar", array(
                     "tabla"    => $_POST['estado']["tabla"],
                     "id_tabla" => $_POST['estado']["id_tabla"]));
@@ -62,9 +73,11 @@ class Consejo_Comunal extends Controlador
                 if ($this->modelo->Administrar()) {$this->mensaje = 1;$this->Accion($_POST['accion']);}
 
                 echo $this->mensaje;unset($_POST, $this->mensaje);
+            }else{$this->_403_();}
                 break;
 
             case 'Editar':
+            if ($_SESSION["Comite"]["modificar"] === 1) {
                 $this->Validacion("consejo_comunal");
                 if ($this->validacion->Validacion_Registro()) {
                 foreach ($this->datos["comite"] as $tabla_comite) {
@@ -81,6 +94,7 @@ class Consejo_Comunal extends Controlador
                     echo $this->validacion->Fallo();
                 }
                 unset($this->mensaje,$_POST,$id_comite);
+            }else{$this->_403_();}
                 break;
 
             default:$this->vista->Cargar_Vistas('error/400');break;
