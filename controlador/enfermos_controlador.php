@@ -28,11 +28,20 @@ class Enfermos extends Controlador
         if (isset($_POST['peticion'])) {$peticion = $_POST['peticion'];} else { $peticion = $peticion[0];}
 
         switch ($peticion) {
-            case 'Registros':$this->vista->Cargar_Vistas('enfermos/registrar');break;
-            case 'Consultas':$this->vista->Cargar_Vistas('enfermos/consultar');break;
+            case 'Registros':
+            if ($_SESSION["Enfermos"]["registrar"] === 1) {
+                $this->vista->Cargar_Vistas('enfermos/registrar');
+            }else{$this->_403_();}
+                break;
+            case 'Consultas':
+            if ($_SESSION["Enfermos"]["consultar"] === 1) {
+                $this->vista->Cargar_Vistas('enfermos/consultar');
+            }else{$this->_403_();}
+                break;
 
             case 'Eliminar':
-                $this->modelo->__SET("eliminar", array(
+            if ($_SESSION["Enfermos"]["eliminar"] === 1) {
+               $this->modelo->__SET("eliminar", array(
                     "tabla"    => $_POST['estado']["tabla"],
                     "id_tabla" => $_POST['estado']["id_tabla"]
                 ));
@@ -42,9 +51,11 @@ class Enfermos extends Controlador
                 if ($this->modelo->Administrar()) {$this->mensaje = 1;$this->Accion($_POST['accion']);}
 
                 echo $this->mensaje;unset($_POST, $this->mensaje);
+            }else{$this->_403_();}
                 break;
 
             case 'Registrar':
+            if ($_SESSION["Enfermos"]["registrar"] === 1) {
                 for ($i = 0; $i < count($_POST['enfermedades']); $i++) {
                     if ($_POST['enfermedades'][$i]['nuevo'] == '0') {
                         $this->modelo->__SET("SQL", $_POST['sql']);$this->modelo->__SET("tipo", "1");
@@ -79,6 +90,7 @@ class Enfermos extends Controlador
                     }
                 }
                 echo $this->mensaje;unset($this->mensaje, $id, $_POST);
+            }else{$this->_403_();}
                 break;
 
             case 'Consulta_Ajax':

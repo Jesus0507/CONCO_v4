@@ -30,10 +30,19 @@ class Familias extends Controlador
         if (isset($_POST['peticion'])) {$peticion = $_POST['peticion'];} else { $peticion = $peticion[0];}
 
         switch ($peticion) {
-            case 'Registros':$this->vista->Cargar_Vistas('familia/registrar');break;
-            case 'Consultas':$this->vista->Cargar_Vistas('familia/consultar');break;
+            case 'Registros':
+            if ($_SESSION["Nucleo familiar"]["registrar"] === 1) {
+               $this->vista->Cargar_Vistas('familia/registrar');
+            }else{$this->_403_();}
+                break;
+            case 'Consultas':
+            if ($_SESSION["Nucleo familiar"]["consultar"] === 1) {
+                $this->vista->Cargar_Vistas('familia/consultar');
+            }else{$this->_403_();}
+                break;
 
             case 'Administrar':
+            if ($_SESSION["Nucleo familiar"]["registrar"] === 1) {
                 $this->Validacion("familias");
                 if ($this->validacion->Validacion_Registro()) {
                 $this->modelo->__SET("SQL", $_POST['sql']);
@@ -59,9 +68,11 @@ class Familias extends Controlador
                     echo $this->validacion->Fallo();
                 }
                 unset($_POST, $this->mensaje,$id);
+            }else{$this->_403_();}
                 break;
 
             case 'Editar':
+            if ($_SESSION["Nucleo familiar"]["modificar"] === 1) {
                 $this->Validacion("familias");
                 if ($this->validacion->Validacion_Registro()) {
                 $this->modelo->__SET("SQL", $_POST['sql']);
@@ -83,9 +94,11 @@ class Familias extends Controlador
                     echo $this->validacion->Fallo();
                 }
                 unset($_POST, $this->mensaje,$id);
+            }else{$this->_403_();}
                 break;
 
             case 'Eliminar':
+            if ($_SESSION["Nucleo familiar"]["eliminar"] === 1) {
                 $this->modelo->Estado($_POST['estado']);
                 $this->modelo->Datos([
                     $_POST['estado']["id_tabla"] => $_POST['estado']["param"],
@@ -95,6 +108,7 @@ class Familias extends Controlador
                 if ($this->modelo->Administrar()) {$this->mensaje = 1;$this->Accion($_POST['accion']);}
 
                 echo $this->mensaje;unset($_POST, $this->mensaje);
+            }else{$this->_403_();}
                 break;
 
             case 'Consulta_Ajax':
@@ -155,6 +169,7 @@ class Familias extends Controlador
                 break;
 
             case 'Eliminar_Integrantes':
+            if ($_SESSION["Nucleo familiar"]["modificar"] === 1) {
                 $retornar = 0;
                 $this->modelo->__SET("SQL", "_07_");$this->modelo->__SET("tipo", "1");
                 $this->modelo->__SET("eliminar", array(
@@ -180,6 +195,7 @@ class Familias extends Controlador
                     }
                 }
                 echo json_encode($retornar);unset($integrantes, $retornar, $_POST);
+            }else{$this->_403_();}
                 break;
 
             default:$this->vista->Cargar_Vistas('error/400');break;
