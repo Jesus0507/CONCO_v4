@@ -372,6 +372,15 @@ private static $installed = array (
       ),
       'reference' => '34a41e998c2183e22995f158c581e7b5e755ab9e',
     ),
+    'tuupola/base62' => 
+    array (
+      'pretty_version' => '1.0.1',
+      'version' => '1.0.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '035d71cc34027ca819b774cf3640f3ae6f8255fd',
+    ),
     'webmozart/assert' => 
     array (
       'pretty_version' => '1.10.0',

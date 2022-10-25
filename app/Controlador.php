@@ -100,15 +100,16 @@ class Controlador
     {
         $codec   = '';
         $decodec = '';
-        
+        $base62 = new Tuupola\Base62;
+
         if ($accion === 1) {
             for ($i = 0; $i < strlen($string); $i++) {
                 $codec = $codec . base64_encode($string[$i]) . "#";
             }
-            $string = base64_encode(base64_encode(base64_encode($string)));
-            
+            $string = base64_encode(base64_encode(base64_encode($codec)));
+            $salida = $base62->encode($string);
         } else if ($accion === 0) {
-            
+            $string = $base62->decode($string);
             $string = base64_decode(base64_decode(base64_decode($string)));
             $string = explode("#", $string);
 
@@ -118,7 +119,7 @@ class Controlador
             $salida = filter_var($decodec, FILTER_SANITIZE_STRING);
         }
         return $salida;
-        unset($codec, $decodec, $metodo, $ivlen, $iv, $string, $accion, $salida);
+        unset($codec, $decodec, $base62, $string, $accion, $salida);
     }
 
     public function GenerateRSAKeys($keys)

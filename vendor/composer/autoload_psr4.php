@@ -9,6 +9,7 @@ return array(
     'phpDocumentor\\Reflection\\' => array($vendorDir . '/phpdocumentor/reflection-common/src', $vendorDir . '/phpdocumentor/reflection-docblock/src', $vendorDir . '/phpdocumentor/type-resolver/src'),
     'Webmozart\\Assert\\' => array($vendorDir . '/webmozart/assert/src'),
     'Validacion\\' => array($baseDir . '/controlador/backend', $baseDir . '/controlador/backend'),
+    'Tuupola\\' => array($vendorDir . '/tuupola/base62/src'),
     'Tests\\' => array($baseDir . '/tests'),
     'Symfony\\Polyfill\\Ctype\\' => array($vendorDir . '/symfony/polyfill-ctype'),
     'Prueba\\' => array($baseDir . '/tests'),
