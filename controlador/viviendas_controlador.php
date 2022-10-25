@@ -39,10 +39,19 @@ class Viviendas extends Controlador
         if (isset($_POST['peticion'])) {$peticion = $_POST['peticion'];} else { $peticion = $peticion[0];}
 
         switch ($peticion) {
-            case 'Registros':$this->vista->Cargar_Vistas('vivienda/registrar');break;
-            case 'Consultas':$this->vista->Cargar_Vistas('vivienda/consultar');break;
+            case 'Registros':
+            if ($_SESSION["Viviendas"]["registrar"] === 1) {    
+                $this->vista->Cargar_Vistas('vivienda/registrar');
+            }else{$this->_403_();}
+                break;
+            case 'Consultas':
+            if ($_SESSION["Viviendas"]["consultar"] === 1) {    
+                $this->vista->Cargar_Vistas('vivienda/consultar');
+            }else{$this->_403_();}
+                break;
 
             case 'Registrar':
+            if ($_SESSION["Viviendas"]["registrar"] === 1) {  
                 $this->modelo->__SET("SQL", "SQL_12");$this->modelo->__SET("tipo", "1");
                 $this->modelo->Datos($_POST['vivienda']['id_servicio']);
                 if ($this->modelo->Administrar()) {
@@ -203,9 +212,11 @@ class Viviendas extends Controlador
                 }
                 $this->Accion($_POST['accion']);
                 echo $this->mensaje;
+            }else{$this->_403_();}
                 break;
 
             case 'Actualizar':
+            if ($_SESSION["Viviendas"]["modificar"] === 1) { 
                 $this->modelo->__SET("tipo", "0");$this->modelo->__SET("SQL", "_05_");
                 $this->modelo->__SET("consultar", array(
                     "tabla"   => $_POST['datos']["tabla"],
@@ -257,6 +268,7 @@ class Viviendas extends Controlador
                     }
                 }
                 echo $this->mensaje;
+            }else{$this->_403_();}
                 break;
 
             case 'Consulta_Ajax':
@@ -535,6 +547,7 @@ class Viviendas extends Controlador
                 break;
 
             case 'Eliminar':
+            if ($_SESSION["Viviendas"]["eliminar"] === 1) {
                 $this->modelo->__SET("SQL", "_07_");$this->modelo->__SET("tipo", "1");
                 $this->modelo->__SET("eliminar", array(
                     "tabla"    => $_POST['datos']["tabla"],
@@ -543,6 +556,7 @@ class Viviendas extends Controlador
                 $this->modelo->Datos([$_POST['datos']["id_tabla"] => $_POST['datos']['id']]);
                 if ($this->modelo->Administrar()) {$this->mensaje = 1;}
                 echo $this->mensaje;unset($this->mensaje);
+            }else{$this->_403_();}
                 break;
 
             case 'Eliminar_Vivienda':

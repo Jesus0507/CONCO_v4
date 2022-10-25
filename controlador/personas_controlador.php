@@ -132,19 +132,21 @@ class Personas extends Controlador
     public function Registros()
     {
         $this->Seguridad_de_Session();
-        $this->vista->transportes    = $this->modelo->get_transportes();
-        $this->vista->comunidades    = $this->modelo->get_comunidades();
-        $this->vista->organizaciones = $this->modelo->get_organizaciones();
-        //      $this->vista->centros_votacion=$this->modelo->get_centros();
-        //      $this->vista->parroquias=$this->modelo->get_parroquias();
-        $this->vista->bonos = $this->modelo->get_bonos();
-        //      $this->vista->enfermedades=$this->modelo->get_enfermedades();
-        //      $this->vista->discapacidades=$this->modelo->get_discapacidad();
-        $this->vista->misiones    = $this->modelo->get_misiones();
-        $this->vista->ocupaciones = $this->modelo->get_ocupaciones();
-        $this->vista->condiciones = $this->modelo->get_condiciones();
-        $this->vista->proyectos   = $this->modelo->get_proyectos();
-        $this->vista->Cargar_Vistas('personas/registrar');
+        if ($_SESSION["Personas"]["registrar"] === 1) {
+            $this->vista->transportes    = $this->modelo->get_transportes();
+            $this->vista->comunidades    = $this->modelo->get_comunidades();
+            $this->vista->organizaciones = $this->modelo->get_organizaciones();
+            //      $this->vista->centros_votacion=$this->modelo->get_centros();
+            //      $this->vista->parroquias=$this->modelo->get_parroquias();
+            $this->vista->bonos = $this->modelo->get_bonos();
+            //      $this->vista->enfermedades=$this->modelo->get_enfermedades();
+            //      $this->vista->discapacidades=$this->modelo->get_discapacidad();
+            $this->vista->misiones    = $this->modelo->get_misiones();
+            $this->vista->ocupaciones = $this->modelo->get_ocupaciones();
+            $this->vista->condiciones = $this->modelo->get_condiciones();
+            $this->vista->proyectos   = $this->modelo->get_proyectos();
+            $this->vista->Cargar_Vistas('personas/registrar');
+        } else { $this->_403_();}
     }
 
     public function Registros_habitante()
@@ -168,16 +170,18 @@ class Personas extends Controlador
     public function Consultas()
     {
         /* $this->Establecer_Consultas(); */
-        $this->vista->transportes    = $this->modelo->get_transportes();
-        $this->vista->comunidades    = $this->modelo->get_comunidades();
-        $this->vista->ocupaciones    = $this->modelo->get_ocupaciones();
-        $this->vista->condiciones    = $this->modelo->get_condiciones();
-        $this->vista->organizaciones = $this->modelo->get_organizaciones();
-        $this->vista->bonos          = $this->Consultar_Tabla("bonos", 1, "id_bono");
-        $this->vista->misiones       = $this->Consultar_Tabla("misiones", 1, "id_mision");
-        $this->vista->proyectos      = $this->Consultar_Tabla("proyecto", 1, "id_proyecto");
-        $this->Seguridad_de_Session();
-        $this->vista->Cargar_Vistas('personas/consultar');
+        if ($_SESSION["Personas"]["consultar"] === 1) {
+            $this->vista->transportes    = $this->modelo->get_transportes();
+            $this->vista->comunidades    = $this->modelo->get_comunidades();
+            $this->vista->ocupaciones    = $this->modelo->get_ocupaciones();
+            $this->vista->condiciones    = $this->modelo->get_condiciones();
+            $this->vista->organizaciones = $this->modelo->get_organizaciones();
+            $this->vista->bonos          = $this->Consultar_Tabla("bonos", 1, "id_bono");
+            $this->vista->misiones       = $this->Consultar_Tabla("misiones", 1, "id_mision");
+            $this->vista->proyectos      = $this->Consultar_Tabla("proyecto", 1, "id_proyecto");
+            $this->Seguridad_de_Session();
+            $this->vista->Cargar_Vistas('personas/consultar');
+        } else { $this->_403_();}
     }
 
     public function consultar_informacion_persona()
@@ -272,7 +276,7 @@ class Personas extends Controlador
     public function registrar_persona()
     {
         $datos                        = $_POST['datos'];
-        $datos['preguntas_seguridad'] = explode('/',$datos['preguntas_seguridad']);
+        $datos['preguntas_seguridad'] = explode('/', $datos['preguntas_seguridad']);
         $datos['user_rsa_keys']       = $this->GenerateRSAKeys($datos['preguntas_seguridad']);
         $datos['preguntas_seguridad'] = $datos['preguntas_seguridad'][0] . $datos['preguntas_seguridad'][1] . $datos['preguntas_seguridad'][2];
         $datos['contrasenia']         = $this->Codificar($datos['contrasenia']);
@@ -280,7 +284,7 @@ class Personas extends Controlador
         $datos['firma_digital']       = $this->Codificar($datos['firma_digital']);
         $datos['user_locked']         = 0;
         $datos['estado']              = 1;
-       echo $this->modelo->Registrar($datos);
+        echo $this->modelo->Registrar($datos);
 
         // echo json_encode($datos);
 
@@ -518,13 +522,13 @@ class Personas extends Controlador
 
     public function eliminacion_logica()
     {
+        if ($_SESSION["Personas"]["eliminar"] === 1) {
+            $cedula = $_POST['cedula_persona'];
 
-        $cedula = $_POST['cedula_persona'];
-
-        if ($this->Desactivar("personas", "cedula_persona", $cedula)) {
-            echo 1;
-        }
-
+            if ($this->Desactivar("personas", "cedula_persona", $cedula)) {
+                echo 1;
+            }
+        } else { $this->_403_();}
     }
 
     public function get_serial_carnet()
@@ -577,18 +581,20 @@ class Personas extends Controlador
 
     public function modificar_persona()
     {
-        $datos_persona = $_POST["datos_persona"];
-        $editado       = $this->modelo->Actualizar($datos_persona);
+        if ($_SESSION["Personas"]["modificar"] === 1) {
+            $datos_persona = $_POST["datos_persona"];
+            $editado       = $this->modelo->Actualizar($datos_persona);
 
-        if ($editado) {
-            $this->editar_comunidad_indigena($datos_persona);
-            $this->editar_ocupacion($datos_persona);
-            $this->editar_cond_laboral($datos_persona);
-            $this->editar_org_politica($datos_persona);
-            $this->editar_transporte($datos_persona);
-        }
+            if ($editado) {
+                $this->editar_comunidad_indigena($datos_persona);
+                $this->editar_ocupacion($datos_persona);
+                $this->editar_cond_laboral($datos_persona);
+                $this->editar_org_politica($datos_persona);
+                $this->editar_transporte($datos_persona);
+            }
 
-        echo $editado;
+            echo $editado;
+        } else { $this->_403_();}
     }
 
     public function get_info_vacunado()
