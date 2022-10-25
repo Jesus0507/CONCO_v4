@@ -37,12 +37,6 @@ class Parto_Humanizado_Validacion extends Validacion
                                     } else {
                                         if ($this->Validar_Estado($_POST["datos"]["estado"])) {
                                             $Errores[] = 'el estado es invalido ';
-                                        } else {
-                                            $_POST["datos"]["cedula_persona"]         = $this->Datos_Limpios($_POST["datos"]["cedula_persona"]);
-                                            $_POST["datos"]["recibe_micronutrientes"] = $this->Datos_Limpios($_POST["datos"]["recibe_micronutrientes"]);
-                                            $_POST["datos"]["tiempo_gestacion"]       = $this->Datos_Limpios($_POST["datos"]["tiempo_gestacion"]);
-                                            $_POST["datos"]["fecha_aprox_parto"]      = $this->Datos_Limpios($_POST["datos"]["fecha_aprox_parto"]);
-                                            $_POST["datos"]["estado"]                 = $this->Datos_Limpios($_POST["datos"]["estado"]);
                                         }
                                     }
                                 }

@@ -27,14 +27,21 @@ class Sector_Agricola extends Controlador
         if (isset($_POST['peticion'])) {$peticion = $_POST['peticion'];} else { $peticion = $peticion[0];}
 
         switch ($peticion) {
-            case 'Registros':$this->vista->Cargar_Vistas('sector_agricola/registrar');
+            case 'Registros':
+            if ($_SESSION["Sector agricola"]["registrar"] === 1) {
+                $this->vista->Cargar_Vistas('sector_agricola/registrar');
+            }else{$this->_403_();}
                 break;
-            case 'Consultas':$this->vista->Cargar_Vistas('sector_agricola/consultar');
+            case 'Consultas':
+            if ($_SESSION["Sector agricola"]["consultar"] === 1) {
+                $this->vista->Cargar_Vistas('sector_agricola/consultar');
+            }else{$this->_403_();}
                 break;
             case 'Consulta_Ajax':$this->Escribir_JSON($this->datos["sector_agricola"]);
-                break;
+                break; 
 
             case 'Administrar':
+            if ($_SESSION["Sector agricola"]["registrar"] === 1 || $_SESSION["Sector agricola"]["modificar"] === 1) {
                 $this->Validacion("Sector_Agricola");
                 if ($this->validacion->Validacion_Registro()) {
                     $this->modelo->Datos($_POST['datos']);
@@ -44,9 +51,11 @@ class Sector_Agricola extends Controlador
                     echo $this->validacion->Fallo();
                 }
                 unset($_POST, $this->mensaje);
+            }else{$this->_403_();}
                 break;
 
             case 'Eliminar':
+            if ($_SESSION["Sector agricola"]["eliminar"] === 1) {
                 $this->modelo->Estado($_POST['estado']);
                 $this->modelo->Datos([
                     $_POST['estado']["id_tabla"] => $_POST['estado']["param"],
@@ -55,6 +64,7 @@ class Sector_Agricola extends Controlador
                 $this->Ejecutar_Sentencia();
                 echo $this->mensaje;
                 unset($_POST, $this->mensaje);
+            }else{$this->_403_();}
                 break;
 
             case 'Existente':

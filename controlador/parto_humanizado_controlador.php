@@ -27,11 +27,20 @@ class Parto_Humanizado extends Controlador
         if (isset($_POST['peticion'])) {$peticion = $_POST['peticion'];} else { $peticion = $peticion[0];}
 
         switch ($peticion) {
-            case 'Registros':$this->vista->Cargar_Vistas('parto_humanizado/registrar');break;
-            case 'Consultas':$this->vista->Cargar_Vistas('parto_humanizado/consultar');break;
+            case 'Registros':
+            if ($_SESSION["Parto humanizado"]["registrar"] === 1) {
+               $this->vista->Cargar_Vistas('parto_humanizado/registrar');
+            }else{$this->_403_();}    
+                break;
+            case 'Consultas':
+            if ($_SESSION["Parto humanizado"]["consultar"] === 1) {
+                $this->vista->Cargar_Vistas('parto_humanizado/consultar');
+            }else{$this->_403_();} 
+                break;
             case 'Consulta_Ajax':$this->Escribir_JSON($this->datos["parto_humanizado"]);break;
 
             case 'Administrar':
+            if ($_SESSION["Parto humanizado"]["registrar"] === 1 || $_SESSION["Parto humanizado"]["modificar"] === 1) {
                 $this->Validacion("parto_humanizado");
                 if ($this->validacion->Validacion_Registro()) {
                     $this->modelo->Datos($_POST['datos']);
@@ -41,9 +50,11 @@ class Parto_Humanizado extends Controlador
                     echo $this->validacion->Fallo();
                 }
                 unset($_POST, $this->mensaje);
+            }else{$this->_403_();} 
                 break;
 
             case 'Eliminar':
+            if ($_SESSION["Parto humanizado"]["eliminar"] === 1) {
                 $this->modelo->Estado($_POST['estado']);
                 $this->modelo->Datos([
                     $_POST['estado']["id_tabla"] => $_POST['estado']["param"],
@@ -51,6 +62,7 @@ class Parto_Humanizado extends Controlador
                 ]);
                 $this->Ejecutar_Sentencia();
                 echo $this->mensaje;unset($_POST, $this->mensaje);
+            }else{$this->_403_();}
                 break;
 
             case 'Persona_Parto_Humanizado':
