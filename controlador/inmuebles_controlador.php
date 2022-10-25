@@ -30,10 +30,19 @@ class Inmuebles extends Controlador
         if (isset($_POST['peticion'])) {$peticion = $_POST['peticion'];} else { $peticion = $peticion[0];}
 
         switch ($peticion) {
-            case 'Registros':$this->vista->Cargar_Vistas('inmueble/registrar');break;
-            case 'Consultas':$this->vista->Cargar_Vistas('inmueble/consultar');break;
+            case 'Registros':
+            if ($_SESSION["Inmuebles"]["registrar"] === 1) {
+               $this->vista->Cargar_Vistas('inmueble/registrar');
+            }else{$this->_403_();}
+                break;
+            case 'Consultas':
+            if ($_SESSION["Inmuebles"]["consultar"] === 1) {
+                $this->vista->Cargar_Vistas('inmueble/consultar');
+            }else{$this->_403_();}
+                break;
 
             case 'Eliminar':
+            if ($_SESSION["Inmuebles"]["eliminar"] === 1) {
                 $this->modelo->Estado($_POST['estado']);
                 $this->modelo->Datos([
                     $_POST['estado']["id_tabla"] => $_POST['estado']["param"],
@@ -41,9 +50,11 @@ class Inmuebles extends Controlador
                 ]);
                 $this->Ejecutar_Sentencia();
                 echo $this->mensaje;unset($_POST, $this->mensaje);
+            }else{$this->_403_();}
                 break;
 
             case 'Administrar': 
+            if ($_SESSION["Inmuebles"]["registrar"] === 1 || $_SESSION["Inmuebles"]["modificar"] === 1) {
                 $cont = 0;
                 $this->Validacion("inmuebles");
                 if ($this->validacion->Validacion_Registro()) {
@@ -79,6 +90,7 @@ class Inmuebles extends Controlador
                 }
                 
                 unset($cont,$id,$_POST,$this->mensaje);
+            }else{$this->_403_();}
                 break;
 
             case 'Consulta_Ajax':$this->Escribir_JSON($this->datos["inmueble"]);break;

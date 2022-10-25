@@ -30,12 +30,21 @@ class Grupos_Deportivos extends Controlador
         if (isset($_POST['peticion'])) {$peticion = $_POST['peticion'];} else { $peticion = $peticion[0];}
 
         switch ($peticion) {
-            case 'Registros':$this->vista->Cargar_Vistas('grupos_deportivos/registrar');break;
-            case 'Consultas':$this->vista->Cargar_Vistas('grupos_deportivos/consultar');break;
+            case 'Registros':
+            if ($_SESSION["Grupos deportivos"]["registrar"] === 1) {
+               $this->vista->Cargar_Vistas('grupos_deportivos/registrar');
+            }else{$this->_403_();}
+                break;
+            case 'Consultas':
+            if ($_SESSION["Grupos deportivos"]["consultar"] === 1) {
+                $this->vista->Cargar_Vistas('grupos_deportivos/consultar');
+            }else{$this->_403_();}
+                break;
             case 'Consulta_Ajax':$this->Escribir_JSON($this->datos["grupos_deportivos"]);break;
             case 'Deportes':$this->Escribir_JSON($this->datos["deportes"]);break;
 
             case 'Eliminar':
+            if ($_SESSION["Grupos deportivos"]["eliminar"] === 1) {
                 $this->modelo->Estado($_POST['estado']);
                 $this->modelo->Datos([
                     $_POST['estado']["id_tabla"] => $_POST['estado']["param"],
@@ -46,9 +55,11 @@ class Grupos_Deportivos extends Controlador
                 if ($this->modelo->Administrar()) {$this->mensaje = 1;$this->Accion($_POST['accion']);}
 
                 echo $this->mensaje;unset($_POST, $this->mensaje);
+            }else{$this->_403_();}
                 break;
 
             case 'Administrar':
+            if ($_SESSION["Grupos deportivos"]["registrar"] === 1 || $_SESSION["Grupos deportivos"]["modificar"] === 1) {
                 foreach ($this->datos["deportes"] as $key => $value) {
                     if ($value["nombre_deporte"] == $_POST['datos']["id_deporte"]) {
                         $_POST['datos']["id_deporte"] = $value["id_deporte"];
@@ -73,6 +84,7 @@ class Grupos_Deportivos extends Controlador
                     }
                 }
                 $this->Accion($_POST['accion']);echo $this->mensaje;unset($_POST, $this->mensaje);
+            }else{$this->_403_();}
                 break;
 
             case 'Datos':

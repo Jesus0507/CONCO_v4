@@ -43,14 +43,6 @@ class Inmuebles_Validacion extends Validacion
                                         } else {
                                             if ($this->Validar_Estado($_POST["datos"]["estado"])) {
                                                 $Errores[] = 'el estado es invalido ';
-                                            } else {
-                                                $_POST["datos"] = array(
-                                                    "id_calle"           => $this->Datos_Limpios($_POST["datos"]["id_calle"]),
-                                                    "nombre_inmueble"    => $this->Datos_Limpios($_POST["datos"]["nombre_inmueble"]),
-                                                    "direccion_inmueble" => $this->Datos_Limpios($_POST["datos"]["direccion_inmueble"]),
-                                                    "id_tipo_inmueble"   => $this->Datos_Limpios($_POST["datos"]["id_tipo_inmueble"]),
-                                                    "estado"             => $this->Datos_Limpios($_POST["datos"]["estado"]),
-                                                );
                                             }
                                         }
                                     }
