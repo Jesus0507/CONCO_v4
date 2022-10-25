@@ -35,6 +35,7 @@
                             <div class="col-md-6 mt-2">
                                 <label for="id_deporte">
                                     Deporte
+                                    <span id='span_deporte' style='color:red'></span>
                                 </label>
                                 <div class="input-group">
                                     <input list="tipo_I" id="id_deporte" name="datos[id_deporte]" class="form-control no-simbolos solo-letras "
@@ -52,6 +53,7 @@
                             <div class="col-md-6 mt-2">
                                 <label for="nombre_grupo_deportivo">
                                     Nombre del grupo deportivo
+                                    <span id='span_nombre_grupo' style='color:red'></span>
                                 </label>
                                 <div class="input-group">
                                     <input class="form-control no-simbolos mb-10" id="nombre_grupo_deportivo"
@@ -63,6 +65,7 @@
                             <div class="col-md-12 mt-2">
                                 <label for="descripcion">
                                     Descripción
+                                    <span id='span_descripcion' style='color:red'></span>
                                 </label>
                                 <div class="input-group">
                                     <input class="form-control no-simbolos mb-10" id="descripcion" name="datos[descripcion]"
@@ -90,7 +93,7 @@
                             </div>
                             <div class="col-md-12 mt-3">
                                   <label>Integrantes agregados a
-                                    <span id='nombre_persona'></span>
+                                    <span id='nombre_equipo'></span>
                                     </label>
 
                                 <div class="text-center" style='width:100%;height:200px;overflow-y: scroll;background: #C7F2EE'>
