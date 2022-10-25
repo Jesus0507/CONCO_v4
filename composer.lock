@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b182387a90a9c53420e90b7ee72c7fb4",
+    "content-hash": "7aada7043ec386ae20e07a0f6d5a1477",
     "packages": [
         {
             "name": "firebase/php-jwt",
@@ -67,6 +67,47 @@
                 "source": "https://github.com/firebase/php-jwt/tree/v6.3.0"
             },
             "time": "2022-07-15T16:48:45+00:00"
+        },
+        {
+            "name": "internetpixels/sodium-encryption",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/internetpixels/sodium-encryption.git",
+                "reference": "72f677aab69e5d7d61773e1c1381cfb908987d94"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/internetpixels/sodium-encryption/zipball/72f677aab69e5d7d61773e1c1381cfb908987d94",
+                "reference": "72f677aab69e5d7d61773e1c1381cfb908987d94",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "InternetPixels\\SodiumEncryption\\": "src",
+                    "InternetPixels\\SodiumEncryption\\Tests\\": "tests"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Peter van Wilderen",
+                    "email": "peter@vanwilderen.nl"
+                }
+            ],
+            "description": "Encrypt and decrypt data with this easy to use PHP encryption library",
+            "support": {
+                "issues": "https://github.com/internetpixels/sodium-encryption/issues",
+                "source": "https://github.com/internetpixels/sodium-encryption/tree/master"
+            },
+            "time": "2018-06-15T06:41:02+00:00"
         },
         {
             "name": "paragonie/random_compat",

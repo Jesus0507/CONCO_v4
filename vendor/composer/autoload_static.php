@@ -53,6 +53,11 @@ class ComposerStaticInit2a8b9cfa11dbcd502b3063f9f8235c8c
             'Modulo\\' => 7,
             'Modelo\\' => 7,
         ),
+        'I' => 
+        array (
+            'InternetPixels\\SodiumEncryption\\Tests\\' => 38,
+            'InternetPixels\\SodiumEncryption\\' => 32,
+        ),
         'F' => 
         array (
             'Firebase\\JWT\\' => 13,
@@ -115,6 +120,14 @@ class ComposerStaticInit2a8b9cfa11dbcd502b3063f9f8235c8c
         'Modelo\\' => 
         array (
             0 => __DIR__ . '/../..' . '/modelo',
+        ),
+        'InternetPixels\\SodiumEncryption\\Tests\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/internetpixels/sodium-encryption/tests',
+        ),
+        'InternetPixels\\SodiumEncryption\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/internetpixels/sodium-encryption/src',
         ),
         'Firebase\\JWT\\' => 
         array (
@@ -191,6 +204,7 @@ class ComposerStaticInit2a8b9cfa11dbcd502b3063f9f8235c8c
         'Discapacitados' => __DIR__ . '/../..' . '/controlador/discapacitados_controlador.php',
         'DiscapacitadosTest' => __DIR__ . '/../..' . '/tests/DiscapacitadosTest.php',
         'Discapacitados_Class' => __DIR__ . '/../..' . '/modelo/discapacitados_class.php',
+        'Discapacitados_Validacion' => __DIR__ . '/../..' . '/controlador/backend/discapacitados_validacion.php',
         'Doctrine\\Instantiator\\Exception\\ExceptionInterface' => __DIR__ . '/..' . '/doctrine/instantiator/src/Doctrine/Instantiator/Exception/ExceptionInterface.php',
         'Doctrine\\Instantiator\\Exception\\InvalidArgumentException' => __DIR__ . '/..' . '/doctrine/instantiator/src/Doctrine/Instantiator/Exception/InvalidArgumentException.php',
         'Doctrine\\Instantiator\\Exception\\UnexpectedValueException' => __DIR__ . '/..' . '/doctrine/instantiator/src/Doctrine/Instantiator/Exception/UnexpectedValueException.php',
@@ -199,6 +213,7 @@ class ComposerStaticInit2a8b9cfa11dbcd502b3063f9f8235c8c
         'Enfermos' => __DIR__ . '/../..' . '/controlador/enfermos_controlador.php',
         'EnfermosTest' => __DIR__ . '/../..' . '/tests/EnfermosTest.php',
         'Enfermos_Class' => __DIR__ . '/../..' . '/modelo/enfermos_class.php',
+        'Enfermos_Validacion' => __DIR__ . '/../..' . '/controlador/backend/enfermos_validacion.php',
         'Errores' => __DIR__ . '/../..' . '/controlador/error_controlador.php',
         'Familias' => __DIR__ . '/../..' . '/controlador/familias_controlador.php',
         'FamiliasTest' => __DIR__ . '/../..' . '/tests/FamiliasTest.php',
@@ -224,6 +239,8 @@ class ComposerStaticInit2a8b9cfa11dbcd502b3063f9f8235c8c
         'InmueblesTest' => __DIR__ . '/../..' . '/tests/InmueblesTest.php',
         'Inmuebles_Class' => __DIR__ . '/../..' . '/modelo/inmuebles_class.php',
         'Inmuebles_Validacion' => __DIR__ . '/../..' . '/controlador/backend/inmuebles_validacion.php',
+        'InternetPixels\\SodiumEncryption\\EncryptionManager' => __DIR__ . '/..' . '/internetpixels/sodium-encryption/src/EncryptionManager.php',
+        'InternetPixels\\SodiumEncryption\\Tests\\EncryptionManagerTest' => __DIR__ . '/..' . '/internetpixels/sodium-encryption/tests/EncryptionManagerTest.php',
         'Login' => __DIR__ . '/../..' . '/controlador/login_controlador.php',
         'LoginTest' => __DIR__ . '/../..' . '/tests/LoginTest.php',
         'Login_Class' => __DIR__ . '/../..' . '/modelo/login_class.php',
@@ -1228,11 +1245,13 @@ class ComposerStaticInit2a8b9cfa11dbcd502b3063f9f8235c8c
         'Usuario' => __DIR__ . '/../..' . '/controlador/usuario_controlador.php',
         'Usuario_Class' => __DIR__ . '/../..' . '/modelo/usuario_class.php',
         'Usuario_Validacion' => __DIR__ . '/../..' . '/controlador/backend/usuario_validacion.php',
+        'Vacunados_Validacion' => __DIR__ . '/../..' . '/controlador/backend/vacunados_validacion.php',
         'Validacion' => __DIR__ . '/../..' . '/app/Validacion.php',
         'Vista' => __DIR__ . '/../..' . '/app/Vista.php',
         'Viviendas' => __DIR__ . '/../..' . '/controlador/viviendas_controlador.php',
         'ViviendasTest' => __DIR__ . '/../..' . '/tests/ViviendasTest.php',
         'Viviendas_Class' => __DIR__ . '/../..' . '/modelo/viviendas_class.php',
+        'Viviendas_Validacion' => __DIR__ . '/../..' . '/controlador/backend/viviendas_validacion.php',
         'Webmozart\\Assert\\Assert' => __DIR__ . '/..' . '/webmozart/assert/src/Assert.php',
         'Webmozart\\Assert\\InvalidArgumentException' => __DIR__ . '/..' . '/webmozart/assert/src/InvalidArgumentException.php',
         'Webmozart\\Assert\\Mixin' => __DIR__ . '/..' . '/webmozart/assert/src/Mixin.php',

@@ -16,6 +16,8 @@ return array(
     'PhpParser\\' => array($vendorDir . '/nikic/php-parser/lib/PhpParser'),
     'Modulo\\' => array($baseDir . '/modelo'),
     'Modelo\\' => array($baseDir . '/modelo'),
+    'InternetPixels\\SodiumEncryption\\Tests\\' => array($vendorDir . '/internetpixels/sodium-encryption/tests'),
+    'InternetPixels\\SodiumEncryption\\' => array($vendorDir . '/internetpixels/sodium-encryption/src'),
     'Firebase\\JWT\\' => array($vendorDir . '/firebase/php-jwt/src'),
     'Doctrine\\Instantiator\\' => array($vendorDir . '/doctrine/instantiator/src/Doctrine/Instantiator'),
     'DeepCopy\\' => array($vendorDir . '/myclabs/deep-copy/src/DeepCopy'),
