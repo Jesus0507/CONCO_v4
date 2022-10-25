@@ -38,15 +38,6 @@
       ),
       'reference' => '018dfc4e1da92ad8a1b90adc4893f476a3b41cb8',
     ),
-    'internetpixels/sodium-encryption' => 
-    array (
-      'pretty_version' => '1.0.0',
-      'version' => '1.0.0.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '72f677aab69e5d7d61773e1c1381cfb908987d94',
-    ),
     'myclabs/deep-copy' => 
     array (
       'pretty_version' => '1.10.2',
