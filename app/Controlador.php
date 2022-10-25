@@ -69,7 +69,7 @@ class Controlador
 
     public function _403_()
     {
-        die($this->vista->Cargar_Vistas('error/403'));  
+        die($this->vista->Cargar_Vistas('error/403'));
     }
 
     public function Codificar($string)
@@ -108,14 +108,11 @@ class Controlador
             for ($i = 0; $i < strlen($string); $i++) {
                 $codec = $codec . base64_encode($string[$i]) . "#";
             }
-            $string = $codec . "@" . bin2hex(openssl_random_pseudo_bytes(20));
             $string = base64_encode(base64_encode(base64_encode($string)));
             $salida = openssl_encrypt($string, $metodo, "2RKrLWk=", OPENSSL_RAW_DATA, $iv);
         } else if ($accion === 0) {
             $string = openssl_decrypt($string, $metodo, "2RKrLWk=", OPENSSL_RAW_DATA, $iv);
             $string = base64_decode(base64_decode(base64_decode($string)));
-            $string = explode('@', $string);
-            $string = $string[0];
             $string = explode("#", $string);
 
             foreach ($string as $str) {
@@ -124,7 +121,7 @@ class Controlador
             $salida = filter_var($decodec, FILTER_SANITIZE_STRING);
         }
         return $salida;
-        unset($codec,$decodec,$metodo,$ivlen,$iv,$string,$accion,$salida);
+        unset($codec, $decodec, $metodo, $ivlen, $iv, $string, $accion, $salida);
     }
 
     public function GenerateRSAKeys($keys)
