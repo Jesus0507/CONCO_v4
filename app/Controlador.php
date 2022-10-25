@@ -100,18 +100,15 @@ class Controlador
     {
         $codec   = '';
         $decodec = '';
-        $metodo  = "AES-128-CBC";
-        $ivlen   = openssl_cipher_iv_length($metodo);
-        $iv      = openssl_random_pseudo_bytes($ivlen);
-
+        
         if ($accion === 1) {
             for ($i = 0; $i < strlen($string); $i++) {
                 $codec = $codec . base64_encode($string[$i]) . "#";
             }
             $string = base64_encode(base64_encode(base64_encode($string)));
-            $salida = openssl_encrypt($string, $metodo, "2RKrLWk=", OPENSSL_RAW_DATA, $iv);
+            
         } else if ($accion === 0) {
-            $string = openssl_decrypt($string, $metodo, "2RKrLWk=", OPENSSL_RAW_DATA, $iv);
+            
             $string = base64_decode(base64_decode(base64_decode($string)));
             $string = explode("#", $string);
 
