@@ -116,16 +116,14 @@ class Usuario extends Controlador
     {
         $this->Validacion("usuario");
         if ($this->validacion->Validacion_Registro()) {
-            $cedula   = $_POST['cedula'];
-            $password = $_POST['contrasenia'];
             $captcha  = $_POST['captcha'];
-
+            $_POST["datos"]["contrasenia"] = $this->Seguridad_Password($_POST["datos"]['contrasenia'], 1);
             $existente = $this->modelo->Buscar_Usuario($_POST["datos"]['cedula']);
             if ($existente == "" || $existente == null) {
                 echo 0;
             } else {
                 foreach ($existente as $existe) {
-                    $contrasenia = $this->Decodificar($existe['contrasenia']);
+                    $contrasenia = $existe['contrasenia']; 
                 }
 
                 if ($existe['estado'] == 0) {

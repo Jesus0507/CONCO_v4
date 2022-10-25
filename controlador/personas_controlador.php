@@ -7,7 +7,7 @@ class Personas extends Controlador
         parent::__construct();
         //     $this->Cargar_Modelo("personas");
     }
-
+ 
     public function Cargar_Vistas()
     {
         $this->Seguridad_de_Session();
@@ -279,7 +279,7 @@ class Personas extends Controlador
         $datos['preguntas_seguridad'] = explode('/', $datos['preguntas_seguridad']);
         $datos['user_rsa_keys']       = $this->GenerateRSAKeys($datos['preguntas_seguridad']);
         $datos['preguntas_seguridad'] = $datos['preguntas_seguridad'][0] . $datos['preguntas_seguridad'][1] . $datos['preguntas_seguridad'][2];
-        $datos['contrasenia']         = $this->Codificar($datos['contrasenia']);
+        $datos['contrasenia']         = $this->Seguridad_Password($datos['contrasenia'], 1);
         $datos['preguntas_seguridad'] = $this->Codificar($datos['preguntas_seguridad']);
         $datos['firma_digital']       = $this->Codificar($datos['firma_digital']);
         $datos['user_locked']         = 0;
@@ -294,7 +294,7 @@ class Personas extends Controlador
     {
 
         $datos                        = $_POST['datos'];
-        $datos['contrasenia']         = $this->Codificar($datos['contrasenia']);
+        $datos['contrasenia']         = $this->Seguridad_Password($datos['contrasenia'], 1);
         $datos['preguntas_seguridad'] = $this->Codificar($datos['preguntas_seguridad']);
         $datos['estado']              = 2;
         echo $this->modelo->Registrar($datos);

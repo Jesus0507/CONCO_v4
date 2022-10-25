@@ -8,7 +8,7 @@ class Login extends Controlador
         $this->vista->mensaje = "";
         //   $this->Cargar_Modelo("login");
     }
-
+ 
     public function Cargar_Vistas(){$this->vista->Cargar_Vistas('login/index');}
 
     public function set_Usuario_Actual($cedula, $nombre, $apellido, $correo, $estado, $rol_inicio, $firma, $publica, $privada)
@@ -57,7 +57,7 @@ class Login extends Controlador
 
             case 'Ingreso':
                 $this->Validacion("login");
-                $_POST["datos"]["password"] = $this->Codificar($_POST["datos"]['password']);
+                $_POST["datos"]["password"] = $this->Seguridad_Password($_POST["datos"]['password'], 1); 
                 if ($this->validacion->Validacion_Registro()) {
                 if (isset($_POST['datos']) && $_POST['datos']['captcha'] !== "") {
                     session_start();

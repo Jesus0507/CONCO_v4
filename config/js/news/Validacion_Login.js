@@ -30,7 +30,6 @@ function envioFormulario() {
     var errores = "";
     var form = $("#formulario_login");
     if (Validar_Datos()) {
-       
         $.ajax({
             type: "POST",
             url: BASE_URL + "app/Direcciones.php",
@@ -102,17 +101,17 @@ function Validar_Datos() {
 
 function Respuesta_Controlador(respuesta, form) {
     console.log(respuesta);
-    switch (respuesta){
+    switch (respuesta) {
         case '0':
             $("#cedula").css("border-color", "#F14B4B");
             $("#cedula").focus();
             $("#mensaje-cedula").html("Usuario No Registrado.");
-        break;
+            break;
         case '1':
             $("#contrasenia").blur();
             form.serialize();
             form.submit();
-        break;
+            break;
         case '2':
             if ($("#captcha_code").val() == "") {
                 errores = "Debe ingresar el codigo de seguridad.";
@@ -123,27 +122,27 @@ function Respuesta_Controlador(respuesta, form) {
                 $("#captcha_code").focus();
                 $("#texto").html("Captcha Inconrrecto, Inntente de Nuevo.");
             }
-        break;
+            break;
         case '3':
             swal({
-                type:"warning",
-                title:"Atención",
-                text:"Ha intentado iniciar sesión erróneamente demasiadas veces, por favor ingrese las preguntas de seguridad para poder cambiar de contraseña",
-                showConfirmButton:false,
-                timer:5000
+                type: "warning",
+                title: "Atención",
+                text: "Ha intentado iniciar sesión erróneamente demasiadas veces, por favor ingrese las preguntas de seguridad para poder cambiar de contraseña",
+                showConfirmButton: false,
+                timer: 5000
             });
-            setTimeout(function(){
+            setTimeout(function() {
                 document.getElementById("olvidado").click();
                 $("#password").modal("show");
-             document.getElementById("cedulaEmergente").value=document.getElementById("cedula").value;
-             document.getElementById("modificarContrasenia").click();
-            },4000);
-        break;
+                document.getElementById("cedulaEmergente").value = document.getElementById("cedula").value;
+                document.getElementById("modificarContrasenia").click();
+            }, 4000);
+            break;
         default:
             $("#contrasenia").css("border-color", "#F14B4B");
             $("#contrasenia").focus();
             $("#mensaje-contrasenia").html(respuesta);
-        break;
+            break;
     }
 }
 
@@ -188,7 +187,6 @@ document.getElementById("modificarContrasenia").onclick = function() {
         } else {
             document.getElementById("cedulaEmergente").style.borderColor = "";
             document.getElementById("textoCedula").innerHTML = "";
-            
             $.ajax({
                 type: "POST",
                 url: BASE_URL + "app/Direcciones.php",
@@ -253,18 +251,17 @@ document.getElementById("modificarContrasenia").onclick = function() {
             var pregunta = document.getElementById("colorFav").value + document.getElementById("animFav").value + document.getElementById("mascota").value;
             if (pregunta.toLowerCase() == info['preguntas_seguridad'].toLowerCase() && document.getElementById("firmaDigital").value.toLowerCase() == info['digital_sign'].toLowerCase()) {
                 if (document.getElementById("passwordEmergente").value == "" || document.getElementById("passwordEmergente2").value == "" || document.getElementById("passwordEmergente").value != document.getElementById("passwordEmergente2").value) {
-                   if(document.getElementById("inputs_contrasenia").style.display=="none"){
-                    $("#inputs_contrasenia").show(500);
-                   }
-                   else{
-                    swal({
-                        type: "error",
-                        title: "Error",
-                        text: "Debe ingresar la clave y la confirmación de la contraseña. Ambos campos deben ser iguales",
-                        timer: 3000,
-                        showConfirmButton: false
-                    });
-                   }
+                    if (document.getElementById("inputs_contrasenia").style.display == "none") {
+                        $("#inputs_contrasenia").show(500);
+                    } else {
+                        swal({
+                            type: "error",
+                            title: "Error",
+                            text: "Debe ingresar la clave y la confirmación de la contraseña. Ambos campos deben ser iguales",
+                            timer: 3000,
+                            showConfirmButton: false
+                        });
+                    }
                 } else {
                     $.ajax({
                         type: "POST",
@@ -293,7 +290,9 @@ document.getElementById("modificarContrasenia").onclick = function() {
                                         timer: 5000,
                                         showConfirmButton: false
                                     });
-                                    setTimeout(function(){location.reload()},4000);
+                                    setTimeout(function() {
+                                        location.reload()
+                                    }, 4000);
                                 }
                             })
                         },
@@ -340,8 +339,6 @@ function solicitar_cambio() {
         }
     });
 }
- 
-
 document.getElementById("cedulaEmergente").onkeyup = function() {
     if (document.getElementById("cedulaEmergente").value != "") {
         document.getElementById("cedulaEmergente").style.borderColor = "";
@@ -354,7 +351,7 @@ document.getElementById("olvidado").onclick = function() {
     document.getElementById("cedulaEmergente").readOnly = "";
     document.getElementById("textoCedula").innerHTML = "";
     document.getElementById("info").style.display = 'none';
-    document.getElementById("inputs_contrasenia").style.display="none";
+    document.getElementById("inputs_contrasenia").style.display = "none";
     document.getElementById("modificarContrasenia").value = 'Consultar';
     var inputs = document.getElementById("info").querySelectorAll("input");
     for (var i = 0; i < inputs.length; i++) {
