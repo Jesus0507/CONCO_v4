@@ -48,15 +48,6 @@ class Grupos_Deportivos_Validacion extends Validacion
                                                 } else {
                                                     if ($this->Validar_Rif($_POST["datos"]["rif_negocio"])) {
                                                         $Errores[] = 'El rif es inválido verifique que la informacion sea correcta.';
-                                                    } else {
-                                                        // if ($this->Validar_Estado($_POST["datos"]["estado"])) {
-                                                        //     $Errores[] = 'el estado es invalido ';
-                                                        // } else {
-                                                        //     $_POST["datos"] = array(
-                                                                
-                                                        //         "estado"             => $this->Datos_Limpios($_POST["datos"]["estado"]),
-                                                        //     );
-                                                        // }
                                                     }
                                                 }
                                             }

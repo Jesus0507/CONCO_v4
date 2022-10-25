@@ -36,13 +36,6 @@ class Centro_Votacion_Validacion extends Validacion
                                 } else {
                                     if ($this->Validar_Estado($_POST["datos"]["estado"])) {
                                         $Errores[] = 'el estado es invalido ';
-                                    } else {
-                                        $_POST["datos"] = array(
-                                            "cedula_votante" => $this->Datos_Limpios($_POST["datos"]["cedula_votante"]),
-                                            "nombre_centro"  => $this->Datos_Limpios($_POST["datos"]["nombre_centro"]),
-                                            "id_parroquia"   => $this->Datos_Limpios($_POST["datos"]["id_parroquia"]),
-                                            "estado"         => $this->Datos_Limpios($_POST["datos"]["estado"]),
-                                        );
                                     }
                                 }
                             }

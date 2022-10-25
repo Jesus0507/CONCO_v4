@@ -66,217 +66,186 @@ class Viviendas_Validacion extends Validacion
                                             } else {
                                                 if ($this->Comprobar($_POST["datos"]["id_tipo_vivienda"])) {
                                                     $Errores[] = 'El campo tipo de vivienda del negocio es obligatorio';
-                                                } else {                                                    
+                                                } else {
                                                     if ($this->Validar($_POST["datos"]["id_tipo_vivienda"])) {
                                                         $Errores[] = 'El tipo de vivienda no debe tener caracteres especiales.';
                                                     } else {
-if ($this->Comprobar($_POST["datos"]["condicion"])) {
-                                                    $Errores[] = 'El campo condicion es obligatorio';
-                                                } else {                                                    
-                                                    if ($this->Validar($_POST["datos"]["condicion"])) {
-                                                        $Errores[] = 'La condicion no debe tener caracteres especiales.';
-                                                    } else {
-
-                                                    }
-                                                }
-                                                if ($this->Comprobar($_POST["datos"]["hacinamiento"])) {
-                                                    $Errores[] = 'El campo hacinamiento es obligatorio';
-                                                } else {                                                    
-                                                    if ($this->Validar($_POST["datos"]["hacinamiento"])) {
-                                                        $Errores[] = 'El hacinamiento no debe tener caracteres especiales.';
-                                                    } else {
-
-                                                    }
-                                                }
-                                                if ($this->Comprobar($_POST["datos"]["espacio_siembra"])) {
-                                                    $Errores[] = 'El campo espacio de siembra es obligatorio';
-                                                } else {                                                    
-                                                    if ($this->Validar($_POST["datos"]["espacio_siembra"])) {
-                                                        $Errores[] = 'El espacio de siembra no debe tener caracteres especiales.';
-                                                    } else {
-
-                                                    }
-                                                }
-                                                if ($this->Comprobar($_POST["datos"]["banio_sanitario"])) {
-                                                    $Errores[] = 'El campo baño sanitario obligatorio';
-                                                } else {                                                    
-                                                    if ($this->Validar($_POST["datos"]["banio_sanitario"])) {
-                                                        $Errores[] = 'El baño sanitario no debe tener caracteres especiales.';
-                                                    } else {
-
-                                                    }
-                                                }
-                                                if ($this->Comprobar($_POST["datos"]["agua_consumo"])) {
-                                                    $Errores[] = 'El campo agua de consumod obligatorio';
-                                                } else {                                                    
-                                                    if ($this->Validar($_POST["datos"]["agua_consumo"])) {
-                                                        $Errores[] = 'El agua de consumo no debe tener caracteres especiales.';
-                                                    } else {
-
-                                                    }
-                                                }
-                                                if ($this->Comprobar($_POST["datos"]["aguas_negras"])) {
-                                                    $Errores[] = 'El campo aguas negras es obligatorio';
-                                                } else {                                                    
-                                                    if ($this->Validar($_POST["datos"]["aguas_negras"])) {
-                                                        $Errores[] = 'El aguas negras no debe tener caracteres especiales.';
-                                                    } else {
-
-                                                    }
-                                                }
-                                                if ($this->Comprobar($_POST["datos"]["residuos_solidos"])) {
-                                                    $Errores[] = 'El campo residuos solidos es obligatorio';
-                                                } else {                                                    
-                                                    if ($this->Validar($_POST["datos"]["residuos_solidos"])) {
-                                                        $Errores[] = 'El residuos_solidos no debe tener caracteres especiales.';
-                                                    } else {
-
-                                                    }
-                                                }
-                                                if ($this->Comprobar($_POST["datos"]["servicio_electrico"])) {
-                                                    $Errores[] = 'El campo servicio electrico es obligatorio';
-                                                } else {                                                    
-                                                    if ($this->Validar($_POST["datos"]["servicio_electrico"])) {
-                                                        $Errores[] = 'El servicio electrico no debe tener caracteres especiales.';
-                                                    } else {
-
-                                                    }
-                                                }
-                                                if ($this->Comprobar($_POST["datos"]["cable_telefonico"])) {
-                                                    $Errores[] = 'El campo cable telefonico es obligatorio';
-                                                } else {                                                    
-                                                    if ($this->Validar($_POST["datos"]["cable_telefonico"])) {
-                                                        $Errores[] = 'El cable telefonico no debe tener caracteres especiales.';
-                                                    } else {
-
-                                                    }
-                                                }
-                                                if ($this->Comprobar($_POST["datos"]["internet"])) {
-                                                    $Errores[] = 'El campo internet es obligatorio';
-                                                } else {                                                    
-                                                    if ($this->Validar($_POST["datos"]["internet"])) {
-                                                        $Errores[] = 'El internet no debe tener caracteres especiales.';
-                                                    } else {
-
-                                                    }
-                                                }
-                                                if ($this->Comprobar($_POST["datos"]["gas"])) {
-                                                    $Errores[] = 'El campo gas es obligatorio';
-                                                } else {                                                    
-                                                    if ($this->Validar($_POST["datos"]["gas"])) {
-                                                        $Errores[] = 'El gas no debe tener caracteres especiales.';
-                                                    } else {
-
-                                                    }
-                                                }
-                                                if ($this->Comprobar($_POST["datos"]["animales_domesticos"])) {
-                                                    $Errores[] = 'El campo animales domesticos es obligatorio';
-                                                } else {                                                    
-                                                    if ($this->Validar($_POST["datos"]["animales_domesticos"])) {
-                                                        $Errores[] = 'El tipo de animales domesticos no debe tener caracteres especiales.';
-                                                    } else {
-
-                                                    }
-                                                }
-                                                if ($this->Comprobar($_POST["datos"]["insectos_roedores"])) {
-                                                    $Errores[] = 'El campo insectos o roedores es obligatorio';
-                                                } else {                                                    
-                                                    if ($this->Validar($_POST["datos"]["insectos_roedores"])) {
-                                                        $Errores[] = 'El insectos o roedores no debe tener caracteres especiales.';
-                                                    } else {
-
-                                                    }
-                                                }
-                                                if ($this->Comprobar($_POST["datos"]["descripcion"])) {
-                                                    $Errores[] = 'El campo descripcion es obligatorio';
-                                                } else {                                                    
-                                                    if ($this->Validar($_POST["datos"]["descripcion"])) {
-                                                        $Errores[] = 'El descripcion no debe tener caracteres especiales.';
-                                                    } else {
-
-                                                    }
-                                                }
-                                                if ($this->Comprobar($_POST["datos"]["tipo_techo"])) {
-                                                    $Errores[] = 'El campo tipo de techo es obligatorio';
-                                                } else {                                                    
-                                                    if ($this->Validar($_POST["datos"]["tipo_techo"])) {
-                                                        $Errores[] = 'El tipo de techo no debe tener caracteres especiales.';
-                                                    } else {
-
-                                                    }
-                                                }
-                                                if ($this->Comprobar($_POST["datos"]["tipo_pared"])) {
-                                                    $Errores[] = 'El campo tipo de pared es obligatorio';
-                                                } else {                                                    
-                                                    if ($this->Validar($_POST["datos"]["tipo_pared"])) {
-                                                        $Errores[] = 'El tipo de pared no debe tener caracteres especiales.';
-                                                    } else {
-
-                                                    }
-                                                }
-                                                if ($this->Comprobar($_POST["datos"]["tipo_piso"])) {
-                                                    $Errores[] = 'El campo tipo de piso es obligatorio';
-                                                } else {                                                    
-                                                    if ($this->Validar($_POST["datos"]["tipo_piso"])) {
-                                                        $Errores[] = 'El tipo de piso no debe tener caracteres especiales.';
-                                                    } else {
-
-                                                    }
-                                                }
-                                                if ($this->Comprobar($_POST["datos"]["servicio_gas"])) {
-                                                    $Errores[] = 'El campo servicio de gas es obligatorio';
-                                                } else {                                                    
-                                                    if ($this->Validar($_POST["datos"]["servicio_gas"])) {
-                                                        $Errores[] = 'El servicio de gas no debe tener caracteres especiales.';
-                                                    } else {
-
-                                                    }
-                                                }
-                                                if ($this->Comprobar($_POST["datos"]["electrodomestico"])) {
-                                                    $Errores[] = 'El campo electrodomestico es obligatorio';
-                                                } else {                                                    
-                                                    if ($this->Validar($_POST["datos"]["electrodomestico"])) {
-                                                        $Errores[] = 'El electrodomestico no debe tener caracteres especiales.';
-                                                    } else {
-
-                                                    }
-                                                
-}                                                    }
-                                                }
-
-
-                                                        if ($this->Validar_Estado($_POST["datos"]["estado"])) {
-                                                            $Errores[] = 'el estado es invalido ';
+                                                        if ($this->Comprobar($_POST["datos"]["condicion"])) {
+                                                            $Errores[] = 'El campo condicion es obligatorio';
                                                         } else {
-                                                            $_POST["datos"] = array(
-                                                                "id_calle"             => $this->Datos_Limpios($_POST["datos"]["id_calle"]),
-                                                                "direccion_vivienda"             => $this->Datos_Limpios($_POST["datos"]["direccion_vivienda"]),
-                                                                "numero_casa"             => $this->Datos_Limpios($_POST["datos"]["numero_casa"]),
-                                                                "cantidad_habitaciones"            => $this->Datos_Limpios($_POST["datos"]["cantidad_habitaciones"]),
-                                                                "id_tipo_vivienda"             => $this->Datos_Limpios($_POST["datos"]["id_tipo_vivienda"]),
-                                                                "condicion"             => $this->Datos_Limpios($_POST["datos"]["condicion"]),
-                                                                "hacinamiento"             => $this->Datos_Limpios($_POST["datos"]["hacinamiento"]),
-                                                                "espacio_siembra"             => $this->Datos_Limpios($_POST["datos"]["espacio_siembra"]),
-                                                                "banio_sanitario"             => $this->Datos_Limpios($_POST["datos"]["banio_sanitario"]),
-                                                                "agua_consumo"             => $this->Datos_Limpios($_POST["datos"]["agua_consumo"]),
-                                                                "aguas_negras"             => $this->Datos_Limpios($_POST["datos"]["aguas_negras"]),
-                                                                "residuos_solidos"             => $this->Datos_Limpios($_POST["datos"]["residuos_solidos"]),
-                                                                "servicio_electrico"             => $this->Datos_Limpios($_POST["datos"]["servicio_electrico"]),
-                                                                "cable_telefonico"             => $this->Datos_Limpios($_POST["datos"]["cable_telefonico"]),
-                                                                "internet"             => $this->Datos_Limpios($_POST["datos"]["internet"]),
-                                                                "gas"             => $this->Datos_Limpios($_POST["datos"]["gas"]),
-                                                                "animales_domesticos"             => $this->Datos_Limpios($_POST["datos"]["animales_domesticos"]),
-                                                                "insectos_roedores"             => $this->Datos_Limpios($_POST["datos"]["insectos_roedores"]),
-                                                                "descripcion"             => $this->Datos_Limpios($_POST["datos"]["descripcion"]),
-                                                                "tipo_techo"             => $this->Datos_Limpios($_POST["datos"]["tipo_techo"]),
-                                                                "tipo_pared"             => $this->Datos_Limpios($_POST["datos"]["tipo_pared"]),
-                                                                "tipo_piso"             => $this->Datos_Limpios($_POST["datos"]["tipo_piso"]),
-                                                                "servicio_gas"             => $this->Datos_Limpios($_POST["datos"]["servicio_gas"]),
-                                                                "electrodomestico"             => $this->Datos_Limpios($_POST["datos"]["electrodomestico"]),
-                                                                "estado"             => $this->Datos_Limpios($_POST["datos"]["estado"]),
-                                                            );
+                                                            if ($this->Validar($_POST["datos"]["condicion"])) {
+                                                                $Errores[] = 'La condicion no debe tener caracteres especiales.';
+                                                            } else {
+
+                                                            }
                                                         }
-                                                    }
+                                                        if ($this->Comprobar($_POST["datos"]["hacinamiento"])) {
+                                                            $Errores[] = 'El campo hacinamiento es obligatorio';
+                                                        } else {
+                                                            if ($this->Validar($_POST["datos"]["hacinamiento"])) {
+                                                                $Errores[] = 'El hacinamiento no debe tener caracteres especiales.';
+                                                            } else {
+
+                                                            }
+                                                        }
+                                                        if ($this->Comprobar($_POST["datos"]["espacio_siembra"])) {
+                                                            $Errores[] = 'El campo espacio de siembra es obligatorio';
+                                                        } else {
+                                                            if ($this->Validar($_POST["datos"]["espacio_siembra"])) {
+                                                                $Errores[] = 'El espacio de siembra no debe tener caracteres especiales.';
+                                                            } else {
+
+                                                            }
+                                                        }
+                                                        if ($this->Comprobar($_POST["datos"]["banio_sanitario"])) {
+                                                            $Errores[] = 'El campo baño sanitario obligatorio';
+                                                        } else {
+                                                            if ($this->Validar($_POST["datos"]["banio_sanitario"])) {
+                                                                $Errores[] = 'El baño sanitario no debe tener caracteres especiales.';
+                                                            } else {
+
+                                                            }
+                                                        }
+                                                        if ($this->Comprobar($_POST["datos"]["agua_consumo"])) {
+                                                            $Errores[] = 'El campo agua de consumod obligatorio';
+                                                        } else {
+                                                            if ($this->Validar($_POST["datos"]["agua_consumo"])) {
+                                                                $Errores[] = 'El agua de consumo no debe tener caracteres especiales.';
+                                                            } else {
+
+                                                            }
+                                                        }
+                                                        if ($this->Comprobar($_POST["datos"]["aguas_negras"])) {
+                                                            $Errores[] = 'El campo aguas negras es obligatorio';
+                                                        } else {
+                                                            if ($this->Validar($_POST["datos"]["aguas_negras"])) {
+                                                                $Errores[] = 'El aguas negras no debe tener caracteres especiales.';
+                                                            } else {
+
+                                                            }
+                                                        }
+                                                        if ($this->Comprobar($_POST["datos"]["residuos_solidos"])) {
+                                                            $Errores[] = 'El campo residuos solidos es obligatorio';
+                                                        } else {
+                                                            if ($this->Validar($_POST["datos"]["residuos_solidos"])) {
+                                                                $Errores[] = 'El residuos_solidos no debe tener caracteres especiales.';
+                                                            } else {
+
+                                                            }
+                                                        }
+                                                        if ($this->Comprobar($_POST["datos"]["servicio_electrico"])) {
+                                                            $Errores[] = 'El campo servicio electrico es obligatorio';
+                                                        } else {
+                                                            if ($this->Validar($_POST["datos"]["servicio_electrico"])) {
+                                                                $Errores[] = 'El servicio electrico no debe tener caracteres especiales.';
+                                                            } else {
+
+                                                            }
+                                                        }
+                                                        if ($this->Comprobar($_POST["datos"]["cable_telefonico"])) {
+                                                            $Errores[] = 'El campo cable telefonico es obligatorio';
+                                                        } else {
+                                                            if ($this->Validar($_POST["datos"]["cable_telefonico"])) {
+                                                                $Errores[] = 'El cable telefonico no debe tener caracteres especiales.';
+                                                            } else {
+
+                                                            }
+                                                        }
+                                                        if ($this->Comprobar($_POST["datos"]["internet"])) {
+                                                            $Errores[] = 'El campo internet es obligatorio';
+                                                        } else {
+                                                            if ($this->Validar($_POST["datos"]["internet"])) {
+                                                                $Errores[] = 'El internet no debe tener caracteres especiales.';
+                                                            } else {
+
+                                                            }
+                                                        }
+                                                        if ($this->Comprobar($_POST["datos"]["gas"])) {
+                                                            $Errores[] = 'El campo gas es obligatorio';
+                                                        } else {
+                                                            if ($this->Validar($_POST["datos"]["gas"])) {
+                                                                $Errores[] = 'El gas no debe tener caracteres especiales.';
+                                                            } else {
+
+                                                            }
+                                                        }
+                                                        if ($this->Comprobar($_POST["datos"]["animales_domesticos"])) {
+                                                            $Errores[] = 'El campo animales domesticos es obligatorio';
+                                                        } else {
+                                                            if ($this->Validar($_POST["datos"]["animales_domesticos"])) {
+                                                                $Errores[] = 'El tipo de animales domesticos no debe tener caracteres especiales.';
+                                                            } else {
+
+                                                            }
+                                                        }
+                                                        if ($this->Comprobar($_POST["datos"]["insectos_roedores"])) {
+                                                            $Errores[] = 'El campo insectos o roedores es obligatorio';
+                                                        } else {
+                                                            if ($this->Validar($_POST["datos"]["insectos_roedores"])) {
+                                                                $Errores[] = 'El insectos o roedores no debe tener caracteres especiales.';
+                                                            } else {
+
+                                                            }
+                                                        }
+                                                        if ($this->Comprobar($_POST["datos"]["descripcion"])) {
+                                                            $Errores[] = 'El campo descripcion es obligatorio';
+                                                        } else {
+                                                            if ($this->Validar($_POST["datos"]["descripcion"])) {
+                                                                $Errores[] = 'El descripcion no debe tener caracteres especiales.';
+                                                            } else {
+
+                                                            }
+                                                        }
+                                                        if ($this->Comprobar($_POST["datos"]["tipo_techo"])) {
+                                                            $Errores[] = 'El campo tipo de techo es obligatorio';
+                                                        } else {
+                                                            if ($this->Validar($_POST["datos"]["tipo_techo"])) {
+                                                                $Errores[] = 'El tipo de techo no debe tener caracteres especiales.';
+                                                            } else {
+
+                                                            }
+                                                        }
+                                                        if ($this->Comprobar($_POST["datos"]["tipo_pared"])) {
+                                                            $Errores[] = 'El campo tipo de pared es obligatorio';
+                                                        } else {
+                                                            if ($this->Validar($_POST["datos"]["tipo_pared"])) {
+                                                                $Errores[] = 'El tipo de pared no debe tener caracteres especiales.';
+                                                            } else {
+
+                                                            }
+                                                        }
+                                                        if ($this->Comprobar($_POST["datos"]["tipo_piso"])) {
+                                                            $Errores[] = 'El campo tipo de piso es obligatorio';
+                                                        } else {
+                                                            if ($this->Validar($_POST["datos"]["tipo_piso"])) {
+                                                                $Errores[] = 'El tipo de piso no debe tener caracteres especiales.';
+                                                            } else {
+
+                                                            }
+                                                        }
+                                                        if ($this->Comprobar($_POST["datos"]["servicio_gas"])) {
+                                                            $Errores[] = 'El campo servicio de gas es obligatorio';
+                                                        } else {
+                                                            if ($this->Validar($_POST["datos"]["servicio_gas"])) {
+                                                                $Errores[] = 'El servicio de gas no debe tener caracteres especiales.';
+                                                            } else {
+
+                                                            }
+                                                        }
+                                                        if ($this->Comprobar($_POST["datos"]["electrodomestico"])) {
+                                                            $Errores[] = 'El campo electrodomestico es obligatorio';
+                                                        } else {
+                                                            if ($this->Validar($_POST["datos"]["electrodomestico"])) {
+                                                                $Errores[] = 'El electrodomestico no debe tener caracteres especiales.';
+                                                            } else {
+
+                                                            }
+
+                                                        }}
+                                                }
+
+                                                if ($this->Validar_Estado($_POST["datos"]["estado"])) {
+                                                    $Errores[] = 'el estado es invalido ';
                                                 }
                                             }
                                         }
@@ -288,19 +257,21 @@ if ($this->Comprobar($_POST["datos"]["condicion"])) {
                 }
             }
         }
-
-        if (count($Errores) > 0) {
-            for ($i = 0; $i < count($Errores); $i++) {
-                $this->mensaje = json_encode($Errores, JSON_UNESCAPED_UNICODE);
-                return false;
-            }
-        } else {
-            return true;
-        }
     }
+}
 
-    public function Fallo()
-    {
+if (count($Errores) > 0) {
+    for ($i = 0; $i < count($Errores); $i++) {
+        $this->mensaje = json_encode($Errores, JSON_UNESCAPED_UNICODE);
+        return false;
+    }
+} else {
+    return true;
+}
+}
+
+    function Fallo()
+{
         return $this->mensaje;
     }
 }

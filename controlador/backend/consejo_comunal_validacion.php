@@ -44,16 +44,7 @@ class Consejo_Comunal_Validacion extends Validacion
                                         } else {
                                             if ($this->Validar_Estado($_POST["datos"]["estado"])) {
                                                 $Errores[] = 'el estado es invalido ';
-                                            } else {
-                                                $_POST["datos"] = array(
-                                                    "cedula_persona" => $this->Datos_Limpios($_POST["datos"]["cedula_persona"]),
-                                                    "id_comite"      => $this->Datos_Limpios($_POST["datos"]["nombre_comite"]),
-                                                    "cargo_persona"  => $this->Datos_Limpios($_POST["datos"]["cargo_persona"]),
-                                                    "fecha_ingreso"  => $this->Datos_Limpios($_POST["datos"]["fecha_ingreso"]),
-                                                    "fecha_salida"   => $this->Datos_Limpios($_POST["datos"]["fecha_salida"])
-                                                );
-                                            }
-
+                                            } 
                                         }
                                     }
                                 }
