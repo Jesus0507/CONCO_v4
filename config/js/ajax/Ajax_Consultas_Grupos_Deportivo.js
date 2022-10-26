@@ -134,6 +134,8 @@
                          valid_integrantes.innerHTML = 'Debe ingresar la cédula o el nombre de una persona';
                      } else {
                          valid_integrantes.innerHTML = "";
+                         document.getElementById('integrantes_grupo_input').style.borderColor='';
+                         document.getElementById('span_integrantes').innerHTML='';
                          var datos2 = {
                              cedula_persona: integrantes_input.value,
                              id_grupo_deportivo: id_grupo_deportivo_global,
@@ -173,47 +175,81 @@
                      $('#id_deporte2').val(deporte);
                      $('#descripcion2').val(descripcion);
                      $(document).on("click", "#enviar", function() {
-                         var datos = {
-                             id_grupo_deportivo: id,
-                             id_deporte: document.getElementById("id_deporte2").value,
-                             nombre_grupo_deportivo: document.getElementById("nombre_grupo2").value,
-                             descripcion: document.getElementById("descripcion2").value,
-                             estado: 1
-                         };
-                         $.ajax({
-                             type: "POST",
-                             url: BASE_URL + direccion_segura,
-                             data: {
-                                 datos: datos,
-                                 integrantes: integrantes,
-                                 peticion: "Administrar",
-                                 sql: "SQL_02",
-                                 accion: "Se ha Actualizado el  Grupo Deportivo: " + nombre_grupo,
-                             },
-                         }).done(function(datos) {
-                             if (datos == 1) {
-                                 swal({
-                                     title: "Actualizado!",
-                                     text: "El elemento fue Actualizado con exito.",
-                                     type: "success",
-                                     showConfirmButton: false
-                                 });
-                                 setTimeout(function() {
-                                     location.reload();
-                                 }, 1000);
-                             } else {
-                                 swal({
-                                     title: "ERROR!",
-                                     text: "Ha ocurrido un Error.</br>" + datos,
-                                     type: "error",
-                                     html: true,
-                                     showConfirmButton: true,
-                                     customClass: "bigSwalV2",
-                                 });
-                             }
-                         }).fail(function() {
-                             alert("error");
-                         });
+                        if(document.getElementById('id_deporte2').value=='' || document.getElementById('id_deporte2').value==null) {
+                            document.getElementById('id_deporte2').style.borderColor='red';
+                            document.getElementById('id_deporte2').focus();
+                            document.getElementById('span_deporte').innerHTML='Ingrese el deporte';
+                        }
+                        else {
+                            document.getElementById('id_deporte2').style.borderColor='';
+                            document.getElementById('id_deporte2').blur();
+                            document.getElementById('span_deporte').innerHTML='';
+
+                            if(document.getElementById('nombre_grupo2').value=='' || document.getElementById('nombre_grupo2').value==null) {
+                                document.getElementById('nombre_grupo2').style.borderColor='red';
+                                document.getElementById('nombre_grupo2').focus();
+                                document.getElementById('span_nombre').innerHTML='Ingrese el nombre del grupo';
+                            }
+                            else {
+                                document.getElementById('nombre_grupo2').style.borderColor='';
+                                document.getElementById('nombre_grupo2').blur();
+                                document.getElementById('span_nombre').innerHTML='';
+                                
+                                if(document.getElementById('integrantes_agregados').innerHTML=='') {
+                                    document.getElementById('integrantes_grupo_input').style.borderColor='red';
+                                    document.getElementById('integrantes_grupo_input').focus();
+                                    document.getElementById('span_integrantes').innerHTML='No hay integrantes agregados a este grupo';
+                                }
+                                else {
+                                    document.getElementById('integrantes_grupo_input').style.borderColor='';
+                                    document.getElementById('integrantes_grupo_input').blur();
+                                    document.getElementById('span_integrantes').innerHTML='';
+
+                                    var datos = {
+                                        id_grupo_deportivo: id,
+                                        id_deporte: document.getElementById("id_deporte2").value,
+                                        nombre_grupo_deportivo: document.getElementById("nombre_grupo2").value,
+                                        descripcion: document.getElementById("descripcion2").value,
+                                        estado: 1
+                                    };
+                                    $.ajax({
+                                        type: "POST",
+                                        url: BASE_URL + direccion_segura,
+                                        data: {
+                                            datos: datos,
+                                            integrantes: integrantes,
+                                            peticion: "Administrar",
+                                            sql: "SQL_02",
+                                            accion: "Se ha Actualizado el  Grupo Deportivo: " + nombre_grupo,
+                                        },
+                                    }).done(function(datos) {
+                                        if (datos == 1) {
+                                            swal({
+                                                title: "Actualizado!",
+                                                text: "El elemento fue Actualizado con exito.",
+                                                type: "success",
+                                                showConfirmButton: false
+                                            });
+                                            setTimeout(function() {
+                                                location.reload();
+                                            }, 1000);
+                                        } else {
+                                            swal({
+                                                title: "ERROR!",
+                                                text: "Ha ocurrido un Error.</br>" + datos,
+                                                type: "error",
+                                                html: true,
+                                                showConfirmButton: true,
+                                                customClass: "bigSwalV2",
+                                            });
+                                        }
+                                    }).fail(function() {
+                                        alert("error");
+                                    });
+                                    
+                                }
+                            }
+                        }
                      });
                  });
              }).fail(function() {
@@ -351,3 +387,21 @@
      }
      return validar;
  }
+
+
+
+
+document.getElementById('id_deporte2').onkeyup=function(){
+    document.getElementById('id_deporte2').style.borderColor='';
+    document.getElementById('span_deporte').innerHTML='';
+}
+
+document.getElementById('nombre_grupo2').onkeyup=function(){
+    document.getElementById('nombre_grupo2').style.borderColor='';
+    document.getElementById('span_nombre').innerHTML='';
+}
+
+document.getElementById('integrantes_grupo_input').onkeyup=function(){
+    document.getElementById('integrantes_grupo_input').style.borderColor='';
+    document.getElementById('span_integrantes').innerHTML='';
+}

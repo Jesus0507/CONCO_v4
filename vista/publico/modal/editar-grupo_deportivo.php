@@ -14,6 +14,7 @@
                         <div class="col-md-6 mt-2">
                             <label for="id_deporte">
                                 Deporte
+                                <span id='span_deporte' style='color:red'></span>
                             </label>
                             <div class="input-group">
                                 <input list="tipo_I" id="id_deporte2" name="datos[id_deporte]" class="form-control "
@@ -31,6 +32,7 @@
                         <div class="col-md-6 mt-2">
                             <label for="nombre_grupo_deportivo">
                                 Nombre Grupo Deportivo
+                                <span id='span_nombre' style='color:red'></span>
                             </label>
                             <div class="input-group">
                                 <input class="form-control mb-10" id="nombre_grupo2"
@@ -51,6 +53,7 @@
                         <div class="col-md-12 mt-2">
             <label for="segundo_apellido">
                 Integrantes
+                <span id='span_integrantes' style='color:red'></span>
             </label><span id='valid_5' style="color:red;"></span>
             <div class="input-group">
                <table style='width:100%'>

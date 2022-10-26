@@ -18,8 +18,16 @@
   <script>
     const BASE_URL = 'http://localhost/dashboard/www/CONCO_v4/';
     $.ajax({
+        type: "POST",
+        url: BASE_URL + "app/Direcciones.php",
+        data: {
+            direction: "Reportes/info_censo_poblacional",
+            accion: "codificar"
+        },
+        success: function(direccion_segura) {
+          $.ajax({
       type: "POST",
-      url: BASE_URL + "Reportes/info_censo_poblacional",
+      url: BASE_URL + direccion_segura,
       data: {
         "familia": document.getElementById("fam").value
       }
@@ -111,7 +119,13 @@
       window.blur();
       window.print();
      
+    }); 
+        },
+        error: function() {
+            alert('Error al codificar dirreccion');
+        }
     });
+    
 
     function cargar_electrodomesticos(array){
       console.log(array);
