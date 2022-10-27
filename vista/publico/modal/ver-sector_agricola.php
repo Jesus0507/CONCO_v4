@@ -84,7 +84,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-4 mt-2">
+                        <div class="col-md-6 mt-2">
                             <label for="financiado">
                                 Financiamiento
                             </label>
@@ -94,7 +94,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-4 mt-2">
+                        <div class="col-md-6 mt-2">
                             <label for="registro_INTI">
                                 Posee Registro INTI
                             </label>
@@ -111,7 +111,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-4 mt-2">
+                        <div class="col-md-6 mt-2">
                             <label for="constancia_productor">
                                 Posee Constancia de Productor
                             </label>
@@ -129,7 +129,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-4 mt-2">
+                        <div class="col-md-6 mt-2">
                             <label for="senial_hierro">
                                 Posee Señal de Hierro
                             </label>
@@ -146,7 +146,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-4 mt-2">
+                        <div class="col-md-6 mt-2">
                             <label for="agua_riego">
                                 Posee Agua de Riego
                             </label>
@@ -163,7 +163,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-4 mt-2">
+                        <div class="col-md-6 mt-2">
                             <label for="produccion_actual">
                                 Produce Actulmente
                             </label>

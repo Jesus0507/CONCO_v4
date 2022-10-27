@@ -5,7 +5,7 @@ $(function() {
         data: {
             direction: "Negocios/Administrar",
             accion: "codificar"
-        },
+        }, 
         success: function(direccion_segura) {
             $.ajax({
                 type: "POST",
