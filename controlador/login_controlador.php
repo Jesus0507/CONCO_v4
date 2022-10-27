@@ -146,7 +146,7 @@ class Login extends Controlador
                     "tabla"    => "personas",
                     "columna"  => "contrasenia_nueva",
                     "id_tabla" => "cedula_persona"));
-                $this->modelo->Datos(["contrasenia_nueva" => $this->Codificar($_POST['clave']), "cedula_persona" => $_POST['cedula']]);
+                $this->modelo->Datos(["contrasenia_nueva" => $this->Seguridad_Password($_POST['clave'],1), "cedula_persona" => $_POST['cedula']]);
 
                 if ($this->modelo->Administrar()) {$this->mensaje = true;}
 

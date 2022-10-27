@@ -192,6 +192,11 @@ class Reportes extends Controlador
             }
         }
 
+       if(count($this->personas) == 0){
+        $datos_edades = '';
+       }
+       else{ 
+
         $percent_menores = ($menores_edad * 100) / count($this->personas);
 
         $percent_mayores = ($mayores_edad * 100) / count($this->personas);
@@ -204,6 +209,7 @@ class Reportes extends Controlador
             array("label" => "Adulto Mayor (" . $adulto_mayor . ")", "symbol" => "Mayores de 55", "y" => $percent_adultos),
 
         );
+    }
 
         $this->vista->datos_edades = $datos_edades;
 
@@ -228,6 +234,11 @@ class Reportes extends Controlador
             }
         }
 
+        if($cant_embarazadas_actual == 0 || $cant_mujeres == 0){
+            $datos_embarazadas = '';
+        }
+        else{
+
         $calculo_embarazadas = ($cant_embarazadas_actual * 100) / $cant_mujeres;
         $mujeres             = $cant_mujeres - $cant_embarazadas_actual;
         $calculo_mujeres     = ($mujeres * 100) / $cant_mujeres;
@@ -236,6 +247,7 @@ class Reportes extends Controlador
             array("label" => "Mujeres Embarazadas (" . $cant_embarazadas_actual . ")", "symbol" => "Mujeres Embarazadas", "y" => $calculo_embarazadas),
             array("label" => "Mujeres no embarazadas (" . $mujeres . ")", "symbol" => "Mujeres no embarazadas", "y" => $calculo_mujeres),
         );
+    }
 
         $this->vista->datos_embarazadas = $datos_embarazadas;
 
@@ -245,6 +257,11 @@ class Reportes extends Controlador
         $cant_votantes_inscritos     = count($this->votantes);
         $cant_votantes_sin_inscribir = $cant_votantes_total - $cant_votantes_inscritos;
 
+        if(count($this->personas) == 0){
+            $datos_votantes = '';
+        }
+        else{
+
         $calculo_no_inscritos = ($cant_votantes_sin_inscribir * 100) / $cant_votantes_total;
         $calculo_inscritos    = ($cant_votantes_inscritos * 100) / $cant_votantes_total;
 
@@ -252,6 +269,7 @@ class Reportes extends Controlador
             array("label" => "Votantes sin inscribir CNE (" . $cant_votantes_sin_inscribir . ")", "symbol" => "Votantes sin inscribir CNE", "y" => $calculo_no_inscritos),
             array("label" => "Votantes inscritos CNE (" . $cant_votantes_inscritos . ")", "symbol" => "Votantes inscritos CNE", "y" => $calculo_inscritos),
         );
+    }
 
         $this->vista->datos_votantes = $datos_votantes;
 
@@ -281,6 +299,11 @@ class Reportes extends Controlador
             }
         }
 
+        if(count($this->personas) == 0){
+            $datos_educacion = '';
+        }
+        else{
+
         $calculo_superior   = ($cant_superior * 100) / count($this->personas);
         $calculo_bachiller  = ($cant_bachiller * 100) / count($this->personas);
         $calculo_preescolar = ($cant_preescolar * 100) / count($this->personas);
@@ -292,6 +315,7 @@ class Reportes extends Controlador
             array("label" => "Preescolar (" . $cant_preescolar . ")", "symbol" => "Preescolar", "y" => $calculo_preescolar),
             array("label" => "Básico (" . $cant_basico . ")", "symbol" => "Básico", "y" => $calculo_basico),
         );
+    }
 
         $this->vista->datos_educacion = $datos_educacion;
 
@@ -317,6 +341,11 @@ class Reportes extends Controlador
             }
         }
 
+        if(count($this->personas) == 0){
+            $datos_vacuna = '';
+        }
+        else{
+
         $cant_vacunados       = count($vacunados);
         $cant_no_vacunados    = count($this->personas) - $cant_vacunados;
         $calculo_vacunados    = ($cant_vacunados * 100) / count($this->personas);
@@ -327,6 +356,7 @@ class Reportes extends Controlador
             array("label" => "No vacunados (" . $cant_no_vacunados . ")", "symbol" => "No vacunados", "y" => $calculo_no_vacunados),
 
         );
+        }
 
         $this->vista->datos_vacuna = $datos_vacuna;
 
@@ -402,6 +432,11 @@ class Reportes extends Controlador
             }
         }
 
+        if(count($this->discapacitados) == 0){
+            $datos_discapacitados = '';
+        }
+           
+        else{
         $cant_en_cama              = count($cantidad_discapacitados_en_cama);
         $cant_disc                 = count($cantidad_discapacitados);
         $cant_total_discapacitados = count($cant_total);
@@ -414,6 +449,7 @@ class Reportes extends Controlador
             array("label" => "Discapacitados (" . $cant_disc . ")", "symbol" => "Discapacitados", "y" => $calculo_disc),
 
         );
+       }
 
         $this->vista->datos_discapacitados = $datos_discapacitados;
 
@@ -438,6 +474,11 @@ class Reportes extends Controlador
             }
         }
 
+        if(count($this->personas) == 0){
+            $datos_bonos = '';
+           }
+           else{
+
         $cant_bonos_num = count($cant_bonos);
         $cant_personas  = count($this->personas) - $cant_bonos_num;
 
@@ -449,6 +490,7 @@ class Reportes extends Controlador
             array("label" => "Personas no bonificadas (" . $cant_personas . ")", "symbol" => "Personas no bonificadas", "y" => $calculo_personas),
 
         );
+    }
 
         $this->vista->datos_bonos = $datos_bonos;
 
