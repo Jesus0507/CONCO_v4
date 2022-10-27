@@ -33,13 +33,13 @@
                             <div class="form-group row justify-content-center">
 
 
-                                <div class="col-md-6 mt-2">
+                                <div class="col-md-6 mt-2 d-none" id='familia_section'>
                                     <label for="familia">
                                         Familia 
                                     </label>
                                     <div class="input-group">
                                         <input list="cedula" id="familia" name="datos[familia]"
-                                        class="form-control " placeholder="Nombre Familia" />
+                                        class="form-control text-uppercase" placeholder="Nombre Familia" />
                                         <datalist id="cedula">
                                             <?php foreach($this->jefes_familia as $familia){  
                                                 if($familia['estado']==1){ ?>
@@ -51,7 +51,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-6 mt-2">
+                                <div class="col-md-12 mt-2" id='censo_section'>
                                     <label for="familia">
                                         Censo 
                                     </label>
@@ -97,9 +97,7 @@
     </div>
     <!-- /.content-wrapper -->
     <?php include (call."Fin.php"); ?>
-<script type="text/javascript">
-    
-    document.getElementById("imprimir").onclick=function(){
-       window.open(document.getElementById("censos").value+"?id="+document.getElementById("familia").value);
-    }
-</script>
+    <script
+    type="text/javascript"
+    src="<?php echo constant('URL')?>config/js/news/censos.js"
+></script>

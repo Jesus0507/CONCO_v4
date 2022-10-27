@@ -271,7 +271,6 @@ class Controlador
     {
 
         $tabla = "SELECT * FROM " . $tabla . " WHERE " . $columna . "=" . $param . "";
-
         $respuestaArreglo = '';
         try {
             $datos = $this->conexion->prepare($tabla);
