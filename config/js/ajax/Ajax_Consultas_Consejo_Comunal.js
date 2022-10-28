@@ -18,30 +18,53 @@ $(function() {
                 var tabla = $("#tabla").DataTable({
                     "data": data,
                     "columns": [{
-                        "data": "cedula_persona",
-                    }, {
-                        "data": function(data) {
-                            return data.primer_nombre + " " + data.primer_apellido;
+                            "data": "cedula_persona",
+                        }, {
+                            "data": function(data) {
+                                return data.primer_nombre + " " + data.primer_apellido;
+                            },
+                        }, {
+                            "data": "nombre_comite",
+                        }, {
+                            "data": "cargo_persona",
+                        }, {
+                            "data": "fecha_ingreso",
+                        }, {
+                            "data": function(data) {
+                                if (data.fecha_salida != "0000-00-00") {
+                                    return data.fecha_salida;
+                                } else {
+                                    return "Activo";
+                                }
+                            },
+                        }, {
+                            "data": function(data) {
+                                return ('<td class="text-center">' + '<a href="javascript:void(0)" style="background: #4dbdbd !important;margin-right: 5px;" class="btn bg-info ver-popup" title="Ver" type="button" data-toggle="modal" data-target="#ver">' + '<i class="fa fa-eye"></i>' + "</a>" + '<p style="display: none;">' + data.id_comite_persona + "</p>" + "</td>");
+                            },
+                        }, {
+                            "data": function(data) {
+                                return ('<td class="text-center">' + '<a href="javascript:void(0)" style="margin-right: 5px;" class="btn bg-info btnEditar"  title="Actualizar" type="button" data-toggle="modal" data-target="#actualizar">' + '<i class="fa fa-edit" style="color: white;"></i>' + "</a>" + "</td>");
+                            },
+                        }, {
+                            "data": function(data) {
+                                return ('<td class="text-center">' + '<a href="javascript:void(0)" style="margin-right: 5px;" class="btn bg-danger mensaje-eliminar" title="Eliminar">' + '<i class="fa fa-trash"></i>' + "</a>" + "</td>");
+                            },
                         },
-                    }, {
-                        "data": "nombre_comite",
-                    }, {
-                        "data": "cargo_persona",
-                    }, {
-                        "data": "fecha_ingreso",
-                    }, {
-                        "data": function(data) {
-                            if (data.fecha_salida != "0000-00-00") {
-                                return data.fecha_salida;
-                            } else {
-                                return "Activo";
-                            }
-                        },
-                    }, {
-                        "data": function(data) {
-                            return ('<td class="text-center">' + '<a href="javascript:void(0)" style="background: #4dbdbd !important;margin-right: 5px;" class="btn bg-info ver-popup" title="Ver" type="button" data-toggle="modal" data-target="#ver">' + '<i class="fa fa-eye"></i>' + "</a>" + '<a href="javascript:void(0)" style="margin-right: 5px;" class="btn bg-info btnEditar"  title="Actualizar" type="button" data-toggle="modal" data-target="#actualizar">' + '<i class="fa fa-edit" style="color: white;"></i>' + "</a>" + '<a href="javascript:void(0)" style="margin-right: 5px;" class="btn bg-danger mensaje-eliminar" title="Eliminar">' + '<i class="fa fa-trash"></i>' + "</a>" + '<p style="display: none;">' + data.id_comite_persona + "</p>" + "</td>");
-                        },
-                    }, ],
+                        // {
+                        //     "data": function(data) {
+                        //         return ('<td class="text-center">' + 
+                        //         '<a href="javascript:void(0)" style="background: #4dbdbd !important;margin-right: 5px;" class="btn bg-info ver-popup" title="Ver" type="button" data-toggle="modal" data-target="#ver">' + 
+                        //             '<i class="fa fa-eye"></i>' + 
+                        //         "</a>" + 
+                        //         '<a href="javascript:void(0)" style="margin-right: 5px;" class="btn bg-info btnEditar"  title="Actualizar" type="button" data-toggle="modal" data-target="#actualizar">' + 
+                        //             '<i class="fa fa-edit" style="color: white;"></i>' + 
+                        //         "</a>" + 
+                        //         '<a href="javascript:void(0)" style="margin-right: 5px;" class="btn bg-danger mensaje-eliminar" title="Eliminar">' + 
+                        //             '<i class="fa fa-trash"></i>' + 
+                        //         "</a>" + '<p style="display: none;">' + data.id_comite_persona + "</p>" + "</td>");
+                        //     },
+                        // },
+                    ],
                     responsive: true,
                     autoWidth: false,
                     ordering: true,
@@ -136,7 +159,7 @@ $(function() {
                     $("#primer_nombre2").val(primer_nombre);
                     $("#nombre_comite2").val(nombre_comite);
                     $("#cargo_persona2").val(cargo_persona);
-                    $("#fecha_ingreso2").val(fecha_ingreso); 
+                    $("#fecha_ingreso2").val(fecha_ingreso);
                     $("#fecha_salida2").val(fecha_salida);
                     $(document).on("click", "#enviar", function() {
                         var datos = {
