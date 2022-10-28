@@ -35,10 +35,11 @@
                             <div class="col-md-12 mt-2">
                                 <label for="cedula_persona">
                                     Cedula de Persona
+                                    <span style='color:red' id='cedula'></span>
                                 </label>
                                 <div class="input-group">
                                     <input list="cedula_p" id="cedula_persona" name="datos[cedula_persona]"
-                                        class="form-control no-simbolos letras-numeros " placeholder="Cedula de Persona" oninput="Limitar(this,15)"/>
+                                        class="form-control no-simbolos solo-numeros" placeholder="Cedula de Persona" oninput="Limitar(this,15)"/>
                                     <datalist id="cedula_p">
                                         <?php foreach($this->datos["personas"] as $persona){   ?>
                                         <option value="<?php echo $persona["cedula_persona"];?>">
@@ -54,6 +55,7 @@
                             <div class="col-md-6 mt-2">
                                 <label for="nombre_centro">
                                     Centro de Votacion
+                                    <span style='color:red' id='nombre'></span>
                                 </label>
                                 <div class="input-group">
                                     <input list="centro" id="nombre_centro" name="datos[nombre_centro]" class="form-control no-simbolos " placeholder="Centro de Votacion" oninput="Limitar(this,45);" />
@@ -71,6 +73,7 @@
                             <div class="col-md-6 mt-2">
                                 <label for="id_parroquia ">
                                     Parroquia
+                                    <span style='color:red' id='parroquia'></span>
                                 </label>
                                 <div class="input-group">
                                     <select class="custom-select" id="id_parroquia" name="datos[id_parroquia]">

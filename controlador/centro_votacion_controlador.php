@@ -46,7 +46,7 @@ class Centro_Votacion extends Controlador
             if ($_SESSION["Centros votacion"]["registrar"] === 1) {
                 $cont = 0;
                 foreach ($this->datos["centros_votacion"] as $cv) {
-                    if (strtolower($cv['nombre_centro']) !== strtolower($_POST["datos"]['nombre_centro'])) {
+                    if (strtolower($cv['nombre_centro']) !== strtolower($_POST["datos"]['centro'])) {
                         $this->modelo->__SET("SQL", "SQL_03");$this->modelo->__SET("tipo", "1");
                         $this->modelo->Datos($_POST['datos']);
                         if ($this->modelo->Administrar()) {$this->mensaje = 1;}
