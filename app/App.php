@@ -188,6 +188,7 @@ final class Iniciar_Sistema
         } else {
             return true;
         }
+        unset($conexion);
     }
     private function Guardar_Error()
     {

@@ -5,7 +5,7 @@ error_reporting(E_ERROR);
 
 use PDO as pdo;
 
-final class BASE_DATOS extends PDO
+class BASE_DATOS extends PDO
 {
 
     private $servidor = SERVIDOR;
@@ -16,13 +16,18 @@ final class BASE_DATOS extends PDO
     private $user_mysql     = USER_MYSQL;
     private $password_mysql = PASSWORD_MYSQL;
 
+    private $DNS;
+    private $opciones;
+
+    public $conexion;
+    public $comprobar;
     public $error_conexion;
 
     public function __construct()
     {
-        $DNS = "{$this->servidor}:host={$this->host};dbname={$this->bd};";
+        $this->DNS = "{$this->servidor}:host={$this->host};dbname={$this->bd};";
 
-        $opciones = array(
+        $this->opciones = array(
             PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
             PDO::ATTR_PERSISTENT         => false,
@@ -32,13 +37,11 @@ final class BASE_DATOS extends PDO
 
         try
         {
-            $conexion = parent::__construct($DNS, $this->user_mysql, $this->password_mysql, $opciones);
+            $this->conexion = parent::__construct($this->DNS, $this->user_mysql, $this->password_mysql, $this->opciones);
 
             $this->error_conexion = "No se han encontrado errores.";
             $this->comprobar      = 1;
-
-            return $conexion;
-
+            return  $this->conexion;
         } catch (PDOException $e) {
             switch ($e->getCode()) {
                 case '1049':
@@ -77,8 +80,12 @@ final class BASE_DATOS extends PDO
 
             $this->comprobar = 0;
             return false;
+            unset($error_log,$tipo);
         }
     }
+
+    public function Conectar()
+    {return $this->conexion;}
 
     public function Probar_Conexion()
     {return $this->comprobar;}
