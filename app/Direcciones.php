@@ -1,23 +1,22 @@
 <?php
 class Direcciones
 {
-    static $metodo        = "AES-256-CBC"; //El método de cifrado
-    static $llave_secreta = 'TEEgTUFMRElUQSBMTEFWRSBTRUNSRVRB'; // definida base64
-    static $iniciador     = 'fb0c4642ff3b75042b90550e4051c108'; // definida mb5
-    static $algoritmo     = "whirlpool"; // Algoritmo de sifrado hash 128
-    static $opcion        = 0; // OPENSSL_RAW_DATA
-
     public static function Seguridad($string, $accion = null)
     {
-        $llave = hash(self::$algoritmo, self::$llave_secreta); // ciframos con hash de 128
-        $iv    = substr(hash(self::$algoritmo, self::$iniciador), 0, 16); // ciframos el vector de inicialización y acortamos con substr
+        // Advanced Encryption Standard cipher-block chaining
+        $metodo        = "AES-256-CBC"; //El método de cifrado //clave simétrica de 256 bits
+        $llave = openssl_digest("key", 'whirlpool', true); //genera un hash usando el método dado y devuelve codificada (512 bits)
+        $iv    = substr(hash("whirlpool", $llave), 0, 16); // ciframos el vector de inicialización y acortamos con substr a 16
+
         if ($accion == 'codificar') {
-            $salida = openssl_encrypt($string, self::$metodo, $llave, self::$opcion, $iv); // ciframos la direccion obtenida con el metodo openssl_encrypt
+            $salida = openssl_encrypt($string, $metodo, $llave, 0, $iv); // ciframos la direccion obtenida con el metodo openssl_encrypt
             $salida = base64_encode($salida); // ciframos la salida en bs64
         } else if ($accion == 'decodificar') {
-            $salida = openssl_decrypt(base64_decode($string), self::$metodo, $llave, self::$opcion, $iv);
+            $string = base64_decode($string);
+            $salida = openssl_decrypt($string, $metodo, $llave, 0, $iv);
         }
         return $salida;
+        unset($metodo,$llave,$iv,$accion,$sting,$salida);
     }
 
     public static function _001_()
