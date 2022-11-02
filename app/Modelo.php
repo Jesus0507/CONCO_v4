@@ -1,25 +1,20 @@
 <?php 
 // =============MODELO==============
+// use BASE_DATOS as BASE_DATOS;
 
-class Modelo
+class Modelo extends BASE_DATOS 
 {
     private $sentencia;
     private $datos;
     private $estado;
     private $PDO;
 
-    public $conexion; 
     public $sql; 
     public $resultado;
 
     public function __construct()
     {
-        $this->Conectar_BD();
-    }
-    public function Conectar_BD()
-    {
-        $this->conexion = new BASE_DATOS();
-        return $this->conexion;
+        parent::__construct();
     }
     public function Desconectar_BD()
     {

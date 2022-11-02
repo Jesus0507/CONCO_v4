@@ -5,7 +5,7 @@ error_reporting(E_ERROR);
 
 use PDO as pdo;
 
-class BASE_DATOS extends PDO 
+class BASE_DATOS extends PDO
 {
 
     private $servidor = SERVIDOR;
@@ -25,23 +25,23 @@ class BASE_DATOS extends PDO
 
     public function __construct()
     {
-        $this->DNS = "{$this->servidor}:host={$this->host};dbname={$this->bd};";
-
-        $this->opciones = array(
-            PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-            PDO::ATTR_PERSISTENT         => false,
-            PDO::ATTR_EMULATE_PREPARES   => false,
-            PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES  \'UTF8\'',
-        );
-
         try
         {
-            $this->conexion = parent::__construct($this->DNS, $this->user_mysql, $this->password_mysql, $this->opciones);
+            $this->DNS = "{$this->servidor}:host={$this->host};dbname={$this->bd};";
 
+            $this->opciones = array(
+                PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+                PDO::ATTR_PERSISTENT         => false,
+                PDO::ATTR_EMULATE_PREPARES   => false,
+                PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES  \'UTF8\'',
+            );
+
+            // $this->conexion = parent::__construct($this->DNS, $this->user_mysql, $this->password_mysql, $this->opciones);
+            $this->conexion = new PDO($this->DNS, $this->user_mysql, $this->password_mysql, $this->opciones);
             $this->error_conexion = "No se han encontrado errores.";
             $this->comprobar      = 1;
-            return  $this->conexion;
+            return $this->conexion;
         } catch (PDOException $e) {
             switch ($e->getCode()) {
                 case '1049':
@@ -73,14 +73,14 @@ class BASE_DATOS extends PDO
             $error_log->Hora    = date('h:i A');
             $error_log->Archivo = $e->getFile();
             $error_log->Linea   = $e->getLine();
-            $error_log->Codigo   = $e->getCode();
+            $error_log->Codigo  = $e->getCode();
             $error_log->Mensaje = $e->getMessage();
             $error_log->Tipo    = $tipo;
             error_log(print_r($error_log, true), 3, "errores.log");
 
             $this->comprobar = 0;
             return false;
-            unset($error_log,$tipo);
+            unset($error_log, $tipo);
         }
     }
 
