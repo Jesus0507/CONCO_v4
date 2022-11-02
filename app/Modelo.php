@@ -1,6 +1,7 @@
 <?php 
 // =============MODELO==============
-class Modelo extends BASE_DATOS
+
+class Modelo
 {
     private $sentencia;
     private $datos;
@@ -14,7 +15,6 @@ class Modelo extends BASE_DATOS
     public function __construct()
     {
         $this->Conectar_BD();
-        // $this->conexion = parent::__construct();
     }
     public function Conectar_BD()
     {

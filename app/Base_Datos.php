@@ -5,7 +5,7 @@ error_reporting(E_ERROR);
 
 use PDO as pdo;
 
-class BASE_DATOS extends PDO
+class BASE_DATOS extends PDO 
 {
 
     private $servidor = SERVIDOR;
