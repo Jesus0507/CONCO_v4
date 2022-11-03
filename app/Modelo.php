@@ -1,9 +1,12 @@
 <?php 
 // =============MODELO==============
-// use BASE_DATOS as BASE_DATOS;
 
 class Modelo extends BASE_DATOS 
 {
+    #Public: acceso sin restricción.
+    #Protected:Solo puede ser accesado por una clase heredada y la clase que lo define.
+    #Private:Solo puede ser accesado por la clase que lo define.
+
     private $sentencia;
     private $datos;
     private $estado;
@@ -41,7 +44,7 @@ class Modelo extends BASE_DATOS
 
     // =============FUNCIONES PUBLICAS==============
     # Ejecutar un query simple del tipo INSERT, DELETE, UPDATE
-    public function Ejecutar_Tarea()
+    protected function Ejecutar_Tarea()
     { 
         $this->conexion->beginTransaction();
         $this->PDO = $this->conexion->prepare($this->sentencia);
@@ -52,7 +55,7 @@ class Modelo extends BASE_DATOS
     }
 
     # Traer resultados de una consulta en un Array
-    public function Resultado_Consulta()
+    protected function Resultado_Consulta()
     {   
         $this->conexion->beginTransaction();
         $this->PDO = $this->conexion->prepare($this->sentencia);
@@ -65,7 +68,7 @@ class Modelo extends BASE_DATOS
     }
 
     // =========================================
-    public function Capturar_Error($e,$modulo)
+    protected function Capturar_Error($e,$modulo)
     {   
         $this->conexion->rollBack();
         $error_log          = new stdClass();
@@ -87,47 +90,47 @@ class Modelo extends BASE_DATOS
         return false;
     }
 
-    public function ACT_DES()
+    protected function ACT_DES()
     {
     return  "UPDATE ".$this->estado["tabla"]." SET estado = :estado "."WHERE ".$this->estado['id_tabla']." = :".$this->estado['id_tabla'];
     }
 
-    public function _01_()
+    protected function _01_()
     {
     return  "SELECT * FROM ".$this->consultar['tabla']." WHERE estado = ".$this->consultar['estado']." ORDER BY ".$this->consultar['orden']." ASC";
     }
 
-    public function _02_()
+    protected function _02_()
     {
     return  'INSERT INTO ' . $this->registrar['tabla'] . ' (' . $this->registrar['columna'] . ', estado) VALUES (:' . $this->registrar['columna'] . ', :estado)';
     }
 
-    public function _03_()
+    protected function _03_()
     {
     return  "SELECT MAX(" . $this->ultimo['id'] . ") FROM " . $this->ultimo['tabla'] . "";
     }
 
-    public function _04_()
+    protected function _04_()
     {
     return  "UPDATE " . $this->actualizar['tabla'] . " SET " . $this->actualizar['columna'] . " = :" . $this->actualizar['columna'] . " WHERE " . $this->actualizar['id_tabla'] . " =:" . $this->actualizar['id_tabla'] . "";
     }
 
-    public function _05_()
+    protected function _05_()
     {
     return  "SELECT * FROM " . $this->consultar['tabla'] . " WHERE " . $this->consultar['columna'] . "=" . $this->consultar['data'] . "";
     }
 
-    public function _06_()
+    protected function _06_()
     {
     return  "SELECT * FROM ".$this->consultar['tabla']." ORDER BY ".$this->consultar['orden']." ASC";
     }
 
-    public function _07_()
+    protected function _07_()
     {
     return  'DELETE FROM ' . $this->eliminar['tabla'] . ' WHERE ' . $this->eliminar['id_tabla'] . ' = :' . $this->eliminar['id_tabla'] . '';
     }
 
-    public function Limpiar($limpiar)
+    protected function Limpiar($limpiar)
     { 
         unset($limpiar);
     }

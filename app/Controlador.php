@@ -1,7 +1,15 @@
 <?php
 // =============CONTROLADOR=========
 class Controlador
-{
+{  
+    #Public: acceso sin restricción.
+    #Protected:Solo puede ser accesado por una clase heredada y la clase que lo define.
+    #Private:Solo puede ser accesado por la clase que lo define. 
+    protected $controlador;
+    protected $modelo;
+    protected $vista;
+    protected $validacion;
+
     public function __construct()
     {
         $this->Cargar_Vista();
@@ -46,6 +54,7 @@ class Controlador
 
             if ($reflectionClass->IsInstantiable()) {
                 $this->validacion = new $modelName();
+
             } else {
                 $this->error = '[Error Objeto] => "El Objeto: [ ' . $modelName . ' ] No puede ser Instanciado."';
                 return $this->Capturar_Error($this->error);
@@ -419,8 +428,8 @@ class Controlador
 
     public function Ejecutar_Sentencia()
     {
-        $this->modelo->__SET("SQL", $_POST['sql']);
-        $this->modelo->__SET("tipo", "1");
+        $this->modelo->_SQL_($_POST['sql']);
+        $this->modelo->_Tipo_(1);
         if ($this->modelo->Administrar()) {
             $this->mensaje = 1;
             $this->Accion($_POST['accion']);
