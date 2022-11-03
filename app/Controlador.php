@@ -10,6 +10,7 @@ class Controlador
     protected $vista;
     protected $validacion;
 
+
     public function __construct()
     {
         $this->Cargar_Vista();
@@ -420,7 +421,7 @@ class Controlador
 
                 $this->modelo->Datos(["acciones" => $b['acciones'], "id_bitacora" => $b['id_bitacora']]);
 
-                if ($this->modelo->Administrar()) {$this->mensaje = 1;}
+                $this->modelo->Administrar();
             }
         }
 

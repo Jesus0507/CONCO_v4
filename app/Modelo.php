@@ -12,6 +12,8 @@ class Modelo extends BASE_DATOS
     private $estado;
     private $PDO;
 
+    private $crud;
+
     public $sql; 
     public $resultado;
 
@@ -42,6 +44,10 @@ class Modelo extends BASE_DATOS
          $this->estado = $estado;
     }
 
+    public function _CRUD_(array $crud)
+    {
+         $this->crud = $crud;
+    }
     // =============FUNCIONES PUBLICAS==============
     # Ejecutar un query simple del tipo INSERT, DELETE, UPDATE
     protected function Ejecutar_Tarea()
@@ -51,7 +57,6 @@ class Modelo extends BASE_DATOS
         $this->PDO->execute($this->datos);
         $this->conexion->commit();
         return true;
-        $this->Limpiar([$this->datos,$this->sentencia,$this->PDO,$this->conexion]);
     }
 
     # Traer resultados de una consulta en un Array
@@ -64,13 +69,12 @@ class Modelo extends BASE_DATOS
         $this->PDO->setFetchMode(PDO::FETCH_ASSOC);
         $this->resultado =  $this->PDO->fetchAll(PDO::FETCH_ASSOC);
         return $this->resultado;
-        $this->Limpiar([$this->resultado,$this->sentencia,$this->PDO,$this->conexion]);
     }
 
     // =========================================
     protected function Capturar_Error($e,$modulo)
     {   
-        $this->conexion->rollBack();
+        $this->conexion->rollBack(); #Revierte una transacción
         $error_log          = new stdClass();
         $error_log->Modulo  = "------".$modulo."------";
         $error_log->Fecha   = $GLOBALS['fecha_larga'];
@@ -97,7 +101,7 @@ class Modelo extends BASE_DATOS
 
     protected function _01_()
     {
-    return  "SELECT * FROM ".$this->consultar['tabla']." WHERE estado = ".$this->consultar['estado']." ORDER BY ".$this->consultar['orden']." ASC";
+    return  "SELECT * FROM ".$this->crud['consultar']['tabla']." WHERE estado = ".$this->crud['consultar']['estado']." ORDER BY ".$this->crud['consultar']['orden']." ASC";
     }
 
     protected function _02_()
@@ -117,12 +121,12 @@ class Modelo extends BASE_DATOS
 
     protected function _05_()
     {
-    return  "SELECT * FROM " . $this->consultar['tabla'] . " WHERE " . $this->consultar['columna'] . "=" . $this->consultar['data'] . "";
+    return  "SELECT * FROM " . $this->crud['consultar']['tabla'] . " WHERE " . $this->crud['consultar']['columna'] . "=" . $this->crud['consultar']['data'] . "";
     }
 
     protected function _06_()
     {
-    return  "SELECT * FROM ".$this->consultar['tabla']." ORDER BY ".$this->consultar['orden']." ASC";
+    return  "SELECT * FROM ".$this->crud['consultar']['tabla']." ORDER BY ".$this->crud['consultar']['orden']." ASC";
     }
 
     protected function _07_()
@@ -130,14 +134,6 @@ class Modelo extends BASE_DATOS
     return  'DELETE FROM ' . $this->eliminar['tabla'] . ' WHERE ' . $this->eliminar['id_tabla'] . ' = :' . $this->eliminar['id_tabla'] . '';
     }
 
-    protected function Limpiar($limpiar)
-    { 
-        unset($limpiar);
-    }
-
-    public function __destruct()
-    {
-        unset($this->estado,$this->consultar,$this->registrar,$this->actualizar,$this->eliminar,$this->ultimo);
-    }
+   
 }
 ?>
