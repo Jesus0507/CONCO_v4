@@ -14,6 +14,7 @@ class Negocios extends Controlador
     private $accion;            #accion para enviar a la bitacora 
     private $mensaje;           #mensaje que se mandara a la vista
     private $validar;           #objeto con la clase validacion correspondiente al modulo
+    private $crud;              #array con peticion generica sql
 
     // DATOS independientes usados para el manejo del modulo
     private $rif_negocio;
@@ -34,7 +35,9 @@ class Negocios extends Controlador
         $this->rif_negocio     = $_POST['rif_negocio'];
         $this->calle           = $_POST['calle'];
         $this->validar         = $this->validacion;
+        $this->mensaje         = 1;
         $this->estado_ejecutar = array($this->estado["id_tabla"] => $this->estado["param"], "estado" => $this->estado["estado"]);
+        $this->crud["consultar"] = array("tabla" => "calles", "estado" => 1, "orden" => "nombre_calle");
         //   $this->Cargar_Modelo("negocios");
     }
     private function Establecer_Consultas()
@@ -43,7 +46,7 @@ class Negocios extends Controlador
         $this->modelo->_SQL_("SQL_01");
         $this->datos_consulta["negocios"] = $this->modelo->Administrar();
         $this->modelo->_SQL_("_01_");
-        $this->modelo->_CRUD_(["consultar" => array("tabla" => "calles", "estado" => 1, "orden" => "nombre_calle")]);
+        $this->modelo->_CRUD_($this->Get_Crud_Sql());
         $this->datos_consulta["calle"] = $this->modelo->Administrar();
         $this->modelo->_SQL_("SQL_04");
         $this->datos_consulta["personas"] = $this->modelo->Administrar();
@@ -59,13 +62,15 @@ class Negocios extends Controlador
     private function Get_Estado():array         {return $this->estado;}
     private function Get_Estado_Ejecutar():array{return $this->estado_ejecutar;}
     private function Get_Datos_Vista():array    {return $this->datos_consulta;}
-
+    private function Get_Crud_Sql(): array      {return $this->crud;}
     // ==============================================================================
 
     public function Cargar_Vistas()
     {
         $this->Seguridad_de_Session();
-        $this->vista->Cargar_Vistas('negocios/consultar');
+        if ($this->permisos["consultar"] === 1) {
+            $this->vista->Cargar_Vistas('negocios/consultar');
+        } else { $this->_403_();}
     }
 
     public function Administrar($peticion = null)
@@ -92,10 +97,9 @@ class Negocios extends Controlador
                         $this->modelo->_SQL_($this->Get_Sql());
                         $this->modelo->_Tipo_(1);
                         if ($this->modelo->Administrar()) {
-                            $this->mensaje = 1;
                             $this->Accion($this->Get_Accion());
+                            echo $this->Get_Mensaje();
                         }
-                        echo $this->Get_Mensaje();
                     } else {
                         echo $this->validar->Fallo();
                     }
@@ -108,10 +112,9 @@ class Negocios extends Controlador
                     $this->modelo->_SQL_($this->Get_Sql());
                     $this->modelo->_Tipo_(1);
                     if ($this->modelo->Administrar()) {
-                        $this->mensaje = 1;
                         $this->Accion($this->Get_Accion());
+                        echo $this->Get_Mensaje();
                     }
-                    echo $this->Get_Mensaje();
                 } else { $this->_403_();}
                 break;
 

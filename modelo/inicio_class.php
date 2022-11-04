@@ -45,7 +45,7 @@ class Inicio_Class extends Modelo
                     break;
             }
         } catch (PDOException $e) { #capturamos el error y se envia la respuesta(ubicacion MODELO)
-            return $this->Capturar_Error($e, "Negocios"); 
+            return $this->Capturar_Error($e, "Inicio"); 
         }
     }
 

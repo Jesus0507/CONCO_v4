@@ -90,7 +90,7 @@ $(function() {
                                 } else {
                                     swal({
                                         title: "ERROR!",
-                                        text: "Ha ocurrido un Error.</br>" + result,
+                                        text: result,
                                         type: "error",
                                         html: true,
                                         showConfirmButton: true,
@@ -169,7 +169,7 @@ $(function() {
                             } else {
                                 swal({
                                     title: "ERROR!",
-                                    text: "Ha ocurrido un Error.</br>" + datos,
+                                    text: datos,
                                     type: "error",
                                     html: true,
                                     showConfirmButton: true,

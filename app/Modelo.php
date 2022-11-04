@@ -7,15 +7,8 @@ class Modelo extends BASE_DATOS
     #Protected:Solo puede ser accesado por una clase heredada y la clase que lo define.
     #Private:Solo puede ser accesado por la clase que lo define.
 
-    private $sentencia;
-    private $datos;
-    private $estado;
-    private $PDO;
-
+    protected $estado;
     private $crud;
-
-    public $sql; 
-    public $resultado;
 
     public function __construct()
     {
@@ -34,43 +27,10 @@ class Modelo extends BASE_DATOS
     {
         return $this->$A = $B;
     }
-    // =============DATOS PRIVADOS==============
-    public function Datos($datos)
-    {
-         $this->datos = $datos;
-    }
-    public function Estado($estado)
-    {
-         $this->estado = $estado;
-    }
-
     public function _CRUD_(array $crud)
     {
          $this->crud = $crud;
     }
-    // =============FUNCIONES PUBLICAS==============
-    # Ejecutar un query simple del tipo INSERT, DELETE, UPDATE
-    protected function Ejecutar_Tarea()
-    { 
-        $this->conexion->beginTransaction();
-        $this->PDO = $this->conexion->prepare($this->sentencia);
-        $this->PDO->execute($this->datos);
-        $this->conexion->commit();
-        return true;
-    }
-
-    # Traer resultados de una consulta en un Array
-    protected function Resultado_Consulta()
-    {   
-        $this->conexion->beginTransaction();
-        $this->PDO = $this->conexion->prepare($this->sentencia);
-        $this->PDO->execute();
-        $this->conexion->commit();
-        $this->PDO->setFetchMode(PDO::FETCH_ASSOC);
-        $this->resultado =  $this->PDO->fetchAll(PDO::FETCH_ASSOC);
-        return $this->resultado;
-    }
-
     // =========================================
     protected function Capturar_Error($e,$modulo)
     {   
@@ -94,44 +54,44 @@ class Modelo extends BASE_DATOS
         return false;
     }
 
-    protected function ACT_DES()
+    protected function ACT_DES():string
     {
     return  "UPDATE ".$this->estado["tabla"]." SET estado = :estado "."WHERE ".$this->estado['id_tabla']." = :".$this->estado['id_tabla'];
     }
 
-    protected function _01_()
+    protected function _01_():string
     {
     return  "SELECT * FROM ".$this->crud['consultar']['tabla']." WHERE estado = ".$this->crud['consultar']['estado']." ORDER BY ".$this->crud['consultar']['orden']." ASC";
     }
 
-    protected function _02_()
+    protected function _02_():string
     {
-    return  'INSERT INTO ' . $this->registrar['tabla'] . ' (' . $this->registrar['columna'] . ', estado) VALUES (:' . $this->registrar['columna'] . ', :estado)';
+    return  'INSERT INTO ' . $this->crud["registrar"]['tabla'] . ' (' . $this->crud["registrar"]['columna'] . ', estado) VALUES (:' . $this->crud["registrar"]['columna'] . ', :estado)';
     }
 
-    protected function _03_()
+    protected function _03_():string
     {
-    return  "SELECT MAX(" . $this->ultimo['id'] . ") FROM " . $this->ultimo['tabla'] . "";
+    return  "SELECT MAX(" . $this->crud["ultimo"]['id'] . ") FROM " . $this->crud["ultimo"]['tabla'] . "";
     }
 
-    protected function _04_()
+    protected function _04_():string
     {
-    return  "UPDATE " . $this->actualizar['tabla'] . " SET " . $this->actualizar['columna'] . " = :" . $this->actualizar['columna'] . " WHERE " . $this->actualizar['id_tabla'] . " =:" . $this->actualizar['id_tabla'] . "";
+    return  "UPDATE " . $this->crud["actualizar"]['tabla'] . " SET " . $this->crud["actualizar"]['columna'] . " = :" . $this->crud["actualizar"]['columna'] . " WHERE " . $this->crud["actualizar"]['id_tabla'] . " =:" . $this->crud["actualizar"]['id_tabla'] . "";
     }
 
-    protected function _05_()
+    protected function _05_():string
     {
     return  "SELECT * FROM " . $this->crud['consultar']['tabla'] . " WHERE " . $this->crud['consultar']['columna'] . "=" . $this->crud['consultar']['data'] . "";
     }
 
-    protected function _06_()
+    protected function _06_():string
     {
     return  "SELECT * FROM ".$this->crud['consultar']['tabla']." ORDER BY ".$this->crud['consultar']['orden']." ASC";
     }
 
-    protected function _07_()
+    protected function _07_():string
     {
-    return  'DELETE FROM ' . $this->eliminar['tabla'] . ' WHERE ' . $this->eliminar['id_tabla'] . ' = :' . $this->eliminar['id_tabla'] . '';
+    return  'DELETE FROM ' . $this->crud["eliminar"]['tabla'] . ' WHERE ' . $this->crud["eliminar"]['id_tabla'] . ' = :' . $this->crud["eliminar"]['id_tabla'] . '';
     }
 
    
