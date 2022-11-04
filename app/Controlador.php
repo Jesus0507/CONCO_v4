@@ -407,24 +407,21 @@ class Controlador
 
     public function Accion($accion)
     {
+        $this->Cargar_Modelo("bitacora");
+        $this->modelo->_Tipo_(1);
+        $this->modelo->_SQL_("SQL_01");
+        foreach ($this->modelo->Administrar() as $b) {
+            if ($b['cedula_usuario'] == $_SESSION['cedula_usuario'] && $b['hora_fin'] == "Activo") {
+                $b['acciones'] = $b['acciones'] . $accion . "/";
 
-        // $this->Cargar_Modelo("bitacora");
-        // $this->modelo->__SET("tipo", "0");
-        // $this->modelo->__SET("SQL", "SQL_01");
-
-        // foreach ($this->modelo->Administrar() as $b) {
-        //     if ($b['cedula_usuario'] == $_SESSION['cedula_usuario'] && $b['hora_fin'] == "Activo") {
-        //         $b['acciones'] = $b['acciones'] . $accion . "/";
-
-        //         $this->modelo->__SET("tipo", "1");
-        //         $this->modelo->__SET("SQL", "SQL_04");
-
-        //         $this->modelo->Datos(["acciones" => $b['acciones'], "id_bitacora" => $b['id_bitacora']]);
-
-        //         $this->modelo->Administrar();
-        //     }
-        // }
-
+                $this->modelo->_Tipo_(1);
+                $this->modelo->_SQL_("SQL_04");
+                $this->modelo->_Datos_(["acciones" => $b['acciones'], "id_bitacora" => $b['id_bitacora']]);
+                if ($this->modelo->Administrar()) {
+                    continue;
+                }
+            }
+        }
     }
 
     public function Ejecutar_Sentencia()

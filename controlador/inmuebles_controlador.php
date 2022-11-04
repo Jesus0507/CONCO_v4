@@ -173,5 +173,6 @@ class Inmuebles extends Controlador
                 break;
         }
         exit();
+        unset($this->permisos, $this->peticion, $this->estado, $this->estado_ejecutar, $this->sql, $this->datos_ejecutar, $this->datos_consulta, $this->accion, $this->mensaje,$this->validar,$this->crud, $this->calle,$this->cont,$this->ultimo,$this->tipo_inmueble,$this->$id);
     }
 }

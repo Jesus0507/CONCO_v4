@@ -5,7 +5,6 @@ class Login extends Controlador
     public function __construct()
     {
         parent::__construct();
-        $this->vista->mensaje = "";
         //   $this->Cargar_Modelo("login");
     }
  

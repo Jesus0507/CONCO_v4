@@ -2,7 +2,6 @@
 
 class Inmuebles_Class extends Modelo
 {
-
     #Public: acceso sin restricción.
     #Private:Solo puede ser accesado por la clase que lo define.
 
