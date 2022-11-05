@@ -38,7 +38,7 @@ class Bitacora extends Controlador
         // $this->Cargar_Modelo("bitacora");
     }
 
-    public function Establecer_Consultas()
+    private function Establecer_Consultas()
     {
         $this->modelo->_Tipo_(0);
         $this->modelo->_SQL_("SQL_01");
@@ -49,14 +49,10 @@ class Bitacora extends Controlador
     // ==================GETTERS=========================
     #getters usados para obtener la informacion de las variables privadas
     # retornan tipo string o array
-    public function Get_Sql(): string
-    {return $this->sql;}
-    public function Get_Mensaje(): string
-    {return $this->mensaje;}
-    public function Get_Datos(): array
-    {return $this->datos_ejecutar;}
-    public function Get_Datos_Vista(): array
-    {return $this->datos_consulta;}
+    public function Get_Sql(): string           {return $this->sql;}
+    public function Get_Mensaje(): string       {return $this->mensaje;}
+    public function Get_Datos(): array          {return $this->datos_ejecutar;}
+    public function Get_Datos_Vista(): array    {return $this->datos_consulta;}
 
     // =============================================================================
 
