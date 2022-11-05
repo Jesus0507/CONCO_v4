@@ -14,29 +14,40 @@
 						<input type="number" class="form-control input-number" placeholder="Ingrese su cédula" id="cedulaEmergente" name="cedulaEmergente" />
 						<div id="textoCedula" style='color:red'></div>
 
-						<br>
+						
                         <div id='info' style='display:none'>
 						<h5 class="modal-title text-center" style="margin-bottom: 8px;">Preguntas de seguridad</h5>
-
+						<label>
+							Nombre de su primera mascota
+						</label>
 						<input type="text" class="form-control validar-letras validar-simbolos" id="mascota" name="mascota" placeholder="Nombre de su primera mascota" style="margin-bottom: 4px;">
 						<div id="textoMascota" style='color:red'></div>
-						<br>
+						
 
 						<div class="">
+							<label>
+								Escriba su animal favorito
+							</label>
 							<input class="form-control select" style="margin-bottom: 4px;" placeholder="Escriba su animal favorito" id="animFav" name="animFav">
 
 						</div>
 						<div id="textoAnimFav" style='color:red'></div>
-						<br>
+						
 
 						<div>
+							<label>
+								Escriba su color favorito
+							</label>
 							<input class="form-control validar-letras validar-simbolos" id="colorFav" placeholder='Escriba su color favorito' name="colorFav">
 
 						</div>
 						<div id="textoColorFav" style='color:red'></div>
 
 						</br>
-						<div>
+						<div >
+							<label>
+								Coloque su firma digital
+							</label>
 							<input class="form-control validar-letras validar-simbolos" id="firmaDigital" placeholder='Coloque su firma digital' name="firmaDigital">
 
 						</div>

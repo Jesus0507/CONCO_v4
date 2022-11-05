@@ -21,7 +21,7 @@
             "Modulo\\": "modelo/",
             "Prueba\\": "tests/"
         },
-        "files": ["app/Direcciones.php", "app/Config.php", "app/App.php", "app/Base_Datos.php", "app/Modelo.php", "app/Vista.php","app/Validacion.php", "app/Controlador.php"]
+        "files": [ "app/Base_Datos.php", "app/Direcciones.php", "app/Config.php", "app/App.php",  "app/Modelo.php", "app/Vista.php","app/Validacion.php", "app/Controlador.php"]
     },
     "autoload-dev": {
         "classmap": ["app/", "controlador/", "controlador/backend/", "modelo/", "tests/"],

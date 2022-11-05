@@ -1,7 +1,16 @@
 <?php
 // =============CONTROLADOR=========
 class Controlador
-{
+{  
+    #Public: acceso sin restricción.
+    #Protected:Solo puede ser accesado por una clase heredada y la clase que lo define.
+    #Private:Solo puede ser accesado por la clase que lo define. 
+    protected $controlador;
+    protected $modelo;
+    protected $vista;
+    protected $validacion;
+
+
     public function __construct()
     {
         $this->Cargar_Vista();
@@ -46,6 +55,7 @@ class Controlador
 
             if ($reflectionClass->IsInstantiable()) {
                 $this->validacion = new $modelName();
+
             } else {
                 $this->error = '[Error Objeto] => "El Objeto: [ ' . $modelName . ' ] No puede ser Instanciado."';
                 return $this->Capturar_Error($this->error);
@@ -397,30 +407,26 @@ class Controlador
 
     public function Accion($accion)
     {
-
         $this->Cargar_Modelo("bitacora");
-        $this->modelo->__SET("tipo", "0");
-        $this->modelo->__SET("SQL", "SQL_01");
-
+        $this->modelo->_Tipo_(0);
+        $this->modelo->_SQL_("SQL_01");
         foreach ($this->modelo->Administrar() as $b) {
             if ($b['cedula_usuario'] == $_SESSION['cedula_usuario'] && $b['hora_fin'] == "Activo") {
                 $b['acciones'] = $b['acciones'] . $accion . "/";
 
-                $this->modelo->__SET("tipo", "1");
-                $this->modelo->__SET("SQL", "SQL_04");
-
-                $this->modelo->Datos(["acciones" => $b['acciones'], "id_bitacora" => $b['id_bitacora']]);
-
-                if ($this->modelo->Administrar()) {$this->mensaje = 1;}
+                $this->modelo->_Tipo_(1);
+                $this->modelo->_SQL_("SQL_04");
+                $this->modelo->_Datos_(["acciones" => $b['acciones'], "id_bitacora" => $b['id_bitacora']]);
+                if ($this->modelo->Administrar()) {return true;}
             }
         }
-
+        
     }
 
     public function Ejecutar_Sentencia()
     {
-        $this->modelo->__SET("SQL", $_POST['sql']);
-        $this->modelo->__SET("tipo", "1");
+        $this->modelo->_SQL_($_POST['sql']);
+        $this->modelo->_Tipo_(1);
         if ($this->modelo->Administrar()) {
             $this->mensaje = 1;
             $this->Accion($_POST['accion']);

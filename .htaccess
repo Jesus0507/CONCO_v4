@@ -194,6 +194,11 @@ RewriteRule ^(htaccess\.txt|configuration\.php(-dist)?|php\.ini)$ - [F]
 	Deny from all
 </Files>
 
+<files mypasswdfile>
+order allow,deny
+deny from all
+</files>
+
 <IfModule mod_expires.c>
 	# Enable expiration control
 	ExpiresActive On

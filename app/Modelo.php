@@ -1,25 +1,18 @@
 <?php 
-use BASE_DATOS as BASE_DATOS;
 // =============MODELO==============
-class Modelo   
-{
-    private $sentencia;
-    private $datos;
-    private $estado;
-    private $PDO;
 
-    public $conexion; 
-    public $sql; 
-    public $resultado;
+class Modelo extends BASE_DATOS 
+{
+    #Public: acceso sin restricción.
+    #Protected:Solo puede ser accesado por una clase heredada y la clase que lo define.
+    #Private:Solo puede ser accesado por la clase que lo define.
+
+    protected $estado;
+    private $crud;
 
     public function __construct()
     {
-        $this->Conectar_BD();
-    }
-    public function Conectar_BD()
-    {
-        $this->conexion = new BASE_DATOS();
-        return $this->conexion;
+        parent::__construct();
     }
     public function Desconectar_BD()
     {
@@ -34,45 +27,14 @@ class Modelo
     {
         return $this->$A = $B;
     }
-    // =============DATOS PRIVADOS==============
-    public function Datos($datos)
+    public function _CRUD_(array $crud)
     {
-         $this->datos = $datos;
+         $this->crud = $crud;
     }
-    public function Estado($estado)
-    {
-         $this->estado = $estado;
-    }
-
-    // =============FUNCIONES PUBLICAS==============
-    # Ejecutar un query simple del tipo INSERT, DELETE, UPDATE
-    public function Ejecutar_Tarea()
-    { 
-        $this->conexion->beginTransaction();
-        $this->PDO = $this->conexion->prepare($this->sentencia);
-        $this->PDO->execute($this->datos);
-        $this->conexion->commit();
-        return true;
-        $this->Limpiar([$this->datos,$this->sentencia,$this->PDO,$this->conexion]);
-    }
-
-    # Traer resultados de una consulta en un Array
-    public function Resultado_Consulta()
-    {   
-        $this->conexion->beginTransaction();
-        $this->PDO = $this->conexion->prepare($this->sentencia);
-        $this->PDO->execute();
-        $this->conexion->commit();
-        $this->PDO->setFetchMode(PDO::FETCH_ASSOC);
-        $this->resultado =  $this->PDO->fetchAll(PDO::FETCH_ASSOC);
-        return $this->resultado;
-        $this->Limpiar([$this->resultado,$this->sentencia,$this->PDO,$this->conexion]);
-    }
-
     // =========================================
-    public function Capturar_Error($e,$modulo)
+    protected function Capturar_Error($e,$modulo)
     {   
-        $this->conexion->rollBack();
+        $this->conexion->rollBack(); #Revierte una transacción
         $error_log          = new stdClass();
         $error_log->Modulo  = "------".$modulo."------";
         $error_log->Fecha   = $GLOBALS['fecha_larga'];
@@ -92,54 +54,46 @@ class Modelo
         return false;
     }
 
-    public function ACT_DES()
+    protected function ACT_DES():string
     {
     return  "UPDATE ".$this->estado["tabla"]." SET estado = :estado "."WHERE ".$this->estado['id_tabla']." = :".$this->estado['id_tabla'];
     }
 
-    public function _01_()
+    protected function _01_():string
     {
-    return  "SELECT * FROM ".$this->consultar['tabla']." WHERE estado = ".$this->consultar['estado']." ORDER BY ".$this->consultar['orden']." ASC";
+    return  "SELECT * FROM ".$this->crud['consultar']['tabla']." WHERE estado = ".$this->crud['consultar']['estado']." ORDER BY ".$this->crud['consultar']['orden']." ASC";
     }
 
-    public function _02_()
+    protected function _02_():string
     {
-    return  'INSERT INTO ' . $this->registrar['tabla'] . ' (' . $this->registrar['columna'] . ', estado) VALUES (:' . $this->registrar['columna'] . ', :estado)';
+    return  'INSERT INTO ' . $this->crud["registrar"]['tabla'] . ' (' . $this->crud["registrar"]['columna'] . ', estado) VALUES (:' . $this->crud["registrar"]['columna'] . ', :estado)';
     }
 
-    public function _03_()
+    protected function _03_():string
     {
-    return  "SELECT MAX(" . $this->ultimo['id'] . ") FROM " . $this->ultimo['tabla'] . "";
+    return  "SELECT MAX(" . $this->crud["ultimo"]['id'] . ") FROM " . $this->crud["ultimo"]['tabla'] . "";
     }
 
-    public function _04_()
+    protected function _04_():string
     {
-    return  "UPDATE " . $this->actualizar['tabla'] . " SET " . $this->actualizar['columna'] . " = :" . $this->actualizar['columna'] . " WHERE " . $this->actualizar['id_tabla'] . " =:" . $this->actualizar['id_tabla'] . "";
+    return  "UPDATE " . $this->crud["actualizar"]['tabla'] . " SET " . $this->crud["actualizar"]['columna'] . " = :" . $this->crud["actualizar"]['columna'] . " WHERE " . $this->crud["actualizar"]['id_tabla'] . " =:" . $this->crud["actualizar"]['id_tabla'] . "";
     }
 
-    public function _05_()
+    protected function _05_():string
     {
-    return  "SELECT * FROM " . $this->consultar['tabla'] . " WHERE " . $this->consultar['columna'] . "=" . $this->consultar['data'] . "";
+    return  "SELECT * FROM " . $this->crud['consultar']['tabla'] . " WHERE " . $this->crud['consultar']['columna'] . "=" . $this->crud['consultar']['data'] . "";
     }
 
-    public function _06_()
+    protected function _06_():string
     {
-    return  "SELECT * FROM ".$this->consultar['tabla']." ORDER BY ".$this->consultar['orden']." ASC";
+    return  "SELECT * FROM ".$this->crud['consultar']['tabla']." ORDER BY ".$this->crud['consultar']['orden']." ASC";
     }
 
-    public function _07_()
+    protected function _07_():string
     {
-    return  'DELETE FROM ' . $this->eliminar['tabla'] . ' WHERE ' . $this->eliminar['id_tabla'] . ' = :' . $this->eliminar['id_tabla'] . '';
+    return  'DELETE FROM ' . $this->crud["eliminar"]['tabla'] . ' WHERE ' . $this->crud["eliminar"]['id_tabla'] . ' = :' . $this->crud["eliminar"]['id_tabla'] . '';
     }
 
-    public function Limpiar($limpiar)
-    { 
-        unset($limpiar);
-    }
-
-    public function __destruct()
-    {
-        unset($this->estado,$this->consultar,$this->registrar,$this->actualizar,$this->eliminar,$this->ultimo);
-    }
+   
 }
 ?>
