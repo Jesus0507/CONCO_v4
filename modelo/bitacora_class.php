@@ -63,7 +63,7 @@ class Bitacora_Class extends Modelo
 
     private function SQL_03():string
     {
-        return 'UPDATE bitacoras SET hora_fin =:hora_fin WHERE id_bitacora = :id_bitacora';
+        return 'UPDATE bitacoras SET hora_fin =:hora_fin  WHERE id_bitacora = :id_bitacora';
     }
 
     private function SQL_04():string

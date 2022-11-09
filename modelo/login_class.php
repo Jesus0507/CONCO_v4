@@ -53,7 +53,7 @@ class Login_Class extends Modelo
 
     public function SQL_01():string
     {
-        return  "SELECT p.cedula_persona, p.primer_nombre, p.primer_apellido, p.preguntas_seguridad, p.rol_inicio, p.digital_sign FROM personas p WHERE ". $this->consultar['columna'] . "=" . $this->consultar['data'] . "";
+        return  "SELECT p.cedula_persona, p.primer_nombre, p.primer_apellido, p.preguntas_seguridad, p.rol_inicio, p.digital_sign FROM personas p WHERE ". $this->crud["consultar"]['columna'] . "=" . $this->crud["consultar"]['data'] . "";
     }
 
 }
