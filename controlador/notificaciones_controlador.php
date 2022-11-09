@@ -1,70 +1,109 @@
 <?php
 class Notificaciones extends Controlador
 {
+    #Public: acceso sin restricción.
+    #Private:Solo puede ser accesado por la clase que lo define.
+    private $peticion; #peticion a ejecutar de la funcion administrar
+    private $sql; #nombre de la sentencia SQL que se ejecutara en el modelo
+    private $datos_ejecutar; #array con datos para enviar a la bd
+    private $datos_consulta; #array con los datos necesarios para el modulo (consultas)
+    private $accion; #accion para enviar a la bitacora
+    private $mensaje; #mensaje que se mandara a la vista
+    
+    // DATOS independientes usados para el manejo del modulo
+    public $cedula;
+    public $retornar;
+    // ==================ESTABLECER DATOS=========================
     public function __construct()
     {
         parent::__construct();
+        $this->datos_ejecutar = $_POST['datos'];
+        $this->sql            = $_POST['sql'];
+        $this->mensaje        = 1;
+        $this->cedula         = $_SESSION['cedula_usuario'];
         //    $this->Cargar_Modelo("notificaciones");
     }
 
+    public function Establecer_Consultas()
+    {
+        $this->modelo->_Tipo_(0);
+        $this->modelo->_Cedula_($this->cedula);
+        $this->modelo->_SQL_("SQL_02");
+        $this->datos_consulta["notificaciones"] = $this->modelo->Administrar();
+        $this->modelo->_SQL_("SQL_05");
+        $this->datos_consulta["receptores"] = $this->modelo->Administrar();
+        $this->vista->datos                 = $this->Get_Datos_Vista();
+    }
+
+    // ==================GETTERS=========================
+    #getters usados para obtener la informacion de las variables privadas
+    # retornan tipo string o array
+    private function Get_Sql(): string
+    {return $this->sql;}
+    private function Get_Mensaje(): string
+    {return $this->mensaje;}
+    private function Get_Datos(): array
+    {return $this->datos_ejecutar;}
+    private function Get_Datos_Vista(): array
+    {return $this->datos_consulta;}
+    // ==============================================================================
     public function Cargar_Vistas()
     {
-        $this->Establecer_Consultas();$this->Seguridad_de_Session();
+        $this->Establecer_Consultas();
+        $this->Seguridad_de_Session();
         $this->vista->Cargar_Vistas('notificaciones/index');
     }
     // ==============================================================================
-    public function Establecer_Consultas()
-    {
-        $this->modelo->__SET("tipo", "0");
-        $this->modelo->__SET("consultar", $_SESSION['cedula_usuario']);
-        $this->modelo->__SET("SQL", "SQL_02");$this->datos["notificaciones"] = $this->modelo->Administrar();
-        $this->modelo->__SET("SQL", "SQL_05");$this->datos["receptores"]     = $this->modelo->Administrar();
-        $this->vista->datos        = $this->datos;
-    }
 
     public function Administrar($peticion = null)
     {
-        $this->Seguridad_de_Session();$this->Establecer_Consultas();
-        if (isset($_POST['peticion'])) {$peticion = $_POST['peticion'];} else { $peticion = $peticion[0];}
-
-        switch ($peticion) {
-            case 'Listar':   $this->vista->Cargar_Vistas('notificaciones/index');    break;
-            case 'Consultas':$this->vista->Cargar_Vistas('notificaciones/consultar');break;
+        $this->Seguridad_de_Session();
+        $this->Establecer_Consultas();
+        $this->peticion = (isset($_POST['peticion'])) ? $_POST['peticion'] : $peticion[0];
+        switch ($this->peticion) {
+            case 'Listar':$this->vista->Cargar_Vistas('notificaciones/index');
+                break;
+            case 'Consultas':$this->vista->Cargar_Vistas('notificaciones/consultar');
+                break;
 
             case 'Administrar':
-                $this->modelo->__SET("SQL", $_POST['sql']);$this->modelo->__SET("tipo", "1");
-                $this->modelo->Datos($_POST['datos']);
-                if ($this->modelo->Administrar()) {$this->mensaje = 1;}
-                echo $this->mensaje;unset($_POST, $this->mensaje);
+                $this->modelo->_SQL_($this->Get_Sql());
+                $this->modelo->_Tipo_(1);
+                $this->modelo->_Datos_($this->Get_Datos());
+                $this->modelo->Administrar();
+                echo $this->Get_Mensaje();
                 break;
 
             case 'Nueva':
-                $this->modelo->__SET("SQL", $_POST['sql']);
-                $this->modelo->__SET("tipo", "1");
-                $accion = $_POST['datos']['tipo_notificacion'] . "/" . $_SESSION['nombre'] . " " . $_SESSION['apellido'] . " " . $_POST['datos']['accion'];
-                $this->modelo->Datos([
-                    'usuario_emisor'   => $_SESSION['cedula_usuario'],
-                    'usuario_receptor' => $_POST['datos']['usuario_receptor'],
+                $this->modelo->_SQL_($this->Get_Sql());
+                $this->modelo->_Tipo_(1);
+                $accion = $this->datos_ejecutar['tipo_notificacion'] . "/" . $_SESSION['nombre'] . " " . $_SESSION['apellido'] . " " . $this->datos_ejecutar['accion'];
+                $this->datos_ejecutar =  array(
+                    'usuario_emisor'   => $this->cedula,
+                    'usuario_receptor' => $this->datos_ejecutar['usuario_receptor'],
                     'accion'           => $accion,
                     'leido'            => 0,
-                ]);
-                if ($this->modelo->Administrar()) {$this->mensaje = 1;}
-                echo $this->mensaje;unset($_POST, $this->mensaje);
+                );
+                $this->modelo->_Datos_($this->Get_Datos());
+                $this->modelo->Administrar();
+                echo $this->Get_Mensaje();
                 break;
 
             case 'Receptores':
-                $retornar = [];
+                $this->retornar = [];
                 foreach ($this->datos["receptores"] as $r) {
-                    $retornar[] = ["cedula_usuario" => $r['cedula_persona']];
+                    $this->retornar[] = ["cedula_usuario" => $r['cedula_persona']];
                 }
-                $this->Escribir_JSON($retornar);unset($retornar);
+                $this->Escribir_JSON($this->retornar);unset($this->retornar);
                 break;
 
-            case 'Consulta_Ajax':$this->Escribir_JSON($this->datos["notificaciones"]);break;
+            case 'Consulta_Ajax':$this->Escribir_JSON($this->Get_Datos_Vista()["notificaciones"]);
+                break;
 
-            default:$this->vista->Cargar_Vistas('error/400');break;
+            default:$this->vista->Cargar_Vistas('error/400');
+                break;
         }
-        unset($peticion, $this->datos, $this->vista->datos);
+        unset($this->peticion, $this->datos, $this->vista->datos);
         exit();
     }
 }
