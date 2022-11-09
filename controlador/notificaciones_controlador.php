@@ -24,7 +24,7 @@ class Notificaciones extends Controlador
         //    $this->Cargar_Modelo("notificaciones");
     }
 
-    public function Establecer_Consultas()
+    private function Establecer_Consultas()
     {
         $this->modelo->_Tipo_(0);
         $this->modelo->_Cedula_($this->cedula);

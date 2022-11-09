@@ -25,7 +25,7 @@ class Login extends Controlador
         $this->mensaje     = 1;
         //   $this->Cargar_Modelo("login");
     }
-    public function set_Usuario_Actual($cedula, $nombre, $apellido, $correo, $estado, $rol_inicio, $firma, $publica, $privada)
+    private function set_Usuario_Actual($cedula, $nombre, $apellido, $correo, $estado, $rol_inicio, $firma, $publica, $privada)
     {
         $_SESSION['cedula_usuario'] = $cedula;
         $_SESSION['nombre']         = $nombre;

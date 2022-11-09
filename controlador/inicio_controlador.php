@@ -17,7 +17,7 @@ class Inicio extends Controlador
 
     private function Get_Datos_Vista(): array {return $this->datos;}
 
-    public function Establecer_Consultas()
+    private function Establecer_Consultas()
     {
         $this->modelo->_Tipo_(0);
         $this->modelo->_SQL_("_01_");
