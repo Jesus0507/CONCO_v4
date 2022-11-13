@@ -1,21 +1,38 @@
 <?php
-
+ 
 class Agenda extends Controlador
 {
+    #Public: acceso sin restricción.
+    #Private:Solo puede ser accesado por la clase que lo define.
+    private $permisos;          #permisos correspondiente del modulo
+    private $peticion;          #peticion a ejecutar de la funcion administrar
+    private $estado;            #array con parametros de eliminacion logica (tabla,id_tabla,param,estado)
+    private $estado_ejecutar;   #array con parametro a ejecutar (id_tabla, estado)
+    private $sql;               #nombre de la sentencia SQL que se ejecutara en el modelo
+    private $datos_ejecutar;    #array con datos para enviar a la bd 
+    private $datos_consulta;    #array con los datos necesarios para el modulo (consultas)
+    private $accion;            #accion para enviar a la bitacora 
+    private $mensaje;           #mensaje que se mandara a la vista
+    private $validar;           #objeto con la clase validacion correspondiente al modulo
+    private $crud;              #array con peticion generica sql
+
+    // DATOS independientes usados para el manejo del modulo
+
+    // ==================ESTABLECER DATOS=========================
     public function __construct()
     {
         parent::__construct();
         $this->vista->mensaje = "";
         //   $this->Cargar_Modelo("agenda");
     }
-    // ==============================================================================
-    public function Establecer_Consultas()
+
+    private function Establecer_Consultas()
     {
         $ubicaciones = [];
-        $this->modelo->__SET("tipo", "0");
-        $this->modelo->__SET("SQL", "SQL_01");$this->datos["agenda"] = $this->modelo->Administrar();
-        $this->modelo->__SET("SQL", "SQL_04");$this->datos["calles"] = $this->modelo->Administrar();
-        $this->modelo->__SET("SQL", "SQL_05");$this->datos["inmuebles"] = $this->modelo->Administrar();
+        $this->modelo->_Tipo_(0);
+        $this->modelo->_SQL_("SQL_01");$this->datos["agenda"] = $this->modelo->Administrar();
+        $this->modelo->_SQL_("SQL_04");$this->datos["calles"] = $this->modelo->Administrar();
+        $this->modelo->_SQL_("SQL_05");$this->datos["inmuebles"] = $this->modelo->Administrar();
 
         foreach ($this->datos["calles"] as $c) {$ubicaciones[] = $c['nombre_calle'];}
         foreach ($this->datos["inmuebles"] as $i) {$ubicaciones[] = $i['nombre_inmueble'];}
@@ -24,6 +41,9 @@ class Agenda extends Controlador
         $this->vista->datos = $this->datos;
         unset($ubicaciones);
     }
+    
+    // ==============================================================================
+    
 
     public function Administrar($peticion = null)
     {
@@ -56,7 +76,7 @@ class Agenda extends Controlador
                     ]);
                 }
 
-                $this->modelo->__SET("SQL", $_POST['sql']);$this->modelo->__SET("tipo", "1");
+                $this->modelo->_SQL_($_POST['sql']);$this->modelo->_Tipo_(1);
                 if ($this->modelo->Administrar()) {$this->mensaje = 1;$this->Accion($_POST['accion']);}
 
                 echo $this->mensaje;unset($_POST, $this->mensaje);
@@ -65,7 +85,7 @@ class Agenda extends Controlador
             case 'Registrar':
             if ($_SESSION["Agenda"]["registrar"] === 1) {
                
-                $this->modelo->__SET("SQL", $_POST['sql']);$this->modelo->__SET("tipo", "1");
+                $this->modelo->_SQL_($_POST['sql']);$this->modelo->_Tipo_(1);
 
                 for ($i = 0; $i < count($_POST['datos']['fechas']); $i++) {
                     $this->modelo->Datos([

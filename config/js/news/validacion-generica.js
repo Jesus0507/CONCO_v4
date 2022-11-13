@@ -118,3 +118,6 @@ function Direccionar(direction) {
         });
     }, 1000);
 }
+function revisar(argument) {
+    return console.log(argument);
+}
