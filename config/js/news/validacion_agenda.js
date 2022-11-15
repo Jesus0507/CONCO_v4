@@ -168,7 +168,6 @@ function guardar_eventos() {
                                 data: {
                                     datos: datos,
                                     peticion: "Receptores",
-                                   
                                 },
                             }).done(function(result) {
                                 var users = JSON.parse(result);

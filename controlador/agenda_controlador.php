@@ -12,17 +12,19 @@ class Agenda extends Controlador
     private $datos_ejecutar; #array con datos para enviar a la bd
     private $datos_consulta; #array con los datos necesarios para el modulo (consultas)
     private $accion; #accion para enviar a la bitacora
+    private $validar; #objeto con la clase validacion correspondiente al modulo
     private $mensaje; #mensaje que se mandara a la vista
 
     // DATOS independientes usados para el manejo del modulo
     private $ubicaciones;
     private $cedula_usuario;
     private $user;
-    public  $resultado;
+    public $resultado;
     // ==================ESTABLECER DATOS=========================
     public function __construct()
     {
         parent::__construct();
+        $this->Validacion("agenda");
         $this->vista->mensaje  = "";
         $this->permisos        = $_SESSION["Agenda"];
         $this->estado          = $_POST['estado'];
@@ -32,6 +34,7 @@ class Agenda extends Controlador
         $this->mensaje         = 1;
         $this->estado_ejecutar = array($this->estado["id_tabla"] => $this->estado["param"], "estado" => $this->estado["estado"]);
         $this->cedula_usuario  = $_SESSION['cedula_usuario'];
+        $this->validar         = $this->validacion;
         //   $this->Cargar_Modelo("agenda");
     }
 
@@ -121,32 +124,35 @@ class Agenda extends Controlador
                 break;
             case 'Registrar':
                 if ($this->permisos["registrar"] === 1) {
+                    if ($this->validar->Validacion_Registro()) {
+                        $this->modelo->_SQL_($this->Get_Sql());
+                        $this->modelo->_Tipo_(1);
 
-                    $this->modelo->_SQL_($this->Get_Sql());
-                    $this->modelo->_Tipo_(1);
-
-                    for ($i = 0; $i < count($this->datos_ejecutar['fechas']); $i++) {
-                        $this->datos_ejecutar = array(
-                            "tipo_evento" => $this->datos_ejecutar['tipo_evento'],
-                            "fecha"       => $this->datos_ejecutar['fechas'][$i],
-                            "creador"     => $this->cedula_usuario,
-                            "ubicacion"   => $this->datos_ejecutar['ubicacion'],
-                            "horas"       => $this->datos_ejecutar['horas'],
-                            "detalle"     => $this->datos_ejecutar['detalle_evento'],
-                        );
-                        $this->modelo->_Datos_($this->Get_Datos());
-                        if ($this->modelo->Administrar()) {
-                            $this->Accion($this->Get_Accion());
+                        for ($i = 0; $i < count($this->datos_ejecutar['fechas']); $i++) {
+                            $this->datos_ejecutar = array(
+                                "tipo_evento" => $this->datos_ejecutar['tipo_evento'],
+                                "fecha"       => $this->datos_ejecutar['fechas'][$i],
+                                "creador"     => $this->cedula_usuario,
+                                "ubicacion"   => $this->datos_ejecutar['ubicacion'],
+                                "horas"       => $this->datos_ejecutar['horas'],
+                                "detalle"     => $this->datos_ejecutar['detalle_evento'],
+                            );
+                            $this->modelo->_Datos_($this->Get_Datos());
+                            if ($this->modelo->Administrar()) {
+                                $this->Accion($this->Get_Accion());
+                            }
                         }
+                        echo $this->Get_Mensaje();
+                    } else {
+                        echo $this->validar->Fallo();
                     }
-                    echo $this->Get_Mensaje();
                 } else { $this->_403_();}
                 break;
 
             case 'Consulta_Ajax':
                 $this->resultado = [];
                 for ($i = 0; $i < count($this->datos_consulta["agenda"]); $i++) {
-                    $this->user       = $this->datos_consulta["agenda"][$i]['primer_nombre'] . " " . $this->datos_consulta["agenda"][$i]['primer_apellido'];
+                    $this->user        = $this->datos_consulta["agenda"][$i]['primer_nombre'] . " " . $this->datos_consulta["agenda"][$i]['primer_apellido'];
                     $this->resultado[] = [
                         "usuario"     => $this->user,
                         "id_agenda"   => $this->datos_consulta["agenda"][$i]['id_agenda'],
