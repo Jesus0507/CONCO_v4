@@ -14,13 +14,13 @@
                         <div class="col-md-12 mt-2" id="fechas_evento" style='color:white;width:100%;height:50px;background:#11A394;overflow-x: scroll;'>
 
                         </div>
-
+ 
                         <div class="col-md-12 mt-2">
                             <label for="nombre_calle">
                                 Tipo de evento
                             </label>
                             <div class="input-group">
-                                <input class="form-control mb-10" id="tipo_evento" name="tipo_evento"
+                                <input class="form-control mb-10 no-simbolos" id="tipo_evento" name="tipo_evento"
                                     placeholder="Evento" type="text" />
                             </div>
                         </div>
@@ -30,7 +30,7 @@
                                 Ubicación del evento
                             </label>
                             <div class="input-group">
-                                <input class="form-control mb-10" id="ubicacion_evento" name="ubicacion_evento"
+                                <input class="form-control mb-10 no-simbolos" id="ubicacion_evento" name="ubicacion_evento"
                                     placeholder="Ubicación" type="text" list='ubicaciones'/>
                                     <datalist id='ubicaciones'>
                                         <?php foreach ($this->datos["ubicaciones"] as $u) { ?>
@@ -88,7 +88,7 @@
                             <label for="condicion_calle">
                                 Detalles del evento (opcional)
                             </label>
-                            <textarea class="form-control" cols="5" id="detalle_evento" name="detalle_evento"
+                            <textarea class="form-control no-simbolos" cols="5" id="detalle_evento" name="detalle_evento"
                                 rows="5" placeholder="Requisitos del evento, especificaciones, etc..."></textarea>
                         </div>
 

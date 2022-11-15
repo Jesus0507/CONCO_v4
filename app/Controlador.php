@@ -223,7 +223,7 @@ class Controlador
         $sql               = "SELECT * FROM  $tabla where estado = $estado ORDER BY $orden ASC";
         $respuesta_arreglo = '';
         try {
-            $datos = $this->conexion->prepare($sql);
+            $datos = $this->conexion->conexion->prepare($sql);
             $datos->execute();
             $datos->setFetchMode(PDO::FETCH_ASSOC);
             $respuesta_arreglo = $datos->fetchAll(PDO::FETCH_ASSOC);
@@ -242,7 +242,7 @@ class Controlador
         $respuesta_arreglo = '';
         $resp              = false;
         try {
-            $datos = $this->conexion->prepare($sql);
+            $datos = $this->conexion->conexion->prepare($sql);
             $datos->execute();
             $datos->setFetchMode(PDO::FETCH_ASSOC);
             $respuesta_arreglo = $datos->fetchAll(PDO::FETCH_ASSOC);
@@ -264,7 +264,7 @@ class Controlador
         $sql               = "SELECT * FROM  $tabla  ORDER BY $orden ASC";
         $respuesta_arreglo = '';
         try {
-            $datos = $this->conexion->prepare($sql);
+            $datos = $this->conexion->conexion->prepare($sql);
             $datos->execute();
             $datos->setFetchMode(PDO::FETCH_ASSOC);
             $respuesta_arreglo = $datos->fetchAll(PDO::FETCH_ASSOC);
@@ -283,7 +283,7 @@ class Controlador
         $tabla = "SELECT * FROM " . $tabla . " WHERE " . $columna . "=" . $param . "";
         $respuestaArreglo = '';
         try {
-            $datos = $this->conexion->prepare($tabla);
+            $datos = $this->conexion->conexion->prepare($tabla);
             $datos->execute();
             $datos->setFetchMode(PDO::FETCH_ASSOC);
             $respuestaArreglo = $datos->fetchAll(PDO::FETCH_ASSOC);
@@ -299,7 +299,7 @@ class Controlador
     {
 
         try {
-            $datos = $this->conexion->prepare('INSERT INTO ' . $tabla . '(' . $columna . ', estado) VALUES (:' . $columna . ', :estado)');
+            $datos = $this->conexion->conexion->prepare('INSERT INTO ' . $tabla . '(' . $columna . ', estado) VALUES (:' . $columna . ', :estado)');
             $datos->execute([
                 $columna => $data,
                 'estado' => 1,
@@ -317,7 +317,7 @@ class Controlador
     {
         try {
 
-            $query = $this->conexion->prepare('DELETE FROM ' . $tabla . ' WHERE ' . $id_tabla . ' = :' . $id_tabla . '');
+            $query = $this->conexion->conexion->prepare('DELETE FROM ' . $tabla . ' WHERE ' . $id_tabla . ' = :' . $id_tabla . '');
             $query->execute([$id_tabla => $param]);
 
             return true;
@@ -333,7 +333,7 @@ class Controlador
     {
 
         try {
-            $query = $this->conexion->prepare("UPDATE " . $tabla . " SET " . $columna . " = :" . $columna . " WHERE " . $id_tabla . " =:" . $id_tabla . "");
+            $query = $this->conexion->conexion->prepare("UPDATE " . $tabla . " SET " . $columna . " = :" . $columna . " WHERE " . $id_tabla . " =:" . $id_tabla . "");
             $query->execute([
                 $columna  => $data,
                 $id_tabla => $param,
@@ -354,7 +354,7 @@ class Controlador
         $respuestaArreglo = '';
 
         try {
-            $datos = $this->conexion->prepare($tabla);
+            $datos = $this->conexion->conexion->prepare($tabla);
             $datos->execute();
             $datos->setFetchMode(PDO::FETCH_ASSOC);
             $respuestaArreglo = $datos->fetchAll(PDO::FETCH_ASSOC);
@@ -373,7 +373,7 @@ class Controlador
     {
 
         try {
-            $query = $this->conexion->prepare('UPDATE ' . $tabla . ' SET estado = :estado WHERE ' . $id_tabla . ' = :' . $id_tabla . '');
+            $query = $this->conexion->conexion->prepare('UPDATE ' . $tabla . ' SET estado = :estado WHERE ' . $id_tabla . ' = :' . $id_tabla . '');
             $query->execute([
                 $id_tabla => $param,
                 'estado'  => 1,
@@ -391,7 +391,7 @@ class Controlador
     {
 
         try {
-            $query = $this->conexion->prepare('UPDATE ' . $tabla . ' SET estado = :estado WHERE ' . $id_tabla . ' = :' . $id_tabla . '');
+            $query = $this->conexion->conexion->prepare('UPDATE ' . $tabla . ' SET estado = :estado WHERE ' . $id_tabla . ' = :' . $id_tabla . '');
             $query->execute([
                 $id_tabla => $param,
                 'estado'  => 0,
