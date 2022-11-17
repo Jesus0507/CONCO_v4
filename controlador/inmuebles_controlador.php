@@ -159,7 +159,7 @@ class Inmuebles extends Controlador
                 } else { $this->_403_();}
                 break;
 
-            case 'Consulta_Ajax':$this->Escribir_JSON($this->datos_consulta["inmueble"]);
+            case 'Consulta_Ajax':$this->Escribir_JSON($this->Get_Datos_Vista()["inmueble"]);
                 break;
 
             case 'Consultas_Calle':
