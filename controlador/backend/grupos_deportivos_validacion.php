@@ -3,51 +3,51 @@
 class Grupos_Deportivos_Validacion extends Validacion
 {
     public $mensaje;
+    private $Errores;
+    private $datos;
+
 
     public function __construct()
     {
         parent::__construct();
+        $this->datos= $_POST['datos'];
     }
 
     public function Validacion_Registro()
     {
-        $Errores = array();
+       $this->Errores = array();
         if (!empty($_POST) && isset($_POST)) {
-            if ($this->Comprobar($_POST["datos"]["direccion_negocio"]) &&
-                $this->Comprobar($_POST["datos"]["nombre_negocio"]) &&
-                $this->Comprobar($_POST["datos"]["cedula_propietario"])
-            ) {
-                $Errores[] = 'Debe llenar los datos del formulario';
+            if ($this->datos["id_deporte"] == 0 &&
+                $this->Comprobar($this->$datos["nombre_grupo_deportivo"]) &&
+                $this->Comprobar($this->$datos["cedula_persona"]) &&
+                $this->Comprobar($this->$datos["descripcion"]) 
+                )
+             {
+                $this->Errores[] = 'Debe llenar los datos del formulario';
             } else {
-                if ($_POST["datos"]["id_calle"] == 0) {
-                    $Errores[] = 'El campo calle es obligatorio';
-                } else {
-                    if (!is_numeric($_POST["datos"]["id_calle"])) {
-                        $Errores[] = 'la id es invalida.';
+                if ($this->datos["id_deporte"] == 0) {
+                    $this->Errores[] = 'El campo de deporte es obligatorio';
+                  } else {
+                    if (!is_numeric($this->datos["id_deporte"])) {
+                        $this->Errores[] = 'la id es invalida.';
                     } else {
-                        if ($this->Comprobar($_POST["datos"]["direccion_negocio"])) {
-                            $Errores[] = 'El campo direccion del negocio es obligatorio';
-                        } else {
-                            if ($this->Validar_Caracteres($_POST["datos"]["direccion_negocio"])) {
-                                $Errores[] = "El campo direccion del negocio no debe tener caracteres especiales.";
+                        if ($this->Comprobar($this->datos["nombre_grupo_deportivo"])) {
+                            $this->Errores[] = 'El campo grupo deporivo es obligatorio';
+                        } else { 
+                               if ($this->Validar_Caracteres($this->datos["nombe_grupo_deportivo"])) {
+                                $this->Errores[] = "El campo grupo deportivo no debe tener caracteres especiales.";
                             } else {
-                                if ($this->Comprobar($_POST["datos"]["nombre_negocio"])) {
-                                    $Errores[] = 'El campo nombre del negocio es obligatorio';
-                                } else {
-                                    if ($this->Validar_Caracteres($_POST["datos"]["nombre_negocio"])) {
-                                        $Errores[] = "El campo nombre del negocio no debe tener caracteres especiales.";
+                                    if ($this->comprobar($this->datos["cedula_persona"])) {
+                                        $Errores[] = "El campo cédula es obligatorio ";
                                     } else {
-                                        if ($this->Comprobar($_POST["datos"]["cedula_propietario"])) {
-                                            $Errores[] = 'El campo cedula del propietario es obligatorio';
-                                        } else {
-                                            if ($this->Validar_Cedula($_POST["datos"]["cedula_propietario"])) {
-                                                $Errores[] = "La cedula es invalida.";
+                                            if ($this->Validar_Cedula($this->datos["cedula_persona"])) {
+                                                $this->Errores[] = "La cedula es invalida.";
                                             } else {
-                                                if ($this->Comprobar($_POST["datos"]["rif_negocio"])) {
-                                                    $Errores[] = 'El campo rif del negocio es obligatorio';
+                                                if ($this->Comprobar($this->datos["descripcion"])) {
+                                                    $this->Errores[] = 'El campo descrición de grupo deportivo es obligatorio';
                                                 } else {
-                                                    if ($this->Validar_Rif($_POST["datos"]["rif_negocio"])) {
-                                                        $Errores[] = 'El rif es inválido verifique que la informacion sea correcta.';
+                                                    if ($this->Validar_Caraceres($this->datos["descripcion"])) {
+                                                        $this->Errores[] = 'El rif es inválido verifique que la informacion sea correcta.';
                                                     }
                                                 }
                                             }
@@ -58,12 +58,12 @@ class Grupos_Deportivos_Validacion extends Validacion
                         }
                     }
                 }
-            }
-        }
+            
+        
 
-        if (count($Errores) > 0) {
-            for ($i = 0; $i < count($Errores); $i++) {
-                $this->mensaje = json_encode($Errores, JSON_UNESCAPED_UNICODE);
+    if (count($this->Errores) > 0) {
+            for ($i = 0; $i < count($this->Errores); $i++) {
+                $this->mensaje = json_encode($this->Errores, JSON_UNESCAPED_UNICODE);
                 return false;
             }
         } else {
@@ -74,5 +74,8 @@ class Grupos_Deportivos_Validacion extends Validacion
     public function Fallo()
     {
         return $this->mensaje;
+    }
+    public function Datos_Validos(){
+        return $this->datos;
     }
 }
