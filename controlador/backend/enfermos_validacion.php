@@ -70,5 +70,9 @@ class Enfermos_Validacion extends Validacion
       {
         return $this->mensaje;
           }
+          public function Datos_Validos()
+    {
+        return $this->datos;
+    }
 
  }
