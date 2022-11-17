@@ -118,7 +118,7 @@ class Negocios extends Controlador
                 } else { $this->_403_();}
                 break;
 
-            case 'Consulta_Ajax':$this->Escribir_JSON($this->datos_consulta["negocios"]);
+            case 'Consulta_Ajax':$this->Escribir_JSON($this->Get_Datos_Vista()["negocios"]);
                 break;
 
             case 'Existente':
