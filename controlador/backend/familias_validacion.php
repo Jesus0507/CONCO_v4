@@ -3,80 +3,83 @@
 class Familias_Validacion extends Validacion
 {
     public $mensaje;
+    private $Errores;
+    private $datos;
 
     public function __construct()
     {
         parent::__construct();
-    }
+        $this->datos= $_POST['datos'];
+        }
 
     public function Validacion_Registro()
     {
-        $Errores = array();
+        $this->Errores = array();
         if (!empty($_POST) && isset($_POST)) {
-            if ($_POST["datos"]["id_vivienda"] == "vacio" &&
-                $_POST["datos"]["condicion_ocupacion"] == 0 &&
-                $this->Comprobar($_POST["datos"]["nombre_familia"]) &&
-                $this->Comprobar($_POST["datos"]["telefono_familia"]) &&
-                $this->Comprobar($_POST["datos"]["ingreso_mensual_aprox"]) &&
-                $this->Comprobar($_POST["datos"]["observacion"])
+            if ($this->datos["id_vivienda"] == "vacio" &&
+                $this->datos["condicion_ocupacion"] == 0 &&
+                $this->Comprobar($this->datos["nombre_familia"]) &&
+                $this->Comprobar($this->datos["telefono_familia"]) &&
+                $this->Comprobar($this->datos["ingreso_mensual_aprox"]) &&
+                $this->Comprobar($this->datos["observacion"])
             ) {
-                $Errores[] = 'Debe llenar los datos del formulario';
+                $this->Errores[] = 'Debe llenar los datos del formulario';
             } else {
-                if ($_POST["datos"]["id_vivienda"] == "vacio") {
-                    $Errores[] = 'El campo vivienda es obligatorio';
+                if ($this->datos["id_vivienda"] == "vacio") {
+                    $this->Errores[] = 'El campo vivienda es obligatorio';
                 } else {
-                    if ($this->Validar_Caracteres($_POST["datos"]["id_vivienda"])) {
-                        $Errores[] = "El campo vivienda no debe tener caracteres especiales.";
+                    if ($this->Validar_Caracteres($this->datos["id_vivienda"])) {
+                        $this->Errores[] = "El campo vivienda no debe tener caracteres especiales.";
                     } else {
-                        if ($this->Validar_Caracteres($_POST["datos"]["condicion_ocupacion"])) {
-                            $Errores[] = "El campo condición en que ocupa la vivienda no debe tener caracteres especiales.";
+                        if ($this->Validar_Caracteres($this->datos["condicion_ocupacion"])) {
+                            $this->Errores[] = "El campo condición en que ocupa la vivienda no debe tener caracteres especiales.";
                         } else {
-                            if ($this->Comprobar($_POST["datos"]["nombre_familia"])) {
-                                $Errores[] = 'El campo nombre de familia es obligatorio';
+                            if ($this->Comprobar($this->datos["nombre_familia"])) {
+                                $this->Errores[] = 'El campo nombre de familia es obligatorio';
                             } else {
-                                if ($this->Validar_Caracteres($_POST["datos"]["nombre_familia"])) {
-                                    $Errores[] = "El campo nombre de familia no debe tener caracteres especiales.";
+                                if ($this->Validar_Caracteres($this->datos["nombre_familia"])) {
+                                    $this->Errores[] = "El campo nombre de familia no debe tener caracteres especiales.";
                                 } else {
-                                    if ($this->Comprobar($_POST["datos"]["telefono_familia"])) {
-                                        $Errores[] = 'El campo téléfono de familia es obligatorio';
+                                    if ($this->Comprobar($this->datos["telefono_familia"])) {
+                                        $this->Errores[] = 'El campo téléfono de familia es obligatorio';
                                     } else {
-                                        if ($this->Validar_Telefono($_POST["datos"]["telefono_familia"])) {
-                                            $Errores[] = "El  téléfono de familia es invalido";
+                                        if ($this->Validar_Telefono($this->datos["telefono_familia"])) {
+                                            $this->Errores[] = "El  téléfono de familia es invalido";
                                         } else {
-                                            if ($this->Comprobar($_POST["datos"]["ingreso_mensual_aprox"])) {
-                                                $Errores[] = 'El campo Ingreso mensual Aprox de familia es obligatorio';
+                                            if ($this->Comprobar($this->datos["ingreso_mensual_aprox"])) {
+                                                $this->Errores[] = 'El campo Ingreso mensual Aprox de familia es obligatorio';
                                             } else {
-                                                if ($this->Validar_Dinero($_POST["datos"]["ingreso_mensual_aprox"])) {
-                                                    $Errores[] = "El monto introducido es inválido.";
+                                                if ($this->Validar_Dinero($this->datos["ingreso_mensual_aprox"])) {
+                                                    $this->Errores[] = "El monto introducido es inválido.";
                                                 } else {
-                                                    if ($this->Comprobar($_POST["datos"]["observacion"])) {
-                                                        $Errores[] = 'El campo observacion de familia es obligatorio';
+                                                    if ($this->Comprobar($this->datos["observacion"])) {
+                                                        $this->Errores[] = 'El campo observacion de familia es obligatorio';
                                                     } else {
-                                                        if ($this->Validar_Caracteres($_POST["datos"]["observacion"])) {
-                                                            $Errores[] = "El campo observacion no debe tener caracteres especiales.";
+                                                        if ($this->Validar_Caracteres($this->datos["observacion"])) {
+                                                            $this->Errores[] = "El campo observacion no debe tener caracteres especiales.";
                                                         } else {
                                                             if ($this->Comprobar($_POST["integrantes"])) {
-                                                                $Errores[] = 'Debe tener al menos 1 integrantes';
+                                                                $this->Errores[] = 'Debe tener al menos 1 integrantes';
                                                             } else {
-                                                                if ($this->Validar_Estado($_POST["datos"]["estado"])) {
-                                                                    $Errores[] = 'el estado es invalido ';
+                                                                if ($this->Validar_Estado($this->datos["estado"])) {
+                                                                    $this->Errores[] = 'el estado es invalido ';
                                                                 } else {
-                                                                    $_POST["datos"] = array(
-                                                                        "id_vivienda"           => $this->Datos_Limpios($_POST["datos"]["id_vivienda"]),
-                                                                        "condicion_ocupacion"   => $this->Datos_Limpios($_POST["datos"]["condicion_ocupacion"]),
-                                                                        "nombre_familia"        => $this->Datos_Limpios($_POST["datos"]["nombre_familia"]),
-                                                                        "telefono_familia"      => $this->Datos_Limpios($this->Normalizar_Telefono($_POST["datos"]["telefono_familia"])),
-                                                                        "ingreso_mensual_aprox" => $this->Datos_Limpios($_POST["datos"]["ingreso_mensual_aprox"]),
-                                                                        "observacion"           => $this->Datos_Limpios($_POST["datos"]["observacion"]),
-                                                                        "estado"                => $this->Datos_Limpios($_POST["datos"]["estado"]),
+                                                                    $this->datos = array(
+                                                                        "id_vivienda"           => $this->Datos_Limpios($this->datos["id_vivienda"]),
+                                                                        "condicion_ocupacion"   => $this->Datos_Limpios($this->datos["condicion_ocupacion"]),
+                                                                        "nombre_familia"        => $this->Datos_Limpios($this->datos["nombre_familia"]),
+                                                                        "telefono_familia"      => $this->Datos_Limpios($this->Normalizar_Telefono($this->datos["telefono_familia"])),
+                                                                        "ingreso_mensual_aprox" => $this->Datos_Limpios($this->datos["ingreso_mensual_aprox"]),
+                                                                        "observacion"           => $this->Datos_Limpios($this->datos["observacion"]),
+                                                                        "estado"                => $this->Datos_Limpios($this->datos["estado"]),
                                                                     );
                                                                     if (isset($_POST["id_familia"])) {
-                                                                        $_POST["datos"]["id_familia"] = $this->Datos_Limpios($_POST["id_familia"]);
+                                                                        $this->datos["id_familia"] = $this->Datos_Limpios($_POST["id_familia"]);
                                                                     }
                                                                 }
                                                                 foreach ($_POST["integrantes"] as $key => $value) {
                                                                     if ($this->Validar_Cedula($value)) {
-                                                                        $Errores[] = "La cedula " . $value . " es invalida.";
+                                                                        $this->Errores[] = "La cedula " . $value . " es invalida.";
                                                                     }
                                                                 }
                                                             }
@@ -94,9 +97,9 @@ class Familias_Validacion extends Validacion
             }
         }
 
-        if (count($Errores) > 0) {
-            for ($i = 0; $i < count($Errores); $i++) {
-                $this->mensaje = json_encode($Errores, JSON_UNESCAPED_UNICODE);
+        if (count($this->Errores) > 0) {
+            for ($i = 0; $i < count($this->Errores); $i++) {
+                $this->mensaje = json_encode($this->Errores, JSON_UNESCAPED_UNICODE);
                 return false;
             }
         } else {
@@ -107,5 +110,9 @@ class Familias_Validacion extends Validacion
     public function Fallo()
     {
         return $this->mensaje;
+    }
+    public function Datos_Validos()
+    {
+        return $this->datos;
     }
 }

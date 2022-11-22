@@ -3,44 +3,47 @@
 class Enfermos_Validacion extends Validacion
 {
     public $mensaje;
+    private $Errores;
+    private $datos;
 
     public function __construct()
     {
         parent::__construct();
-    }
+        $this->datos = $_POST['datos'];
+        }
 
     public function Validacion_Registro()
     {
-        $Errores = array();
+        $this->Errores = array();
         if (!empty($_POST) && isset($_POST)) {
             if (
-                $this->Comprobar($_POST["datos"]["cedula"]) &&
-                $this->Comprobar($_POST["datos"]["enfermedad"]) &&
-                $this->Comprobar($_POST["datos"]["medicamentos"])
+                $this->Comprobar($this->datos["cedula"]) &&
+                $this->Comprobar($this->datos["enfermedad"]) &&
+                $this->Comprobar($this->datos["medicamentos"])
             ) {
-                $Errores[] = 'Debe llenar los datos del formulario';
+                $this->Errores[] = 'Debe llenar los datos del formulario';
             } else {
-                if ($this->Comprobar($_POST["datos"]["cedula"])) {
-                    $Errores[] = 'El campo cedula es obligatorio';
+                if ($this->Comprobar($this->datos["cedula"])) {
+                    $this->Errores[] = 'El campo cedula es obligatorio';
                 } else {
-                    if ($this->Validar_Cedula($_POST["datos"]["cedula"])) {
-                        $Errores[] = "El campo cedula no debe tener caracteres especiales.";
+                    if ($this->Validar_Cedula($this->datos["cedula"])) {
+                        $this->Errores[] = "El campo cedula no debe tener caracteres especiales.";
                     } else {
-                        if ($this->Comprobar($_POST["datos"]["enfermedad"])) {
-                            $Errores[] = 'El campo enfermedad es obligatorio';
+                        if ($this->Comprobar($this->datos["enfermedad"])) {
+                            $this->Errores[] = 'El campo enfermedad es obligatorio';
                         } else {
-                            if ($this->Validar_Caracteres($_POST["datos"]["enfermedad"])) {
-                                $Errores[] = "El campo enfermedad no debe tener caracteres especiales.";
+                            if ($this->Validar_Caracteres($this->datos["enfermedad"])) {
+                                $this->Errores[] = "El campo enfermedad no debe tener caracteres especiales.";
                             } else {
-                                if ($this->Comprobar($_POST["datos"]["medicamentos"])) {
-                                    $Errores[] = 'El medicamentos es obligatorio';
+                                if ($this->Comprobar($this->datos["medicamentos"])) {
+                                    $this->Errores[] = 'El medicamentos es obligatorio';
                                 } else {
-                                    if ($this->Validar_Caracteres($_POST["datos"]["medicamentos"])) {
-                                        $Errores[] = 'El campo medicamentos no puede tener caracteres especiales.';
+                                    if ($this->Validar_Caracteres($this->datos["medicamentos"])) {
+                                        $this->Errores[] = 'El campo medicamentos no puede tener caracteres especiales.';
                                     } else {
 
-                                        if ($this->Validar_Estado($_POST["datos"]["estado"])) {
-                                            $Errores[] = 'el estado es invalido ';
+                                        if ($this->Validar_Estado($this->datos["estado"])) {
+                                            $this->Errores[] = 'el estado es invalido ';
                                         }
                                     }
                                 }
@@ -49,22 +52,27 @@ class Enfermos_Validacion extends Validacion
                     }
                 }
             }
-        }
-    }
-}
+         }
+    
 
-if (count($Errores) > 0) {
-    for ($i = 0; $i < count($Errores); $i++) {
-        $this->mensaje = json_encode($Errores, JSON_UNESCAPED_UNICODE);
-        return false;
-    }
-} else {
-    return true;
-}
-}
 
+         if (count($this->Errores) > 0) {
+          for ($i = 0; $i < count($this->Errores); $i++) {
+              $this->mensaje = json_encode($this->Errores, JSON_UNESCAPED_UNICODE);
+               return false;
+                }
+            } else {
+               return true;
+              }
+
+     }
     function Fallo()
-{
+      {
         return $this->mensaje;
+          }
+          public function Datos_Validos()
+    {
+        return $this->datos;
     }
-}
+
+ }

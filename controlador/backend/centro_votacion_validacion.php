@@ -3,39 +3,43 @@
 class Centro_Votacion_Validacion extends Validacion
 {
     public $mensaje;
+    private $Eroores;
+    private $datos;
+
 
     public function __construct()
     {
         parent::__construct();
+        $this->datos = $_POST['datos'];
     }
 
     public function Validacion_Registro()
     {
-        $Errores = array();
+        $this->Errores = array();
         if (!empty($_POST) && isset($_POST)) {
-            if ($this->Comprobar($_POST["datos"]["cedula_votante"]) &&
-                $this->Comprobar($_POST["datos"]["nombre_centro"]) &&
-                $_POST["datos"]["id_parroquia"] == 0
+            if ($this->Comprobar($this->datos["cedula_votante"]) &&
+                $this->Comprobar($this->datos["nombre_centro"]) &&
+                $this->datos["id_parroquia"] == 0
             ) {
-                $Errores[] = 'Debe llenar los datos del formulario';
+                $this->Errores[] = 'Debe llenar los datos del formulario';
             } else {
-                if ($this->Comprobar($_POST["datos"]["cedula_votante"])) {
-                    $Errores[] = 'el campo cedula es obligatorio';
+                if ($this->Comprobar($this->datos["cedula_votante"])) {
+                    $this->Errores[] = 'el campo cedula es obligatorio';
                 } else {
-                    if ($this->Validar_Cedula($_POST["datos"]["cedula_votante"])) {
-                        $Errores[] = "La cedula es invalida.";
+                if ($this->Validar_Cedula($this->datos["cedula_votante"])) {
+                        $this->Errores[] = "La cedula es invalida.";
                     } else {
-                        if ($this->Comprobar($_POST["datos"]["nombre_centro"])) {
-                            $Errores[] = 'el campo nombre centro  es obligatorio';
+                        if ($this->Comprobar($this->datos["nombre_centro"])) {
+                            $this->Errores[] = 'el campo nombre centro  es obligatorio';
                         } else {
-                            if ($this->Validar_Caracteres($_POST["datos"]["nombre_centro"])) {
-                                $Errores[] = "El campo nombre del centro no debe tener caracteres especiales.";
+                            if ($this->Validar_Caracteres($this->datos["nombre_centro"])) {
+                                $this->Errores[] = "El campo nombre del centro no debe tener caracteres especiales.";
                             } else {
-                                if ($_POST["datos"]["id_parroquia"] === 0) {
-                                    $Errores[] = 'el campo parroquia  es obligatorio';
+                                if ($this->datos["id_parroquia"] === 0) {
+                                    $this->Errores[] = 'el campo parroquia  es obligatorio';
                                 } else {
-                                    if ($this->Validar_Estado($_POST["datos"]["estado"])) {
-                                        $Errores[] = 'el estado es invalido ';
+                                    if ($this->Validar_Estado($this->datos["estado"])) {
+                                        $this->Errores[] = 'el estado es invalido ';
                                     }
                                 }
                             }
@@ -46,9 +50,9 @@ class Centro_Votacion_Validacion extends Validacion
             }
         }
 
-        if (count($Errores) > 0) {
-            for ($i = 0; $i < count($Errores); $i++) {
-                $this->mensaje = json_encode($Errores, JSON_UNESCAPED_UNICODE);
+        if (count($this->Errores) > 0) {
+            for ($i = 0; $i < count($this->Errores); $i++) {
+                $this->mensaje = json_encode($this->Errores, JSON_UNESCAPED_UNICODE);
                 return false;
             }
         } else {
@@ -59,5 +63,10 @@ class Centro_Votacion_Validacion extends Validacion
     public function Fallo()
     {
         return $this->mensaje;
+    }
+
+    public function Datos_Validos()
+    {
+        return $this->datos;
     }
 }
