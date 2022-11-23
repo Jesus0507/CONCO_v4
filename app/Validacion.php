@@ -2,35 +2,35 @@
 
 class Validacion
 {
-    private $pattern; #El patrón de búsqueda, dado como string
+    private $patron; #El patrón de búsqueda, dado como string
     private $valor; #La cadena de entrada.
     // patrones de búsqueda
-    private const CEDULA     = "/^([0-9]{7,9})$/";
-    private const CARACTERES = "/^[a-zA-Z0-9Ññáéíóú \b]{1,100}$/";
-    private const RIF        = "/^([vejpgVEJPG]{1})([0-9]{9})$/";
-    private const ENTEROS    = "/^([0-9]{1,2})$/";
-    private const DINERO     = "/^^\d{1,3}(?:\.\d\d\d)*(?:,\d{1,2})?$/";
-    private const BASE64     = "/^[a-zA-Z0-9\/\r\n+]*={0,2}$/";
-    private const PASSWORD   = "/(?=^.{4,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/";
-    private const TELEFONO   = "/^([0-9]{11,13})$/";
+    private $cedula     = "/^([0-9]{7,9})$/";
+    private $caracteres = "/^[a-zA-Z0-9Ññáéíóú \b]{1,100}$/";
+    private $rif        = "/^([vejpgVEJPG]{1})([0-9]{9})$/";
+    private $enteros    = "/^([0-9]{1,2})$/";
+    private $dinero     = "/^^\d{1,3}(?:\.\d\d\d)*(?:,\d{1,2})?$/";
+    private $BASE64     = "/^[a-zA-Z0-9\/\r\n+]*={0,2}$/";
+    private $password   = "/(?=^.{4,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/";
+    private $telefono   = "/^([0-9]{11,13})$/";
 
-    private const FECHAS = "/^(19|20)(((([02468][048])|([13579][26]))-02-29)|(\d{2})-((02-((0[1-9])|1\d|2[0-8]))|((((0[13456789])|1[012]))-((0[1-9])|((1|2)\d)|30))|(((0[13578])|(1[02]))-31)))$/";
+    private $fechas = "/^(19|20)(((([02468][048])|([13579][26]))-02-29)|(\d{2})-((02-((0[1-9])|1\d|2[0-8]))|((((0[13456789])|1[012]))-((0[1-9])|((1|2)\d)|30))|(((0[13578])|(1[02]))-31)))$/";
 
-    private const CORREO = "/^(([A-Za-z0-9]+_+)|([A-Za-z0-9]+\-+)|([A-Za-z0-9]+\.+)|([A-Za-z0-9]+\++))*[A-Za-z0-9]+@((\w+\-+)|(\w+\.))*\w{1,63}\.[a-zA-Z]{2,6}$/";
+    private $correo = "/^(([A-Za-z0-9]+_+)|([A-Za-z0-9]+\-+)|([A-Za-z0-9]+\.+)|([A-Za-z0-9]+\++))*[A-Za-z0-9]+@((\w+\-+)|(\w+\.))*\w{1,63}\.[a-zA-Z]{2,6}$/";
 
     // SETTER estaablece los datos a usar
     public function __construct()
     {}
     public function Datos_Filtro($valor, $expression)
     {
-        $this->pattern = $this->{$expression}; #variable anonima en espera de asignar nombre
+        $this->patron = $this->{$expression}; #variable anonima en espera de asignar nombre
         $this->valor   = $valor; #valor de entrada para validar
     }
     // ===============================================================================
     public function Validar()
     {
-        #Realiza una comparación global de una expresión regular, retorna a true o false 
-        return (bool) (!preg_match_all($this->pattern, $this->valor)) ? true : false;
+        #Realiza una comparación global de una expresión regular, retorna a true o false
+        return (bool) (!preg_match_all($this->patron, $this->valor)) ? true : false;
     }
 
     public function Comprobar($value)
