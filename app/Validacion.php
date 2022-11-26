@@ -2,8 +2,6 @@
 
 class Validacion
 {
-    private $patron; #El patrón de búsqueda, dado como string
-    private $valor; #La cadena de entrada.
     // patrones de búsqueda
     private $cedula     = "/^([0-9]{7,9})$/";
     private $caracteres = "/^[a-zA-Z0-9Ññáéíóú \b]{1,100}$/";
@@ -18,24 +16,17 @@ class Validacion
 
     private $correo = "/^(([A-Za-z0-9]+_+)|([A-Za-z0-9]+\-+)|([A-Za-z0-9]+\.+)|([A-Za-z0-9]+\++))*[A-Za-z0-9]+@((\w+\-+)|(\w+\.))*\w{1,63}\.[a-zA-Z]{2,6}$/";
 
-    // SETTER estaablece los datos a usar
-    public function __construct()
-    {}
-    public function Datos_Filtro($valor, $expression)
-    {
-        $this->patron = $this->{$expression}; #variable anonima en espera de asignar nombre
-        $this->valor   = $valor; #valor de entrada para validar
-    }
+    public function __construct(){}
     // ===============================================================================
-    public function Validar()
+    public function Validar($patron, $valor)
     {
         #Realiza una comparación global de una expresión regular, retorna a true o false
-        return (bool) (!preg_match_all($this->patron, $this->valor)) ? true : false;
+        return (bool) (!preg_match_all($patron, $valor)) ? true : false;
     }
 
     public function Comprobar($value)
     {
-        return (empty($value) && isset($value)) ? true : false;
+        return (bool) (empty($value) && isset($value)) ? true : false;
     }
     public function Validar_Estado($value)
     {

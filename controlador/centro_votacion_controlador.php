@@ -20,8 +20,7 @@ class Centro_Votacion extends Controlador
     private $id;
     private $id_parroquia;
     private $cedula_votante;
-    public $parroquia;
-    public $cont;
+    
     // ==================ESTABLECER DATOS=========================
     public function __construct()
     {
@@ -104,7 +103,7 @@ class Centro_Votacion extends Controlador
                 if ($this->permisos["registrar"] === 1) {
                     $cont = 0;
                     foreach ($this->datos_consulta["centros_votacion"] as $cv) {
-                        if (strtolower($cv['nombre_centro']) !== strtolower($this->datos_ejecutar['centro'])) {
+                        if (strtolower($cv['nombre_centro']) !== strtolower($this->datos_ejecutar['nombre_centro'])) {
                             $this->modelo->_SQL_("SQL_03");
                             $this->modelo->_Tipo_(1);
                             $this->modelo->_Datos_($this->Get_Datos());
