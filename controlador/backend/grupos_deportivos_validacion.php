@@ -19,7 +19,7 @@ class Grupos_Deportivos_Validacion extends Validacion
         if (!empty($_POST) && isset($_POST)) {
             if ($this->datos["id_deporte"] == 0 &&
                 $this->Comprobar($this->$datos["nombre_grupo_deportivo"]) &&
-                $this->Comprobar($this->$datos["cedula_persona"]) &&
+                $this->Comprobar($this->$datos["cedula_propietario"]) &&
                 $this->Comprobar($this->$datos["descripcion"]) 
                 )
              {

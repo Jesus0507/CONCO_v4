@@ -39,13 +39,7 @@ class Usuario_Validacion extends Validacion
                                 } else {
                                     if ($this->Validar_Caracteres($this->datos["captcha"])) {
                                         $this->Errores[] = 'El campo captcha no debe tener caracteres especiales.';
-                                    } else {
-                                        $_POST["datos"] = array(
-                                            "cedula"      => $this->Datos_Limpios($this->datos["cedula"]),
-                                            "contrasenia" => $this->Datos_Limpios($this->datos["contrasenia"]),
-                                            "captcha"     => $this->Datos_Limpios($this->datos["captcha"]),
-                                        );
-                                    }
+                                    } 
                                 }
                             }
 
