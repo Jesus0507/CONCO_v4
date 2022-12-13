@@ -23,7 +23,7 @@
                     Login
                 </h3>
                 <span class="direct-chat-timestamp float-left" style="margin-left: 15px;">
-                    (Haz Click) Para mas Informacion.
+                    (Haz Click) Para más Información.
                 </span>
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="maximize">
@@ -40,8 +40,8 @@
                 <div class="card-block">
                     <h4 class="card-title">1.Iniciar Sistema <br></h4>
                                 <p><br>
-                                    Al iniciar el sistema la primera vista a observar es el login,
-                                    en el que debera rellenar con sus respectivos datos para ingresar dentro del sistema.
+                                    Al iniciar, podrá apreciar la vista del login, en la que debe
+                                    ingresar los datos de inicio de sesión y captcha para poder acceder al sistema.
                                 </p>
 
                                 <div class="text-center">
@@ -67,7 +67,7 @@
                     Inicio
                 </h3>
                 <span class="direct-chat-timestamp float-left" style="margin-left: 15px;">
-                    (Haz Click) Para mas Informacion.
+                    (Haz Click) Para más Información.
                 </span>
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="maximize"><i class="fas fa-expand"></i>
@@ -83,7 +83,7 @@
                 <div class="card-block">
                     <h4 class="card-title m-t-40" >2. Inicio <br></h4>
                                 <p><br>
-                                    Una vez que ingrese sus datos y sea verificado de que el usuario exista , sera llevado a la pagina de inicio del sistema.
+                                    Una vez ingrese sus datos y sea verificado que el usuario exista, será llevado a la página de inicio del sistema.
                                 </p>
 
                                 <div class="text-center">
@@ -112,7 +112,7 @@
                    Agenda
                 </h3>
                 <span class="direct-chat-timestamp float-left" style="margin-left: 15px;">
-                    (Haz Click) Para mas Informacion.
+                    (Haz Click) Para más Información.
                 </span>
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="maximize"><i class="fas fa-expand"></i>
@@ -138,7 +138,7 @@
 
                     <h4 class="card-title m-t-40" id="4">Vista   <br></h4>
                                 <p><br>
-                                   Al hacer click en la opcion crear evento llevara a su respectiva vista
+                                   Al hacer click en la opción crear evento, éste lo llevará a su respectiva vista.
                                 </p>
 
                                 <div class="text-center">
