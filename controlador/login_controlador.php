@@ -18,9 +18,8 @@ class Login extends Controlador
     public function __construct()
     {
         parent::__construct();
-        $this->Validacion("login");
+        $this->Validacion("Login");
         $this->sql         = $_POST['sql'];
-        $this->rif_negocio = $_POST['rif_negocio'];
         $this->validar     = $this->validacion;
         $this->mensaje     = 1;
         //   $this->Cargar_Modelo("login");

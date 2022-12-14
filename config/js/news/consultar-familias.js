@@ -26,6 +26,7 @@ function eliminar(id) {
         param: id,
         estado: 0
     };
+    fila = $(this).closest("tr");
     swal({
         type: "warning",
         title: "Atención",
@@ -154,6 +155,7 @@ function borrar_familia(id, cedula_param) {
                             "cedula_persona": cedula_param
                         }
                     }).done(function(result) {
+                        revisar(result);
                         result = JSON.parse(result);
                         actualizar_integrantes(result, cedula_param);
                         editar(id);
@@ -169,6 +171,7 @@ function borrar_familia(id, cedula_param) {
 
 function actualizar_integrantes(result, cedula_param) {
     var enfermedades = document.getElementById('integrantes_agregados');
+
     if (result != 0) {
         enfermedades.innerHTML = "";
         for (var i = 0; i < result.length; i++) {
@@ -291,7 +294,7 @@ function Actualizar_Familia() {
     var condicion_ocupacion_select = document.getElementById("select-cond-ocupacion");
     var condicion_ocupacion_input = document.getElementById("input_condicion_ocupacion");
     var datos_familia = new Object();
-    // datos_familia['id_familia'] = document.getElementById("id_familia").value;
+    datos_familia['id_familia'] = document.getElementById("id_familia").value;
     datos_familia['id_vivienda'] = parseInt(vivienda.value);
     condicion_ocupacion_select.style.display != 'none' ? datos_familia['condicion_ocupacion'] = condicion_ocupacion_select.value : datos_familia['condicion_ocupacion'] = condicion_ocupacion_input.value
     datos_familia['nombre_familia'] = nombre_familia.value;

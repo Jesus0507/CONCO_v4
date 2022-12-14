@@ -117,8 +117,8 @@ class Usuario extends Controlador
         $this->Validacion("usuario");
         if ($this->validacion->Validacion_Registro()) {
             $captcha  = $_POST['captcha'];
-            $_POST["datos"]["contrasenia"] = $this->Seguridad_Password($_POST["datos"]['contrasenia'], 1);
-            $existente = $this->modelo->Buscar_Usuario($_POST["datos"]['cedula']);
+            $_POST["contrasenia"] = $this->Seguridad_Password($_POST['contrasenia'], 1);
+            $existente = $this->modelo->Buscar_Usuario($_POST['cedula']);
             if ($existente == "" || $existente == null) {
                 echo 0;
             } else {
@@ -129,9 +129,9 @@ class Usuario extends Controlador
                 if ($existe['estado'] == 0) {
                     echo 0;
                 } else {
-                    if ($contrasenia == $_POST["datos"]['contrasenia']) {
+                    if ($contrasenia == $_POST['contrasenia']) {
                         $securimage = new Securimage();
-                        if ($securimage->check($captcha) == true || $_POST["datos"]['captcha'] == ATAJO) {
+                        if ($securimage->check($captcha) == true || $_POST['captcha'] == ATAJO) {
                             $resp                      = $this->modelo->Locked_Login($existe, 1);
                             $resp === "locked" ? $resp = 3 : $resp = 1;
                             echo $resp;
