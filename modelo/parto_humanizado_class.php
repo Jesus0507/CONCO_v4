@@ -47,12 +47,12 @@ class Parto_Humanizado_Class extends Modelo
                     break;
             }
         } catch (PDOException $e) { #capturamos el error y se envia la respuesta(ubicacion MODELO)
-            return $this->Capturar_Error($e, "Negocios"); 
+            return $this->Capturar_Error($e, "Parto Humaizado"); 
         }
     }
 
     //=======================================================================
-
+    #sentecias sql en espera de ser llamadas retornan string
     private function SQL_01():string
     {
         return 'SELECT id_parto_humanizado, par.cedula_persona, per.primer_nombre, per.primer_apellido, recibe_micronutrientes, tiempo_gestacion, fecha_aprox_parto FROM parto_humanizado par, personas per WHERE par.estado = 1 AND par.cedula_persona = per.cedula_persona AND per.estado = 1 ORDER BY `per`.`primer_nombre` ASC';
