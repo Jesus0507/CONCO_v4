@@ -25,6 +25,16 @@
                         </div>
 
                         <div class="col-md-6 mt-2">
+                            <label for="nombre_apellido">
+                                Nombre y Apellido
+                            </label>
+                            <div class="input-group">
+                                <input list="cedula_p" id="nombre_apellido" name="datos[nombre_apellido]"
+                                    disabled class="form-control " placeholder="Cedula de Persona" />
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mt-2">
                             <label for="recibe_micronutrientes">
                                 Recibe Micronutrientes
                             </label>
@@ -55,7 +65,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6 mt-2">
+                        <div class="col-md-12 mt-2">
                             <label for="fecha_aprox_parto">
                                 Fecha Aproximada de Parto
                             </label>

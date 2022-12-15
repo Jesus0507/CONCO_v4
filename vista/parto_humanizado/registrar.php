@@ -76,7 +76,7 @@
                                     Tiempo de gestación
                                 </label>
                                 <div class="input-group">
-                                    <input class="form-control no-simbolos " placeholder="Tiempo de Gestacion" id="tiempo_gestacion" name="datos[tiempo_gestacion]" type="text" oninput="Limitar(this,15)">
+                                    <input class="form-control no-simbolos letras_numeros" placeholder="Tiempo de Gestacion" id="tiempo_gestacion" name="datos[tiempo_gestacion]" type="text" oninput="Limitar(this,15)">
                                 </div>
                             </div>
                             
