@@ -23,7 +23,6 @@ class Familias_Class extends Modelo
     public function _Estado_(array $estado): void   {$this->estado = $estado;}
     public function _ID_(string $id): void          {$this->id = $id;}
 
-     
     // ===============================================================================
     public function Administrar()
     {

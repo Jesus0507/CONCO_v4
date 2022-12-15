@@ -170,12 +170,12 @@ function borrar_familia(id, cedula_param) {
 }
 
 function actualizar_integrantes(result, cedula_param) {
-    var enfermedades = document.getElementById('integrantes_agregados');
+    var integrantes = document.getElementById('integrantes_agregados');
 
     if (result != 0) {
-        enfermedades.innerHTML = "";
+        integrantes.innerHTML = "";
         for (var i = 0; i < result.length; i++) {
-            enfermedades.innerHTML += " <table style='width:95%'><tr><td>- " + result[i]["cedula_persona"] + "</td><td style='text-align:right'><span onclick='borrar_familia(" + result[i]['id_familia_persona'] + "," + result[i]['cedula_persona'] + ")' class='iconDelete fa fa-times-circle' title='Eliminar' style='font-size:22px'></span></td></tr></table><br><hr>";
+            integrantes.innerHTML += " <table style='width:95%'><tr><td>- " + result[i]["cedula_persona"] + "</td><td style='text-align:right'><span onclick='borrar_familia(" + result[i]['id_familia_persona'] + "," + result[i]['cedula_persona'] + ")' class='iconDelete fa fa-times-circle' title='Eliminar' style='font-size:22px'></span></td></tr></table><br><hr>";
         }
     }
 }

@@ -21,7 +21,7 @@ class Familias extends Controlador
     private $integrantes;
     private $id;
     private $id_familia;
-    private $cedula;
+    private $cedula; 
     // ==================ESTABLECER DATOS=========================
     public function __construct()
     {
@@ -242,7 +242,7 @@ class Familias extends Controlador
 
             case 'Eliminar_Integrantes':
                 if ($this->permisos["modificar"] === 1) {
-                    $this->retornar = 0;
+                    $retornar = 0;
                     $this->modelo->_SQL_("_07_");
                     $this->modelo->_Tipo_(1);
                     $this->crud["eliminar"] = array(
