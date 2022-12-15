@@ -10,7 +10,6 @@ class Parto_Humanizado_Validacion extends Validacion
     {
         parent::__construct();
         $this->datos= $_POST['datos'];
-    
     }
 
     public function Validacion_Registro()
@@ -26,19 +25,19 @@ class Parto_Humanizado_Validacion extends Validacion
                 if ($this->Comprobar($this->datos["cedula_persona"])) {
                     $this->Errores[] = 'El campo cedula  es obligatorio';
                 } else {
-                    if ($this->Validar_Cedula($this->datos["cedula_persona"])) {
+                    if ($this->Validar("cedula", $this->datos["cedula_persona"])) {
                         $this->Errores[] = "La cedula es invalida.";
                     } else {
                         if ($this->Comprobar($this->datos["tiempo_gestacion"])) {
                             $this->Errores[] = 'El campo tiempo de gestacion  es obligatorio';
                         } else {
-                            if ($this->Validar_Caracteres($this->datos["tiempo_gestacion"])) {
+                            if ($this->Validar("caracteres", $this->datos["tiempo_gestacion"])) {
                                 $this->Errores[] = "El campo tiempo de gestacion no debe tener caracteres especiales.";
                             } else {
                                 if ($this->Comprobar($this->datos["fecha_aprox_parto"])) {
                                     $this->Errores[] = 'El campo fecha aproximada de parto es obligatorio';
                                 } else {
-                                    if ($this->Validar_Fecha($this->datos["fecha_aprox_parto"])) {
+                                    if ($this->Validar("fechas", $this->datos["fecha_aprox_parto"])) {
                                         $this->Errores[] = "la fecha introducida es inválida.";
                                     } else {
                                         if ($this->Validar_Estado($this->datos["estado"])) {
@@ -63,13 +62,6 @@ class Parto_Humanizado_Validacion extends Validacion
         }
     }
 
-    public function Fallo()
-    {
-        return $this->mensaje;
-    }
-
-    public function Datos_Validos()
-    {
-        return $this->datos;
-    }
+    public function Fallo(){return $this->mensaje;}
+    public function Datos_Validos(){return $this->datos;}
 }

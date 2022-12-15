@@ -23,7 +23,7 @@ class Validacion
     public function Validar($patron, $valor)
     {
         #Realiza una comparación global de una expresión regular, retorna a true o false
-        return (bool) (!preg_match_all($patron, $valor)) ? true : false;
+        return (bool) (!preg_match_all($this->{$patron}, $valor)) ? true : false;
     }
 
     public function Comprobar($value)
