@@ -10,8 +10,8 @@ class Viviendas_Class extends Modelo
     private $PDO;           #sentecia sql iniciada con prepare
     private $sentencia;     #sentencia sql que se ejecutara
     private $datos;         #datos a ejecutar para enviar a la bd
-    private $id;
     public  $resultado;     #resultado de consultas de la bd
+    private $id;
 
     public function __construct(){parent::__construct();}
 

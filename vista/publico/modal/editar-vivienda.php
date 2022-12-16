@@ -6,7 +6,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-            </div> 
+            </div>  
             <div class="modal-body"> 
             <div class="card-body">
                     <div class="card-block">
@@ -104,7 +104,7 @@
 
 
 
-                        <div class="col-md-4     mt-2">
+                        <div class="col-md-6     mt-2">
                             <label for="hacinamiento">
                                 La vivienda es Hacinamiento
                             </label>
@@ -121,7 +121,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-4     mt-2">
+                        <div class="col-md-6     mt-2">
                             <label for="espacio_siembra">
                                 Posee Espacio de Siembra
                             </label>
@@ -138,7 +138,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-4     mt-2">
+                        <div class="col-md-6     mt-2">
                             <label for="banio_sanitario">
                                 Tiene Baño Sanitario
                             </label>
@@ -157,7 +157,7 @@
 
 
 
-                        <div class="col-md-4 mt-2">
+                        <div class="col-md-6 mt-2">
                             <label for="agua_consumo">
                                 Agua de Consumo
                             </label>
@@ -178,7 +178,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-4 mt-2">
+                        <div class="col-md-6 mt-2">
                             <label for="aguas_negras">
                                 Aguas Negras
                             </label>
@@ -204,7 +204,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-4 mt-2">
+                        <div class="col-md-6 mt-2">
                             <label for="residuos_solidos">
                                 Residuos Solidos
                             </label>
@@ -341,7 +341,7 @@
                         name="descripcion" rows="5" placeholder="Descripcion"></textarea>
                     </div>
 
-                    <div class="col-md-4 mt-2">
+                    <div class="col-md-12 mt-2">
                         <label for="">
                             Tipos de Techo en el Hogar
                         </label>
@@ -359,7 +359,7 @@
                                 </td>
                                 
                                 <td class="col-2">
-                                    <button type="button" name="agregar" id="agregar" class="btn btn-success">Agregar</button>
+                                    <button type="button" name="agregar" id="agregar" class="btn btn-info">Agregar</button>
                                 </td>
                             </tr>
                             <tbody id="tabla_techo">
@@ -368,7 +368,9 @@
                         </table>
                     </div>
 
-                    <div class="col-md-4 mt-2">
+                    
+
+                    <div class="col-md-12 mt-2">
                         <label for="">
                             Tipos de Pared en el Hogar
                         </label>
@@ -386,14 +388,14 @@
                                 </td>
                                 
                                 <td class="col-2">
-                                    <button type="button" name="agregar" id="agregar2" class="btn btn-success">Agregar</button>
+                                    <button type="button" name="agregar" id="agregar2" class="btn btn-info">Agregar</button>
                                 </td>
                             </tr>
                             <tbody id="tabla_pared"></tbody>
                         </table>
                     </div>
 
-                    <div class="col-md-4 mt-2">
+                    <div class="col-md-12 mt-2">
                         <label for="">
                             Tipos de Piso en el Hogar
                         </label>
@@ -411,88 +413,110 @@
                                 </td>
                                 
                                 <td class="col-2">
-                                    <button type="button" name="agregar" id="agregar3" class="btn btn-success">Agregar</button>
+                                    <button type="button" name="agregar" id="agregar3" class="btn btn-info">Agregar</button>
                                 </td>
                             </tr>
                             <tbody id="tabla_piso"></tbody>
                         </table>
                     </div>
 
-                    <div class="col-md-12 mt-2">
-                        <label for="">
-                            <center>   Servicio de gas</center>
-                        </label> <span id='valid_gases_agregados' style='color:red'></span>
-                        <table style='width:100%'>
-                            <tr>
-                                <td >
-                                  <select id='gas_select' class='form-control'>
+                    <div class="col-md-4 mt-2">
+                            <label for="internet">
+                                Servicio de gas
+                            </label>
+                            <span id='valid_gases_agregados' style='color:red'></span>
+                            <div class="input-group">
+                                
+                              
+                              <select id='gas_select' class='form-control'>
                                       <option value='vacio'>-Compañia-</option>
                                       <?php foreach ($this->datos["servicios_gas"] as $gas) { ?>
                                           <option value='<?php  echo $gas['id_servicio_gas']?>'><?php echo $gas['nombre_servicio_gas']; ?></option>
                                       <?php   } ?>
                                   </select>
                                   <input type="text" maxlength='30' class='form-control' placeholder="Compañía de gas..." name="" id='gas_input' style='display:none'>
-                              </td>
-                              <td>  <select id='tipo_bombona' class='form-control'>
+                            </div>
+                        </div>
+
+                    <div class="col-md-4 mt-2">
+                            <label for="internet">
+                                Tipo Bombona
+                            </label>
+                            
+                            <div class="input-group">
+                                
+                            <select id='tipo_bombona' class='form-control'>
                                   <option value='vacio'>-Tipo de bombona-</option>
                                   <option value='10 Kg'>10 Kg</option>
                                   <option value='18 Kg'>18 Kg</option>
                                   <option value='43 Kg'>43 Kg</option>
-                              </select></td>
-                              <td>
-                                  <select id='tiempo_duracion' class='form-control'>
+                              </select>
+                            </div>
+                        </div>
+
+                    <div class="col-md-4 mt-2">
+                            <label for="internet">
+                                Tiempo de duración
+                            </label>
+                            
+                            <div class="input-group">
+                                
+                           <select id='tiempo_duracion' class='form-control'>
                                       <option value='vacio'>-Tiempo de duración-</option>
                                       <option value='7'>7 días</option>
                                       <option value='15'>15 días</option>
                                       <option value='30'>30 días</option>
                                   </select>
-                              </td>
+                            </div>
+                        </div>
 
-                              <td >
-                                <button type="button" name="agregar" id="agregar_gas" class="btn btn-success">Agregar</button>
-                            </td>
-                            <td >
-                                <button type="button" name="agregar" id="agregar_servicio" class="btn btn-info">Nuevo servicio</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan='4'><br>
-                                <div style='width:100%;height: 120px;background: #C6C5F3;overflow-y:scroll'><center><div id='gases_agregados' style='width:90%'></div></center></div>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <br><br>
-                <div class="col-md-12 mt-2">
-                    <label for="">
-                        <center>   Electrodomésticos</center>
-                    </label> <span id='valid_electrodomesticos_agregados' style='color:red'></span>
-                    <table style='width:100%'>
-                        <tr>
-                            <td >
-                              <select id='electrodomestico_select' class='form-control'>
+                    <div class="col-md-12 mt-2">
+                            <button type="button" name="agregar" id="agregar_gas" class="btn btn-info">Agregar</button>
+                            <button type="button" name="agregar" id="agregar_servicio" class="btn btn-info">Nuevo servicio</button>
+                        </div>
+
+                    
+
+                    <div class="col-md-12 mt-2">
+                        <div style='width:100%;height: 200px;background: #C7F2EE;overflow-y:scroll'><center><div id='gases_agregados' style='width:90%'></div></center></div>
+                    </div>
+
+                
+                <div class="col-md-6 mt-2">
+                            <label for="internet">
+                                Electrodomésticos
+                            </label>
+                            <span id='valid_electrodomesticos_agregados' style='color:red'></span>
+                            <div class="input-group">
+                                <select id='electrodomestico_select' class='form-control'>
                                   <option value='vacio'>-Electrodoméstico-</option>
                                   <?php foreach ($this->datos["electrodomesticos"] as $e) { ?>
                                       <option value='<?php  echo $e['id_electrodomestico']?>'><?php echo $e['nombre_electrodomestico']; ?></option>
                                   <?php   } ?>
                               </select>
                               <input type="text" maxlength='30' class='form-control' placeholder="Nombre del electrodoméstico.." name="" id='electrodomestico_input' style='display:none'>
-                          </td>
-                          <td> <input type="number" id='cantidad_electrodomestico' placeholder="Cantidad" class="form-control" name=""></td>
-                          <td >
-                            <button type="button" name="agregar" id="agregar_electrodomestico" class="btn btn-success">Agregar</button>
-                        </td>
-                        <td >
+                            </div>
+                        </div>
+
+                <div class="col-md-6 mt-2">
+                            <label for="internet">
+                                Cantidad
+                            </label>
+                            <div class="input-group">
+                                
+                              
+                              <input type="number" id='cantidad_electrodomestico' placeholder="Cantidad" class="form-control" name="">
+                            </div>
+                        </div>
+
+                <div class="col-md-12 mt-2">
+                            <button type="button" name="agregar" id="agregar_electrodomestico" class="btn btn-info">Agregar</button>
                             <button type="button" name="agregar" id="nuevo_electrodomestico" class="btn btn-info">Nuevo electrodoméstico</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan='3'><br>
-                            <div style='width:100%;height: 120px;background: #D3F3C5;overflow-y:scroll'><center><div id='electrodomesticos_agregados' style='width:90%'></div></center></div>
-                        </td>
-                    </tr>
-                </table>
-            </div>
+                        </div>
+
+                <div class="col-md-12 mt-2">
+                            <div style='width:100%;height: 200px;background: #C7F2EE;overflow-y:scroll'><center><div id='electrodomesticos_agregados' style='width:90%'></div></center></div>
+                        </div>
 
         </div>
     </div>
@@ -500,7 +524,7 @@
 </div>
             </div>
             <div class="modal-footer ">
-            <button type="button" class="btn btn-default" id='guardar'>Guardar cambios</button>
+            <button type="button" class="btn btn-info" id='guardar'>Guardar</button>
             <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
             </div>
         </div>
