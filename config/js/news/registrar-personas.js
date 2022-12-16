@@ -127,10 +127,10 @@ document.onkeypress = function(e) {
 btn_ver_clave.onclick = function() {
     if (contrasenia.type == 'password') {
         contrasenia.type = confirmar.type = 'text';
-        btn_ver_clave.innerHTML = "<em class='fa fa-eye-slash'></em>";
+        btn_ver_clave.innerHTML = "<em style='font-size: 23px' class='fa fa-eye-slash'></em>";
     } else {
         contrasenia.type = confirmar.type = 'password';
-        btn_ver_clave.innerHTML = "<em class='fa fa-eye'></em>";
+        btn_ver_clave.innerHTML = "<em style='font-size: 23px' class='fa fa-eye'></em>";
     }
 }
 //--------------------------validar informacion personal----------------------------------------//
@@ -261,10 +261,17 @@ transporte.onchange = function() {
 }
 //----------------------------------------------------------------------------------------------------//
 recibe_actualmente.onchange = function() {
+    var tr= recibe_actualmente.parentElement.parentElement;
     if (recibe_actualmente.value == '0') {
         ver_fecha_recepcion.style.display = '';
+        tr.children[0].style.width='30%';
+        tr.children[1].style.width='30%';
+        tr.children[2].style.width='20%';
+
     } else {
         ver_fecha_recepcion.style.display = 'none';
+        tr.children[0].style.width='40%';
+        tr.children[1].style.width='40%';
     }
 }
 //---------------------------------funcion para visualizar campo de tipo de transporte---------------//
@@ -280,6 +287,17 @@ org_politica.onchange = function() {
 sector_laboral.onchange = function() {
     change_to_dynamic_record("1", ver_sector_formal, sector_laboral, sector_formal);
     sector_formal.value = 'vacio';
+    if(sector_laboral.value=='1'){
+        var tr= sector_laboral.parentElement.parentElement;
+        tr.children[0].style.width='30%';
+        tr.children[1].style.width='30%';
+        tr.children[3].style.width='20%';
+    }
+    else {
+        var tr= sector_laboral.parentElement.parentElement;
+        tr.children[0].style.width='40%';
+        tr.children[1].style.width='40%';
+    }
 }
 //----------------------------------boton guardar funcion---------------------------------------------//
 btn_guardar.onclick = function() {
@@ -428,7 +446,7 @@ btn_otro_proyecto.onclick = function() {
         btn_otro_proyecto.value = 'Atrás';
         div_proyecto_nuevo.style.display = "block";
     } else {
-        proyectos.value = 'vacio';
+        proyectos.value= 'vacio';
         div_proyecto_nuevo.style.display = "none";
         div_proyectos_existentes.style.display = 'block';
         div_proyectos_existentes.style.width = "100%";
