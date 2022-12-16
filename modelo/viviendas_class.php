@@ -1,5 +1,5 @@
 <?php
-
+ 
 class Viviendas_Class extends Modelo
 {
     #Public: acceso sin restricción.
