@@ -172,7 +172,7 @@ class Personas_Class extends Modelo
 
     private function SQL_24():string
     {
-     return "SELECT * FROM org_politica WHERE estado=1"
+     return "SELECT * FROM org_politica WHERE estado=1";
     }
 
     private function SQL_25():string

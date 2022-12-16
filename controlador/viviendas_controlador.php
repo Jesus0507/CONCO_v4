@@ -245,10 +245,6 @@ class Viviendas extends Controlador
                                 } else {
                                     $this->modelo->_SQL_("_02_");
                                     $this->modelo->_Tipo_(1);
-                                    $this->modelo->__SET("registrar", array(
-                                        "tabla"   => "servicio_gas",
-                                        "columna" => "nombre_servicio_gas")
-                                    );
                                     $this->crud["registrar"] = array(
                                         "tabla"   => "servicio_gas",
                                         "columna" => "nombre_servicio_gas");
@@ -324,11 +320,13 @@ class Viviendas extends Controlador
                 if ($this->permisos["modificar"] === 1) {
                     $this->modelo->_Tipo_(0);
                     $this->modelo->_SQL_("_05_");
-                    $this->modelo->__SET("consultar", array(
+                
+                    $this->crud["consultar"] = array(
                         "tabla"   => $_POST['datos']["tabla"],
                         "columna" => $_POST['datos']["columna"],
                         "data"    => $_POST['vivienda']['id_vivienda'],
-                    ));
+                    );
+                                        $this->modelo->_CRUD_($this->Get_Crud_Sql());
                     $servicios_vivienda = $this->modelo->Administrar();
                     $this->modelo->_SQL_("SQL_12");
                     $this->modelo->_Tipo_(1);
@@ -337,7 +335,9 @@ class Viviendas extends Controlador
                         $existe = 0;
                         $this->modelo->_SQL_("_03_");
                         $this->modelo->_Tipo_(0);
-                        $this->modelo->__SET("ultimo", array("tabla" => "servicios", "id" => "id_servicio"));
+                        
+                        $this->crud["ultimo"] = array("tabla" => "servicios", "id" => "id_servicio");
+                                            $this->modelo->_CRUD_($this->Get_Crud_Sql());
                         $id_servicio                      = $this->modelo->Administrar();
                         $_POST['vivienda']['id_servicio'] = $id_servicio[0]['MAX(id_servicio)'];
 
@@ -349,15 +349,18 @@ class Viviendas extends Controlador
                         if ($existe == 0) {
                             $this->modelo->_SQL_("_02_");
                             $this->modelo->_Tipo_(1);
-                            $this->modelo->__SET("registrar", array(
+                           
+                            $this->crud["registrar"] = array(
                                 "tabla"   => "tipo_vivienda",
-                                "columna" => "nombre_tipo_vivienda")
-                            );
+                                "columna" => "nombre_tipo_vivienda");
+                                            $this->modelo->_CRUD_($this->Get_Crud_Sql());
                             $this->modelo->_Datos_(["nombre_tipo_vivienda" => $_POST['vivienda']['id_tipo_vivienda'], "estado" => 1]);
                             if ($this->modelo->Administrar()) {
                                 $this->modelo->_SQL_("_03_");
                                 $this->modelo->_Tipo_(0);
-                                $this->modelo->__SET("ultimo", array("tabla" => "tipo_vivienda", "id" => "id_tipo_vivienda"));
+                                
+                                $this->crud["ultimo"] = array("tabla" => "tipo_vivienda", "id" => "id_tipo_vivienda");
+                                                $this->modelo->_CRUD_($this->Get_Crud_Sql());
                                 $id                                    = $this->modelo->Administrar();
                                 $_POST['vivienda']['id_tipo_vivienda'] = $id[0]['MAX(id_tipo_vivienda)'];
                             }
@@ -373,8 +376,10 @@ class Viviendas extends Controlador
                             $this->Accion($this->Get_Accion());
                             $this->modelo->_SQL_("_07_");
                             $this->modelo->_Tipo_(1);
-                            $this->modelo->__SET("eliminar", array(
-                                "tabla" => "servicios", "id_tabla" => "id_servicio"));
+                            
+                                $this->crud["eliminar"] = array(
+                                    "tabla" => "servicios", "id_tabla" => "id_servicio");
+                                                $this->modelo->_CRUD_($this->Get_Crud_Sql());
                             $this->modelo->_Datos_(["id_servicio" => $servicios_vivienda[0]['id_servicio']]);
                             $this->modelo->Administrar();
                         }
@@ -424,7 +429,7 @@ class Viviendas extends Controlador
                         "internet"              => $value["internet"],
                         "servicio_electrico"    => $value["servicio_electrico"],
                         "ver"                   => "<a style='background: #4dbdbd !important;' href='javascript:void(0)' class='btn bg-info ver-popup' title='Ver' type='button' onclick='Ver(`" . json_encode($value) . "`,`" . json_encode($this->techos) . "`,`" . json_encode($this->paredes) . "`,`" . json_encode($this->pisos) . "`,`" . json_encode($this->gas) . "`,`" . json_encode($this->electrodomesticos) . "`);'><i class='fa fa-eye'></i></a>",
-                        "editar"                => "<a href='javascript:void(0)' class='btn bg-info btnEditar'  title='Actualizar' type='button' data-toggle='modal' data-target='#actualizar' onclick='Modificar(" . json_encode($value["id_vivienda"]) . ",`" . json_encode($this->value) . "`,`" . json_encode($this->techos) . "`,`" . json_encode($this->paredes) . "`,`" . json_encode($this->pisos) . "`,`" . json_encode($this->gas) . "`,`" . json_encode($this->electrodomesticos) . "`)'><i class='fa fa-edit' style='color: white;'></i></a>",
+                        "editar"                => "<a href='javascript:void(0)' class='btn bg-info btnEditar'  title='Actualizar' type='button' data-toggle='modal' data-target='#actualizar' onclick='Modificar(" . json_encode($value["id_vivienda"]) . ",`" . json_encode($value) . "`,`" . json_encode($this->techos) . "`,`" . json_encode($this->paredes) . "`,`" . json_encode($this->pisos) . "`,`" . json_encode($this->gas) . "`,`" . json_encode($this->electrodomesticos) . "`)'><i class='fa fa-edit' style='color: white;'></i></a>",
                         "eliminar"              => ' <a href="javascript:void(0)" style="margin-right: 5px;" class="btn bg-danger mensaje-eliminar" title="Eliminar" onclick="Eliminar(' . json_encode($value["id_vivienda"]) . ',' . $value['id_servicio'] . ')"><i class="fa fa-trash"></i></a>',
                     ];
                 }
@@ -436,11 +441,13 @@ class Viviendas extends Controlador
                 $this->mensaje = 1;
                 $this->modelo->_Tipo_(0);
                 $this->modelo->_SQL_("_05_");
-                $this->modelo->__SET("consultar", array(
+                
+                $this->crud["consultar"] = array(
                     "tabla"   => $_POST['datos']["tabla"],
                     "columna" => $_POST['datos']["columna"],
                     "data"    => $_POST['datos']["data"],
-                ));
+                );
+                                $this->modelo->_CRUD_($this->Get_Crud_Sql());
                 $datos   = $this->modelo->Administrar();
                 $mensaje = "Este elemento ya se encuentra asignado";
                 switch ($_POST["datos"]["buscar"]) {
@@ -477,14 +484,18 @@ class Viviendas extends Controlador
                 $mensaje  = "Este servicio de gas ya está asociado a esta vivienda";
                 $this->modelo->_Tipo_(0);
                 $this->modelo->_SQL_("_05_");
-                $this->modelo->__SET("consultar", array(
+
+                $this->crud["consultar"] =  array(
                     "tabla"   => $_POST['datos']["tabla"],
                     "columna" => $_POST['datos']["columna"],
                     "data"    => $_POST['datos']["id"],
-                ));
+                );
+                                $this->modelo->_CRUD_($this->Get_Crud_Sql());
                 $servicios_vivienda = $this->modelo->Administrar();
                 $this->modelo->_SQL_("_01_");
-                $this->modelo->__SET("consultar", array("tabla" => "servicio_gas", "estado" => 1, "orden" => "id_servicio_gas"));
+                
+                $this->crud["consultar"] =  array("tabla" => "servicio_gas", "estado" => 1, "orden" => "id_servicio_gas");
+                                $this->modelo->_CRUD_($this->Get_Crud_Sql());
                 $companias = $this->modelo->Administrar();
 
                 if ($_POST['gas']['nuevo'] == 1) {
@@ -496,15 +507,18 @@ class Viviendas extends Controlador
                     if ($existe == "") {
                         $this->modelo->_SQL_("_02_");
                         $this->modelo->_Tipo_(1);
-                        $this->modelo->__SET("registrar", array(
+                        
+                        $this->crud["registrar"] =  array(
                             "tabla"   => "servicio_gas",
-                            "columna" => "nombre_servicio_gas")
-                        );
+                            "columna" => "nombre_servicio_gas");
+                                $this->modelo->_CRUD_($this->Get_Crud_Sql());
                         $this->modelo->_Datos_(["nombre_servicio_gas" => $_POST['gas']['gas'], "estado" => 1]);
                         if ($this->modelo->Administrar()) {
                             $this->modelo->_SQL_("_03_");
                             $this->modelo->_Tipo_(0);
-                            $this->modelo->__SET("ultimo", array("tabla" => "servicio_gas", "id" => "id_servicio_gas"));
+                        
+                            $this->crud["ultimo"] =  array("tabla" => "servicio_gas", "id" => "id_servicio_gas");
+                                    $this->modelo->_CRUD_($this->Get_Crud_Sql());
                             $id = $this->modelo->Administrar();
 
                             $this->modelo->_SQL_($this->Get_Sql());
@@ -563,7 +577,8 @@ class Viviendas extends Controlador
             case 'Cargar_Gas':
 
                 $this->modelo->_SQL_("_01_");
-                $this->modelo->__SET("consultar", array("tabla" => "servicio_gas", "estado" => 1, "orden" => "id_servicio_gas"));
+                $this->crud["consultar"] =  array("tabla" => "servicio_gas", "estado" => 1, "orden" => "id_servicio_gas");
+                                    $this->modelo->_CRUD_($this->Get_Crud_Sql());
                 $gases = $this->modelo->Administrar();
                 $texto = "<option value='vacio'>-Compañia-</option>";
                 foreach ($gases as $g) {
@@ -578,15 +593,19 @@ class Viviendas extends Controlador
                 $mensaje  = "Este electrodomestico ya esta asociado a esta vivienda";
                 $this->modelo->_Tipo_(0);
                 $this->modelo->_SQL_("_05_");
-                $this->modelo->__SET("consultar", array(
+            
+                $this->crud["consultar"] =  array(
                     "tabla"   => $_POST['datos']["tabla"],
                     "columna" => $_POST['datos']["columna"],
                     "data"    => $_POST['datos']["id"],
-                ));
+                );
+                                    $this->modelo->_CRUD_($this->Get_Crud_Sql());
                 $electrodomesticos_vivienda = $this->modelo->Administrar();
 
                 $this->modelo->_SQL_("_01_");
-                $this->modelo->__SET("consultar", array("tabla" => "electrodomesticos", "estado" => 1, "orden" => "id_electrodomestico"));
+                
+                $this->crud["consultar"] = array("tabla" => "electrodomesticos", "estado" => 1, "orden" => "id_electrodomestico");
+                                    $this->modelo->_CRUD_($this->Get_Crud_Sql());
                 $electrodomesticos_all = $this->modelo->Administrar();
 
                 if ($_POST['electrodomestico']['nuevo'] == 1) {
@@ -598,15 +617,18 @@ class Viviendas extends Controlador
                     if ($existe == "") {
                         $this->modelo->_SQL_("_02_");
                         $this->modelo->_Tipo_(1);
-                        $this->modelo->__SET("registrar", array(
+                       
+                        $this->crud["registrar"] = array(
                             "tabla"   => "electrodomesticos",
-                            "columna" => "nombre_electrodomestico")
-                        );
+                            "columna" => "nombre_electrodomestico");
+                                    $this->modelo->_CRUD_($this->Get_Crud_Sql());
                         $this->modelo->_Datos_(["nombre_electrodomestico" => $_POST['electrodomestico']['electrodomestico'], "estado" => 1]);
                         if ($this->modelo->Administrar()) {
                             $this->modelo->_SQL_("_03_");
                             $this->modelo->_Tipo_(0);
-                            $this->modelo->__SET("ultimo", array("tabla" => "electrodomesticos", "id" => "id_electrodomestico"));
+                           
+                            $this->crud["ultimo"] = array("tabla" => "electrodomesticos", "id" => "id_electrodomestico");
+                                        $this->modelo->_CRUD_($this->Get_Crud_Sql());
                             $id = $this->modelo->Administrar();
 
                             $this->modelo->_SQL_($this->Get_Sql());
@@ -662,7 +684,9 @@ class Viviendas extends Controlador
             case 'Cargar_Electrodomesticos':
 
                 $this->modelo->_SQL_("_01_");
-                $this->modelo->__SET("consultar", array("tabla" => "electrodomesticos", "estado" => 1, "orden" => "id_electrodomestico"));
+                
+                $this->crud["consultar"] = array("tabla" => "electrodomesticos", "estado" => 1, "orden" => "id_electrodomestico");
+                                        $this->modelo->_CRUD_($this->Get_Crud_Sql());
                 $electrodomesticos = $this->modelo->Administrar();
                 $texto             = "<option value='vacio'>-Electrodoméstico-</option>";
                 foreach ($electrodomesticos as $e) {
@@ -683,10 +707,11 @@ class Viviendas extends Controlador
                 if ($this->permisos["eliminar"] === 1) {
                     $this->modelo->_SQL_("_07_");
                     $this->modelo->_Tipo_(1);
-                    $this->modelo->__SET("eliminar", array(
+                    
+                    $this->crud["eliminar"] = array(
                         "tabla"    => $_POST['datos']["tabla"],
-                        "id_tabla" => $_POST['datos']["id_tabla"])
-                    );
+                        "id_tabla" => $_POST['datos']["id_tabla"]);
+                                        $this->modelo->_CRUD_($this->Get_Crud_Sql());
                     $this->modelo->_Datos_([$_POST['datos']["id_tabla"] => $_POST['datos']['id']]);
                     if ($this->modelo->Administrar()) {$this->mensaje = 1;}
                     echo $this->Get_Mensaje();unset($this->mensaje);
