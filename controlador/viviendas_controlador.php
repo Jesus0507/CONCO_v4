@@ -1,207 +1,278 @@
 <?php
 class Viviendas extends Controlador
 {
+    #Public: acceso sin restricción.
+    #Private:Solo puede ser accesado por la clase que lo define.
+    private $permisos;          #permisos correspondiente del modulo
+    private $peticion;          #peticion a ejecutar de la funcion administrar
+    private $estado;            #array con parametros de eliminacion logica (tabla,id_tabla,param,estado)
+    private $estado_ejecutar;   #array con parametro a ejecutar (id_tabla, estado)
+    private $sql;               #nombre de la sentencia SQL que se ejecutara en el modelo
+    private $datos_ejecutar;    #array con datos para enviar a la bd 
+    private $datos_consulta;    #array con los datos necesarios para el modulo (consultas)
+    private $accion;            #accion para enviar a la bitacora 
+    private $mensaje;           #mensaje que se mandara a la vista
+    private $validar;           #objeto con la clase validacion correspondiente al modulo
+    private $crud;              #array con peticion generica sql
+
+    // DATOS independientes usados para el manejo del modulo
+    public $id_servicio;
+    public $servicio;
+    private $id;
+    private $id_tipo_pared;
+    private $id_tipo_piso;
+    private $id_tipo_techo;
+    private $gases;
+    private $id_gas;
+    private $electrodomesticos;
+    private $id_elect;
+    // ==================ESTABLECER DATOS=========================
     public function __construct()
     {
         parent::__construct();
+        $this->Validacion("Viviendas");
+        $this->permisos        = $_SESSION["Viviendas"];
+        $this->estado          = $_POST['estado'];
+        $this->datos_ejecutar  = $_POST['vivienda'];
+        $this->sql             = $_POST['sql'];
+        $this->accion          = $_POST['accion'];
+        $this->id_servicio     = $_POST['vivienda']['id_servicio'];
+        $this->validar         = $this->validacion;
+        $this->mensaje         = 1;
+        $this->gases         = $_POST['gases'];
+        $this->electrodomesticos         = $_POST['electrodomesticos'];
+        $this->estado_ejecutar = array($this->estado["id_tabla"] => $this->estado["param"], "estado" => $this->estado["estado"]);
         //    $this->Cargar_Modelo("viviendas");
+    } 
+    private function Establecer_Consultas()
+    {
+        $this->modelo->_Tipo_(0);$this->modelo->_SQL_("SQL_01");
+        $this->datos_consulta["viviendas"] = $this->modelo->Administrar();
+        $this->modelo->_SQL_("_01_");
+        $this->crud["consultar"] = array("tabla" => "tipo_vivienda", "estado" => 1, "orden" => "nombre_tipo_vivienda");
+        $this->modelo->_CRUD_($this->Get_Crud_Sql());
+        $this->datos_consulta["tipo_vivienda"] = $this->modelo->Administrar();
+        $this->crud["consultar"] = array("tabla" => "calles", "estado" => 1, "orden" => "nombre_calle");
+        $this->modelo->_CRUD_($this->Get_Crud_Sql());
+        $this->datos_consulta["calle"] = $this->modelo->Administrar();
+        $this->crud["consultar"] = array("tabla" => "tipo_techo", "estado" => 1, "orden" => "techo");
+        $this->modelo->_CRUD_($this->Get_Crud_Sql());
+        $this->datos_consulta["tipo_techo"] = $this->modelo->Administrar();
+        $this->crud["consultar"] = array("tabla" => "tipo_pared", "estado" => 1, "orden" => "pared");
+        $this->modelo->_CRUD_($this->Get_Crud_Sql());
+        $this->datos_consulta["tipo_pared"] = $this->modelo->Administrar();
+        $this->crud["consultar"] = array("tabla" => "tipo_piso", "estado" => 1, "orden" => "piso");
+        $this->modelo->_CRUD_($this->Get_Crud_Sql());
+        $this->datos_consulta["tipo_piso"] = $this->modelo->Administrar();
+        $this->crud["consultar"] = array("tabla" => "servicio_gas", "estado" => 1, "orden" => "nombre_servicio_gas");
+        $this->modelo->_CRUD_($this->Get_Crud_Sql());
+        $this->datos_consulta["servicios_gas"] = $this->modelo->Administrar();
+        $this->crud["consultar"] =  array("tabla" => "electrodomesticos", "estado" => 1, "orden" => "id_electrodomestico");
+        $this->modelo->_CRUD_($this->Get_Crud_Sql());
+        $this->datos_consulta["electrodomesticos"] = $this->modelo->Administrar();
+        $this->vista->datos = $this->Get_Datos_Vista();
     }
+    // ==================GETTERS=========================
+    #getters usados para obtener la informacion de las variables privadas
+    # retornan tipo string o array
+    private function Get_Sql():string           {return $this->sql;}
+    private function Get_Accion():string        {return $this->accion;}
+    private function Get_Mensaje():string       {return $this->mensaje;}
+    private function Get_Datos():array          {return $this->datos_ejecutar;}
+    private function Get_Estado():array         {return $this->estado;}
+    private function Get_Estado_Ejecutar():array{return $this->estado_ejecutar;}
+    private function Get_Datos_Vista():array    {return $this->datos_consulta;}
+    private function Get_Crud_Sql(): array      {return $this->crud;}
+    // ==============================================================================
     public function Cargar_Vistas()
     {
-        $this->Establecer_Consultas();$this->Seguridad_de_Session();
-        $this->vista->Cargar_Vistas('vivienda/consultar');
+        $this->Seguridad_de_Session();
+        if ($this->permisos["consultar"] === 1) {
+            $this->vista->Cargar_Vistas('vivienda/consultar');
+        } else { $this->_403_();}
     }
-    // ==============================CRUD=====================================
-    public function Establecer_Consultas()
-    {
-        $this->modelo->__SET("tipo", "0");$this->modelo->__SET("SQL", "SQL_01");
-        $this->datos["viviendas"] = $this->modelo->Administrar();
-        $this->modelo->__SET("SQL", "_01_");
-        $this->modelo->__SET("consultar", array("tabla" => "tipo_vivienda", "estado" => 1, "orden" => "nombre_tipo_vivienda"));
-        $this->datos["tipo_vivienda"] = $this->modelo->Administrar();
-        $this->modelo->__SET("consultar", array("tabla" => "calles", "estado" => 1, "orden" => "nombre_calle"));
-        $this->datos["calle"] = $this->modelo->Administrar();
-        $this->modelo->__SET("consultar", array("tabla" => "tipo_techo", "estado" => 1, "orden" => "techo"));
-        $this->datos["tipo_techo"] = $this->modelo->Administrar();
-        $this->modelo->__SET("consultar", array("tabla" => "tipo_pared", "estado" => 1, "orden" => "pared"));
-        $this->datos["tipo_pared"] = $this->modelo->Administrar();
-        $this->modelo->__SET("consultar", array("tabla" => "tipo_piso", "estado" => 1, "orden" => "piso"));
-        $this->datos["tipo_piso"] = $this->modelo->Administrar();
-        $this->modelo->__SET("consultar", array("tabla" => "servicio_gas", "estado" => 1, "orden" => "nombre_servicio_gas"));
-        $this->datos["servicios_gas"] = $this->modelo->Administrar();
-        $this->modelo->__SET("consultar", array("tabla" => "electrodomesticos", "estado" => 1, "orden" => "id_electrodomestico"));
-        $this->datos["electrodomesticos"] = $this->modelo->Administrar();
-        $this->vista->datos = $this->datos;
-    }
+    // ==============================================================================
     public function Administrar($peticion = null)
     {
         $this->Seguridad_de_Session();$this->Establecer_Consultas();
-        if (isset($_POST['peticion'])) {$peticion = $_POST['peticion'];} else { $peticion = $peticion[0];}
-
-        switch ($peticion) {
+        $this->peticion = (isset($_POST['peticion'])) ? $_POST['peticion'] : $peticion[0];
+        switch ($this->peticion) {
             case 'Registros':
-            if ($_SESSION["Viviendas"]["registrar"] === 1) {    
+            if ($this->permisos["registrar"] === 1) {    
                 $this->vista->Cargar_Vistas('vivienda/registrar');
             }else{$this->_403_();}
                 break;
             case 'Consultas':
-            if ($_SESSION["Viviendas"]["consultar"] === 1) {    
+            if ($this->permisos["consultar"] === 1) {    
                 $this->vista->Cargar_Vistas('vivienda/consultar');
             }else{$this->_403_();}
                 break;
 
             case 'Registrar':
-            if ($_SESSION["Viviendas"]["registrar"] === 1) {  
-                $this->modelo->__SET("SQL", "SQL_12");$this->modelo->__SET("tipo", "1");
-                $this->modelo->Datos($_POST['vivienda']['id_servicio']);
+            if ($this->permisos["registrar"] === 1) {  
+                $this->modelo->_SQL_("SQL_12");$this->modelo->_Tipo_(1);
+                $this->modelo->_Datos_($this->id_servicio);
                 if ($this->modelo->Administrar()) {
                     $existe = 0;
-                    $this->modelo->__SET("SQL", "_03_");$this->modelo->__SET("tipo", "0");
-                    $this->modelo->__SET("ultimo", array("tabla" => "servicios", "id" => "id_servicio"));
-                    $id_servicio                      = $this->modelo->Administrar();
-                    $_POST['vivienda']['id_servicio'] = $id_servicio[0]['MAX(id_servicio)'];
+                    $this->modelo->_SQL_("_03_");
+                    $this->modelo->_Tipo_(0);
+                    $this->crud["ultimo"] =  array("tabla" => "servicios", "id" => "id_servicio");
+                    $this->modelo->_CRUD_($this->Get_Crud_Sql());
+                    $this->servicio                      = $this->modelo->Administrar();
+                    $this->datos_ejecutar['id_servicio'] = $this->servicio[0]['MAX(id_servicio)'];
 
-                    foreach ($this->datos["tipo_vivienda"] as $tv) {
-                        if (strtolower($tv['nombre_tipo_vivienda']) == strtolower($_POST['vivienda']['id_tipo_vivienda'])) {
+                    foreach ($this->datos_consulta["tipo_vivienda"] as $tv) {
+                        if (strtolower($tv['nombre_tipo_vivienda']) == strtolower($this->datos_ejecutar['id_tipo_vivienda'])) {
                             $existe = $tv['id_tipo_vivienda'];
                         }
                     }
                     if ($existe == 0) {
-                        $this->modelo->__SET("SQL", "_02_");$this->modelo->__SET("tipo", "1");
-                        $this->modelo->__SET("registrar", array(
+                        $this->modelo->_SQL_("_02_");$this->modelo->_Tipo_(1);
+                        $this->crud["registrar"] =  array(
                             "tabla"   => "tipo_vivienda",
-                            "columna" => "nombre_tipo_vivienda")
+                            "columna" => "nombre_tipo_vivienda"
                         );
-                        $this->modelo->Datos(["nombre_tipo_vivienda" => $_POST['vivienda']['id_tipo_vivienda'], "estado" => 1]);
+                        $this->modelo->_CRUD_($this->Get_Crud_Sql());
+                        $this->modelo->_Datos_(["nombre_tipo_vivienda" => $this->Get_Datos_()['id_tipo_vivienda'], "estado" => 1]);
                         if ($this->modelo->Administrar()) {
-                            $this->modelo->__SET("SQL", "_03_");$this->modelo->__SET("tipo", "0");
-                            $this->modelo->__SET("ultimo", array("tabla" => "tipo_vivienda", "id" => "id_tipo_vivienda"));
-                            $id                                    = $this->modelo->Administrar();
-                            $_POST['vivienda']['id_tipo_vivienda'] = $id[0]['MAX(id_tipo_vivienda)'];
+                            $this->modelo->_SQL_("_03_");$this->modelo->_Tipo_(0);
+                            $this->crud["ultimo"] =  array("tabla" => "tipo_vivienda", "id" => "id_tipo_vivienda");
+                            $this->modelo->_CRUD_($this->Get_Crud_Sql());
+                            $this->id                                    = $this->modelo->Administrar();
+                            $this->datos_ejecutar['id_tipo_vivienda'] = $this->id[0]['MAX(id_tipo_vivienda)'];
                         }
                     } else {
-                        $_POST['vivienda']['id_tipo_vivienda'] = $existe;
+                        $this->datos_ejecutar['id_tipo_vivienda'] = $existe;
                     }
 
-                    $this->modelo->__SET("SQL", $_POST['sql']);$this->modelo->__SET("tipo", "1");
-                    $this->modelo->Datos($_POST['vivienda']);
+                    $this->modelo->_SQL_($this->Get_Sql());
+                    $this->modelo->_Tipo_(1);
+                    $this->modelo->_Datos_($this->Get_Datos());
                     if ($this->modelo->Administrar()) {
                         $this->mensaje = 1;
-                        $this->modelo->__SET("SQL", "_03_");$this->modelo->__SET("tipo", "0");
-                        $this->modelo->__SET("ultimo", array("tabla" => "vivienda", "id" => "id_vivienda"));
-                        $id = $this->modelo->Administrar();
+                        $this->modelo->_SQL_("_03_");$this->modelo->_Tipo_(0);
+                        $this->crud["ultimo"] =  array("tabla" => "vivienda", "id" => "id_vivienda");
+                            $this->modelo->_CRUD_($this->Get_Crud_Sql());
+                            $this->id = $this->modelo->Administrar();
 
-                        foreach ($this->datos["tipo_techo"] as $techo) {
+                        foreach ($this->datos_consulta["tipo_techo"] as $techo) {
                             foreach ($_POST['techos'] as $tipo) {
-                                if ($techo["techo"] == $tipo["id_tipo_techo"]) {$id_tipo_techo[] = $techo["id_tipo_techo"];}
+                                if ($techo["techo"] == $tipo["id_tipo_techo"]) {$this->id_tipo_techo[] = $techo["id_tipo_techo"];}
                             }
                         }
-                        foreach ($this->datos["tipo_pared"] as $pared) {
+                        foreach ($this->datos_consulta["tipo_pared"] as $pared) {
                             foreach ($_POST['paredes'] as $tipo) {
-                                if ($pared["pared"] == $tipo["id_tipo_pared"]) { $id_tipo_pared[] = $pared["id_tipo_pared"];}
+                                if ($pared["pared"] == $tipo["id_tipo_pared"]) { $this->id_tipo_pared[] = $pared["id_tipo_pared"];}
                             }
                         }
-                        foreach ($this->datos["tipo_piso"] as $piso) {
+                        foreach ($this->datos_consulta["tipo_piso"] as $piso) {
                             foreach ($_POST['pisos'] as $tipo) {
-                                if ($piso["piso"] == $tipo["id_tipo_piso"]) {$id_tipo_piso[] = $piso["id_tipo_piso"]; }
+                                if ($piso["piso"] == $tipo["id_tipo_piso"]) {$this->id_tipo_piso[] = $piso["id_tipo_piso"]; }
                             }
                         }
-                        if (isset($id_tipo_techo)) {
-                            for ($i = 0; $i < count($id_tipo_techo); $i++) {
-                                $this->modelo->__SET("SQL", "SQL_13");$this->modelo->__SET("tipo", "1");
-                                $this->modelo->Datos([
-                                    'id_tipo_techo' => $id_tipo_techo[$i],
-                                    'id_vivienda'   => $id[0]['MAX(id_vivienda)'],
+                        if (isset($this->id_tipo_techo)) {
+                            for ($i = 0; $i < count($this->id_tipo_techo); $i++) {
+                                $this->modelo->_SQL_("SQL_13");$this->modelo->_Tipo_(1);
+                                $this->modelo->_Datos_([
+                                    'id_tipo_techo' => $this->id_tipo_techo[$i],
+                                    'id_vivienda'   => $this->id[0]['MAX(id_vivienda)'],
                                     'estado'        => 1,
                                 ]);
                                 $this->modelo->Administrar();
                             }
                         }
 
-                        if (isset($id_tipo_pared)) {
-                            for ($i = 0; $i < count($id_tipo_pared); $i++) {
-                                $this->modelo->__SET("SQL", "SQL_14");$this->modelo->__SET("tipo", "1");
-                                $this->modelo->Datos([
-                                    'id_tipo_pared' => $id_tipo_pared[$i],
-                                    'id_vivienda'   => $id[0]['MAX(id_vivienda)'],
+                        if (isset($this->id_tipo_pared)) {
+                            for ($i = 0; $i < count($this->id_tipo_pared); $i++) {
+                                $this->modelo->_SQL_("SQL_14");$this->modelo->_Tipo_(1);
+                                $this->modelo->_Datos_([
+                                    'id_tipo_pared' => $this->id_tipo_pared[$i],
+                                    'id_vivienda'   => $this->id[0]['MAX(id_vivienda)'],
                                     'estado'        => 1,
                                 ]);
                                 $this->modelo->Administrar();
                             }
                         }
-                        if (isset($id_tipo_piso)) {
-                            for ($i = 0; $i < count($id_tipo_piso); $i++) {
-                                $this->modelo->__SET("SQL", "SQL_15");$this->modelo->__SET("tipo", "1");
-                                $this->modelo->Datos([
-                                    'id_tipo_piso' => $id_tipo_piso[$i],
-                                    'id_vivienda'  => $id[0]['MAX(id_vivienda)'],
+                        if (isset($this->id_tipo_piso)) {
+                            for ($i = 0; $i < count($this->id_tipo_piso); $i++) {
+                                $this->modelo->_SQL_("SQL_15");$this->modelo->_Tipo_(1);
+                                $this->modelo->_Datos_([
+                                    'id_tipo_piso' => $this->id_tipo_piso[$i],
+                                    'id_vivienda'  => $this->id[0]['MAX(id_vivienda)'],
                                     'estado'       => 1,
                                 ]);
                                 $this->modelo->Administrar();
                             }
                         }
-                        for ($i = 0; $i < count($_POST['gases']); $i++) {
-                            if ($_POST['gases'][$i]['nuevo'] == '0') {
-                                $this->modelo->__SET("SQL", "SQL_16"); $this->modelo->__SET("tipo", "1");
-                                $this->modelo->Datos([
-                                    "id_servicio_gas" => $_POST['gases'][$i]['servicio_gas'],
-                                    "id_vivienda"     => $id[0]['MAX(id_vivienda)'],
-                                    "tipo_bombona"    => $_POST['gases'][$i]['tipo_bombona'],
-                                    "dias_duracion"   => $_POST['gases'][$i]['tiempo_duracion'],
+                        for ($i = 0; $i < count($this->gases); $i++) {
+                            if ($this->gases[$i]['nuevo'] == '0') {
+                                $this->modelo->_SQL_("SQL_16"); $this->modelo->_Tipo_(1);
+                                $this->modelo->_Datos_([
+                                    "id_servicio_gas" => $this->gases[$i]['servicio_gas'],
+                                    "id_vivienda"     => $this->id[0]['MAX(id_vivienda)'],
+                                    "tipo_bombona"    => $this->gases[$i]['tipo_bombona'],
+                                    "dias_duracion"   => $this->gases[$i]['tiempo_duracion'],
                                     "estado"          => 1,
                                 ]);
                                 $this->modelo->Administrar();
                             } else {
-                                $this->modelo->__SET("SQL", "_02_");$this->modelo->__SET("tipo", "1");
+                                $this->modelo->_SQL_("_02_");$this->modelo->_Tipo_(1);
                                 $this->modelo->__SET("registrar", array(
                                     "tabla"   => "servicio_gas",
                                     "columna" => "nombre_servicio_gas")
                                 );
-                                $this->modelo->Datos(["nombre_servicio_gas" => $_POST['gases'][$i]['servicio_gas'], "estado" => 1]);
+                                $this->crud["registrar"] =  array(
+                                    "tabla"   => "servicio_gas",
+                                    "columna" => "nombre_servicio_gas");
+                                $this->modelo->_CRUD_($this->Get_Crud_Sql());
+                                $this->modelo->_Datos_(["nombre_servicio_gas" => $this->gases[$i]['servicio_gas'], "estado" => 1]);
                                 if ($this->modelo->Administrar()) {
-                                    $this->modelo->__SET("SQL", "_03_");$this->modelo->__SET("tipo", "0");
-                                    $this->modelo->__SET("ultimo", array("tabla" => "servicio_gas", "id" => "id_servicio_gas"));
-                                    $id_gas = $this->modelo->Administrar();
+                                    $this->modelo->_SQL_("_03_");$this->modelo->_Tipo_(0);
+                                    $this->crud["ultimo"] =  array("tabla" => "servicio_gas", "id" => "id_servicio_gas");
+                                    $this->modelo->_CRUD_($this->Get_Crud_Sql());
+                                    $this->id_gas = $this->modelo->Administrar();
                                 }
-                                $this->modelo->__SET("SQL", "SQL_16");$this->modelo->__SET("tipo", "1");
-                                $this->modelo->Datos([
-                                    "id_servicio_gas" => $id_gas[0]['MAX(id_servicio_gas)'],
-                                    "id_vivienda"     => $id[0]['MAX(id_vivienda)'],
-                                    "tipo_bombona"    => $_POST['gases'][$i]['tipo_bombona'],
-                                    "dias_duracion"   => $_POST['gases'][$i]['tiempo_duracion'],
+                                $this->modelo->_SQL_("SQL_16");$this->modelo->_Tipo_(1);
+                                $this->modelo->_Datos_([
+                                    "id_servicio_gas" => $this->id_gas[0]['MAX(id_servicio_gas)'],
+                                    "id_vivienda"     => $this->id[0]['MAX(id_vivienda)'],
+                                    "tipo_bombona"    => $this->gases[$i]['tipo_bombona'],
+                                    "dias_duracion"   => $this->gases[$i]['tiempo_duracion'],
                                     "estado"          => 1,
                                 ]);
                                 $this->modelo->Administrar();
                             }
                         }
-                        for ($i = 0; $i < count($_POST['electrodomesticos']); $i++) {
-                            if ($_POST['electrodomesticos'][$i]['nuevo'] == '0') {
-                                $this->modelo->__SET("SQL", "SQL_17"); $this->modelo->__SET("tipo", "1");
-                                $this->modelo->Datos([
-                                    "id_electrodomestico" => $_POST['electrodomesticos'][$i]['electrodomestico'],
-                                    "id_vivienda"         => $id[0]['MAX(id_vivienda)'],
-                                    "cantidad"            => $_POST['electrodomesticos'][$i]['cantidad'],
+                        for ($i = 0; $i < count($this->electrodomestico); $i++) {
+                            if ($this->electrodomestico[$i]['nuevo'] == '0') {
+                                $this->modelo->_SQL_("SQL_17"); $this->modelo->_Tipo_(1);
+                                $this->modelo->_Datos_([
+                                    "id_electrodomestico" => $this->electrodomestico[$i]['electrodomestico'],
+                                    "id_vivienda"         => $this->id[0]['MAX(id_vivienda)'],
+                                    "cantidad"            => $this->electrodomestico[$i]['cantidad'],
                                     "estado"              => 1,
                                 ]);
                                 $this->modelo->Administrar();
                             } else {
-                                $this->modelo->__SET("SQL", "_02_");$this->modelo->__SET("tipo", "1");
-                                $this->modelo->__SET("registrar", array(
+                                $this->modelo->_SQL_("_02_");$this->modelo->_Tipo_(1);
+                                $this->crud["registrar"] = array(
                                     "tabla"   => "electrodomesticos",
-                                    "columna" => "nombre_electrodomestico")
+                                    "columna" => "nombre_electrodomestico"
                                 );
-                                $this->modelo->Datos(["nombre_electrodomestico" => $_POST['electrodomesticos'][$i]['electrodomestico'], "estado" => 1]);
+                                $this->modelo->_CRUD_($this->Get_Crud_Sql());
+                                $this->modelo->_Datos_(["nombre_electrodomestico" => $this->electrodomestico[$i]['electrodomestico'], "estado" => 1]);
                                 if ($this->modelo->Administrar()) {
-                                    $this->modelo->__SET("SQL", "_03_");
-                                    $this->modelo->__SET("tipo", "0");
-                                    $this->modelo->__SET("ultimo", array("tabla" => "electrodomesticos", "id" => "id_electrodomestico"));
-                                    $id_elect = $this->modelo->Administrar();
+                                    $this->modelo->_SQL_("_03_");
+                                    $this->modelo->_Tipo_(0);
+                                    $this->crud["ultimo"] = array("tabla" => "electrodomesticos", "id" => "id_electrodomestico");
+                                    $this->modelo->_CRUD_($this->Get_Crud_Sql());
+                                    $this->id_elect = $this->modelo->Administrar();
                                 }
-                                $this->modelo->__SET("SQL", "SQL_16");$this->modelo->__SET("tipo", "1");
-                                $this->modelo->Datos([
-                                    "id_electrodomestico" => $id_elect[0]['MAX(id_electrodomestico)'],
-                                    "id_vivienda"         => $id[0]['MAX(id_vivienda)'],
-                                    "cantidad"            => $_POST['electrodomesticos'][$i]['cantidad'],
+                                $this->modelo->_SQL_("SQL_16");$this->modelo->_Tipo_(1);
+                                $this->modelo->_Datos_([
+                                    "id_electrodomestico" => $this->id_elect[0]['MAX(id_electrodomestico)'],
+                                    "id_vivienda"         => $this->id[0]['MAX(id_vivienda)'],
+                                    "cantidad"            => $this->electrodomestico[$i]['cantidad'],
                                     "estado"              => 1,
                                 ]);
                                 $this->modelo->Administrar();
@@ -210,43 +281,43 @@ class Viviendas extends Controlador
                     }
 
                 }
-                $this->Accion($_POST['accion']);
-                echo $this->mensaje;
+                $this->Accion($this->Get_Accion());
+                echo $this->Get_Mensaje();
             }else{$this->_403_();}
                 break;
 
             case 'Actualizar':
-            if ($_SESSION["Viviendas"]["modificar"] === 1) { 
-                $this->modelo->__SET("tipo", "0");$this->modelo->__SET("SQL", "_05_");
+            if ($this->permisos["modificar"] === 1) { 
+                $this->modelo->_Tipo_(0);$this->modelo->_SQL_("_05_");
                 $this->modelo->__SET("consultar", array(
                     "tabla"   => $_POST['datos']["tabla"],
                     "columna" => $_POST['datos']["columna"],
                     "data"    => $_POST['vivienda']['id_vivienda'],
                 ));
                 $servicios_vivienda = $this->modelo->Administrar();
-                $this->modelo->__SET("SQL", "SQL_12");$this->modelo->__SET("tipo", "1");
-                $this->modelo->Datos($_POST['vivienda']['id_servicio']);
+                $this->modelo->_SQL_("SQL_12");$this->modelo->_Tipo_(1);
+                $this->modelo->_Datos_($_POST['vivienda']['id_servicio']);
                 if ($this->modelo->Administrar()) {
                     $existe = 0;
-                    $this->modelo->__SET("SQL", "_03_");$this->modelo->__SET("tipo", "0");
+                    $this->modelo->_SQL_("_03_");$this->modelo->_Tipo_(0);
                     $this->modelo->__SET("ultimo", array("tabla" => "servicios", "id" => "id_servicio"));
                     $id_servicio                      = $this->modelo->Administrar();
                     $_POST['vivienda']['id_servicio'] = $id_servicio[0]['MAX(id_servicio)'];
 
-                    foreach ($this->datos["tipo_vivienda"] as $tv) {
+                    foreach ($this->datos_consulta["tipo_vivienda"] as $tv) {
                         if (strtolower($tv['nombre_tipo_vivienda']) == strtolower($_POST['vivienda']['id_tipo_vivienda'])) {
                             $existe = $tv['id_tipo_vivienda'];
                         }
                     }
                     if ($existe == 0) {
-                        $this->modelo->__SET("SQL", "_02_"); $this->modelo->__SET("tipo", "1");
+                        $this->modelo->_SQL_("_02_"); $this->modelo->_Tipo_(1);
                         $this->modelo->__SET("registrar", array(
                             "tabla"   => "tipo_vivienda",
                             "columna" => "nombre_tipo_vivienda")
                         );
-                        $this->modelo->Datos(["nombre_tipo_vivienda" => $_POST['vivienda']['id_tipo_vivienda'], "estado" => 1]);
+                        $this->modelo->_Datos_(["nombre_tipo_vivienda" => $_POST['vivienda']['id_tipo_vivienda'], "estado" => 1]);
                         if ($this->modelo->Administrar()) {
-                            $this->modelo->__SET("SQL", "_03_");$this->modelo->__SET("tipo", "0");
+                            $this->modelo->_SQL_("_03_");$this->modelo->_Tipo_(0);
                             $this->modelo->__SET("ultimo", array("tabla" => "tipo_vivienda", "id" => "id_tipo_vivienda"));
                             $id                                    = $this->modelo->Administrar();
                             $_POST['vivienda']['id_tipo_vivienda'] = $id[0]['MAX(id_tipo_vivienda)'];
@@ -254,16 +325,16 @@ class Viviendas extends Controlador
                     } else {
                         $_POST['vivienda']['id_tipo_vivienda'] = $existe;
                     }
-                    $this->modelo->__SET("SQL", $_POST['sql']); $this->modelo->__SET("tipo", "1");
-                    $this->modelo->Datos($_POST['vivienda']);
+                    $this->modelo->_SQL_($_POST['sql']); $this->modelo->_Tipo_(1);
+                    $this->modelo->_Datos_($_POST['vivienda']);
 
                     if ($this->modelo->Administrar()) {
                         $this->mensaje = 1;
                         $this->Accion($_POST['accion']);
-                        $this->modelo->__SET("SQL", "_07_");$this->modelo->__SET("tipo", "1");
+                        $this->modelo->_SQL_("_07_");$this->modelo->_Tipo_(1);
                         $this->modelo->__SET("eliminar", array(
                             "tabla" => "servicios", "id_tabla" => "id_servicio"));
-                        $this->modelo->Datos(["id_servicio" => $servicios_vivienda[0]['id_servicio']]);
+                        $this->modelo->_Datos_(["id_servicio" => $servicios_vivienda[0]['id_servicio']]);
                         $this->modelo->Administrar();
                     }
                 }
@@ -274,15 +345,15 @@ class Viviendas extends Controlador
             case 'Consulta_Ajax':
                 $tabla = [];
 
-                foreach ($this->datos["viviendas"] as $value) {
-                    $this->modelo->__SET("tipo", "0");
-                    $this->modelo->__SET("id", $value['id_vivienda']);
-                    $this->modelo->__SET("SQL", "SQL_08");$gas = $this->modelo->Administrar();
-                    $this->modelo->__SET("SQL", "SQL_09");$electrodomesticos = $this->modelo->Administrar();
-                    $this->modelo->__SET("SQL", "SQL_03");$techos = $this->modelo->Administrar();
-                    $this->modelo->__SET("SQL", "SQL_05");$pisos = $this->modelo->Administrar();
-                    $this->modelo->__SET("SQL", "SQL_07");$paredes = $this->modelo->Administrar();
-                    $this->modelo->__SET("SQL", "SQL_04");$familia = $this->modelo->Administrar();
+                foreach ($this->datos_consulta["viviendas"] as $value) {
+                    $this->modelo->_Tipo_(0);
+                    $this->modelo->_ID_($value['id_vivienda']); 
+                    $this->modelo->_SQL_("SQL_08");$gas = $this->modelo->Administrar();
+                    $this->modelo->_SQL_("SQL_09");$electrodomesticos = $this->modelo->Administrar();
+                    $this->modelo->_SQL_("SQL_03");$techos = $this->modelo->Administrar();
+                    $this->modelo->_SQL_("SQL_05");$pisos = $this->modelo->Administrar();
+                    $this->modelo->_SQL_("SQL_07");$paredes = $this->modelo->Administrar();
+                    $this->modelo->_SQL_("SQL_04");$familia = $this->modelo->Administrar();
 
                     foreach ($familia as $v) {$family = $v['nombre_familia'];}
                     $value['familia'] = $family;
@@ -316,7 +387,7 @@ class Viviendas extends Controlador
 
             case 'Agregar':
                 $this->mensaje = 1;
-                $this->modelo->__SET("tipo", "0");$this->modelo->__SET("SQL", "_05_");
+                $this->modelo->_Tipo_(0);$this->modelo->_SQL_("_05_");
                 $this->modelo->__SET("consultar", array(
                     "tabla"   => $_POST['datos']["tabla"],
                     "columna" => $_POST['datos']["columna"],
@@ -340,8 +411,8 @@ class Viviendas extends Controlador
                 }
 
                 if ($this->mensaje == 1) {
-                    $this->modelo->__SET("tipo", "1"); $this->modelo->__SET("SQL", $_POST['sql']);
-                    $this->modelo->Datos([
+                    $this->modelo->_Tipo_(1); $this->modelo->_SQL_($_POST['sql']);
+                    $this->modelo->_Datos_([
                         $_POST["datos"]["buscar"] => $_POST["datos"]["id"],
                         "id_vivienda"             => $_POST["datos"]["data"],
                         "estado"                  => $_POST["datos"]["estado"],
@@ -355,14 +426,14 @@ class Viviendas extends Controlador
                 $retornar = 1;
                 $existe   = "";
                 $mensaje  = "Este servicio de gas ya está asociado a esta vivienda";
-                $this->modelo->__SET("tipo", "0");$this->modelo->__SET("SQL", "_05_");
+                $this->modelo->_Tipo_(0);$this->modelo->_SQL_("_05_");
                 $this->modelo->__SET("consultar", array(
                     "tabla"   => $_POST['datos']["tabla"],
                     "columna" => $_POST['datos']["columna"],
                     "data"    => $_POST['datos']["id"],
                 ));
                 $servicios_vivienda = $this->modelo->Administrar();
-                $this->modelo->__SET("SQL", "_01_");
+                $this->modelo->_SQL_("_01_");
                 $this->modelo->__SET("consultar", array("tabla" => "servicio_gas", "estado" => 1, "orden" => "id_servicio_gas"));
                 $companias = $this->modelo->Administrar();
 
@@ -373,19 +444,19 @@ class Viviendas extends Controlador
                         }
                     }
                     if ($existe == "") {
-                        $this->modelo->__SET("SQL", "_02_"); $this->modelo->__SET("tipo", "1");
+                        $this->modelo->_SQL_("_02_"); $this->modelo->_Tipo_(1);
                         $this->modelo->__SET("registrar", array(
                             "tabla"   => "servicio_gas",
                             "columna" => "nombre_servicio_gas")
                         );
-                        $this->modelo->Datos(["nombre_servicio_gas" => $_POST['gas']['gas'], "estado" => 1]);
+                        $this->modelo->_Datos_(["nombre_servicio_gas" => $_POST['gas']['gas'], "estado" => 1]);
                         if ($this->modelo->Administrar()) {
-                            $this->modelo->__SET("SQL", "_03_"); $this->modelo->__SET("tipo", "0");
+                            $this->modelo->_SQL_("_03_"); $this->modelo->_Tipo_(0);
                             $this->modelo->__SET("ultimo", array("tabla" => "servicio_gas", "id" => "id_servicio_gas"));
                             $id = $this->modelo->Administrar();
 
-                            $this->modelo->__SET("SQL", $_POST['sql']);$this->modelo->__SET("tipo", "1");
-                            $this->modelo->Datos([
+                            $this->modelo->_SQL_($_POST['sql']);$this->modelo->_Tipo_(1);
+                            $this->modelo->_Datos_([
                                 "id_servicio_gas" => $id[0]['MAX(id_servicio_gas)'],
                                 "id_vivienda"     => $_POST['datos']["id"],
                                 "tipo_bombona"    => $_POST['gas']['tipo_bombona'],
@@ -402,8 +473,8 @@ class Viviendas extends Controlador
                             }
                         }
                         if ($retornar == 1) {
-                            $this->modelo->__SET("SQL", $_POST['sql']);$this->modelo->__SET("tipo", "1");
-                            $this->modelo->Datos([
+                            $this->modelo->_SQL_($_POST['sql']);$this->modelo->_Tipo_(1);
+                            $this->modelo->_Datos_([
                                 "id_servicio_gas" => $existe,
                                 "id_vivienda"     => $_POST['datos']["id"],
                                 "tipo_bombona"    => $_POST['gas']['tipo_bombona'],
@@ -421,8 +492,8 @@ class Viviendas extends Controlador
                     }
 
                     if ($retornar == 1) {
-                        $this->modelo->__SET("SQL", $_POST['sql']);$this->modelo->__SET("tipo", "1");
-                        $this->modelo->Datos([
+                        $this->modelo->_SQL_($_POST['sql']);$this->modelo->_Tipo_(1);
+                        $this->modelo->_Datos_([
                             "id_servicio_gas" => $_POST['gas']['gas'],
                             "id_vivienda"     => $_POST['datos']["id"],
                             "tipo_bombona"    => $_POST['gas']['tipo_bombona'],
@@ -436,7 +507,7 @@ class Viviendas extends Controlador
                 break;
             case 'Cargar_Gas':
 
-                $this->modelo->__SET("SQL", "_01_");
+                $this->modelo->_SQL_("_01_");
                 $this->modelo->__SET("consultar", array("tabla" => "servicio_gas", "estado" => 1, "orden" => "id_servicio_gas"));
                 $gases = $this->modelo->Administrar();
                 $texto = "<option value='vacio'>-Compañia-</option>";
@@ -450,7 +521,7 @@ class Viviendas extends Controlador
                 $retornar = 1;
                 $existe   = "";
                 $mensaje  = "Este electrodomestico ya esta asociado a esta vivienda";
-                $this->modelo->__SET("tipo", "0");$this->modelo->__SET("SQL", "_05_");
+                $this->modelo->_Tipo_(0);$this->modelo->_SQL_("_05_");
                 $this->modelo->__SET("consultar", array(
                     "tabla"   => $_POST['datos']["tabla"],
                     "columna" => $_POST['datos']["columna"],
@@ -458,7 +529,7 @@ class Viviendas extends Controlador
                 ));
                 $electrodomesticos_vivienda = $this->modelo->Administrar();
 
-                $this->modelo->__SET("SQL", "_01_");
+                $this->modelo->_SQL_("_01_");
                 $this->modelo->__SET("consultar", array("tabla" => "electrodomesticos", "estado" => 1, "orden" => "id_electrodomestico"));
                 $electrodomesticos_all = $this->modelo->Administrar();
 
@@ -469,19 +540,19 @@ class Viviendas extends Controlador
                         }
                     }
                     if ($existe == "") {
-                        $this->modelo->__SET("SQL", "_02_"); $this->modelo->__SET("tipo", "1");
+                        $this->modelo->_SQL_("_02_"); $this->modelo->_Tipo_(1);
                         $this->modelo->__SET("registrar", array(
                             "tabla"   => "electrodomesticos",
                             "columna" => "nombre_electrodomestico")
                         );
-                        $this->modelo->Datos(["nombre_electrodomestico" => $_POST['electrodomestico']['electrodomestico'], "estado" => 1]);
+                        $this->modelo->_Datos_(["nombre_electrodomestico" => $_POST['electrodomestico']['electrodomestico'], "estado" => 1]);
                         if ($this->modelo->Administrar()) {
-                            $this->modelo->__SET("SQL", "_03_"); $this->modelo->__SET("tipo", "0");
+                            $this->modelo->_SQL_("_03_"); $this->modelo->_Tipo_(0);
                             $this->modelo->__SET("ultimo", array("tabla" => "electrodomesticos", "id" => "id_electrodomestico"));
                             $id = $this->modelo->Administrar();
 
-                            $this->modelo->__SET("SQL", $_POST['sql']);$this->modelo->__SET("tipo", "1");
-                            $this->modelo->Datos([
+                            $this->modelo->_SQL_($_POST['sql']);$this->modelo->_Tipo_(1);
+                            $this->modelo->_Datos_([
                                 "id_electrodomestico" => $id[0]['MAX(id_electrodomestico)'],
                                 "id_vivienda"         => $_POST['datos']["id"],
                                 "cantidad"            => $_POST['electrodomestico']['cantidad'],
@@ -496,8 +567,8 @@ class Viviendas extends Controlador
                         }
 
                         if ($retornar == 1) {
-                            $this->modelo->__SET("SQL", $_POST['sql']);$this->modelo->__SET("tipo", "1");
-                            $this->modelo->Datos([
+                            $this->modelo->_SQL_($_POST['sql']);$this->modelo->_Tipo_(1);
+                            $this->modelo->_Datos_([
                                 "id_electrodomestico" => $existe,
                                 "id_vivienda"         => $_POST['datos']["id"],
                                 "cantidad"            => $_POST['electrodomestico']['cantidad'],
@@ -514,8 +585,8 @@ class Viviendas extends Controlador
                     }
 
                     if ($retornar == 1) {
-                        $this->modelo->__SET("SQL", $_POST['sql']);$this->modelo->__SET("tipo", "1");
-                        $this->modelo->Datos([
+                        $this->modelo->_SQL_($_POST['sql']);$this->modelo->_Tipo_(1);
+                        $this->modelo->_Datos_([
                             "id_electrodomestico" => $_POST['electrodomestico']['electrodomestico'],
                             "id_vivienda"         => $_POST['datos']["id"],
                             "cantidad"            => $_POST['electrodomestico']['cantidad'],
@@ -529,7 +600,7 @@ class Viviendas extends Controlador
 
             case 'Cargar_Electrodomesticos':
 
-                $this->modelo->__SET("SQL", "_01_");
+                $this->modelo->_SQL_("_01_");
                 $this->modelo->__SET("consultar", array("tabla" => "electrodomesticos", "estado" => 1, "orden" => "id_electrodomestico"));
                 $electrodomesticos = $this->modelo->Administrar();
                 $texto = "<option value='vacio'>-Electrodoméstico-</option>";
@@ -540,36 +611,36 @@ class Viviendas extends Controlador
                 break;
 
             case 'Obtener':
-                $this->modelo->__SET("tipo", "0");$this->modelo->__SET("id", $_POST['id']);
-                $this->modelo->__SET("SQL", $_POST['sql']);
+                $this->modelo->_Tipo_(0);$this->modelo->__SET("id", $_POST['id']);
+                $this->modelo->_SQL_($_POST['sql']);
                 $datos = $this->modelo->Administrar();
                 $this->Escribir_JSON($datos);unset($datos);
                 break;
 
             case 'Eliminar':
-            if ($_SESSION["Viviendas"]["eliminar"] === 1) {
-                $this->modelo->__SET("SQL", "_07_");$this->modelo->__SET("tipo", "1");
+            if ($this->permisos["eliminar"] === 1) {
+                $this->modelo->_SQL_("_07_");$this->modelo->_Tipo_(1);
                 $this->modelo->__SET("eliminar", array(
                     "tabla"    => $_POST['datos']["tabla"],
                     "id_tabla" => $_POST['datos']["id_tabla"])
                 );
-                $this->modelo->Datos([$_POST['datos']["id_tabla"] => $_POST['datos']['id']]);
+                $this->modelo->_Datos_([$_POST['datos']["id_tabla"] => $_POST['datos']['id']]);
                 if ($this->modelo->Administrar()) {$this->mensaje = 1;}
-                echo $this->mensaje;unset($this->mensaje);
+                echo $this->mensaje;unset($this->mensaje); 
             }else{$this->_403_();}
                 break;
 
             case 'Eliminar_Vivienda':
-                $this->modelo->Estado($_POST['estado']);
-                $this->modelo->Datos([
-                    $_POST['estado']["id_tabla"] => $_POST['estado']["param"],
-                    "estado"                     => $_POST['estado']["estado"],
-                ]);
-                $this->modelo->__SET("SQL", $_POST['sql']);$this->modelo->__SET("tipo", "1");
-
-                if ($this->modelo->Administrar()) {$this->mensaje = 1;$this->Accion($_POST['accion']);}
-
-                echo $this->mensaje;unset($_POST, $this->mensaje);
+                if ($this->permisos["eliminar"] === 1) {
+                    $this->modelo->_Estado_($this->Get_Estado());
+                    $this->modelo->_Datos_($this->Get_Estado_Ejecutar());
+                    $this->modelo->_SQL_($this->Get_Sql());
+                    $this->modelo->_Tipo_(1);
+                    if ($this->modelo->Administrar()) {
+                        $this->Accion($this->Get_Accion());
+                        echo $this->Get_Mensaje();
+                    }
+                } else { $this->_403_();}
                 break;
 
              case 'Activar_Vivienda':
@@ -580,7 +651,7 @@ class Viviendas extends Controlador
                     "param"     => $ids,
                     "estado"    => 1
                 ]);
-                $this->modelo->Datos([
+                $this->modelo->_Datos_([
                     "id_vivienda"    => $ids[0],
                     "estado"         => 1,
                 ]);
