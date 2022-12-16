@@ -1,31 +1,22 @@
 
-    <?php include (call."Inicio.php"); ?>
-<!-- Contenido de la pagina -->
-<div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1 class="m-0">Registrar Personas</h1>
-                </div><!-- /.col -->
-                <!-- /.col -->
-            </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
-    <input type="hidden" value='<?php echo json_encode($_SESSION['Seguridad']); ?>' id='seguridad_usuario' name="">
-    <!-- Main content -->
-    <section class="content">
-        <!-- Default box -->
+<?php include (call."Inicio.php"); ?>
+    <div class="content-wrapper">
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0">Registrar Personas</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" value='<?php echo json_encode($_SESSION['Seguridad']); ?>' id='seguridad_usuario' name="">
+        <section class="content">
         <div class="card">
             <div class="card-header">
                 <h3 class="card-title">Formulario de Registro</h3>
-                
             </div>
-            <form action="<?php echo constant('URL'); ?>Personas/Nuevo_Persona" enctype="multipart/form-data"
-                id="formulario" method="POST" name="formulario">
-                <!-- card-body -->
+            <form action="<?php echo constant('URL'); ?>Personas/Nuevo_Persona" enctype="multipart/form-data" id="formulario" method="POST" name="formulario">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-12">
@@ -316,7 +307,7 @@
 
 
 
-                            <div class="col-md-4 mt-2">
+                            <div class="col-md-12 mt-2">
                                 <label for="jefe_familia">
                                     Jefe de familia
                                 </label>
@@ -336,7 +327,7 @@
                          </select>
                      </div>
 
-                     <div class="col-md-4 mt-2">
+                     <div class="col-md-6 mt-2">
                         <label for="propietario_vivienda">
                             Propietario de vivienda
                         </label>
@@ -356,7 +347,7 @@
                  </select>
              </div>
 
-             <div class="col-md-4 mt-2">
+             <div class="col-md-6 mt-2">
                 <label for="jefe_calle">
                     Jefe de calle
                 </label>
@@ -549,7 +540,7 @@
                                             </div>
 
 
-                                            <div class="col-md-6 mt-2">
+                                            <div class="col-md-12 mt-2">
                                                 <label for="certificado">
                                                     Carnet de discapacidad
                                                 </label>
@@ -616,7 +607,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-9 mt-2">
+                                    <div class="col-md-6 mt-2">
                                         <label for="telefono_personal">
                                             Teléfono Personal
                                         </label>
@@ -628,7 +619,7 @@
                                         </div>
 
                                     </div>
-                                    <div class="col-md-3 mt-2">
+                                    <div class="col-md-6 mt-2">
                                         <label for="whatsapp">
                                             <i class="fa fa-whatsapp" style="font-size: 15px;"></i> WhatsApp
                                         </label>
@@ -662,7 +653,7 @@
                                                 </label>
                                                 <span style='display:none;color:red' id='valid_23'>Indique si pertenece a una org política</span>
                                                 <table style="width:100%">
-                                                    <tr><td>
+                                                    <tr><td style="width: 80%">
                                                         <div class="input-group">
                                                             <select  class="custom-select" id="organizacion_politica" name="datos[organizacion_politica]">
                                                                 <option selected="" value="0">
@@ -673,8 +664,9 @@
                                                                 <?php } ?>
                                                             </select>
                                                             <input style='display:none' type="text" id='nombre_organizacion' class='form-control' placeholder="Escriba el nombre de la organización" name="" oninput="Limitar(this,30)">
-                                                        </div></td><td>
-                                                            <input type="button" id='btn_nueva_org'  class='btn btn-primary' value="Nueva organización">
+                                                        </div></td>
+                                                        <td style='width: 20%'>
+                                                            <input type="button" id='btn_nueva_org'  class='btn btn-info' style="width: 100%" value="Nueva organización">
                                                         </td></tr></table>
                                                     </div>
 
@@ -694,7 +686,7 @@
                                                         </label>
                                                         <span style='display:none;color:red' id='valid_24'>Ingrese el nombre del bono</span>
                                                         <table style="width:100%">
-                                                            <tr><td><br>
+                                                            <tr><td style="width: 80%"><br>
                                                                 <div class="input-group">
                                                                  <select id='input_bonos' class='form-control'>
                                                                     <option value='vacio'>-Seleccione-</option>
@@ -706,18 +698,18 @@
                                                                <input style='display:none' type="text" id='bono_nuevo' name="bono_nuevo" class='form-control' placeholder="Nombre del bono" oninput="Limitar(this,20)">
                                                            </div>
                                                        </td>
-                                                       <td><br>
-                                                        <button class="btn btn-primary" type="button" id='btn_nuevo_bono'>
+                                                       <td style='width: 20%'><br>
+                                                        <button style="width: 48%" class="btn btn-info" type="button" id='btn_nuevo_bono'>
                                                             Nuevo
                                                         </button>
-                                                        <button class="btn btn-info" type="button" id='btn_agregar_bono'>
+                                                        <button style="width: 48%" class="btn btn-info" type="button" id='btn_agregar_bono'>
                                                             Agregar
                                                         </button>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td colspan="2" style="text-align:center"><br>
-                                                        <div style='width:80%;border-radius: 6px;height: 250px !important;background:#B8F1FF;overflow-y: scroll' id='bonos_agregados'>
+                                                        <div style='width:100%;border-radius: 6px;height: 250px !important;background:#C7F2EE;overflow-y: scroll' id='bonos_agregados'>
 
                                                         </div>
                                                     </td>
@@ -731,7 +723,7 @@
                                          </label>
                                          <span style='display:none;color:red' id='valid_25'>Ingrese el nombre de la misión</span>
                                          <table style="width:100%">
-                                            <tr><td>
+                                            <tr><td style="width: 40%">
                                                 Nombre misión
                                                 <div class="input-group">
                                                  <input type="text" id='nombre_mision' style='display:none'  class='form-control' placeholder="Nombre de la misión" >
@@ -742,7 +734,7 @@
                                                    <?php  } ?>
                                                </select>
                                            </div>
-                                       </td><td>
+                                       </td><td style="width: 40%">
                                         Recibe actualmente 
                                         <select id='recibe_actualmente' class='form-control'>
                                             <option value='1'>Si</option>
@@ -754,19 +746,19 @@
                                     <td style='display:none' id='ver_fecha_recepcion'>Última vez recibido
                                         <input  type="date" id='ultima_recepcion' class='form-control' name="">
                                     </td>
-                                    <td>
+                                    <td style='width: 20%'>
                                         <br>
-                                        <button class="btn btn-info" type="button" id='btn_nueva_mision'>
+                                        <button class="btn btn-info" style='width: 48%' type="button" id='btn_nueva_mision'>
                                             Nueva
                                         </button>
-                                        <button class="btn btn-info" type="button" id='btn_agregar_mision'>
+                                        <button class="btn btn-info" style='width: 48%' type="button" id='btn_agregar_mision'>
                                             Agregar
                                         </button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td colspan="4" style="text-align:center"><br>
-                                        <div style='width:80%;border-radius: 6px;height: 250px !important;background:#B8D7FF;overflow-y: scroll' id='misiones_agregadas'>
+                                        <div style='width:100%;border-radius: 6px;height: 250px !important;background:#C7F2EE;overflow-y: scroll' id='misiones_agregadas'>
 
                                         </div>
                                     </td>
@@ -799,7 +791,7 @@
                          </label>
                          <span style='display:none;color:red' id='valid_26'>Ingrese la ocupación</span>
                          <table style='width:100%'>
-                            <tr><td>
+                            <tr><td style='width: 80%'>
                                 <div class="input-group">
                                     <select id='ocupacion' class='form-control'>
                                         <option value='0'>Sin ocupación</option>
@@ -809,7 +801,7 @@
 
                                            <input style='display:none' type="text" class='form-control' id='ocupacion_nueva' name="ocupacion" placeholder="Ocupación de la persona">
                                        </div>
-                                   </td><td><input type="button" id='btn_nueva_ocupacion' class='btn btn-info' value='Nueva' name=""></td></tr></table>
+                                   </td><td style='width:20%'><input type="button" id='btn_nueva_ocupacion' class='btn btn-info w-100' value='Nueva' name=""></td></tr></table>
 
 
                                    <div class="col-md-12 mt-2">
@@ -817,7 +809,7 @@
                                         Condición laboral
                                     </label>
                                     <span style='display:none;color:red' id='valid_27'>Campo sin llenar</span>
-                                    <table style='width:100%'><tr><td>
+                                    <table style='width:100%'><tr><td style='width: 40%'>
                                         <div class="input-group">
 
                                          <select class='form-control' id="nombre_condicion_laboral">
@@ -827,7 +819,7 @@
                                                 <?php      } ?></select>
                                                 <input style='display:none' class='form-control' type="text" id='nombre_cond_nueva'  placeholder="Nombre de la condición laboral" >
                                             </div>
-                                        </td><td>
+                                        </td><td  style='width: 40%'>
                                            <select class="form-control" id="sector_laboral"
                                            name="datos[sector_laboral]">
                                            <option value='vacio'>-Sector Laboral-</option>
@@ -839,7 +831,7 @@
                                      </option>
                                  </select>
                              </td>
-                             <td style='display:none' id='ver_sector_formal'>
+                             <td style='display:none;' id='ver_sector_formal'>
                                <select class="form-control" id="tipo_sector_formal"
                                name="datos[tipo_sector_formal]">
                                <option value='vacio'>-Tipo de sector formal-</option>
@@ -851,8 +843,8 @@
                              </option>
                          </select>
                      </td>
-                     <td>
-                        <input type="button" class='btn btn-info' id='nueva_cond' value='Nueva' name="">
+                     <td style='width:20%' >
+                        <input type="button" class='btn btn-info w-100' id='nueva_cond' value='Nueva' name="">
                     </td>
 
                 </tr></table>
@@ -863,43 +855,54 @@
                 <label >
                  Proyectos en los que labora
              </label>
-             <table style='width:100%'><tr><td style='width:120%'>
-
-                <div  id='proyectos_agregados'>
-                    <select class="form-control" id="proyectos"
-                    name="datos[proyctos]">
-                    <option value='vacio'>-Seleccione-</option>
-                    <?php foreach ($this->proyectos as $pr) { ?>
-                      <option value="<?php echo $pr['id_proyecto']; ?>"><?php echo $pr['nombre_proyecto']; ?></option>
-                  <?php   } ?>
-              </select>
-          </div>
-          <div  style='display:none' id='nuevo_proyecto'>
-            <table style='width:100%'><tr><td>
-                <input type="text" id='nombre_proyecto' name="nombre_proyecto" placeholder="Nombre del proyecto" class='form-control'>
-            </td>
-            <td>
-                <select id='area_proyecto' class='form-control'>
-                 <option value='vacio'>-Seleccione-</option>
-                 <option value='Construcción y mantenimiento'>Construcción y mantenimiento</option>
-                 <option value='Transporte'>Transporte</option>
-                 <option value='Alimentación'>Alimentación</option>
-                 <option value='Comunicación'>Comunicación</option>
-                 <option value='Textil o Artesanal'>Textil o Artesanal</option>
-                 <option value='Agricola'>Agrícola</option>
-                 <option value='Cultural'>Cultural</option>
-                 <option value='Educativo'>Educativo</option>
-             </select>
-         </td>
-         <td>
-             <input type="text" id='estado_proyecto' name="estado_proyecto" placeholder="Estado del proyecto" class='form-control'> 
-         </td></tr></table>
-     </div>
- </td><td  ><input type="button" id="otro_proyecto" value="Otro" class='btn btn-info'></td>
- <td ><input type="button" id="agregar_proyecto" value="Agregar" class='btn btn-primary'></td></tr></table>
+             <table style='width:100%'>
+                <tr>
+                    <td style='width:80%'>
+                        <div  id='proyectos_agregados'>
+                            <select class="form-control" id="proyectos" name="datos[proyctos]">
+                                <option value='vacio'>-Seleccione-</option>
+                                <?php foreach ($this->proyectos as $pr) { ?>
+                                <option value="<?php echo $pr['id_proyecto']; ?>"><?php echo $pr['nombre_proyecto']; ?></option>
+                                <?php   } ?>
+                            </select>
+                        </div>
+                        <div  style='display:none' id='nuevo_proyecto'>
+                            <table style='width:100%'>
+                                <tr>
+                                    <td style='width:35%'>
+                                        <input type="text" id='nombre_proyecto' name="nombre_proyecto" placeholder="Nombre del proyecto" class='form-control'>
+                                    </td>
+                                    <td style='width:35%'>
+                                        <select id='area_proyecto' class='form-control'>
+                                            <option value='vacio'>-Seleccione-</option>
+                                            <option value='Construcción y mantenimiento'>Construcción y mantenimiento</option>
+                                            <option value='Transporte'>Transporte</option>
+                                            <option value='Alimentación'>Alimentación</option>
+                                            <option value='Comunicación'>Comunicación</option>
+                                            <option value='Textil o Artesanal'>Textil o Artesanal</option>
+                                            <option value='Agricola'>Agrícola</option>
+                                            <option value='Cultural'>Cultural</option>
+                                            <option value='Educativo'>Educativo</option>
+                                        </select>
+                                    </td>
+                                    <td style='width:30%'>
+                                        <input type="text" id='estado_proyecto' name="estado_proyecto" placeholder="Estado del proyecto" class='form-control'> 
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                    <td style='width: 9%'>
+                        <input type="button" id="otro_proyecto" value="Otro" class='btn btn-info w-100'>
+                    </td>
+                    <td style='width: 9%'>
+                        <input type="button" id="agregar_proyecto" value="Agregar" class='btn btn-info w-100'>
+                    </td>
+                </tr>
+            </table>
 </div>
 
-<div class="col-md-10 mt-2" style='border-radius: 6px;overflow-y: scroll;background: #CFFEDE;width: 100%;height: 200px !important' id='proyectos_persona'>
+<div class="col-md-12 mt-4" style='border-radius: 6px;overflow-y: scroll;background: #C7F2EE;width: 100%;height: 200px !important' id='proyectos_persona'>
 
 
 </div>
@@ -918,10 +921,10 @@
              </label> <span id='valid_contrasenia' style='color:red;display:none'>Debe ingresar la contraseña del usuario</span>
              <div class="input-group" >
                 <table style='width:100%'>
-                    <tr><td>
+                    <tr><td style='width:80%'>
                         <input  class="form-control no-espacios" id="contrasenia" name=""
                         placeholder="Contraseña de ingreso" type="password" oninput="Limitar(this,10)">
-                    </td><td><button type='button' class='btn btn-default' id='ver_clave'><em class='fa fa-eye'></em></button></td></tr></table>
+                    </td><td style='width: 20%'><button type='button' class='btn btn-default w-100' id='ver_clave'><em class='fa fa-eye' style='font-size: 23px'></em></button></td></tr></table>
                 </table>
 
             </div>
@@ -1035,7 +1038,7 @@
     </div>
     <div class="text-center m-t-20" id="botones-finales" style='display:none'>
         <div class="col-xs-12">
-            <input type="button" class="btn  btn-primary m-r-10" name="" id="guardar" value="Guardar">
+            <input type="button" class="btn  btn-info m-r-10" name="" id="guardar" value="Guardar">
         </div>
     </div>
 </div>
