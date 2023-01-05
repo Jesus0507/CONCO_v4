@@ -875,7 +875,7 @@ class Personas_Class extends Modelo
                 estado_civil            =:estado_civil,
                 privado_libertad        =:privado_libertad,
                 genero                  =:genero,
-                whatsapp                =:whatsapp,
+                whatsapp                =:whatsapp,1
                 miliciano               =:miliciano,
                 antiguedad_comunidad    =:antiguedad_comunidad,
                 jefe_calle              =:jefe_calle,
