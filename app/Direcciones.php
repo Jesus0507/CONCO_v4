@@ -86,12 +86,12 @@ class Direcciones
 
     public static function _014_()
     {
-        echo URL . self::Seguridad('Personas/Vacuna/', 'codificar');
+        echo URL . self::Seguridad('Vacunados/Administrar/Registros/', 'codificar');
     }
 
     public static function _015_()
     {
-        echo URL . self::Seguridad('Personas/Vacunados/', 'codificar');
+        echo URL . self::Seguridad('Vacunados/Administrar/Consultas/', 'codificar');
     }
 
     public static function _016_()

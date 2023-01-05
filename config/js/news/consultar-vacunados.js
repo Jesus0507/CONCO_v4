@@ -1,6 +1,6 @@
 function editar(tag) {
     var tr = tag.closest("tr");
-    tr = tr.querySelectorAll("td");
+    tr = tr.querySelectorAll("td");  
     var cedula_persona = tr[0].innerHTML;
     document.getElementById("cedula_persona_editar").value = cedula_persona;
     document.getElementById("cedula_persona_editar").readOnly = "readOnly";
@@ -13,7 +13,7 @@ function cargar_info_vacunas(cedula_persona, show) {
         type: "POST",
         url: BASE_URL + "app/Direcciones.php",
         data: {
-            direction: "Personas/get_info_vacunado",
+            direction: "Vacunados/Administrar",
             accion: "codificar"
         },
         success: function(direccion_segura) {
@@ -21,6 +21,7 @@ function cargar_info_vacunas(cedula_persona, show) {
                 type: "POST",
                 url: BASE_URL + direccion_segura,
                 data: {
+                    peticion: "Vacunas",
                     "cedula": cedula_persona
                 }
             }).done(function(result) {

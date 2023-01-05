@@ -3,17 +3,20 @@ $(function () {
         type: "POST",
         url: BASE_URL + "app/Direcciones.php",
         data: {
-            direction: 'Personas/Consultas_Vacunas_Ajax',
+            direction: 'Vacunados/Administrar',
             accion: "codificar"
         },
         success: function (direccion_segura) { 
             $.ajax({ 
                 type: 'POST',
                 url: BASE_URL + direccion_segura,
+                data: {
+                    peticion: "Consulta_Ajax",
+                },
             }).done(function (datos) {
                 console.log(datos)
                 var data = JSON.parse(datos);
-                var tabla = $("#example1").DataTable({
+                var tabla = $("#example1").DataTable({ 
                     "data": data,
                     "columns": [{
                         "data": "cedula_persona"
@@ -60,6 +63,13 @@ $(function () {
                     fila = $(this).closest("tr");
                     cedula_persona = fila.find("td:eq(0)").text();
 
+                    var estado = {
+                        tabla: "vacuna_covid",
+                        id_tabla: "cedula_persona",
+                        param: cedula_persona,
+                        estado: 0
+                    };
+
                     swal({
                         title: "¿Desea Eliminar este Elemento?",
                         text: "El elemento seleccionado sera eliminado de manera permanente!",
@@ -73,47 +83,40 @@ $(function () {
                     },
                         function (isConfirm) {
                             if (isConfirm) {
-                                $.ajax({
-                                    type: "POST",
-                                    url: BASE_URL + "app/Direcciones.php",
-                                    data: {
-                                        direction: "Personas/Eliminar_Vacunados",
-                                        accion: "codificar"
-                                    },
-                                    success: function (direccion_segura) {
-                                        $.ajax({
-                                            url: BASE_URL + direccion_segura
-                                            ,
-                                            type: "POST",
-                                            data: {
-                                                cedula_persona: cedula_persona,
-                                            },
-                                        }).done(function (result) {
-                                            if (result != 0) {
-                                                swal({
-                                                    title: "Eliminado!",
-                                                    text: "El elemento fue eliminado con exito.",
-                                                    type: "success",
-                                                    showConfirmButton: false,
-                                                });
-                                                setTimeout(function () {
-                                                    location
-                                                        .reload();
-                                                }, 2000);
-
-                                            }
-                                        });
-                                    },
-                                    error: function () {
-                                        alert('Error al codificar dirreccion');
-                                    }
-                                });
-
-                            } else {
-                                swal("Cancelado",
-                                    "La accion fue cancelada, la informacion esta segura.",
-                                    "error");
-                            }
+                            $.ajax({
+                                url: BASE_URL + direccion_segura,
+                                type: "POST",
+                                data: {
+                                    peticion: "Eliminar",
+                                    estado: estado,
+                                    sql: "ACT_DES",
+                                    accion: "Se ha Eliminado el  Vacunado: " + fila.find("td:eq(1)").text(),
+                                },
+                            }).done(function(result) {
+                                if (result == 1) {
+                                    swal({
+                                        title: "Eliminado!",
+                                        text: "El elemento fue eliminado con exito.",
+                                        type: "success",
+                                        showConfirmButton: false,
+                                    });
+                                    setTimeout(function() {
+                                        location.reload();
+                                    }, 2000);
+                                } else {
+                                    swal({
+                                        title: "ERROR!",
+                                        text:  result,
+                                        type: "error",
+                                        html: true,
+                                        showConfirmButton: true,
+                                        customClass: "bigSwalV2",
+                                    });
+                                }
+                            });
+                        } else {
+                            swal("Cancelado", "La accion fue cancelada, la informacion esta segura.", "error");
+                        }
                         }
                     );
                 });
