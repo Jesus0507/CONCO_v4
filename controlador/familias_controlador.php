@@ -157,6 +157,8 @@ class Familias extends Controlador
                                     echo $this->Get_Mensaje();
                                 }
                             }
+
+                            echo $this->Get_Mensaje();
                         }
                     } else {
                         echo $this->validacion->Fallo();

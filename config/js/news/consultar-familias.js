@@ -130,7 +130,6 @@ function editar(id_familia, id_familia_persona) {
 }
 
 function borrar_familia(id, cedula_param) {
-    console.log(cedula_param);
     swal({
         type: "warning",
         title: "¿Está seguro?",
@@ -140,7 +139,7 @@ function borrar_familia(id, cedula_param) {
         cancelButtonText: "No"
     }, function(isConfirm) {
         if (isConfirm) {
-            console.log(cedula_param);
+    
             $.ajax({
                 type: "POST",
                 url: BASE_URL + "app/Direcciones.php",
@@ -324,6 +323,7 @@ function Actualizar_Familia() {
                     accion: "Se ha Actualizado la  Familia: " + nombre_familia,
                 }
             }).done(function(result) {
+                console.log(result);
                 if (result == 1) {
                     swal({
                         title: "Actualizado!",

@@ -25,53 +25,6 @@ class Usuario extends Controlador
 
 // ==============================FUNCIONES=====================================
 
-    // ==============================CRUD=====================================
-    public function Nuevo_Usuario()
-    {
-        $datos  = ($_POST['datos'] !== "") ? $_POST['datos'] : null;
-        $codigo = $_POST['animal'] . "/" . $_POST['mascota'] . "/" . $_POST['color'];
-
-        if ($datos['correo'] == "") {
-            $correo = "Ninguno";
-        } else {
-            $correo = $datos['correo'] . $datos['tcorreo'];
-        }
-
-        $this->Establecer_Consultas();
-        for ($i = 0; $i < count($this->datos_usuario); $i++) {
-            if ($this->datos_usuario[$i]['cedula_usuario'] == $datos['cedula']) {
-                $usuario = $this->modelo->Eliminar($datos['cedula']);
-            }
-        }
-
-        if ($this->modelo->Registrar(
-            [
-                'cedula_usuario'      => $datos['cedula'],
-                'nombre'              => $datos['nombre'],
-                'apellido'            => $datos['apellido'],
-                'correo'              => $correo,
-                'telefono'            => $datos['telefono'],
-                'contrasenia'         => $this->Codificar($datos['contrasenia']),
-                'estado'              => '1',
-                'rol_inicio'          => $datos['rol_inicio'],
-                'preguntas_seguridad' => $this->Codificar($codigo),
-            ]
-        )
-        ) {
-
-            if ($this->modelo->Registrar_permisos($datos)) {
-                header('location:' . constant('URL') . "usuario/Consultas");
-            }
-
-        } else {
-            $this->vista->mensaje = '<script>swal({text:"Algo ha salido mal :c",type:"serror"});</script>';
-            echo $this->vista->mensaje;
-        }
-
-        exit();
-        return false;
-    }
-
     public function Consultas_Usuario_Ajax()
     {
         $this->Establecer_Consultas();
