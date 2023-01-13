@@ -81,7 +81,7 @@ aprobar.onclick = function() {
                     type: "POST",
                     url: BASE_URL + "app/Direcciones.php",
                     data: {
-                        direction: "Familias/activar_familia",
+                        direction: "Familias/Administrar",
                         accion: "codificar"
                     },
                     success: function(direccion_segura) {
@@ -89,6 +89,7 @@ aprobar.onclick = function() {
                             type: "POST",
                             url: BASE_URL + direccion_segura,
                             data: {
+                                peticion: "Activar_Familias",
                                 id_familia: id_familia.value,
                             },
                         }).done(function(result) {});
@@ -149,7 +150,7 @@ function rechazoSolicitud(motivo) {
                     type: "POST",
                     url: BASE_URL + "app/Direcciones.php",
                     data: {
-                        direction: "Familias/eliminar_familia",
+                        direction: "Familias/Administrar",
                         accion: "codificar"
                     },
                     success: function(direccion_segura) {
@@ -157,6 +158,7 @@ function rechazoSolicitud(motivo) {
                             type: "POST",
                             url: BASE_URL + direccion_segura,
                             data: {
+                                peticion: "Eliminar_Familias",
                                 id: id_familia.value,
                             },
                         });
