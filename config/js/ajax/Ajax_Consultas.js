@@ -5,7 +5,7 @@ $(document).ready(function() {
         type: "POST",
         url: BASE_URL + "app/Direcciones.php",
         data: {
-            direction: "Usuario/Consultas_Usuario_Ajax",
+            direction: "Personas/Consultas_Usuario_Ajax",
             accion: "codificar"
         },
         success: function(direccion_segura) {

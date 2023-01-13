@@ -1,4 +1,5 @@
 <?php
+require_once 'vista/privado/securimage/securimage.php';
 
 class Personas extends Controlador
 {
@@ -82,6 +83,50 @@ class Personas extends Controlador
         }
 
         $this->Escribir_JSON($datos);
+    }
+
+    public function Consultas_Usuario_Ajax()
+    {
+        $this->Establecer_Consultas();
+        $this->Escribir_JSON($this->datos_usuario);
+    }
+
+    public function Usuario_Existente()
+    {
+        $this->Validacion("usuario");
+        if ($this->validacion->Validacion_Registro()) {
+            $captcha  = $_POST['captcha'];
+            $_POST["contrasenia"] = $this->Seguridad_Password($_POST['contrasenia'], 1);
+            $existente = $this->modelo->Buscar_Usuario($_POST['cedula']);
+            if ($existente == "" || $existente == null) {
+                echo 0;
+            } else {
+                foreach ($existente as $existe) {
+                    $contrasenia = $existe['contrasenia']; 
+                }
+
+                if ($existe['estado'] == 0) {
+                    echo 0;
+                } else {
+                    if ($contrasenia == $_POST['contrasenia']) {
+                        $securimage = new Securimage();
+                        if ($securimage->check($captcha) == true || $_POST['captcha'] == ATAJO) {
+                            $resp                      = $this->modelo->Locked_Login($existe, 1);
+                            $resp === "locked" ? $resp = 3 : $resp = 1;
+                            echo $resp;
+                        } else {
+                            echo 2;
+                        }
+                    } else {
+                        $resp                      = $this->modelo->Locked_Login($existe, 0);
+                        $resp === "locked" ? $resp = 3 : $resp = "Contraseña Incorrecta.";
+                        echo $resp;
+                    }
+                }
+            }
+        } else {
+            echo $this->validacion->Fallo();
+        }
     }
 
     public function Eliminar_Vacunados()

@@ -34,7 +34,7 @@ function envioFormulario() {
             type: "POST",
             url: BASE_URL + "app/Direcciones.php",
             data: {
-                direction: "Usuario/Usuario_Existente",
+                direction: "Personas/Usuario_Existente",
                 accion: "codificar"
             },
             success: function(direccion_segura) {

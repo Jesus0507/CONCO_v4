@@ -278,6 +278,23 @@ class Personas_Class extends Modelo
         }
     }
 
+    public function Buscar_Usuario($cedula)
+    {
+
+        $tabla            = "SELECT * FROM personas WHERE cedula_persona=$cedula";
+        $respuestaArreglo = '';
+        try {
+            $datos = $this->conexion->prepare($tabla);
+            $datos->execute();
+            $datos->setFetchMode(PDO::FETCH_ASSOC);
+            $respuestaArreglo = $datos->fetchAll(PDO::FETCH_ASSOC);
+            return $respuestaArreglo;
+        } catch (PDOException $e) {
+
+            return $this->Capturar_Error($e,"Usuario");
+        }
+    }
+
     public function Registrar_Vacuna($data)
     {
 
@@ -1369,8 +1386,42 @@ public function get_organizaciones()
          }
      }
 
+     public function Locked_Login($user,$accion){
+        $intentos=$user['user_locked'];
+        $respuesta="";
+        if($intentos!="locked"){
+            $intentos=intval($intentos);
+            if($intentos<2){
+                $intentos++;
+            }
+            else{
+                $intentos="locked";
+            }
+            $accion==0?$intentos=$intentos:$intentos=0;
+            try {
+                $query = $this->conexion->prepare("UPDATE personas  SET
+                    user_locked              =:user_locked
 
+                    WHERE cedula_persona    =:cedula_persona"
+                );
+    
+                $query->execute([
+                    'cedula_persona'            =>$user['cedula_persona'], 
+                    'user_locked'               =>$intentos
+    
+                ]);
+    
+                $respuesta=$intentos;
+    
+            } catch (PDOException $e) {
+                $respuesta=$this->Capturar_Error($e,"Usuario");
+            }
+        }
+        else{
+            $respuesta="locked";
+        }
 
-
+        return $respuesta;
+    }
 }
 ?>
