@@ -11,13 +11,16 @@ $.ajax({
     type: "POST",
     url: BASE_URL + "app/Direcciones.php",
     data: {
-        direction: "Solicitudes/Consultar_solicitudes",
+        direction: "Solicitudes/Administrar",
         accion: "codificar"
     },
     success: function(direccion_segura) {
         $.ajax({
             type: "POST",
             url: BASE_URL + direccion_segura,
+            data: {
+                peticion: "Consulta_Ajax",
+            },
         }).done(function(datos) {
             var result_s = JSON.parse(datos);
             var cuerpo_s = "";
@@ -98,7 +101,7 @@ rechazar.onclick = function() {
                         type: "POST",
                         url: BASE_URL + "app/Direcciones.php",
                         data: {
-                            direction: "Solicitudes/",
+                            direction: "Solicitudes/Administrar/Solicitudes",
                             accion: "codificar"
                         },
                         success: function(direccion_segura) {
@@ -135,7 +138,7 @@ aprobar.onclick = function() {
                 type: "POST",
                 url: BASE_URL + "app/Direcciones.php",
                 data: {
-                    direction: "Solicitudes/Set_status",
+                    direction: "Solicitudes/Administrar",
                     accion: "codificar"
                 },
                 success: function(direccion_segura) {
@@ -143,6 +146,7 @@ aprobar.onclick = function() {
                         type: "POST",
                         url: BASE_URL + direccion_segura,
                         data: {
+                            peticion: "Establecer_Estado",
                             id: id.value,
                             procesada: 1,
                             observaciones: "Aprobada el " + fecha_actual,
@@ -173,7 +177,7 @@ aprobar.onclick = function() {
                     type: "POST",
                     url: BASE_URL + "app/Direcciones.php",
                     data: {
-                        direction: "Solicitudes/",
+                        direction: "Solicitudes/Administrar/Solicitudes",
                         accion: "codificar"
                     },
                     success: function(direccion_segura) {
@@ -188,10 +192,6 @@ aprobar.onclick = function() {
             }
             nueva_notificacion(datos_notificacion);
             print_pdf();
-            // setTimeout(function(){
-            //   print_pdf();
-            //   window.open(BASE_URL+"Solicitudes/");
-            // },1000);
         }
     });
 };
@@ -203,7 +203,7 @@ function rechazoSolicitud(motivo) {
         type: "POST",
         url: BASE_URL + "app/Direcciones.php",
         data: {
-            direction: "Solicitudes/Set_status",
+            direction: "Solicitudes/Administrar",
             accion: "codificar"
         },
         success: function(direccion_segura) {
@@ -211,6 +211,7 @@ function rechazoSolicitud(motivo) {
                 type: "POST",
                 url: BASE_URL + direccion_segura,
                 data: {
+                    peticion: "Establecer_Estado",
                     id: id.value,
                     procesada: 2,
                     observaciones: "Rechazada el " + fecha_actual + "/" + motivo,
@@ -228,15 +229,17 @@ function print_pdf() {
         type: "POST",
         url: BASE_URL + "app/Direcciones.php",
         data: {
-            direction: "Solicitudes/Consultar_solicitudes_all",
+            direction: "Solicitudes/Administrar",
             accion: "codificar"
         },
         success: function(direccion_segura) {
             $.ajax({
                 type: "POST",
                 url: BASE_URL + direccion_segura,
+                data: {
+                    peticion: "Consulta_Todas",
+                },
             }).done(function(datos) {
-              alert(datos)
                 var result = JSON.parse(datos);
                 var header = "";
                 var body = "";
@@ -428,7 +431,7 @@ const vue = new Vue({
                         type: "POST",
                         url: BASE_URL + "app/Direcciones.php",
                         data: {
-                            direction: "Solicitudes/",
+                            direction: "Solicitudes/Administrar/Solicitudes",
                             accion: "codificar"
                         },
                         success: function(direccion_segura) {
@@ -444,7 +447,7 @@ const vue = new Vue({
                     type: "POST",
                     url: BASE_URL + "app/Direcciones.php",
                     data: {
-                        direction: "Solicitudes/",
+                        direction: "Solicitudes/Administrar/Solicitudes",
                         accion: "codificar"
                     },
                     success: function(direccion_segura) {

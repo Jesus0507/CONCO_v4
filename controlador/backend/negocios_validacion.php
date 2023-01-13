@@ -39,15 +39,13 @@ class Negocios_Validacion extends Validacion
                                 if ($this->Comprobar($this->Datos_Validos()["nombre_negocio"])) {
                                     $this->Errores[] = 'El campo nombre del negocio es obligatorio';
                                 } else {
-                                    $this->Datos_Filtro($this->Datos_Validos()["nombre_negocio"], "caracteres");
-                                    if ($this->Validar()) {
+                                    if ($this->Validar($this->Datos_Validos()["nombre_negocio"], "caracteres")) {
                                         $this->Errores[] = "El campo nombre del negocio no debe tener caracteres especiales.";
                                     } else {
                                         if ($this->Comprobar($this->Datos_Validos()["cedula_propietario"])) {
                                             $this->Errores[] = 'El campo cedula del propietario es obligatorio';
                                         } else {
-                                            $this->Datos_Filtro($this->Datos_Validos()["cedula_propietario"], "cedula");
-                                            if ($this->Validar()) {
+                                            if ($this->Validar($this->Datos_Validos()["cedula_propietario"], "cedula")) {
                                                 $this->Errores[] = "La cedula es invalida.";
                                             } else {
                                                 if ($this->Comprobar($this->Datos_Validos()["rif_negocio"])) {

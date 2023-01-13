@@ -108,15 +108,17 @@
                  type: "POST",
                  url: BASE_URL + "app/Direcciones.php",
                  data: {
-                     direction: "Solicitudes/Nueva_solicitud",
+                     direction: "Solicitudes/Administrar",
                      accion: "codificar"
                  },
                  success: function(direccion_segura) {
                      $.ajax({
                          type: "POST",
                          url: BASE_URL + direccion_segura,
-                         type: "POST",
-                         data: {"datos":datos_persona},
+                         data: {
+                            peticion: "Nueva_solicitud",
+                            "datos":datos_persona
+                        },
                      }).done(function(result){
                     console.log(result);
                     if(result==1){
