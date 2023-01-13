@@ -221,7 +221,8 @@ class Solicitudes extends Controlador
                 break;
 
             case 'Aprobar_Cambio_Clave':
-
+                $this->modelo->_SQL_("_05_");
+                $this->modelo->_Tipo_(0);
                 $this->crud["consultar"] = array(
                     "tabla"   => "personas",
                     "columna" => "cedula_persona",
