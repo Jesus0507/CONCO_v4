@@ -277,6 +277,82 @@ class Familias extends Controlador
                 } else { $this->_403_();}
                 break;
 
+                /* case 'Eliminar_Familias':
+                    if ($this->permisos["modificar"] === 1) {
+                        $this->modelo->_Tipo_(0);
+                        $this->modelo->_SQL_("_05_");
+                        $this->crud["consultar"] = array(
+                    "tabla"   => "familia_personas",
+                    "columna" => "id_familia",
+                    "data"    => $_POST['id'],
+                );
+                $this->modelo->_CRUD_($this->Get_Crud_Sql());
+        $this->integrantes = $this->modelo->Administrar();
+
+                        
+                        foreach($this->integrantes as $i){
+                            $this->modelo->_Tipo_(0);
+                            $this->modelo->_SQL_("_05_");
+                    $this->crud["consultar"] = array(
+                        "tabla"   => "personas",
+                        "columna" => "cedula_persona",
+                        "data"    => $i['cedula_persona'],
+                    );
+                    $this->modelo->_CRUD_($this->Get_Crud_Sql());
+            $this->persona = $this->modelo->Administrar();
+
+                    if($this->persona[0]['estado']==2){
+                
+                    $this->modelo->_SQL_("_07_");
+                    $this->modelo->_Tipo_(1);
+                    $this->crud["eliminar"] = array(
+                        "tabla" => "personas", 
+                        "id_tabla" => "cedula_persona"
+                    );
+                    $this->modelo->_CRUD_($this->Get_Crud_Sql());
+                    $this->modelo->_Datos_(["cedula_persona" => $this->persona[0]['cedula_persona']]);
+                    $this->modelo->Administrar();
+                        }
+                    } else { $this->_403_();}
+                    break;
+ */             
+
+    // case 'Activar_Familias':
+    // if ($this->permisos["modificar"] === 1) {
+
+    //     $this->modelo->_Tipo_(0);
+    //                     $this->modelo->_SQL_("_05_");
+    //                     $this->crud["consultar"] = array(
+    //                 "tabla"   => "familia_personas",
+    //                 "columna" => "id_familia",
+    //                 "data"    => $_POST['id_familia'],
+    //             );
+    //             $this->modelo->_CRUD_($this->Get_Crud_Sql());
+    //     $this->integrantes = $this->modelo->Administrar();
+
+    //     foreach($this->integrantes as $i){
+    //         $this->modelo->_Tipo_(0);
+    //                         $this->modelo->_SQL_("_05_");
+    //                 $this->crud["consultar"] = array(
+    //                     "tabla"   => "personas",
+    //                     "columna" => "cedula_persona",
+    //                     "data"    => $i['cedula_persona'],
+    //                 );
+    //                 $this->modelo->_CRUD_($this->Get_Crud_Sql());
+    //         $this->persona = $this->modelo->Administrar();
+        
+    //     if($this->persona[0]['estado']==2){
+    //      $this->Activar("personas","cedula_persona",$this->persona[0]['cedula_persona']);
+    //     foreach ($this->integrantes as $i) {
+    //         $this->persona = $this->Consultar_Columna("personas", "cedula_persona", $i['cedula_persona']);
+    //         if ($this->persona[0]['estado'] == 2) {
+    //             $this->Activar("personas", "cedula_persona", $this->persona[0]['cedula_persona']);
+    //         }
+    //     }
+    //     echo $this->Activar("familia", "id_familia", $_POST['id_familia']);
+    // } else { $this->_403_();}
+    // break;
+
             default:$this->vista->Cargar_Vistas('error/400');
                 break;
         }
