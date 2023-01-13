@@ -117,7 +117,7 @@ function editar(id_familia, id_familia_persona) {
                         document.getElementById("ingreso_aprox").value = data[i]['ingreso_mensual'];
                         var inte = JSON.parse(data[i]['integrantes']);
                         for (var j = 0; j < inte.length; j++) {
-                            var tabl = familia.innerHTML += " <table style='width:95%'><tr><hr><td>-" + inte[j]["primer_nombre"] + " " + inte[j]["primer_nombre"] + "</td><td style='text-align:right'><span onclick='borrar_familia(" + data[i]['id_familia'] + "," + inte[j]['cedula_persona'] + ")' class='iconDelete fa fa-times-circle' title='Eliminar Familia' style='font-size:22px'></span></td></tr></table><br><hr>";
+                            var tabl = familia.innerHTML += " <table style='width:95%'><tr><hr><td>-" + inte[j]["primer_nombre"] + " " + inte[j]["primer_apellido"] + "</td><td style='text-align:right'><span onclick='borrar_familia(" + data[i]['id_familia'] + "," + inte[j]['cedula_persona'] + ")' class='iconDelete fa fa-times-circle' title='Eliminar Familia' style='font-size:22px'></span></td></tr></table><br><hr>";
                         }
                     }
                 }
@@ -202,8 +202,8 @@ function ver_familia(integrantes, nombre, tlf, direccion, numero_casa, ingreso) 
     var integrants = JSON.parse(integrantes);
     var texto_integrantes = "";
     for (var i = 0; i < integrants.length; i++) {
-        texto_integrantes += "<table style='width:100%'><tr><td>" + integrants[i]['primer_nombre'] + " " + integrants[i]['primer_apellido'];
-        texto_integrantes += "</td><td>" + integrants[i]['cedula_persona'] + "</td></tr></table><br><hr>";
+        texto_integrantes += "<table style='width:100%'><tr><td class='w-50 text-start'>" + integrants[i]['primer_nombre'] + " " + integrants[i]['primer_apellido'];
+        texto_integrantes += "</td><td class='w-50 text-end'>" + integrants[i]['cedula_persona'] + "</td></tr></table><br><hr>";
     }
     var texto_swal = "<center><em class='fa fa-users' style='font-size:60px'></em></center><br>";
     texto_swal += "<table border='1' style='width:100%'><tr style='color:white;background:#7BACAA;font-weight:bold'><td>Teléfono</td><td>Dirección</td><td>Nro de Casa</td>";
@@ -255,10 +255,15 @@ function Nuevo_Integrante() {
                             var td1 = document.createElement("td");
                             var td2 = document.createElement("td");
                             td1.innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-" + result[0]['primer_nombre'] + " " + result[0]['primer_apellido'];
-                            var btn = document.createElement("input");
-                            btn.type = "button";
-                            btn.className = "btn btn-danger";
-                            btn.value = "X";
+                            var btn = document.createElement("span");
+                            btn.className = "iconDelete fa fa-times-circle";
+                            btn.style = "font-size:22px;margin-right:33px;color: #FA891D !important;";
+                            btn.onmouseover = function () {
+                                btn.style = "font-size:22px;margin-right:33px;color: #D06805 !important;";
+                            }
+                            btn.onmouseout = function () {
+                                btn.style = "font-size:22px;margin-right:33px;color: #FA891D !important;";
+                            }
                             td2.style.textAlign = "right";
                             td2.appendChild(btn);
                             tr.appendChild(td1);

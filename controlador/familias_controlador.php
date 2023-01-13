@@ -153,11 +153,10 @@ class Familias extends Controlador
                                 ];
                                 $this->modelo->_Datos_($this->Get_Datos());
                                 if ($this->modelo->Administrar()) {
-                                    $this->Accion($this->Get_Accion());
-                                    echo $this->Get_Mensaje();
+                                    // echo $this->Get_Mensaje();
                                 }
                             }
-
+                            $this->Accion($this->Get_Accion());
                             echo $this->Get_Mensaje();
                         }
                     } else {
