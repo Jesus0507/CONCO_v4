@@ -525,7 +525,7 @@ btn_agregar_mision.onclick = function() {
                 texto = nombre_mision.value;
             }
             mis['recibe_actualmente'] = parseInt(recibe_actualmente.value);
-            recibe_actualmente.value == '0' ? mis['fecha'] = ultima_recepcion.value : mis['fecha'] = "";
+            recibe_actualmente.value == '0' ? mis['fecha'] = ultima_recepcion.value : mis['fecha'] = "0000-00-00";
             misiones_persona.push(mis);
             var elemento = document.createElement("div");
             var table = document.createElement("table");
@@ -1457,8 +1457,7 @@ function enviar_informacion() {
                     "datos": datos_persona
                 }
             }).done(function(result) {
-                // console.log(result);
-                if (result == 1) {
+                 if (result == 1) {
                     if (transporte.value != "0") {
                         registrar_transporte();
                     }
@@ -1488,7 +1487,7 @@ function enviar_informacion() {
                         showConfirmButton: false
                     });
                     Direccionar("Personas/Consultas");
-                }
+                 }
             })
         },
         error: function() {
@@ -1606,7 +1605,7 @@ function registrar_misiones_persona() {
                         "datos": datos
                     }
                 }).done(function(result) {
-                    //console.log(result);
+                    console.log(result);
                 })
             },
             error: function() {
