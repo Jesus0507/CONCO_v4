@@ -90,7 +90,16 @@ class Solicitudes extends Controlador
     {return $this->crud;}
 
     // ==============================================================================
+    public function Cargar_Vistas()
+    {
+        $this->Seguridad_de_Session();
+        $this->Establecer_Consultas();
+        if ($this->permisos["consultar"] === 1) {
+            $this->vista->Cargar_Vistas('solicitudes/index');
+        } else { $this->_403_();}
+    }
 
+    // ==============================================================================
     public function Administrar($peticion = null)
     {
         $this->Seguridad_de_Session();
@@ -98,19 +107,27 @@ class Solicitudes extends Controlador
         $this->peticion = (isset($_POST['peticion'])) ? $_POST['peticion'] : $peticion[0];
         switch ($this->peticion) {
             case 'Solicitudes':
-                $this->vista->Cargar_Vistas('solicitudes/index');
+                if ($this->permisos["consultar"] === 1) {
+                    $this->vista->Cargar_Vistas('solicitudes/index');
+                } else { $this->_403_();}
                 break;
 
             case 'Solicitud':
-                $this->vista->Cargar_Vistas('solicitudes/consultar');
+                if ($this->permisos["consultar"] === 1) {
+                    $this->vista->Cargar_Vistas('solicitudes/consultar');
+                } else { $this->_403_();}
                 break;
 
             case 'Solicitud_Vivienda':
-                $this->vista->Cargar_Vistas('solicitudes/consultar_vivienda');
+                if ($this->permisos["consultar"] === 1) {
+                    $this->vista->Cargar_Vistas('solicitudes/consultar_vivienda');
+                } else { $this->_403_();}
                 break;
 
             case 'Solicitud_View_Only':
-                $this->vista->Cargar_Vistas('solicitudes/consultar_only_view');
+                if ($this->permisos["consultar"] === 1) {
+                    $this->vista->Cargar_Vistas('solicitudes/consultar_only_view');
+                } else { $this->_403_();}
                 break;
 
             case 'Consulta_Ajax':$this->Escribir_JSON($this->Get_Datos_Vista()["solicitudes"]);
@@ -207,17 +224,18 @@ class Solicitudes extends Controlador
                 break;
 
             case 'Establecer_Estado':
+                if ($this->permisos["registrar"] === 1 || $this->permisos["modificar"] === 1) {
+                    $this->datos_ejecutar = [
+                        "id_solicitud"  => $this->id_solicitud,
+                        "procesada"     => $this->procesada,
+                        "observaciones" => $this->observaciones,
+                    ];
 
-                $this->datos_ejecutar = [
-                    "id_solicitud"  => $this->id_solicitud,
-                    "procesada"     => $this->procesada,
-                    "observaciones" => $this->observaciones,
-                ];
-
-                $this->modelo->_Datos_($this->Get_Datos());
-                $this->modelo->_SQL_("SQL_10");
-                $this->modelo->_Tipo_(1);
-                echo $this->modelo->Administrar();
+                    $this->modelo->_Datos_($this->Get_Datos());
+                    $this->modelo->_SQL_("SQL_10");
+                    $this->modelo->_Tipo_(1);
+                    echo $this->modelo->Administrar();
+                } else { $this->_403_();}
                 break;
 
             case 'Aprobar_Cambio_Clave':
@@ -330,14 +348,46 @@ class Solicitudes extends Controlador
                 break;
 
             case 'Nueva_solicitud':
-                $this->datos_ejecutar['observaciones'] = "";
-                $this->datos_ejecutar['procesada'] = 0;
+                if ($this->permisos["registrar"] === 1) {
+                    $this->datos_ejecutar['observaciones'] = "";
+                    $this->datos_ejecutar['procesada']     = 0;
+                    $this->modelo->_Datos_($this->Get_Datos());
+                    $this->modelo->_SQL_("SQL_01");
+                    $this->modelo->_Tipo_(1);
+                    if ($this->modelo->Administrar()) {
+                        echo true;
+                    }
+                } else { $this->_403_();}
+                break;
+
+            case 'Nueva_Solicitud_Familia':
+
+                $this->modelo->_SQL_("_03_");
+                $this->modelo->_Tipo_(0);
+                $this->crud["ultimo"] = array("tabla" => "familia", "id" => "id_familia");
+                $this->modelo->_CRUD_($this->Get_Crud_Sql());
+                $this->id                              = $this->modelo->Administrar();
+                $this->datos_ejecutar['observaciones'] = $this->id[0]['MAX(id_familia)'];
+                $this->datos_ejecutar['procesada']     = 0;
                 $this->modelo->_Datos_($this->Get_Datos());
                 $this->modelo->_SQL_("SQL_01");
                 $this->modelo->_Tipo_(1);
-                if ($this->modelo->Administrar()) {
-                    echo true;
-                }
+                echo $this->modelo->Administrar();
+                break;
+
+            case 'Nueva_Solicitud_Vivienda':
+
+                $this->modelo->_SQL_("_03_");
+                $this->modelo->_Tipo_(0);
+                $this->crud["ultimo"] = array("tabla" => "vivienda", "id" => "id_vivienda");
+                $this->modelo->_CRUD_($this->Get_Crud_Sql());
+                $this->id                              = $this->modelo->Administrar();
+                $this->datos_ejecutar['observaciones'] = $this->id[0]['MAX(id_vivienda)'];
+                $this->datos_ejecutar['procesada']     = 0;
+                $this->modelo->_Datos_($this->Get_Datos());
+                $this->modelo->_SQL_("SQL_01");
+                $this->modelo->_Tipo_(1);
+                echo $this->modelo->Administrar();
                 break;
 
             default:$this->vista->Cargar_Vistas('error/400');
@@ -347,50 +397,6 @@ class Solicitudes extends Controlador
     }
 
     // ==============================================================================
-    public function Cargar_Vistas()
-    {
-        
-        $this->Seguridad_de_Session();
-        $this->vista->Cargar_Vistas('solicitudes/index');
-    }
-    // public function Solicitud()
-    // {
-    //     $this->Seguridad_de_Session();
-    //     $this->vista->Cargar_Vistas('solicitudes/consultar');
-    // }
-
-    // public function Solicitud_vivienda()
-    // {
-    //     $this->Seguridad_de_Session();
-    //     $this->vista->Cargar_Vistas('solicitudes/consultar_vivienda');
-    // }
-
-    // public function Solicitud_familia()
-    // {
-    //     $this->Seguridad_de_Session();
-    //     $solicitud                = $this->Consultar_Columna("solicitudes", "id_solicitud", $_GET['id']);
-    //     $this->vista->solicitud   = $solicitud;
-    //     $solicitante              = $this->Consultar_Columna("personas", "cedula_persona", $solicitud[0]['cedula_persona']);
-    //     $this->vista->solicitante = $solicitante;
-    //     $familia                  = $this->Consultar_Columna("familia", "id_familia", $solicitud[0]['observaciones']);
-    //     $this->vista->familia     = $familia;
-    //     $vivienda                 = $this->Consultar_Columna("vivienda", "id_vivienda", $familia[0]['id_vivienda']);
-    //     $this->vista->vivienda    = $vivienda;
-    //     $integrantes              = $this->Consultar_Columna("familia_personas", "id_familia", $solicitud[0]['observaciones']);
-    //     $personas_familia         = [];
-    //     foreach ($integrantes as $i) {
-    //         $integrante         = $this->Consultar_Columna("personas", "cedula_persona", $i['cedula_persona']);
-    //         $personas_familia[] = $integrante[0];
-    //     }
-    //     $this->vista->integrantes = $personas_familia;
-    //     $this->vista->Cargar_Vistas('solicitudes/consultar_familia');
-    // }
-
-    // public function Solicitud_viewOnly()
-    // {
-    //     $this->Seguridad_de_Session();
-    //     $this->vista->Cargar_Vistas('solicitudes/consultar_only_view');
-    // }
 
     function print() {
         $this->Seguridad_de_Session();
@@ -420,155 +426,11 @@ class Solicitudes extends Controlador
                 }
 
                 $this->vista->header_constancia = $header_constancia;
-
-                $this->vista->titulo = "Constancia de " . $s['tipo_constancia'];
+                $this->vista->titulo            = "Constancia de " . $s['tipo_constancia'];
                 $this->vista->Cargar_Vistas('solicitudes/constancia_pdf');
 
             }
         }
 
     }
-
-    // ==============================CRUD=====================================
-
-    // public function Nueva_solicitud()
-    // {
-    //     $datos                  = $_POST['datos'];
-    //     $datos['observaciones'] = "";
-    //     echo $this->modelo->Registrar($datos);
-
-    // }
-
-    public function Nueva_solicitud_vivienda()
-    {
-        $datos  = $_POST['datos'];
-        $ultimo = $this->Ultimo_Ingresado("vivienda", "id_vivienda");
-        $id     = '';
-        foreach ($ultimo as $i) {
-            $id = $i['MAX(id_vivienda)'];
-
-        }
-        $datos['observaciones'] = $id;
-        echo $this->modelo->Registrar($datos);
-
-    }
-
-    public function Nueva_solicitud_familia()
-    {
-        $datos  = $_POST['datos'];
-        $ultimo = $this->Ultimo_Ingresado("familia", "id_familia");
-        $id     = '';
-        foreach ($ultimo as $i) {
-            $id = $i['MAX(id_familia)'];
-
-        }
-        $datos['observaciones'] = $id;
-        echo $this->modelo->Registrar($datos);
-
-    }
-
-    // public function Consultar_solicitudes()
-    // {
-    //     $this->Establecer_Consultas();
-    //     $this->Escribir_JSON($this->datos_solicitudes);
-    // }
-
-    // public function Consultar_solicitudes_vivienda()
-    // {
-    //     $solicitud                    = $this->modelo->get_solicitud_vivienda($_POST['id']);
-    //     $solicitud[0]['servicio_gas'] = $this->modelo->get_info_vivienda_gas($solicitud[0]['observaciones']);
-    //     $solicitud[0]['tipos_techo']  = $this->modelo->get_info_vivienda_techos($solicitud[0]['observaciones']);
-    //     $solicitud[0]['tipos_piso']   = $this->modelo->get_info_vivienda_pisos($solicitud[0]['observaciones']);
-    //     $solicitud[0]['tipos_pared']  = $this->modelo->get_info_vivienda_paredes($solicitud[0]['observaciones']);
-    //     $solicitud[0]['gas_detalle']  = "<table style='width:100%'><tr><td>Tipo de Bombona</td>";
-    //     $solicitud[0]['gas_detalle'] .= "<td>Días de duración</td></tr>";
-
-    //     foreach ($solicitud[0]['servicio_gas'] as $g) {
-    //         $solicitud[0]['gas_detalle'] .= "<td>" . $g['tipo_bombona'] . "</td><td>" . $g['dias_duracion'] . "</td></tr>";
-    //     }
-
-    //     $solicitud[0]['gas_detalle'] .= "</table>";
-
-    //     $solicitud[0]['electrodomesticos'] = $this->modelo->get_info_vivienda_electrodomesticos($solicitud[0]['observaciones']);
-
-    //     $this->Escribir_JSON($solicitud);
-    // }
-
-    // public function Consultar_solicitudes_all()
-    // {
-    //     $solicitudes = $this->modelo->Consultar_all();
-
-    //     $this->Escribir_JSON($solicitudes);
-    // }
-
-    // public function Set_status()
-    // {
-    //     $data = [
-    //         "id_solicitud"  => $_POST['id'],
-    //         "procesada"     => $_POST['procesada'],
-    //         "observaciones" => $_POST['observaciones'],
-    //     ];
-
-    //     $this->modelo->setStatus($data);
-
-    // }
-
-    // public function Set_status_contrasenia()
-    // {
-    //     $confirm = explode('/', $_POST['observaciones']);
-    //     if ($this->Codificar(strtolower($confirm[1])) != $_SESSION['digital_sign']) {
-    //         echo 0;
-    //     } else {
-    //         if ($confirm[2] != $_SESSION['public_key']) {
-    //             echo 1;
-    //         } else {
-    //             $confirm = $confirm[0] . '/' . $_SESSION['digital_sign'] . '/' . $confirm[2];
-    //             $data    = [
-    //                 "id_solicitud"  => $_POST['id'],
-    //                 "procesada"     => $_POST['procesada'],
-    //                 "observaciones" => $confirm,
-    //             ];
-
-    //             $this->modelo->setStatus($data);
-    //             echo 'proceder';
-    //         }
-    //     }
-    // }
-
-    // public function check_keys()
-    // {
-    //     $resp = [
-    //         'public' => 0,
-    //         'priv'   => 0,
-    //         'firma'  => '',
-    //     ];
-
-    //     if ($this->validKeys($_POST['public_key'], $_POST['private_key'])) {
-    //         $resp = [
-    //             'public' => 1,
-    //             'priv'   => 1,
-    //             'firma'  => $this->Decodificar($_POST['firma']),
-    //         ];
-    //     }
-
-    //     echo json_encode($resp);
-    // }
-
-    // public function approve_change_password()
-    // {
-    //     $persona = $this->Consultar_Columna("personas", "cedula_persona", $_POST['cedula']);
-    //     foreach ($persona as $p) {
-    //         $this->Actualizar_tablas('personas', 'contrasenia', 'cedula_persona', $p['contrasenia_nueva'], $_POST['cedula']);
-    //         $this->Actualizar_tablas('personas', 'user_locked', 'cedula_persona', '0', $_POST['cedula']);
-    //     }
-    //     $data = [
-    //         "id_solicitud"  => $_POST['id'],
-    //         "procesada"     => $_POST['procesada'],
-    //         "observaciones" => $_POST['observaciones'],
-    //     ];
-
-    //     $this->modelo->setStatus($data);
-
-    //     echo true;
-    // }
 }
