@@ -236,7 +236,13 @@ function editar_datos(persona, ocupacion, condicion_lab, transporte, bonos, misi
     if (condicion_lab_info.length == 0) {
         vcondlab.value = 0;
     } else {
-        vcondlab.value = condicion_lab_info[0]["id_cond_laboral"];
+        var selected='';
+        for(var opt of vcondlab.options) {
+            if(opt.innerHTML.toLowerCase() == condicion_lab_info[0]["nombre_cond_laboral"].toLowerCase()){
+                selected = opt.value;
+            }
+        }
+        vcondlab.value = selected;
     }
     if (org_politica_info.length == 0) {
         vorgpol.value = 0;
@@ -507,6 +513,7 @@ function editar_persona() {
                     datos_persona: inf_persona
                 },
             }).done(function (result) {
+                console.log(result);
                 if (result == 1) {
                     swal({
                         type: "success",
@@ -516,9 +523,7 @@ function editar_persona() {
                         showConfirmButton: false
                     });
                     setTimeout(function () {
-                        $('#example1').DataTable().clear().destroy();
-                        cargar_tabla_personas();
-                        $("#edit_persona").modal("hide");
+                       location.reload();
                     }, 1000);
                 }
             });
@@ -819,6 +824,7 @@ add_mision.onclick = function () {
             mision_data['mision'] = document.getElementById("mision").value;
             mision_data['recibe'] = document.getElementById("recibe").value;
             mision_data['fecha'] = document.getElementById("fecha_recibe").value;
+            mision_data['fecha'] == '' ? mision_data['fecha'] = '0000-00-00' : mision_data['fecha'] = mision_data['fecha'];
             $.ajax({
                 type: "POST",
                 url: BASE_URL + "app/Direcciones.php",
@@ -835,6 +841,7 @@ add_mision.onclick = function () {
                             "mision": mision_data
                         }
                     }).done(function (result) {
+                        console.log(result);
                         if (result == 0) {
                             swal({
                                 type: "error",

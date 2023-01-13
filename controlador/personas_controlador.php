@@ -1,6 +1,5 @@
 <?php
 require_once 'vista/privado/securimage/securimage.php';
-
 class Personas extends Controlador
 {
     public function __construct()
@@ -871,15 +870,11 @@ class Personas extends Controlador
                 }
             }
         } else {
-
             if (count($transportes) == 0) {
                 $this->modelo->Registrar_transporte([
                     "cedula_propietario"     => $datos_persona['cedula_persona'],
                     "descripcion_transporte" => $datos_persona['transporte'],
                 ]);
-                $id     = $this->Ultimo_Ingresado("transporte", "id_transporte");
-                $id     = $id[0]['MAX(id_transporte)'];
-                $existe = $id;
             } else {
                 $this->Actualizar_Tablas("transporte", "descripcion_transporte", "id_transporte", $datos_persona['transporte'], $transportes[0]['id_transporte']);
             }
@@ -1005,13 +1000,12 @@ class Personas extends Controlador
         if ($existe == false) {
             $this->Registrar_Tablas("misiones", "nombre_mision", $_POST['mision']['mision']);
             $id = $this->Ultimo_Ingresado("misiones", "id_mision");
-            $this->modelo->Registrar_persona_mision([
+            $retornar= $this->modelo->Registrar_persona_mision([
                 "cedula_persona"     => $_POST['cedula'],
                 "id_mision"          => $id[0]['MAX(id_mision)'],
                 "recibe_actualmente" => $_POST['mision']['recibe'],
                 "fecha"              => $_POST['mision']['fecha'],
             ]);
-            $retornar = 1;
         } else {
             $registrado = false;
             foreach ($misiones_persona as $mp) {
@@ -1021,14 +1015,13 @@ class Personas extends Controlador
             }
 
             if ($registrado == false) {
-                $this->modelo->Registrar_persona_mision([
+                $retornar =   $this->modelo->Registrar_persona_mision([
                     "cedula_persona"     => $_POST['cedula'],
                     "id_mision"          => $existe,
                     "recibe_actualmente" => $_POST['mision']['recibe'],
                     "fecha"              => $_POST['mision']['fecha'],
                 ]);
 
-                $retornar = 1;
             } else {
                 $retornar = 0;
             }

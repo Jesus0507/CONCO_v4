@@ -453,7 +453,7 @@ class Personas_Class extends Modelo
             return true;
 
         } catch (PDOException $e) {
-            return $this->Capturar_Error($e,"Personas");
+            return $e;
         }
     }
 
@@ -794,6 +794,7 @@ class Personas_Class extends Modelo
     {
 
         try {
+            if($data['fecha'] != '0000-00-00'){  
             $datos = $this->conexion->prepare('INSERT INTO persona_misiones(
                 id_mision,
                 cedula_persona,
@@ -807,19 +808,43 @@ class Personas_Class extends Modelo
                 :fecha,
                 :estado 
                 )');
+            }
+            else {
+                $datos = $this->conexion->prepare('INSERT INTO persona_misiones(
+                    id_mision,
+                    cedula_persona,
+                    recibe_actualmente, 
+                    estado         
+                    ) VALUES (
+                    :id_mision,
+                    :cedula_persona,
+                    :recibe_actualmente, 
+                    :estado 
+                    )');
+            }
 
+            if($data['fecha'] != '0000-00-00'){  
             $datos->execute([
                 'id_mision'              =>$data['id_mision'],
                 'cedula_persona'         =>$data['cedula_persona'],
                 'recibe_actualmente'    =>$data['recibe_actualmente'],
-                'fecha'                 =>$data['fecha'],
+                'fecha'                  =>$data['fecha'],
                 'estado'              =>  1
             ]);
+            }
+            else{
+                $datos->execute([
+                    'id_mision'              =>$data['id_mision'],
+                    'cedula_persona'         =>$data['cedula_persona'],
+                    'recibe_actualmente'    =>$data['recibe_actualmente'],
+                    'estado'              =>  1
+                ]);
+            }
 
             return true;
 
         } catch (PDOException $e) {
-            return $this->Capturar_Error($e,"Personas");
+            return $e;
         }
     }
    
@@ -892,7 +917,7 @@ class Personas_Class extends Modelo
                 estado_civil            =:estado_civil,
                 privado_libertad        =:privado_libertad,
                 genero                  =:genero,
-                whatsapp                =:whatsapp,1
+                whatsapp                =:whatsapp,
                 miliciano               =:miliciano,
                 antiguedad_comunidad    =:antiguedad_comunidad,
                 jefe_calle              =:jefe_calle,
@@ -929,7 +954,7 @@ class Personas_Class extends Modelo
             return true;
 
         } catch (PDOException $e) {
-            return $this->Capturar_Error($e,"Personas");
+            return $e;
         }
     }
 
@@ -1035,7 +1060,7 @@ class Personas_Class extends Modelo
       public function get_transportes()
      {
 
-         $tabla            = "SELECT * FROM transporte WHERE estado=1";
+         $tabla            = "SELECT Distinct descripcion_transporte FROM transporte WHERE estado=1";
          $respuestaArreglo = '';
          try {
              $datos = $this->conexion->prepare($tabla);
@@ -1217,7 +1242,25 @@ public function get_organizaciones()
              $datos->execute();
              $datos->setFetchMode(PDO::FETCH_ASSOC);
              $respuestaArreglo = $datos->fetchAll(PDO::FETCH_ASSOC);
-             return $respuestaArreglo;
+             $resp=[];
+             foreach($respuestaArreglo as $ra) {
+                if (count($resp) == 0) {
+                    $resp[] = $ra;
+                }
+                else{
+                    $existe = false;
+                    foreach($resp as $r) {
+                       if($r['nombre_cond_laboral'] == $ra['nombre_cond_laboral']){
+                        $existe=true;
+                       }
+                    }
+
+                    if(!$existe){
+                        $resp[] = $ra;
+                    }
+                }
+             }
+             return $resp;
          } catch (PDOException $e) {
 
             return $this->Capturar_Error($e,"Personas");
