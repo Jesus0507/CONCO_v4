@@ -61,3 +61,21 @@ stdClass Object
     [Linea] => 42
     [Mensaje] => SQLSTATE[HY000]: General error: 1364 Field 'id_vivienda_tipo_piso' doesn't have a default value
 )
+stdClass Object
+(
+    [Modulo] => ------Notificaciones------
+    [Fecha] => Viernes , 13 de Enero del 2023
+    [Hora] => 11:09:46 AM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\notificaciones_class.php
+    [Linea] => 40
+    [Mensaje] => SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'usuario_receptor' cannot be null
+)
+stdClass Object
+(
+    [Modulo] => ------Notificaciones------
+    [Fecha] => Viernes , 13 de Enero del 2023
+    [Hora] => 11:10:41 AM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\notificaciones_class.php
+    [Linea] => 40
+    [Mensaje] => SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'usuario_receptor' cannot be null
+)
