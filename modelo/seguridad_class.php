@@ -1,6 +1,6 @@
 <?php
 
-class Seguridad_Class extends Modelo
+class Seguridad_Class extends Modelo 
 { 
     #Public: acceso sin restricción.
     #Private:Solo puede ser accesado por la clase que lo define.
@@ -10,8 +10,8 @@ class Seguridad_Class extends Modelo
     private $PDO;           #sentecia sql iniciada con prepare
     private $sentencia;     #sentencia sql que se ejecutara
     private $datos;         #datos a ejecutar para enviar a la bd
-
     public  $resultado;     #resultado de consultas de la bd
+    private $id;
 
     public function __construct(){parent::__construct();}
 
@@ -20,6 +20,7 @@ class Seguridad_Class extends Modelo
     public function _Tipo_(int $tipo): void         {$this->tipo = $tipo;}
     public function _Datos_(array $datos): void     {$this->datos = $datos;}
     public function _Estado_(array $estado): void   {$this->estado = $estado;}
+    public function _ID_(string $id): void          {$this->id = $id;}
 
     public function Administrar()
     {
@@ -56,7 +57,7 @@ class Seguridad_Class extends Modelo
     #sentecias sql en espera de ser llamadas retornan string
     private function SQL_01():string
     {
-        return "SELECT * FROM roles_permisos_modulo WHERE rol=:rol";
+        return "SELECT * FROM roles_permisos_modulo WHERE rol = $this->id";
     }
 
     private function SQL_02():string
@@ -66,12 +67,12 @@ class Seguridad_Class extends Modelo
 
     private function SQL_03():string
     {
-        return "SELECT  PUM.* , M.nombre FROM permisos_usuario_modulo PUM , modulos M WHERE PUM.cedula_usuario = $cedula AND M.id_modulo = PUM.id_modulo";
+        return "SELECT  PUM.* , M.nombre FROM permisos_usuario_modulo PUM , modulos M WHERE PUM.cedula_usuario = $this->id AND M.id_modulo = PUM.id_modulo";
     }
 
     private function SQL_04():string
     {
-        return "UPDATE roles_permisos_modulo SET $this->campo = :permiso WHERE rol = :rol AND id_modulo = :id_modulo";
+        return "UPDATE roles_permisos_modulo SET $this->id = :permiso WHERE rol = :rol AND id_modulo = :id_modulo";
     }
 
     private function SQL_05():string
@@ -84,6 +85,12 @@ class Seguridad_Class extends Modelo
         return "UPDATE personas SET estado=:estado  WHERE cedula_persona = :cedula_persona";
     }
 
+    private function SQL_07():string
+    {
+        return "UPDATE permisos_usuario_modulo SET registrar = :registrar, consultar = :consultar, modificar = :modificar, eliminar  = :eliminar WHERE cedula_usuario = :cedula_usuario AND  id_modulo = :id_modulo";
+    }
+
+    // ===============================================================================
     public function get_permisos_rol($rol)
     {
 
