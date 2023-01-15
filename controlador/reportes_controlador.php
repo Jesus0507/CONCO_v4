@@ -2,13 +2,26 @@
 
 class Reportes extends Controlador
 {
+    #Public: acceso sin restricción.
+    #Private:Solo puede ser accesado por la clase que lo define.
+    private $permisos; #permisos correspondiente del modulo
+    private $peticion; #peticion a ejecutar de la funcion administrar
+    private $sql; #nombre de la sentencia SQL que se ejecutara en el modelo
+    private $datos_consulta; #array con los datos necesarios para el modulo (consultas)
+
+    private $crud; #array con peticion generica sql
+
+    // DATOS independientes usados para el manejo del modulo
+
+    // ==================ESTABLECER DATOS=========================
+
     public function __construct()
     {
         parent::__construct();
         //    $this->Cargar_Modelo("reportes");
     }
 
-    public function Establecer_Consultas()
+    private function Establecer_Consultas()
     {
         $personas                   = $this->Consultar_Tabla("personas", 1, "cedula_persona");
         $parto_humanizado           = $this->Consultar_Tabla("parto_humanizado", 1, "cedula_persona");
@@ -109,6 +122,39 @@ class Reportes extends Controlador
         $this->poblacion_edades        = $poblacion_edades;
     }
 
+    // ==================GETTERS=========================
+    #getters usados para obtener la informacion de las variables privadas
+    # retornan tipo string o array
+    private function Get_Sql(): string
+    {return $this->sql;}
+    private function Get_Datos_Vista(): array
+    {return $this->datos_consulta;}
+    private function Get_Crud_Sql(): array
+    {return $this->crud;}
+    // ==============================================================================
+
+    public function Administrar($peticion = null)
+    {
+        $this->Seguridad_de_Session();
+        $this->Establecer_Consultas();
+        $this->peticion = (isset($_POST['peticion'])) ? $_POST['peticion'] : $peticion[0];
+        switch ($this->peticion) {
+
+            case 'Consultas':
+                if ($this->permisos["consultar"] === 1) {
+                    $this->vista->Cargar_Vistas('negocios/consultar');
+                } else { $this->_403_();}
+                break;
+
+            case 'Consulta_Ajax':$this->Escribir_JSON($this->Get_Datos_Vista()["negocios"]);
+                break;
+
+            default:$this->vista->Cargar_Vistas('error/400');
+                break;
+        }
+        exit();
+    }
+    // ==============================================================================
     public function Datos_Poblacional()
     {
         $familia = $this->Consultar_Columna("familia", "id_familia", 9);
