@@ -10,7 +10,7 @@ class Enfermos_Validacion extends Validacion
     {
         parent::__construct();
         $this->datos = $_POST['datos'];
-        }
+    }
 
     public function Validacion_Registro()
     {
@@ -52,27 +52,25 @@ class Enfermos_Validacion extends Validacion
                     }
                 }
             }
-         }
-    
+        }
 
+        if (count($this->Errores) > 0) {
+            for ($i = 0; $i < count($this->Errores); $i++) {
+                $this->mensaje = json_encode($this->Errores, JSON_UNESCAPED_UNICODE);
+                return false;
+            }
+        } else {
+            return true;
+        }
 
-         if (count($this->Errores) > 0) {
-          for ($i = 0; $i < count($this->Errores); $i++) {
-              $this->mensaje = json_encode($this->Errores, JSON_UNESCAPED_UNICODE);
-               return false;
-                }
-            } else {
-               return true;
-              }
-
-     }
-    function Fallo()
-      {
+    }
+    public function Fallo()
+    {
         return $this->mensaje;
-          }
-          public function Datos_Validos()
+    }
+    public function Datos_Validos()
     {
         return $this->datos;
     }
 
- }
+}

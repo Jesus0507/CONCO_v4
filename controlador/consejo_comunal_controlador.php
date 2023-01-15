@@ -127,8 +127,8 @@ class Consejo_Comunal extends Controlador
                     $this->modelo->_Tipo_(1);
 
                     $this->crud["eliminar"] = array(
-                        "tabla"    => "comite_persona",
-                        "id_tabla" => "id_comite_persona",
+                        "tabla"    => $this->estado["tabla"],
+                        "id_tabla" => $this->estado["id_tabla"],
                     );
                     $id = $this->estado["param"];
 
