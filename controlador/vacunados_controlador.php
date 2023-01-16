@@ -106,23 +106,22 @@ class Vacunados extends Controlador
                 break;
 
             case 'Registrar':
-               
-                //   for ($i = 0; $i < count($this->datos_ejecutar['fecha_vacuna']); $i++) {
+                $dosis_array = $_POST['datos']['info_dosis'];
+                  for ($i = 0; $i < count($dosis_array); $i++) {
             
-                //     $this->modelo->_SQL_($this->Get_Sql());
-                //     $this->modelo->_Tipo_(1);
-                //     $this->modelo->_Datos_([
-                //     'cedula_persona' => $this->datos_ejecutar['fecha_vacuna'],
-                //     'dosis'          => $_POST['dosis'][$i],
-                //     'fecha_vacuna'   => $_POST['fechas'][$i],
-                //     'estado'         => $this->datos_ejecutar['estado'],
-                // ]);
-                //     if ($this->modelo->Administrar()) {$this->mensaje = 1;}
-                // }
+                     $this->modelo->_SQL_($this->Get_Sql());
+                     $this->modelo->_Tipo_(1);
+                     $this->modelo->_Datos_([
+                     'cedula_persona' => $this->datos_ejecutar['cedula_persona'],
+                     'dosis'          => $dosis_array[$i]['dosis'],
+                     'fecha_vacuna'   => $dosis_array[$i]['fecha'],
+                     'estado'         => 1,
+                 ]);
+                 if ($this->modelo->Administrar()) {$this->mensaje = 1;}
+                 }
 
-                // $this->Accion($this->Get_Accion());
-                // echo $this->Get_Mensaje();
-                echo(var_dump($_POST['datos']));
+                 $this->Accion($this->Get_Accion());
+                 echo $this->Get_Mensaje();
                 break;
             case 'Eliminar':
                 if ($this->permisos["eliminar"] === 1) {
@@ -138,10 +137,10 @@ class Vacunados extends Controlador
                 break;
 
             case 'Existe':
-        $existe = true;
-        foreach ($this->vacunas as $v) {
+        $existe = 1;
+        foreach ($this->datos_consulta['vacunas'] as $v) {
             if ($v['cedula_persona'] == $this->cedula) {
-                $existe = false;
+                    $existe = 0;
             }
         }
 

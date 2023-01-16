@@ -178,3 +178,30 @@ stdClass Object
     [Linea] => 32
     [Mensaje] => SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') FROM' at line 1
 )
+stdClass Object
+(
+    [Modulo] => ------Vacunados------
+    [Fecha] => Domingo , 15 de Enero del 2023
+    [Hora] => 09:42:28 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\vacunados_class.php
+    [Linea] => 41
+    [Mensaje] => SQLSTATE[HY000]: General error: 1364 Field 'id_vacuna_covid' doesn't have a default value
+)
+stdClass Object
+(
+    [Modulo] => ------Vacunados------
+    [Fecha] => Domingo , 15 de Enero del 2023
+    [Hora] => 09:42:28 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\vacunados_class.php
+    [Linea] => 41
+    [Mensaje] => SQLSTATE[HY000]: General error: 1364 Field 'id_vacuna_covid' doesn't have a default value
+)
+stdClass Object
+(
+    [Modulo] => ------Vacunados------
+    [Fecha] => Domingo , 15 de Enero del 2023
+    [Hora] => 09:42:28 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\vacunados_class.php
+    [Linea] => 41
+    [Mensaje] => SQLSTATE[HY000]: General error: 1364 Field 'id_vacuna_covid' doesn't have a default value
+)

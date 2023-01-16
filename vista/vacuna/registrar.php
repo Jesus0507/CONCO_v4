@@ -41,7 +41,7 @@
                                     Cédula de persona
                                 </label>
                                 <div class="input-group">
-                                    <input list="cedula_p" id="cedula_persona" name="cedula_persona" class="form-control no-simbolos letras_numeros" placeholder="Cedula de Persona" oninput="Limitar(this,15)" />
+                                    <input list="cedula_p" id="cedula_persona" name="cedula_persona" class="form-control no-simbolos solo-numeros" placeholder="Cedula de Persona" oninput="Limitar(this,9)" />
                                     <datalist id="cedula_p">
 
                                         <?php foreach ($this->datos["personas"] as $persona) { ?>
