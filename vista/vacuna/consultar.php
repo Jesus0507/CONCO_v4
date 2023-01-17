@@ -34,7 +34,8 @@
                             <th>Nombre y Apellido</th>
                             <th>Dosis</th>
                             <th>Fecha</th>
-                            <th style="width: 115px;">Acciones</th>
+                            <th>Editar</th>
+                            <th>Eliminar</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -47,7 +48,8 @@
                             <th>Nombre y Apellido</th>
                             <th>Dosis</th>
                             <th>Fecha</th>
-                            <th>Acciones</th>
+                            <th>Editar</th>
+                            <th>Eliminar</th>
                         </tr>
                     </tfoot>
                 </table>

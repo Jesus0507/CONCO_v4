@@ -35,16 +35,20 @@ $(function () {
                             return '<td class="text-center">' +
                                 '<a href="javascript:void(0)" style="margin-right: 5px;" class="btn bg-info btnEditar" onclick="editar(this)"  title="Actualizar"  type="button" >' +
                                 '<i class="fa fa-edit" style="color: white;"></i>' +
-                                '</a>' +
-
-                                '<a href="javascript:void(0)" style="margin-right: 5px;" class="btn bg-danger mensaje-eliminar" title="Eliminar">' +
+                                '</a></td>';
+                        }
+                    },
+                    {
+                        "data" : function(data) {
+                            return '<td class="text-center">'+
+                            '<a href="javascript:void(0)" style="margin-right: 5px;" class="btn bg-danger mensaje-eliminar" title="Eliminar">' +
                                 '<i class="fa fa-trash"></i>' +
                                 '</a>' +
                                 '<p style="display: none;">' + data
                                     .id_vacuna_covid + '</p>' +
                                 '</td>';
                         }
-                    },
+                    }
 
                     ],
                     "responsive": true,

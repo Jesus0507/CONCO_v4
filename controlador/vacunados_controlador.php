@@ -149,26 +149,23 @@ class Vacunados extends Controlador
 
             case 'Consulta_Ajax':
 
-            $dosis = "";
-            $fecha = "";
-            foreach ($this->datos_consulta["vacunados"] as $persona) {
+             foreach ($this->datos_consulta["vacunados"] as $persona) {
+                $dosis = "";
+                $fecha = "";
+             foreach ($this->datos_consulta["vacunas"] as  $vacuna) {
+                if ($persona["cedula_persona"] == $vacuna["cedula_persona"]) {
+                    $dosis .= $vacuna["dosis"] . "</br>";
+                   $fecha .= $vacuna["fecha_vacuna"] . "</br>";
+               }
+             }
 
-            
-            foreach ($this->datos_consulta["vacunas"] as $key => $vacunado) {
-                if ($persona["cedula_persona"] == $vacunado["cedula_persona"]) {
-                    $dosis .= $vacunado["dosis"] . "</br>";
-
-                    $fecha .= $vacunado["fecha_vacuna"] . "</br>";
-                }
-            }
-
-            $datos[] = [
+             $datos[] = [
                 "cedula_persona"  => $persona["cedula_persona"],
                 "nombre_apellido" => $persona["primer_nombre"] . " " . $persona["primer_apellido"],
                 "dosis"           => $dosis,
                 "fecha_vacuna"    => $fecha,
             ];
-        }
+         }
 
         $this->Escribir_JSON($datos);
 
