@@ -268,14 +268,8 @@ class Enfermos extends Controlador
 
             case 'Personas':
                 $this->modelo->_Tipo_(0);
-                $this->modelo->_SQL_("_05_");
-
-                $this->crud["consultar"] = array(
-                    "tabla"   => "personas",
-                    "columna" => "cedula_persona",
-                    "data"    => $this->cedula,
-                );
-                $this->modelo->_CRUD_($this->Get_Crud_Sql());
+                $this->modelo->_SQL_("SQL_07");
+                $this->modelo->_ID_($this->cedula);
                 $this->persona = $this->modelo->Administrar();
                 if (count($this->persona) == 0) {echo 0;} else { $this->Escribir_JSON($this->persona);}
                 unset($this->persona, $_POST);

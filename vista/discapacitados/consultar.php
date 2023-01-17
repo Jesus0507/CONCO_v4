@@ -213,7 +213,7 @@
                                                     cedula: $('#cedula')
                                                         .val(),
                                                     discapacidades: discapacidades,
-                                                    peticion: "Registrar",
+                                                    peticion: "Administrar",
                                                     sql: "SQL_06",
                                                     accion: "Se ha Actualizado el  Discapacitado pordator de la Cedula: " +
                                                         $('#cedula').val(),

@@ -6,7 +6,7 @@ function eliminar(id) {
         showCancelButton: true,
         cancelButtonText: "No",
         confirmButtonText: "Si"
-    }, function (isConfirm) {
+    }, function(isConfirm) {
         if (isConfirm) {
             var ids = JSON.parse(id);
             for (var i = 0; i < ids.length; i++) {
@@ -16,7 +16,6 @@ function eliminar(id) {
                     param: ids[i],
                     estado: 0
                 };
-                
                 $.ajax({
                     type: "POST",
                     url: BASE_URL + "app/Direcciones.php",
@@ -35,7 +34,7 @@ function eliminar(id) {
                                 sql: "_07_",
                                 accion: "Se ha Eliminado el  Discapacitado ",
                             },
-                        }).done(function (result) {
+                        }).done(function(result) {
                             if (result == 1) {
                                 swal({
                                     title: "Eliminado!",
@@ -43,7 +42,7 @@ function eliminar(id) {
                                     type: "success",
                                     showConfirmButton: false,
                                 });
-                                setTimeout(function () {
+                                setTimeout(function() {
                                     location.reload();
                                 }, 2000);
                             } else {
@@ -63,7 +62,7 @@ function eliminar(id) {
                     }
                 });
             }
-            setTimeout(function () {
+            setTimeout(function() {
                 swal({
                     type: "success",
                     title: "Éxito",
@@ -71,7 +70,7 @@ function eliminar(id) {
                     timer: 2000,
                     showConfirmButton: false
                 });
-                setTimeout(function () {
+                setTimeout(function() {
                     location.reload();
                 }, 1000);
             }, 500);
@@ -79,8 +78,7 @@ function eliminar(id) {
     })
 }
 
-function editar(cedula) {
-    
+function editar(cedula) { 
     $.ajax({
         type: "POST",
         url: BASE_URL + "app/Direcciones.php",
@@ -97,7 +95,8 @@ function editar(cedula) {
                     peticion: "Datos",
                     'cedula': cedula
                 },
-            }).done(function (datos) {
+            }).done(function(datos) {
+                // revisar(datos)
                 var data = JSON.parse(datos);
                 var discapacidades = document.getElementById('discapacidades_agregadas');
                 if (data.length === 0) {
@@ -124,7 +123,7 @@ function borrar_discapacidad(id, cedula_param) {
         showCancelButton: true,
         confirmButtonText: "Si, continuar",
         cancelButtonText: "No"
-    }, function (isConfirm) {
+    }, function(isConfirm) {
         if (isConfirm) {
             $.ajax({
                 type: "POST",
@@ -141,9 +140,9 @@ function borrar_discapacidad(id, cedula_param) {
                         data: {
                             peticion: "Eliminar_Discapacidad",
                             id_discapacidad_persona: id,
-                            cedula_persona: cedula_param
+                            cedula: cedula_param
                         },
-                    }).done(function (result) {
+                    }).done(function(result) {
                         result = JSON.parse(result);
                         actualizar_discapacidad(result, cedula_param);
                         editar(cedula_param);

@@ -84,6 +84,11 @@ class Enfermos_Class extends Modelo
     private function SQL_06():string
     {
         return "SELECT p.cedula_persona,p.primer_nombre,p.primer_apellido FROM personas p WHERE p.estado = 1 ORDER BY p.cedula_persona ASC";
+    } 
+
+    private function SQL_07():string
+    {
+        return "SELECT cedula_persona,primer_nombre, primer_apellido FROM `personas` WHERE cedula_persona = $this->id";
     }
 }
 ?>

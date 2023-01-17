@@ -40,6 +40,23 @@ class Inicio_Class extends Modelo
                     $this->conexion->commit();
                     return true;
                     break;
+                // case '2':
+                //     $this->parametros = array(
+                //         'columna' => ":cedula_persona",
+                //         'parametros' => "26142326", 
+                //         'tipo' => PDO::PARAM_INT, 
+                //         'longitud' => 8, 
+                //     );
+                    
+                //     $this->conexion->beginTransaction();
+                //     $this->PDO = $this->conexion->prepare($this->sentencia);
+                //     foreach ($this->parametros as $key) {
+                //         $this->PDO->bindParam($key["columna"], $key["parametros"], $key["tipo"], $key["longitu"]);
+                //     }
+                //     $this->PDO->execute();
+                //     $this->conexion->commit();       
+                //     break;
+
                 default:        # mensaje error si la peticion fue incorrecta
                     die('[Error 400] => "La Peticion es Incorrecta, solo se permite peticion de tipo 0/1."');
                     break;
