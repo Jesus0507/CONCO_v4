@@ -87,7 +87,9 @@ class Enfermos extends Controlador
     {
         $this->Seguridad_de_Session();
         $this->Establecer_Consultas();
-        $this->vista->Cargar_Vistas('enfermos/consultar');
+        if ($this->permisos["consultar"] === 1) {
+            $this->vista->Cargar_Vistas('enfermos/consultar');
+        } else { $this->_403_();}
     }
 
     // ==============================================================================
@@ -169,12 +171,12 @@ class Enfermos extends Controlador
                                 $this->modelo->_Tipo_(1);
                                 $this->datos_ejecutar = array(
                                     "cedula_persona" => $this->cedula,
-                                    "id_enfermedad"  => $this->id ,
+                                    "id_enfermedad"  => $this->id,
                                     "medicamentos"   => $this->enfermedades[$i]['medicamentos'],
                                 );
                                 $this->modelo->_Datos_($this->Get_Datos());
                                 if ($this->modelo->Administrar()) {$this->mensaje = 1;}
-                                
+
                             }
                         }
                     }

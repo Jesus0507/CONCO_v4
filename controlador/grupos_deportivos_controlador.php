@@ -1,216 +1,315 @@
 <?php
 class Grupos_Deportivos extends Controlador
 {
+    #Public: acceso sin restricción.
+    #Private:Solo puede ser accesado por la clase que lo define.
+    private $permisos; #permisos correspondiente del modulo
+    private $peticion; #peticion a ejecutar de la funcion administrar
+    private $estado; #array con parametros de eliminacion logica (tabla,id_tabla,param,estado)
+    private $estado_ejecutar; #array con parametro a ejecutar (id_tabla, estado)
+    private $sql; #nombre de la sentencia SQL que se ejecutara en el modelo
+    private $datos_ejecutar; #array con datos para enviar a la bd
+    private $datos_consulta; #array con los datos necesarios para el modulo (consultas)
+    private $accion; #accion para enviar a la bitacora
+    private $mensaje; #mensaje que se mandara a la vista
+    private $validar; #objeto con la clase validacion correspondiente al modulo
+    private $crud; #array con peticion generica sql
+
+    // DATOS independientes usados para el manejo del modulo
+    public $id;
+    public $ids;
+    public $retornar;
+    public $result;
+    public $cedula;
+    public $id_grupo_deportivo;
+    private $integrantes;
+    private $persona;
+    private $integrantes_grupo;
+
+    // ==================ESTABLECER DATOS=========================
+
     public function __construct()
     {
         parent::__construct();
+        $this->Validacion("grupos_deportivos");
+        $this->permisos           = $_SESSION["Grupos deportivos"];
+        $this->estado             = $_POST['estado'];
+        $this->datos_ejecutar     = $_POST['datos'];
+        $this->sql                = $_POST['sql'];
+        $this->accion             = $_POST['accion'];
+        $this->validar            = $this->validacion;
+        $this->mensaje            = 1;
+        $this->integrantes        = $_POST['integrantes'];
+        $this->id_grupo_deportivo = $_POST['id_grupo_deportivo'];
+        $this->ids                = $_POST["id"];
+        $this->cedula             = $_POST['cedula_persona'];
+        $this->estado_ejecutar    = array($this->estado["id_tabla"] => $this->estado["param"], "estado" => $this->estado["estado"]);
+        $this->crud["consultar"]  = array("tabla" => "deportes", "estado" => 1, "orden" => "nombre_deporte");
         //   $this->Cargar_Modelo("grupos_deportivos");
     }
-    public function Cargar_Vistas()
+    private function Establecer_Consultas()
     {
-        $this->Seguridad_de_Session();$this->vista->Cargar_Vistas('grupos_deportivos/consultar');
-    }
-// ==============================CRUD=====================================
-    public function Establecer_Consultas()
-    {
-        $this->modelo->__SET("tipo", "0");$this->modelo->__SET("SQL", "SQL_03");
-        $this->datos["grupos_deportivos"] = $this->modelo->Administrar();
-        $this->modelo->__SET("SQL", "_01_");
-        $this->modelo->__SET("consultar", array("tabla" => "deportes", "estado" => 1, "orden" => "nombre_deporte"));
-        $this->datos["deportes"] = $this->modelo->Administrar();
-        $this->modelo->__SET("SQL", "SQL_04");$this->datos["integrantes"] = $this->modelo->Administrar();
-        $this->modelo->__SET("SQL", "SQL_07");$this->datos["personas"] = $this->modelo->Administrar();
-        $this->vista->datos      = $this->datos;
+        $this->modelo->_Tipo_(0);
+        $this->modelo->_SQL_("SQL_03");
+        $this->datos_consulta["grupos_deportivos"] = $this->modelo->Administrar();
+        $this->modelo->_SQL_("_01_");
+        $this->modelo->_CRUD_($this->Get_Crud_Sql());
+        $this->datos_consulta["deportes"] = $this->modelo->Administrar();
+        $this->modelo->_SQL_("SQL_04");
+        $this->datos_consulta["integrantes"] = $this->modelo->Administrar();
+        $this->modelo->_SQL_("SQL_07");
+        $this->datos_consulta["personas"] = $this->modelo->Administrar();
+        $this->vista->datos               = $this->Get_Datos_Vista();
     }
 
+    // ==================GETTERS=========================
+    #getters usados para obtener la informacion de las variables privadas
+    # retornan tipo string o array
+    private function Get_Sql(): string
+    {return $this->sql;}
+    private function Get_Accion(): string
+    {return $this->accion;}
+    private function Get_Mensaje(): string
+    {return $this->mensaje;}
+    private function Get_Datos(): array
+    {return $this->datos_ejecutar;}
+    private function Get_Estado(): array
+    {return $this->estado;}
+    private function Get_Estado_Ejecutar(): array
+    {return $this->estado_ejecutar;}
+    private function Get_Datos_Vista(): array
+    {return $this->datos_consulta;}
+    private function Get_Crud_Sql(): array
+    {return $this->crud;}
+    // ==============================================================================
+
+    public function Cargar_Vistas()
+    {
+        $this->Seguridad_de_Session();
+        $this->Establecer_Consultas();
+        if ($this->permisos["consultar"] === 1) {
+            $this->vista->Cargar_Vistas('grupos_deportivos/consultar');
+        } else { $this->_403_();}
+    }
+
+    // ==============================================================================
     public function Administrar($peticion = null)
     {
         $this->Seguridad_de_Session();
         $this->Establecer_Consultas();
-        if (isset($_POST['peticion'])) {$peticion = $_POST['peticion'];} else { $peticion = $peticion[0];}
-
-        switch ($peticion) {
+        $this->peticion = (isset($_POST['peticion'])) ? $_POST['peticion'] : $peticion[0];
+        switch ($this->peticion) {
             case 'Registros':
-            if ($_SESSION["Grupos deportivos"]["registrar"] === 1) {
-               $this->vista->Cargar_Vistas('grupos_deportivos/registrar');
-            }else{$this->_403_();}
+                if ($this->permisos["registrar"] === 1) {
+                    $this->vista->Cargar_Vistas('grupos_deportivos/registrar');
+                } else { $this->_403_();}
                 break;
             case 'Consultas':
-            if ($_SESSION["Grupos deportivos"]["consultar"] === 1) {
-                $this->vista->Cargar_Vistas('grupos_deportivos/consultar');
-            }else{$this->_403_();}
+                if ($this->permisos["consultar"] === 1) {
+                    $this->vista->Cargar_Vistas('grupos_deportivos/consultar');
+                } else { $this->_403_();}
                 break;
-            case 'Consulta_Ajax':$this->Escribir_JSON($this->datos["grupos_deportivos"]);break;
-            case 'Deportes':$this->Escribir_JSON($this->datos["deportes"]);break;
+            case 'Consulta_Ajax':$this->Escribir_JSON($this->Get_Datos_Vista()["grupos_deportivos"]);
+                break;
+            case 'Deportes':$this->Escribir_JSON($this->Get_Datos_Vista()["deportes"]);
+                break;
 
             case 'Eliminar':
-            if ($_SESSION["Grupos deportivos"]["eliminar"] === 1) {
-                $this->modelo->Estado($_POST['estado']);
-                $this->modelo->Datos([
-                    $_POST['estado']["id_tabla"] => $_POST['estado']["param"],
-                    "estado"                     => $_POST['estado']["estado"],
-                ]);
-                $this->modelo->__SET("SQL", $_POST['sql']);$this->modelo->__SET("tipo", "1");
-
-                if ($this->modelo->Administrar()) {$this->mensaje = 1;$this->Accion($_POST['accion']);}
-
-                echo $this->mensaje;unset($_POST, $this->mensaje);
-            }else{$this->_403_();}
+                if ($this->permisos["eliminar"] === 1) {
+                    $this->modelo->_Estado_($this->Get_Estado());
+                    $this->modelo->_Datos_($this->Get_Estado_Ejecutar());
+                    $this->modelo->_SQL_($this->Get_Sql());
+                    $this->modelo->_Tipo_(1);
+                    if ($this->modelo->Administrar()) {
+                        $this->Accion($this->Get_Accion());
+                        echo $this->Get_Mensaje();
+                    }
+                    unset($_POST, $this->mensaje);
+                } else { $this->_403_();}
                 break;
 
             case 'Administrar':
-            if ($_SESSION["Grupos deportivos"]["registrar"] === 1 || $_SESSION["Grupos deportivos"]["modificar"] === 1) {
-                foreach ($this->datos["deportes"] as $key => $value) {
-                    if ($value["nombre_deporte"] == $_POST['datos']["id_deporte"]) {
-                        $_POST['datos']["id_deporte"] = $value["id_deporte"];
+                if ($this->permisos["registrar"] === 1 || $this->permisos["modificar"] === 1) {
+                    foreach ($this->datos_consulta["deportes"] as $key => $value) {
+                        if ($value["nombre_deporte"] == $this->datos_ejecutar["id_deporte"]) {
+                            $this->datos_ejecutar["id_deporte"] = $value["id_deporte"];
+                        }
                     }
-                }
-                $this->modelo->__SET("SQL", $_POST['sql']);$this->modelo->__SET("tipo", "1");
-                $this->modelo->Datos($_POST['datos']);
-                if ($this->modelo->Administrar()) {
-                    $this->modelo->__SET("SQL", "_03_");$this->modelo->__SET("tipo", "0");
-                    $this->modelo->__SET("ultimo", array("tabla" => "grupo_deportivo", "id" => "id_grupo_deportivo"));
-                    $id = $this->modelo->Administrar();
-                    foreach ($id as $i) {
-                        foreach ($_POST['integrantes'] as $inte) {
-                            $this->modelo->__SET("SQL", "SQL_06");$this->modelo->__SET("tipo", "1");
-                            $this->modelo->Datos([
+                    $this->modelo->_SQL_($this->Get_Sql());
+                    $this->modelo->_Tipo_(1);
+                    $this->modelo->_Datos_($this->Get_Datos());
+                    if ($this->modelo->Administrar()) {
+                        $this->modelo->_SQL_("_03_");
+                        $this->modelo->_Tipo_(0);
+
+                        $this->crud["ultimo"] = array(
+                            "tabla" => "grupo_deportivo",
+                            "id"    => "id_grupo_deportivo",
+                        );
+                        $this->modelo->_CRUD_($this->Get_Crud_Sql());
+                        $this->id = $this->modelo->Administrar();
+                        $this->id = $this->id[0]['MAX(id_grupo_deportivo)'];
+                        foreach ($this->integrantes as $inte) {
+                            $this->modelo->_SQL_("SQL_06");
+                            $this->modelo->_Tipo_(1);
+                            $this->datos_ejecutar = array(
                                 "cedula_persona"     => $inte["integrantes"],
-                                "id_grupo_deportivo" => $i['MAX(id_grupo_deportivo)'],
+                                "id_grupo_deportivo" => $this->id ,
                                 "estado"             => 1,
-                            ]);
+                            );
+                            $this->modelo->_Datos_($this->Get_Datos());
                             if ($this->modelo->Administrar()) {$this->mensaje = 1;}
                         }
                     }
-                }
-                $this->Accion($_POST['accion']);echo $this->mensaje;unset($_POST, $this->mensaje);
-            }else{$this->_403_();}
+                    $this->Accion($this->Get_Accion());
+                    echo $this->Get_Mensaje();unset($_POST, $this->mensaje);
+                } else { $this->_403_();}
                 break;
 
             case 'Datos':
-                $retornar = [];
-                foreach ($this->datos["grupos_deportivos"] as $gp) {
+                $this->retornar = [];
+                foreach ($this->datos_consulta["grupos_deportivos"] as $gp) {
 
-                    if ($gp['id_grupo_deportivo'] == $_POST['id_grupo_deportivo']) {
-                        $this->modelo->__SET("SQL", $_POST['sql']);$this->modelo->__SET("tipo", "0");
-                        $this->modelo->__SET("id", $_POST['id_grupo_deportivo']);
-                        $integrantes = $this->modelo->Administrar();
-                        $retornar[] = [
+                    if ($gp['id_grupo_deportivo'] == $this->id_grupo_deportivo) {
+                        $this->modelo->_SQL_($this->Get_Sql());
+                        $this->modelo->_Tipo_(0);
+                        $this->modelo->_ID_($this->id_grupo_deportivo);
+                        $this->integrantes_grupo = $this->modelo->Administrar();
+                        $this->retornar[]        = [
                             "id_grupo_deportivo"     => $gp['id_grupo_deportivo'],
                             "nombre_deporte"         => $gp['nombre_deporte'],
                             "nombre_grupo_deportivo" => $gp['nombre_grupo_deportivo'],
                             "descripcion"            => $gp['descripcion'],
-                            "integrantes"            => json_encode($integrantes),
+                            "integrantes"            => json_encode($this->integrantes_grupo),
                         ];
                     }
                 }
-                $this->Escribir_JSON($retornar);unset($retornar,$integrantes);
+                $this->Escribir_JSON($this->retornar);unset($this->retornar, $this->integrantes_grupo);
                 break;
 
             case 'Grupos_Deportivos_Personas':
-                foreach ($this->datos["integrantes"] as $integrante) {
-                    if ($_POST["id"] == $integrante["id_grupo_deportivo"]) {$integrantes[] = $integrante;}
+                foreach ($this->datos_consulta["integrantes"] as $integrante) {
+                    if ($this->ids == $integrante["id_grupo_deportivo"]) {$this->integrantes[] = $integrante;}
                 }
-                $this->Escribir_JSON($integrantes);unset($integrantes);
+                $this->Escribir_JSON($this->integrantes);unset($this->integrantes);
                 break;
 
             case 'Obtener_Integrantes':
-                $this->modelo->__SET("tipo", "0");$this->modelo->__SET("SQL", "_05_");
-                $this->modelo->__SET("consultar", array(
+                $this->modelo->_Tipo_(0);
+                $this->modelo->_SQL_("_05_");
+                
+                $this->crud["consultar"] = array(
                     "tabla"   => "personas_grupo_deportivo",
                     "columna" => "id_grupo_deportivo",
-                    "data"    => $_POST['id'],
-                ));
-                $integrantes = $this->modelo->Administrar();
-                $result = [];
-                foreach ($integrantes as $i) {
-                    $this->modelo->__SET("tipo", "0");$this->modelo->__SET("SQL", "_05_");
-                    $this->modelo->__SET("consultar", array(
+                    "data"    => $this->ids,
+                );
+                $this->modelo->_CRUD_($this->Get_Crud_Sql());
+                $this->integrantes_grupo = $this->modelo->Administrar();
+                $this->result            = [];
+                foreach ($this->integrantes_grupo as $i) {
+                    $this->modelo->_Tipo_(0);
+                    $this->modelo->_SQL_("_05_");
+
+                    $this->crud["consultar"] = array(
                         "tabla"   => "personas",
                         "columna" => "cedula_persona",
                         "data"    => $i['cedula_persona'],
-                    ));
-                    $persona  = $this->modelo->Administrar();
-                    $result[] = $persona[0];
+                    );
+                    $this->modelo->_CRUD_($this->Get_Crud_Sql());
+                    $this->persona  = $this->modelo->Administrar();
+                    $this->result[] = $this->persona[0];
                 }
-                echo json_encode($result);unset($integrantes,$result,$persona);
+                echo json_encode($this->result);unset($this->integrantes_grupo, $this->result, $this->persona);
                 break;
             case 'Agregar':
-                $this->modelo->__SET("tipo", "0");$this->modelo->__SET("SQL", "_05_");
-                $this->modelo->__SET("consultar", array(
+                $this->modelo->_Tipo_(0);
+                $this->modelo->_SQL_("_05_");
+                
+                $this->crud["consultar"] = array(
                     "tabla"   => "personas_grupo_deportivo",
                     "columna" => "id_grupo_deportivo",
-                    "data"    => $_POST['datos']['id_grupo_deportivo'],
-                ));
-                $integrantes = $this->modelo->Administrar();
-                $retornar    = 1;
-                foreach ($integrantes as $i) {
-                    if ($i['cedula_persona'] == $_POST['datos']['cedula_persona']) {
-                        $retornar = 0;
+                    "data"    => $this->datos_ejecutar['id_grupo_deportivo'],
+                );
+                $this->modelo->_CRUD_($this->Get_Crud_Sql());
+                $this->integrantes_grupo = $this->modelo->Administrar();
+                $this->retornar          = 1;
+                foreach ($this->integrantes_grupo as $i) {
+                    if ($i['cedula_persona'] == $this->datos_ejecutar['cedula_persona']) {
+                        $this->retornar = 0;
                     }
                 }
-                if ($retornar == 1) {
-                    $this->modelo->__SET("SQL", $_POST['sql']);$this->modelo->__SET("tipo", "1");
-                    $this->modelo->Datos($_POST['datos']);
+                if ($this->retornar == 1) {
+                    $this->modelo->_SQL_($this->Get_Sql());
+                    $this->modelo->_Tipo_(1);
+                    $this->modelo->_Datos_($this->Get_Datos());
 
-                    if ($this->modelo->Administrar()) {$this->mensaje = 1;}
+                    if ($this->modelo->Administrar()) {$this->retornar = 1;}
                 }
-                echo $retornar;unset($retornar, $integrantes);
+                echo $this->retornar;unset($this->retornar, $this->integrantes_grupo);
                 break;
 
             case 'Integrantes':
-                $this->modelo->__SET("tipo", "0");$this->modelo->__SET("SQL", "_05_");
-                $this->modelo->__SET("consultar", array(
+                $this->modelo->_Tipo_(0);
+                $this->modelo->_SQL_("_05_");
+                $this->crud["consultar"] = array(
                     "tabla"   => "personas_grupo_deportivo",
                     "columna" => "id_grupo_deportivo",
-                    "data"    => $_POST['id'],
-                ));
-                $integrantes = $this->modelo->Administrar();
-                $result      = [];
-                foreach ($integrantes as $i) {
-                    $this->modelo->__SET("tipo", "0");$this->modelo->__SET("SQL", "_05_");
+                    "data"    => $this->ids,
+                );
+                $this->modelo->_CRUD_($this->Get_Crud_Sql());
+                $this->integrantes_grupo = $this->modelo->Administrar();
+                $this->result            = [];
+                foreach ($this->integrantes_grupo as $i) {
+                    $this->modelo->_Tipo_(0);
+                    $this->modelo->_SQL_("_05_");
                     $this->modelo->__SET("consultar", array(
                         "tabla"   => "personas",
                         "columna" => "cedula_persona",
                         "data"    => $i['cedula_persona'],
                     ));
-                    $persona  = $this->modelo->Administrar();
-                    $result[] = $persona[0];
+                    $this->persona  = $this->modelo->Administrar();
+                    $this->result[] = $this->persona[0];
                 }
-                echo json_encode($result);unset($result, $integrantes, $persona);
+                echo json_encode($this->result);unset($this->result, $this->integrantes_grupo, $this->persona);
                 break;
 
             case 'Eliminar_Integrantes':
-                $retornar = 0;
-                $this->modelo->__SET("SQL", "_07_");$this->modelo->__SET("tipo", "1");
-                $this->modelo->__SET("eliminar", array(
-                    "tabla" => "personas_grupo_deportivo", "id_tabla" => "cedula_persona"));
-                $this->modelo->Datos(["cedula_persona" => $_POST['cedula_persona']]);
-
+                $this->retornar = 0;
+                $this->modelo->_SQL_("_07_");
+                $this->modelo->_Tipo_(1);
+                $this->crud["eliminar"] = array(
+                    "tabla"    => "personas_grupo_deportivo",
+                    "id_tabla" => "cedula_persona",
+                );
+                $this->modelo->_CRUD_($this->Get_Crud_Sql());
+                $this->modelo->_Datos_(["cedula_persona" => $this->cedula]);
                 if ($this->modelo->Administrar()) {
-                    $this->modelo->__SET("tipo", "0");$this->modelo->__SET("SQL", "_05_");
-                    $this->modelo->__SET("consultar", array(
+                    $this->modelo->_Tipo_(0);
+                    $this->modelo->_SQL_("_05_");
+                    $this->crud["consultar"] = array(
                         "tabla"   => "personas_grupo_deportivo",
                         "columna" => "id_grupo_deportivo",
-                        "data"    => $_POST['id_grupo_deportivo'],
-                    ));
-                    $integrantes = $this->modelo->Administrar();
-                    if (count($integrantes) != 0) {
-                        $retornar = [];
-                        for ($i = 0; $i < count($integrantes); $i++) {
-                            $retornar[] = [
-                                "cedula_persona"             => $integrantes[0]['cedula_persona'],
-                                "id_persona_grupo_deportivo" => $integrantes[$i]['id_persona_grupo_deportivo'],
+                        "data"    => $this->id_grupo_deportivo,
+                    );
+                    $this->modelo->_CRUD_($this->Get_Crud_Sql());
+                    $this->integrantes_grupo = $this->modelo->Administrar();
+                    if (count($this->integrantes_grupo) != 0) {
+                        $this->retornar = [];
+                        for ($i = 0; $i < count($this->integrantes_grupo); $i++) {
+                            $this->retornar[] = [
+                                "cedula_persona"             => $this->integrantes_grupo[0]['cedula_persona'],
+                                "id_persona_grupo_deportivo" => $this->integrantes_grupo[$i]['id_persona_grupo_deportivo'],
                             ];
                         }
                     }
                 }
-                echo json_encode($retornar);unset($integrantes, $retornar, $enfer, $_POST);
+                echo json_encode($this->retornar);unset($this->integrantes_grupo, $this->retornar, $_POST);
                 break;
 
-            default:$this->vista->Cargar_Vistas('error/400');break;
+            default:$this->vista->Cargar_Vistas('error/400');
+                break;
         }
-        unset($peticion, $this->datos, $this->vista->datos);
+        
         exit();
     }
 }

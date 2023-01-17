@@ -415,6 +415,7 @@
                              peticion: "Eliminar_Integrantes",
                          },
                      }).done(function(result) {
+                         revisar(result)
                          result = JSON.parse(result);
                          actualizar_integrantes(id);
                          editar(id);
@@ -445,6 +446,7 @@
                      peticion: "Obtener_Integrantes",
                  },
              }).done(function(result) {
+                // revisar(result)
                  var integrantes = document.getElementById('integrantes_agregados');
                  integrantes.innerHTML = "";
                  result = JSON.parse(result);

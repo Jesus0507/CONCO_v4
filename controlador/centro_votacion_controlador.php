@@ -20,7 +20,7 @@ class Centro_Votacion extends Controlador
     private $id;
     private $id_parroquia;
     private $cedula_votante;
-    
+
     // ==================ESTABLECER DATOS=========================
     public function __construct()
     {
@@ -34,7 +34,7 @@ class Centro_Votacion extends Controlador
         $this->rif_negocio    = $_POST['rif_negocio'];
         $this->calle          = $_POST['calle'];
         $this->id_parroquia   = $_POST['id_parroquia'];
-        $this->cedula_votante   = $_POST['datos']['cedula_votante'];
+        $this->cedula_votante = $_POST['datos']['cedula_votante'];
         // $this->validar         = $this->validacion;
         $this->mensaje           = 1;
         $this->estado_ejecutar   = array($this->estado["id_tabla"] => $this->estado["param"], "estado" => $this->estado["estado"]);
@@ -53,7 +53,7 @@ class Centro_Votacion extends Controlador
         $this->datos_consulta["parroquias"] = $this->modelo->Administrar();
         $this->modelo->_SQL_("SQL_06");
         $this->datos_consulta["personas"] = $this->modelo->Administrar();
-        $this->vista->datos      = $this->Get_Datos_Vista();
+        $this->vista->datos               = $this->Get_Datos_Vista();
     }
     // ==================GETTERS=========================
     #getters usados para obtener la informacion de las variables privadas
@@ -79,7 +79,10 @@ class Centro_Votacion extends Controlador
     public function Cargar_Vistas()
     {
         $this->Seguridad_de_Session();
-        $this->vista->Cargar_Vistas('centro_votacion/consultar');
+        $this->Establecer_Consulta();
+        if ($this->permisos["consultar"] === 1) {
+            $this->vista->Cargar_Vistas('centro_votacion/consultar');
+        } else { $this->_403_();}
     }
 
     public function Administrar($peticion = null)
