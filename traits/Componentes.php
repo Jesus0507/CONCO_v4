@@ -99,6 +99,7 @@ trait Componentes
                 'Registros' => "Centro_Votacion/Administrar/Registros/",
                 'Consultas' => "Centro_Votacion/Administrar/Consultas/",
             ],
+            'Seguridad'  => "Seguridad/Roles/",
             
         ];
     }
