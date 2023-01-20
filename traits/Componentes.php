@@ -79,6 +79,10 @@ trait Componentes
                 'Registros' => "Sector_Agricola/Administrar/Registros/",
                 'Consultas' => "Sector_Agricola/Administrar/Consultas/",
             ],
+            'Grupos_Deportivos'    => [
+                'Registros' => "Grupos_Deportivos/Administrar/Registros/",
+                'Consultas' => "Grupos_Deportivos/Administrar/Consultas/",
+            ],
         ];
     }
 }
