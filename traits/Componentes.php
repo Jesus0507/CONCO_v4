@@ -101,6 +101,27 @@ trait Componentes
             ],
             'Seguridad'  => "Seguridad/Roles/",
             'Bitacora'  => "Bitacora/Administrar/Consultas/",
+            'Reportes'    => [
+                'Censos' => "Reportes/Censos/",
+                'Listados' => [
+                    'Lista' => "Reportes/Milicianos/",
+                    'Lista' => "Reportes/Jefe_Familias/",
+                    'Lista' => "Reportes/Personas_Discapacidad/",
+                    'Lista' => "Reportes/Consejo_Comunal/",
+                    'Lista' => "Reportes/Embarazadas/",
+                    'Lista' => "Reportes/Nivel_Educativo/",
+                    'Lista' => "Reportes/Carnet_Personas/",
+                    'Lista' => "Reportes/Negocios/",
+                    'Lista' => "Reportes/Inmuebles/",
+                    'Lista' => "Reportes/Viviendas/",
+                    'Lista' => "Reportes/Personas_Enfermedades/",
+                    'Lista' => "Reportes/Votantes/",
+                    'Lista' => "Reportes/Poblacion_Edades/",
+                    'Lista' => "Reportes/Sexo_Diverso/", 
+                ],
+                'Historial_Familiar' => "Reportes/Historial_Familiar/",
+                'Estadisticas' => "Reportes/Estadisticas/",
+            ],
         ];
     }
 }
