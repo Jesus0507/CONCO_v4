@@ -83,11 +83,14 @@ trait Componentes
                 'Registros' => "Grupos_Deportivos/Administrar/Registros/",
                 'Consultas' => "Grupos_Deportivos/Administrar/Consultas/",
             ],
+            'Negocios'    => [
+                'Registros' => "Negocios/Administrar/Registros/",
+                'Consultas' => "Negocios/Administrar/Consultas/",
+            ],
             'Inmuebles'    => [
                 'Registros' => "Inmuebles/Administrar/Registros/",
                 'Consultas' => "Inmuebles/Administrar/Consultas/",
             ],
-            
         ];
     }
 }
