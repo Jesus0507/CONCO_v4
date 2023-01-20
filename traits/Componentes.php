@@ -38,8 +38,12 @@ trait Componentes
     protected function Direcciones()
     {
         return [
-            'Inicio' => "Inicio/",
-            'Contacto' => "Contacto/",
+            'Inicio'    => "Inicio/",
+            'Contacto'  => "Contacto/",
+            'Agenda'    => [
+                'Registros' => "Agenda/Administrar/Registros/",
+                'Consultas' => "Agenda/Administrar/Consultas/",
+            ],
         ];
     }
 }
