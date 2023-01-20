@@ -122,6 +122,8 @@ trait Componentes
                 'Historial_Familiar' => "Reportes/Historial_Familiar/",
                 'Estadisticas' => "Reportes/Estadisticas/",
                 'Censo_Poblacional' => "Reportes/Censo_Poblacional/",
+                'Reporte_Ninos' => "Reportes/Reporte_Ninos/",
+                'Grupos_Deportivos' => "Reportes/Grupos_Deportivos/",
             ],
             'Ayuda'  => "Ayuda/",
             'Habitante'  => "Habitante/",
