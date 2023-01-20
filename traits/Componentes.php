@@ -95,6 +95,11 @@ trait Componentes
                 'Registros' => "Consejo_Comunal/Administrar/Registros/",
                 'Consultas' => "Consejo_Comunal/Administrar/Consultas/",
             ],
+            'Centro_Votacion'    => [
+                'Registros' => "Centro_Votacion/Administrar/Registros/",
+                'Consultas' => "Centro_Votacion/Administrar/Consultas/",
+            ],
+            
         ];
     }
 }
