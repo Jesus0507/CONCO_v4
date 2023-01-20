@@ -47,6 +47,10 @@ trait Componentes
                 'Registros' => "Agenda/Administrar/Registros/",
                 'Consultas' => "Agenda/Administrar/Consultas/",
             ],
+            'Personas'    => [
+                'Registros' => "Personas/Registros/",
+                'Consultas' => "Personas/Consultas/",
+            ],
         ];
     }
 }
