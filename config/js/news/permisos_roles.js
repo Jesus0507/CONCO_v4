@@ -54,7 +54,7 @@ function edit_rol(data) {
         type: "POST",
         url: BASE_URL + "app/Direcciones.php",
         data: {
-            direction: "Seguridad/cambiar_roles",
+            direction: "Seguridad/Administrar",
             accion: "codificar"
         },
         success: function(direccion_segura) {
@@ -62,9 +62,11 @@ function edit_rol(data) {
                 url: BASE_URL + direccion_segura,
                 type: "POST",
                 data: {
+                    peticion: "Cambiar_Roles",
                     "datos": data
                 }
             }).done(function(result) {
+                // revisar(result)
                 if (result == true) {
                     $('#example1').DataTable().clear().destroy();
                     cargar_tabla();
@@ -115,7 +117,7 @@ function llenar_permisos(rol) {
         type: "POST",
         url: BASE_URL + "app/Direcciones.php",
         data: {
-            direction: "Seguridad/get_permisos_rol",
+            direction: "Seguridad/Administrar",
             accion: "codificar"
         },
         success: function(direccion_segura) {
@@ -123,9 +125,11 @@ function llenar_permisos(rol) {
                 type: "POST",
                 url: BASE_URL + direccion_segura,
                 data: {
+                    peticion: "Obtener_Permisos_Rol",
                     "rol": rol
                 }
             }).done(function(result) {
+              // revisar(result)
                 var permisos = JSON.parse(result);
                 var texto_permisos = "";
                 for (var i = 0; i < permisos.length; i++) {
@@ -216,15 +220,17 @@ function change_permiso(permiso, tipo_permiso, rol, modulo) {
             break;
     }
     var datos = new Object();
-    datos['rol'] = rol;
-    datos['campo'] = campo;
+    
     datos['permiso'] = permiso;
-    datos['modulo'] = modulo;
+    datos['rol'] = rol;
+    datos['id_modulo'] = modulo;
+    datos['campo'] = campo;
+
     $.ajax({
         type: "POST",
         url: BASE_URL + "app/Direcciones.php",
         data: {
-            direction: "Seguridad/change_permiso",
+            direction: "Seguridad/Administrar",
             accion: "codificar"
         },
         success: function(direccion_segura) {
@@ -232,9 +238,11 @@ function change_permiso(permiso, tipo_permiso, rol, modulo) {
                 url: BASE_URL + direccion_segura,
                 type: "POST",
                 data: {
-                    "datos": datos
+                  peticion: "Cambiar_Permiso",
+                  "datos": datos
                 }
             }).done(function(result) {
+              // revisar(result)
                 if (result != 0) {
                     llenar_permisos(rol);
                 }
@@ -281,7 +289,7 @@ function cambio_estado_permiso(cedula, estado) {
         type: "POST",
         url: BASE_URL + "app/Direcciones.php",
         data: {
-            direction: "Seguridad/cambio_estado",
+            direction: "Seguridad/Administrar",
             accion: "codificar"
         },
         success: function(direccion_segura) {
@@ -289,11 +297,14 @@ function cambio_estado_permiso(cedula, estado) {
                 type: "POST",
                 url: BASE_URL + direccion_segura,
                 data: {
-                    'cedula_persona': cedula,
-                    "estado": parseInt(estado)
+                    peticion: "Cambiar_Estado",
+                    datos: {
+                        'estado': parseInt(estado), 
+                        'cedula_persona': cedula,
+                    }
                 }
             }).done(function(result) {
-                console.log(result);
+                // revisar(result);
                 var mensaje = "";
                 if (result == 1) {
                     estado == 1 ? mensaje = "activado" : mensaje = 'desactivado';

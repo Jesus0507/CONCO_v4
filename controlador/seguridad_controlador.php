@@ -1,7 +1,7 @@
 <?php
 
 class Seguridad extends Controlador
-{ 
+{
     #Public: acceso sin restricción.
     #Private:Solo puede ser accesado por la clase que lo define.
     private $permisos; #permisos correspondiente del modulo
@@ -15,10 +15,12 @@ class Seguridad extends Controlador
     // DATOS independientes usados para el manejo del modulo
     private $usuarios;
     private $estado;
+    private $cedula_persona;
     public $retornar;
     public $permisos_modulo;
     public $rol_inicio;
     public $rol;
+
     // ==================ESTABLECER DATOS=========================
     public function __construct()
     {
@@ -27,6 +29,8 @@ class Seguridad extends Controlador
         $this->datos_ejecutar = $_POST['datos'];
         $this->rol_inicio     = $_SESSION['rol_inicio'];
         $this->rol            = $_POST["rol"];
+        $this->estado         = $_POST["estado"];
+        $this->cedula_persona = $_POST["cedula_persona"];
         // $this->Cargar_Modelo("seguridad");
     }
 
@@ -78,12 +82,19 @@ class Seguridad extends Controlador
                     $this->modelo->_Tipo_(1);
                     $this->modelo->_ID_($this->Get_Datos()["campo"]);
                     $this->modelo->_SQL_("SQL_04");
+
+                    $this->datos_ejecutar = [
+                        $this->datos_ejecutar["campo"] => $this->datos_ejecutar["permiso"],
+                        "rol"                          => $this->datos_ejecutar["rol"],
+                        "id_modulo"                    => $this->datos_ejecutar["id_modulo"],
+                    ];
+
                     $this->modelo->_Datos_($this->Get_Datos());
 
                     if ($this->modelo->Administrar()) {
-                        $this->modelo->_Tipo_(0);
-                        $this->modelo->_ID_($this->Get_Datos()["rol"]);
+                        $this->modelo->_Tipo_(2);
                         $this->modelo->_SQL_("SQL_01");
+                        $this->modelo->_Datos_(["rol" => $this->Get_Datos()["rol"]]);
                         $this->Escribir_JSON($this->modelo->Administrar());
                     } else {
                         echo 0;
@@ -96,9 +107,13 @@ class Seguridad extends Controlador
 
                 if ($this->permisos["registrar"] === 1 || $this->permisos["modificar"] === 1) {
 
-                    $this->datos_ejecutar['contrasenia'] = $this->Codificar($this->Get_Datos()['clave']);
                     $this->modelo->_Tipo_(1);
                     $this->modelo->_SQL_("SQL_05");
+                    $this->datos_ejecutar = array(
+                        'rol_inicio'     => $this->datos_ejecutar["rol"],
+                        'cedula_usuario' => $this->datos_ejecutar["cedula_usuario"],
+                        'contrasenia'    => $this->Codificar($this->Get_Datos()['clave']),
+                    );
                     $this->modelo->_Datos_($this->Get_Datos());
                     echo $this->modelo->Administrar();
 
@@ -121,10 +136,9 @@ class Seguridad extends Controlador
 
                 if ($this->permisos["registrar"] === 1 || $this->permisos["modificar"] === 1) {
 
-                    $this->modelo->_Tipo_(0);
-                    $this->modelo->_ID_($this->rol);
+                    $this->modelo->_Tipo_(2);
                     $this->modelo->_SQL_("SQL_01");
-
+                    $this->modelo->_Datos_(["rol" => $this->rol]);
                     $this->Escribir_JSON($this->modelo->Administrar());
 
                 } else { $this->_403_();}

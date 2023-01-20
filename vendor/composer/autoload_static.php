@@ -37,6 +37,7 @@ class ComposerStaticInit2a8b9cfa11dbcd502b3063f9f8235c8c
         'T' => 
         array (
             'Tuupola\\' => 8,
+            'Traits\\' => 7,
             'Tests\\' => 6,
         ),
         'S' => 
@@ -92,6 +93,11 @@ class ComposerStaticInit2a8b9cfa11dbcd502b3063f9f8235c8c
         'Tuupola\\' => 
         array (
             0 => __DIR__ . '/..' . '/tuupola/base62/src',
+        ),
+        'Traits\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/traits',
+            1 => __DIR__ . '/../..' . '/traits',
         ),
         'Tests\\' => 
         array (

@@ -43,6 +43,16 @@ class Seguridad_Class extends Modelo
                     $this->conexion->commit();
                     return true;
                     break;
+                case '2':           #tipo 0 trae consultas de la bd retorna a un array con los datos 
+                    $this->conexion->beginTransaction(); # Inicia una transacción
+                    $this->PDO = $this->conexion->prepare($this->sentencia);
+                    $this->PDO->execute($this->datos);
+                    $this->conexion->commit(); #Consigna una transacción
+                    $this->PDO->setFetchMode(PDO::FETCH_ASSOC);
+                    $this->resultado = $this->PDO->fetchAll(PDO::FETCH_ASSOC);
+                    return $this->resultado;
+                    break;
+
                 default:        # mensaje error si la peticion fue incorrecta
                     die('[Error 400] => "La Peticion es Incorrecta, solo se permite peticion de tipo 0/1."');
                     break;
@@ -57,7 +67,7 @@ class Seguridad_Class extends Modelo
     #sentecias sql en espera de ser llamadas retornan string
     private function SQL_01():string
     {
-        return "SELECT * FROM roles_permisos_modulo WHERE rol = $this->id";
+        return "SELECT * FROM roles_permisos_modulo WHERE rol = :rol";
     }
 
     private function SQL_02():string
@@ -72,12 +82,12 @@ class Seguridad_Class extends Modelo
 
     private function SQL_04():string
     {
-        return "UPDATE roles_permisos_modulo SET $this->id = :permiso WHERE rol = :rol AND id_modulo = :id_modulo";
+        return "UPDATE roles_permisos_modulo SET $this->id = :$this->id WHERE rol = :rol AND id_modulo = :id_modulo";
     }
 
     private function SQL_05():string
     {
-        return "UPDATE personas SET rol_inicio=:rol_inicio ,contrasenia = :contrasenia WHERE cedula_persona = :cedula_usuario";
+        return "UPDATE personas SET rol_inicio = :rol_inicio ,contrasenia = :contrasenia WHERE cedula_persona = :cedula_usuario";
     }
 
     private function SQL_06():string
