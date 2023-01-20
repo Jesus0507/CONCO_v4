@@ -39,6 +39,7 @@ trait Componentes
     {
         return [
             'Inicio' => "Inicio/",
+            'Contacto' => "Contacto/",
         ];
     }
 }
