@@ -40,6 +40,7 @@ trait Componentes
         return [
             'Inicio'    => "Inicio/",
             'Contacto'  => "Contacto/",
+            'Solicitudes'  => "Solicitudes/",
             'Agenda'    => [
                 'Registros' => "Agenda/Administrar/Registros/",
                 'Consultas' => "Agenda/Administrar/Consultas/",
