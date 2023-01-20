@@ -71,6 +71,10 @@ trait Componentes
                 'Registros' => "Discapacitados/Administrar/Registros/",
                 'Consultas' => "Discapacitados/Administrar/Consultas/",
             ],
+            'Parto_Humanizado'    => [
+                'Registros' => "Parto_Humanizado/Administrar/Registros/",
+                'Consultas' => "Parto_Humanizado/Administrar/Consultas/",
+            ],
         ];
     }
 }
