@@ -59,6 +59,10 @@ trait Componentes
                 'Registros' => "Viviendas/Administrar/Registros/",
                 'Consultas' => "Viviendas/Administrar/Consultas/",
             ],
+            'Vacunados'    => [
+                'Registros' => "Vacunados/Administrar/Registros/",
+                'Consultas' => "Vacunados/Administrar/Consultas/",
+            ],
         ];
     }
 }
