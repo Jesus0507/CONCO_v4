@@ -100,7 +100,7 @@ trait Componentes
                 'Consultas' => "Centro_Votacion/Administrar/Consultas/",
             ],
             'Seguridad'  => "Seguridad/Roles/",
-            
+            'Bitacora'  => "Bitacora/Administrar/Consultas/",
         ];
     }
 }
