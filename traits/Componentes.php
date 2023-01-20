@@ -34,4 +34,11 @@ trait Componentes
             'ATAJO' => "",
         ];
     }
+
+    protected function Direcciones()
+    {
+        return [
+            'Inicio' => "Inicio/",
+        ];
+    }
 }
