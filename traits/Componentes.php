@@ -121,7 +121,13 @@ trait Componentes
                 ],
                 'Historial_Familiar' => "Reportes/Historial_Familiar/",
                 'Estadisticas' => "Reportes/Estadisticas/",
+                'Censo_Poblacional' => "Reportes/Censo_Poblacional/",
             ],
+            'Ayuda'  => "Ayuda/",
+            'Habitante'  => "Habitante/",
+            'Login'  => "Login/Administrar/",
+            
+
         ];
     }
 }
