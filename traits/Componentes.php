@@ -67,6 +67,10 @@ trait Componentes
                 'Registros' => "Enfermos/Administrar/Registros/",
                 'Consultas' => "Enfermos/Administrar/Consultas/",
             ],
+            'Discapacitados'    => [
+                'Registros' => "Discapacitados/Administrar/Registros/",
+                'Consultas' => "Discapacitados/Administrar/Consultas/",
+            ],
         ];
     }
 }
