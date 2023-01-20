@@ -75,6 +75,10 @@ trait Componentes
                 'Registros' => "Parto_Humanizado/Administrar/Registros/",
                 'Consultas' => "Parto_Humanizado/Administrar/Consultas/",
             ],
+            'Sector_Agricola'    => [
+                'Registros' => "Sector_Agricola/Administrar/Registros/",
+                'Consultas' => "Sector_Agricola/Administrar/Consultas/",
+            ],
         ];
     }
 }
