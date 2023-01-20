@@ -42,6 +42,7 @@ trait Componentes
             'Contacto'  => "Contacto/",
             'Solicitudes'  => "Solicitudes/",
             'Notificaciones'  => "Notificaciones/Administrar/Listar/",
+            'Login'  => "Login/Salir",
             'Agenda'    => [
                 'Registros' => "Agenda/Administrar/Registros/",
                 'Consultas' => "Agenda/Administrar/Consultas/",
