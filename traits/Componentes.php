@@ -51,6 +51,10 @@ trait Componentes
                 'Registros' => "Personas/Registros/",
                 'Consultas' => "Personas/Consultas/",
             ],
+            'Familias'    => [
+                'Registros' => "Familias/Administrar/Registros/",
+                'Consultas' => "Familias/Administrar/Consultas/",
+            ],
         ];
     }
 }
