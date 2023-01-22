@@ -9,6 +9,7 @@ trait Herramientas
 
 	public $validacion;
 	public $modelo;
+    public $controlador;
 	public $error;
     public $error_log; 
 
@@ -42,6 +43,15 @@ trait Herramientas
                 return $this->Capturar_Error($this->error);
             }
         }
+    }
+
+    #CARGA DE CONTROLADORES
+    public function Cargar_Controlador($modulo)
+    {
+        $this->controlador = 'controlador/' . $modulo . '_controlador.php';
+        require_once $this->controlador;
+
+        $this->controlador = new $modulo();
     }
 
     # CARGAR ARCHIVOS DE BACKEND
