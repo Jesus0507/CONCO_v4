@@ -13,7 +13,9 @@ trait Herramientas
 	public $error;
     public $error_log; 
     public $session;
-    
+    public $dias = [ "Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sábado" ];
+    public $meses = [ "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" ];
+
     #GETTER obtiene datos declarados en una clase
     public function __GET($A)
     {
@@ -108,13 +110,23 @@ trait Herramientas
     #GETER DE SESIONES
     public function SESSION():string  {return $this->session;}
 
-    #Captura de herrores en modulos
-    protected function Capturar_Error($e,$modulo)
+    #captura de error de algoritmos sin conexion
+    protected function Capturar_Error()
+    {
+        $this->error_log          = new stdClass();
+        $this->error_log->Fecha   = $this->dias[ date('w') ]." , ".date('d')." de ".$this->meses[ date('n')-1 ] ." del ". date('Y');
+        $this->error_log->Hora    = date('h:i:s a');
+        $this->error_log->Mensaje = $this->error;
+        $this->error_log(print_r($this->error_log, true), 3, "errores.log");
+    }
+
+    #Captura de herrores en modulos con conexion
+    protected function Capturar_Error_Modulo($e,$modulo)
     {   
         $this->conexion->rollBack(); #Revierte una transacción
         $this->error_log          = new stdClass();
         $this->error_log->Modulo  = "------".$modulo."------";
-        $this->error_log->Fecha   = $GLOBALS['fecha_larga'];
+        $this->error_log->Fecha   = $this->dias[ date('w') ]." , ".date('d')." de ".$this->meses[ date('n')-1 ] ." del ". date('Y');
         $this->error_log->Hora    = date('h:i:s A');
         $this->error_log->Archivo = $e->getFile();
         $this->error_log->Linea   = $e->getLine();
