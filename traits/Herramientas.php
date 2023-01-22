@@ -102,6 +102,8 @@ trait Herramientas
             $this->_403_();
         }
     }
+    #Seter der sesiones
+    public function _SESSION_($session): void {$this->session = $session;}
 
     #Captura de herrores en modulos
     protected function Capturar_Error($e,$modulo)
