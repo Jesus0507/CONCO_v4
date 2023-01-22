@@ -12,7 +12,8 @@ trait Herramientas
     public $controlador;
 	public $error;
     public $error_log; 
-
+    public $session;
+    
     #GETTER obtiene datos declarados en una clase
     public function __GET($A)
     {
@@ -104,6 +105,8 @@ trait Herramientas
     }
     #Seter der sesiones
     public function _SESSION_($session): void {$this->session = $session;}
+    #GETER DE SESIONES
+    public function SESSION():string  {return $this->session;}
 
     #Captura de herrores en modulos
     protected function Capturar_Error($e,$modulo)
