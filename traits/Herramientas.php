@@ -18,6 +18,11 @@ trait Herramientas
     {
         return $this->$A;
     }
+    #SETTER GENERICO declara variables en una clase de forma publica
+    public function __SET($A, $B)
+    {
+        return $this->$A = $B;
+    }
     # VER CONTENIDO DE UN ARRAY DE MANERA ORDENADA
  	public function Ver_Array($value)
     {
