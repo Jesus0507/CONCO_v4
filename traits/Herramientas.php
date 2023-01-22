@@ -81,6 +81,12 @@ trait Herramientas
         echo json_encode($array, JSON_UNESCAPED_UNICODE);
     }
 
+    #ERROR 403 
+    public function _403_()
+    {
+        die("No posee los permisos para realizar esta accion.");
+    }
+
     #Captura de herrores en modulos
     protected function Capturar_Error($e,$modulo)
     {   
