@@ -86,6 +86,17 @@ trait Herramientas
     {
         die("No posee los permisos para realizar esta accion.");
     }
+    #SEGURIDAD DE SESSION ver que el usuario este logueado
+    public function Seguridad_de_Session()
+    {
+        @session_start();
+        $var = $_SESSION['cedula_usuario'];
+        if ($var == null || $var == '') {
+            session_start();
+            session_destroy();
+            $this->_403_();
+        }
+    }
 
     #Captura de herrores en modulos
     protected function Capturar_Error($e,$modulo)
