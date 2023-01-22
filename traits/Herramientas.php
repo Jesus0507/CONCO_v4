@@ -63,7 +63,7 @@ trait Herramientas
     }
 
     # CARGAR ARCHIVOS DE BACKEND
-    public function Validacion($modulo)
+    public function Cargar_Validacion($modulo)
     {
         $this->url = 'controlador/backend/' . $this->modulo . '_validacion.php';
 
@@ -117,7 +117,8 @@ trait Herramientas
         $this->error_log->Fecha   = $this->dias[ date('w') ]." , ".date('d')." de ".$this->meses[ date('n')-1 ] ." del ". date('Y');
         $this->error_log->Hora    = date('h:i:s a');
         $this->error_log->Mensaje = $this->error;
-        $this->error_log(print_r($this->error_log, true), 3, "errores.log");
+        error_log(print_r($this->error_log, true), 3, "errores.log");
+        return false;
     }
 
     #Captura de herrores en modulos con conexion
