@@ -11,7 +11,12 @@ trait Herramientas
 	public $modelo;
 	public $error;
     public $error_log; 
-    
+
+    #GETTER obtiene datos declarados en una clase
+    public function __GET($A)
+    {
+        return $this->$A;
+    }
     # VER CONTENIDO DE UN ARRAY DE MANERA ORDENADA
  	public function Ver_Array($value)
     {
