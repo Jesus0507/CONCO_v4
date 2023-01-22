@@ -6,7 +6,6 @@ trait Metodos
 	abstract public function _Tipo_(int $tipo): 	void();#SETER de tipo de ejecucion de modelos
 	abstract public function _Datos_(array $datos): void();#SETER de array con datos a ejecutar
 	abstract public function _Estado_(array $estado): void();#SETER de array a ejecutar
-	
 }	
 
 ?>
