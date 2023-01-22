@@ -7,7 +7,8 @@ trait Herramientas
 	private $modelName;
 	private $reflectionClass;
 
-	public $validacion ;
+	public $validacion;
+	public $modelo;
 	public $error;
 
     # VER CONTENIDO DE UN ARRAY DE MANERA ORDENADA
@@ -16,6 +17,25 @@ trait Herramientas
         echo "<pre>";
         echo var_dump($value);
         echo "</pre>";
+    }
+    #CARGA DE MODELOS 
+    public function Cargar_Modelo($modulo)
+    {
+        $this->url = 'modelo/' . $this->modulo . '_class.php';
+
+        if (file_exists($this->url)) {
+            require $this->url;
+
+            $this->modelName       = $this->modulo . '_Class';
+            $this->reflectionClass = new ReflectionClass($this->modelName);
+
+            if ($this->reflectionClass->IsInstantiable()) {
+                $this->modelo = new $this->modelName();
+            } else {
+                $this->error = '[Error Objeto] => "El Objeto: [ ' . $this->modelName . ' ] No puede ser Instanciado."';
+                return $this->Capturar_Error($this->error);
+            }
+        }
     }
 
     # CARGAR ARCHIVOS DE BACKEND
