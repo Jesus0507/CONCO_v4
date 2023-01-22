@@ -58,4 +58,10 @@ trait Herramientas
             }
         }
     }
+
+    #IMPRIMIR ARRAY MEDIANTE JSON ENCODE
+    public function Escribir_JSON($array)
+    {
+        echo json_encode($array, JSON_UNESCAPED_UNICODE);
+    }
 }
