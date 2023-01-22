@@ -10,7 +10,8 @@ trait Herramientas
 	public $validacion;
 	public $modelo;
 	public $error;
-
+    public $error_log; 
+    
     # VER CONTENIDO DE UN ARRAY DE MANERA ORDENADA
  	public function Ver_Array($value)
     {
@@ -63,5 +64,29 @@ trait Herramientas
     public function Escribir_JSON($array)
     {
         echo json_encode($array, JSON_UNESCAPED_UNICODE);
+    }
+
+    #Captura de herrores en modulos
+    protected function Capturar_Error($e,$modulo)
+    {   
+        $this->conexion->rollBack(); #Revierte una transacción
+        $this->error_log          = new stdClass();
+        $this->error_log->Modulo  = "------".$modulo."------";
+        $this->error_log->Fecha   = $GLOBALS['fecha_larga'];
+        $this->error_log->Hora    = date('h:i:s A');
+        $this->error_log->Archivo = $e->getFile();
+        $this->error_log->Linea   = $e->getLine();
+        $this->error_log->Mensaje = $e->getMessage();
+        error_log(print_r($this->error_log, true), 3, "errores.log"); 
+
+        $this->error = 'Ha surgido un error y no se puede conectar a la base de datos. Detalle: </br>' .
+        "[ Archivo ] => " . $e->getFile() . "</br>" .
+        "[ Linea ]   => (" . $e->getLine() . ")</br>" .
+        "[ Codigo ]   => (" . $e->getCode() . ")</br>" .
+        "[ Error PHP]   => (" . $e->getMessage() . ")</br>";
+
+        echo ($this->error);
+        unset($this->error,$this->error_log, $modulo);
+        return false;
     }
 }
