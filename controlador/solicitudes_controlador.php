@@ -398,39 +398,4 @@ class Solicitudes extends Controlador
 
     // ==============================================================================
 
-    function print() {
-        $this->Seguridad_de_Session();
-        $solicitudes = $this->modelo->Consultar_all();
-
-        foreach ($solicitudes as $s) {
-            if ($s['id_solicitud'] == $_GET['id']) {
-
-                $header_constancia = "";
-                $body_constancia   = "";
-                $footer_constancia = "";
-
-                switch ($s['tipo_constancia']) {
-
-                    case "Residencia":
-
-                        $header_constancia = "<table style='width:100%'><tr><td style='width:10%'></td><td style='width:80%'>REPUBLICA BOLIVARIANA DE VENEZUELA<br>CONSEJO COMUNAL<br>PRADOS DE OCCIDENTE SECTOR III<br>RIF. J-30725585 CODIGO 13-03-04-608-0002<br>Barquisimeto Municipio Iribarren<br>Parroquia Guerrera Ana Soto Estado Lara<br><u><h4>CONSTANCIA DE RESIDENCIA</h4></u></td><td style='width:10%'></td></tr></table>";
-
-                        break;
-
-                    case "Buena conducta":
-                        break;
-
-                    case "No poseer vivienda":
-                        break;
-
-                }
-
-                $this->vista->header_constancia = $header_constancia;
-                $this->vista->titulo            = "Constancia de " . $s['tipo_constancia'];
-                $this->vista->Cargar_Vistas('solicitudes/constancia_pdf');
-
-            }
-        }
-
-    }
 }
