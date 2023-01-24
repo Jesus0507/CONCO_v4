@@ -140,13 +140,76 @@ class Reportes extends Controlador
         $this->peticion = (isset($_POST['peticion'])) ? $_POST['peticion'] : $peticion[0];
         switch ($this->peticion) {
 
-            case 'Consultas':
-                if ($this->permisos["consultar"] === 1) {
-                    $this->vista->Cargar_Vistas('negocios/consultar');
-                } else { $this->_403_();}
+            case 'Listados':
+                $this->vista->Cargar_Vistas('reportes/listados');
                 break;
 
-            case 'Consulta_Ajax':$this->Escribir_JSON($this->Get_Datos_Vista()["negocios"]);
+            case 'Censos':
+                $this->vista->Cargar_Vistas('reportes/censos');
+                break;
+
+            case 'Historial_Familiar':
+                $this->vista->Cargar_Vistas('reportes/historial_familiar');
+                break;
+
+            case 'Grupos_Deportivos':
+                $this->vista->Cargar_Vistas('reportes/PDF/grupos_deportivos');
+                break;
+
+            case 'Milicianos':
+                $this->vista->Cargar_Vistas('reportes/PDF/miliciano');
+                break;
+
+            case 'Jefe_Familias':
+                $this->vista->Cargar_Vistas('reportes/PDF/jefes_familia');
+                break;
+
+            case 'Personas_Discapacidad':
+                $this->vista->Cargar_Vistas('reportes/PDF/personas_discapacidad');
+                break;
+
+            case 'Consejo_Comunal':
+                $this->vista->Cargar_Vistas('reportes/PDF/consejo_comunal');
+                break;
+
+            case 'Embarazadas':
+                $this->vista->Cargar_Vistas('reportes/PDF/embarazadas');
+                break;
+
+            case 'Nivel_Educativo':
+                $this->vista->Cargar_Vistas('reportes/PDF/nivel_educativo');
+                break;
+
+            case 'Carnet_Personas':
+                $this->vista->Cargar_Vistas('reportes/PDF/personas_carnet');
+                break;
+
+            case 'Negocios':
+                $this->vista->Cargar_Vistas('reportes/PDF/negocios');
+                break;
+
+            case 'Inmuebles':
+                $this->vista->Cargar_Vistas('reportes/PDF/inmuebles');
+                break;
+
+            case 'Viviendas':
+                $this->vista->Cargar_Vistas('reportes/PDF/viviendas');
+                break;
+
+            case 'Personas_Enfermedades':
+                $this->vista->Cargar_Vistas('reportes/PDF/personas_enfermedades');
+                break;
+
+            case 'Votantes':
+                $this->vista->Cargar_Vistas('reportes/PDF/votantes');
+                break;
+
+            case 'Poblacion_Edades':
+                $this->vista->Cargar_Vistas('reportes/PDF/poblacion_edades');
+                break;
+
+            case 'Sexo_Diverso':
+                $this->vista->Cargar_Vistas('reportes/PDF/sexo_diverso');
                 break;
 
             default:$this->vista->Cargar_Vistas('error/400');
@@ -200,12 +263,12 @@ class Reportes extends Controlador
         $this->vista->Cargar_Vistas('reportes/constancias');
     }
 
-    public function Listados()
-    {
-        $this->Establecer_Consultas();
-        $this->Seguridad_de_Session();
-        $this->vista->Cargar_Vistas('reportes/listados');
-    }
+    // public function Listados()
+    // {
+    //     $this->Establecer_Consultas();
+    //     $this->Seguridad_de_Session();
+    //     $this->vista->Cargar_Vistas('reportes/listados');
+    // }
 
     public function Estadisticas()
     {
@@ -562,12 +625,12 @@ class Reportes extends Controlador
                 break;
         }
     }
-    public function Censos()
-    {
-        $this->Seguridad_de_Session();
-        $this->Establecer_Consultas();
-        $this->vista->Cargar_Vistas('reportes/censos');
-    }
+    // public function Censos()
+    // {
+    //     $this->Seguridad_de_Session();
+    //     $this->Establecer_Consultas();
+    //     $this->vista->Cargar_Vistas('reportes/censos');
+    // }
     public function Reporte_Ninos()
     {
         $this->Seguridad_de_Session();
@@ -685,118 +748,6 @@ class Reportes extends Controlador
         $this->vista->piso = $piso;
 
         $this->vista->Cargar_Vistas('reportes/PDF/historial_clinico');
-    }
-
-    public function Milicianos()
-    {
-        $this->Seguridad_de_Session();
-        $this->Establecer_Consultas();
-        $this->vista->Cargar_Vistas('reportes/PDF/miliciano');
-    }
-
-    public function Jefe_Familias()
-    {
-        $this->Seguridad_de_Session();
-        $this->Establecer_Consultas();
-        $this->vista->Cargar_Vistas('reportes/PDF/jefes_familia');
-    }
-
-    public function Inmuebles()
-    {
-        $this->Seguridad_de_Session();
-        $this->Establecer_Consultas();
-        $this->vista->Cargar_Vistas('reportes/PDF/inmuebles');
-    }
-
-    public function Negocios()
-    {
-        $this->Seguridad_de_Session();
-        $this->Establecer_Consultas();
-        $this->vista->Cargar_Vistas('reportes/PDF/negocios');
-    }
-
-    public function Nivel_Educativo()
-    {
-        $this->Seguridad_de_Session();
-        $this->Establecer_Consultas();
-        $this->vista->Cargar_Vistas('reportes/PDF/nivel_educativo');
-    }
-
-    public function Carnet_Personas()
-    {
-        $this->Seguridad_de_Session();
-        $this->Establecer_Consultas();
-        $this->vista->Cargar_Vistas('reportes/PDF/personas_carnet');
-    }
-
-    public function Personas_Discapacidad()
-    {
-        $this->Seguridad_de_Session();
-        $this->Establecer_Consultas();
-        $this->vista->Cargar_Vistas('reportes/PDF/personas_discapacidad');
-    }
-
-    public function Viviendas()
-    {
-        $this->Seguridad_de_Session();
-        $this->Establecer_Consultas();
-        $this->vista->Cargar_Vistas('reportes/PDF/viviendas');
-    }
-
-    public function Consejo_Comunal()
-    {
-        $this->Seguridad_de_Session();
-        $this->Establecer_Consultas();
-        $this->vista->Cargar_Vistas('reportes/PDF/consejo_comunal');
-    }
-
-    public function Sexo_Diverso()
-    {
-        $this->Seguridad_de_Session();
-        $this->Establecer_Consultas();
-        $this->vista->Cargar_Vistas('reportes/PDF/sexo_diverso');
-    }
-
-    public function Votantes()
-    {
-        $this->Seguridad_de_Session();
-        $this->Establecer_Consultas();
-        $this->vista->Cargar_Vistas('reportes/PDF/votantes');
-    }
-
-    public function Personas_Enfermedades()
-    {
-        $this->Seguridad_de_Session();
-        $this->Establecer_Consultas();
-        $this->vista->Cargar_Vistas('reportes/PDF/personas_enfermedades');
-    }
-
-    public function Grupos_Deportivos()
-    {
-        $this->Seguridad_de_Session();
-        $this->Establecer_Consultas();
-        $this->vista->Cargar_Vistas('reportes/PDF/grupos_deportivos');
-    }
-
-    public function Embarazadas()
-    {
-        $this->Seguridad_de_Session();
-        $this->Establecer_Consultas();
-        $this->vista->Cargar_Vistas('reportes/PDF/embarazadas');
-    }
-
-    public function Poblacion_Edades()
-    {
-        $this->Seguridad_de_Session();
-        $this->Establecer_Consultas();
-        $this->vista->Cargar_Vistas('reportes/PDF/poblacion_edades');
-    }
-
-    public function Historial_Familiar()
-    {
-        $this->Seguridad_de_Session();
-        $this->Establecer_Consultas();
-        $this->vista->Cargar_Vistas('reportes/historial_familiar');
     }
 
     public function info_censo_poblacional()

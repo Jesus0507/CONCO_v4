@@ -11,7 +11,7 @@ class Reportes_Class extends Modelo
     private $datos;         #datos a ejecutar para enviar a la bd
     public  $resultado;     #resultado de consultas de la bd
     private $id;
-
+ 
     public function __construct(){parent::__construct();}
 
     // SETTER estaablece los datos a usar en el modelo (tipo void no retornan un valor)

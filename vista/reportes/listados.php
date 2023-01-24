@@ -28,8 +28,7 @@
                             class="fas fa-minus"></i> </button>
                 </div>
             </div>
-            <form action="<?php echo constant('URL'); ?>Calles/Nueva_Calle" enctype="multipart/form-data"
-                id="formulario" method="POST" name="formulario">
+            <form action="" enctype="multipart/form-data" id="formulario" method="POST" name="formulario">
                 <!-- card-body -->
                 <div class="card-body">
                     <div class="card-block">
@@ -44,59 +43,59 @@
                                             Listado de Grupos Deportivos
                                         </option>
 
-                                        <option value="<?php Direcciones::_000_("Reportes/Milicianos");?>">
+                                        <option value="<?php Direcciones::_000_("Reportes/Administrar/Milicianos");?>">
                                             Listado de Milicianos
                                         </option>
 
-                                        <option value="<?php Direcciones::_000_("Reportes/Jefe_Familias");?>">
+                                        <option value="<?php Direcciones::_000_("Reportes/Administrar/Jefe_Familias");?>">
                                             Listado de Jefes de Familia
                                         </option>
 
-                                        <option value="<?php Direcciones::_000_("Reportes/Personas_Discapacidad");?>">
+                                        <option value="<?php Direcciones::_000_("Reportes/Administrar/Personas_Discapacidad");?>">
                                             Listado de Personas con Discapacidad
                                         </option>
 
-                                        <option value="<?php Direcciones::_000_("Reportes/Consejo_Comunal");?>">
+                                        <option value="<?php Direcciones::_000_("Reportes/Administrar/Consejo_Comunal");?>">
                                             Listado de Estructura del Consejo Comunal
                                         </option>
 
-                                        <option value="<?php Direcciones::_000_("Reportes/Embarazadas");?>">
+                                        <option value="<?php Direcciones::_000_("Reportes/Administrar/Embarazadas");?>">
                                             Listado de Embarazadas
                                         </option>
 
-                                        <option value="<?php Direcciones::_000_("Reportes/Nivel_Educativo");?>">
+                                        <option value="<?php Direcciones::_000_("Reportes/Administrar/Nivel_Educativo");?>">
                                             Listado de Nivel Educativo de Personas
                                         </option>
 
-                                        <option value="<?php Direcciones::_000_("Reportes/Carnet_Personas");?>">
+                                        <option value="<?php Direcciones::_000_("Reportes/Administrar/Carnet_Personas");?>">
                                             Listado de Personas con Carnet
                                         </option>
 
-                                        <option value="<?php Direcciones::_000_("Reportes/Negocios");?>">
+                                        <option value="<?php Direcciones::_000_("Reportes/Administrar/Negocios");?>">
                                             Listado de Negocios
                                         </option>
 
-                                        <option value="<?php Direcciones::_000_("Reportes/Inmuebles");?>">
+                                        <option value="<?php Direcciones::_000_("Reportes/Administrar/Inmuebles");?>">
                                             Listado de Inmuebles
                                         </option>
 
-                                        <option value="<?php Direcciones::_000_("Reportes/Viviendas");?>">
+                                        <option value="<?php Direcciones::_000_("Reportes/Administrar/Viviendas");?>">
                                             Listado de Viviendas
                                         </option>
 
-                                        <option value="<?php Direcciones::_000_("Reportes/Personas_Enfermedades");?>">
+                                        <option value="<?php Direcciones::_000_("Reportes/Administrar/Personas_Enfermedades");?>">
                                             Listado de Personas Enfermedades
                                         </option>
 
-                                        <option value="<?php Direcciones::_000_("Reportes/Votantes");?>">
+                                        <option value="<?php Direcciones::_000_("Reportes/Administrar/Votantes");?>">
                                             Listado de Votantes
                                         </option>
 
-                                        <option value="<?php Direcciones::_000_("Reportes/Poblacion_Edades");?>">
+                                        <option value="<?php Direcciones::_000_("Reportes/Administrar/Poblacion_Edades");?>">
                                             Listado de Poblacion Edades
                                         </option>
 
-                                        <option value="<?php Direcciones::_000_("Reportes/Sexo_Diverso");?>">
+                                        <option value="<?php Direcciones::_000_("Reportes/Administrar/Sexo_Diverso");?>">
                                             Listado de Personas de Sexo Diverso
                                         </option>
 

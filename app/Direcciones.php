@@ -196,17 +196,17 @@ class Direcciones
 
     public static function _036_()
     {
-        echo URL . self::Seguridad('Reportes/Censos/', 'codificar');
+        echo URL . self::Seguridad('Reportes/Administrar/Censos/', 'codificar');
     }
 
     public static function _037_()
     {
-        echo URL . self::Seguridad('Reportes/Listados/', 'codificar');
+        echo URL . self::Seguridad('Reportes/Administrar/Listados/', 'codificar');
     }
 
     public static function _038_()
     {
-        echo URL . self::Seguridad('Reportes/Historial_Familiar/', 'codificar');
+        echo URL . self::Seguridad('Reportes/Administrar/Historial_Familiar/', 'codificar');
     }
 
     public static function _039_()
@@ -241,7 +241,7 @@ class Direcciones
 
     public static function _045_()
     {
-        echo URL . self::Seguridad('Reportes/Grupos_Deportivos', 'codificar');
+        echo URL . self::Seguridad('Reportes/Administrar/Grupos_Deportivos', 'codificar');
     }
 
     public static function _000_($value)

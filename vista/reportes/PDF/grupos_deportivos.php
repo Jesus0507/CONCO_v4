@@ -14,9 +14,9 @@
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <script>
-    /* window.blur();
+     window.blur();
              window.print();
-             window.close(); */
+             // window.close(); 
          </script>
          <section class="content">
             <!-- Default box -->
