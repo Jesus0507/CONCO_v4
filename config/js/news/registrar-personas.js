@@ -261,17 +261,16 @@ transporte.onchange = function() {
 }
 //----------------------------------------------------------------------------------------------------//
 recibe_actualmente.onchange = function() {
-    var tr= recibe_actualmente.parentElement.parentElement;
+    var tr = recibe_actualmente.parentElement.parentElement;
     if (recibe_actualmente.value == '0') {
         ver_fecha_recepcion.style.display = '';
-        tr.children[0].style.width='30%';
-        tr.children[1].style.width='30%';
-        tr.children[2].style.width='20%';
-
+        tr.children[0].style.width = '30%';
+        tr.children[1].style.width = '30%';
+        tr.children[2].style.width = '20%';
     } else {
         ver_fecha_recepcion.style.display = 'none';
-        tr.children[0].style.width='40%';
-        tr.children[1].style.width='40%';
+        tr.children[0].style.width = '40%';
+        tr.children[1].style.width = '40%';
     }
 }
 //---------------------------------funcion para visualizar campo de tipo de transporte---------------//
@@ -287,16 +286,15 @@ org_politica.onchange = function() {
 sector_laboral.onchange = function() {
     change_to_dynamic_record("1", ver_sector_formal, sector_laboral, sector_formal);
     sector_formal.value = 'vacio';
-    if(sector_laboral.value=='1'){
-        var tr= sector_laboral.parentElement.parentElement;
-        tr.children[0].style.width='30%';
-        tr.children[1].style.width='30%';
-        tr.children[3].style.width='20%';
-    }
-    else {
-        var tr= sector_laboral.parentElement.parentElement;
-        tr.children[0].style.width='40%';
-        tr.children[1].style.width='40%';
+    if (sector_laboral.value == '1') {
+        var tr = sector_laboral.parentElement.parentElement;
+        tr.children[0].style.width = '30%';
+        tr.children[1].style.width = '30%';
+        tr.children[3].style.width = '20%';
+    } else {
+        var tr = sector_laboral.parentElement.parentElement;
+        tr.children[0].style.width = '40%';
+        tr.children[1].style.width = '40%';
     }
 }
 //----------------------------------boton guardar funcion---------------------------------------------//
@@ -446,7 +444,7 @@ btn_otro_proyecto.onclick = function() {
         btn_otro_proyecto.value = 'Atrás';
         div_proyecto_nuevo.style.display = "block";
     } else {
-        proyectos.value= 'vacio';
+        proyectos.value = 'vacio';
         div_proyecto_nuevo.style.display = "none";
         div_proyectos_existentes.style.display = 'block';
         div_proyectos_existentes.style.width = "100%";
@@ -829,7 +827,7 @@ function persona_existe() {
                     type: "POST",
                     url: BASE_URL + "app/Direcciones.php",
                     data: {
-                        direction: "Seguridad/cambio_estado",
+                        direction: "Seguridad/Administrar",
                         accion: "codificar"
                     },
                     success: function(direccion_segura) {
@@ -837,8 +835,11 @@ function persona_existe() {
                             type: "POST",
                             url: BASE_URL + direccion_segura,
                             data: {
-                                "cedula_persona": cedula.value,
-                                "estado": 1
+                                peticion: "Cambiar_Estado",
+                                datos: {
+                                    "cedula_persona": cedula.value,
+                                    "estado": 1
+                                },
                             }
                         }).done(function(result) {
                             if (result) {
@@ -1457,7 +1458,7 @@ function enviar_informacion() {
                     "datos": datos_persona
                 }
             }).done(function(result) {
-                 if (result == 1) {
+                if (result == 1) {
                     if (transporte.value != "0") {
                         registrar_transporte();
                     }
@@ -1487,7 +1488,7 @@ function enviar_informacion() {
                         showConfirmButton: false
                     });
                     Direccionar("Personas/Consultas");
-                 }
+                }
             })
         },
         error: function() {

@@ -186,7 +186,7 @@ class Direcciones
 
     public static function _034_()
     {
-        echo URL . self::Seguridad('Seguridad/Roles/', 'codificar');
+        echo URL . self::Seguridad('Seguridad/Administrar/Roles/', 'codificar');
     }
 
     public static function _035_()
