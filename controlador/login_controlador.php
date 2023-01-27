@@ -19,9 +19,9 @@ class Login extends Controlador
     {
         parent::__construct();
         $this->Validacion("Login");
-        $this->sql         = $_POST['sql'];
-        $this->validar     = $this->validacion;
-        $this->mensaje     = 1;
+        $this->sql     = $_POST['sql'];
+        $this->validar = $this->validacion;
+        $this->mensaje = 1;
         //   $this->Cargar_Modelo("login");
     }
     private function set_Usuario_Actual($cedula, $nombre, $apellido, $correo, $estado, $rol_inicio, $firma, $publica, $privada)
@@ -39,7 +39,10 @@ class Login extends Controlador
         $_SESSION['token']          = bin2hex(openssl_random_pseudo_bytes(20));
 
         $this->Cargar_Modelo("seguridad");
-        $permisos = $this->modelo->get_permisos_rol($rol_inicio);
+        $this->modelo->_Tipo_(2);
+        $this->modelo->_SQL_("SQL_01");
+        $this->modelo->_Datos_(["rol" => $rol_inicio]);
+        $permisos = $this->modelo->Administrar();
 
         $_SESSION['Solicitudes']       = $permisos[0];
         $_SESSION['Personas']          = $permisos[1];
