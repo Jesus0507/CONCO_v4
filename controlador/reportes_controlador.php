@@ -958,4 +958,49 @@ class Reportes extends Controlador
 
         echo json_encode($datos);
     }
+
+
+    private function Establecer_Consultas2()
+    {
+        
+        $milicianos                 = $this->modelo->Milicianos();
+        $jefes_familia              = $this->modelo->Jefes_Calle();
+        $inmuebles                  = $this->modelo->Inmuebles();
+        $negocios                   = $this->modelo->Negocios();
+        $nivel_educativo            = $this->modelo->Nivel_Educativo();
+        $carnet_personas            = $this->modelo->Carnet_Personas();
+        $viviendas                  = $this->modelo->Viviendas();
+        $discapacitados             = $this->modelo->Discapacitados();
+        $discapacidades             = $this->modelo->Discapacidades();
+        $comites_personas           = $this->modelo->Comites_Personas();
+        $personas_familia           = $this->modelo->Personas_Familia();
+        $persona_centro_votacion    = $this->modelo->Persona_Centro_Votacion();
+        $enfermos                   = $this->modelo->Enfermos();
+        $enfermedades               = $this->modelo->Enfermedades();
+        $grupos_deportivos          = $this->modelo->Grupos_Deportivos();
+        $grupos_deportivos_personas = $this->modelo->Grupo_Deportivo_Persona();
+        $embarazadas                = $this->modelo->Embarazadas();
+
+        $poblacion_edades = $this->modelo->Poblacion_Edades();
+
+        $this->modelo->_Tipo_(0);
+        $this->modelo->_SQL_("_01_");
+        $this->modelo->_CRUD_(["tabla" => "personas", "estado" => 1, "orden" => "cedula_persona"]);
+        $this->datos_consulta["personas"] = $this->modelo->Administrar();
+
+        $this->modelo->_CRUD_(["tabla" => "parto_humanizado", "estado" => 1, "orden" => "cedula_persona"]);
+        $this->datos_consulta["parto_humanizado"] = $this->modelo->Administrar();
+
+        $this->modelo->_CRUD_(["tabla" => "votantes_centro_votacion", "estado" => 1, "orden" => "cedula_votante"]);
+        $this->datos_consulta["votantes"] = $this->modelo->Administrar();
+
+        $this->modelo->_CRUD_(["tabla" => "vacuna_covid", "estado" => 1, "orden" => "cedula_persona"]);
+        $this->datos_consulta["vacunados"] = $this->modelo->Administrar();
+
+        $this->modelo->_CRUD_(["tabla" => "discapacidad_persona", "estado" => 1, "orden" => "cedula_persona"]);
+        $this->datos_consulta["discapacitados"] = $this->modelo->Administrar();
+
+        $this->modelo->_CRUD_(["tabla" => "persona_bonos", "estado" => 1, "orden" => "cedula_persona"]);
+        $this->datos_consulta["personas_bonos"] = $this->modelo->Administrar();
+    }
 }
