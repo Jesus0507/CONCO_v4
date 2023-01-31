@@ -27,7 +27,6 @@ class Familias extends Controlador
     {
         parent::__construct();
         //   $this->Cargar_Modelo("familias");
-        $this->Validacion("negocios");
         $this->permisos        = $_SESSION["Nucleo familiar"];
         $this->estado          = $_POST['estado'];
         $this->datos_ejecutar  = $_POST['datos'];

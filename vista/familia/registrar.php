@@ -144,7 +144,7 @@
                                                 Observaciones (opcional)
                                             </label>
                                             <div class="input-group">
-                                                <textarea rows="5" class='form-control' id='observaciones_familia'></textarea>
+                                                <textarea rows="5" class='form-control letras_numeros' id='observaciones_familia' oninput="Limitar(this,100)"></textarea>
                                             </div>
 
                                         </div>
