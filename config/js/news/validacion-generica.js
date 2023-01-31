@@ -23,6 +23,9 @@ $(document).ready(function () {
     $(".no-espacios").keyup(function () {
         this.value = this.value.replace(/ /g, "");
     });
+    $('.casa').on('input', function () {
+        this.value = this.value.replace(/[^A-Za-z0-9 -]/g, '');
+    });
 });
 var telefono = new Array(4, 3, 2, 2); // Patron para telefono
 var cuenta_bancaria = new Array(4, 4, 2, 10); // Patron para Cuent Bancaria
@@ -111,6 +114,25 @@ function Direccionar(direction) {
             },
             success: function (direccion_segura) {
                 location.href = BASE_URL + direccion_segura;
+            },
+            error: function () {
+                alert('Error al codificar dirreccion');
+            }
+        });
+    }, 1000);
+}
+
+function Direccionar_blank(direction) {
+    setTimeout(function () {
+        $.ajax({
+            type: "POST",
+            url: BASE_URL + "app/Direcciones.php",
+            data: {
+                direction: direction,
+                accion: "codificar"
+            },
+            success: function (direccion_segura) {
+                window.open(BASE_URL + direccion_segura);
             },
             error: function () {
                 alert('Error al codificar dirreccion');

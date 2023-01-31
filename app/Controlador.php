@@ -144,7 +144,7 @@ class Controlador
             $publicKeyWord = $keys[array_rand($keys)];
         }
 
-        while ($encryptValPrivated == $encryptValPublic) {
+        while ($encryptValPrivate == $encryptValPublic) {
             $encryptValPublic = $bits[array_rand($bits)];
         }
 

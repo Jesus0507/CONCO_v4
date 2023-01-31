@@ -1458,6 +1458,7 @@ function enviar_informacion() {
                     "datos": datos_persona
                 }
             }).done(function(result) {
+                console.log(result);
                 if (result == 1) {
                     if (transporte.value != "0") {
                         registrar_transporte();

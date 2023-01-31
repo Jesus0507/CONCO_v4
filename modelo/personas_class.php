@@ -425,7 +425,7 @@ class Personas_Class extends Modelo
             return true;
 
         } catch (PDOException $e) {
-            return $this->Capturar_Error($e,"Personas");
+            return $e;
         }
     }
 

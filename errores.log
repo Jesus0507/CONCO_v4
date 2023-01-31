@@ -1,0 +1,458 @@
+stdClass Object
+(
+    [Fecha] => Lunes , 30 de Enero del 2023
+    [Hora] => 08:21:35 pm
+    [Mensaje] => Array
+        (
+            [0] => [Error Funcion] => "La Funcion: [ obtener_permisos_dinamico() ] No se encuentra definida, en el controlador: [ Seguridad ]"
+        )
+
+)
+stdClass Object
+(
+    [Fecha] => Lunes , 30 de Enero del 2023
+    [Hora] => 08:21:45 pm
+    [Mensaje] => Array
+        (
+            [0] => [Error Funcion] => "La Funcion: [ obtener_permisos_dinamico() ] No se encuentra definida, en el controlador: [ Seguridad ]"
+        )
+
+)
+stdClass Object
+(
+    [Fecha] => Lunes , 30 de Enero del 2023
+    [Hora] => 08:21:56 pm
+    [Mensaje] => Array
+        (
+            [0] => [Error Funcion] => "La Funcion: [ obtener_permisos_dinamico() ] No se encuentra definida, en el controlador: [ Seguridad ]"
+        )
+
+)
+stdClass Object
+(
+    [Fecha] => Lunes , 30 de Enero del 2023
+    [Hora] => 08:22:07 pm
+    [Mensaje] => Array
+        (
+            [0] => [Error Funcion] => "La Funcion: [ obtener_permisos_dinamico() ] No se encuentra definida, en el controlador: [ Seguridad ]"
+        )
+
+)
+stdClass Object
+(
+    [Fecha] => Lunes , 30 de Enero del 2023
+    [Hora] => 08:22:19 pm
+    [Mensaje] => Array
+        (
+            [0] => [Error Funcion] => "La Funcion: [ obtener_permisos_dinamico() ] No se encuentra definida, en el controlador: [ Seguridad ]"
+        )
+
+)
+stdClass Object
+(
+    [Fecha] => Lunes , 30 de Enero del 2023
+    [Hora] => 08:22:30 pm
+    [Mensaje] => Array
+        (
+            [0] => [Error Funcion] => "La Funcion: [ obtener_permisos_dinamico() ] No se encuentra definida, en el controlador: [ Seguridad ]"
+        )
+
+)
+stdClass Object
+(
+    [Fecha] => Lunes , 30 de Enero del 2023
+    [Hora] => 08:22:40 pm
+    [Mensaje] => Array
+        (
+            [0] => [Error Funcion] => "La Funcion: [ obtener_permisos_dinamico() ] No se encuentra definida, en el controlador: [ Seguridad ]"
+        )
+
+)
+stdClass Object
+(
+    [Modulo] => ------Notificaciones------
+    [Fecha] => Martes , 31 de Enero del 2023
+    [Hora] => 11:08:52 AM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\notificaciones_class.php
+    [Linea] => 30
+    [Mensaje] => SQLSTATE[42S02]: Base table or view not found: 1146 Table 'conco.personas' doesn't exist
+)
+stdClass Object
+(
+    [Modulo] => ------Solicitudes------
+    [Fecha] => Martes , 31 de Enero del 2023
+    [Hora] => 11:08:54 AM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\solicitudes_class.php
+    [Linea] => 32
+    [Mensaje] => SQLSTATE[42S02]: Base table or view not found: 1146 Table 'conco.personas' doesn't exist
+)
+stdClass Object
+(
+    [Modulo] => ------Solicitudes------
+    [Fecha] => Martes , 31 de Enero del 2023
+    [Hora] => 11:08:54 AM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\solicitudes_class.php
+    [Linea] => 32
+    [Mensaje] => SQLSTATE[42S02]: Base table or view not found: 1146 Table 'conco.personas' doesn't exist
+)
+stdClass Object
+(
+    [Modulo] => ------Notificaciones------
+    [Fecha] => Martes , 31 de Enero del 2023
+    [Hora] => 11:08:57 AM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\notificaciones_class.php
+    [Linea] => 30
+    [Mensaje] => SQLSTATE[42S02]: Base table or view not found: 1146 Table 'conco.personas' doesn't exist
+)
+stdClass Object
+(
+    [Modulo] => ------Solicitudes------
+    [Fecha] => Martes , 31 de Enero del 2023
+    [Hora] => 11:08:59 AM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\solicitudes_class.php
+    [Linea] => 32
+    [Mensaje] => SQLSTATE[42S02]: Base table or view not found: 1146 Table 'conco.personas' doesn't exist
+)
+stdClass Object
+(
+    [Modulo] => ------Solicitudes------
+    [Fecha] => Martes , 31 de Enero del 2023
+    [Hora] => 11:08:59 AM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\solicitudes_class.php
+    [Linea] => 32
+    [Mensaje] => SQLSTATE[42S02]: Base table or view not found: 1146 Table 'conco.personas' doesn't exist
+)
+stdClass Object
+(
+    [Modulo] => ------Notificaciones------
+    [Fecha] => Martes , 31 de Enero del 2023
+    [Hora] => 11:09:03 AM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\notificaciones_class.php
+    [Linea] => 30
+    [Mensaje] => SQLSTATE[42S02]: Base table or view not found: 1146 Table 'conco.personas' doesn't exist
+)
+stdClass Object
+(
+    [Modulo] => ------Solicitudes------
+    [Fecha] => Martes , 31 de Enero del 2023
+    [Hora] => 11:09:04 AM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\solicitudes_class.php
+    [Linea] => 32
+    [Mensaje] => SQLSTATE[42S02]: Base table or view not found: 1146 Table 'conco.personas' doesn't exist
+)
+stdClass Object
+(
+    [Modulo] => ------Solicitudes------
+    [Fecha] => Martes , 31 de Enero del 2023
+    [Hora] => 11:09:04 AM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\solicitudes_class.php
+    [Linea] => 32
+    [Mensaje] => SQLSTATE[42S02]: Base table or view not found: 1146 Table 'conco.personas' doesn't exist
+)
+stdClass Object
+(
+    [Modulo] => ------Notificaciones------
+    [Fecha] => Martes , 31 de Enero del 2023
+    [Hora] => 11:09:08 AM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\notificaciones_class.php
+    [Linea] => 30
+    [Mensaje] => SQLSTATE[42S02]: Base table or view not found: 1146 Table 'conco.personas' doesn't exist
+)
+stdClass Object
+(
+    [Modulo] => ------Solicitudes------
+    [Fecha] => Martes , 31 de Enero del 2023
+    [Hora] => 11:09:09 AM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\solicitudes_class.php
+    [Linea] => 32
+    [Mensaje] => SQLSTATE[42S02]: Base table or view not found: 1146 Table 'conco.personas' doesn't exist
+)
+stdClass Object
+(
+    [Modulo] => ------Solicitudes------
+    [Fecha] => Martes , 31 de Enero del 2023
+    [Hora] => 11:09:09 AM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\solicitudes_class.php
+    [Linea] => 32
+    [Mensaje] => SQLSTATE[42S02]: Base table or view not found: 1146 Table 'conco.personas' doesn't exist
+)
+stdClass Object
+(
+    [Modulo] => ------Notificaciones------
+    [Fecha] => Martes , 31 de Enero del 2023
+    [Hora] => 11:09:13 AM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\notificaciones_class.php
+    [Linea] => 30
+    [Mensaje] => SQLSTATE[42S02]: Base table or view not found: 1146 Table 'conco.personas' doesn't exist
+)
+stdClass Object
+(
+    [Modulo] => ------Solicitudes------
+    [Fecha] => Martes , 31 de Enero del 2023
+    [Hora] => 11:09:14 AM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\solicitudes_class.php
+    [Linea] => 32
+    [Mensaje] => SQLSTATE[42S02]: Base table or view not found: 1146 Table 'conco.personas' doesn't exist
+)
+stdClass Object
+(
+    [Modulo] => ------Solicitudes------
+    [Fecha] => Martes , 31 de Enero del 2023
+    [Hora] => 11:09:14 AM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\solicitudes_class.php
+    [Linea] => 32
+    [Mensaje] => SQLSTATE[42S02]: Base table or view not found: 1146 Table 'conco.personas' doesn't exist
+)
+stdClass Object
+(
+    [Modulo] => ------Notificaciones------
+    [Fecha] => Martes , 31 de Enero del 2023
+    [Hora] => 11:09:18 AM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\notificaciones_class.php
+    [Linea] => 30
+    [Mensaje] => SQLSTATE[42S02]: Base table or view not found: 1146 Table 'conco.personas' doesn't exist
+)
+stdClass Object
+(
+    [Modulo] => ------Solicitudes------
+    [Fecha] => Martes , 31 de Enero del 2023
+    [Hora] => 11:09:19 AM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\solicitudes_class.php
+    [Linea] => 32
+    [Mensaje] => SQLSTATE[42S02]: Base table or view not found: 1146 Table 'conco.personas' doesn't exist
+)
+stdClass Object
+(
+    [Modulo] => ------Solicitudes------
+    [Fecha] => Martes , 31 de Enero del 2023
+    [Hora] => 11:09:19 AM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\solicitudes_class.php
+    [Linea] => 32
+    [Mensaje] => SQLSTATE[42S02]: Base table or view not found: 1146 Table 'conco.personas' doesn't exist
+)
+stdClass Object
+(
+    [Modulo] => ------Notificaciones------
+    [Fecha] => Martes , 31 de Enero del 2023
+    [Hora] => 11:09:23 AM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\notificaciones_class.php
+    [Linea] => 30
+    [Mensaje] => SQLSTATE[42S02]: Base table or view not found: 1146 Table 'conco.personas' doesn't exist
+)
+stdClass Object
+(
+    [Modulo] => ------Solicitudes------
+    [Fecha] => Martes , 31 de Enero del 2023
+    [Hora] => 11:09:24 AM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\solicitudes_class.php
+    [Linea] => 32
+    [Mensaje] => SQLSTATE[42S02]: Base table or view not found: 1146 Table 'conco.personas' doesn't exist
+)
+stdClass Object
+(
+    [Modulo] => ------Solicitudes------
+    [Fecha] => Martes , 31 de Enero del 2023
+    [Hora] => 11:09:24 AM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\solicitudes_class.php
+    [Linea] => 32
+    [Mensaje] => SQLSTATE[42S02]: Base table or view not found: 1146 Table 'conco.personas' doesn't exist
+)
+stdClass Object
+(
+    [Modulo] => ------Notificaciones------
+    [Fecha] => Martes , 31 de Enero del 2023
+    [Hora] => 11:09:28 AM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\notificaciones_class.php
+    [Linea] => 30
+    [Mensaje] => SQLSTATE[42S02]: Base table or view not found: 1146 Table 'conco.personas' doesn't exist
+)
+stdClass Object
+(
+    [Modulo] => ------Solicitudes------
+    [Fecha] => Martes , 31 de Enero del 2023
+    [Hora] => 11:09:29 AM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\solicitudes_class.php
+    [Linea] => 32
+    [Mensaje] => SQLSTATE[42S02]: Base table or view not found: 1146 Table 'conco.personas' doesn't exist
+)
+stdClass Object
+(
+    [Modulo] => ------Solicitudes------
+    [Fecha] => Martes , 31 de Enero del 2023
+    [Hora] => 11:09:29 AM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\solicitudes_class.php
+    [Linea] => 32
+    [Mensaje] => SQLSTATE[42S02]: Base table or view not found: 1146 Table 'conco.personas' doesn't exist
+)
+stdClass Object
+(
+    [Modulo] => ------Notificaciones------
+    [Fecha] => Martes , 31 de Enero del 2023
+    [Hora] => 11:09:33 AM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\notificaciones_class.php
+    [Linea] => 30
+    [Mensaje] => SQLSTATE[42S02]: Base table or view not found: 1146 Table 'conco.personas' doesn't exist
+)
+stdClass Object
+(
+    [Modulo] => ------Solicitudes------
+    [Fecha] => Martes , 31 de Enero del 2023
+    [Hora] => 11:09:34 AM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\solicitudes_class.php
+    [Linea] => 32
+    [Mensaje] => SQLSTATE[42S02]: Base table or view not found: 1146 Table 'conco.personas' doesn't exist
+)
+stdClass Object
+(
+    [Modulo] => ------Solicitudes------
+    [Fecha] => Martes , 31 de Enero del 2023
+    [Hora] => 11:09:34 AM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\solicitudes_class.php
+    [Linea] => 32
+    [Mensaje] => SQLSTATE[42S02]: Base table or view not found: 1146 Table 'conco.personas' doesn't exist
+)
+stdClass Object
+(
+    [Modulo] => ------Notificaciones------
+    [Fecha] => Martes , 31 de Enero del 2023
+    [Hora] => 11:09:38 AM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\notificaciones_class.php
+    [Linea] => 30
+    [Mensaje] => SQLSTATE[42S02]: Base table or view not found: 1146 Table 'conco.personas' doesn't exist
+)
+stdClass Object
+(
+    [Modulo] => ------Solicitudes------
+    [Fecha] => Martes , 31 de Enero del 2023
+    [Hora] => 11:09:39 AM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\solicitudes_class.php
+    [Linea] => 32
+    [Mensaje] => SQLSTATE[42S02]: Base table or view not found: 1146 Table 'conco.personas' doesn't exist
+)
+stdClass Object
+(
+    [Modulo] => ------Solicitudes------
+    [Fecha] => Martes , 31 de Enero del 2023
+    [Hora] => 11:09:39 AM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\solicitudes_class.php
+    [Linea] => 32
+    [Mensaje] => SQLSTATE[42S02]: Base table or view not found: 1146 Table 'conco.personas' doesn't exist
+)
+stdClass Object
+(
+    [Modulo] => ------Notificaciones------
+    [Fecha] => Martes , 31 de Enero del 2023
+    [Hora] => 11:09:43 AM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\notificaciones_class.php
+    [Linea] => 30
+    [Mensaje] => SQLSTATE[42S02]: Base table or view not found: 1146 Table 'conco.personas' doesn't exist
+)
+stdClass Object
+(
+    [Modulo] => ------Solicitudes------
+    [Fecha] => Martes , 31 de Enero del 2023
+    [Hora] => 11:09:44 AM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\solicitudes_class.php
+    [Linea] => 32
+    [Mensaje] => SQLSTATE[42S02]: Base table or view not found: 1146 Table 'conco.personas' doesn't exist
+)
+stdClass Object
+(
+    [Modulo] => ------Solicitudes------
+    [Fecha] => Martes , 31 de Enero del 2023
+    [Hora] => 11:09:44 AM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\solicitudes_class.php
+    [Linea] => 32
+    [Mensaje] => SQLSTATE[42S02]: Base table or view not found: 1146 Table 'conco.personas' doesn't exist
+)
+stdClass Object
+(
+    [Modulo] => ------Notificaciones------
+    [Fecha] => Martes , 31 de Enero del 2023
+    [Hora] => 11:09:48 AM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\notificaciones_class.php
+    [Linea] => 30
+    [Mensaje] => SQLSTATE[42S02]: Base table or view not found: 1146 Table 'conco.personas' doesn't exist
+)
+stdClass Object
+(
+    [Modulo] => ------Solicitudes------
+    [Fecha] => Martes , 31 de Enero del 2023
+    [Hora] => 11:09:49 AM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\solicitudes_class.php
+    [Linea] => 32
+    [Mensaje] => SQLSTATE[42S02]: Base table or view not found: 1146 Table 'conco.personas' doesn't exist
+)
+stdClass Object
+(
+    [Modulo] => ------Solicitudes------
+    [Fecha] => Martes , 31 de Enero del 2023
+    [Hora] => 11:09:49 AM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\solicitudes_class.php
+    [Linea] => 32
+    [Mensaje] => SQLSTATE[42S02]: Base table or view not found: 1146 Table 'conco.personas' doesn't exist
+)
+stdClass Object
+(
+    [Modulo] => ------Notificaciones------
+    [Fecha] => Martes , 31 de Enero del 2023
+    [Hora] => 11:09:53 AM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\notificaciones_class.php
+    [Linea] => 30
+    [Mensaje] => SQLSTATE[42S02]: Base table or view not found: 1146 Table 'conco.personas' doesn't exist
+)
+stdClass Object
+(
+    [Modulo] => ------Solicitudes------
+    [Fecha] => Martes , 31 de Enero del 2023
+    [Hora] => 11:09:54 AM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\solicitudes_class.php
+    [Linea] => 32
+    [Mensaje] => SQLSTATE[42S02]: Base table or view not found: 1146 Table 'conco.personas' doesn't exist
+)
+stdClass Object
+(
+    [Modulo] => ------Solicitudes------
+    [Fecha] => Martes , 31 de Enero del 2023
+    [Hora] => 11:09:54 AM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\solicitudes_class.php
+    [Linea] => 32
+    [Mensaje] => SQLSTATE[42S02]: Base table or view not found: 1146 Table 'conco.personas' doesn't exist
+)
+stdClass Object
+(
+    [Modulo] => ------Notificaciones------
+    [Fecha] => Martes , 31 de Enero del 2023
+    [Hora] => 11:10:23 AM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\notificaciones_class.php
+    [Linea] => 30
+    [Mensaje] => SQLSTATE[42S02]: Base table or view not found: 1146 Table 'conco.personas' doesn't exist
+)
+stdClass Object
+(
+    [Modulo] => ------Solicitudes------
+    [Fecha] => Martes , 31 de Enero del 2023
+    [Hora] => 11:10:24 AM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\solicitudes_class.php
+    [Linea] => 32
+    [Mensaje] => SQLSTATE[42S02]: Base table or view not found: 1146 Table 'conco.personas' doesn't exist
+)
+stdClass Object
+(
+    [Modulo] => ------Solicitudes------
+    [Fecha] => Martes , 31 de Enero del 2023
+    [Hora] => 11:10:24 AM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\solicitudes_class.php
+    [Linea] => 32
+    [Mensaje] => SQLSTATE[42S02]: Base table or view not found: 1146 Table 'conco.personas' doesn't exist
+)
+stdClass Object
+(
+    [Fecha] => Martes , 31 de Enero del 2023
+    [Hora] => 01:23:35 pm
+    [Mensaje] => Array
+        (
+            [0] => [Error Funcion] => "La Funcion: [ Administrar() ] No se encuentra definida, en el controlador: [ Personas ]"
+        )
+
+)

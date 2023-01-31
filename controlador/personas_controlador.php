@@ -319,7 +319,7 @@ class Personas extends Controlador
 
     public function registrar_persona()
     {
-        $datos                        = $_POST['datos'];
+        $datos = $_POST['datos'];
         $datos['preguntas_seguridad'] = explode('/', $datos['preguntas_seguridad']);
         $datos['user_rsa_keys']       = $this->GenerateRSAKeys($datos['preguntas_seguridad']);
         $datos['preguntas_seguridad'] = $datos['preguntas_seguridad'][0] . $datos['preguntas_seguridad'][1] . $datos['preguntas_seguridad'][2];
@@ -329,9 +329,6 @@ class Personas extends Controlador
         $datos['user_locked']         = 0;
         $datos['estado']              = 1;
         echo $this->modelo->Registrar($datos);
-
-        // echo json_encode($datos);
-
     }
 
     public function registrar_persona_habitante()

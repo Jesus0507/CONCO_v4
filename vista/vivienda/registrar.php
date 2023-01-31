@@ -71,7 +71,7 @@
                                     Nro de vivienda
                                 </label> <span id='valid_numero_casa' style='color:red'></span>
                                 <div class="input-group">
-                                    <input class="form-control mb-10 letras_numeros" id="numero_casa" name="datos[numero_casa]"
+                                    <input class="form-control mb-10 casa" id="numero_casa" name="datos[numero_casa]"
                                     placeholder="Numero de vivienda" type="text" oninput="Limitar(this,6)"/>
                                 </div>
                             </div>
