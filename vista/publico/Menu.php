@@ -521,7 +521,7 @@
                             Generar Reportes
                         </p>
                         <i class="right fas fa-angle-left"></i>
-                        <span class="badge badge-info right">5</span>
+                        
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item" onclick="cambio_modulo('Generar Censos')">

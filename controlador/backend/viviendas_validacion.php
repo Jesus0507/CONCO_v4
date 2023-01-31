@@ -46,7 +46,7 @@ class Viviendas_Validacion extends Validacion
                 if ($this->datos["id_calle"] == 0) {
                     $this->Errores[] = 'El campo calle es obligatorio';
                 } else {
-                    if (!is_numeric($this->datos["id_calle"])) {
+                    if (!is_numeric($this->datos["id_calle"])) { 
                         $this->Errores[] = 'la id es invalida.';
                     } else {
                         if ($this->Comprobar($this->datos["direccion_vivienda"])) {
@@ -58,7 +58,7 @@ class Viviendas_Validacion extends Validacion
                                 if ($this->Comprobar($this->datos["numero_casa"])) {
                                     $this->Errores[] = 'El campo numero de casa es obligatorio';
                                 } else {
-                                    if ($this->Validar_Caracteres($this->datos["numero_casa"])) {
+                                    if (!preg_match_all("/^[a-zA-Z0-9 - \b]{1,100}$/", $this->datos["numero_casa"])) {
                                         $this->Errores[] = "El campo numero de casa no debe tener caracteres especiales.";
                                     } else {
                                         if ($this->Comprobar($this->datos["cantidad_habitaciones"])) {
