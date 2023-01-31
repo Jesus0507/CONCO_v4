@@ -553,7 +553,7 @@
     <div class="text-center m-t-20">
         <div class="col-xs-12">
             <input type="button" class="btn  btn-info m-r-10" name="" id="guardar" value="Guardar">
-            <input type="button" class="btn btn-danger" id="" name="" value="Limpiar">
+            
         </div>
     </div>
 </div>

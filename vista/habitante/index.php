@@ -626,7 +626,7 @@
                                                                 <td>
                                                                     <button type="button" name="agregar"
                                                                         id="agregar_gas"
-                                                                        class="btn btn-success">Agregar</button>
+                                                                        class="btn btn-info">Agregar</button>
                                                                 </td>
                                                                 <td>
                                                                     <button type="button" name="agregar"
@@ -679,7 +679,7 @@
                                                                 <td>
                                                                     <button type="button" name="agregar"
                                                                         id="agregar_electrodomestico"
-                                                                        class="btn btn-success">Agregar</button>
+                                                                        class="btn btn-info">Agregar</button>
                                                                 </td>
                                                                 <td>
                                                                     <button type="button" name="agregar"
@@ -712,7 +712,7 @@
                                 <div class="card-footer" style='height: 30px;'>
                                     <div class="text-center mt-20">
                                         <div class="col-xs-12">
-                                            <input type="button" class="btn  btn-success m-r-10" name="" id="guardar"
+                                            <input type="button" class="btn  btn-info m-r-10" name="" id="guardar"
                                                 value="Guardar">
                                         </div>
                                     </div>
@@ -886,7 +886,7 @@
                                             <!-- /.card-body -->
                                             <div class="text-center m-t-20">
                                                 <div class="col-xs-12">
-                                                    <input type="button" class="btn  btn-success m-r-10" name=""
+                                                    <input type="button" class="btn  btn-info m-r-10" name=""
                                                         id="guardar_familia" value="Guardar">
                                                 </div>
                                             </div>

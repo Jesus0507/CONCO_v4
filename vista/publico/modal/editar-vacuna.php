@@ -54,7 +54,7 @@
                                         <td class="">
                                             <div class="input-group ">
                                                 <button type="button" name="agregar" id="agregar_dosis"
-                                                    class="btn btn-success">Agregar</button>
+                                                    class="btn bg-info">Agregar</button>
                                             </div>
 
                                         </td>

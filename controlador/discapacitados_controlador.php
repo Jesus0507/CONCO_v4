@@ -207,7 +207,7 @@ class Discapacitados extends Controlador
                         "cedula"         => $d['cedula_persona'],
                         "nombre"         => $d['primer_nombre'] . " " . $d['primer_apellido'],
                         "discapacidades" => $this->discapacidades_p,
-                        "editar"         => "<button type='button' class='btn btn-success editar' onclick='editar(`" . $d['cedula_persona'] . "`)' data-toggle='modal' data-target='#actualizar'><em class='fa fa-edit'></em></button>",
+                        "editar"         => "<button type='button' class='btn btn-info editar' onclick='editar(`" . $d['cedula_persona'] . "`)' data-toggle='modal' data-target='#actualizar'><em class='fa fa-edit'></em></button>",
                         "eliminar"       => "<button class='btn btn-danger' onclick='eliminar(`" . json_encode($this->id_discapacidad_p) . "`)' type='button'><em class='fa fa-trash'></em></button>",
                     ];
                 }
