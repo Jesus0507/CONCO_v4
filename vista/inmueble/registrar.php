@@ -67,7 +67,7 @@
                                     Dirección
                                 </label>
                                 <div class="input-group">
-                                    <input class="form-control no-simbolos mb-10" id="direccion" name="datos[direccion_inmueble]"
+                                    <input class="form-control letras_numeros mb-10" oninput="Limitar(this,50)" id="direccion" name="datos[direccion_inmueble]"
                                         placeholder="Direccion" type="text" />
                                 </div>
                                 <span id="mensaje_3"></span>
