@@ -15,12 +15,12 @@ trait Componentes
             ),
             'ByHost' => array(
                 'Servidor'   => 'mysql',
-                'Host'       => 'sql309.byethost12.com',
-                'Base_Datos' => 'epiz_33414627_conco',
+                'Host'       => 'sql112.byethost5.com',
+                'Base_Datos' => 'b5_33489354_conco',
                 'Puerto'     => '3306',
-                'Usuario'    => 'b12_32674459',
+                'Usuario'    => 'b5_33489354',
                 'Contraseña' => 'Cheche482010@',
-            ),
+            )
         ];
     }
 
