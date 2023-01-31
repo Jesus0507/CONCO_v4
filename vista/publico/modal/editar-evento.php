@@ -18,7 +18,7 @@
                                 Tipo de evento
                             </label>
                             <div class="input-group">
-                                <input class="form-control mb-10" id="tipo_evento" name="tipo_evento"
+                                <input class="form-control mb-10" oninput="Limitar(this,100);" id="tipo_evento" name="tipo_evento"
                                     placeholder="Evento" type="text" />
                             </div>
                         </div>
@@ -28,10 +28,10 @@
                                 Ubicación del evento
                             </label>
                             <div class="input-group">
-                                <input class="form-control mb-10" id="ubicacion_evento" name="ubicacion_evento"
+                                <input class="form-control mb-10" id="ubicacion_evento" oninput="Limitar(this,40);" name="ubicacion_evento"
                                     placeholder="Ubicación del evento" type="text" list='ubicaciones'/>
                                     <datalist id='ubicaciones'>
-                                        <?php foreach ($this->ubicaciones as $u) { ?>
+                                        <?php foreach ($this->datos["ubicaciones"] as $u) { ?>
                                            <option value="<?php echo $u; ?>"></option>
                                       <?php  } ?>
                                     </datalist>
