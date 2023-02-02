@@ -287,14 +287,14 @@ class Viviendas extends Controlador
                                     $this->modelo->Administrar();
                                 }
                             }
-                            for ($i = 0; $i < count($this->electrodomestico); $i++) {
-                                if ($this->electrodomestico[$i]['nuevo'] == '0') {
+                            for ($i = 0; $i < count($this->electrodomesticos); $i++) {
+                                if ($this->electrodomesticos[$i]['nuevo'] == '0') {
                                     $this->modelo->_SQL_("SQL_17");
                                     $this->modelo->_Tipo_(1);
                                     $this->modelo->_Datos_([
-                                        "id_electrodomestico" => $this->electrodomestico[$i]['electrodomestico'],
+                                        "id_electrodomestico" => $this->electrodomesticos[$i]['electrodomestico'],
                                         "id_vivienda"         => $this->id,
-                                        "cantidad"            => $this->electrodomestico[$i]['cantidad'],
+                                        "cantidad"            => $this->electrodomesticos[$i]['cantidad'],
                                         "estado"              => 1,
                                     ]);
                                     $this->modelo->Administrar();
@@ -306,7 +306,7 @@ class Viviendas extends Controlador
                                         "columna" => "nombre_electrodomestico",
                                     );
                                     $this->modelo->_CRUD_($this->Get_Crud_Sql());
-                                    $this->modelo->_Datos_(["nombre_electrodomestico" => $this->electrodomestico[$i]['electrodomestico'], "estado" => 1]);
+                                    $this->modelo->_Datos_(["nombre_electrodomestico" => $this->electrodomesticos[$i]['electrodomestico'], "estado" => 1]);
                                     if ($this->modelo->Administrar()) {
                                         $this->modelo->_SQL_("_03_");
                                         $this->modelo->_Tipo_(0);
@@ -320,7 +320,7 @@ class Viviendas extends Controlador
                                     $this->modelo->_Datos_([
                                         "id_electrodomestico" => $this->id_elect,
                                         "id_vivienda"         => $this->id,
-                                        "cantidad"            => $this->electrodomestico[$i]['cantidad'],
+                                        "cantidad"            => $this->electrodomesticos[$i]['cantidad'],
                                         "estado"              => 1,
                                     ]);
                                     $this->modelo->Administrar();

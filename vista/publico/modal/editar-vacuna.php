@@ -21,8 +21,6 @@
                                         class="form-control " placeholder="Cedula de Persona" />
                                 </div>
                             </div>
-
-
                             <div class="col-md-12 mt-2">
                                 <label for="">
                                     Vacunas

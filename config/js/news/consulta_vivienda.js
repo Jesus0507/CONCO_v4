@@ -945,11 +945,13 @@ document.getElementById("agregar_servicio").onclick = function () {
         document.getElementById("gas_input").style.display = "none";
         document.getElementById("gas_select").style.display = "";
         document.getElementById("gas_input").value = "";
+        document.getElementById("agregar_servicio").innerHTML = 'Nuevo servicio';
     } else {
         document.getElementById("gas_select").style.display = "none";
         document.getElementById("gas_input").style.display = "";
         document.getElementById("gas_input").focus();
         document.getElementById("gas_select").value = "vacio";
+        document.getElementById("agregar_servicio").innerHTML = 'Atras';
     }
 }
 document.getElementById("agregar_gas").onclick = function () {
@@ -1166,11 +1168,13 @@ document.getElementById("nuevo_electrodomestico").onclick = function () {
         document.getElementById("electrodomestico_input").style.display = "none";
         document.getElementById("electrodomestico_select").style.display = "";
         document.getElementById("electrodomestico_input").value = "";
+        document.getElementById("nuevo_electrodomestico").innerHTML = "Nuevo electrodoméstico"
     } else {
         document.getElementById("electrodomestico_select").style.display = "none";
         document.getElementById("electrodomestico_input").style.display = "";
         document.getElementById("electrodomestico_input").focus();
         document.getElementById("electrodomestico_select").value = "vacio";
+        document.getElementById("nuevo_electrodomestico").innerHTML = "Atras";
     }
 }
 document.getElementById("agregar_electrodomestico").onclick = function () {

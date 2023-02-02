@@ -456,3 +456,75 @@ stdClass Object
         )
 
 )
+stdClass Object
+(
+    [Modulo] => ------Viviendas------
+    [Fecha] => Miercoles , 01 de Febrero del 2023
+    [Hora] => 03:21:35 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\viviendas_class.php
+    [Linea] => 42
+    [Mensaje] => SQLSTATE[HY000]: General error: 1364 Field 'id_vivienda' doesn't have a default value
+)
+stdClass Object
+(
+    [Modulo] => ------Viviendas------
+    [Fecha] => Miercoles , 01 de Febrero del 2023
+    [Hora] => 03:25:27 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\viviendas_class.php
+    [Linea] => 42
+    [Mensaje] => SQLSTATE[HY000]: General error: 1364 Field 'id_vivienda_servicio_gas' doesn't have a default value
+)
+stdClass Object
+(
+    [Modulo] => ------Viviendas------
+    [Fecha] => Miercoles , 01 de Febrero del 2023
+    [Hora] => 03:25:27 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\viviendas_class.php
+    [Linea] => 42
+    [Mensaje] => SQLSTATE[HY000]: General error: 1364 Field 'id_vivienda_servicio_gas' doesn't have a default value
+)
+stdClass Object
+(
+    [Modulo] => ------Viviendas------
+    [Fecha] => Miercoles , 01 de Febrero del 2023
+    [Hora] => 03:37:30 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\viviendas_class.php
+    [Linea] => 42
+    [Mensaje] => SQLSTATE[HY000]: General error: 1364 Field 'id_vivienda_electrodomestico' doesn't have a default value
+)
+stdClass Object
+(
+    [Modulo] => ------Viviendas------
+    [Fecha] => Miercoles , 01 de Febrero del 2023
+    [Hora] => 03:37:30 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\viviendas_class.php
+    [Linea] => 42
+    [Mensaje] => SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+)
+stdClass Object
+(
+    [Modulo] => ------Viviendas------
+    [Fecha] => Miercoles , 01 de Febrero del 2023
+    [Hora] => 03:39:02 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\viviendas_class.php
+    [Linea] => 42
+    [Mensaje] => SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+)
+stdClass Object
+(
+    [Modulo] => ------Viviendas------
+    [Fecha] => Miercoles , 01 de Febrero del 2023
+    [Hora] => 03:39:49 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\viviendas_class.php
+    [Linea] => 42
+    [Mensaje] => SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+)
+stdClass Object
+(
+    [Modulo] => ------Viviendas------
+    [Fecha] => Miercoles , 01 de Febrero del 2023
+    [Hora] => 03:50:57 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\viviendas_class.php
+    [Linea] => 42
+    [Mensaje] => SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+)
