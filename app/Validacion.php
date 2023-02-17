@@ -86,4 +86,9 @@ class Validacion
         return $data;
     }
 
+    // public function Datos_Limpios($data)
+    // {
+    //     return htmlspecialchars(strip_tags(stripslashes(trim($data))));
+    // }
+
 }
