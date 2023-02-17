@@ -1443,6 +1443,7 @@ function enviar_informacion() {
     } else {
         datos_persona['carnet_discapacidad'] = '';
     }
+
     $.ajax({
         type: "POST",
         url: BASE_URL + "app/Direcciones.php",
@@ -1458,11 +1459,11 @@ function enviar_informacion() {
                     "datos": datos_persona
                 }
             }).done(function(result) {
-                console.log(result);
                 if (result == 1) {
                     if (transporte.value != "0") {
                         registrar_transporte();
                     }
+
                     registrar_ocupacion();
                     registrar_condicion_laboral();
                     if (comunidad_indigena.value != "0") {

@@ -14,7 +14,6 @@ $(function () {
                     peticion: "Consulta_Ajax",
                 },
             }).done(function (datos) {
-                console.log(datos)
                 var data = JSON.parse(datos);
                 var tabla = $("#example1").DataTable({ 
                     "data": data,

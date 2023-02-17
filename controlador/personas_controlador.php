@@ -328,7 +328,7 @@ class Personas extends Controlador
         $datos['firma_digital']       = $this->Codificar($datos['firma_digital']);
         $datos['user_locked']         = 0;
         $datos['estado']              = 1;
-        echo $this->modelo->Registrar($datos);
+       echo $this->modelo->Registrar($datos);
     }
 
     public function registrar_persona_habitante()

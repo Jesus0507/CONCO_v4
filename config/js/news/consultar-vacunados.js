@@ -28,6 +28,7 @@ function cargar_info_vacunas(cedula_persona, show) {
                 document.getElementById("vacunas_info").innerHTML = result;
                 if (show == 1) {
                     $("#actualizar").modal("show");
+                    restricciones();
                 }
             })
         },
@@ -144,5 +145,18 @@ document.getElementById("agregar_dosis").onclick = function() {
 document.getElementById("fecha_dosis").onchange = function() {
     if (document.getElementById("fecha_dosis").value != "" || document.getElementById("fecha_dosis").value != null) {
         document.getElementById("fecha_dosis").style.borderColor = "";
+    }
+}
+
+function restricciones() {
+    var tabla = document.getElementById('vacunas_info').querySelector('table');
+    var filas = tabla.querySelectorAll('tr');
+    var select = document.getElementById('dosis_vacuna');
+    for (opt of select.options) {
+        for(fil of filas) {
+            if (opt.value == fil.children[0].innerHTML) {
+                opt.disabled = 'disabled';
+            }
+        } 
     }
 }
