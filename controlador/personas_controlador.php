@@ -2,19 +2,38 @@
 require_once 'vista/privado/securimage/securimage.php';
 class Personas extends Controlador
 {
+    #Public: acceso sin restricción.
+    #Private:Solo puede ser accesado por la clase que lo define.
+    private $permisos;          #permisos correspondiente del modulo
+    private $peticion;          #peticion a ejecutar de la funcion administrar
+    private $estado;            #array con parametros de eliminacion logica (tabla,id_tabla,param,estado)
+    private $estado_ejecutar;   #array con parametro a ejecutar (id_tabla, estado)
+    private $sql;               #nombre de la sentencia SQL que se ejecutara en el modelo
+    private $datos_ejecutar;    #array con datos para enviar a la bd 
+    private $datos_consulta;    #array con los datos necesarios para el modulo (consultas)
+    private $accion;            #accion para enviar a la bitacora 
+    private $mensaje;           #mensaje que se mandara a la vista
+    private $validar;           #objeto con la clase validacion correspondiente al modulo
+    private $crud;              #array con peticion generica sql
+
+    // DATOS independientes usados para el manejo del modulo
+
+    // ==================ESTABLECER DATOS=========================
     public function __construct()
     {
         parent::__construct();
+        $this->permisos        = $_SESSION["Personas"];
+        $this->estado          = $_POST['estado'];
+        $this->datos_ejecutar  = $_POST['datos'];
+        $this->sql             = $_POST['sql'];
+        $this->accion          = $_POST['accion'];
+        $this->mensaje         = 1;
+        $this->estado_ejecutar = array($this->estado["id_tabla"] => $this->estado["param"], "estado" => $this->estado["estado"]);
+        $this->crud["consultar"] = array("tabla" => "calles", "estado" => 1, "orden" => "nombre_calle");
         //     $this->Cargar_Modelo("personas");
     }
  
-    public function Cargar_Vistas()
-    {
-        $this->Seguridad_de_Session();
-        $this->vista->Cargar_Vistas('personas/index');
-    }
-
-    public function Establecer_Consultas()
+    private function Establecer_Consultas()
     {
         $personas = $this->Consultar_Tabla("personas", 1, "cedula_persona");
 
@@ -31,6 +50,104 @@ class Personas extends Controlador
         $this->perso_vacuna        = $perso_vacuna;
     }
 
+     // ==================GETTERS=========================
+    #getters usados para obtener la informacion de las variables privadas
+    # retornan tipo string o array
+    private function Get_Sql():string           {return $this->sql;}
+    private function Get_Accion():string        {return $this->accion;}
+    private function Get_Mensaje():string       {return $this->mensaje;}
+    private function Get_Datos():array          {return $this->datos_ejecutar;}
+    private function Get_Estado():array         {return $this->estado;}
+    private function Get_Estado_Ejecutar():array{return $this->estado_ejecutar;}
+    private function Get_Datos_Vista():array    {return $this->datos_consulta;}
+    private function Get_Crud_Sql(): array      {return $this->crud;}
+    // ==============================================================================
+
+    public function Cargar_Vistas()
+    {
+        $this->Seguridad_de_Session();
+        if ($this->permisos["consultar"] === 1) {
+            $this->vista->Cargar_Vistas('personas/consultar');
+        } else { $this->_403_();}
+    }
+
+    public function Administrar($peticion = null)
+    {
+        $this->Seguridad_de_Session();
+        $this->Establecer_Consultas();
+        $this->peticion = (isset($_POST['peticion'])) ? $_POST['peticion'] : $peticion[0];
+        switch ($this->peticion) {
+            case 'Registros':
+                if ($this->permisos["registrar"] === 1) {
+                    $this->vista->Cargar_Vistas('personas/registrar');
+                } else { $this->_403_();}
+                break;
+            case 'Consultas':
+                if ($this->permisos["consultar"] === 1) {
+                    $this->vista->Cargar_Vistas('personas/consultar');
+                } else { $this->_403_();}
+                break;
+            case 'Administrar':
+                if ($this->permisos["registrar"] === 1 || $this->permisos["modificar"] === 1) {
+
+                    $this->modelo->_Datos_($this->Get_Datos());
+                        $this->modelo->_SQL_($this->Get_Sql());
+                        $this->modelo->_Tipo_(1);
+                        if ($this->modelo->Administrar()) {
+                            $this->Accion($this->Get_Accion());
+                            echo $this->Get_Mensaje();
+                        }
+
+                } else { $this->_403_();}
+                break;
+            case 'Eliminar':
+                if ($this->permisos["eliminar"] === 1) {
+                    $this->modelo->_Estado_($this->Get_Estado());
+                    $this->modelo->_Datos_($this->Get_Estado_Ejecutar());
+                    $this->modelo->_SQL_($this->Get_Sql());
+                    $this->modelo->_Tipo_(1);
+                    if ($this->modelo->Administrar()) {
+                        $this->Accion($this->Get_Accion());
+                        echo $this->Get_Mensaje();
+                    }
+                } else { $this->_403_();}
+                break;
+
+            case 'Consulta_Ajax':$this->Escribir_JSON($this->Get_Datos_Vista()["personas"]);
+                break;
+
+            case '0':
+                $this->Seguridad_de_Session();
+        if ($this->permisos["registrar"] === 1) {
+            
+
+            $this->modelo->_Tipo_(0);
+            $this->modelo->_SQL_("SQL_42");
+            $this->datos_consulta["transportes"] = $this->modelo->Administrar();
+
+
+            $this->vista->comunidades    = $this->modelo->get_comunidades();
+
+
+            $this->vista->organizaciones = $this->modelo->get_organizaciones();
+            //      $this->vista->centros_votacion=$this->modelo->get_centros();
+            //      $this->vista->parroquias=$this->modelo->get_parroquias();
+            $this->vista->bonos = $this->modelo->get_bonos();
+            //      $this->vista->enfermedades=$this->modelo->get_enfermedades();
+            //      $this->vista->discapacidades=$this->modelo->get_discapacidad();
+            $this->vista->misiones    = $this->modelo->get_misiones();
+            $this->vista->ocupaciones = $this->modelo->get_ocupaciones();
+            $this->vista->condiciones = $this->modelo->get_condiciones();
+            $this->vista->proyectos   = $this->modelo->get_proyectos();
+            $this->vista->Cargar_Vistas('personas/registrar');
+        } else { $this->_403_();}
+                break;
+
+            default:$this->vista->Cargar_Vistas('error/400');
+                break;
+        }
+        exit();
+        }
     public function Asignar_Vacunas()
     {
         $dosis = ($_POST['dosis'] !== "") ? $_POST['dosis'] : null;
