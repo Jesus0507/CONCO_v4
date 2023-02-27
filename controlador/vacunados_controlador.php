@@ -185,6 +185,19 @@ class Vacunados extends Controlador
             echo $this->retornar;
                 break;
 
+                case 'Vacunas_Ver':
+            $this->modelo->_Tipo_(0);
+            $this->modelo->_SQL_("_05_");
+        $this->crud["consultar"] = array("tabla" => "vacuna_covid", "columna" => "cedula_persona", "data" => $this->cedula);
+        $this->modelo->_CRUD_($this->Get_Crud_Sql());
+        $this->datos_consulta["vacunas_personas"] = $this->modelo->Administrar();
+            foreach ($this->datos_consulta["vacunas_personas"] as $v) {
+            $this->retornar .= "</br><div>" . $v['dosis'] . " (" . $v['fecha_vacuna'] . ")</div><hr>";
+            }
+
+            echo $this->retornar;
+                break;
+
             default:$this->vista->Cargar_Vistas('error/400');
                 break;
         }

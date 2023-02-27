@@ -28,7 +28,7 @@
                                     Vacunas
                                 </label>
                                 <table class="table table-bordered" id="tabla">
-                                    <div id='vacunas_info' style='width:100%;height:150px;background:#AEE6E8;overflow-y:scroll'>
+                                    <div id='vacunas_ver' style='width:100%;height:150px;background:#AEE6E8;overflow-y:scroll;text-align:center;'>
 
                                             </div>
                                 </table>

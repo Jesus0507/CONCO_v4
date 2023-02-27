@@ -12,7 +12,30 @@ function ver(tag) {
     var cedula_persona = tr[0].innerHTML;
     document.getElementById("cedula_persona_ver").value = cedula_persona;
     document.getElementById("cedula_persona_ver").readOnly = "readOnly";
-    cargar_info_vacunas(cedula_persona, 0);
+    document.getElementById("vacunas_ver").innerHTML = "";
+    $.ajax({
+        type: "POST",
+        url: BASE_URL + "app/Direcciones.php",
+        data: {
+            direction: "Vacunados/Administrar",
+            accion: "codificar"
+        },
+        success: function(direccion_segura) {
+            $.ajax({
+                type: "POST",
+                url: BASE_URL + direccion_segura,
+                data: {
+                    peticion: "Vacunas_Ver",
+                    "cedula": cedula_persona
+                }
+            }).done(function(result) {
+                document.getElementById("vacunas_ver").innerHTML = result;
+            })
+        },
+        error: function() {
+            alert('Error al codificar dirreccion');
+        }
+    });
 }
 function cargar_info_vacunas(cedula_persona, show) {
     document.getElementById("vacunas_info").innerHTML = "";
