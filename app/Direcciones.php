@@ -19,6 +19,15 @@ class Direcciones
         unset($metodo,$llave,$iv,$accion,$sting,$salida);
     }
 
+    public static function URL() {
+        $protocol = empty($_SERVER['HTTPS']) ? 'http://' : 'https://';
+        $domain = $_SERVER['HTTP_HOST'];
+        $root = str_replace('/index.php', '', $_SERVER['SCRIPT_NAME'])."/";
+        $url = $protocol . $domain . $root;
+        unset($protocol, $domain, $root);
+        return $url;
+    }
+
     public static function _001_()
     {
         echo URL . self::Seguridad('Inicio/', 'codificar');

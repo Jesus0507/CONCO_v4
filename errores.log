@@ -1,0 +1,39 @@
+stdClass Object
+(
+    [Fecha] => Lunes , 27 de Febrero del 2023
+    [Hora] => 07:07:36 pm
+    [Mensaje] => Array
+        (
+            [0] => [Error Direccion] => "El Directorrio: [ CONCO_v4 ] Es diferente a la configuracion del sistema,</br>
+            Configuracion: [CONCO_v3]. </br>
+            Actualice la configuracion en el archivo: app/Config.php </br>
+            Linea: ( 3 )
+        )
+
+)
+stdClass Object
+(
+    [Fecha] => Lunes , 27 de Febrero del 2023
+    [Hora] => 07:07:36 pm
+    [Mensaje] => Array
+        (
+            [0] => [Error Direccion] => "El Directorrio: [ CONCO_v4 ] Es diferente a la configuracion del sistema,</br>
+            Configuracion: [CONCO_v3]. </br>
+            Actualice la configuracion en el archivo: app/Config.php </br>
+            Linea: ( 3 )
+        )
+
+)
+stdClass Object
+(
+    [Fecha] => Lunes , 27 de Febrero del 2023
+    [Hora] => 07:07:36 pm
+    [Mensaje] => Array
+        (
+            [0] => [Error Direccion] => "El Directorrio: [ CONCO_v4 ] Es diferente a la configuracion del sistema,</br>
+            Configuracion: [CONCO_v3]. </br>
+            Actualice la configuracion en el archivo: app/Config.php </br>
+            Linea: ( 3 )
+        )
+
+)

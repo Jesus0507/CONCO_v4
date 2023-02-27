@@ -1,7 +1,9 @@
 <?php 
 //-------------------------URL PRINCIPAL--------------------
 define('SISTEMA', 	'CONCO_v4');
-define('URL', 'http://localhost/dashboard/www/'.SISTEMA."/");
+
+define('URL', Direcciones::URL());
+
 define('ATAJO', 		'123456');
 //--------------Base de Datos--------------------
 

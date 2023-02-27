@@ -28,6 +28,11 @@ $(function () {
                     },
                     {
                         "data": "fecha_vacuna"
+                    }, 
+                    {
+                        "data": function(data) {
+                            return ('<td class="text-center">' + '<a href="javascript:void(0)" style="margin-right: 5px;background: #4dbdbd !important;" class="btn bg-info ver-popup" onclick="ver(this)" title="Ver" type="button" data-toggle="modal" data-target="#ver">' + '<i class="fa fa-eye"></i>' + "</a>" + '<p style="display: none;">' + "</td>");
+                        }
                     },
                     {
                         "data": function (data) {

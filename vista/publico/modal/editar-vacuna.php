@@ -8,7 +8,7 @@
                 </button>
             </div>
             <div class="modal-body"> 
-            <form action="<?php echo constant('URL'); ?>" enctype="multipart/form-data"
+            <form action="" enctype="multipart/form-data"
                     id="formulario" method="POST" name="formulario">
                     <div class="form-group row justify-content-center">
 

@@ -34,6 +34,7 @@
                             <th>Nombre y Apellido</th>
                             <th>Dosis</th>
                             <th>Fecha</th>
+                            <th>Ver</th>
                             <th>Editar</th>
                             <th>Eliminar</th>
                         </tr>
@@ -48,6 +49,7 @@
                             <th>Nombre y Apellido</th>
                             <th>Dosis</th>
                             <th>Fecha</th>
+                            <th>Ver</th>
                             <th>Editar</th>
                             <th>Eliminar</th>
                         </tr>

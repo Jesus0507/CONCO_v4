@@ -6,7 +6,14 @@ function editar(tag) {
     document.getElementById("cedula_persona_editar").readOnly = "readOnly";
     cargar_info_vacunas(cedula_persona, 1);
 }
-
+function ver(tag) {
+    var tr = tag.closest("tr");
+    tr = tr.querySelectorAll("td");  
+    var cedula_persona = tr[0].innerHTML;
+    document.getElementById("cedula_persona_ver").value = cedula_persona;
+    document.getElementById("cedula_persona_ver").readOnly = "readOnly";
+    cargar_info_vacunas(cedula_persona, 0);
+}
 function cargar_info_vacunas(cedula_persona, show) {
     document.getElementById("vacunas_info").innerHTML = "";
     $.ajax({
