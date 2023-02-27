@@ -445,7 +445,7 @@ class Viviendas extends Controlador
                         "residuos_solidos"      => $value["residuos_solidos"],
                         "cable_telefonico"      => $value["cable_telefonico"],
                         "internet"              => $value["internet"],
-                        "servicio_electrico"    => $value["servicio_electrico"],
+                        "servicio_electrico"    => $value["servicio_electrico"], 
                         "ver"                   => "<a style='background: #4dbdbd !important;' href='javascript:void(0)' class='btn bg-info ver-popup' title='Ver' type='button' onclick='Ver(`" . json_encode($value) . "`,`" . json_encode($this->techos) . "`,`" . json_encode($this->paredes) . "`,`" . json_encode($this->pisos) . "`,`" . json_encode($this->gas) . "`,`" . json_encode($this->electrodomesticos) . "`);'><i class='fa fa-eye'></i></a>",
                         "editar"                => "<a href='javascript:void(0)' class='btn bg-info btnEditar'  title='Actualizar' type='button' data-toggle='modal' data-target='#actualizar' onclick='Modificar(" . json_encode($value["id_vivienda"]) . ",`" . json_encode($value) . "`,`" . json_encode($this->techos) . "`,`" . json_encode($this->paredes) . "`,`" . json_encode($this->pisos) . "`,`" . json_encode($this->gas) . "`,`" . json_encode($this->electrodomesticos) . "`)'><i class='fa fa-edit' style='color: white;'></i></a>",
                         "eliminar"              => ' <a href="javascript:void(0)" style="margin-right: 5px;" class="btn bg-danger mensaje-eliminar" title="Eliminar" onclick="Eliminar(' . json_encode($value["id_vivienda"]) . ',' . $value['id_servicio'] . ')"><i class="fa fa-trash"></i></a>',

@@ -68,7 +68,7 @@ class Controlador
     }
     public function Seguridad_de_Session()
     {
-        @session_start();
+        
         $var = $_SESSION['cedula_usuario'];
         if ($var == null || $var == '') {
             session_start();

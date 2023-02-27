@@ -153,9 +153,11 @@ class Login extends Controlador
                                 );
 
                                 if ($tabla_usuario['rol_inicio'] != 'Habitante') {
-                                    $this->vista->Cargar_Vistas('inicio/index');
+                                    // $this->vista->Cargar_Vistas('inicio/index');
+                                    header("location:".Direcciones::Seguridad('Inicio/', 'codificar'));
                                 } else {
-                                    $this->vista->Cargar_Vistas('habitante/index');
+                                    header("location:".Direcciones::Seguridad('Habitante/', 'codificar'));
+                                    // $this->vista->Cargar_Vistas('habitante/index');
                                 }
                             }
                         }

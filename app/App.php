@@ -13,7 +13,10 @@ final class Iniciar_Sistema
     {
         session_start();
         $this->Errores = new Errores;
-
+        // set_error_handler(function($errno, $errstr, $errfile, $errline) {
+        //     $log = date('[Y-m-d H:i:s]') . " Error $errno: $errstr en $errfile:$errline\n";
+        //     error_log($log, 3, 'errores.log');
+        // });
         $this->url = isset($_GET['url']) ? $_GET['url'] : null;
         $this->url = Direcciones::Seguridad($this->url, 'decodificar');
         $this->url = rtrim($this->url, '/');
