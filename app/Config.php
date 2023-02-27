@@ -1,6 +1,5 @@
 <?php 
 //-------------------------URL PRINCIPAL--------------------
-define('SISTEMA', 	'CONCO_v4');
 
 define('URL', Direcciones::URL());
 

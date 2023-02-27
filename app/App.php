@@ -25,8 +25,7 @@ final class Iniciar_Sistema
         $this->archivo_controlador = 'controlador/' . strtolower($this->url[0]) . '_controlador.php';
 
         if (isset($_SESSION['cedula_usuario'])) {
-            if ($this->Validar_Direccion()) {
-                if ($this->Validar_Conexion()) {
+             if ($this->Validar_Conexion()) {
                     if (empty($this->url[0])) {
                         require_once 'controlador/inicio_controlador.php';
                         $this->controlador = new Inicio();
@@ -62,12 +61,8 @@ final class Iniciar_Sistema
                 } else {
                     $this->Errores->Error_500($this->error);
                 }
-            } else {
-                $this->Errores->Error_404_1($this->error);
-            }
         } else {
-            if ($this->Validar_Direccion()) {
-                if ($this->Validar_Conexion()) {
+            if ($this->Validar_Conexion()) {
                     if (file_exists($this->archivo_controlador)) {
                         $this->Cargar_Controladores();
                         if (isset($this->url[1])) {
@@ -88,19 +83,9 @@ final class Iniciar_Sistema
                 } else {
                     $this->Errores->Error_500($this->error);
                 }
-            } else {
-                $this->Errores->Error_404_1($this->error);
-            }
         }
     }
-    public function Establecer_Directorio()
-    {
-        $this->directorrio = rtrim(getcwd(), '\\');
-        $this->directorrio = explode('\\', $this->directorrio);
-        $this->directorrio = end($this->directorrio);
-        return $this->directorrio;
-    }
-
+    
     public function Cargar_Controladores()
     {
         require_once $this->archivo_controlador;
@@ -168,20 +153,7 @@ final class Iniciar_Sistema
             return true;
         }
     }
-    private function Validar_Direccion()
-    {
-        $this->directorrio = str_replace(" ", "%20", $this->Establecer_Directorio());
-        if (SISTEMA == $this->directorrio) {
-            return true;
-        } else {
-            $this->error[] = '[Error Direccion] => "El Directorrio: [ ' . $this->directorrio . ' ] Es diferente a la configuracion del sistema,</br>
-            Configuracion: [' . SISTEMA . ']. </br>
-            Actualice la configuracion en el archivo: app/Config.php </br>
-            Linea: ( 3 )';
-            $this->Guardar_Error();
-            return false;
-        }
-    }
+    
     private function Validar_Conexion()
     {
         $conexion = new BASE_DATOS();
