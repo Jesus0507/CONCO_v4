@@ -9,7 +9,7 @@ class Agenda_Validacion extends Validacion
     public function __construct()
     {
         parent::__construct();
-        $this->datos            = isset($_POST['datos']) ? $_POST['datos']: null;
+        $this->datos            = $_POST['datos'];
         $this->datos["creador"] = $_SESSION['cedula_usuario'];
     }
 

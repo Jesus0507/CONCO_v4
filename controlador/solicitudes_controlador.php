@@ -38,21 +38,21 @@ class Solicitudes extends Controlador
     {
         parent::__construct();
         $this->permisos       = $_SESSION["Solicitudes"];
-        $this->estado         = isset($_POST['estado']) ? $_POST['estado']: null;
-        $this->datos_ejecutar = isset($_POST['datos']) ? $_POST['datos']: null;
-        $this->sql            = isset($_POST['sql']) ? $_POST['sql']: null;
-        $this->accion         = isset($_POST['accion']) ? $_POST['accion']: null;
-        $this->id             = isset($_GET['id']) ? $_GET['id']: null;
+        $this->estado         = $_POST['estado'];
+        $this->datos_ejecutar = $_POST['datos'];
+        $this->sql            = $_POST['sql'];
+        $this->accion         = $_POST['accion'];
+        $this->id             = $_GET['id'];
         $this->mensaje        = 1;
-        $this->observaciones  = isset($_POST['observaciones']) ? $_POST['observaciones']: null;
+        $this->observaciones  = $_POST['observaciones'];
         $this->digital_sign   = $_SESSION['digital_sign'];
         $this->public_key     = $_SESSION['public_key'];
-        $this->procesada      = isset($_POST['procesada']) ? $_POST['procesada']: null;
-        $this->id_solicitud   = isset($_POST['id']) ? $_POST['id']: null;
-        $this->cedula         = isset($_POST['cedula']) ? $_POST['cedula']: null;
-        $this->clave_publica  = isset($_POST['public_key']) ? $_POST['public_key']: null;
-        $this->clave_privada  = isset($_POST['private_key']) ? $_POST['private_key']: null;
-        $this->firma          = isset($_POST['firma']) ? $_POST['firma']: null;
+        $this->procesada      = $_POST['procesada'];
+        $this->id_solicitud   = $_POST['id'];
+        $this->cedula         = $_POST['cedula'];
+        $this->clave_publica  = $_POST['public_key'];
+        $this->clave_privada  = $_POST['private_key'];
+        $this->firma          = $_POST['firma'];
 
         $this->estado_ejecutar = array($this->estado["id_tabla"] => $this->estado["param"], "estado" => $this->estado["estado"]);
         //  $this->Cargar_Modelo("solicitudes");

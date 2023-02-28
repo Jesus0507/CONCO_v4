@@ -27,10 +27,10 @@ class Agenda extends Controlador
         $this->Validacion("agenda");
         $this->vista->mensaje  = "";
         $this->permisos        = $_SESSION["Agenda"];
-        $this->estado          = isset($_POST['estado']) ? $_POST['estado']: null;
-        $this->datos_ejecutar  = isset($_POST['datos']) ? $_POST['datos']: null;
-        $this->sql             = isset($_POST['sql']) ? $_POST['sql']: null;
-        $this->accion          = isset($_POST['accion']) ? $_POST['accion']: null;
+        $this->estado          = $_POST['estado'];
+        $this->datos_ejecutar  = $_POST['datos'];
+        $this->sql             = $_POST['sql'];
+        $this->accion          = $_POST['accion'];
         $this->mensaje         = 1;
         $this->estado_ejecutar = array($this->estado["id_tabla"] => $this->estado["param"], "estado" => $this->estado["estado"]);
         $this->cedula_usuario  = $_SESSION['cedula_usuario'];

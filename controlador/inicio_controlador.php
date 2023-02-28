@@ -34,7 +34,7 @@ class Inicio extends Controlador
 
         $this->adulto_mayor = 0;$this->menores_edad = 0;$this->votantes     = 0;
 
-        foreach ($this->datos["personas"] as $p) {
+        foreach ($personas as $p) {
             $this->anio = explode('-', $p["fecha_nacimiento"]);
             $this->edad = date("Y") - $this->anio[0];
 
