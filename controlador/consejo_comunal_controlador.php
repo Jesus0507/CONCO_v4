@@ -107,6 +107,9 @@ class Consejo_Comunal extends Controlador
                                 $this->id_comite = $tabla_comite["id_comite"];
                             }
                         }
+                        if (empty($this->datos_ejecutar["fecha_salida"])) {
+                            $this->datos_ejecutar["fecha_salida"] = null;
+                        }
                         $this->datos_ejecutar["id_comite"] = $this->id_comite;
                         $this->modelo->_Datos_($this->Get_Datos());
                         $this->modelo->_SQL_($this->Get_Sql());
@@ -115,6 +118,7 @@ class Consejo_Comunal extends Controlador
                             $this->Accion($this->Get_Accion());
                             echo $this->Get_Mensaje();
                         }
+                           
                     } else {
                         echo $this->validacion->Fallo();
                     }

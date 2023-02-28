@@ -47,7 +47,18 @@ class Consejo_Comunal_Validacion extends Validacion
                                         } else {
                                             if ($this->Validar_Estado($this->datos["estado"])) {
                                                 $this->Errores[] = 'el estado es invalido ';
-                                            } 
+                                            } else {
+                                                if ($this->datos["fecha_ingreso"] == $this->datos["fecha_salida"]) {
+                                                    $this->Errores[] = 'Las fechas de ingreso y salida o pueden ser iguales';
+                                                }
+
+
+                                                if (!empty($this->datos["fecha_salida"]) && strtotime($this->datos["fecha_ingreso"]) > strtotime($this->datos["fecha_salida"])) {
+    $this->Errores[] = 'La fecha de ingreso no puede ser mayor a la de salida';
+}
+
+                                                
+                                            }
                                         }
                                     }
                                 }
