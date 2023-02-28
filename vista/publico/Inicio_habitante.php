@@ -5,7 +5,7 @@
 
 
 <body
-    class="hold-transition text-sm  sidebar-mini sidebar-collapse  layout-fixed layout-navbar-fixed layout-footer-fixed "
+    class="hold-transition text-sm  layout-top-nav  layout-fixed layout-navbar-fixed layout-footer-fixed "
     id="body">
     <input type="hidden" id="direccion_segura">
     <!-- ============================================================== -->

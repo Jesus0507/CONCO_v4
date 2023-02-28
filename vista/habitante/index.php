@@ -217,7 +217,7 @@
 
 
 
-                                                    <div class="col-md-4     mt-2">
+                                                    <div class="col-md-6     mt-2">
                                                         <label for="hacinamiento">
                                                             La vivienda es Hacinamiento
                                                         </label>
@@ -235,7 +235,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-md-4     mt-2">
+                                                    <div class="col-md-6     mt-2">
                                                         <label for="espacio_siembra">
                                                             Posee Espacio de Siembra
                                                         </label>
@@ -253,7 +253,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-md-4     mt-2">
+                                                    <div class="col-md-6     mt-2">
                                                         <label for="banio_sanitario">
                                                             Tiene Baño Sanitario
                                                         </label>
@@ -273,7 +273,7 @@
 
 
 
-                                                    <div class="col-md-4 mt-2">
+                                                    <div class="col-md-6 mt-2">
                                                         <label for="agua_consumo">
                                                             Agua de Consumo
                                                         </label>
@@ -298,7 +298,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-md-4 mt-2">
+                                                    <div class="col-md-6 mt-2">
                                                         <label for="aguas_negras">
                                                             Aguas Negras
                                                         </label>
@@ -327,7 +327,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-md-4 mt-2">
+                                                    <div class="col-md-6 mt-2">
                                                         <label for="residuos_solidos">
                                                             Residuos Solidos
                                                         </label>
@@ -475,7 +475,7 @@
 
 
 
-                                                    <div class="col-md-4 mt-2">
+                                                    <div class="col-md-12 mt-2">
                                                         <label for="">
                                                             Tipos de Techo en el Hogar <span id='valid_techos'
                                                                 style='color:red'>
@@ -496,8 +496,21 @@
                                                                 type="button">Agregar</button>
                                                         </div>
                                                     </div>
+                                                    <div class="col-md-12">
+                                                        <label>Techos agregados
 
-                                                    <div class="col-md-4 mt-2">
+                                                        </label>
+
+                                                        <div class="text-center"
+                                                            style='width:100%;height:200px;overflow-y: scroll;background: #C5F3F2'>
+                                                            <center>
+                                                                <div id='techos_agregados'
+                                                                    style='width:100%;margin-top:10px;'></div>
+                                                            </center>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-12 mt-2">
                                                         <label for="">
                                                             Tipos de Pared en el Hogar <span id='valid_paredes'
                                                                 style='color:red'>
@@ -519,7 +532,21 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-md-4 mt-2">
+                                                    <div class="col-md-12">
+                                                        <label>Paredes agregadas
+
+                                                        </label>
+
+                                                        <div class="text-center"
+                                                            style='width:100%;height:200px;overflow-y: scroll;background: #C5F3F2'>
+                                                            <center>
+                                                                <div id='paredes_agregados'
+                                                                    style='width:100%;margin-top:10px;'></div>
+                                                            </center>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-12 mt-2">
                                                         <label for="">
                                                             Tipos de Piso en el Hogar <span id='valid_pisos'
                                                                 style='color:red'>
@@ -541,44 +568,20 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-md-4">
-                                                        <label>Techos agregados
+                                                    
 
-                                                        </label>
+                                                    
 
-                                                        <div class="text-center"
-                                                            style='width:95%;height:200px;overflow-y: scroll;background: #C5F3F2'>
-                                                            <center>
-                                                                <div id='techos_agregados'
-                                                                    style='width:95%;margin-top:10px;'></div>
-                                                            </center>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-md-4">
-                                                        <label>Paredes agregadas
-
-                                                        </label>
-
-                                                        <div class="text-center"
-                                                            style='width:95%;height:200px;overflow-y: scroll;background: #C5F3F2'>
-                                                            <center>
-                                                                <div id='paredes_agregados'
-                                                                    style='width:95%;margin-top:10px;'></div>
-                                                            </center>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-12">
                                                         <label>Pisos agregados
 
                                                         </label>
 
                                                         <div class="text-center"
-                                                            style='width:95%;height:200px;overflow-y: scroll;background: #C5F3F2'>
+                                                            style='width:100%;height:200px;overflow-y: scroll;background: #C5F3F2'>
                                                             <center>
                                                                 <div id='pisos_agregados'
-                                                                    style='width:95%;margin-top:10px;'></div>
+                                                                    style='width:100%;margin-top:10px;'></div>
                                                             </center>
                                                         </div>
                                                     </div>
@@ -635,9 +638,9 @@
                                                                 </td>
                                                             </tr>
                                                             <tr>
-                                                                <td colspan='5'><br>
+                                                                <td colspan='6'><br>
                                                                     <div
-                                                                        style='width:100%;height: 120px;background: #C6C5F3;overflow-y:scroll'>
+                                                                        style='width:100%;height: 120px;background: #C5F3F2;overflow-y:scroll'>
                                                                         <center>
                                                                             <div id='gases_agregados' style='width:90%'>
                                                                             </div>
@@ -691,7 +694,7 @@
                                                             <tr>
                                                                 <td colspan='4'><br>
                                                                     <div
-                                                                        style='width:100%;height: 120px;background: #D3F3C5;overflow-y:scroll'>
+                                                                        style='width:100%;height: 120px;background: #C5F3F2;overflow-y:scroll'>
                                                                         <center>
                                                                             <div id='electrodomesticos_agregados'
                                                                                 style='width:90%'></div>
@@ -730,7 +733,7 @@
                                                 <div class="tab-pane active" id="panel1" role="tabpanel">
                                                     <div class="row">
 
-                                                        <div class="col-md-6 mt-4">
+                                                        <div class="col-md-6 mt-4" style="width:100%;">
                                                             <label for="primer_nombre">
                                                                 Vivienda
                                                             </label>
@@ -752,7 +755,7 @@
                                                                 Condición en que ocupa la vivienda
                                                             </label> <span id='valid_cond_ocupacion'
                                                                 style='color:red'></span>
-                                                            <table style='width: 100%'>
+                                                            <table style='width: 110%'>
                                                                 <tr>
                                                                     <td>
                                                                         <select class='form-control'
@@ -807,27 +810,38 @@
 
                                                         </div>
 
-                                                        <div class="col-md-6 mt-2">
+                                                        <div class="col-md-12 mt-2">
                                                             <label for="segundo_apellido">
                                                                 Ingreso mensual Aprox
                                                             </label><span id='valid_4' style="color:red;"></span>
                                                             <div class="input-group">
-                                                                <input class="form-control mb-10" id="ingreso_aprox"
+                                                                <input class="form-control mb-10 dinero" id="ingreso_aprox"
                                                                     name="datos[ingreso_aprox]"
-                                                                    placeholder="Ingreso mensual aprox" type="text" />
+                                                                    placeholder="Ingreso mensual aprox" type="text" oninput="Limitar(this,15)" />
                                                             </div>
-
+                                                            <script type="text/javascript">
+                                                $(".dinero").on({
+                                                    "focus": function(event) {
+                                                        $(event.target).select();
+                                                    },
+                                                    "keyup": function(event) {
+                                                        $(event.target).val(function(index, value) {
+                                                            return value.replace(/\D/g, "").replace(/([0-9])([0-9]{2})$/, '$1,$2').replace(/\B(?=(\d{3})+(?!\d)\.?)/g, ".");
+                                                        });
+                                                    }
+                                                });
+                                            </script>
                                                         </div>
 
 
 
-                                                        <div class="col-md-6 mt-2">
+                                                        <div class="col-md-12 mt-2">
                                                             <label for="segundo_apellido">
                                                                 Observaciones (opcional)
                                                             </label>
                                                             <div class="input-group">
                                                                 <textarea class='form-control'
-                                                                    id='observaciones_familia'></textarea>
+                                                                    id='observaciones_familia' oninput="Limitar(this,100)"></textarea>
                                                             </div>
 
                                                         </div>
@@ -854,16 +868,19 @@
                                                                                 <?php    } ?>
                                                                             </datalist>
                                                                         </td>
-                                                                        <td><button class='btn btn-primary'
+                                                                       
+                                                                    </tr>
+                                                                    <tr>
+                                                                         <td><button style="margin-top:5px;" class='btn btn-info'
                                                                                 type='button'
                                                                                 id='btn_agregar'>Agregar</button>&nbsp;&nbsp;<button
-                                                                                class='btn btn-info' type='button'
+                                                                                class='btn btn-info' style="margin-top:5px;" type='button'
                                                                                 id='btn_nuevo'>Nuevo</button></td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td colspan='2'><br>
                                                                             <div
-                                                                                style='background:#D0E8E7;overflow-y: scroll;width: 95%;height:200px;'>
+                                                                                style='background:#C5F3F2;overflow-y: scroll;width: 100%;height:200px;'>
                                                                                 <center>
                                                                                     <div style='width:95%'
                                                                                         id='integrantes_agregados'>

@@ -747,7 +747,7 @@
                                                         </td>
                                                         <td>
                                                             <input type="button" id='btn_nueva_org'
-                                                                class='btn btn-primary' value="Nueva organización">
+                                                                class='btn btn-info' value="Nueva organización">
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -788,7 +788,7 @@
                                                             </div>
                                                         </td>
                                                         <td><br>
-                                                            <button class="btn btn-primary" type="button"
+                                                            <button class="btn btn-info" type="button"
                                                                 id='btn_nuevo_bono'>
                                                                 Nuevo
                                                             </button>
@@ -1052,7 +1052,7 @@
                                                             <td><input type="button" id="otro_proyecto" value="Otro"
                                                                     class='btn btn-info'></td>
                                                             <td><input type="button" id="agregar_proyecto"
-                                                                    value="Agregar" class='btn btn-primary'></td>
+                                                                    value="Agregar" class='btn btn-info'></td>
                                                         </tr>
                                                     </table>
                                                 </div>
@@ -1193,7 +1193,7 @@
                             </div>
                         </div>
                     </div>
-
+</div>
                     <!-- /.card-body -->
                     <div class="card-footer">
 
@@ -1213,11 +1213,12 @@
                         </div>
                         <div class="text-center m-t-20" id="botones-finales" style='display:none'>
                             <div class="col-xs-12">
-                                <input type="button" class="btn  btn-primary m-r-10" name="" id="guardar"
+                                <input type="button" class="btn  btn-info m-r-10" name="" id="guardar"
                                     value="Guardar">
-                            </div>
+                            </div> 
                         </div>
                     </div>
+                    
             </form>
             <!-- /.card-footer-->
         </div>
