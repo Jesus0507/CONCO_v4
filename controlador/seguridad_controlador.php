@@ -26,11 +26,11 @@ class Seguridad extends Controlador
     {
         parent::__construct();
         $this->permisos       = $_SESSION["Seguridad"];
-        $this->datos_ejecutar = $_POST['datos'];
+        $this->datos_ejecutar = isset($_POST['datos']) ? $_POST['datos']: null;
         $this->rol_inicio     = $_SESSION['rol_inicio'];
-        $this->rol            = $_POST["rol"];
-        $this->estado         = $_POST["estado"];
-        $this->cedula_persona = $_POST["cedula_persona"];
+        $this->rol            = isset($_POST['rol']) ? $_POST["rol"]: null;
+        $this->estado         = isset($_POST['estado']) ? $_POST["estado"]: null;
+        $this->cedula_persona = isset($_POST['cedula_persona']) ? $_POST["cedula_persona"]: null;
         // $this->Cargar_Modelo("seguridad");
     }
 
@@ -153,22 +153,22 @@ class Seguridad extends Controlador
                     $this->modelo->_Datos_(["rol" => $this->rol_inicio]);
                     $this->permisos_modulo = $this->modelo->Administrar();
 
-                    $_SESSION['Solicitudes']       = $$this->permisos_modulo[0];
-                    $_SESSION['Personas']          = $$this->permisos_modulo[1];
-                    $_SESSION['Agenda']            = $$this->permisos_modulo[2];
-                    $_SESSION['Comite']            = $$this->permisos_modulo[3];
-                    $_SESSION['Grupos deportivos'] = $$this->permisos_modulo[4];
-                    $_SESSION['Parto humanizado']  = $$this->permisos_modulo[5];
-                    $_SESSION['Enfermos']          = $$this->permisos_modulo[6];
-                    $_SESSION['Negocios']          = $$this->permisos_modulo[7];
-                    $_SESSION['Nucleo familiar']   = $$this->permisos_modulo[8];
-                    $_SESSION['Sector agricola']   = $$this->permisos_modulo[9];
-                    $_SESSION['Centros votacion']  = $$this->permisos_modulo[10];
-                    $_SESSION['Viviendas']         = $$this->permisos_modulo[11];
-                    $_SESSION['Inmuebles']         = $$this->permisos_modulo[12];
-                    $_SESSION['Discapacitados']    = $$this->permisos_modulo[13];
-                    $_SESSION['Vacunados COVID']   = $$this->permisos_modulo[14];
-                    $_SESSION['Seguridad']         = $$this->permisos_modulo[15];
+                    $_SESSION['Solicitudes']       = $this->permisos_modulo[0];
+                    $_SESSION['Personas']          = $this->permisos_modulo[1];
+                    $_SESSION['Agenda']            = $this->permisos_modulo[2];
+                    $_SESSION['Comite']            = $this->permisos_modulo[3];
+                    $_SESSION['Grupos deportivos'] = $this->permisos_modulo[4];
+                    $_SESSION['Parto humanizado']  = $this->permisos_modulo[5];
+                    $_SESSION['Enfermos']          = $this->permisos_modulo[6];
+                    $_SESSION['Negocios']          = $this->permisos_modulo[7];
+                    $_SESSION['Nucleo familiar']   = $this->permisos_modulo[8];
+                    $_SESSION['Sector agricola']   = $this->permisos_modulo[9];
+                    $_SESSION['Centros votacion']  = $this->permisos_modulo[10];
+                    $_SESSION['Viviendas']         = $this->permisos_modulo[11];
+                    $_SESSION['Inmuebles']         = $this->permisos_modulo[12];
+                    $_SESSION['Discapacitados']    = $this->permisos_modulo[13];
+                    $_SESSION['Vacunados COVID']   = $this->permisos_modulo[14];
+                    $_SESSION['Seguridad']         = $this->permisos_modulo[15];
 
                     echo json_encode($this->permisos_modulo);
 
