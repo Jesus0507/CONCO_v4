@@ -1,0 +1,40 @@
+stdClass Object
+(
+    [Fecha] => Martes , 28 de Febrero del 2023
+    [Hora] => 01:23:03 am
+    [Mensaje] => Array
+        (
+            [0] => [Error Funcion] => "La Funcion: [ Nueva_solicitud() ] No se encuentra definida, en el controlador: [ Solicitudes ]"
+        )
+
+)
+stdClass Object
+(
+    [Fecha] => Martes , 28 de Febrero del 2023
+    [Hora] => 01:42:26 am
+    [Mensaje] => Array
+        (
+            [0] => [Error Funcion] => "La Funcion: [ Nueva_solicitud() ] No se encuentra definida, en el controlador: [ Solicitudes ]"
+        )
+
+)
+stdClass Object
+(
+    [Fecha] => Martes , 28 de Febrero del 2023
+    [Hora] => 01:43:47 am
+    [Mensaje] => Array
+        (
+            [0] => [Error Funcion] => "La Funcion: [ Nueva_solicitud() ] No se encuentra definida, en el controlador: [ Solicitudes ]"
+        )
+
+)
+stdClass Object
+(
+    [Fecha] => Martes , 28 de Febrero del 2023
+    [Hora] => 01:45:44 am
+    [Mensaje] => Array
+        (
+            [0] => [Error Funcion] => "La Funcion: [ Nueva_solicitud() ] No se encuentra definida, en el controlador: [ Solicitudes ]"
+        )
+
+)

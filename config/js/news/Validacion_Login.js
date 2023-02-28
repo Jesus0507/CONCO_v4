@@ -322,7 +322,7 @@ function solicitar_cambio() {
         type: "POST",
         url: BASE_URL + "app/Direcciones.php",
         data: {
-            direction: "Solicitudes/Nueva_solicitud",
+            direction: "Solicitudes/Administrar",
             accion: "codificar"
         },
         success: function(direccion_segura) {
@@ -330,7 +330,8 @@ function solicitar_cambio() {
                 type: "POST",
                 url: BASE_URL + direccion_segura,
                 data: {
-                    "datos": datos_persona
+                    "datos": datos_persona,
+                    peticion: 'Nueva_solicitud_cambio_contrasenia'
                 }
             });
         },

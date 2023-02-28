@@ -73,21 +73,37 @@ class Solicitudes extends Controlador
     #getters usados para obtener la informacion de las variables privadas
     # retornan tipo string o array
     private function Get_Sql(): string
-    {return $this->sql;}
+    {
+        return $this->sql;
+    }
     private function Get_Accion(): string
-    {return $this->accion;}
+    {
+        return $this->accion;
+    }
     private function Get_Mensaje(): string
-    {return $this->mensaje;}
+    {
+        return $this->mensaje;
+    }
     private function Get_Datos(): array
-    {return $this->datos_ejecutar;}
+    {
+        return $this->datos_ejecutar;
+    }
     private function Get_Estado(): array
-    {return $this->estado;}
+    {
+        return $this->estado;
+    }
     private function Get_Estado_Ejecutar(): array
-    {return $this->estado_ejecutar;}
+    {
+        return $this->estado_ejecutar;
+    }
     private function Get_Datos_Vista(): array
-    {return $this->datos_consulta;}
+    {
+        return $this->datos_consulta;
+    }
     private function Get_Crud_Sql(): array
-    {return $this->crud;}
+    {
+        return $this->crud;
+    }
 
     // ==============================================================================
     public function Cargar_Vistas()
@@ -96,44 +112,56 @@ class Solicitudes extends Controlador
         $this->Establecer_Consultas();
         if ($this->permisos["consultar"] === 1) {
             $this->vista->Cargar_Vistas('solicitudes/index');
-        } else { $this->_403_();}
+        } else {
+            $this->_403_();
+        }
     }
 
     // ==============================================================================
     public function Administrar($peticion = null)
     {
-        $this->Seguridad_de_Session();
+        // $this->Seguridad_de_Session();
         $this->Establecer_Consultas();
         $this->peticion = (isset($_POST['peticion'])) ? $_POST['peticion'] : $peticion[0];
         switch ($this->peticion) {
             case 'Solicitudes':
                 if ($this->permisos["consultar"] === 1) {
                     $this->vista->Cargar_Vistas('solicitudes/index');
-                } else { $this->_403_();}
+                } else {
+                    $this->_403_();
+                }
                 break;
 
             case 'Solicitud':
                 if ($this->permisos["consultar"] === 1) {
                     $this->vista->Cargar_Vistas('solicitudes/consultar');
-                } else { $this->_403_();}
+                } else {
+                    $this->_403_();
+                }
                 break;
 
             case 'Solicitud_Vivienda':
                 if ($this->permisos["consultar"] === 1) {
                     $this->vista->Cargar_Vistas('solicitudes/consultar_vivienda');
-                } else { $this->_403_();}
+                } else {
+                    $this->_403_();
+                }
                 break;
 
             case 'Solicitud_View_Only':
                 if ($this->permisos["consultar"] === 1) {
                     $this->vista->Cargar_Vistas('solicitudes/consultar_only_view');
-                } else { $this->_403_();}
+                } else {
+                    $this->_403_();
+                }
                 break;
 
-            case 'Consulta_Ajax':$this->Escribir_JSON($this->Get_Datos_Vista()["solicitudes"]);
+            case 'Consulta_Ajax':
+                $this->Escribir_JSON($this->Get_Datos_Vista()["solicitudes"]);
                 break;
 
-            case 'Consulta_Todas':$this->Escribir_JSON($this->Get_Datos_Vista()["solicitudes_todas"]);
+            case 'Consulta_Todas':
+                $this->Escribir_JSON($this->Get_Datos_Vista()["solicitudes_todas"]);
                 break;
 
             case 'Solicitud_Familia':
@@ -143,7 +171,8 @@ class Solicitudes extends Controlador
                 $this->crud["consultar"] = array(
                     "tabla"   => "solicitudes",
                     "columna" => "id_solicitud",
-                    "data"    => $this->id);
+                    "data"    => $this->id
+                );
                 $this->modelo->_CRUD_($this->Get_Crud_Sql());
                 $this->datos_consulta["solicitud"] = $this->modelo->Administrar();
 
@@ -235,7 +264,9 @@ class Solicitudes extends Controlador
                     $this->modelo->_SQL_("SQL_10");
                     $this->modelo->_Tipo_(1);
                     echo $this->modelo->Administrar();
-                } else { $this->_403_();}
+                } else {
+                    $this->_403_();
+                }
                 break;
 
             case 'Aprobar_Cambio_Clave':
@@ -266,7 +297,9 @@ class Solicitudes extends Controlador
                     );
 
                     $this->modelo->_Datos_($this->Get_Datos());
-                    if ($this->modelo->Administrar()) {$this->mensaje = 1;}
+                    if ($this->modelo->Administrar()) {
+                        $this->mensaje = 1;
+                    }
 
                     $this->crud["actualizar"] = array(
                         "tabla"    => "personas",
@@ -281,7 +314,9 @@ class Solicitudes extends Controlador
                     );
 
                     $this->modelo->_Datos_($this->Get_Datos());
-                    if ($this->modelo->Administrar()) {$this->mensaje = 1;}
+                    if ($this->modelo->Administrar()) {
+                        $this->mensaje = 1;
+                    }
                 }
 
                 $this->datos_ejecutar = [
@@ -351,13 +386,27 @@ class Solicitudes extends Controlador
                 if ($this->permisos["registrar"] === 1) {
                     $this->datos_ejecutar['observaciones'] = "";
                     $this->datos_ejecutar['procesada']     = 0;
+                    echo $this->datos_ejecutar;
                     $this->modelo->_Datos_($this->Get_Datos());
                     $this->modelo->_SQL_("SQL_01");
                     $this->modelo->_Tipo_(1);
                     if ($this->modelo->Administrar()) {
                         echo true;
                     }
-                } else { $this->_403_();}
+                } else {
+                    $this->_403_();
+                }
+                break;
+            case 'Nueva_solicitud_cambio_contrasenia':
+                $this->datos_ejecutar['observaciones'] = "";
+                $this->datos_ejecutar['procesada']     = 0;
+                echo $this->datos_ejecutar;
+                $this->modelo->_Datos_($this->Get_Datos());
+                $this->modelo->_SQL_("SQL_01");
+                $this->modelo->_Tipo_(1);
+                if ($this->modelo->Administrar()) {
+                    echo true;
+                }
                 break;
 
             case 'Nueva_Solicitud_Familia':
@@ -390,7 +439,8 @@ class Solicitudes extends Controlador
                 echo $this->modelo->Administrar();
                 break;
 
-            default:$this->vista->Cargar_Vistas('error/400');
+            default:
+                $this->vista->Cargar_Vistas('error/400');
                 break;
         }
         exit();
