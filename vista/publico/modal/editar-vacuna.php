@@ -31,7 +31,10 @@
 
                                             <div class="input-group">
                                                 <select class="custom-select" id="dosis_vacuna" name="dosis[]">
-                                                    <option value="Primera Dosis">
+                                                <option value="0">
+                                                        - Seleccione una dosis -
+                                                    </option>    
+                                                <option value="Primera Dosis">
                                                         Primera Dosis
                                                     </option>
                                                     <option value="Segunda Dosis">

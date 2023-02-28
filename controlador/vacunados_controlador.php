@@ -177,10 +177,20 @@ class Vacunados extends Controlador
         $this->crud["consultar"] = array("tabla" => "vacuna_covid", "columna" => "cedula_persona", "data" => $this->cedula);
         $this->modelo->_CRUD_($this->Get_Crud_Sql());
         $this->datos_consulta["vacunas_personas"] = $this->modelo->Administrar();
+        $this->retornar .= "<table style='width:100%'>";
+        $index=0;
             foreach ($this->datos_consulta["vacunas_personas"] as $v) {
-            $this->retornar .= "<table style='width:100%'><tr><td>" . $v['dosis'] . "</td><td>(" . $v['fecha_vacuna'] . ")</td>
-            <td><button type='button' class='btn btn-danger' onclick='eliminar_dosis(" . $v['id_vacuna_covid'] . "," . $this->cedula . ")'>X</button></td></tr></table><hr>";
+            if($index == (count($this->datos_consulta["vacunas_personas"])-1)){
+            $this->retornar .= "<tr><td>" . $v['dosis'] . "</td><td>(" . $v['fecha_vacuna'] . ")</td>
+            <td><button type='button' class='btn btn-danger' onclick='eliminar_dosis(" . $v['id_vacuna_covid'] . "," . $this->cedula . ")'>X</button></td></tr>";
             }
+            else{
+            $this->retornar .= "<tr><td>" . $v['dosis'] . "</td><td>(" . $v['fecha_vacuna'] . ")</td>
+            <td></td></tr>";
+            }
+            $index++;
+            }
+            $this->retornar .="</table>";
 
             echo $this->retornar;
                 break;
