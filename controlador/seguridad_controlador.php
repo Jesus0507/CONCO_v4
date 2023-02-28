@@ -26,11 +26,11 @@ class Seguridad extends Controlador
     {
         parent::__construct();
         $this->permisos       = $_SESSION["Seguridad"];
-        $this->datos_ejecutar = $_POST['datos'];
+        $this->datos_ejecutar = isset($_POST['datos']) ? $_POST['datos']: null;
         $this->rol_inicio     = $_SESSION['rol_inicio'];
-        $this->rol            = $_POST["rol"];
-        $this->estado         = $_POST["estado"];
-        $this->cedula_persona = $_POST["cedula_persona"];
+        $this->rol            = isset($_POST['rol']) ? $_POST["rol"]: null;
+        $this->estado         = isset($_POST['estado']) ? $_POST["estado"]: null;
+        $this->cedula_persona = isset($_POST['cedula_persona']) ? $_POST["cedula_persona"]: null;
         // $this->Cargar_Modelo("seguridad");
     }
 

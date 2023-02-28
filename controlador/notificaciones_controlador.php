@@ -17,8 +17,8 @@ class Notificaciones extends Controlador
     public function __construct()
     {
         parent::__construct();
-        $this->datos_ejecutar = $_POST['datos'];
-        $this->sql            = $_POST['sql'];
+        $this->datos_ejecutar = isset($_POST['datos']) ? $_POST['datos']: null;
+        $this->sql            = isset($_POST['sql']) ? $_POST['sql']: null;
         $this->mensaje        = 1;
         $this->cedula         = $_SESSION['cedula_usuario'];
         //    $this->Cargar_Modelo("notificaciones");
