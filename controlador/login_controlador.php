@@ -96,7 +96,7 @@ class Login extends Controlador
                     $password                = $this->datos['password'];
                     $this->datos["password"] = $this->Seguridad_Password($password, 1);
                     if (isset($this->datos) && $this->datos['captcha'] !== "") {
-                        // session_start();
+                        session_start();
 
                         $fecha       = date("Y") . "-" . date("m") . "-" . date("d");
                         $hora_inicio = date("h") . ":" . date("i") . ":" . date("s") . " " . date("A");
@@ -221,9 +221,9 @@ class Login extends Controlador
     public function Salir()
     {
         session_unset();
-        // session_start();
+        session_start();
         session_destroy();
-        // session_regenerate_id(true);
+        session_regenerate_id(true);
         $hora_fin = date("h") . ":" . date("i") . ":" . date("s") . " " . date("A");
 
         $this->Cargar_Modelo("bitacora");
