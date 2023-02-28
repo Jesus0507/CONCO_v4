@@ -131,8 +131,10 @@ class Discapacitados extends Controlador
                 break;
             case 'Administrar':
                 if ($this->permisos["registrar"] === 1 || $this->permisos["modificar"] === 1) {
-                    for ($i = 0; $i < count($this->discapacitados); $i++) {
-                        if ($this->discapacitados[$i]['nuevo'] == '0') {
+                    
+                    if ($this->validar->Validacion_Registro()) {
+                        for ($i = 0; $i < count($this->discapacitados); $i++) {
+                        if ($this->discapacitados[$i]['nuevo'] == '0') { 
                             $this->modelo->_SQL_($this->Get_Sql());
                             $this->modelo->_Tipo_(1);
                             $this->datos_ejecutar = array(
@@ -185,6 +187,10 @@ class Discapacitados extends Controlador
                     }
                     $this->Accion($this->Get_Accion());
                     echo $this->Get_Mensaje();
+
+                    } else {
+                        echo $this->validar->Fallo();
+                    }
 
                 } else { $this->_403_();}
                 break;

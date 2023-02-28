@@ -75,10 +75,10 @@
                                 </select>
                              </td>
                              <td class="col-md-3">
-                               <input type="text" class='form-control no-simbolos' id='necesidades' placeholder="Necesidades (opcional)" name="">
+                               <input type="text" class='form-control solo-letras' id='necesidades' placeholder="Necesidades (opcional)" oninput="Limitar(this,30)" name="">
                              </td>
                             <td class="col-md-3">
-                               <input type="text" class='form-control no-simbolos' id='observaciones' placeholder="Observaciones (opcional)" name="">
+                               <input type="text" class='form-control no-simbolos' id='observaciones' placeholder="Observaciones (opcional)" oninput="Limitar(this,50)" name="">
                              </td>
                              
                         </tr>

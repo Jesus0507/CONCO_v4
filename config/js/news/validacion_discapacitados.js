@@ -95,7 +95,7 @@ btn_seleccionar.onclick = function() {
                         valid_persona.innerHTML = "";
                         var datos = JSON.parse(result);
                         span_persona.innerHTML = datos[0]['primer_nombre'] + " " + datos[0]['primer_apellido'];
-                        persona.disabled = 'disabled';
+                        // persona.disabled = 'disabled';
                         btn_seleccionar.style.display = 'none';
                         div_info.style.display = '';
                         // registrar_btn.style.display = 'none';
@@ -227,7 +227,7 @@ btn_guardar.onclick = function() {
                     } else {
                         swal({
                             title: "ERROR!",
-                            text: "Ha ocurrido un Error.</br>" + result,
+                            text:  result,
                             type: "error",
                             html: true,
                             showConfirmButton: true,

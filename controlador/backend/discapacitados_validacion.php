@@ -10,6 +10,8 @@ class Discapacitados_Validacion extends Validacion
     {
         parent::__construct();
         $this->datos = $_POST['datos'];
+        $this->datos["cedula"] = $_POST['cedula'];
+        $this->datos["discapacidad"] = $_POST['discapacidades'];
     }
 
     public function Validacion_Registro()
@@ -29,43 +31,24 @@ class Discapacitados_Validacion extends Validacion
                 if ($this->Comprobar($this->datos["cedula"])) {
                     $this->Errores[] = 'El campo cedula es obligatorio';
                 } else {
-                    if ($this->Validar_Cedula($this->datos["cedula"])) {
-                        $this->Errores[] = "El campo cedula no debe tener caracteres especiales.";
+                     if ($this->Validar("cedula", $this->datos["cedula"])) {
+                        $this->Errores[] = "La cedula es invalida.";
                     } else {
                         if ($this->Comprobar($this->datos["discapacidad"])) {
                             $this->Errores[] = 'El campo discapacidad es obligatorio';
                         } else {
-                            if ($this->Validar_Caracteres($this->datos["discapacidad"])) {
-                                $this->Errores[] = "El campo discapacidad no debe tener caracteres especiales.";
-                            } else {
-                                if ($this->Comprobar($this->datos["necesidades"])) {
+                            if ($this->Comprobar($this->datos["necesidades"])) {
                                     $this->Errores[] = 'El necesidades es obligatorio';
                                 } else {
-                                    if ($this->Validar_Caracteres($this->datos["necesidades"])) {
-                                        $this->Errores[] = 'El campo necesidades no puede tener caracteres especiales.';
-                                    } else {
-                                        if ($this->Comprobar($this->datos["observaciones"])) {
+                                     if ($this->Comprobar($this->datos["observaciones"])) {
                                             $this->Errores[] = 'El observaciones es obligatorio';
-                                        } else {
-                                            if ($this->Validar_Caracteres($this->datos["observaciones"])) {
-                                                $this->Errores[] = 'El campo observaciones no puede tener caracteres especiales.';
-                                            } else {
-                                                if ($this->Comprobar($this->datos["en_cama"])) {
+                                        }else {
+                                            if ($this->Comprobar($this->datos["en_cama"])) {
                                                     $this->Errores[] = 'El en_cama es obligatorio';
-                                                } else {
-                                                    if ($this->Validar_Caracteres($this->datos["en_cama"])) {
-                                                        $this->Errores[] = 'El campo en_cama no puede tener caracteres especiales.';
-                                                    } else {
-                                                        if ($this->Validar_Estado($this->datos["estado"])) {
-                                                            $this->Errores[] = 'el estado es invalido ';
-                                                        } 
-                                                    }
-                                                }
-                                            }
+                                                } 
                                         }
-                                    }
+                                    
                                 }
-                            }
                         }
                     }
                 }
