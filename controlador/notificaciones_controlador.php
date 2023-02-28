@@ -17,8 +17,8 @@ class Notificaciones extends Controlador
     public function __construct()
     {
         parent::__construct();
-        $this->datos_ejecutar = $_POST['datos'];
-        $this->sql            = $_POST['sql'];
+        $this->datos_ejecutar = isset($_POST['datos']) ? $_POST['datos']: null;
+        $this->sql                = isset($_POST['sql']) ? $_POST['sql']: null;
         $this->mensaje        = 1;
         $this->cedula         = $_SESSION['cedula_usuario'];
         //    $this->Cargar_Modelo("notificaciones");
@@ -46,6 +46,8 @@ class Notificaciones extends Controlador
     {return $this->datos_ejecutar;}
     private function Get_Datos_Vista(): array
     {return $this->datos_consulta;}
+    private function Get_Crud_Sql(): array          
+    {return $this->crud;}
     // ==============================================================================
     public function Cargar_Vistas()
     {
@@ -85,19 +87,22 @@ class Notificaciones extends Controlador
                     'leido'            => 0,
                 );
                 $this->modelo->_Datos_($this->Get_Datos());
-                $this->modelo->Administrar();
-                echo $this->Get_Mensaje();
+                if ($this->modelo->Administrar()) {
+                    echo $this->Get_Mensaje();
+                }
+                
                 break;
 
             case 'Receptores':
                 $this->retornar = [];
-                foreach ($this->datos["receptores"] as $r) {
+                foreach ($this->datos_consulta["receptores"] as $r) {
                     $this->retornar[] = ["cedula_usuario" => $r['cedula_persona']];
                 }
-                $this->Escribir_JSON($this->retornar);unset($this->retornar);
+                $this->Escribir_JSON($this->retornar);
                 break;
 
-            case 'Consulta_Ajax':$this->Escribir_JSON($this->Get_Datos_Vista()["notificaciones"]);
+            case 'Consulta_Ajax':
+            $this->Escribir_JSON($this->Get_Datos_Vista()["notificaciones"]);
                 break;
 
             default:$this->vista->Cargar_Vistas('error/400');
