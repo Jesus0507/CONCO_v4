@@ -30,6 +30,7 @@ function getSolicitudes() {
             var cuerpo_sa = "";
             var contSA = 0;
             for (var i = 0; i < result_s.length; i++) {
+                if(result_s[i]['procesada'] == 3 || result_s[i]['procesada'] == 0){
                 var icono_s = "";
                 var fecha_s = new Date(result_s[i]['fecha_solicitud']);
                 var span_s = getSpan(fecha_s, new Date());
@@ -59,7 +60,7 @@ function getSolicitudes() {
                         icono_s = "<i class='fas fa-key'></i>";
                         texto_mensaje += "Ha realizado una solicitud de " + result_s[i]['tipo_constancia'];
                         process = result_s[i]['procesada'];
-                        contSA++;
+                        if(process == 0 || process == 3){contSA++};
                         break;
                 }
                 var mensaje_s = getRecortado(texto_mensaje);
@@ -75,12 +76,14 @@ function getSolicitudes() {
                 }
                 elementS += icono_s + " " + mensaje_s + span_s;
                 elementS += "</a><div class='dropdown-divider'></div>";
-                if (role == 'Administrador' || (role == 'Super Usuario' && result_s[i]['procesada'] == 3)) {
+                if ((role == 'Administrador' && result_s[i]['procesada'] == 0) || (role == 'Super Usuario' && result_s[i]['procesada'] == 3)) {
                     if (result_s[i]['tipo_constancia'] == 'Cambio de contraseña') cuerpo_sa += elementS;
                 } else {
                     if (result_s[i]['tipo_constancia'] != 'Cambio de contraseña') cuerpo_s += elementS;
-                }
+                }   
             }
+            }
+            console.log(contSA);
             if (result_s.length == 0) {
                 solicitudes_no_leidas.innerHTML = "No hay solcitudes pendientes";
                 solicitudes.style.display = "none";
@@ -89,12 +92,15 @@ function getSolicitudes() {
             } else {
                 solicitudes_no_leidas.innerHTML = result_s.length + " Solicitudes";
                 cantidad_s.style.display = "";
-                if (role == 'Administrador' || (role == 'Super Usuario' && process == 3)) {
+                if ((role == 'Administrador' && process == 0) || (role == 'Super Usuario' && process == 3)) {
                     cantidad_s.innerHTML = contSA;
                     if (contSA == 0) {
                         cantidad_s.style.display = "none";
                         solicitudes_no_leidas.innerHTML = "No hay solcitudes pendientes";
                         solicitudes.style.display = "none";
+                    }
+                    else {
+                        solicitudes_no_leidas.innerHTML = contSA + " Solicitudes";
                     }
                 } else {
                     cantidad_s.innerHTML = (result_s.length - contSA);
@@ -104,7 +110,7 @@ function getSolicitudes() {
                         solicitudes.style.display = "none";
                     }
                 }
-                if (role == 'Administrador' || (role == 'Super Usuario' && process == 3)) {
+                if ((role == 'Administrador' && process == 0) || (role == 'Super Usuario' && process == 3)) {
                     solicitudes.innerHTML = cuerpo_sa;
                 } else {
                     solicitudes.innerHTML = cuerpo_s

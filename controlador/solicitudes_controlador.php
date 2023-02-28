@@ -66,6 +66,7 @@ class Solicitudes extends Controlador
 
         $this->modelo->_SQL_("SQL_03");
         $this->datos_consulta["solicitudes_todas"] = $this->modelo->Administrar();
+
         $this->vista->datos                        = $this->Get_Datos_Vista();
     }
 
@@ -110,11 +111,7 @@ class Solicitudes extends Controlador
     {
         $this->Seguridad_de_Session();
         $this->Establecer_Consultas();
-        if ($this->permisos["consultar"] === 1) {
-            $this->vista->Cargar_Vistas('solicitudes/index');
-        } else {
-            $this->_403_();
-        }
+        $this->vista->Cargar_Vistas('solicitudes/index');
     }
 
     // ==============================================================================

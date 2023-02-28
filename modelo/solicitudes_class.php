@@ -109,6 +109,7 @@ class Solicitudes_Class extends Modelo
         return "UPDATE solicitudes SET procesada =:procesada, observaciones=:observaciones WHERE id_solicitud = :id_solicitud";
     }
 
+
     // public function Registrar($data)
     // {
     //     try {
