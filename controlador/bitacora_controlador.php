@@ -26,15 +26,15 @@ class Bitacora extends Controlador
     {
         parent::__construct();
         $this->permisos       = $_SESSION['Seguridad'];
-        $this->sql            = $_POST['sql'];
-        $this->accion         = $_POST['accion'];
+        $this->sql             = isset($_POST['sql']) ? $_POST['sql']: null;
+        $this->accion          = isset($_POST['accion']) ? $_POST['accion']: null;
         $this->mensaje        = 1;
         $this->cedula_usuario = $_SESSION['cedula_usuario'];
-        $this->tipo           = $_POST['tipo'];
+        $this->tipo           = isset($_POST['tipo']) ? $_POST['tipo']: null;
         $this->acciones       = "";
         $this->usuario        = "";
         $this->acciones_Ver   = "";
-        $this->nueva_accion   = $_POST['nueva_accion'];
+        $this->nueva_accion   = isset($_POST['nueva_accion']) ? $_POST['nueva_accion']: null;
         // $this->Cargar_Modelo("bitacora");
     }
 
