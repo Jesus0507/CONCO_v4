@@ -55,7 +55,7 @@ class Parto_Humanizado_Class extends Modelo
     #sentecias sql en espera de ser llamadas retornan string
     private function SQL_01():string
     {
-        return 'SELECT id_parto_humanizado, par.cedula_persona, per.primer_nombre, per.primer_apellido, recibe_micronutrientes, tiempo_gestacion, fecha_aprox_parto FROM parto_humanizado par, personas per WHERE par.estado = 1 AND par.cedula_persona = per.cedula_persona AND per.estado = 1 ORDER BY `per`.`primer_nombre` ASC';
+        return 'SELECT p.id_parto_humanizado, p.cedula_persona, per.primer_nombre, per.primer_apellido, MAX(p.recibe_micronutrientes) AS recibe_micronutrientes, MAX(p.tiempo_gestacion) AS tiempo_gestacion, MAX(p.fecha_aprox_parto) AS fecha_aprox_parto FROM parto_humanizado p INNER JOIN personas per ON p.cedula_persona = per.cedula_persona WHERE p.estado = 1 AND per.estado = 1 GROUP BY p.cedula_persona, per.primer_nombre, per.primer_apellido ORDER BY per.primer_nombre ASC';
     }
 
     private function SQL_02():string

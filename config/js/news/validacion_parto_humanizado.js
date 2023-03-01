@@ -111,9 +111,9 @@ boton.onclick = function () {
     // }
 var datos = {
             cedula_persona: document.getElementById("cedula_persona").value,
-            recibe_micronutrientes: document.getElementById("recibe_micronutrientes").selectedIndex,
+            recibe_micronutrientes: document.getElementById("recibe_micronutrientes").value,
             tiempo_gestacion: document.getElementById("tiempo_gestacion").value,
-            fecha_aprox_parto: document.getElementById("fecha_aprox_parto").value,
+            fecha_aprox_parto: document.getElementById("fecha_aprox_parto").value, 
             estado: 1
         }
     $.ajax({
@@ -129,7 +129,7 @@ var datos = {
                                             url: BASE_URL + direccion_segura,
                                             data: {
                                                 datos: datos,
-                                                peticion: "Administrar",
+                                                peticion: "Registrar",
                                                 sql: "SQL_02",
                                                 accion: "Se ha Registrado la  Embarazada portadora de la cedula: " + cedula,
                                             },
