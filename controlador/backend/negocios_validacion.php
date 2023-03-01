@@ -51,7 +51,7 @@ class Negocios_Validacion extends Validacion
                                                 if ($this->Comprobar($this->Datos_Validos()["rif_negocio"])) {
                                                     $this->Errores[] = 'El campo rif del negocio es obligatorio';
                                                 } else {
-                                                    if ($this->Validar_Rif($this->Datos_Validos()["rif_negocio"])) {
+                                                    if ($this->Validar("rif",$this->Datos_Validos()["rif_negocio"])) {
                                                         $this->Errores[] = 'El rif es inválido verifique que la informacion sea correcta.';
                                                     } else {
                                                         if ($this->Validar_Estado($this->Datos_Validos()["estado"])) {

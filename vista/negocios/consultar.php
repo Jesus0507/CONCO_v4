@@ -74,7 +74,9 @@
                         }, {
                             data: "nombre_negocio",
                         }, {
-                            data: "cedula_propietario",
+                            data: function(data) {
+                                return (data.cedula_propietario+" "+data.primer_nombre+" "+data.primer_apellido);
+                            },
                         }, {
                             data: "rif_negocio",
                         }, 

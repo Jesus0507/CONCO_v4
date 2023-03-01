@@ -59,7 +59,7 @@ class Negocios_Class extends Modelo
     #sentecias sql en espera de ser llamadas retornan string
     private function SQL_01():string
     {
-        return "SELECT id_negocio, nombre_negocio, direccion_negocio, cedula_propietario, rif_negocio, c.id_calle, c.nombre_calle, n.estado FROM negocios n INNER JOIN calles c WHERE n.estado = 1 AND n.id_calle = c.id_calle";
+        return "SELECT id_negocio, nombre_negocio, direccion_negocio, cedula_propietario, p.primer_nombre, p.primer_apellido, rif_negocio, c.id_calle, c.nombre_calle, n.estado FROM negocios n, calles c, personas p WHERE n.estado = 1 AND n.id_calle = c.id_calle AND n.cedula_propietario = p.cedula_persona";
     }
     private function SQL_02():string
     {
@@ -74,16 +74,4 @@ class Negocios_Class extends Modelo
         return "SELECT p.cedula_persona,p.primer_nombre,p.primer_apellido FROM personas p WHERE p.estado = 1 ORDER BY p.cedula_persona ASC";
     }
 
-    // private function Sentencias_Sql()
-    // {
-    //     return [
-    //         'SQL_01' => "SELECT id_negocio, nombre_negocio, direccion_negocio, cedula_propietario, rif_negocio, c.id_calle, c.nombre_calle, n.estado FROM negocios n INNER JOIN calles c WHERE n.estado = 1 AND n.id_calle = c.id_calle",
-
-    //         'SQL_02' => "INSERT INTO negocios (id_calle, nombre_negocio, direccion_negocio, cedula_propietario, rif_negocio, estado) VALUES (:id_calle, :nombre_negocio, :direccion_negocio, :cedula_propietario, :rif_negocio, :estado)",
-
-    //         'SQL_03' => "UPDATE negocios  SET id_calle = :id_calle, nombre_negocio = :nombre_negocio, direccion_negocio = :direccion_negocio, cedula_propietario = :cedula_propietario, rif_negocio = :rif_negocio,estado = :estado WHERE id_negocio = :id_negocio",
-
-    //         'SQL_04' => "SELECT p.cedula_persona,p.primer_nombre,p.primer_apellido FROM personas p WHERE p.estado = 1 ORDER BY p.cedula_persona ASC",
-    //     ];
-    // }
 }
