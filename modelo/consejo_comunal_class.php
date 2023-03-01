@@ -55,7 +55,7 @@ class Consejo_Comunal_Class extends Modelo
      #sentecias sql en espera de ser llamadas retornan string
     private function SQL_01():string
     {
-        return "SELECT id_comite_persona, c.nombre_comite, cc.cedula_persona, p.primer_nombre, p.primer_apellido, cargo_persona, cc.fecha_ingreso, cc.fecha_salida FROM comite_persona cc INNER JOIN personas p, comite c WHERE cc.id_comite = c.id_comite AND cc.cedula_persona = p.cedula_persona ORDER BY `cc`.`cedula_persona` ASC";
+        return "SELECT cc.id_comite_persona, c.nombre_comite, p.cedula_persona, p.primer_nombre, p.primer_apellido, cc.cargo_persona, cc.fecha_ingreso, cc.fecha_salida FROM comite_persona cc JOIN personas p ON cc.cedula_persona = p.cedula_persona AND p.estado = 1 JOIN comite c ON cc.id_comite = c.id_comite AND c.estado = 1 ORDER BY p.primer_apellido, p.primer_nombre, cc.cedula_persona ASC";
     }
 
     private function SQL_02():string
