@@ -52,13 +52,17 @@
                             <option value='0'>No</option>
                         </select>
                     </td>
-                    <td class="col-md-3">
+                    
+                 <tr><td class="col-md-3">
+                    <label>Necesidades</label>
                      <input type="text" class='form-control solo-letras' id='necesidades' placeholder="Necesidades (opcional)"  oninput="Limitar(this,30)" name="">
                  </td>
                  <td class="col-md-3">
+                    <label>Observaciones</label>
                      <input type="text" class='form-control no-simbolos' id='observaciones' placeholder="Observaciones (opcional)" oninput="Limitar(this,50)" name="">
                  </td>
-                 <tr><td></td></tr>
+             </tr>
+             <tr><td></td></tr>
                  <tr>
                      <td >
                     &nbsp;&nbsp;<button id='agregar' class="btn btn-info" type="button">Agregar</button>&nbsp;&nbsp;<button type='button' class="btn btn-info" id='btn_nueva_discapacidad' >Nueva discapacidad</button>

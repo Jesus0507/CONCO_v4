@@ -54,7 +54,7 @@
                  <div id='second' style='display:none'>
                      <div class='row'>
 
-                         <div class="col-md-12">
+                         <div class="col-md-12" style="margin-top: -10px;">
 
                              <label>Discapacidad</label> <span id='valid_discapacidad' style='color:red'></span>
                              <table style='width:100%'><tr><td class="col-md-3">
@@ -68,18 +68,26 @@
                              </select></td>
 
                              <td class="col-md-3">
+
                                 <select id='en_cama' class='form-control no-simbolos'>
                                     <option value='vacio'>-En cama-</option>
                                     <option value="1">Si</option>
                                     <option value='0'>No</option>
                                 </select>
                              </td>
-                             <td class="col-md-3">
+                            <tr>
+                                 <td class="col-md-3">
+                                <label>Necesidades</label>
                                <input type="text" class='form-control solo-letras' id='necesidades' placeholder="Necesidades (opcional)" oninput="Limitar(this,30)" name="">
                              </td>
-                            <td class="col-md-3">
+                             <td class="col-md-3">
+                                    <label>Observaciones</label>
                                <input type="text" class='form-control no-simbolos' id='observaciones' placeholder="Observaciones (opcional)" oninput="Limitar(this,50)" name="">
                              </td>
+                            </tr>
+                            <tr>
+                                
+                            </tr>
                              
                         </tr>
                         <tr>
