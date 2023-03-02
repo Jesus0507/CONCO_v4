@@ -1,0 +1,229 @@
+# Desactivar el server signature
+ServerSignature Off
+
+# Activar el seguimiento de enlaces
+Options +FollowSymLinks
+
+# Configurar la codificación de caracteres predeterminada
+AddDefaultCharset utf-8
+
+# Configurar límite de tamaño de solicitud
+LimitRequestBody 10000000
+
+# Ignorar estos tipos de archivos al listar un directorio
+IndexIgnore *.php *.html *.js *.css
+
+# Agregar tipo de archivo .foo
+AddType application/x-httpd-php .foo
+
+# Redirigir a la página de error personalizada
+ErrorDocument 403 /dashboard/www/CONCO_v4/config/img/web/001.jpg
+
+# Deshabilitar la lista de directorios y mostrar un error 404 personalizado
+Options -Indexes
+ErrorDocument 404 /dashboard/www/CONCO_v4/config/img/web/404.jpg
+
+# Redirigir a HTTPS
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+
+# Redirigir solicitudes a index.php
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteRule ^(.*)$ index.php?url=$1&id=$2 [NC,L,QSA]
+
+# Redirigir URLs con una barra al equivalente sin barra
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)/$ /$1 [R=301,L]
+
+RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?(norfipc|google|bing)\.com [NC]
+RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?(pinterest|tumblr)\.com [NC]
+RewriteCond %{HTTP_REFERER} !^$
+RewriteCond %{HTTP_REFERER} !google\. [NC]
+RewriteCond %{HTTP_REFERER} !search\?q=cache [NC]
+RewriteCond %{HTTP_REFERER} !msn\. [NC]
+RewriteCond %{HTTP_REFERER} !yahoo\. [NC]
+RewriteCond %{HTTP_USER_AGENT} !(googlebot|msnbot) [NC]
+
+RewriteCond %{HTTP_USER_AGENT} ^(BlackWidow|Bot\ mailto:craftbot@yahoo.com|ChinaClaw|Custo|DISCo|Download\ Demon|eCatch|EirGrabber|EmailSiphon|EmailWolf|Express\ WebPictures|ExtractorPro|EyeNetIE|FlashGet|GetRight|GetWeb!|Go!Zilla|Go-Ahead-Got-It|GrabNet|Grafula|HMView|HTTrack|Image\ Stripper|Image\ Sucker|Indy\ Library|InterGET|Internet\ Ninja|JetCar|JOC\ Web\ Spider|larbin|LeechFTP|Mass\ Downloader|MIDown\ tool|Mister\ PiX|Navroad|NearSite|NetAnts|NetSpider|Net\ Vampire|NetZIP|Octopus|Offline\ Explorer|Offline\ Navigator|PageGrabber|Papa\ Foto|pavuk|pcBrowser|RealDownload|ReGet|SiteSnagger|SmartDownload|SuperBot|SuperHTTP|Surfbot|tAkeOut|Teleport\ Pro|VoidEYE|Web\ Image\ Collector|Web\ Sucker|WebAuto|WebCopier|WebFetch|WebGo\ IS|WebLeacher|WebReaper|WebSauger|Website\ eXtractor|Website\ Quester|WebStripper|WebWhacker|WebZIP|Widow|WWWOFFLE|Xaldon\ WebSpider|Zeus) [NC]
+RewriteRule ^.*$ https://pbs.twimg.com/card_img/1565588392921837568/8SAOsLoy?format=jpg&name=900x900 [R,L]
+
+# Bloquea solicitudes con user agents sospechosos
+RewriteCond %{HTTP_USER_AGENT} ^$ [OR]
+RewriteCond %{HTTP_USER_AGENT} (java|curl|wget|winhttp|HTTrack|clshttp|archiver|loader|email|harvest|extract|grab|miner|libwww-perl|python|nikto|scan) [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} (<|%0A|%0D|%27|%3C|%3E|%00) [NC]
+RewriteRule .* - [F,L]
+
+# Bloquea solicitudes con parámetros sospechosos en la URL
+RewriteCond %{QUERY_STRING} [a-zA-Z0-9_]=http:// [OR]
+RewriteCond %{QUERY_STRING} [a-zA-Z0-9_]=(\.\.//?)+ [OR]
+RewriteCond %{QUERY_STRING} [a-zA-Z0-9_]=/([a-z0-9_.]//?)+ [NC]
+RewriteRule .* - [F,L]
+
+# Evitar acceso directo a directorios sensibles
+RewriteRule ^(cache|includes|logs|tmp)/ - [F]
+
+# Bloquear métodos de solicitud peligrosos y solicitudes que contengan caracteres maliciosos
+RewriteCond %{REQUEST_METHOD} ^(HEAD|TRACE|DELETE|TRACK) [NC,OR]
+RewriteCond %{THE_REQUEST} ^.*(\\r|\\n|%0A|%0D).* [NC,OR]
+RewriteCond %{HTTP_REFERER} ^(.*)(<|>|'|%0A|%0D|%27|%3C|%3E|).* [NC,OR]
+RewriteCond %{HTTP_COOKIE} ^.*(<|>|'|%0A|%0D|%27|%3C|%3E|).* [NC,OR]
+RewriteCond %{REQUEST_URI} ^/(,|;|:|<|>|">|"<|/|\\\.\.\\).{0,9999}.* [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} ^$ [OR]
+RewriteCond %{HTTP_USER_AGENT} ^(java|curl|wget).* [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} ^.*(winhttp|HTTrack|clshttp|archiver|loader|email|harvest|extract|grab|miner).* [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} ^.*(libwww-perl|curl|wget|python|nikto|scan).* [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} ^.*(<|>|'|%0A|%0D|%27|%3C|%3E|).* [NC]
+RewriteRule .* - [F]
+
+# Bloquear solicitudes que contengan palabras clave maliciosas y direcciones IP locales
+RewriteCond %{QUERY_STRING} ^.*(;|<|>|'|"|\)|%0A|%0D|%22|%27|%3C|%3E|).*(/\*|union|select|insert|cast|set|declare|drop|update|md5|benchmark).* [NC,OR]
+RewriteCond %{QUERY_STRING} ^.*(localhost|loopback|127\.0\.0\.1).* [NC,OR]
+RewriteCond %{QUERY_STRING} ^.*(<|>|'|%0A|%0D|%27|%3C|%3E|).* [NC]
+RewriteRule .* - [F]
+
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteCond %{REQUEST_URI} \.php|\.ini|\.xml [NC]
+RewriteCond %{REQUEST_URI} \/app\/ [OR]
+RewriteCond %{REQUEST_URI} !\/config\/config\.php [NC]
+RewriteCond %{REQUEST_URI} \/config\/ [OR]
+RewriteCond %{REQUEST_URI} \/config/css\/ [OR]
+RewriteCond %{REQUEST_URI} \/config/js\/ [OR]
+RewriteCond %{REQUEST_URI} \/controlador\/ [OR]
+RewriteCond %{REQUEST_URI} \/modelo\/ [OR]
+RewriteCond %{REQUEST_URI} \/tests\/ [OR]
+RewriteCond %{REQUEST_URI} \/vista\/ [OR]
+RewriteRule ^ - [F]
+
+<IfModule mod_security.c>
+  SecRuleEngine On
+  SecRule REQUEST_METHOD "^(?:GET|POST|HEAD)$" \
+    "id:1,\
+    phase:1,\
+    pass,\
+    t:none,\
+    nolog,\
+    ctl:requestBodyAccess=Off,\
+    ctl:ruleRemoveById=942100,\
+    ctl:ruleRemoveById=942101,\
+    ctl:ruleRemoveById=942130,\
+    ctl:ruleRemoveById=942140,\
+    ctl:ruleRemoveById=942150,\
+    ctl:ruleRemoveById=942160,\
+    ctl:ruleRemoveById=942170,\
+    ctl:ruleRemoveById=942210,\
+    ctl:ruleRemoveById=942220,\
+    ctl:ruleRemoveById=942230,\
+    ctl:ruleRemoveById=942240,\
+    ctl:ruleRemoveById=942250,\
+    ctl:ruleRemoveById=942260,\
+    ctl:ruleRemoveById=942270,\
+    ctl:ruleRemoveById=942280,\
+    ctl:ruleRemoveById=942290"
+</IfModule>
+
+# Bloquear solicitudes sospechosas en la cadena de consulta
+RewriteCond %{QUERY_STRING} proc/self/environ [OR]
+RewriteCond %{QUERY_STRING} mosConfig_[a-zA-Z_]{1,21}(=|\%3D) [OR]
+RewriteCond %{QUERY_STRING} base64_(en|de)code[^(]*\([^)]*\) [OR]
+RewriteCond %{QUERY_STRING} (<|%3C)([^s]*s)+cript.*(>|%3E) [NC,OR]
+RewriteCond %{QUERY_STRING} GLOBALS(=|\[|\%[0-9A-Z]{0,2}) [OR]
+RewriteCond %{QUERY_STRING} _REQUEST(=|\[|\%[0-9A-Z]{0,2}) [OR]
+RewriteCond %{QUERY_STRING} _POST(=|\[|\%[0-9A-Z]{0,2}) [OR]
+RewriteCond %{QUERY_STRING} eval\( [NC,OR]
+RewriteCond %{QUERY_STRING} base64_decode\( [NC]
+RewriteRule .* - [F]
+
+# Bloquear solicitudes sospechosas en la ruta
+RewriteCond %{REQUEST_METHOD} GET
+RewriteCond %{QUERY_STRING} [a-zA-Z0-9_]=http:// [OR]
+RewriteCond %{QUERY_STRING} [a-zA-Z0-9_]=(\.\.//?)+ [OR]
+RewriteCond %{QUERY_STRING} [a-zA-Z0-9_]=/([a-z0-9_.]//?)+ [NC,OR]
+RewriteCond %{QUERY_STRING} \=PHP[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12} [NC]
+RewriteRule .* -
+
+# Denegar el acceso a archivos y directorios sensibles
+<FilesMatch "^(htaccess\.txt|configuration\.php(-dist)?|php\.ini)$">
+    Require all denied
+</FilesMatch>
+
+# Denegar el acceso a archivos .htaccess y .htpasswd
+<Files ~ "^\.ht">
+    Require all denied
+</Files>
+
+# Denegar el acceso a archivos PHP desde el exterior
+<FilesMatch "\.php$">
+    Require all denied
+</FilesMatch>
+
+# Comentar el propósito de cada sección de código
+# Desactivar la comprobación ortográfica de mod_speling
+<IfModule mod_speling.c>
+    CheckSpelling Off
+</IfModule>
+
+
+<IfModule mod_expires.c>
+	# Enable expiration control
+	ExpiresActive On
+ 
+	# Default expiration: 24 hour after request
+	ExpiresDefault "now plus 24 hour"
+ 
+	# CSS and JS expiration: 12 week after request
+	ExpiresByType text/css "now plus 12 week"
+	ExpiresByType application/javascript "now plus 12 week"
+	ExpiresByType application/x-javascript "now plus 12 week"
+ 
+	# Image files expiration: 1 month after request
+	ExpiresByType image/bmp "now plus 1 month"
+	ExpiresByType image/gif "now plus 1 month"
+	ExpiresByType image/jpeg "now plus 1 month"
+	ExpiresByType image/jp2 "now plus 1 month"
+	ExpiresByType image/pipeg "now plus 1 month"
+	ExpiresByType image/png "now plus 1 month"
+	ExpiresByType image/svg+xml "now plus 1 month"
+	ExpiresByType image/tiff "now plus 1 month"
+	ExpiresByType image/vnd.microsoft.icon "now plus 1 month"
+	ExpiresByType image/x-icon "now plus 1 month"
+	ExpiresByType image/ico "now plus 1 month"
+	ExpiresByType image/icon "now plus 1 month"
+	ExpiresByType text/ico "now plus 1 month"
+	ExpiresByType application/ico "now plus 1 month"
+	ExpiresByType image/vnd.wap.wbmp "now plus 1 month"
+	ExpiresByType application/vnd.wap.wbxml "now plus 1 month"
+	ExpiresByType application/smil "now plus 1 month"
+ 
+	# Audio files expiration: 1 month after request
+	ExpiresByType audio/basic "now plus 1 month"
+	ExpiresByType audio/mid "now plus 1 month"
+	ExpiresByType audio/midi "now plus 1 month"
+	ExpiresByType audio/mpeg "now plus 1 month"
+	ExpiresByType audio/x-aiff "now plus 1 month"
+	ExpiresByType audio/x-mpegurl "now plus 1 month"
+	ExpiresByType audio/x-pn-realaudio "now plus 1 month"
+	ExpiresByType audio/x-wav "now plus 1 month"
+ 
+	# Movie files expiration: 1 month after request
+	ExpiresByType application/x-shockwave-flash "now plus 1 month"
+	ExpiresByType x-world/x-vrml "now plus 1 month"	
+	ExpiresByType video/x-msvideo "now plus 1 month"
+	ExpiresByType video/mpeg "now plus 1 month"
+	ExpiresByType video/mp4 "now plus 1 month"
+	ExpiresByType video/quicktime "now plus 1 month"
+	ExpiresByType video/x-la-asf "now plus 1 month"
+	ExpiresByType video/x-ms-asf "now plus 1 month"
+</IfModule>
+
+<Files ~ "\.pdf$">
+  <If "%{REQUEST_URI} =~ m#^/path/to/excluded/directory/#">
+    Header unset X-Robots-Tag
+  </If>
+  <Else>
+    Header set X-Robots-Tag "index, nofollow"
+  </Else>
+</Files>
