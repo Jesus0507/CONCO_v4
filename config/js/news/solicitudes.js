@@ -29,6 +29,7 @@ function getSolicitudes() {
             var cuerpo_s = "";
             var cuerpo_sa = "";
             var contSA = 0;
+            var contSU = 0;
             for (var i = 0; i < result_s.length; i++) {
                 if(result_s[i]['procesada'] == 3 || result_s[i]['procesada'] == 0){
                 var icono_s = "";
@@ -39,28 +40,34 @@ function getSolicitudes() {
                     case 'Residencia':
                         icono_s = "<i class='fas fa-home'></i>";
                         texto_mensaje += "Ha realizado una solicitud de constancia de " + result_s[i]['tipo_constancia'];
+                        if(process == 0){contSA++;};
                         break;
                     case 'Buena conducta':
                         icono_s = "<i class='fas fa-address-card'></i>";
                         texto_mensaje += "Ha realizado una solicitud de constancia de " + result_s[i]['tipo_constancia'];
+                        if(process == 0){contSA++;};
                         break;
                     case 'No poseer vivienda':
                         icono_s = "<i class='fas fa-hotel'></i>";
                         texto_mensaje += "Ha realizado una solicitud de constancia de " + result_s[i]['tipo_constancia'];
+                        if(process == 0){contSA++;};
                         break;
                     case 'Vivienda':
                         icono_s = "<i class='fas fa-plus-square'></i>";
                         texto_mensaje += "Ha realizado una solicitud de registro de " + result_s[i]['tipo_constancia'];
+                        if(process == 0){contSA++;};
                         break;
                     case 'Familia':
                         icono_s = "<i class='fas fa-users'></i>";
                         texto_mensaje += "Ha realizado una solicitud de registro de " + result_s[i]['tipo_constancia'];
+                        if(process == 0){contSA++;};
                         break;
                     case 'Cambio de contraseña':
                         icono_s = "<i class='fas fa-key'></i>";
                         texto_mensaje += "Ha realizado una solicitud de " + result_s[i]['tipo_constancia'];
                         process = result_s[i]['procesada'];
-                        if(process == 0 || process == 3){contSA++};
+                        if(process == 0){contSA++;};
+                        if(process == 3){contSU++};
                         break;
                 }
                 var mensaje_s = getRecortado(texto_mensaje);
@@ -77,40 +84,46 @@ function getSolicitudes() {
                 elementS += icono_s + " " + mensaje_s + span_s;
                 elementS += "</a><div class='dropdown-divider'></div>";
                 if ((role == 'Administrador' && result_s[i]['procesada'] == 0) || (role == 'Super Usuario' && result_s[i]['procesada'] == 3)) {
-                    if (result_s[i]['tipo_constancia'] == 'Cambio de contraseña') cuerpo_sa += elementS;
-                } else {
-                    if (result_s[i]['tipo_constancia'] != 'Cambio de contraseña') cuerpo_s += elementS;
+                cuerpo_sa += elementS;
                 }   
             }
             }
-            console.log(contSA);
+
             if (result_s.length == 0) {
                 solicitudes_no_leidas.innerHTML = "No hay solcitudes pendientes";
                 solicitudes.style.display = "none";
                 cantidad_s.innerHTML = '0';
                 cantidad_s.style.display = "none";
             } else {
-                solicitudes_no_leidas.innerHTML = result_s.length + " Solicitudes";
                 cantidad_s.style.display = "";
-                if ((role == 'Administrador' && process == 0) || (role == 'Super Usuario' && process == 3)) {
-                    cantidad_s.innerHTML = contSA;
-                    if (contSA == 0) {
-                        cantidad_s.style.display = "none";
-                        solicitudes_no_leidas.innerHTML = "No hay solcitudes pendientes";
-                        solicitudes.style.display = "none";
-                    }
-                    else {
-                        solicitudes_no_leidas.innerHTML = contSA + " Solicitudes";
-                    }
-                } else {
-                    cantidad_s.innerHTML = (result_s.length - contSA);
-                    if ((result_s.length - contSA) == 0) {
-                        cantidad_s.style.display = "none";
-                        solicitudes_no_leidas.innerHTML = "No hay solcitudes pendientes";
-                        solicitudes.style.display = "none";
-                    }
+                if(role == 'Super Usuario') {
+                        if (contSU == 0) {
+                            cantidad_s.style.display = "none";
+                            solicitudes_no_leidas.innerHTML = "No hay solcitudes pendientes";
+                            solicitudes.style.display = "none";
+                            cantidad_s.style.display = "none";
+                        }
+                        else {
+                            solicitudes_no_leidas.innerHTML = contSU + " Solicitudes";
+                            cantidad_s.innerHTML = contSU;
+                        }
+
                 }
-                if ((role == 'Administrador' && process == 0) || (role == 'Super Usuario' && process == 3)) {
+                else {
+                    if(role == 'Administrador') {
+                        if (contSA == 0) {
+                            cantidad_s.style.display = "none";
+                            solicitudes_no_leidas.innerHTML = "No hay solcitudes pendientes";
+                            solicitudes.style.display = "none";
+                            cantidad_s.style.display = "none";
+                        }
+                        else {
+                            solicitudes_no_leidas.innerHTML = contSA + " Solicitudes";
+                            cantidad_s.innerHTML=contSA;
+                        }
+                }
+            }
+                if ((role == 'Administrador') || (role == 'Super Usuario')) {
                     solicitudes.innerHTML = cuerpo_sa;
                 } else {
                     solicitudes.innerHTML = cuerpo_s
@@ -430,7 +443,6 @@ function procesarSolicitudSU() {
                             observaciones: "Aprobada el " + fecha_actual,
                         },
                     }).done(function(resp) {
-                        console.log(resp);
                         if (resp) {
                             swal({
                                 type: 'success',

@@ -238,7 +238,7 @@ class Controlador
 
     public function validKeys($public, $private)
     {
-        $sql               = "SELECT * FROM  personas where public_key = $public OR private_key = $private";
+        $sql               = "SELECT * FROM  personas where public_key = '$public' OR private_key = '$private'";
         $respuesta_arreglo = '';
         $resp              = false;
         try {
@@ -249,7 +249,7 @@ class Controlador
             if (count($respuesta_arreglo) == 2) {
                 $resp = true;
             }
-            return $resp;
+            return $resp ;
         } catch (PDOException $e) {
 
             $errorReturn = ['estatus' => false];

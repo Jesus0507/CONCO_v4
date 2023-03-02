@@ -1,0 +1,10 @@
+stdClass Object
+(
+    [Fecha] => Jueves , 02 de Marzo del 2023
+    [Hora] => 01:01:09 am
+    [Mensaje] => Array
+        (
+            [0] => [Error Funcion] => "La Funcion: [ Nueva_solicitud() ] No se encuentra definida, en el controlador: [ Solicitudes ]"
+        )
+
+)

@@ -347,7 +347,7 @@ class Solicitudes extends Controlador
                     ];
                 }
 
-                echo json_encode($this->respuesta);
+               echo json_encode($this->respuesta);
                 break;
 
             case 'Consultar_Solicitudes_Vivienda':
@@ -387,7 +387,7 @@ class Solicitudes extends Controlador
                     $this->modelo->_Datos_($this->Get_Datos());
                     $this->modelo->_SQL_("SQL_01");
                     $this->modelo->_Tipo_(1);
-                    if ($this->modelo->Administrar()) {
+                    if ($this->modelo->Administrar()) { 
                         echo true;
                     }
                 } else {
@@ -397,7 +397,7 @@ class Solicitudes extends Controlador
             case 'Nueva_solicitud_cambio_contrasenia':
                 $this->datos_ejecutar['observaciones'] = "";
                 $this->datos_ejecutar['procesada']     = 0;
-                echo $this->datos_ejecutar;
+                $this->datos_ejecutar;
                 $this->modelo->_Datos_($this->Get_Datos());
                 $this->modelo->_SQL_("SQL_01");
                 $this->modelo->_Tipo_(1);
