@@ -1516,40 +1516,45 @@ function registrar_carnets(carnet, tipo) {
 }
 
 function registrar_bonos_persona() {
+    var datos_bonos = [];
     for (var i = 0; i < bonos_persona.length; i++) {
         var datos = new Object();
         datos['bono'] = bonos_persona[i];
         datos['cedula_persona'] = cedula.value;
-        $.ajax({
-            type: "POST",
-            url: BASE_URL + "app/Direcciones.php",
-            data: {
-                direction: "Personas/registrar_bonos",
-                accion: "codificar"
-            },
-            success: function(direccion_segura) {
-                $.ajax({
-                    type: "POST",
-                    url: BASE_URL + direccion_segura,
-                    data: {
-                        "datos": datos
-                    }
-                }).done(function(result) {
-                    //console.log(result);
-                })
-            },
-            error: function() {
-                alert('Error al codificar dirreccion');
-            }
-        });
+        datos_bonos.push(datos);
     }
+    $.ajax({
+        type: "POST",
+        url: BASE_URL + "app/Direcciones.php",
+        data: {
+            direction: "Personas/registrar_bonos",
+            accion: "codificar"
+        },
+        success: function(direccion_segura) {
+            $.ajax({
+                type: "POST",
+                url: BASE_URL + direccion_segura,
+                data: {
+                    "datos": datos_bonos
+                }
+            }).done(function(result) {
+                console.log(result);
+            })
+        },
+        error: function() {
+            alert('Error al codificar dirreccion');
+        }
+    });
 }
 
 function registrar_proyectos_persona() {
+    var datos_proyectos = [];
     for (var i = 0; i < proyectos_persona.length; i++) {
         var datos = new Object();
         datos['proyecto'] = proyectos_persona[i];
         datos['cedula_persona'] = cedula.value;
+        datos_proyectos.push(datos);
+    }
         $.ajax({
             type: "POST",
             url: BASE_URL + "app/Direcciones.php",
@@ -1562,10 +1567,10 @@ function registrar_proyectos_persona() {
                     type: "POST",
                     url: BASE_URL + direccion_segura,
                     data: {
-                        "datos": datos
+                        "datos": datos_proyectos
                     }
                 }).done(function(result) {
-                    //console.log(result);
+                    console.log(result);
                 })
             },
             error: function() {
@@ -1573,36 +1578,37 @@ function registrar_proyectos_persona() {
             }
         });
     }
-}
 
 function registrar_misiones_persona() {
+    var datos_misiones = [];
     for (var i = 0; i < misiones_persona.length; i++) {
         var datos = new Object();
         datos['mision'] = misiones_persona[i];
         datos['cedula_persona'] = cedula.value;
-        $.ajax({
-            type: "POST",
-            url: BASE_URL + "app/Direcciones.php",
-            data: {
-                direction: "Personas/registrar_misiones",
-                accion: "codificar"
-            },
-            success: function(direccion_segura) {
-                $.ajax({
-                    type: "POST",
-                    url: BASE_URL + direccion_segura,
-                    data: {
-                        "datos": datos
-                    }
-                }).done(function(result) {
-                    //console.log(result);
-                })
-            },
-            error: function() {
-                alert('Error al codificar dirreccion');
-            }
-        });
+        datos_misiones.push(datos);
     }
+    $.ajax({
+        type: "POST",
+        url: BASE_URL + "app/Direcciones.php",
+        data: {
+            direction: "Personas/registrar_misiones",
+            accion: "codificar"
+        },
+        success: function(direccion_segura) {
+            $.ajax({
+                type: "POST",
+                url: BASE_URL + direccion_segura,
+                data: {
+                    "datos": datos_misiones
+                }
+            }).done(function(result) {
+                console.log(result);
+            })
+        },
+        error: function() {
+            alert('Error al codificar dirreccion');
+        }
+    });
 }
 
 function registrar_transporte() {

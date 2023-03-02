@@ -115,7 +115,7 @@ var ver_rol = document.getElementById("ver_rol");
 var valid_firma = document.getElementById("valid_firma");
 var firma_digital = document.getElementById("firma_digital");
 //--------------------------------Avanzar con enter-------------------------------------------//
-document.onkeypress = function(e) {
+document.onkeypress = function (e) {
     if (e.which == 13 || e.keyCode == 13) {
         funcion_siguiente();
         return false;
@@ -124,7 +124,7 @@ document.onkeypress = function(e) {
     }
 }
 //-----------------------------------------------------------------------------------------------//
-btn_ver_clave.onclick = function() {
+btn_ver_clave.onclick = function () {
     if (contrasenia.type == 'password') {
         contrasenia.type = confirmar.type = 'text';
         btn_ver_clave.innerHTML = "<em style='font-size: 23px' class='fa fa-eye-slash'></em>";
@@ -136,51 +136,51 @@ btn_ver_clave.onclick = function() {
 //--------------------------validar informacion personal----------------------------------------//
 primer_nombre.maxLength = segundo_nombre.maxLength = primer_apellido.maxLength = segundo_apellido.maxLength = 12;
 nacionalidad.maxLength = nivel_educativo.maxLength = 15;
-primer_nombre.onkeyup = function() {
+primer_nombre.onkeyup = function () {
     valid_element("Debe ingresar el primer nombre de la persona", primer_nombre, document.getElementById("valid_2"));
 }
 // segundo_nombre.onkeyup = function () { valid_element("Debe ingresar el segundo nombre de la persona", segundo_nombre, document.getElementById("valid_3")); }
-primer_apellido.onkeyup = function() {
+primer_apellido.onkeyup = function () {
     valid_element("Debe ingresar el primer apellido de la persona", primer_apellido, document.getElementById("valid_4"));
 }
 // segundo_apellido.onkeyup = function () { valid_element("Debe ingresar el segundo apellido de la persona", segundo_apellido, document.getElementById("valid_5")); }
-fecha_nacimiento.onchange = function() {
+fecha_nacimiento.onchange = function () {
     valid_element("Debe indicar la fecha de nacimiento de la persona", fecha_nacimiento, document.getElementById("valid_6"));
 }
-estado_civil.onchange = function() {
+estado_civil.onchange = function () {
     valid_element("Debe indicar el estado civil de la persona", estado_civil, document.getElementById("valid_7"));
 }
-genero.onchange = function() {
+genero.onchange = function () {
     valid_element("Debe indicar el género de la persona", genero, document.getElementById("valid_8"));
 }
-sexualidad.onchange = function() {
+sexualidad.onchange = function () {
     valid_element("Debe indicar la orientación sexual de la persona", sexualidad, document.getElementById("valid_9"));
 }
-nacionalidad.onkeyup = function() {
+nacionalidad.onkeyup = function () {
     valid_element("Debe ingresar la nacionalidad de la persona", nacionalidad, document.getElementById("valid_10"));
 }
-nivel_educativo.onkeyup = function() {
+nivel_educativo.onkeyup = function () {
     valid_element("Debe ingresar el nivel educativo de la persona", nivel_educativo, document.getElementById("valid_11"));
 }
-afrodescendencia.onchange = function() {
+afrodescendencia.onchange = function () {
     valid_element("Debe indicar si la persona es afrodescendente", afrodescendencia, document.getElementById("valid_12"));
 }
-tiempo_comunidad.onchange = function() {
+tiempo_comunidad.onchange = function () {
     valid_element("Debe ingresar la fecha en que la persona llegó a la comunidad", tiempo_comunidad, document.getElementById("valid_13"));
 }
-jefe_familia.onchange = function() {
+jefe_familia.onchange = function () {
     valid_element("Debe indicar si la persona es jefe de familia", jefe_familia, document.getElementById("valid_14"));
 }
-propietario_vivienda.onchange = function() {
+propietario_vivienda.onchange = function () {
     valid_element("Debe indicar si la persona es propietario dela vivienda", propietario_vivienda, document.getElementById("valid_15"));
 }
-jefe_calle.onchenge = function() {
+jefe_calle.onchenge = function () {
     valid_element("Debe indicar si la persona es jefe de calle", jefe_calle, document.getElementById("valid_16"));
 }
-miliciano.onchange = function() {
+miliciano.onchange = function () {
     valid_element("Debe indicar si la persona pertenece o perteneció a la milicia", miliciano, document.getElementById("valid_17"));
 }
-privado_libertad.onchange = function() {
+privado_libertad.onchange = function () {
     valid_element("Debe indicar si la persona es privada de libertad", privado_libertad, document.getElementById("valid_20"));
 }
 
@@ -241,26 +241,26 @@ function valid_info_personal() {
     return validacion;
 }
 //-------------------------------Funcion de boton siguiente-------------------------------------//
-btn_siguiente.onclick = function() {
+btn_siguiente.onclick = function () {
     funcion_siguiente();
 }
 //-------------------------------Funcion de boton anterior-------------------------------------//
-btn_anterior.onclick = function() {
+btn_anterior.onclick = function () {
     index--;
     control_indice();
 }
 //-------------------------------Funcion de boton desde siempre-------------------------------------//
-btn_desde_siempre.onclick = function() {
+btn_desde_siempre.onclick = function () {
     tiempo_comunidad.value = fecha_nacimiento.value;
     valid_element("Debe ingresar la fecha en que la persona llegó a la comunidad", tiempo_comunidad, document.getElementById("valid_13"));
 }
 //---------------------------------funcion para visualizar campo de tipo de transporte---------------//
-transporte.onchange = function() {
+transporte.onchange = function () {
     valid_element("Debe indicar si la persona se desplaza en transporte público o privado", transporte, document.getElementById("valid_18"));
     change_to_dynamic_record("privado", tipo_transporte_ver, transporte, tipo_transporte);
 }
 //----------------------------------------------------------------------------------------------------//
-recibe_actualmente.onchange = function() {
+recibe_actualmente.onchange = function () {
     var tr = recibe_actualmente.parentElement.parentElement;
     if (recibe_actualmente.value == '0') {
         ver_fecha_recepcion.style.display = '';
@@ -274,16 +274,16 @@ recibe_actualmente.onchange = function() {
     }
 }
 //---------------------------------funcion para visualizar campo de tipo de transporte---------------//
-comunidad_indigena.onchange = function() {
+comunidad_indigena.onchange = function () {
     valid_element("Debe indicar si la persona pertenece a alguna comunidad indigena", comunidad_indigena, document.getElementById("valid_19"));
     change_to_dynamic_record("si", comunidad_indigena_ver, comunidad_indigena, nombre_comunidad);
 }
 //---------------------------------funcion para visualizar campo de organizacion politica---------------//
-org_politica.onchange = function() {
+org_politica.onchange = function () {
     change_to_dynamic_record("si", org_politica_ver, org_politica, nombre_organizacion);
 }
 //---------------------------------------------------------------------------------//
-sector_laboral.onchange = function() {
+sector_laboral.onchange = function () {
     change_to_dynamic_record("1", ver_sector_formal, sector_laboral, sector_formal);
     sector_formal.value = 'vacio';
     if (sector_laboral.value == '1') {
@@ -298,11 +298,11 @@ sector_laboral.onchange = function() {
     }
 }
 //----------------------------------boton guardar funcion---------------------------------------------//
-btn_guardar.onclick = function() {
+btn_guardar.onclick = function () {
     funcion_siguiente();
 }
 //-------------------------------------------------------------------------------------------//
-btn_nuevo_bono.onclick = function() {
+btn_nuevo_bono.onclick = function () {
     if (nombre_bono.style.display == 'none') {
         btn_nuevo_bono.innerHTML = 'Atrás';
         bonos_input.value = 'vacio';
@@ -318,12 +318,12 @@ btn_nuevo_bono.onclick = function() {
 }
 //------------------------------------funcion agregar bonos-----------------------------//
 nombre_bono.maxLength = 30;
-bonos_input.onchange = function() {
+bonos_input.onchange = function () {
     if (bonos_input.value != "vacio") {
         document.getElementById("valid_24").style.display = "none";
     }
 }
-btn_agregar_bono.onclick = function() {
+btn_agregar_bono.onclick = function () {
     var continuar = false;
     if (nombre_bono.style.display == 'none') {
         if (valid_element("Debe ingresar el nombre del bono", bonos_input, document.getElementById("valid_24")) && valid_bono()) {
@@ -348,39 +348,65 @@ btn_agregar_bono.onclick = function() {
         }
         bonos_persona.push(bono_agg);
         var elemento = document.createElement("div");
-        var table = document.createElement("table");
-        table.style.width = "100%";
-        var tr = document.createElement("tr");
-        var td1 = document.createElement("td");
-        var td2 = document.createElement("td");
-        td2.style.textAlign = "right";
+        var elementoPadre = document.createElement("div");
+        elementoPadre.className = 'w-100';
+        elemento.className = "mx-auto d-flex flex-row justify-content-between pt-2";
+        elemento.style.width = '90%';
+        var td1 = document.createElement("div");
+        var td2 = document.createElement("div");
         td1.innerHTML = texto;
         var btn_element = document.createElement("input");
         btn_element.type = 'button';
         btn_element.value = "X";
         btn_element.className = "btn btn-danger";
         td2.appendChild(btn_element);
-        tr.appendChild(td1);
-        tr.appendChild(td2);
-        table.appendChild(tr);
-        elemento.appendChild(table);
+        elemento.appendChild(td1);
+        elemento.appendChild(td2);
         var hr = document.createElement("hr");
-        elemento.appendChild(hr);
-        btn_element.onclick = function() {
-            div_bonos_agregados.removeChild(elemento);
+        elementoPadre.appendChild(elemento);
+        elementoPadre.appendChild(hr);
+        btn_element.onclick = function () {
+            div_bonos_agregados.removeChild(elementoPadre);
             bonos_persona.splice(bonos_persona.indexOf(texto), 1);
         }
-        div_bonos_agregados.appendChild(elemento);
+        div_bonos_agregados.appendChild(elementoPadre);
+        bonos_input.value = 'vacio';
+        nombre_bono.value = '';
+        nombre_bono.style.display = 'none';
+        bonos_input.style.display = '';
+        btn_nuevo_bono.innerHTML = 'Nuevo';
     }
 }
 //------------------------------------------------------------------------------------//
 function valid_bono() {
     var validar = true;
-    for (var i = 0; i < bonos_persona.length; i++) {
-        if (bonos_persona[i]['bono'] == bonos_input.value || bonos_persona[i]['bono'] == nombre_bono.value) {
-            validar = false;
+    if (nombre_bono.style.display == 'none') {
+        for (var i = 0; i < bonos_persona.length; i++) {
+            if (bonos_persona[i]['bono'] == bonos_input.value) {
+                validar = false;
+            }
+
+            if (validar) {
+                var divs_bonos = div_bonos_agregados.querySelectorAll('.w-100');
+                for (const d of Array.from(divs_bonos)) {
+                    var container_bono = d.querySelector('div').children[0];
+                    if (container_bono.innerHTML.toLocaleLowerCase() == bonos_input.options[bonos_input.selectedIndex].text.toLocaleLowerCase()) {
+                        validar = false;
+                    }
+                }
+            }
         }
     }
+    else {
+        var divs_bonos = div_bonos_agregados.querySelectorAll('.w-100');
+        for (const d of Array.from(divs_bonos)) {
+            var container_bono = d.querySelector('div').children[0];
+            if (container_bono.innerHTML.toLocaleLowerCase() == nombre_bono.value.toLocaleLowerCase()) {
+                validar = false;
+            }
+        }
+    }
+
     if (!validar) {
         document.getElementById("valid_24").innerHTML = "Este bono ya fue agregado";
         document.getElementById("valid_24").style.display = '';
@@ -395,7 +421,7 @@ function valid_bono() {
     return validar;
 }
 //------------------------------------funcion agregar bonos-----------------------------//
-btn_agregar_proyecto.onclick = function() {
+btn_agregar_proyecto.onclick = function () {
     if (valid_datos_proyecto()) {
         var agregado = "";
         var text = "";
@@ -430,7 +456,7 @@ btn_agregar_proyecto.onclick = function() {
         elemento.appendChild(table);
         var hr = document.createElement("hr");
         elemento.appendChild(hr);
-        btn_element.onclick = function() {
+        btn_element.onclick = function () {
             div_proyectos_persona.removeChild(elemento);
             proyectos_persona.splice(proyectos_persona.indexOf(agregado), 1);
         }
@@ -438,7 +464,7 @@ btn_agregar_proyecto.onclick = function() {
     }
 }
 //--------------------------------------------------------------------------------------------//
-btn_otro_proyecto.onclick = function() {
+btn_otro_proyecto.onclick = function () {
     if (div_proyectos_existentes.style.display == "" || div_proyectos_existentes.style.display == "block") {
         div_proyectos_existentes.style.display = 'none';
         btn_otro_proyecto.value = 'Atrás';
@@ -483,7 +509,7 @@ function valid_datos_proyecto() {
     return validar;
 }
 //------------------------------------funcion agregar misiones-----------------------------//
-btn_nueva_mision.onclick = function() {
+btn_nueva_mision.onclick = function () {
     if (nombre_mision.style.display == 'none') {
         btn_nueva_mision.innerHTML = 'Atrás';
         misiones_input.value = 'vacio';
@@ -498,14 +524,14 @@ btn_nueva_mision.onclick = function() {
     }
 }
 nombre_mision.maxLength = 30;
-btn_agregar_mision.onclick = function() {
+btn_agregar_mision.onclick = function () {
     var continuar = false;
     if (nombre_mision.style.display == 'none') {
         if (valid_element("Debe ingresar el nombre de la mision", misiones_input, document.getElementById("valid_25")) && valid_mision()) {
             continuar = true;
         }
     } else {
-        if (valid_element("Debe ingresar el nombre de la mision", nombre_mision, document.getElementById("valid_25")) && valid_bono()) {
+        if (valid_element("Debe ingresar el nombre de la mision", nombre_mision, document.getElementById("valid_25")) && valid_mision()) {
             continuar = true;
         }
     }
@@ -526,29 +552,37 @@ btn_agregar_mision.onclick = function() {
             recibe_actualmente.value == '0' ? mis['fecha'] = ultima_recepcion.value : mis['fecha'] = "0000-00-00";
             misiones_persona.push(mis);
             var elemento = document.createElement("div");
-            var table = document.createElement("table");
-            table.style.width = "100%";
-            var tr = document.createElement("tr");
-            var td1 = document.createElement("td");
-            var td2 = document.createElement("td");
-            td2.style.textAlign = "right";
+            var elementoPadre = document.createElement("table");
+            elementoPadre.style.width = "100%";
+            elemento.style.width = "90%";
+            elemento.className = 'mx-auto d-flex flex-row justify-content-between pt-2';
+            var td1 = document.createElement("div");
+            var td2 = document.createElement("div");
             td1.innerHTML = texto;
             var btn_element = document.createElement("input");
             btn_element.type = 'button';
             btn_element.value = "X";
             btn_element.className = "btn btn-danger";
             td2.appendChild(btn_element);
-            tr.appendChild(td1);
-            tr.appendChild(td2);
-            table.appendChild(tr);
-            elemento.appendChild(table);
+            elemento.appendChild(td1);
+            elemento.appendChild(td2);
+            elementoPadre.appendChild(elemento);
             var hr = document.createElement("hr");
-            elemento.appendChild(hr);
-            btn_element.onclick = function() {
-                div_misiones_agregadas.removeChild(elemento);
+            elementoPadre.appendChild(hr);
+            btn_element.onclick = function () {
+                div_misiones_agregadas.removeChild(elementoPadre);
                 misiones_persona.splice(misiones_persona.indexOf(texto), 1);
             }
-            div_misiones_agregadas.appendChild(elemento);
+            div_misiones_agregadas.appendChild(elementoPadre);
+            btn_nueva_mision.innerHTML = 'Nueva';
+            nombre_mision.value = '';
+            misiones_input.style.display = '';
+            misiones_input.value = 'vacio';
+            nombre_mision.style.display = 'none';
+            recibe_actualmente.value = 1;
+            ver_fecha_recepcion.style.display = 'none';
+            ver_fecha_recepcion.value='';
+            nombre_mision.style.borderColor= btn_nueva_mision.style.borderColor = ' ';
         } else {
             swal({
                 title: "Error",
@@ -561,13 +595,35 @@ btn_agregar_mision.onclick = function() {
 //-----------------------------------------------------------------------------------------------------//
 function valid_mision() {
     var validar = true;
-    for (var i = 0; i < misiones_persona.length; i++) {
-        if (misiones_persona[i]['nombre_mision'] == misiones_input.value || misiones_persona[i]['nombre_mision'] == nombre_mision.value) {
-            validar = false;
+    if (nombre_mision.style.display == 'none') {
+        for (var i = 0; i < misiones_persona.length; i++) {
+            if (misiones_persona[i]['nombre_mision'] == misiones_input.value) {
+                validar = false;
+            }
+
+            if (validar) {
+                var divs_misiones = div_misiones_agregadas.querySelectorAll('.w-100');
+                for (const d of Array.from(divs_misiones)) {
+                    var container_mision = d.querySelector('div').children[0];
+                    if (container_mision.innerHTML.toLocaleLowerCase() == misiones_input.options[misiones_input.selectedIndex].text.toLocaleLowerCase()) {
+                        validar = false;
+                    }
+                }
+            }
         }
     }
+    else {
+        var divs_misiones = div_misiones_agregadas.querySelectorAll('.w-100');
+        for (const d of Array.from(divs_misiones)) {
+            var container_misiones = d.querySelector('div').children[0];
+            if (container_misiones.innerHTML.toLocaleLowerCase() == nombre_mision.value.toLocaleLowerCase()) {
+                validar = false;
+            }
+        }
+    }
+
     if (!validar) {
-        document.getElementById("valid_25").innerHTML = "Estea misión ya fue agregada";
+        document.getElementById("valid_25").innerHTML = "Esta misión ya fue agregada";
         document.getElementById("valid_25").style.display = '';
         misiones_input.style.borderColor = 'red';
         nombre_mision.style.borderColor = 'red';
@@ -627,7 +683,7 @@ function valid_info_laboral() {
     return validar;
 }
 //------------------------------------------------------------------------------------------------//
-btn_nueva_ocupacion.onclick = function() {
+btn_nueva_ocupacion.onclick = function () {
     if (ocupacion_nueva.style.display == 'none') {
         ocupacion_nueva.style.display = '';
         btn_nueva_ocupacion.value = 'Atrás';
@@ -672,7 +728,7 @@ function valid_cond_laboral() {
     return validar;
 }
 //--------------------------------------------------------------------------------------//
-btn_nueva_cond.onclick = function() {
+btn_nueva_cond.onclick = function () {
     if (nueva_cond.style.display == 'none') {
         nueva_cond.style.display = '';
         btn_nueva_cond.value = 'Atrás';
@@ -688,10 +744,10 @@ btn_nueva_cond.onclick = function() {
 }
 //------------------------------------------------------------------------------------------//
 //----------------------Validar si la persona existe al escribir la cedula--------------------//
-cedula.oninput = function() {
+cedula.oninput = function () {
     if (cedula.value.length > 9) cedula.value = cedula.value.slice(0, 9);
 }
-cedula.onkeyup = function() {
+cedula.onkeyup = function () {
     valid_element("Debe ingresar el documento de identidad de la persona", cedula, document.getElementById("valid_1"));
     $.ajax({
         type: "POST",
@@ -700,30 +756,30 @@ cedula.onkeyup = function() {
             direction: "Personas/Consultas_cedulaV2",
             accion: "codificar"
         },
-        success: function(direccion_segura) {
+        success: function (direccion_segura) {
             $.ajax({
                 type: "POST",
                 url: BASE_URL + direccion_segura,
                 data: {
                     'cedula': cedula.value
                 }
-            }).done(function(result) {
+            }).done(function (result) {
                 persona_existente = result;
             })
         },
-        error: function() {
+        error: function () {
             alert('Error al codificar dirreccion');
         }
     });
 }
 //----------------------------------Validar información de contacto-----------------------------//
-telefono.oninput = function() {
+telefono.oninput = function () {
     if (telefono.value.length > 12) telefono.value = telefono.value.slice(0, 12);
 }
-telefono.onkeyup = function() {
+telefono.onkeyup = function () {
     valid_element("Debe ingresar el número de teléfono de la persona", telefono, document.getElementById("valid_21"));
 }
-whatsapp.onchange = function() {
+whatsapp.onchange = function () {
     valid_element("Inique si el número de teléfono posee WhatsApp", whatsapp, document.getElementById("valid_22"));
 }
 
@@ -737,10 +793,10 @@ function valid_info_contacto() {
     return validar;
 }
 //----------------------------------Validar información politica-----------------------------//
-org_politica.onchange = function() {
+org_politica.onchange = function () {
     document.getElementById('valid_23').style.display = 'none';
 }
-nombre_organizacion.onkeyup = function() {
+nombre_organizacion.onkeyup = function () {
     if (nombre_organizacion.value != "") {
         document.getElementById('valid_23').style.display = "";
     }
@@ -758,7 +814,7 @@ function valid_info_politica() {
 }
 //----------------------------------Validar org politica-----------------------------//
 nombre_organizacion.maxLength = 15;
-nombre_organizacion.onkeyup = function() {
+nombre_organizacion.onkeyup = function () {
     if (nombre_organizacion.vlaue != '') {
         document.getElementById('valid_23').style.display = "none";
         document.getElementById('valid_23').innerHTML = 'Indique si la persona pertenece a una organización política';
@@ -781,7 +837,7 @@ function valid_org_politica() {
     return validar;
 }
 //_---------------------------------------------------------------------------------------------//
-btn_nueva_org.onclick = function() {
+btn_nueva_org.onclick = function () {
     if (nombre_organizacion.style.display == 'none') {
         btn_nueva_org.value = "Atrás";
         nombre_organizacion.style.display = "";
@@ -808,7 +864,7 @@ function persona_existe() {
             showConfirmButton: false,
             timer: 2000
         });
-        setTimeout(function() {
+        setTimeout(function () {
             cedula.style.borderColor = "red";
             cedula.focus();
         }, 2000);
@@ -821,7 +877,7 @@ function persona_existe() {
             showCancelButton: true,
             confirmButtonText: "Sí, activar",
             cancelButtonText: "No"
-        }, function(isConfirm) {
+        }, function (isConfirm) {
             if (isConfirm) {
                 $.ajax({
                     type: "POST",
@@ -830,7 +886,7 @@ function persona_existe() {
                         direction: "Seguridad/Administrar",
                         accion: "codificar"
                     },
-                    success: function(direccion_segura) {
+                    success: function (direccion_segura) {
                         $.ajax({
                             type: "POST",
                             url: BASE_URL + direccion_segura,
@@ -841,9 +897,9 @@ function persona_existe() {
                                     "estado": 1
                                 },
                             }
-                        }).done(function(result) {
+                        }).done(function (result) {
                             if (result) {
-                                setTimeout(function() {
+                                setTimeout(function () {
                                     swal({
                                         type: "success",
                                         title: "Éxito",
@@ -856,7 +912,7 @@ function persona_existe() {
                             }
                         });
                     },
-                    error: function() {
+                    error: function () {
                         alert('Error al codificar dirreccion');
                     }
                 });
@@ -905,10 +961,10 @@ function valid_comunidad_indigena() {
     return validar;
 }
 //------------------------------------------------------------------------------------------------//
-confirmar.onkeyup = function() {
+confirmar.onkeyup = function () {
     valid_element("Debe confirmar la contraseña", confirmar, valid_confirmar);
 }
-contrasenia.onkeyup = function() {
+contrasenia.onkeyup = function () {
     valid_element("Debe ingresar la contraseña del usuario", contrasenia, valid_contrasenia);
 }
 if (seguridad['registrar'] == '1') {
@@ -916,7 +972,7 @@ if (seguridad['registrar'] == '1') {
 } else {
     ver_rol.style.display = 'none';
 }
-rol.onchange = function() {
+rol.onchange = function () {
     valid_element("Seleccione el rol del usuario", rol, document.getElementById("valid_rol"));
 }
 
@@ -1062,25 +1118,25 @@ var existe_serial_psuv = false;
 var existe_codigo_psuv = false;
 var existe_serial_discapacidad = false;
 var existe_codigo_discapacidad = false;
-serial_patria.oninput = function() {
+serial_patria.oninput = function () {
     serial_patria.value = serial_patria.value.toUpperCase();
 }
-codigo_patria.oninput = function() {
+codigo_patria.oninput = function () {
     codigo_patria.value = codigo_patria.value.toUpperCase();
 }
-serial_psuv.oninput = function() {
+serial_psuv.oninput = function () {
     serial_psuv.value = serial_psuv.value.toUpperCase();
 }
-codigo_psuv.oninput = function() {
+codigo_psuv.oninput = function () {
     codigo_psuv.value = codigo_psuv.value.toUpperCase();
 }
-serial_discapacidad.oninput = function() {
+serial_discapacidad.oninput = function () {
     serial_discapacidad.value = serial_discapacidad.value.toUpperCase();
 }
-codigo_discapacidad.oninput = function() {
+codigo_discapacidad.oninput = function () {
     codigo_discapacidad.value = codigo_discapacidad.value.toUpperCase();
 }
-serial_patria.onkeyup = function() {
+serial_patria.onkeyup = function () {
     if (serial_patria.value != "") {
         serial_patria.style.borderColor = "";
         document.getElementById("valid_serial_patria").innerHTML = '';
@@ -1091,7 +1147,7 @@ serial_patria.onkeyup = function() {
                 direction: "Personas/get_serial_carnet",
                 accion: "codificar"
             },
-            success: function(direccion_segura) {
+            success: function (direccion_segura) {
                 $.ajax({
                     type: "POST",
                     url: BASE_URL + direccion_segura,
@@ -1099,7 +1155,7 @@ serial_patria.onkeyup = function() {
                         "serial_carnet": serial_patria.value,
                         "tipo_carnet": 1
                     }
-                }).done(function(result) {
+                }).done(function (result) {
                     if (result != 0) {
                         existe_serial_patria = true;
                     } else {
@@ -1107,13 +1163,13 @@ serial_patria.onkeyup = function() {
                     }
                 });
             },
-            error: function() {
+            error: function () {
                 alert('Error al codificar dirreccion');
             }
         });
     }
 }
-codigo_patria.onkeyup = function() {
+codigo_patria.onkeyup = function () {
     if (codigo_patria.value != "") {
         codigo_patria.style.borderColor = "";
         document.getElementById("valid_codigo_patria").innerHTML = '';
@@ -1124,7 +1180,7 @@ codigo_patria.onkeyup = function() {
                 direction: "Personas/get_codigo_carnet",
                 accion: "codificar"
             },
-            success: function(direccion_segura) {
+            success: function (direccion_segura) {
                 $.ajax({
                     type: "POST",
                     url: BASE_URL + direccion_segura,
@@ -1132,7 +1188,7 @@ codigo_patria.onkeyup = function() {
                         "codigo_carnet": codigo_patria.value,
                         "tipo_carnet": 1
                     }
-                }).done(function(result) {
+                }).done(function (result) {
                     if (result != 0) {
                         existe_codigo_patria = true;
                     } else {
@@ -1140,13 +1196,13 @@ codigo_patria.onkeyup = function() {
                     }
                 });
             },
-            error: function() {
+            error: function () {
                 alert('Error al codificar dirreccion');
             }
         });
     }
 }
-serial_psuv.onkeyup = function() {
+serial_psuv.onkeyup = function () {
     if (serial_psuv.value != "") {
         serial_psuv.style.borderColor = "";
         document.getElementById("valid_serial_psuv").innerHTML = '';
@@ -1157,7 +1213,7 @@ serial_psuv.onkeyup = function() {
                 direction: "Personas/get_serial_carnet",
                 accion: "codificar"
             },
-            success: function(direccion_segura) {
+            success: function (direccion_segura) {
                 $.ajax({
                     type: "POST",
                     url: BASE_URL + direccion_segura,
@@ -1165,7 +1221,7 @@ serial_psuv.onkeyup = function() {
                         "serial_carnet": serial_psuv.value,
                         "tipo_carnet": 2
                     }
-                }).done(function(result) {
+                }).done(function (result) {
                     if (result != 0) {
                         existe_serial_psuv = true;
                     } else {
@@ -1173,13 +1229,13 @@ serial_psuv.onkeyup = function() {
                     }
                 });
             },
-            error: function() {
+            error: function () {
                 alert('Error al codificar dirreccion');
             }
         });
     }
 }
-codigo_psuv.onkeyup = function() {
+codigo_psuv.onkeyup = function () {
     if (codigo_psuv.value != "") {
         codigo_psuv.style.borderColor = "";
         document.getElementById("valid_codigo_psuv").innerHTML = '';
@@ -1190,7 +1246,7 @@ codigo_psuv.onkeyup = function() {
                 direction: "Personas/get_codigo_carnet",
                 accion: "codificar"
             },
-            success: function(direccion_segura) {
+            success: function (direccion_segura) {
                 $.ajax({
                     type: "POST",
                     url: BASE_URL + direccion_segura,
@@ -1198,7 +1254,7 @@ codigo_psuv.onkeyup = function() {
                         "codigo_carnet": codigo_psuv.value,
                         "tipo_carnet": 2
                     }
-                }).done(function(result) {
+                }).done(function (result) {
                     if (result != 0) {
                         existe_codigo_psuv = true;
                     } else {
@@ -1206,13 +1262,13 @@ codigo_psuv.onkeyup = function() {
                     }
                 });
             },
-            error: function() {
+            error: function () {
                 alert('Error al codificar dirreccion');
             }
         });
     }
 }
-serial_discapacidad.onkeyup = function() {
+serial_discapacidad.onkeyup = function () {
     if (serial_discapacidad.value != "") {
         serial_discapacidad.style.borderColor = "";
         document.getElementById("valid_serial_discapacidad").innerHTML = '';
@@ -1223,7 +1279,7 @@ serial_discapacidad.onkeyup = function() {
                 direction: "Personas/get_serial_carnet",
                 accion: "codificar"
             },
-            success: function(direccion_segura) {
+            success: function (direccion_segura) {
                 $.ajax({
                     type: "POST",
                     url: BASE_URL + direccion_segura,
@@ -1231,7 +1287,7 @@ serial_discapacidad.onkeyup = function() {
                         "serial_carnet": serial_discapacidad.value,
                         "tipo_carnet": 3
                     }
-                }).done(function(result) {
+                }).done(function (result) {
                     if (result != 0) {
                         existe_serial_discapacidad = true;
                     } else {
@@ -1239,13 +1295,13 @@ serial_discapacidad.onkeyup = function() {
                     }
                 });
             },
-            error: function() {
+            error: function () {
                 alert('Error al codificar dirreccion');
             }
         });
     }
 }
-codigo_discapacidad.onkeyup = function() {
+codigo_discapacidad.onkeyup = function () {
     if (codigo_discapacidad.value != "") {
         codigo_discapacidad.style.borderColor = "";
         document.getElementById("valid_codigo_discapacidad").innerHTML = '';
@@ -1256,7 +1312,7 @@ codigo_discapacidad.onkeyup = function() {
                 direction: "Personas/get_codigo_carnet",
                 accion: "codificar"
             },
-            success: function(direccion_segura) {
+            success: function (direccion_segura) {
                 $.ajax({
                     type: "POST",
                     url: BASE_URL + direccion_segura,
@@ -1264,7 +1320,7 @@ codigo_discapacidad.onkeyup = function() {
                         "codigo_carnet": codigo_discapacidad.value,
                         "tipo_carnet": 3
                     }
-                }).done(function(result) {
+                }).done(function (result) {
                     if (result != 0) {
                         existe_codigo_discapacidad = true;
                     } else {
@@ -1272,7 +1328,7 @@ codigo_discapacidad.onkeyup = function() {
                     }
                 });
             },
-            error: function() {
+            error: function () {
                 alert('Error al codificar dirreccion');
             }
         });
@@ -1451,14 +1507,14 @@ function enviar_informacion() {
             direction: "Personas/registrar_persona",
             accion: "codificar"
         },
-        success: function(direccion_segura) {
+        success: function (direccion_segura) {
             $.ajax({
                 type: "POST",
                 url: BASE_URL + direccion_segura,
                 data: {
                     "datos": datos_persona
                 }
-            }).done(function(result) {
+            }).done(function (result) {
                 if (result == 1) {
                     if (transporte.value != "0") {
                         registrar_transporte();
@@ -1493,7 +1549,7 @@ function enviar_informacion() {
                 }
             })
         },
-        error: function() {
+        error: function () {
             alert('Error al codificar dirreccion');
         }
     });
@@ -1508,7 +1564,7 @@ function registrar_carnets(carnet, tipo) {
                 direction: "Personas/registrar_carnet",
                 accion: "codificar"
             },
-            success: function(direccion_segura) {
+            success: function (direccion_segura) {
                 $.ajax({
                     type: "POST",
                     url: BASE_URL + direccion_segura,
@@ -1517,11 +1573,11 @@ function registrar_carnets(carnet, tipo) {
                         "carnet": carnet,
                         "cedula": cedula.value
                     }
-                }).done(function(result) {
+                }).done(function (result) {
                     //console.log(result);
                 });
             },
-            error: function() {
+            error: function () {
                 alert('Error al codificar dirreccion');
             }
         });
@@ -1529,93 +1585,99 @@ function registrar_carnets(carnet, tipo) {
 }
 
 function registrar_bonos_persona() {
+    var datos_bonos = [];
     for (var i = 0; i < bonos_persona.length; i++) {
         var datos = new Object();
         datos['bono'] = bonos_persona[i];
         datos['cedula_persona'] = cedula.value;
-        $.ajax({
-            type: "POST",
-            url: BASE_URL + "app/Direcciones.php",
-            data: {
-                direction: "Personas/registrar_bonos",
-                accion: "codificar"
-            },
-            success: function(direccion_segura) {
-                $.ajax({
-                    type: "POST",
-                    url: BASE_URL + direccion_segura,
-                    data: {
-                        "datos": datos
-                    }
-                }).done(function(result) {
-                    //console.log(result);
-                })
-            },
-            error: function() {
-                alert('Error al codificar dirreccion');
-            }
-        });
+        datos_bonos.push(datos);
     }
+    $.ajax({
+        type: "POST",
+        url: BASE_URL + "app/Direcciones.php",
+        data: {
+            direction: "Personas/registrar_bonos",
+            accion: "codificar"
+        },
+        success: function (direccion_segura) {
+            $.ajax({
+                type: "POST",
+                url: BASE_URL + direccion_segura,
+                data: {
+                    "datos": datos_bonos
+                }
+            }).done(function (result) {
+                console.log(result);
+            })
+        },
+        error: function () {
+            alert('Error al codificar dirreccion');
+        }
+    });
 }
 
 function registrar_proyectos_persona() {
+    var datos_proyectos = [];
     for (var i = 0; i < proyectos_persona.length; i++) {
         var datos = new Object();
         datos['proyecto'] = proyectos_persona[i];
         datos['cedula_persona'] = cedula.value;
-        $.ajax({
-            type: "POST",
-            url: BASE_URL + "app/Direcciones.php",
-            data: {
-                direction: "Personas/registrar_proyectos",
-                accion: "codificar"
-            },
-            success: function(direccion_segura) {
-                $.ajax({
-                    type: "POST",
-                    url: BASE_URL + direccion_segura,
-                    data: {
-                        "datos": datos
-                    }
-                }).done(function(result) {
-                    //console.log(result);
-                })
-            },
-            error: function() {
-                alert('Error al codificar dirreccion');
-            }
-        });
+        datos_proyectos.push(datos);
     }
+    $.ajax({
+        type: "POST",
+        url: BASE_URL + "app/Direcciones.php",
+        data: {
+            direction: "Personas/registrar_proyectos",
+            accion: "codificar"
+        },
+        success: function (direccion_segura) {
+            $.ajax({
+                type: "POST",
+                url: BASE_URL + direccion_segura,
+                data: {
+                    "datos": datos_proyectos
+                }
+            }).done(function (result) {
+                console.log(result);
+            })
+        },
+        error: function () {
+            alert('Error al codificar dirreccion');
+        }
+    });
 }
 
 function registrar_misiones_persona() {
+    var datos_misiones = [];
     for (var i = 0; i < misiones_persona.length; i++) {
         var datos = new Object();
         datos['mision'] = misiones_persona[i];
         datos['cedula_persona'] = cedula.value;
-        $.ajax({
-            type: "POST",
-            url: BASE_URL + "app/Direcciones.php",
-            data: {
-                direction: "Personas/registrar_misiones",
-                accion: "codificar"
-            },
-            success: function(direccion_segura) {
-                $.ajax({
-                    type: "POST",
-                    url: BASE_URL + direccion_segura,
-                    data: {
-                        "datos": datos
-                    }
-                }).done(function(result) {
-                    console.log(result);
-                })
-            },
-            error: function() {
-                alert('Error al codificar dirreccion');
-            }
-        });
+        datos_misiones.push(datos);
     }
+    $.ajax({
+        type: "POST",
+        url: BASE_URL + "app/Direcciones.php",
+        data: {
+            direction: "Personas/registrar_misiones",
+            accion: "codificar"
+        },
+        success: function (direccion_segura) {
+            $.ajax({
+                type: "POST",
+                url: BASE_URL + direccion_segura,
+                data: {
+                    "datos": datos_misiones
+                }
+            }).done(function (result) {
+                //         console.log(result);
+            })
+        },
+        error: function () {
+            alert('Error al codificar dirreccion');
+        }
+    });
 }
 
 function registrar_transporte() {
@@ -1626,7 +1688,7 @@ function registrar_transporte() {
             direction: "Personas/registrar_transporte",
             accion: "codificar"
         },
-        success: function(direccion_segura) {
+        success: function (direccion_segura) {
             $.ajax({
                 type: "POST",
                 url: BASE_URL + direccion_segura,
@@ -1636,7 +1698,7 @@ function registrar_transporte() {
                 }
             });
         },
-        error: function() {
+        error: function () {
             alert('Error al codificar dirreccion');
         }
     });
@@ -1680,7 +1742,7 @@ function registrar_ocupacion() {
                 direction: "Personas/registrar_ocupacion",
                 accion: "codificar"
             },
-            success: function(direccion_segura) {
+            success: function (direccion_segura) {
                 $.ajax({
                     type: "POST",
                     url: BASE_URL + direccion_segura,
@@ -1690,7 +1752,7 @@ function registrar_ocupacion() {
                     }
                 });
             },
-            error: function() {
+            error: function () {
                 alert('Error al codificar dirreccion');
             }
         });
@@ -1720,16 +1782,16 @@ function registrar_condicion_laboral() {
                 direction: "Personas/registrar_condicion_laboral",
                 accion: "codificar"
             },
-            success: function(direccion_segura) {
+            success: function (direccion_segura) {
                 $.ajax({
                     type: "POST",
                     url: BASE_URL + direccion_segura,
                     data: {
                         "datos": cond_lab
                     }
-                }).done(function(result) {});
+                }).done(function (result) { });
             },
-            error: function() {
+            error: function () {
                 alert('Error al codificar dirreccion');
             }
         });
@@ -1747,16 +1809,16 @@ function registrar_comunidad_indigena() {
             direction: "Personas/registrar_comunidad_indigena",
             accion: "codificar"
         },
-        success: function(direccion_segura) {
+        success: function (direccion_segura) {
             $.ajax({
                 type: "POST",
                 url: BASE_URL + direccion_segura,
                 data: {
                     "datos": datos_indigenas
                 }
-            }).done(function(result) {});
+            }).done(function (result) { });
         },
-        error: function() {
+        error: function () {
             alert('Error al codificar dirreccion');
         }
     });
@@ -1785,16 +1847,16 @@ function registrar_org_politica() {
                 direction: "Personas/registrar_org_politica",
                 accion: "codificar"
             },
-            success: function(direccion_segura) {
+            success: function (direccion_segura) {
                 $.ajax({
                     type: "POST",
                     url: BASE_URL + direccion_segura,
                     data: {
                         "datos": datos_org
                     }
-                }).done(function(result) {});
+                }).done(function (result) { });
             },
-            error: function() {
+            error: function () {
                 alert('Error al codificar dirreccion');
             }
         });

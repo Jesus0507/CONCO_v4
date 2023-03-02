@@ -66,12 +66,12 @@ function ver_datos(persona, ocupacion, condicion_lab, transporte, bonos, misione
     if (proyectos_info.length == 0) {
         tabla += "<tr><td colspan='4'>No aplica</td></tr></table>";
     } else {
-        var texto = "";
+        var texto = "<table style='width:100%' border='1'><tr style='font-weight: 600;background:#05586F; color:white'><td style='width:25%'>Nombre</td><td style='width:25%'>Área</td><td style='width:25%'>Estado</td></tr>";
         for (var i = 0; i < proyectos_info.length; i++) {
-            texto += "<table style='width:100%' border='1'><tr><td style='width:25%'>Nombre</td><td style='width:25%'>Área</td><td style='width:25%'>Estado</td></tr>";
             texto += "<tr><td style='width:25%'>" + proyectos_info[i]["nombre_proyecto"] + "</td><td style='width:25%'>" + proyectos_info[i]["area_proyecto"] + "</td>";
-            texto += "<td style='width:25%'>" + proyectos_info[i]["estado_proyecto"] + "</td></tr></table> <br>";
+            texto += "<td style='width:25%'>" + proyectos_info[i]["estado_proyecto"] + "</td></tr>";
         }
+        texto+= "</table>";
         tabla += "<tr><td colspan='4'><div style='width:100%;overflow-y:scroll;background:#C5E6EF;border-radius:6px'><center>" + texto;
         tabla += "</center></div></td></tr></table>";
     }

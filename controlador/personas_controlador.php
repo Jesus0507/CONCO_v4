@@ -32,7 +32,7 @@ class Personas extends Controlador
         $this->crud["consultar"] = array("tabla" => "calles", "estado" => 1, "orden" => "nombre_calle");
         //     $this->Cargar_Modelo("personas");
     }
- 
+
     private function Establecer_Consultas()
     {
         $personas = $this->Consultar_Tabla("personas", 1, "cedula_persona");
@@ -50,17 +50,41 @@ class Personas extends Controlador
         $this->perso_vacuna        = $perso_vacuna;
     }
 
-     // ==================GETTERS=========================
+    // ==================GETTERS=========================
     #getters usados para obtener la informacion de las variables privadas
     # retornan tipo string o array
-    private function Get_Sql():string           {return $this->sql;}
-    private function Get_Accion():string        {return $this->accion;}
-    private function Get_Mensaje():string       {return $this->mensaje;}
-    private function Get_Datos():array          {return $this->datos_ejecutar;}
-    private function Get_Estado():array         {return $this->estado;}
-    private function Get_Estado_Ejecutar():array{return $this->estado_ejecutar;}
-    private function Get_Datos_Vista():array    {return $this->datos_consulta;}
-    private function Get_Crud_Sql(): array      {return $this->crud;}
+    private function Get_Sql(): string
+    {
+        return $this->sql;
+    }
+    private function Get_Accion(): string
+    {
+        return $this->accion;
+    }
+    private function Get_Mensaje(): string
+    {
+        return $this->mensaje;
+    }
+    private function Get_Datos(): array
+    {
+        return $this->datos_ejecutar;
+    }
+    private function Get_Estado(): array
+    {
+        return $this->estado;
+    }
+    private function Get_Estado_Ejecutar(): array
+    {
+        return $this->estado_ejecutar;
+    }
+    private function Get_Datos_Vista(): array
+    {
+        return $this->datos_consulta;
+    }
+    private function Get_Crud_Sql(): array
+    {
+        return $this->crud;
+    }
     // ==============================================================================
 
     public function Cargar_Vistas()
@@ -68,7 +92,9 @@ class Personas extends Controlador
         $this->Seguridad_de_Session();
         if ($this->permisos["consultar"] === 1) {
             $this->vista->Cargar_Vistas('personas/consultar');
-        } else { $this->_403_();}
+        } else {
+            $this->_403_();
+        }
     }
 
     public function Administrar($peticion = null)
@@ -80,25 +106,30 @@ class Personas extends Controlador
             case 'Registros':
                 if ($this->permisos["registrar"] === 1) {
                     $this->vista->Cargar_Vistas('personas/registrar');
-                } else { $this->_403_();}
+                } else {
+                    $this->_403_();
+                }
                 break;
             case 'Consultas':
                 if ($this->permisos["consultar"] === 1) {
                     $this->vista->Cargar_Vistas('personas/consultar');
-                } else { $this->_403_();}
+                } else {
+                    $this->_403_();
+                }
                 break;
             case 'Administrar':
                 if ($this->permisos["registrar"] === 1 || $this->permisos["modificar"] === 1) {
 
                     $this->modelo->_Datos_($this->Get_Datos());
-                        $this->modelo->_SQL_($this->Get_Sql());
-                        $this->modelo->_Tipo_(1);
-                        if ($this->modelo->Administrar()) {
-                            $this->Accion($this->Get_Accion());
-                            echo $this->Get_Mensaje();
-                        }
-
-                } else { $this->_403_();}
+                    $this->modelo->_SQL_($this->Get_Sql());
+                    $this->modelo->_Tipo_(1);
+                    if ($this->modelo->Administrar()) {
+                        $this->Accion($this->Get_Accion());
+                        echo $this->Get_Mensaje();
+                    }
+                } else {
+                    $this->_403_();
+                }
                 break;
             case 'Eliminar':
                 if ($this->permisos["eliminar"] === 1) {
@@ -110,44 +141,50 @@ class Personas extends Controlador
                         $this->Accion($this->Get_Accion());
                         echo $this->Get_Mensaje();
                     }
-                } else { $this->_403_();}
+                } else {
+                    $this->_403_();
+                }
                 break;
 
-            case 'Consulta_Ajax':$this->Escribir_JSON($this->Get_Datos_Vista()["personas"]);
+            case 'Consulta_Ajax':
+                $this->Escribir_JSON($this->Get_Datos_Vista()["personas"]);
                 break;
 
             case '0':
                 $this->Seguridad_de_Session();
-        if ($this->permisos["registrar"] === 1) {
-            
-
-            $this->modelo->_Tipo_(0);
-            $this->modelo->_SQL_("SQL_42");
-            $this->datos_consulta["transportes"] = $this->modelo->Administrar();
+                if ($this->permisos["registrar"] === 1) {
 
 
-            $this->vista->comunidades    = $this->modelo->get_comunidades();
+                    $this->modelo->_Tipo_(0);
+                    $this->modelo->_SQL_("SQL_42");
+                    $this->datos_consulta["transportes"] = $this->modelo->Administrar();
 
 
-            $this->vista->organizaciones = $this->modelo->get_organizaciones();
-            //      $this->vista->centros_votacion=$this->modelo->get_centros();
-            //      $this->vista->parroquias=$this->modelo->get_parroquias();
-            $this->vista->bonos = $this->modelo->get_bonos();
-            //      $this->vista->enfermedades=$this->modelo->get_enfermedades();
-            //      $this->vista->discapacidades=$this->modelo->get_discapacidad();
-            $this->vista->misiones    = $this->modelo->get_misiones();
-            $this->vista->ocupaciones = $this->modelo->get_ocupaciones();
-            $this->vista->condiciones = $this->modelo->get_condiciones();
-            $this->vista->proyectos   = $this->modelo->get_proyectos();
-            $this->vista->Cargar_Vistas('personas/registrar');
-        } else { $this->_403_();}
+                    $this->vista->comunidades    = $this->modelo->get_comunidades();
+
+
+                    $this->vista->organizaciones = $this->modelo->get_organizaciones();
+                    //      $this->vista->centros_votacion=$this->modelo->get_centros();
+                    //      $this->vista->parroquias=$this->modelo->get_parroquias();
+                    $this->vista->bonos = $this->modelo->get_bonos();
+                    //      $this->vista->enfermedades=$this->modelo->get_enfermedades();
+                    //      $this->vista->discapacidades=$this->modelo->get_discapacidad();
+                    $this->vista->misiones    = $this->modelo->get_misiones();
+                    $this->vista->ocupaciones = $this->modelo->get_ocupaciones();
+                    $this->vista->condiciones = $this->modelo->get_condiciones();
+                    $this->vista->proyectos   = $this->modelo->get_proyectos();
+                    $this->vista->Cargar_Vistas('personas/registrar');
+                } else {
+                    $this->_403_();
+                }
                 break;
 
-            default:$this->vista->Cargar_Vistas('error/400');
+            default:
+                $this->vista->Cargar_Vistas('error/400');
                 break;
         }
         exit();
-        }
+    }
     public function Asignar_Vacunas()
     {
         $dosis = ($_POST['dosis'] !== "") ? $_POST['dosis'] : null;
@@ -161,8 +198,7 @@ class Personas extends Controlador
                     'fecha_vacuna'   => $fecha[$i],
                     'estado'         => 1,
                 ]
-            )
-            ) {
+            )) {
 
                 $this->mensaje = 'Vacuna Registrada exitosamente!.';
             } else {
@@ -218,7 +254,7 @@ class Personas extends Controlador
                 echo 0;
             } else {
                 foreach ($existente as $existe) {
-                    $contrasenia = $existe['contrasenia']; 
+                    $contrasenia = $existe['contrasenia'];
                 }
 
                 if ($existe['estado'] == 0) {
@@ -270,7 +306,7 @@ class Personas extends Controlador
         $this->Seguridad_de_Session();
         $this->vista->Cargar_Vistas('vacuna/consultar');
     }
-// ==============================VISTAS=====================================
+    // ==============================VISTAS=====================================
     public function Personas()
     {
         $this->Seguridad_de_Session();
@@ -307,7 +343,9 @@ class Personas extends Controlador
             $this->vista->condiciones = $this->modelo->get_condiciones();
             $this->vista->proyectos   = $this->modelo->get_proyectos();
             $this->vista->Cargar_Vistas('personas/registrar');
-        } else { $this->_403_();}
+        } else {
+            $this->_403_();
+        }
     }
 
     public function Registros_habitante()
@@ -342,7 +380,9 @@ class Personas extends Controlador
             $this->vista->proyectos      = $this->Consultar_Tabla("proyecto", 1, "id_proyecto");
             $this->Seguridad_de_Session();
             $this->vista->Cargar_Vistas('personas/consultar');
-        } else { $this->_403_();}
+        } else {
+            $this->_403_();
+        }
     }
 
     public function consultar_informacion_persona()
@@ -374,7 +414,6 @@ class Personas extends Controlador
 
                 "eliminar"        => "<button class='btn btn-danger' type='button' title='Eliminar persona' onclick='eliminar_datos(`" . $p['cedula_persona'] . "`)'><span class='fa fa-trash'></span></button>",
             ];
-
         }
 
         $this->Escribir_JSON($info_completa);
@@ -390,7 +429,6 @@ class Personas extends Controlador
         } else {
             $this->Escribir_JSON($persona);
         }
-
     }
 
     public function Consultas_cedulaV2()
@@ -407,7 +445,6 @@ class Personas extends Controlador
                 echo 1;
             }
         }
-
     }
 
     public function Consultas_cedulaV3()
@@ -424,7 +461,6 @@ class Personas extends Controlador
                 echo json_encode($persona);
             }
         }
-
     }
 
     public function Administracion()
@@ -445,7 +481,7 @@ class Personas extends Controlador
         $datos['firma_digital']       = $this->Codificar($datos['firma_digital']);
         $datos['user_locked']         = 0;
         $datos['estado']              = 1;
-       echo $this->modelo->Registrar($datos);
+        echo $this->modelo->Registrar($datos);
     }
 
     public function registrar_persona_habitante()
@@ -470,7 +506,6 @@ class Personas extends Controlador
         ];
 
         $this->modelo->Registrar_transporte($datos);
-
     }
 
     public function registrar_ocupacion()
@@ -498,9 +533,7 @@ class Personas extends Controlador
                     ]);
                 }
             }
-
         }
-
     }
 
     public function registrar_condicion_laboral()
@@ -539,10 +572,8 @@ class Personas extends Controlador
                         "id_comunidad_indigena" => $i['MAX(id_comunidad_indigena)'],
                     ]);
                 }
-
             }
         }
-
     }
 
     public function registrar_org_politica()
@@ -555,7 +586,6 @@ class Personas extends Controlador
                 "cedula_persona"  => $datos['cedula_persona'],
                 "id_org_politica" => $datos['organizacion'],
             ]);
-
         } else {
             if ($this->Registrar_Tablas("org_politica", "nombre_org", $datos['organizacion'])) {
                 $id = $this->Ultimo_Ingresado("org_politica", "id_org_politica");
@@ -566,10 +596,8 @@ class Personas extends Controlador
                         "id_org_politica" => $i['MAX(id_org_politica)'],
                     ]);
                 }
-
             }
         }
-
     }
 
     public function registrar_bonos()
@@ -577,60 +605,60 @@ class Personas extends Controlador
         $bonos = $this->modelo->get_bonos();
         $datos = $_POST['datos'];
 
-        if ($datos['bono']['nuevo'] == '0') {
-            $this->modelo->Registrar_persona_bono([
-                "cedula_persona" => $datos['cedula_persona'],
-                "id_bono"        => $datos['bono']['bono'],
-            ]);
+        for ($i = 0; $i < count($datos); $i++) {
+            if ($datos[$i]['bono']['nuevo'] == '0') {
+                $this->modelo->Registrar_persona_bono([
+                    "cedula_persona" => $datos[$i]['cedula_persona'],
+                    "id_bono"        => $datos[$i]['bono']['bono'],
+                ]);
+            } else {
+                if ($this->Registrar_Tablas("bonos", "nombre_bono", $datos[$i]['bono']['bono'])) {
+                    $ids = $this->Ultimo_Ingresado("bonos", "id_bono");
 
-        } else {
-
-            if ($this->Registrar_Tablas("bonos", "nombre_bono", $datos['bono']['bono'])) {
-                $id = $this->Ultimo_Ingresado("bonos", "id_bono");
-
-                foreach ($id as $i) {
-                    echo $this->modelo->Registrar_persona_bono([
-                        "cedula_persona" => $datos['cedula_persona'],
-                        "id_bono"        => $i['MAX(id_bono)'],
-                    ]);
+                    foreach ($ids as $id) {
+                        $this->modelo->Registrar_persona_bono([
+                            "cedula_persona" => $datos[$i]['cedula_persona'],
+                            "id_bono"        => $id['MAX(id_bono)'],
+                        ]);
+                    }
                 }
             }
         }
-
     }
 
     public function registrar_proyectos()
     {
         $proyectos = $this->modelo->get_proyectos();
         $datos     = $_POST['datos'];
-        $cont      = 0;
+        echo json_encode($datos);
 
-        foreach ($proyectos as $pro) {
-            if ($pro['id_proyecto'] == $datos['proyecto']) {
-                $this->modelo->Registrar_persona_proyecto([
-                    "cedula_persona" => $datos['cedula_persona'],
-                    "id_proyecto"    => $pro['id_proyecto'],
-                ]);
-
-                $cont++;
-            }
-        }
-
-        if ($cont == 0) {
-
-            if ($this->modelo->Registrar_proyecto($datos['proyecto'])) {
-                $id = $this->Ultimo_Ingresado("proyecto", "id_proyecto");
-
-                foreach ($id as $i) {
-                    echo $this->modelo->Registrar_persona_proyecto([
-                        "cedula_persona" => $datos['cedula_persona'],
-                        "id_proyecto"    => $i['MAX(id_proyecto)'],
+        for ($i = 0; $i < count($datos); $i++) {
+            $cont      = 0;
+            foreach ($proyectos as $pro) {
+                if ($pro['id_proyecto'] == $datos[$i]['proyecto']) {
+                    $this->modelo->Registrar_persona_proyecto([
+                        "cedula_persona" => $datos[$i]['cedula_persona'],
+                        "id_proyecto"    => $pro['id_proyecto'],
                     ]);
-                }
 
+                    $cont++;
+                }
+            }
+
+            if ($cont == 0) {
+
+                if ($this->modelo->Registrar_proyecto($datos[$i]['proyecto'])) {
+                    $ids = $this->Ultimo_Ingresado("proyecto", "id_proyecto");
+
+                    foreach ($ids as $id) {
+                         $this->modelo->Registrar_persona_proyecto([
+                            "cedula_persona" => $datos[$i]['cedula_persona'],
+                            "id_proyecto"    => $id['MAX(id_proyecto)'],
+                        ]);
+                    }
+                }
             }
         }
-
     }
 
     public function registrar_carnet()
@@ -642,7 +670,6 @@ class Personas extends Controlador
             "codigo_carnet"  => $_POST['carnet']['codigo'],
             "tipo_carnet"    => $_POST['tipo'],
         ]);
-
     }
 
     public function registrar_misiones()
@@ -650,32 +677,30 @@ class Personas extends Controlador
         $misiones = $this->modelo->get_misiones();
         $datos    = $_POST['datos'];
 
-        if ($datos['mision']['nuevo'] == '0') {
-            $this->modelo->Registrar_persona_mision([
-                "cedula_persona"     => $datos['cedula_persona'],
-                "id_mision"          => $datos['mision']['nombre_mision'],
-                "recibe_actualmente" => $datos['mision']['recibe_actualmente'],
-                "fecha"              => $datos['mision']['fecha'],
-            ]);
+        for ($i = 0; $i < count($datos); $i++) {
+            if ($datos[$i]['mision']['nuevo'] == '0') {
+                $this->modelo->Registrar_persona_mision([
+                    "cedula_persona"     => $datos[$i]['cedula_persona'],
+                    "id_mision"          => $datos[$i]['mision']['nombre_mision'],
+                    "recibe_actualmente" => $datos[$i]['mision']['recibe_actualmente'],
+                    "fecha"              => $datos[$i]['mision']['fecha'],
+                ]);
+            } else {
 
-        } else {
+                if ($this->Registrar_Tablas("misiones", "nombre_mision", $datos[$i]['mision']['nombre_mision'])) {
+                    $ids = $this->Ultimo_Ingresado("misiones", "id_mision");
 
-            if ($this->Registrar_Tablas("misiones", "nombre_mision", $datos['mision']['nombre_mision'])) {
-                $id = $this->Ultimo_Ingresado("misiones", "id_mision");
-
-                foreach ($id as $i) {
-                    $this->modelo->Registrar_persona_mision([
-                        "cedula_persona"     => $datos['cedula_persona'],
-                        "id_mision"          => $i['MAX(id_mision)'],
-                        "recibe_actualmente" => $datos['mision']['recibe_actualmente'],
-                        "fecha"              => $datos['mision']['fecha'],
-                    ]);
+                    foreach ($ids as $id) {
+                        $this->modelo->Registrar_persona_mision([
+                            "cedula_persona"     => $datos[$i]['cedula_persona'],
+                            "id_mision"          => $id['MAX(id_mision)'],
+                            "recibe_actualmente" => $datos[$i]['mision']['recibe_actualmente'],
+                            "fecha"              => $datos[$i]['mision']['fecha'],
+                        ]);
+                    }
                 }
-
             }
-
         }
-
     }
 
     public function eliminacion_logica()
@@ -686,7 +711,9 @@ class Personas extends Controlador
             if ($this->Desactivar("personas", "cedula_persona", $cedula)) {
                 echo 1;
             }
-        } else { $this->_403_();}
+        } else {
+            $this->_403_();
+        }
     }
 
     public function get_serial_carnet()
@@ -734,7 +761,6 @@ class Personas extends Controlador
             "comunidad_i"   => $comunidad_i,
             "org_politica"  => $org_politica,
         ]);
-
     }
 
     public function modificar_persona()
@@ -752,7 +778,9 @@ class Personas extends Controlador
             }
 
             echo $editado;
-        } else { $this->_403_();}
+        } else {
+            $this->_403_();
+        }
     }
 
     public function get_info_vacunado()
@@ -795,7 +823,6 @@ class Personas extends Controlador
         }
 
         echo $retornar;
-
     }
 
     public function borrar_dosis()
@@ -837,7 +864,6 @@ class Personas extends Controlador
             } else {
                 $this->Actualizar_Tablas("comunidad_indigena_personas", "id_comunidad_indigena", "id_comunidad_persona", $existe, $comunidades_persona[0]['id_comunidad_persona']);
             }
-
         }
     }
 
@@ -874,7 +900,6 @@ class Personas extends Controlador
             } else {
                 $this->Actualizar_Tablas("ocupacion_persona", "id_ocupacion", "id_ocupacion_persona", $existe, $ocupacion_persona[0]['id_ocupacion_persona']);
             }
-
         }
     }
 
@@ -929,9 +954,7 @@ class Personas extends Controlador
                         "id_cond_laboral"     => $cond_lab_persona[0]['id_cond_laboral'],
                     ]);
                 }
-
             }
-
         }
     }
 
@@ -969,7 +992,6 @@ class Personas extends Controlador
             } else {
                 $this->Actualizar_Tablas("org_politica_persona", "id_org_politica", "id_org_persona", $existe, $organizaciones_persona[0]['id_org_persona']);
             }
-
         }
     }
 
@@ -992,7 +1014,6 @@ class Personas extends Controlador
             } else {
                 $this->Actualizar_Tablas("transporte", "descripcion_transporte", "id_transporte", $datos_persona['transporte'], $transportes[0]['id_transporte']);
             }
-
         }
     }
 
@@ -1015,7 +1036,6 @@ class Personas extends Controlador
         }
 
         echo json_encode($retornar);
-
     }
 
     public function agg_bono()
@@ -1074,7 +1094,6 @@ class Personas extends Controlador
         } else {
             echo $retornar;
         }
-
     }
 
     public function eliminar_mision()
@@ -1114,7 +1133,7 @@ class Personas extends Controlador
         if ($existe == false) {
             $this->Registrar_Tablas("misiones", "nombre_mision", $_POST['mision']['mision']);
             $id = $this->Ultimo_Ingresado("misiones", "id_mision");
-            $retornar= $this->modelo->Registrar_persona_mision([
+            $retornar = $this->modelo->Registrar_persona_mision([
                 "cedula_persona"     => $_POST['cedula'],
                 "id_mision"          => $id[0]['MAX(id_mision)'],
                 "recibe_actualmente" => $_POST['mision']['recibe'],
@@ -1135,14 +1154,12 @@ class Personas extends Controlador
                     "recibe_actualmente" => $_POST['mision']['recibe'],
                     "fecha"              => $_POST['mision']['fecha'],
                 ]);
-
             } else {
                 $retornar = 0;
             }
         }
 
         echo $retornar;
-
     }
 
     public function get_proyectos()
@@ -1183,7 +1200,6 @@ class Personas extends Controlador
                     "cedula_persona" => $_POST['cedula_persona'],
                     "id_proyecto"    => $id[0]['MAX(id_proyecto)'],
                 ]);
-
             } else {
                 foreach ($proyecto_persona as $pp) {
                     if ($pp['id_proyecto'] == $existe) {
@@ -1197,9 +1213,7 @@ class Personas extends Controlador
                         "id_proyecto"    => $proyecto['proyecto'],
                     ]);
                 }
-
             }
-
         } else {
             foreach ($proyecto_persona as $pp) {
                 if ($pp['id_proyecto'] == $proyecto['proyecto']) {
@@ -1213,10 +1227,8 @@ class Personas extends Controlador
                     "id_proyecto"    => $proyecto['proyecto'],
                 ]);
             }
-
         }
 
         echo $retornar;
     }
-
 }
