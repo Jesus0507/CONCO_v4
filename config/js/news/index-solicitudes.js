@@ -35,19 +35,19 @@ function getSolicitudesIndex() {
                     var icono_solicitud = "";
                     switch (solicitudes_datos[i]['tipo_constancia']) {
                         case "Residencia":
-                            icono_solicitud = "fas fa-home";
+                            icono_solicitud = "fas fa-hotel";
                             break;
                         case "Buena conducta":
                             icono_solicitud = "fas fa-address-card";
                             break;
                         case "Vivienda":
-                            icono_solicitud = "fas fa-plus-square";
+                            icono_solicitud = "fas fa-home";
                             break;
                         case "Familia":
                             icono_solicitud = "fas fa-users";
                             break;
                         default:
-                            icono_solicitud = "fas fa-hotel";
+                            icono_solicitud = "fas fa-key";
                             break;
                     }
                     switch (solicitudes_datos[i]['procesada']) {
