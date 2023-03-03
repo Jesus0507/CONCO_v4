@@ -7,7 +7,6 @@ var motivo = document.getElementById("motivo");
 var aprobar = document.getElementById("aprobar");
 var rechazar = document.getElementById("rechazar");
 var solicitante = "";
-
 $.ajax({
     type: "POST",
     url: BASE_URL + "app/Direcciones.php",
@@ -20,17 +19,14 @@ $.ajax({
             type: "POST",
             url: BASE_URL + direccion_segura,
             data: {
-                peticion: "Consulta_Ajax_solicitud",
-                datos: id.value
+                peticion: "Consulta_Ajax",
             },
         }).done(function(datos) {
-            console.log(datos);
             var result_s = JSON.parse(datos);
             var cuerpo_s = "";
             var titulo_solicitud = "";
             for (var i = 0; i < result_s.length; i++) {
                 if (result_s[i]["id_solicitud"] == id.value) {
-                   
                     solicitante = result_s[i];
                     switch (result_s[i]["tipo_constancia"]) {
                         case "Residencia":

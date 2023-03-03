@@ -109,12 +109,6 @@ class Solicitudes_Class extends Modelo
         return "UPDATE solicitudes SET procesada =:procesada, observaciones=:observaciones WHERE id_solicitud = :id_solicitud";
     }
 
-    public function SQL_11():string
-    {
-        return "SELECT S.* , P.*  FROM solicitudes S, personas P WHERE S.id_solicitud = $this->id AND S.procesada = 0 AND P.cedula_persona = S.cedula_persona AND P.estado = 1";
-    }
-
-
 
     // public function Registrar($data)
     // {

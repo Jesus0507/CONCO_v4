@@ -40,44 +40,38 @@ function getSolicitudes() {
                     case 'Residencia':
                         icono_s = "<i class='fas fa-home'></i>";
                         texto_mensaje += "Ha realizado una solicitud de constancia de " + result_s[i]['tipo_constancia'];
-                        contSA++;
-                        contSU++;
+                        if(process == 0){contSA++;};
                         break;
                     case 'Buena conducta':
                         icono_s = "<i class='fas fa-address-card'></i>";
                         texto_mensaje += "Ha realizado una solicitud de constancia de " + result_s[i]['tipo_constancia'];
-                        contSA++;
-                        contSU++;
+                        if(process == 0){contSA++;};
                         break;
                     case 'No poseer vivienda':
                         icono_s = "<i class='fas fa-hotel'></i>";
                         texto_mensaje += "Ha realizado una solicitud de constancia de " + result_s[i]['tipo_constancia'];
-                        contSA++;
-                        contSU++;
+                        if(process == 0){contSA++;};
                         break;
                     case 'Vivienda':
                         icono_s = "<i class='fas fa-plus-square'></i>";
                         texto_mensaje += "Ha realizado una solicitud de registro de " + result_s[i]['tipo_constancia'];
-                        contSA++;
-                        contSU++;
+                        if(process == 0){contSA++;};
                         break;
                     case 'Familia':
                         icono_s = "<i class='fas fa-users'></i>";
                         texto_mensaje += "Ha realizado una solicitud de registro de " + result_s[i]['tipo_constancia'];
-                        contSA++;
-                        contSU++;
+                        if(process == 0){contSA++;};
                         break;
                     case 'Cambio de contraseña':
                         icono_s = "<i class='fas fa-key'></i>";
                         texto_mensaje += "Ha realizado una solicitud de " + result_s[i]['tipo_constancia'];
                         process = result_s[i]['procesada'];
-                        if(process==0) contSA++;
-                        if (process == 3) contSU++;
+                        if(process == 0){contSA++;};
+                        if(process == 3){contSU++};
                         break;
                 }
                 var mensaje_s = getRecortado(texto_mensaje);
                 var elementS = "";
-
                 if (result_s[i]['tipo_constancia'] == 'Cambio de contraseña') {
                     if (result_s[i]['procesada'] == 3) {
                         elementS += "<a title='" + texto_mensaje + "' href='javascript:void(0)' style='font-size:12px !important' class='dropdown-item' onclick='goToSolicitudSU(`" + JSON.stringify(result_s[i]) + "`)'>";
@@ -87,28 +81,15 @@ function getSolicitudes() {
                 } else {
                     elementS += "<a title='" + texto_mensaje + "' href='javascript:void(0)' style='font-size:12px !important' class='dropdown-item' onclick='goToSolicitud(`" + result_s[i]['id_solicitud'] + "`,`" + result_s[i]['tipo_constancia'] + "`)'>";
                 }
-
                 elementS += icono_s + " " + mensaje_s + span_s;
                 elementS += "</a><div class='dropdown-divider'></div>";
-                if ((role == 'Administrador') || (role == 'Super Usuario')) {
-                if(result_s[i]['tipo_constancia']=='Cambio de contraseña') {
-                    if(result_s[i]['procesada'] == 3) {
-                        cuerpo_sa += elementS;
-                    }
-                    else {
-                        cuerpo_s += elementS;
-                    }
-                }
-                else {
-                    cuerpo_sa += elementS;
-                    cuerpo_s += elementS;
-                }
+                if ((role == 'Administrador' && result_s[i]['procesada'] == 0) || (role == 'Super Usuario' && result_s[i]['procesada'] == 3)) {
+                cuerpo_sa += elementS;
                 }   
             }
             }
 
             if (result_s.length == 0) {
-                console.log('hola');    
                 solicitudes_no_leidas.innerHTML = "No hay solcitudes pendientes";
                 solicitudes.style.display = "none";
                 cantidad_s.innerHTML = '0';
@@ -126,6 +107,7 @@ function getSolicitudes() {
                             solicitudes_no_leidas.innerHTML = contSU + " Solicitudes";
                             cantidad_s.innerHTML = contSU;
                         }
+
                 }
                 else {
                     if(role == 'Administrador') {
@@ -141,7 +123,7 @@ function getSolicitudes() {
                         }
                 }
             }
-                if (role == 'Super Usuario') {
+                if ((role == 'Administrador') || (role == 'Super Usuario')) {
                     solicitudes.innerHTML = cuerpo_sa;
                 } else {
                     solicitudes.innerHTML = cuerpo_s
@@ -253,19 +235,19 @@ function descartarSolicitud() {
                 solicitante["asunto"] = "Solicitud de cambio de contraseña rechazada";
                 solicitante["mensaje"] = "Su solicitud  de cambio de contraseña ha sido rechazada. El motivo del rechazo es: " + motivo_rechazo;
                 rechazoSolicitud(motivo_rechazo);
-                    swal({
-                        title: "Exito",
-                        text: "La solicitud ha sido rechazada",
-                        type: "success",
-                        showConfirmButton: false,
-                        timer: 2000,
-                    });
-                    if (solicitante["correo"] != "No posee") {
-                        location.reload();
-                        //   document.getElementById("btn_correo").click();
-                    } else {
-                        location.reload();
-                    }
+                swal({
+                    title: "Exito",
+                    text: "La solicitud ha sido rechazada",
+                    type: "success",
+                    showConfirmButton: false,
+                    timer: 2000,
+                });
+                if (solicitante["correo"] != "No posee") {
+                    location.reload();
+                    //   document.getElementById("btn_correo").click();
+                } else {
+                    location.reload();
+                }
             }
         }
     });
@@ -387,9 +369,7 @@ function rechazoSolicitud(motivo) {
                     id: solicitante['id'],
                     procesada: 2,
                     observaciones: "Rechazada el " + fecha_actual + "/" + motivo,
-                },success:function(result){
-                    console.log(result);
-                }
+                },
             });
         },
         error: function() {

@@ -16,7 +16,7 @@ class Solicitudes extends Controlador
     private $crud; #array con peticion generica sql
 
     // DATOS independientes usados para el manejo del modulo
-    public $id;
+    private $id;
     private $personas_familia;
     private $integrante;
     private $observaciones;
@@ -64,7 +64,6 @@ class Solicitudes extends Controlador
         $this->modelo->_SQL_("SQL_02");
         $this->datos_consulta["solicitudes"] = $this->modelo->Administrar();
 
-       // $this->datos_consulta["solicitud_consulta"] = $this->modelo->Administrar();
         $this->modelo->_SQL_("SQL_03");
         $this->datos_consulta["solicitudes_todas"] = $this->modelo->Administrar();
 
@@ -157,13 +156,6 @@ class Solicitudes extends Controlador
             case 'Consulta_Ajax':
                 $this->Escribir_JSON($this->Get_Datos_Vista()["solicitudes"]);
                 break;
-
-            case 'Consulta_Ajax_solicitud':
-               $this->modelo->_Tipo_(0);
-               $this->modelo->_SQL_("SQL_11");
-               $this->modelo->_ID_($this->datos_ejecutar);
-               $this->Escribir_JSON($this->modelo->Administrar()); 
-               break;
 
             case 'Consulta_Todas':
                 $this->Escribir_JSON($this->Get_Datos_Vista()["solicitudes_todas"]);
@@ -258,6 +250,7 @@ class Solicitudes extends Controlador
                 break;
 
             case 'Establecer_Estado':
+                if ($this->permisos["registrar"] === 1 || $this->permisos["modificar"] === 1) {
                     $this->datos_ejecutar = [
                         "id_solicitud"  => $this->id_solicitud,
                         "procesada"     => $this->procesada,
@@ -268,6 +261,9 @@ class Solicitudes extends Controlador
                     $this->modelo->_SQL_("SQL_10");
                     $this->modelo->_Tipo_(1);
                     echo $this->modelo->Administrar();
+                } else {
+                    $this->_403_();
+                }
                 break;
 
             case 'Aprobar_Cambio_Clave':
@@ -351,7 +347,7 @@ class Solicitudes extends Controlador
                     ];
                 }
 
-                echo json_encode($this->respuesta);
+               echo json_encode($this->respuesta);
                 break;
 
             case 'Consultar_Solicitudes_Vivienda':
@@ -387,10 +383,11 @@ class Solicitudes extends Controlador
                 if ($this->permisos["registrar"] === 1) {
                     $this->datos_ejecutar['observaciones'] = "";
                     $this->datos_ejecutar['procesada']     = 0;
+                    echo $this->datos_ejecutar;
                     $this->modelo->_Datos_($this->Get_Datos());
                     $this->modelo->_SQL_("SQL_01");
                     $this->modelo->_Tipo_(1);
-                    if ($this->modelo->Administrar()) {
+                    if ($this->modelo->Administrar()) { 
                         echo true;
                     }
                 } else {
