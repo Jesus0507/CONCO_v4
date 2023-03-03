@@ -9,5 +9,5 @@
     <testsuite name="Pruebas del Proyecto">
       <directory>tests</directory>
     </testsuite>
-  </testsuites>
+</testsuites>
 </phpunit>

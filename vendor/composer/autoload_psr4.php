@@ -6,15 +6,11 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'phpDocumentor\\Reflection\\' => array($vendorDir . '/phpdocumentor/reflection-common/src', $vendorDir . '/phpdocumentor/reflection-docblock/src', $vendorDir . '/phpdocumentor/type-resolver/src'),
-    'Webmozart\\Assert\\' => array($vendorDir . '/webmozart/assert/src'),
     'Validacion\\' => array($baseDir . '/controlador/backend', $baseDir . '/controlador/backend'),
     'Tuupola\\' => array($vendorDir . '/tuupola/base62/src'),
     'Traits\\' => array($baseDir . '/traits', $baseDir . '/traits'),
     'Tests\\' => array($baseDir . '/tests'),
-    'Symfony\\Polyfill\\Ctype\\' => array($vendorDir . '/symfony/polyfill-ctype'),
     'Prueba\\' => array($baseDir . '/tests'),
-    'Prophecy\\' => array($vendorDir . '/phpspec/prophecy/src/Prophecy'),
     'PhpParser\\' => array($vendorDir . '/nikic/php-parser/lib/PhpParser'),
     'Modulo\\' => array($baseDir . '/modelo'),
     'Modelo\\' => array($baseDir . '/modelo'),
