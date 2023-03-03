@@ -256,6 +256,86 @@ class Reportes_Class extends Modelo
         }
     }
 
+    public function Personas_Enferdades()
+    {
+
+        $tabla             = "SELECT p.cedula_persona, CONCAT(p.primer_nombre, ' ', p.segundo_nombre, ' ', p.primer_apellido, ' ', p.segundo_apellido) AS nombres_apellidos, IFNULL(v.direccion_vivienda, 'S/A') AS direccion, TIMESTAMPDIFF(YEAR, p.fecha_nacimiento, CURDATE()) AS edad, p.genero, GROUP_CONCAT(DISTINCT e.nombre_enfermedad ORDER BY e.nombre_enfermedad SEPARATOR ', ') AS diagnostico, IFNULL(GROUP_CONCAT(DISTINCT pe.medicamentos ORDER BY pe.medicamentos SEPARATOR ', '), 'No posee medicamentos') AS medicamentos FROM personas p LEFT JOIN personas_enfermedades pe ON p.cedula_persona = pe.cedula_persona LEFT JOIN enfermedades e ON pe.id_enfermedad = e.id_enfermedad LEFT JOIN familia_personas fp ON p.cedula_persona = fp.cedula_persona LEFT JOIN familia f ON fp.id_familia = f.id_familia LEFT JOIN vivienda v ON f.id_vivienda = v.id_vivienda WHERE p.estado = 1 AND pe.id_enfermedad IS NOT NULL GROUP BY p.cedula_persona ORDER BY v.direccion_vivienda ASC, p.cedula_persona ASC
+";
+        $respuesta_arreglo = '';
+        try {
+            $datos = $this->conexion->prepare($tabla);
+            $datos->execute();
+            $datos->setFetchMode(PDO::FETCH_ASSOC);
+            $respuesta_arreglo = $datos->fetchAll(PDO::FETCH_ASSOC);
+            return $respuesta_arreglo;
+        } catch (PDOException $e) {
+
+            return $this->Capturar_Error($e,"Reportes");
+        }
+    }
+
+    public function Personas_Discapacidades()
+    {
+
+        $tabla             = "SELECT
+    p.cedula_persona,
+    CONCAT(
+        p.primer_nombre,
+        ' ',
+        p.segundo_nombre,
+        ' ',
+        p.primer_apellido,
+        ' ',
+        p.segundo_apellido
+    ) AS nombres_apellidos,
+    IFNULL(v.direccion_vivienda, 'S/A') AS direccion,
+    TIMESTAMPDIFF(
+        YEAR,
+        p.fecha_nacimiento,
+        CURDATE()) AS edad,
+        p.genero,
+        GROUP_CONCAT(
+            DISTINCT d.nombre_discapacidad
+        ORDER BY
+            d.nombre_discapacidad SEPARATOR ', '
+        ) AS discapacidad,
+        GROUP_CONCAT(
+            DISTINCT IF(dp.observacion_discapacidad = 'No posee', '', dp.observacion_discapacidad) SEPARATOR ' '
+        ) AS observacion,
+        IF(SUM(dp.en_cama) > 0, 'SI', 'NO') AS en_cama
+    FROM
+        personas p
+    LEFT JOIN discapacidad_persona dp ON
+        p.cedula_persona = dp.cedula_persona
+    LEFT JOIN discapacidad d ON
+        dp.id_discapacidad = d.id_discapacidad
+    LEFT JOIN familia_personas fp ON
+        p.cedula_persona = fp.cedula_persona
+    LEFT JOIN familia f ON
+        fp.id_familia = f.id_familia
+    LEFT JOIN vivienda v ON
+        f.id_vivienda = v.id_vivienda
+    WHERE
+        p.estado = 1 AND dp.id_discapacidad IS NOT NULL
+    GROUP BY
+        p.cedula_persona
+    ORDER BY
+        v.direccion_vivienda ASC,
+        p.cedula_persona ASC
+";
+        $respuesta_arreglo = '';
+        try {
+            $datos = $this->conexion->prepare($tabla);
+            $datos->execute();
+            $datos->setFetchMode(PDO::FETCH_ASSOC);
+            $respuesta_arreglo = $datos->fetchAll(PDO::FETCH_ASSOC);
+            return $respuesta_arreglo;
+        } catch (PDOException $e) {
+
+            return $this->Capturar_Error($e,"Reportes");
+        }
+    }
+
     public function Poblacion_Edades()
     {
 

@@ -69,55 +69,34 @@
                                         <td>
                                             Diagnostico
                                         </td>
-                                        <td>Observacion</td>
+                                        <td>Medicamentos</td>
                                     </tr>
                                     <tbody id="datos">
-                                        <?php foreach ($this->personas_familia as $key => $value): ?>
-                                            <?php foreach ($this->enfermos as $key): ?>
-                                               
-                                                    
-                                               <?php if ($value["cedula_persona"] == $key["cedula_persona"]): ?>
-                                                   
-                                               
-                                        
-                                        <tr>
-                                            <td><?php echo $value["cedula_persona"]; ?></td>
-                                            <td><?php echo $value["primer_nombre"]." ".$value["primer_apellido"] ?></td>
-                                            <td><?php echo $value["direccion_vivienda"] ?></td>
-                                            <td>
-                                                <?php 
-                                                    list($ano,$mes,$dia) = explode("-",$value["fecha_nacimiento"]);
-                                                    $ano_diferencia  = date("Y") - $ano;
-                                                    $mes_diferencia = date("m") - $mes;
-                                                    $dia_diferencia   = date("d") - $dia;
-                                                    if ($dia_diferencia < 0 || $mes_diferencia < 0)
-                                                        $ano_diferencia--;
-                                                    echo $ano_diferencia." Años"; 
-                                                ?>
-                                            </td>
-                                            <td><?php echo $value["genero"] ?></td>
-                                            
-
-     
-                                            <td>
-                                                <?php foreach ($this->enfermedades as $e): ?>
-                                                    <?php if ($key["cedula_persona"] == $e["cedula_persona"]): ?>
-                                                       <center>
-                                                            <?php echo $e["nombre_enfermedad"]."</br>" ?>
-                                                       </center>
-                                                    <?php endif ?>
-                                                <?php endforeach ?>
-                                            </td>
-                                            <td>
-                                                
-                                            </td>
-                                            
-                                        </tr>
-                                        <?php endif ?>
-                                        
-                                            <?php endforeach ?>
-                                        <?php endforeach ?>
-
+                                     <?php foreach ($this->enfermedades_persona_completo as $key => $value): ?>
+                                         <tr>
+                                             <td>
+                                                 <?php echo $value["cedula_persona"] ?>
+                                             </td>
+                                             <td>
+                                                 <?php echo $value["nombres_apellidos"] ?>
+                                             </td>
+                                              <td>
+                                                 <?php echo $value["direccion"] ?>
+                                             </td>
+                                             <td>
+                                                 <?php echo $value["edad"] ?>
+                                             </td>
+                                             <td>
+                                                 <?php echo $value["genero"] ?>
+                                             </td>
+                                             <td>
+                                                 <?php echo $value["diagnostico"] ?>
+                                             </td>
+                                             <td>
+                                                 <?php echo $value["medicamentos"] ?>
+                                             </td>
+                                         </tr> 
+                                     <?php endforeach ?>
                                     </tbody>
                                 </table>
                             </div>

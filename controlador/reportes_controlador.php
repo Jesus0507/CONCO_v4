@@ -49,6 +49,8 @@ class Reportes extends Controlador
 
         $poblacion_edades = $this->modelo->Poblacion_Edades();
 
+        $this->vista->enfermedades_persona_completo = $this->modelo->Personas_Enferdades();
+        $this->vista->discapacidades_persona_completo = $this->modelo->Personas_Discapacidades();
         $this->vista->personas = $personas;
         $this->personas        = $personas;
 
