@@ -361,7 +361,7 @@ class Reportes_Class extends Modelo
     public function Nivel_Educativo()
     {
 
-        $tabla             = "SELECT p.cedula_persona, primer_nombre, segundo_nombre ,primer_apellido, segundo_apellido, nivel_educativo,c.nombre_calle FROM familia f, familia_personas fp, personas p,vivienda v,calles c WHERE p.estado = 1 AND f.id_vivienda = v.id_vivienda and f.id_familia = fp.id_familia and p.cedula_persona = fp.cedula_persona and v.id_calle = c.id_calle AND p.miliciano =1 ORDER BY `c`.`nombre_calle` ASC";
+        $tabla             = "SELECT DISTINCT (p.cedula_persona), primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, nivel_educativo, COALESCE(c.nombre_calle, 'No afiliado') AS nombre_calle FROM personas p LEFT JOIN familia_personas fp ON p.cedula_persona = fp.cedula_persona LEFT JOIN familia f ON f.id_familia = fp.id_familia LEFT JOIN vivienda v ON f.id_vivienda = v.id_vivienda LEFT JOIN calles c ON v.id_calle = c.id_calle WHERE p.estado = 1 ORDER BY c.nombre_calle ASC, p.nivel_educativo ASC";
         $respuesta_arreglo = '';
         try {
             $datos = $this->conexion->prepare($tabla);

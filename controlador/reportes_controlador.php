@@ -1,7 +1,7 @@
  <?php
 
 class Reportes extends Controlador
-{
+{ 
     #Public: acceso sin restricción.
     #Private:Solo puede ser accesado por la clase que lo define.
     private $permisos; #permisos correspondiente del modulo
