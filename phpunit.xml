@@ -73,12 +73,6 @@
             <file>tests/config/viviendas.xml</file>
         </testsuite>
     </testsuites>
-    <!-- Filtra los archivos de la carpeta "modelo" con extensión "_class.php" -->
-    <filter>
-        <whitelist>
-            <directory suffix="_class.php">modelo/</directory>
-        </whitelist>
-    </filter>
     <logging>
         <!-- Generar un informe de pruebas en formato JUnit (resultado estructurado) -->
         <log type="junit" target="tests/resultados/lista-resultados.xml"/>
@@ -88,7 +82,5 @@
         <log type="coverage-html" target="tests/resultados/cobertura"/>
         <!-- Generar un informe de cobertura de código en formato XML -->
         <log type="coverage-clover" target="tests/resultados/cobertura.xml" />
-        <!-- Mostrar los resultados de las pruebas en la consola de manera detallada -->
-        <log type="testdox" />
     </logging>
 </phpunit>
