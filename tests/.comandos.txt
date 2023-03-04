@@ -1,1 +1,7 @@
+php vendor/bin/phpunit --migrate-configuration
+
 php vendor/bin/phpunit --configuration phpunit.xml
+
+php vendor/bin/phpunit --testsuite "Pruebas del módulo agenda"
+
+php vendor/bin/phpunit --testsuite Agenda
