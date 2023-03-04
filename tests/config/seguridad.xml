@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd"
+         bootstrap="vendor/autoload.php"
+         colors="true"
+         verbose="true"
+         stopOnFailure="false"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true">
+    <testsuites>
+        <testsuite name="Seguridad">
+            <file>tests/seguridad_test.php</file>
+        </testsuite>
+    </testsuites>
+    <!-- Filtra los archivos de prueba en la carpeta "tests" con extensión "_test.php" -->
+    <filter>
+        <whitelist>
+            <directory suffix="_test.php">tests/</directory>
+        </whitelist>
+    </filter>
+    <logging>
+        <!-- Generar un informe de pruebas en formato JUnit (resultado estructurado) -->
+        <log type="junit" target="tests/resultados/seguridad/seguridad-resultados.xml"/>
+        <!-- Guardar los resultados de las pruebas en un archivo de texto -->
+        <log type="testdox-text" target="tests/resultados/seguridad/seguridad-resultados.txt" />
+        <!-- Generar un informe de cobertura de código en formato HTML -->
+        <log type="coverage-html" target="tests/resultados/seguridad/seguridad-cobertura"/>
+        <!-- Generar un informe de cobertura de código en formato XML -->
+        <log type="coverage-clover" target="tests/resultados/seguridad/seguridad-cobertura.xml" />
+        <!-- Mostrar los resultados de las pruebas en la consola de manera detallada -->
+        <log type="testdox" />
+    </logging>
+</phpunit>
