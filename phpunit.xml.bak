@@ -1,87 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?>
-<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd"
-         bootstrap="vendor/autoload.php"
-         colors="true"
-         verbose="true"
-         stopOnFailure="false"
-         convertErrorsToExceptions="true"
-         convertNoticesToExceptions="true"
-         convertWarningsToExceptions="true">
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit colors="true" bootstrap="vendor/autoload.php">
     <testsuites>
-        <testsuite name="Pruebas del módulo agenda">
-            <file>tests/config/agenda.xml</file>
-        </testsuite>
-        <testsuite name="Pruebas del módulo bitacora">
-            <file>tests/config/bitacora.xml</file>
-        </testsuite>
-        <testsuite name="Pruebas del módulo centro votacion">
-            <file>tests/config/centro_votacion.xml</file>
-        </testsuite>
-        <testsuite name="Pruebas del módulo consejo comunal">
-            <file>tests/config/consejo_comunal.xml</file>
-        </testsuite>
-        <testsuite name="Pruebas del módulo discapacitados">
-            <file>tests/config/discapacitados.xml</file>
-        </testsuite>
-        <testsuite name="Pruebas del módulo enfermos">
-            <file>tests/config/enfermos.xml</file>
-        </testsuite>
-        <testsuite name="Pruebas del módulo familias">
-            <file>tests/config/familias.xml</file>
-        </testsuite>
-        <testsuite name="Pruebas del módulo grupos deportivos">
-            <file>tests/config/grupos_deportivos.xml</file>
-        </testsuite>
-        <testsuite name="Pruebas del módulo habitantes">
-            <file>tests/config/habitantes.xml</file>
-        </testsuite>
-        <testsuite name="Pruebas del módulo inmuebles">
-            <file>tests/config/inmuebles.xml</file>
-        </testsuite>
-        <testsuite name="Pruebas del módulo login">
-            <file>tests/config/login.xml</file>
-        </testsuite>
-        <testsuite name="Pruebas del módulo negocios">
-            <file>tests/config/negocios.xml</file>
-        </testsuite>
-        <testsuite name="Pruebas del módulo notificaciones">
-            <file>tests/config/notificaciones.xml</file>
-        </testsuite>
-        <testsuite name="Pruebas del módulo parto_humanizado">
-            <file>tests/config/parto_humanizado.xml</file>
-        </testsuite>
-        <testsuite name="Pruebas del módulo personas">
-            <file>tests/config/personas.xml</file>
-        </testsuite>
-        <testsuite name="Pruebas del módulo reportes">
-            <file>tests/config/reportes.xml</file>
-        </testsuite>
-        <testsuite name="Pruebas del módulo sector agricola">
-            <file>tests/config/sector_agricola.xml</file>
-        </testsuite>
-        <testsuite name="Pruebas del módulo seguridad">
-            <file>tests/config/seguridad.xml</file>
-        </testsuite>
-        <testsuite name="Pruebas del módulo solicitudes">
-            <file>tests/config/solicitudes.xml</file>
-        </testsuite>
-        <testsuite name="Pruebas del módulo vacunados">
-            <file>tests/config/vacunados.xml</file>
-        </testsuite>
-        <testsuite name="Pruebas del módulo viviendas">
-            <file>tests/config/viviendas.xml</file>
+        <testsuite name="Mi Suite de Pruebas">
+            <directory>tests</directory>
         </testsuite>
     </testsuites>
+
     <logging>
-        <!-- Generar un informe de pruebas en formato JUnit (resultado estructurado) -->
-        <log type="junit" target="tests/resultados/lista-resultados.xml"/>
-        <!-- Guardar los resultados de las pruebas en un archivo de texto -->
-        <log type="testdox-text" target="tests/resultados/lista-resultados.txt" />
-        <!-- Generar un informe de cobertura de código en formato HTML -->
-        <log type="coverage-html" target="tests/resultados/cobertura"/>
-        <!-- Generar un informe de cobertura de código en formato XML -->
-        <log type="coverage-clover" target="tests/resultados/cobertura.xml" />
+        <log type="coverage-html" target="tests/resultados/coverage" />
+        <log type="coverage-clover" target="tests/resultados/coverage.xml" />
+        <log type="junit" target="tests/resultados/junit.xml" />
     </logging>
-    
 </phpunit>
