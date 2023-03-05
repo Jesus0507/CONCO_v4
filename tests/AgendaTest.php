@@ -1,7 +1,7 @@
 <?php
 require_once "modelo/agenda_class.php";
+
 use PHPUnit\Framework\TestCase;
-use Modelo\Agenda_Class;
 
 class AgendaTest extends TestCase
 {
@@ -34,7 +34,7 @@ class AgendaTest extends TestCase
         $this->agenda->_Datos_([
             'tipo_evento' => 'evento de prueba',
             'fecha'       => '2023-02-10',
-            'creador'     => '123456789',
+            'creador'     => '7654321',
             'ubicacion'   => 'ubicacion de prueba',
             'horas'       => 1,
             'detalle'     => 'detalle de prueba',
@@ -52,7 +52,7 @@ class AgendaTest extends TestCase
             'id_agenda'   => 1,
             'tipo_evento' => 'evento actualizado',
             'fecha'       => '2023-02-11',
-            'creador'     => '123456789',
+            'creador'     => '7654321',
             'ubicacion'   => 'ubicacion actualizada',
             'horas'       => 2,
             'detalle'     => 'detalle actualizado',

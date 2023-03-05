@@ -3,26 +3,16 @@ php vendor/bin/phpunit --migrate-configuration
 php vendor/bin/phpunit --configuration phpunit.xml
 
 
-
-php vendor/bin/phpunit --testsuite "Pruebas del módulo agenda"
-
-php vendor/bin/phpunit --testsuite Agenda
-
-
-
-Generar reportes en XML con PHPUnit
-php vendor/bin/phpunit tests/AgendaTest.php --testdox-xml tests/resultados/resultados.xml
-
-Generar reportes en HTML con PHPUnit
-php vendor/bin/phpunit tests/AgendaTest.php --testdox-html tests/resultados/resultados.html
-
-Generar reportes en Consola
-php vendor/bin/phpunit tests/AgendaTest.php --testdox
-
-Generar reportes en un txt
-php vendor/bin/phpunit tests/AgendaTest.php --log-text tests/resultados/resultados.txt
-
 Generar todos los reportes 
 
-. vendor/bin/phpunit tests/AgendaTest.php --testdox-xml tests/resultados/resultados.xml --testdox-html tests/resultados/resultados.html --testdox --log-junit tests/resultados/resultados.xml 
+. vendor/bin/phpunit tests/AgendaTest.php --testdox-xml tests/resultados/agenda-resultados.xml --testdox-html tests/resultados/agenda-resultados.html --testdox --log-junit tests/resultados/agenda-resultados.xml  --cache-result-file tests/cache/.phpunit.agenda.result.cache --debug
+
+usar este
+
+. vendor/bin/phpunit tests/AgendaTest.php --testdox-xml tests/resultados/agenda-resultados.xml --testdox-html tests/resultados/agenda-resultados.html --testdox --log-junit tests/resultados/agenda-resultados.xml  --testdox --log-junit tests/resultados/agenda-resultados.log  --cache-result-file tests/cache/.phpunit.agenda.result.cache --debug
+
+por carpte
+
+. vendor/bin/phpunit tests/AgendaTest.php --testdox-xml tests/resultados/agenda/agenda-resultados.xml --testdox-html tests/resultados/agenda/agenda-resultados.html --testdox --log-junit tests/resultados/agenda/agenda-resultados.xml  --testdox --log-junit tests/resultados/agenda/agenda-resultados.log  --cache-result-file tests/cache/.phpunit.agenda.result.cache --debug
+
 
