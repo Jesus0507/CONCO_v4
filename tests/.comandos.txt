@@ -1,0 +1,18 @@
+php vendor/bin/phpunit --migrate-configuration
+
+php vendor/bin/phpunit --configuration phpunit.xml
+
+
+Generar todos los reportes 
+
+. vendor/bin/phpunit tests/AgendaTest.php --testdox-xml tests/resultados/agenda-resultados.xml --testdox-html tests/resultados/agenda-resultados.html --testdox --log-junit tests/resultados/agenda-resultados.xml  --cache-result-file tests/cache/.phpunit.agenda.result.cache --debug
+
+usar este
+
+. vendor/bin/phpunit tests/AgendaTest.php --testdox-xml tests/resultados/agenda-resultados.xml --testdox-html tests/resultados/agenda-resultados.html --testdox --log-junit tests/resultados/agenda-resultados.xml  --testdox --log-junit tests/resultados/agenda-resultados.log  --cache-result-file tests/cache/.phpunit.agenda.result.cache --debug
+
+por carpte
+
+. vendor/bin/phpunit tests/AgendaTest.php --testdox-xml tests/resultados/agenda/agenda-resultados.xml --testdox-html tests/resultados/agenda/agenda-resultados.html --testdox --log-junit tests/resultados/agenda/agenda-resultados.xml  --testdox --log-junit tests/resultados/agenda/agenda-resultados.log  --cache-result-file tests/cache/.phpunit.agenda.result.cache --debug
+
+

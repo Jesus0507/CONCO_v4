@@ -1,13 +1,25 @@
-<?xml version="1.0" encoding="utf-8"?>
-<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bootstrap="vendor/autoload.php" colors="true" verbose="true" stopOnFailure="false" convertErrorsToExceptions="true" convertNoticesToExceptions="true" convertWarningsToExceptions="true" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd">
-  <coverage>
-    <include>
-      <directory suffix=".php">modelo/</directory>
-    </include>
-  </coverage>
-  <testsuites>
-    <testsuite name="Pruebas del Proyecto">
-      <directory>tests</directory>
-    </testsuite>
-  </testsuites>
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit
+    bootstrap="vendor/autoload.php"
+    colors="true"
+    convertErrorsToExceptions="true"
+    convertNoticesToExceptions="true"
+    convertWarningsToExceptions="true"
+    stopOnFailure="false"
+    verbose="true"
+>   
+    <coverage>
+        <include>
+            <directory suffix="_class.php">
+                modelo/
+            </directory>
+        </include>
+    </coverage>
+    <testsuites>
+        <testsuite name="Pruebas del Proyecto">
+            <directory suffix="_test.php">
+                tests
+            </directory>
+        </testsuite>
+    </testsuites>
 </phpunit>
