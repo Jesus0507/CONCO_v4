@@ -2,7 +2,7 @@
 
 use PHPUnit\Framework\TestCase; 
 
-class PartoHumanizadoTest extends TestCase
+class Parto_HumanizadoTest extends TestCase
 {
     
 

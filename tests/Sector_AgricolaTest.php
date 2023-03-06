@@ -2,7 +2,7 @@
 
 use PHPUnit\Framework\TestCase;
 
-class SectorAgricolaTest extends TestCase
+class Sector_AgricolaTest extends TestCase
 {
     
 }
