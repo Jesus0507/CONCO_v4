@@ -1,0 +1,10 @@
+stdClass Object
+(
+    [Fecha] => Martes , 03 de Enero del 2023
+    [Hora] => 09:33 AM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 41
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
