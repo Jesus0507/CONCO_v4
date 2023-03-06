@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "defects": [],
+  "times": {
+    "Centro_VotacionTest::test_SQL_01_SELECT": 0.023,
+    "Centro_VotacionTest::test_SQL_02_SELECT_2": 0.01,
+    "Centro_VotacionTest::test_SQL_03_INSERT": 0.136,
+    "Centro_VotacionTest::test_SQL_04_INSERT": 0.084,
+    "Centro_VotacionTest::test_SQL_05_UPDATE": 0.056,
+    "Centro_VotacionTest::test_SQL_06_SELECT_3": 0.004,
+    "Centro_VotacionTest::test_SQL_07_SELECT_4": 0.003
+  }
+}

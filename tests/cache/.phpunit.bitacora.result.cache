@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "defects": [],
+  "times": {
+    "BitacoraTest::test_SQL01_SELECT": 0.026,
+    "BitacoraTest::test_SQL02_INSERT": 0.087,
+    "BitacoraTest::test_SQL03_UPDATE_1": 0.003,
+    "BitacoraTest::test_SQL04_UPDATE_2": 0.003
+  }
+}

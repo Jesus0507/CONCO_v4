@@ -1,24 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit
-    bootstrap="vendor/autoload.php"
-    colors="true"
-    convertErrorsToExceptions="true"
-    convertNoticesToExceptions="true"
-    convertWarningsToExceptions="true"
-    stopOnFailure="false"
-    verbose="true"
->   
-    <coverage>
-        <include>
-            <directory suffix="_class.php">
-                modelo/
+<!-- Declaración de XML con la versión y codificación -->
+<phpunit bootstrap="vendor/autoload.php" colors="true">
+    <coverage><!-- Configuración de la cobertura de código -->
+        <include><!-- Inclusión de archivos y directorios en la cobertura -->
+            <directory suffix="_class.php"><!-- Incluye los archivos cuyo sufijo es "_class.php" -->   
+                modelo/<!-- Directorio modelo -->
             </directory>
         </include>
     </coverage>
-    <testsuites>
-        <testsuite name="Pruebas del Proyecto">
-            <directory suffix="_test.php">
-                tests
+    <testsuites><!-- Configuración de los conjuntos de pruebas -->
+        <testsuite name="Pruebas del Proyecto"><!-- Conjunto de pruebas con nombre "Pruebas del Proyecto" -->
+            <directory suffix="_test.php"><!-- Incluye los archivos cuyo sufijo es "_test.php" -->
+                tests<!-- Directorio tests -->
             </directory>
         </testsuite>
     </testsuites>

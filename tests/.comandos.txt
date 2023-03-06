@@ -1,18 +1,88 @@
+
 php vendor/bin/phpunit --migrate-configuration
+
+sirve para actualizar la configuración de PHPUnit a la versión más reciente disponible. Esto es útil cuando se actualiza PHPUnit y se quiere asegurarse de que la configuración sigue siendo compatible.
 
 php vendor/bin/phpunit --configuration phpunit.xml
 
+ejecuta PHPUnit con un archivo de configuración específico phpunit.xml y muestra información sobre las pruebas definidas en el archivo de configuración.
 
-Generar todos los reportes 
+comando utilizado
 
-. vendor/bin/phpunit tests/AgendaTest.php --testdox-xml tests/resultados/agenda-resultados.xml --testdox-html tests/resultados/agenda-resultados.html --testdox --log-junit tests/resultados/agenda-resultados.xml  --cache-result-file tests/cache/.phpunit.agenda.result.cache --debug
+. vendor/bin/phpunit tests/MODULOTest.php
+--testdox-xml tests/resultados/MODULO/MODULO-resultados.xml 
+--testdox-html tests/resultados/MODULO/MODULO-resultados.html 
+--testdox 
+--log-junit tests/resultados/MODULO/MODULO-resultados.xml  
+--testdox 
+--log-junit tests/resultados/MODULO/MODULO-resultados.log  
+--cache-result-file tests/cache/.phpunit.MODULO.result.cache 
+--debug
 
-usar este
+Funcionamiento
 
-. vendor/bin/phpunit tests/AgendaTest.php --testdox-xml tests/resultados/agenda-resultados.xml --testdox-html tests/resultados/agenda-resultados.html --testdox --log-junit tests/resultados/agenda-resultados.xml  --testdox --log-junit tests/resultados/agenda-resultados.log  --cache-result-file tests/cache/.phpunit.agenda.result.cache --debug
+1 vendor/bin/phpunit: se ejecuta el archivo phpunit 
 
-por carpte
+2 tests/MODULOTest.php: se especifica el archivo de pruebas a ejecutar, que en este caso es MODULOTest.php ubicado en la carpeta tests/
+
+3 --testdox-xml: esta opción indica que se desea generar un reporte de resultados en formato xml.
+
+4 tests/resultados/MODULO/MODULO-resultados.xml: se especifica la ruta y el nombre del archivo de salida que contendrá el reporte en formato xml.
+
+5 --testdox-html: esta opción indica que se desea generar un reporte de resultados en formato html.
+
+6 tests/resultados/MODULO/MODULO-resultados.html: se especifica la ruta y el nombre del archivo de salida que contendrá el reporte en formato html.
+
+7 --testdox: esta opción indica que se desea generar un reporte de resultados en formato testdox. Este formato produce una salida legible por humanos que describe cada prueba y su resultado.
+
+8 --log-junit: esta opción indica que se desea generar un reporte de resultados en formato junit
+
+9 tests/resultados/MODULO/MODULO-resultados.xml: se especifica la ruta y el nombre del archivo de salida que contendrá el reporte en formato junit.
+
+10 --cache-result-file: esta opción indica que se desea guardar en caché los resultados de las pruebas. Esto acelera la ejecución de las pruebas en ejecuciones futuras.
+
+11 tests/cache/.phpunit.MODULO.result.cache: se especifica la ruta y el nombre del archivo que contendrá la caché de resultados.
+
+12 --debug: esta opción indica que se desea ver la información de depuración detallada durante la ejecución de las pruebas.
+
+=============================================================================================================
 
 . vendor/bin/phpunit tests/AgendaTest.php --testdox-xml tests/resultados/agenda/agenda-resultados.xml --testdox-html tests/resultados/agenda/agenda-resultados.html --testdox --log-junit tests/resultados/agenda/agenda-resultados.xml  --testdox --log-junit tests/resultados/agenda/agenda-resultados.log  --cache-result-file tests/cache/.phpunit.agenda.result.cache --debug
 
+. vendor/bin/phpunit tests/BitacoraTest.php --testdox-xml tests/resultados/bitacora/bitacora-resultados.xml --testdox-html tests/resultados/bitacora/bitacora-resultados.html --testdox --log-junit tests/resultados/bitacora/bitacora-resultados.xml  --testdox --log-junit tests/resultados/bitacora/bitacora-resultados.log  --cache-result-file tests/cache/.phpunit.bitacora.result.cache --debug
 
+. vendor/bin/phpunit tests/Centro_VotacionTest.php --testdox-xml tests/resultados/centro_votacion/centro_votacion-resultados.xml --testdox-html tests/resultados/centro_votacion/centro_votacion-resultados.html --testdox --log-junit tests/resultados/centro_votacion/centro_votacion-resultados.xml  --testdox --log-junit tests/resultados/centro_votacion/centro_votacion-resultados.log  --cache-result-file tests/cache/.phpunit.centro_votacion.result.cache --debug
+
+. vendor/bin/phpunit tests/Consejo_ComunalTest.php --testdox-xml tests/resultados/consejo_comunal/consejo_comunal-resultados.xml --testdox-html tests/resultados/consejo_comunal/consejo_comunal-resultados.html --testdox --log-junit tests/resultados/consejo_comunal/consejo_comunal-resultados.xml  --testdox --log-junit tests/resultados/consejo_comunal/consejo_comunal-resultados.log  --cache-result-file tests/cache/.phpunit.consejo_comunal.result.cache --debug
+
+. vendor/bin/phpunit tests/DiscapacitadosTest.php --testdox-xml tests/resultados/discapacitados/discapacitados-resultados.xml --testdox-html tests/resultados/discapacitados/discapacitados-resultados.html --testdox --log-junit tests/resultados/discapacitados/discapacitados-resultados.xml  --testdox --log-junit tests/resultados/discapacitados/discapacitados-resultados.log  --cache-result-file tests/cache/.phpunit.discapacitados.result.cache --debug
+
+. vendor/bin/phpunit tests/EnfermosTest.php --testdox-xml tests/resultados/enfermos/enfermos-resultados.xml --testdox-html tests/resultados/enfermos/enfermos-resultados.html --testdox --log-junit tests/resultados/enfermos/enfermos-resultados.xml  --testdox --log-junit tests/resultados/enfermos/enfermos-resultados.log  --cache-result-file tests/cache/.phpunit.enfermos.result.cache --debug
+
+. vendor/bin/phpunit tests/FamiliasTest.php --testdox-xml tests/resultados/familias/familias-resultados.xml --testdox-html tests/resultados/familias/familias-resultados.html --testdox --log-junit tests/resultados/familias/familias-resultados.xml  --testdox --log-junit tests/resultados/familias/familias-resultados.log  --cache-result-file tests/cache/.phpunit.familias.result.cache --debug
+
+. vendor/bin/phpunit tests/Grupos_DeportivosTest.php --testdox-xml tests/resultados/grupos_deportivos/grupos_deportivos-resultados.xml --testdox-html tests/resultados/grupos_deportivos/grupos_deportivos-resultados.html --testdox --log-junit tests/resultados/grupos_deportivos/grupos_deportivos-resultados.xml  --testdox --log-junit tests/resultados/grupos_deportivos/grupos_deportivos-resultados.log  --cache-result-file tests/cache/.phpunit.grupos_deportivos.result.cache --debug
+
+. vendor/bin/phpunit tests/HabitanteTest.php --testdox-xml tests/resultados/Habitante/Habitante-resultados.xml --testdox-html tests/resultados/Habitante/Habitante-resultados.html --testdox --log-junit tests/resultados/Habitante/Habitante-resultados.xml  --testdox --log-junit tests/resultados/Habitante/Habitante-resultados.log  --cache-result-file tests/cache/.phpunit.Habitante.result.cache --debug
+
+. vendor/bin/phpunit tests/InmueblesTest.php --testdox-xml tests/resultados/inmuebles/inmuebles-resultados.xml --testdox-html tests/resultados/inmuebles/inmuebles-resultados.html --testdox --log-junit tests/resultados/inmuebles/inmuebles-resultados.xml  --testdox --log-junit tests/resultados/inmuebles/inmuebles-resultados.log  --cache-result-file tests/cache/.phpunit.inmuebles.result.cache --debug
+
+. vendor/bin/phpunit tests/LoginTest.php --testdox-xml tests/resultados/login/login-resultados.xml --testdox-html tests/resultados/login/login-resultados.html --testdox --log-junit tests/resultados/login/login-resultados.xml  --testdox --log-junit tests/resultados/login/login-resultados.log  --cache-result-file tests/cache/.phpunit.login.result.cache --debug
+
+. vendor/bin/phpunit tests/NegociosTest.php --testdox-xml tests/resultados/negocios/negocios-resultados.xml --testdox-html tests/resultados/negocios/negocios-resultados.html --testdox --log-junit tests/resultados/negocios/negocios-resultados.xml  --testdox --log-junit tests/resultados/negocios/negocios-resultados.log  --cache-result-file tests/cache/.phpunit.negocios.result.cache --debug
+
+. vendor/bin/phpunit tests/NotificacionesTest.php --testdox-xml tests/resultados/notificaciones/notificaciones-resultados.xml --testdox-html tests/resultados/notificaciones/notificaciones-resultados.html --testdox --log-junit tests/resultados/notificaciones/notificaciones-resultados.xml  --testdox --log-junit tests/resultados/notificaciones/notificaciones-resultados.log  --cache-result-file tests/cache/.phpunit.notificaciones.result.cache --debug
+
+. vendor/bin/phpunit tests/PartoHumanizadoTest.php --testdox-xml tests/resultados/partohumanizado/partohumanizado-resultados.xml --testdox-html tests/resultados/partohumanizado/partohumanizado-resultados.html --testdox --log-junit tests/resultados/partohumanizado/partohumanizado-resultados.xml  --testdox --log-junit tests/resultados/partohumanizado/partohumanizado-resultados.log  --cache-result-file tests/cache/.phpunit.partohumanizado.result.cache --debug
+
+. vendor/bin/phpunit tests/PersonasTest.php --testdox-xml tests/resultados/personas/personas-resultados.xml --testdox-html tests/resultados/personas/personas-resultados.html --testdox --log-junit tests/resultados/personas/personas-resultados.xml  --testdox --log-junit tests/resultados/personas/personas-resultados.log  --cache-result-file tests/cache/.phpunit.personas.result.cache --debug
+
+. vendor/bin/phpunit tests/ReportesTest.php --testdox-xml tests/resultados/reportes/reportes-resultados.xml --testdox-html tests/resultados/reportes/reportes-resultados.html --testdox --log-junit tests/resultados/reportes/reportes-resultados.xml  --testdox --log-junit tests/resultados/reportes/reportes-resultados.log  --cache-result-file tests/cache/.phpunit.reportes.result.cache --debug
+
+. vendor/bin/phpunit tests/SectorAgricolaTest.php --testdox-xml tests/resultados/sectoragricola/sectoragricola-resultados.xml --testdox-html tests/resultados/sectoragricola/sectoragricola-resultados.html --testdox --log-junit tests/resultados/sectoragricola/sectoragricola-resultados.xml  --testdox --log-junit tests/resultados/sectoragricola/sectoragricola-resultados.log  --cache-result-file tests/cache/.phpunit.sectoragricola.result.cache --debug
+
+. vendor/bin/phpunit tests/SeguridadTest.php --testdox-xml tests/resultados/seguridad/seguridad-resultados.xml --testdox-html tests/resultados/seguridad/seguridad-resultados.html --testdox --log-junit tests/resultados/seguridad/seguridad-resultados.xml  --testdox --log-junit tests/resultados/seguridad/seguridad-resultados.log  --cache-result-file tests/cache/.phpunit.seguridad.result.cache --debug
+
+. vendor/bin/phpunit tests/SolicitudesTest.php --testdox-xml tests/resultados/solicitudes/solicitudes-resultados.xml --testdox-html tests/resultados/solicitudes/solicitudes-resultados.html --testdox --log-junit tests/resultados/solicitudes/solicitudes-resultados.xml  --testdox --log-junit tests/resultados/solicitudes/solicitudes-resultados.log  --cache-result-file tests/cache/.phpunit.solicitudes.result.cache --debug
+
+. vendor/bin/phpunit tests/ViviendaTest.php --testdox-xml tests/resultados/vivienda/vivienda-resultados.xml --testdox-html tests/resultados/vivienda/vivienda-resultados.html --testdox --log-junit tests/resultados/vivienda/vivienda-resultados.xml  --testdox --log-junit tests/resultados/vivienda/vivienda-resultados.log  --cache-result-file tests/cache/.phpunit.vivienda.result.cache --debug

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite assertions="50" errors="0" failures="0" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\ReportesTest.php" name="ReportesTest" skipped="0" tests="25" time="0.268375" warnings="0">
+        <testcase assertions="2" class="ReportesTest" classname="ReportesTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\ReportesTest.php" line="15" name="test_SQL_01_SELECT_1" time="0.044823">
+        </testcase>
+        <testcase assertions="2" class="ReportesTest" classname="ReportesTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\ReportesTest.php" line="25" name="test_SQL_02_SELECT_2" time="0.004635">
+        </testcase>
+        <testcase assertions="2" class="ReportesTest" classname="ReportesTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\ReportesTest.php" line="34" name="test_SQL_03_SELECT_3" time="0.018495">
+        </testcase>
+        <testcase assertions="2" class="ReportesTest" classname="ReportesTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\ReportesTest.php" line="43" name="test_SQL_04_SELECT_4" time="0.003927">
+        </testcase>
+        <testcase assertions="2" class="ReportesTest" classname="ReportesTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\ReportesTest.php" line="52" name="test_SQL_05_SELECT_5" time="0.012744">
+        </testcase>
+        <testcase assertions="2" class="ReportesTest" classname="ReportesTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\ReportesTest.php" line="61" name="test_SQL_06_SELECT_6" time="0.018073">
+        </testcase>
+        <testcase assertions="2" class="ReportesTest" classname="ReportesTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\ReportesTest.php" line="70" name="test_SQL_07_SELECT_7" time="0.009183">
+        </testcase>
+        <testcase assertions="2" class="ReportesTest" classname="ReportesTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\ReportesTest.php" line="79" name="test_SQL_08_SELECT_8" time="0.006457">
+        </testcase>
+        <testcase assertions="2" class="ReportesTest" classname="ReportesTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\ReportesTest.php" line="88" name="test_SQL_09_SELECT_9" time="0.011968">
+        </testcase>
+        <testcase assertions="2" class="ReportesTest" classname="ReportesTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\ReportesTest.php" line="97" name="test_SQL_10_SELECT_10" time="0.006461">
+        </testcase>
+        <testcase assertions="2" class="ReportesTest" classname="ReportesTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\ReportesTest.php" line="106" name="test_SQL_11_SELECT_11" time="0.013500">
+        </testcase>
+        <testcase assertions="2" class="ReportesTest" classname="ReportesTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\ReportesTest.php" line="115" name="test_SQL_12_SELECT_12" time="0.023576">
+        </testcase>
+        <testcase assertions="2" class="ReportesTest" classname="ReportesTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\ReportesTest.php" line="124" name="test_SQL_13_SELECT_13" time="0.013101">
+        </testcase>
+        <testcase assertions="2" class="ReportesTest" classname="ReportesTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\ReportesTest.php" line="133" name="test_SQL_14_SELECT_14" time="0.003565">
+        </testcase>
+        <testcase assertions="2" class="ReportesTest" classname="ReportesTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\ReportesTest.php" line="142" name="test_SQL_15_SELECT_15" time="0.010492">
+        </testcase>
+        <testcase assertions="2" class="ReportesTest" classname="ReportesTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\ReportesTest.php" line="151" name="test_SQL_16_SELECT_16" time="0.005948">
+        </testcase>
+        <testcase assertions="2" class="ReportesTest" classname="ReportesTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\ReportesTest.php" line="160" name="test_SQL_17_SELECT_17" time="0.004335">
+        </testcase>
+        <testcase assertions="2" class="ReportesTest" classname="ReportesTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\ReportesTest.php" line="169" name="test_SQL_18_SELECT_18" time="0.009119">
+        </testcase>
+        <testcase assertions="2" class="ReportesTest" classname="ReportesTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\ReportesTest.php" line="178" name="test_SQL_19_SELECT_19" time="0.015591">
+        </testcase>
+        <testcase assertions="2" class="ReportesTest" classname="ReportesTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\ReportesTest.php" line="187" name="test_SQL_20_SELECT_20" time="0.005050">
+        </testcase>
+        <testcase assertions="2" class="ReportesTest" classname="ReportesTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\ReportesTest.php" line="197" name="test_SQL_21_SELECT_21" time="0.006002">
+        </testcase>
+        <testcase assertions="2" class="ReportesTest" classname="ReportesTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\ReportesTest.php" line="207" name="test_SQL_22_SELECT_22" time="0.006231">
+        </testcase>
+        <testcase assertions="2" class="ReportesTest" classname="ReportesTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\ReportesTest.php" line="217" name="test_SQL_23_SELECT_23" time="0.004221">
+        </testcase>
+        <testcase assertions="2" class="ReportesTest" classname="ReportesTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\ReportesTest.php" line="227" name="test_SQL_24_SELECT_24" time="0.006819">
+        </testcase>
+        <testcase assertions="2" class="ReportesTest" classname="ReportesTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\ReportesTest.php" line="237" name="test_SQL_25_SELECT_25" time="0.004058">
+        </testcase>
+    </testsuite>
+</testsuites>

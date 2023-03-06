@@ -56,7 +56,7 @@ class Reportes_Class extends Modelo
     
     private function SQL_01(): string
     {
-        return "SELECT DISTINCT p.cedula_persona, f.*, fp.*, p.*, v.*, c.*, t.*, s.* FROM familia f, familia_personas fp, personas p, vivienda v, calles c, tipo_vivienda t, servicios s WHERE f.id_vivienda = v.id_vivienda AND f.id_familia = fp.id_familia AND p.cedula_persona = fp.cedula_persona AND v.id_calle = c.id_calle AND p.estado = 1 AND v.id_tipo_vivienda = t.id_tipo_vivienda AND v.id_servicio = s.id_servicio  AND f.id_familia = $this->id_familia ORDER BY `c`.`nombre_calle` ASC";
+        return "SELECT DISTINCT p.cedula_persona, f.*, fp.*, p.*, v.*, c.*, t.*, s.* FROM familia f, familia_personas fp, personas p, vivienda v, calles c, tipo_vivienda t, servicios s WHERE f.id_vivienda = v.id_vivienda AND f.id_familia = fp.id_familia AND p.cedula_persona = fp.cedula_persona AND v.id_calle = c.id_calle AND p.estado = 1 AND v.id_tipo_vivienda = t.id_tipo_vivienda AND v.id_servicio = s.id_servicio  AND f.id_familia = $this->id ORDER BY `c`.`nombre_calle` ASC";
 
     }
 

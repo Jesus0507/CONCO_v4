@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite assertions="5" errors="0" failures="0" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\BitacoraTest.php" name="BitacoraTest" skipped="0" tests="4" time="0.119360" warnings="0">
+        <testcase assertions="2" class="BitacoraTest" classname="BitacoraTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\BitacoraTest.php" line="33" name="test_SQL01_SELECT" time="0.026191">
+        </testcase>
+        <testcase assertions="1" class="BitacoraTest" classname="BitacoraTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\BitacoraTest.php" line="42" name="test_SQL02_INSERT" time="0.087232">
+        </testcase>
+        <testcase assertions="1" class="BitacoraTest" classname="BitacoraTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\BitacoraTest.php" line="51" name="test_SQL03_UPDATE_1" time="0.002696">
+        </testcase>
+        <testcase assertions="1" class="BitacoraTest" classname="BitacoraTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\BitacoraTest.php" line="60" name="test_SQL04_UPDATE_2" time="0.003241">
+        </testcase>
+    </testsuite>
+</testsuites>
