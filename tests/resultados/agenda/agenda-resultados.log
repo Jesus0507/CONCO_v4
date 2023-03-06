@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite assertions="9" errors="0" failures="0" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\AgendaTest.php" name="AgendaTest" skipped="0" tests="6" time="0.418818" warnings="0">
+        <testcase assertions="2" class="AgendaTest" classname="AgendaTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\AgendaTest.php" line="41" name="test_SQL_01_SELECT" time="0.035194">
+        </testcase>
+        <testcase assertions="1" class="AgendaTest" classname="AgendaTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\AgendaTest.php" line="51" name="test_SQL_02_INSERT" time="0.370240">
+        </testcase>
+        <testcase assertions="1" class="AgendaTest" classname="AgendaTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\AgendaTest.php" line="61" name="test_SQL_03_UPDATE" time="0.004805">
+        </testcase>
+        <testcase assertions="2" class="AgendaTest" classname="AgendaTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\AgendaTest.php" line="71" name="test_SQL_04_SELECT" time="0.003279">
+        </testcase>
+        <testcase assertions="2" class="AgendaTest" classname="AgendaTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\AgendaTest.php" line="81" name="test_SQL_05_SELECT_WHERE" time="0.002779">
+        </testcase>
+        <testcase assertions="1" class="AgendaTest" classname="AgendaTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\AgendaTest.php" line="91" name="test_SQL_06_DELETE" time="0.002521">
+        </testcase>
+    </testsuite>
+</testsuites>

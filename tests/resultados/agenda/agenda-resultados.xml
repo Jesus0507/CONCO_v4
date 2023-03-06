@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tests>
+    <test classname="AgendaTest" groups="default" methodname="test_SQL_01_SELECT" prettifiedclassname="Agenda" prettifiedmethodname="SQL 01 SELECT" size="-1" status="0" time="0.0351943">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="AgendaTest" groups="default" methodname="test_SQL_02_INSERT" prettifiedclassname="Agenda" prettifiedmethodname="SQL 02 INSERT" size="-1" status="0" time="0.3702402">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="AgendaTest" groups="default" methodname="test_SQL_03_UPDATE" prettifiedclassname="Agenda" prettifiedmethodname="SQL 03 UPDATE" size="-1" status="0" time="0.0048048">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="AgendaTest" groups="default" methodname="test_SQL_04_SELECT" prettifiedclassname="Agenda" prettifiedmethodname="SQL 04 SELECT" size="-1" status="0" time="0.0032788">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="AgendaTest" groups="default" methodname="test_SQL_05_SELECT_WHERE" prettifiedclassname="Agenda" prettifiedmethodname="SQL 05 SELECT WHERE" size="-1" status="0" time="0.0027793">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="AgendaTest" groups="default" methodname="test_SQL_06_DELETE" prettifiedclassname="Agenda" prettifiedmethodname="SQL 06 DELETE" size="-1" status="0" time="0.0025207">
+        <group name="default">
+        </group>
+    </test>
+</tests>
