@@ -16,6 +16,8 @@ document.getElementById('enviar').onclick=function(){
           }
         }
 
+        valid = verificar_votante();
+
         if(!valid){
             document.getElementById('cedula_persona').focus();
             document.getElementById('cedula_persona').style.borderColor='red';
@@ -45,16 +47,17 @@ document.getElementById('enviar').onclick=function(){
                 else{
                     var datos = new Object();
                     var existe = 0;
+                    var opciones =  document.getElementById('centro').querySelectorAll('option');
                     datos['persona']=document.getElementById('cedula_persona').value;
                     datos['parroquia']=document.getElementById('id_parroquia').value;
-                    for (var opt of document.getElementById('centro').options){
-                        if(opt.value.toLowerCase == document.getElementById('nombre_centro').value.toLowerCase){
+                    for (var opt of opciones){
+                        if(opt.value.toLowerCase() == document.getElementById('nombre_centro').value.toLowerCase()){
                             existe=1;
                         }
                     }
 
                     datos['centro_existente']=existe;
-                    datos['centro']=document.getElementById('nombre_centro').value;
+                    datos['nombre_centro']=document.getElementById('nombre_centro').value;
 
                     $.ajax({
                         type: "POST",
@@ -74,7 +77,15 @@ document.getElementById('enviar').onclick=function(){
                            peticion: "Registrar"
                         }
                             }).done(function(result){
-                                console.log(result);
+                               if(result){
+                                swal({
+                                    title: "Registrado!",
+                                    text: "El elemento fue Registrado con exito.",
+                                    type: "success",
+                                    showConfirmButton: false
+                                });
+                                Direccionar("Centro_Votacion/Administrar/Consultas");
+                               }
                             });
 
                         }
@@ -87,61 +98,27 @@ document.getElementById('enviar').onclick=function(){
     }
 }
 
+function verificar_votante(){
+    $.ajax({
+        type: "POST",
+        url: BASE_URL + "app/Direcciones.php",
+        data: {
+            direction: 'Centro_Votacion/Administrar',
+            accion: "codificar"
+        },
+        success: function(direccion_segura) {
+            $.ajax({
+           type: 'POST',
+           url: BASE_URL + direccion_segura,
+           data: {
+            datos:document.getElementById('cedula_persona').value,
+           peticion: "Consultar_votante"
+        }
+            }).done(function(result){
+                  console.log(result);
+            });
 
-// $(function() {
-//             $(document).on("click", "#enviar", function() {
-//                 var cedula_persona = $("#cedula_persona").val();
-//                 var nombre_centro = $("#nombre_centro").val();
-//                 var id_parroquia = document.getElementById("id_parroquia").selectedIndex;
-//                 var datos = {
-//                     cedula_votante: cedula_persona,
-//                     nombre_centro: nombre_centro,
-//                     id_parroquia: id_parroquia,
-//                     estado: 1
-//                 };
-//                 $.ajax({
-//                     type: "POST",
-//                     url: BASE_URL + "app/Direcciones.php",
-//                     data: {
-//                         direction: 'Centro_Votacion/Administrar',
-//                         accion: "codificar"
-//                     },
-//                     success: function(direccion_segura) {
-//                         $.ajax({
-//                             type: 'POST',
-//                             url: BASE_URL + direccion_segura,
-//                             data: {
-//                                 'datos': datos,
-//                                 id_parroquia: id_parroquia,
-//                                 peticion: "Registrar",
-//                                 sql: "SQL_03",
-//                                 accion: "Se ha Asignado" + cedula_persona + " al centro " + nombre_centro,
-//                             },
-//                         }).done(function(datos) {
-//                             if (datos == 1) {
-//                                 swal({
-//                                     title: "Registrado!",
-//                                     text: "El elemento fue Registrado con exito.",
-//                                     type: "success",
-//                                     showConfirmButton: false
-//                                 });
-//                                 Direccionar("Centro_Votacion/Administrar/Consultas");
-//                             } else {
-//                                 swal({
-//                                     title: "ERROR!",
-//                                     text: datos,
-//                                     type: "error",
-//                                     html: true,
-//                                     showConfirmButton: true,
-//                                     customClass: "bigSwalV2",
-//                                 });
-//                             }
-//                         }).fail(function() {
-//                             alert("error");
-//                         });
-//                     },
-//                     error: function() {
-//                         alert('Error al codificar dirreccion');
-//                     }
-//                 });
-//             })
+        }
+    });
+    return false;
+}

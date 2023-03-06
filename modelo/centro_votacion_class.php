@@ -29,7 +29,7 @@ class Centro_Votacion_Class extends Modelo
                 case '0':           #tipo 0 trae consultas de la bd retorna a un array con los datos 
                     $this->conexion->beginTransaction(); # Inicia una transacción
                     $this->PDO = $this->conexion->prepare($this->sentencia);
-                    $this->PDO->execute();
+                     $this->PDO->execute();
                     $this->conexion->commit(); #Consigna una transacción
                     $this->PDO->setFetchMode(PDO::FETCH_ASSOC);
                     $this->resultado = $this->PDO->fetchAll(PDO::FETCH_ASSOC);
@@ -40,7 +40,7 @@ class Centro_Votacion_Class extends Modelo
                     $this->PDO = $this->conexion->prepare($this->sentencia);
                     $this->PDO->execute($this->datos);
                     $this->conexion->commit();
-                    return true;
+                    return true;   
                     break;
                 default:        # mensaje error si la peticion fue incorrecta
                     die('[Error 400] => "La Peticion es Incorrecta, solo se permite peticion de tipo 0/1."');
@@ -63,7 +63,7 @@ class Centro_Votacion_Class extends Modelo
         return "SELECT v.id_votante_centro_votacion, p.cedula_persona, p.primer_nombre, p.primer_apellido, c.id_centro_votacion, c.nombre_centro, par.id_parroquia, par.nombre_parroquia, v.estado FROM votantes_centro_votacion v INNER JOIN centros_votacion c, parroquias par, personas p WHERE v.estado = 1 AND v.id_centro_votacion = c.id_centro_votacion AND c.id_parroquia = par.id_parroquia AND v.cedula_votante = p.cedula_persona ORDER BY `c`.`nombre_centro` ASC";
     }
 
-    private function SQL_03():string
+    public function SQL_03():string
     {
         return 'INSERT INTO votantes_centro_votacion (id_centro_votacion, cedula_votante, estado) VALUES (:id_centro_votacion, :cedula_votante, :estado)';
     }
@@ -81,6 +81,11 @@ class Centro_Votacion_Class extends Modelo
     private function SQL_06():string
     {
         return "SELECT p.cedula_persona,p.primer_nombre,p.primer_apellido FROM personas p WHERE p.estado = 1 ORDER BY p.cedula_persona ASC";
+    }
+
+    private function SQL_07():string
+    {
+        return "SELECT * FROM votantes_centro_votacion WHERE cedula_votante = :cedula_votante";
     }
 
 }
