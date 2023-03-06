@@ -48,8 +48,8 @@
                                         Direccion
                                     </label>
                                     <div class="input-group">
-                                        <input class="form-control no-simbolos mb-10" id="direccion2"
-                                            name="datos[direccion_inmueble]" placeholder="Direccion" type="text" />
+                                        <input class="form-control letras_numeros mb-10" id="direccion2"
+                                            name="datos[direccion_inmueble]"  oninput="Limitar(this,50)" placeholder="Direccion" type="text" />
                                     </div>
                                 </div>
 

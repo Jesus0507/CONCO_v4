@@ -10,9 +10,9 @@ class Login_Validacion extends Validacion
     {
         parent::__construct();
         $this->datos = array(
-            "cedula_usuario" => $_POST["cedula_usuario"],
-            "password"       => $_POST["datos"]["password"],
-            "captcha"        => $_POST["captcha"],
+            "cedula_usuario" => isset($_POST["cedula_usuario"]) ? $_POST["cedula_usuario"] : null,
+            "password"       => isset($_POST["datos"]["password"]) ? $_POST["datos"]["password"] : null,
+            "captcha"        => isset($_POST["captcha"]) ? $_POST["captcha"] : null,
         );
     }
 

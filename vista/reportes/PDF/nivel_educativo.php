@@ -70,7 +70,7 @@
                                         </td>
 
                                     </tr>
-                                    <tbody id="datos">
+                                    <tbody id="datos"> 
                                         <?php foreach ($this->nivel_educativo as $key => $value): ?>
                                             
                                         

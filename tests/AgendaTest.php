@@ -1,88 +1,94 @@
 <?php
- 
-use PHPUnit\Framework\TestCase; 
- 
+require_once "modelo/agenda_class.php";
+
+use PHPUnit\Framework\TestCase;
+
 class AgendaTest extends TestCase
 {
-  
-    public function test_Registrar()
+    private $agenda;
+
+    protected function setUp(): void
     {
-        $modelo = new Agenda_Class();
-        $datos = [
-                'tipo_evento'  => "Jornada de Cedulacion",
-                'fecha'        => "2021-12-30",
-                'creador'      => "654321",
-                'ubicacion'    => "Calle 15",
-                'horas'        => "De 08:00 AM hasta 10:00 AM",
-                'detalle'      => "Sin especificaciones"
-        ];
-        $data = $modelo->Registrar(
-            [
-                'tipo_evento'  => $datos['tipo_evento'],
-                'fecha'        => $datos['fecha'],
-                'creador'      => $datos['creador'],
-                'ubicacion'    =>$datos['ubicacion'],
-                'horas'        =>$datos['horas'],
-                'detalle'      => $datos['detalle']
-            ]
-        );
-        $this->assertEquals(count($data), true);
+        $this->agenda = new Agenda_Class();
     }
 
-    public function test_Consultar()
+    protected function tearDown(): void
     {
-        $modelo = new Agenda_Class();
-        $data = $modelo->Consultar();
-        $this->assertEquals(count($data), true);
+        $this->agenda = null;
     }
 
-    public function test_get_calles()
+    public function test_SQL_01()
     {
-        $modelo = new Agenda_Class();
-        $data = $modelo->get_calles();
-        $this->assertEquals(count($data), true);
+        $this->agenda->_SQL_("SQL_01");
+        $this->agenda->_Tipo_(0);
+        $result = $this->agenda->Administrar();
+
+        $this->assertIsArray($result);
+        $this->assertNotEmpty($result);
     }
 
-    public function test_get_inmuebles()
+    public function test_SQL_02()
     {
-        $modelo = new Agenda_Class();
-        $data = $modelo->get_inmuebles();
-        $this->assertEquals(count($data), true);
+        $this->agenda->_SQL_("SQL_02");
+        $this->agenda->_Tipo_(1);
+        $this->agenda->_Datos_([
+            'tipo_evento' => 'evento de prueba',
+            'fecha'       => '2023-02-10',
+            'creador'     => '7654321',
+            'ubicacion'   => 'ubicacion de prueba',
+            'horas'       => 1,
+            'detalle'     => 'detalle de prueba',
+        ]);
+        $result = $this->agenda->Administrar();
+
+        $this->assertTrue($result);
     }
 
-    public function test_Actualizar()
+    public function test_SQL_03()
     {
-        $modelo = new Agenda_Class();
-        $datos = [
-                'id_agenda'    => 6,
-                'tipo_evento'  => "Jornada de Cedulacion",
-                'fecha'        => "2021-12-15",
-                'creador'      => "654321",
-                'ubicacion'    => "Calle 17",
-                'horas'        => "De 08:00 AM hasta 10:00 AM",
-                'detalle'      => "Sin especificaciones"
-        ];
-        $data = $modelo->Actualizar(
-            [
-                'id_agenda'  => $datos['id_agenda'],
-                'tipo_evento'  => $datos['tipo_evento'],
-                'fecha'        => $datos['fecha'],
-                'creador'      => $datos['creador'],
-                'ubicacion'    =>$datos['ubicacion'],
-                'horas'        =>$datos['horas'],
-                'detalle'      => $datos['detalle']
-            ]
-        );
-        $this->assertEquals(count($data), true);
+        $this->agenda->_SQL_("SQL_03");
+        $this->agenda->_Tipo_(1);
+        $this->agenda->_Datos_([
+            'id_agenda'   => 1,
+            'tipo_evento' => 'evento actualizado',
+            'fecha'       => '2023-02-11',
+            'creador'     => '7654321',
+            'ubicacion'   => 'ubicacion actualizada',
+            'horas'       => 2,
+            'detalle'     => 'detalle actualizado',
+        ]);
+        $result = $this->agenda->Administrar();
+
+        $this->assertTrue($result);
     }
 
-    public function test_Eliminar()
+    public function test_SQL_04()
     {
-        $modelo = new Agenda_Class();
-        $id_agenda = 9;
-        
-        $data = $modelo->Eliminar($id_agenda);
-        $this->assertEquals(count($data), true);
+        $this->agenda->_SQL_("SQL_04");
+        $this->agenda->_Tipo_(0);
+        $result = $this->agenda->Administrar();
+
+        $this->assertIsArray($result);
+        $this->assertNotEmpty($result);
     }
- 
+
+    public function test_SQL_05()
+    {
+        $this->agenda->_SQL_("SQL_05");
+        $this->agenda->_Tipo_(0);
+        $result = $this->agenda->Administrar();
+
+        $this->assertIsArray($result);
+        $this->assertNotEmpty($result);
+    }
+
+    public function test_SQL_06()
+    {
+        $this->agenda->_SQL_("SQL_06");
+        $this->agenda->_Tipo_(1);
+        $this->agenda->_Datos_(['id_agenda' => 1]);
+        $result = $this->agenda->Administrar();
+
+        $this->assertTrue($result);
+    }
 }

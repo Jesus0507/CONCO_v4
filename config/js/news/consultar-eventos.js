@@ -287,7 +287,7 @@ function valid_ubicacion_horas() {
                             });
                             setTimeout(function () {
                                 location.reload();
-                            }, 1000);
+                            }, 1000); 
                         } else {
                             swal({
                                 title: "ERROR!",

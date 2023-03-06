@@ -35,7 +35,7 @@
                     <div class="col-md-12 mt-2">
 
                        <label>Discapacidad</label> <span id='valid_discapacidad' style='color:red'></span>
-                       <table style='width:100%'><tr><td>
+                       <table style='width:100%'><tr><td class="col-md-3">
                            <input type="text" style='display:none' maxlength="30" placeholder="Discapacidad..." class='form-control no-simbolos' id='discapacidad_input' name="">
 
                            <select class='form-control no-simbolos' id='discapacidad_select'> 
@@ -45,22 +45,29 @@
                            <?php   } ?>
                        </select></td>
 
-                       <td>
+                       <td class="col-md-3">
                         <select id='en_cama' class='form-control no-simbolos'>
                             <option value='vacio'>-En cama-</option>
                             <option value="1">Si</option>
                             <option value='0'>No</option>
                         </select>
                     </td>
-                    <td>
-                     <input type="text" class='form-control no-simbolos' id='necesidades' placeholder="Necesidades (opcional)" name="">
+                    
+                 <tr><td class="col-md-3">
+                    <label>Necesidades</label>
+                     <input type="text" class='form-control solo-letras' id='necesidades' placeholder="Necesidades (opcional)"  oninput="Limitar(this,30)" name="">
                  </td>
-                 <td>
-                     <input type="text" class='form-control no-simbolos' id='observaciones' placeholder="Observaciones (opcional)" name="">
+                 <td class="col-md-3">
+                    <label>Observaciones</label>
+                     <input type="text" class='form-control no-simbolos' id='observaciones' placeholder="Observaciones (opcional)" oninput="Limitar(this,50)" name="">
                  </td>
-                 <td>
-                    <button id='agregar' class="btn btn-info" type="button">Agregar</button>&nbsp;&nbsp;<button type='button' class="btn btn-primary" id='btn_nueva_discapacidad' >Nueva discapacidad</button>
+             </tr>
+             <tr><td></td></tr>
+                 <tr>
+                     <td >
+                    &nbsp;&nbsp;<button id='agregar' class="btn btn-info" type="button">Agregar</button>&nbsp;&nbsp;<button type='button' class="btn btn-info" id='btn_nueva_discapacidad' >Nueva discapacidad</button>
                 </td>
+                 </tr>
             </tr>
         </table>
 

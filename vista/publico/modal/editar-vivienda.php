@@ -362,8 +362,10 @@
                                     <button type="button" name="agregar" id="agregar" class="btn btn-info">Agregar</button>
                                 </td>
                             </tr>
-                            <tbody id="tabla_techo">
-                                
+                            <tbody>
+                                <tr><td colspan='2'>
+                                <div style='width:100%;height: 200px;background: #C7F2EE;overflow-y:scroll'><center><div id="tabla_techo" style='width:90%'></div></center></div>
+                                </td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -391,7 +393,11 @@
                                     <button type="button" name="agregar" id="agregar2" class="btn btn-info">Agregar</button>
                                 </td>
                             </tr>
-                            <tbody id="tabla_pared"></tbody>
+                            <tbody>
+                                <tr><td colspan='2'>
+                                <div style='width:100%;height: 200px;background: #C7F2EE;overflow-y:scroll'><center><div id="tabla_pared" style='width:90%'></div></center></div>
+                                </td></tr>
+                            </tbody>
                         </table>
                     </div>
 
@@ -416,7 +422,11 @@
                                     <button type="button" name="agregar" id="agregar3" class="btn btn-info">Agregar</button>
                                 </td>
                             </tr>
-                            <tbody id="tabla_piso"></tbody>
+                            <tbody>
+                                <tr><td colspan='2'>
+                                <div style='width:100%;height: 200px;background: #C7F2EE;overflow-y:scroll'><center><div id="tabla_piso" style='width:90%'></div></center></div>
+                                </td></tr>
+                            </tbody>
                         </table>
                     </div>
 

@@ -71,7 +71,7 @@
                                     Nro de vivienda
                                 </label> <span id='valid_numero_casa' style='color:red'></span>
                                 <div class="input-group">
-                                    <input class="form-control mb-10 letras_numeros" id="numero_casa" name="datos[numero_casa]"
+                                    <input class="form-control mb-10 casa" id="numero_casa" name="datos[numero_casa]"
                                     placeholder="Numero de vivienda" type="text" oninput="Limitar(this,6)"/>
                                 </div>
                             </div>
@@ -553,7 +553,7 @@
     <div class="text-center m-t-20">
         <div class="col-xs-12">
             <input type="button" class="btn  btn-info m-r-10" name="" id="guardar" value="Guardar">
-            <input type="button" class="btn btn-danger" id="" name="" value="Limpiar">
+            
         </div>
     </div>
 </div>

@@ -62,7 +62,6 @@
                                             url: BASE_URL + direccion_segura
                                         }).done(function(datos) {
                                             var data = JSON.parse(datos);
-                                            console.log(data);
                                             $("#example1").DataTable({
                                                 "data": data,
                                                 "columns": [{

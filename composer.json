@@ -19,7 +19,8 @@
             "Controlador\\": "controlador/",
             "Validacion\\": "controlador/backend/",
             "Modulo\\": "modelo/",
-            "Prueba\\": "tests/"
+            "Prueba\\": "tests/",
+            "Traits\\": "traits/"
         },
         "files": [ "app/Base_Datos.php", "app/Direcciones.php", "app/Config.php", "app/App.php",  "app/Modelo.php", "app/Vista.php","app/Validacion.php", "app/Controlador.php"]
     },
@@ -30,7 +31,8 @@
             "Controlador\\": "controlador/",
             "Validacion\\": "controlador/backend/",
             "Modelo\\": "modelo/",
-            "Tests\\": "tests/"
+            "Tests\\": "tests/",
+            "Traits\\": "traits/"
         }
     },
     "require": {

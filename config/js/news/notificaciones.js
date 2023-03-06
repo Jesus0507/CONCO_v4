@@ -20,6 +20,7 @@ function getNotifications() {
                 peticion: "Consulta_Ajax",
             },
         }).done(function(datos) {
+            // console.log(datos);
             var result = JSON.parse(datos);
             var cant = 0;
             var cuerpo = "";
@@ -190,6 +191,7 @@ function nueva_notificacion(datos) {
                 sql: "SQL_01",
             },
         }).done(function(result) {
+            console.log(result);
             getNotifications();
         });
     });

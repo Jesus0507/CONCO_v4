@@ -1,14 +1,27 @@
  <?php
 
 class Reportes extends Controlador
-{
+{ 
+    #Public: acceso sin restricción.
+    #Private:Solo puede ser accesado por la clase que lo define.
+    private $permisos; #permisos correspondiente del modulo
+    private $peticion; #peticion a ejecutar de la funcion administrar
+    private $sql; #nombre de la sentencia SQL que se ejecutara en el modelo
+    private $datos_consulta; #array con los datos necesarios para el modulo (consultas)
+
+    private $crud; #array con peticion generica sql
+
+    // DATOS independientes usados para el manejo del modulo
+
+    // ==================ESTABLECER DATOS=========================
+
     public function __construct()
     {
         parent::__construct();
         //    $this->Cargar_Modelo("reportes");
     }
 
-    public function Establecer_Consultas()
+    private function Establecer_Consultas()
     {
         $personas                   = $this->Consultar_Tabla("personas", 1, "cedula_persona");
         $parto_humanizado           = $this->Consultar_Tabla("parto_humanizado", 1, "cedula_persona");
@@ -36,6 +49,8 @@ class Reportes extends Controlador
 
         $poblacion_edades = $this->modelo->Poblacion_Edades();
 
+        $this->vista->enfermedades_persona_completo = $this->modelo->Personas_Enferdades();
+        $this->vista->discapacidades_persona_completo = $this->modelo->Personas_Discapacidades();
         $this->vista->personas = $personas;
         $this->personas        = $personas;
 
@@ -109,6 +124,102 @@ class Reportes extends Controlador
         $this->poblacion_edades        = $poblacion_edades;
     }
 
+    // ==================GETTERS=========================
+    #getters usados para obtener la informacion de las variables privadas
+    # retornan tipo string o array
+    private function Get_Sql(): string
+    {return $this->sql;}
+    private function Get_Datos_Vista(): array
+    {return $this->datos_consulta;}
+    private function Get_Crud_Sql(): array
+    {return $this->crud;}
+    // ==============================================================================
+
+    public function Administrar($peticion = null)
+    {
+        $this->Seguridad_de_Session();
+        $this->Establecer_Consultas();
+        $this->peticion = (isset($_POST['peticion'])) ? $_POST['peticion'] : $peticion[0];
+        switch ($this->peticion) {
+
+            case 'Listados':
+                $this->vista->Cargar_Vistas('reportes/listados');
+                break;
+
+            case 'Censos':
+                $this->vista->Cargar_Vistas('reportes/censos');
+                break;
+
+            case 'Historial_Familiar':
+                $this->vista->Cargar_Vistas('reportes/historial_familiar');
+                break;
+
+            case 'Grupos_Deportivos':
+                $this->vista->Cargar_Vistas('reportes/PDF/grupos_deportivos');
+                break;
+
+            case 'Milicianos':
+                $this->vista->Cargar_Vistas('reportes/PDF/miliciano');
+                break;
+
+            case 'Jefe_Familias':
+                $this->vista->Cargar_Vistas('reportes/PDF/jefes_familia');
+                break;
+
+            case 'Personas_Discapacidad':
+                $this->vista->Cargar_Vistas('reportes/PDF/personas_discapacidad');
+                break;
+
+            case 'Consejo_Comunal':
+                $this->vista->Cargar_Vistas('reportes/PDF/consejo_comunal');
+                break;
+
+            case 'Embarazadas':
+                $this->vista->Cargar_Vistas('reportes/PDF/embarazadas');
+                break;
+
+            case 'Nivel_Educativo':
+                $this->vista->Cargar_Vistas('reportes/PDF/nivel_educativo');
+                break;
+
+            case 'Carnet_Personas':
+                $this->vista->Cargar_Vistas('reportes/PDF/personas_carnet');
+                break;
+
+            case 'Negocios':
+                $this->vista->Cargar_Vistas('reportes/PDF/negocios');
+                break;
+
+            case 'Inmuebles':
+                $this->vista->Cargar_Vistas('reportes/PDF/inmuebles');
+                break;
+
+            case 'Viviendas':
+                $this->vista->Cargar_Vistas('reportes/PDF/viviendas');
+                break;
+
+            case 'Personas_Enfermedades':
+                $this->vista->Cargar_Vistas('reportes/PDF/personas_enfermedades');
+                break;
+
+            case 'Votantes':
+                $this->vista->Cargar_Vistas('reportes/PDF/votantes');
+                break;
+
+            case 'Poblacion_Edades':
+                $this->vista->Cargar_Vistas('reportes/PDF/poblacion_edades');
+                break;
+
+            case 'Sexo_Diverso':
+                $this->vista->Cargar_Vistas('reportes/PDF/sexo_diverso');
+                break;
+
+            default:$this->vista->Cargar_Vistas('error/400');
+                break;
+        }
+        exit();
+    }
+    // ==============================================================================
     public function Datos_Poblacional()
     {
         $familia = $this->Consultar_Columna("familia", "id_familia", 9);
@@ -154,12 +265,12 @@ class Reportes extends Controlador
         $this->vista->Cargar_Vistas('reportes/constancias');
     }
 
-    public function Listados()
-    {
-        $this->Establecer_Consultas();
-        $this->Seguridad_de_Session();
-        $this->vista->Cargar_Vistas('reportes/listados');
-    }
+    // public function Listados()
+    // {
+    //     $this->Establecer_Consultas();
+    //     $this->Seguridad_de_Session();
+    //     $this->vista->Cargar_Vistas('reportes/listados');
+    // }
 
     public function Estadisticas()
     {
@@ -516,12 +627,12 @@ class Reportes extends Controlador
                 break;
         }
     }
-    public function Censos()
-    {
-        $this->Seguridad_de_Session();
-        $this->Establecer_Consultas();
-        $this->vista->Cargar_Vistas('reportes/censos');
-    }
+    // public function Censos()
+    // {
+    //     $this->Seguridad_de_Session();
+    //     $this->Establecer_Consultas();
+    //     $this->vista->Cargar_Vistas('reportes/censos');
+    // }
     public function Reporte_Ninos()
     {
         $this->Seguridad_de_Session();
@@ -639,118 +750,6 @@ class Reportes extends Controlador
         $this->vista->piso = $piso;
 
         $this->vista->Cargar_Vistas('reportes/PDF/historial_clinico');
-    }
-
-    public function Milicianos()
-    {
-        $this->Seguridad_de_Session();
-        $this->Establecer_Consultas();
-        $this->vista->Cargar_Vistas('reportes/PDF/miliciano');
-    }
-
-    public function Jefe_Familias()
-    {
-        $this->Seguridad_de_Session();
-        $this->Establecer_Consultas();
-        $this->vista->Cargar_Vistas('reportes/PDF/jefes_familia');
-    }
-
-    public function Inmuebles()
-    {
-        $this->Seguridad_de_Session();
-        $this->Establecer_Consultas();
-        $this->vista->Cargar_Vistas('reportes/PDF/inmuebles');
-    }
-
-    public function Negocios()
-    {
-        $this->Seguridad_de_Session();
-        $this->Establecer_Consultas();
-        $this->vista->Cargar_Vistas('reportes/PDF/negocios');
-    }
-
-    public function Nivel_Educativo()
-    {
-        $this->Seguridad_de_Session();
-        $this->Establecer_Consultas();
-        $this->vista->Cargar_Vistas('reportes/PDF/nivel_educativo');
-    }
-
-    public function Carnet_Personas()
-    {
-        $this->Seguridad_de_Session();
-        $this->Establecer_Consultas();
-        $this->vista->Cargar_Vistas('reportes/PDF/personas_carnet');
-    }
-
-    public function Personas_Discapacidad()
-    {
-        $this->Seguridad_de_Session();
-        $this->Establecer_Consultas();
-        $this->vista->Cargar_Vistas('reportes/PDF/personas_discapacidad');
-    }
-
-    public function Viviendas()
-    {
-        $this->Seguridad_de_Session();
-        $this->Establecer_Consultas();
-        $this->vista->Cargar_Vistas('reportes/PDF/viviendas');
-    }
-
-    public function Consejo_Comunal()
-    {
-        $this->Seguridad_de_Session();
-        $this->Establecer_Consultas();
-        $this->vista->Cargar_Vistas('reportes/PDF/consejo_comunal');
-    }
-
-    public function Sexo_Diverso()
-    {
-        $this->Seguridad_de_Session();
-        $this->Establecer_Consultas();
-        $this->vista->Cargar_Vistas('reportes/PDF/sexo_diverso');
-    }
-
-    public function Votantes()
-    {
-        $this->Seguridad_de_Session();
-        $this->Establecer_Consultas();
-        $this->vista->Cargar_Vistas('reportes/PDF/votantes');
-    }
-
-    public function Personas_Enfermedades()
-    {
-        $this->Seguridad_de_Session();
-        $this->Establecer_Consultas();
-        $this->vista->Cargar_Vistas('reportes/PDF/personas_enfermedades');
-    }
-
-    public function Grupos_Deportivos()
-    {
-        $this->Seguridad_de_Session();
-        $this->Establecer_Consultas();
-        $this->vista->Cargar_Vistas('reportes/PDF/grupos_deportivos');
-    }
-
-    public function Embarazadas()
-    {
-        $this->Seguridad_de_Session();
-        $this->Establecer_Consultas();
-        $this->vista->Cargar_Vistas('reportes/PDF/embarazadas');
-    }
-
-    public function Poblacion_Edades()
-    {
-        $this->Seguridad_de_Session();
-        $this->Establecer_Consultas();
-        $this->vista->Cargar_Vistas('reportes/PDF/poblacion_edades');
-    }
-
-    public function Historial_Familiar()
-    {
-        $this->Seguridad_de_Session();
-        $this->Establecer_Consultas();
-        $this->vista->Cargar_Vistas('reportes/historial_familiar');
     }
 
     public function info_censo_poblacional()
@@ -960,5 +959,50 @@ class Reportes extends Controlador
         ];
 
         echo json_encode($datos);
+    }
+
+
+    private function Establecer_Consultas2()
+    {
+        
+        $milicianos                 = $this->modelo->Milicianos();
+        $jefes_familia              = $this->modelo->Jefes_Calle();
+        $inmuebles                  = $this->modelo->Inmuebles();
+        $negocios                   = $this->modelo->Negocios();
+        $nivel_educativo            = $this->modelo->Nivel_Educativo();
+        $carnet_personas            = $this->modelo->Carnet_Personas();
+        $viviendas                  = $this->modelo->Viviendas();
+        $discapacitados             = $this->modelo->Discapacitados();
+        $discapacidades             = $this->modelo->Discapacidades();
+        $comites_personas           = $this->modelo->Comites_Personas();
+        $personas_familia           = $this->modelo->Personas_Familia();
+        $persona_centro_votacion    = $this->modelo->Persona_Centro_Votacion();
+        $enfermos                   = $this->modelo->Enfermos();
+        $enfermedades               = $this->modelo->Enfermedades();
+        $grupos_deportivos          = $this->modelo->Grupos_Deportivos();
+        $grupos_deportivos_personas = $this->modelo->Grupo_Deportivo_Persona();
+        $embarazadas                = $this->modelo->Embarazadas();
+
+        $poblacion_edades = $this->modelo->Poblacion_Edades();
+
+        $this->modelo->_Tipo_(0);
+        $this->modelo->_SQL_("_01_");
+        $this->modelo->_CRUD_(["tabla" => "personas", "estado" => 1, "orden" => "cedula_persona"]);
+        $this->datos_consulta["personas"] = $this->modelo->Administrar();
+
+        $this->modelo->_CRUD_(["tabla" => "parto_humanizado", "estado" => 1, "orden" => "cedula_persona"]);
+        $this->datos_consulta["parto_humanizado"] = $this->modelo->Administrar();
+
+        $this->modelo->_CRUD_(["tabla" => "votantes_centro_votacion", "estado" => 1, "orden" => "cedula_votante"]);
+        $this->datos_consulta["votantes"] = $this->modelo->Administrar();
+
+        $this->modelo->_CRUD_(["tabla" => "vacuna_covid", "estado" => 1, "orden" => "cedula_persona"]);
+        $this->datos_consulta["vacunados"] = $this->modelo->Administrar();
+
+        $this->modelo->_CRUD_(["tabla" => "discapacidad_persona", "estado" => 1, "orden" => "cedula_persona"]);
+        $this->datos_consulta["discapacitados"] = $this->modelo->Administrar();
+
+        $this->modelo->_CRUD_(["tabla" => "persona_bonos", "estado" => 1, "orden" => "cedula_persona"]);
+        $this->datos_consulta["personas_bonos"] = $this->modelo->Administrar();
     }
 }

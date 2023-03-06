@@ -56,68 +56,68 @@ class Personas_Class extends Modelo
     #sentecias sql en espera de ser llamadas retornan string
     private function SQL_01():string
     {
-        return 'INSERT INTO vacuna_covid ( cedula_persona, dosis, fecha_vacuna, estado) VALUES (:cedula_persona, :dosis, :fecha_vacuna, :estado)';
+        return "SELECT DISTINCT v.cedula_persona, p.primer_nombre, p.primer_apellido FROM vacuna_covid v, personas p WHERE v.cedula_persona = p.cedula_persona AND p.estado = 1 AND v.estado = 1";
     }
 
     private function SQL_02():string
     {
-        return 'INSERT INTO personas (cedula_persona,primer_nombre,segundo_nombre,primer_apellido,segundo_apellido,nacionalidad,jefe_familia,propietario_vivienda,afrodescendencia,sexualidad,fecha_nacimiento,telefono,correo,estado_civil,privado_libertad,genero,whatsapp,miliciano,antiguedad_comunidad,jefe_calle,nivel_educativo,contrasenia,rol_inicio,preguntas_seguridad,user_locked,digital_sign,public_key,private_key,estado) VALUES (:cedula_persona,:primer_nombre,:segundo_nombre,:primer_apellido,:segundo_apellido,:nacionalidad,:jefe_familia,:propietario_vivienda,:afrodescendencia,:sexualidad,:fecha_nacimiento,:telefono,:correo,:estado_civil,:privado_libertad,:genero,:whatsapp,:miliciano,:antiguedad_comunidad,:jefe_calle,:nivel_educativo,:contrasenia,:rol_inicio,:preguntas_seguridad,:user_locked,:digital_sign,:public_key,:private_key,:estado)';
+        return 'SELECT * FROM personas WHERE cedula_persona= :cedula';
     }
 
     private function SQL_03():string
     {
-        return 'INSERT INTO transporte ( cedula_propietario, descripcion_transporte, estado ) VALUES ( :cedula_propietario, :descripcion_transporte, :estado )';
+        return 'INSERT INTO vacuna_covid (cedula_persona,dosis,fecha_vacuna,estado) VALUES ( :cedula_persona, :dosis, :fecha_vacuna, :estado)';
     }
 
     private function SQL_04():string
     {
-        return 'INSERT INTO ocupacion_persona ( cedula_persona, id_ocupacion, estado ) VALUES ( :cedula_persona, :id_ocupacion, :estado )';
+        return 'INSERT INTO personas (cedula_persona,primer_nombre,segundo_nombre,primer_apellido,segundo_apellido,nacionalidad,jefe_familia,propietario_vivienda,afrodescendencia,sexualidad,fecha_nacimiento,telefono,correo,estado_civil,privado_libertad,genero,whatsapp,miliciano,antiguedad_comunidad,jefe_calle,nivel_educativo,contrasenia,rol_inicio,preguntas_seguridad,user_locked,digital_sign,public_key,private_key,estado) VALUES (:cedula_persona,:primer_nombre,:segundo_nombre,:primer_apellido,:segundo_apellido,:nacionalidad,:jefe_familia,:propietario_vivienda,:afrodescendencia,:sexualidad,:fecha_nacimiento,:telefono,:correo,:estado_civil,:privado_libertad,:genero,:whatsapp,:miliciano,:antiguedad_comunidad,:jefe_calle,:nivel_educativo,:contrasenia,:rol_inicio,:preguntas_seguridad,:user_locked,:digital_sign,:public_key,:private_key,:estado)';
     }
 
     private function SQL_05():string
     {
-        return 'INSERT INTO permisos_usuario_modulo( cedula_usuario, id_modulo, registrar, consultar, modificar, eliminar) VALUES ( :cedula_usuario, :id_modulo, :registrar, :consultar, :modificar, :eliminar)';
+        return 'INSERT INTO transporte (cedula_propietario,descripcion_transporte,estado) VALUES (:cedula_propietario,:descripcion_transporte,:estado)';
     }
 
     private function SQL_06():string
     {
-        return 'INSERT INTO carnets ( cedula_persona, serial_carnet, codigo_carnet, tipo_carnet ) VALUES ( :cedula_persona, :serial_carnet, :codigo_carnet, :tipo_carnet )';
+        return 'INSERT INTO ocupacion_persona (cedula_persona,id_ocupacion,estado) VALUES (:cedula_persona,:id_ocupacion,:estado)';
     }
 
     private function SQL_07():string
     {
-        return 'INSERT INTO persona_proyecto ( cedula_persona, id_proyecto, estado ) VALUES ( :cedula_persona, :id_proyecto, :estado )';
+        return 'INSERT INTO carnets (cedula_persona,serial_carnet,codigo_carnet,tipo_carnet) VALUES (:cedula_persona,:serial_carnet,:codigo_carnet,:tipo_carnet)';
     }
 
     private function SQL_08():string
     {
-        return 'INSERT INTO comunidad_indigena_personas ( id_comunidad_indigena,  cedula_persona, estado ) VALUES ( :id_comunidad_indigena, :cedula_persona, :estado)';
+        return 'INSERT INTO persona_proyecto (cedula_persona,id_proyecto,estado) VALUES (:cedula_persona,:id_proyecto,:estado)';
     }
 
     private function SQL_09():string
     {
-        return 'INSERT INTO org_politica_persona ( cedula_persona, id_org_politica, estado ) VALUES ( :cedula_persona, :id_org_politica, :estado )';
+        return 'INSERT INTO comunidad_indigena_personas (id_comunidad_indigena,cedula_persona,estado) VALUES (:id_comunidad_indigena,:cedula_persona,:estado)';
     }
 
     
     private function SQL_10():string
     {
-        return 'INSERT INTO persona_bonos ( cedula_persona, id_bono) VALUES ( :cedula_persona, :id_bono )';
+        return 'INSERT INTO org_politica_persona (cedula_persona,id_org_politica,estado) VALUES (:cedula_persona,:id_org_politica,:estado)';
     }
 
     private function SQL_11():string
     {
-        return 'INSERT INTO proyecto ( nombre_proyecto, area_proyecto, estado_proyecto,  estado ) VALUES ( :nombre_proyecto, :area_proyecto, :estado_proyecto,  :estado )';
+        return'INSERT INTO persona_bonos (cedula_persona,id_bono) VALUES (:cedula_persona,:id_bono)';
     }
 
     private function SQL_12():string
     {
-        return 'INSERT INTO persona_misiones( id_mision, cedula_persona, recibe_actualmente,  fecha, estado) VALUES ( :id_mision, :cedula_persona, :recibe_actualmente,  :fecha, :estado  )';
+        return'INSERT INTO proyecto (nombre_proyecto,area_proyecto,estado_proyecto, estado) VALUES (:nombre_proyecto,:area_proyecto,:estado_proyecto, :estado)';
     }
-
+    
     private function SQL_13():string
     {
-        return 'INSERT INTO condicion_laboral ( cedula_persona, nombre_cond_laboral, sector_laboral, pertenece, estado ) VALUES ( :cedula_persona, :nombre_cond_laboral, :sector_laboral, :pertenece, :estado )';
+        return 'INSERT INTO condicion_laboral (cedula_persona,nombre_cond_laboral,sector_laboral,pertenece,estad) VALUES (:cedula_persona,:nombre_cond_laboral,:sector_laboral,:pertenece,:estado)';
     }
 
     private function SQL_14():string
@@ -127,12 +127,12 @@ class Personas_Class extends Modelo
 
     private function SQL_15():string
     {
-        return "UPDATE personas  SET primer_nombre =:primer_nombre, segundo_nombre  =:segundo_nombre, primer_apellido =:primer_apellido, segundo_apellido =:segundo_apellido, nacionalidad  =:nacionalidad, jefe_familia =:jefe_familia, propietario_vivienda =:propietario_vivienda, afrodescendencia =:afrodescendencia, sexualidad =:sexualidad, fecha_nacimiento =:fecha_nacimiento, telefono =:telefono, correo =:correo, estado_civil =:estado_civil, privado_libertad =:privado_libertad, genero =:genero, whatsapp =:whatsapp, miliciano =:miliciano, antiguedad_comunidad =:antiguedad_comunidad, jefe_calle =:jefe_calle, nivel_educativo =:nivel_educativo WHERE cedula_persona =:cedula_persona";
+        return "UPDATE personas  SET primer_nombre =:primer_nombre,segundo_nombre =:segundo_nombre, primer_apellido =:primer_apellido,segundo_apellido =:segundo_apellido,nacionalidad =:nacionalidad,jefe_familia =:jefe_familia,propietario_vivienda =:propietario_vivienda,afrodescendencia =:afrodescendencia,sexualidad =:sexualidad,fecha_nacimiento =:fecha_nacimiento,telefono =:telefono,correo =:correo,estado_civil =:estado_civil,privado_libertad =:privado_libertad,genero =:genero,whatsapp =:whatsapp,miliciano =:miliciano,antiguedad_comunidad =:antiguedad_comunidad,jefe_calle =:jefe_calle,nivel_educativo =:nivel_educativoWHERE cedula_persona =:cedula_persona";
     }
 
     private function SQL_16():string
     {
-        return "UPDATE condicion_laboral  SET cedula_persona =:cedula_persona, nombre_cond_laboral   =:nombre_cond_laboral, sector_laboral =:sector_laboral, pertenece =:pertenece WHERE id_cond_laboral =:id_cond_laboral";
+        return "UPDATE condicion_laboral  SET cedula_persona =:cedula_persona, nombre_cond_laboral =:nombre_cond_laboral, sector_laboral =:sector_laboral, pertenece =:pertenece WHERE id_cond_laboral =:id_cond_laboral";
     }
 
     private function SQL_17():string
@@ -142,112 +142,112 @@ class Personas_Class extends Modelo
 
     private function SQL_18():string
     {
-        return 'DELETE FROM personas WHERE cedula_persona = :cedula_persona';
+        return "SELECT * FROM personas WHERE cedula_persona= :cedula AND estado=1";
     }
 
     private function SQL_19():string
     {
-     return "SELECT * FROM personas WHERE cedula_persona=$this->cedula AND estado=1";
+     return "SELECT * FROM carnets WHERE serial_carnet= :serial_carnet AND tipo_carnet=:tipo_carnet";
     }
     
     private function SQL_20():string
     {
-     return "SELECT * FROM carnets WHERE serial_carnet='$this->serial' AND tipo_carnet='$this->tipo'";
+     return "SELECT * FROM carnets WHERE codigo_carnet=:codigo AND tipo_carnet=:tipo";
     }
 
     private function SQL_21():string
     {
-     return "SELECT * FROM carnets WHERE codigo_carnet='$this->codigo' AND tipo_carnet='$this->tipo'";
+     return "SELECT Distinct descripcion_transporte FROM transporte WHERE estado=1";
     }
 
     private function SQL_22():string
     {
-     return "SELECT * FROM transporte WHERE estado=1";
+     return "SELECT * FROM comunidad_indigena WHERE estado=1";
     }
 
     private function SQL_23():string
     {
-     return "SELECT * FROM comunidad_indigena WHERE estado=1";
+     return "SELECT * FROM org_politica WHERE estado=1";
     }
 
     private function SQL_24():string
     {
-     return "SELECT * FROM org_politica WHERE estado=1";
+     return "SELECT * FROM centros_votacion WHERE estado=1";
     }
 
     private function SQL_25():string
     {
-     return "SELECT * FROM centros_votacion WHERE estado=1";
+     return "SELECT * FROM parroquias WHERE estado=1";
     }
 
     private function SQL_26():string
     {
-     return "SELECT * FROM parroquias WHERE estado=1";
+     return "SELECT * FROM bonos WHERE estado=1";
     }
 
     private function SQL_27():string
     {
-     return "SELECT * FROM bonos WHERE estado=1";
+     return "SELECT * FROM misiones WHERE estado=1";
     }
 
     private function SQL_28():string
     {
-     return "SELECT * FROM misiones WHERE estado=1";
+     return "SELECT * FROM enfermedades WHERE estado=1";
     }
 
     private function SQL_29():string
     {
-     return "SELECT * FROM enfermedades WHERE estado=1";
+     return "SELECT * FROM discapacidad WHERE estado=1";
     }
 
     private function SQL_30():string
     {
-     return "SELECT * FROM discapacidad WHERE estado=1";
+     return "SELECT * FROM ocupacion WHERE estado=1";
     }
 
     private function SQL_31():string
     {
-     return "SELECT * FROM ocupacion WHERE estado=1";
+     return "SELECT * FROM proyecto WHERE estado=1";
     }
 
     private function SQL_32():string
     {
-     return "SELECT * FROM condicion_laboral WHERE estado=1";
+     return "SELECT O.nombre_ocupacion, O.id_ocupacion FROM ocupacion O, ocupacion_persona OP WHERE OP.cedula_persona = :cedula AND O.id_ocupacion = OP.id_ocupacion AND  O.estado=1";
     }
 
     private function SQL_33():string
     {
-     return "SELECT * FROM proyecto WHERE estado=1";
+     return "SELECT * FROM condicion_laboral WHERE cedula_persona = :cedula AND estado=1";
     }
 
     private function SQL_34():string
     {
-     return "SELECT O.nombre_ocupacion, O.id_ocupacion FROM ocupacion O, ocupacion_persona OP WHERE OP.cedula_persona = $this->cedula AND O.id_ocupacion = OP.id_ocupacion AND  O.estado=1";
+     return "SELECT * FROM transporte WHERE cedula_propietario = :cedula AND estado=1";
     }
 
     private function SQL_35():string
     {
-     return "SELECT * FROM condicion_laboral WHERE cedula_persona = $this->cedula AND estado=1";
+     return "SELECT B.nombre_bono, PB.id_persona_bono FROM bonos B, persona_bonos PB WHERE PB.cedula_persona = :cedula AND PB.id_bono=B.id_bono AND B.estado=1";
     }
 
     private function SQL_36():string
     {
-     return "SELECT * FROM transporte WHERE cedula_propietario = $this->cedula AND estado=1";
+     return "SELECT M.nombre_mision , PM.* FROM misiones M, persona_misiones PM WHERE PM.cedula_persona = :cedula AND PM.id_mision=M.id_mision AND M.estado=1";
     }
 
     private function SQL_37():string
     {
-     return "SELECT B.nombre_bono, PB.id_persona_bono FROM bonos B, persona_bonos PB WHERE PB.cedula_persona = $this->cedula AND PB.id_bono=B.id_bono AND B.estado=1";
+     return "SELECT P.*, PP.id_persona_proyecto  FROM proyecto P, persona_proyecto PP WHERE PP.cedula_persona = :cedula AND PP.id_proyecto=P.id_proyecto AND P.estado=1";
     }
 
     private function SQL_38():string
     {
-     return "SELECT M.nombre_mision , PM.* FROM misiones M, persona_misiones PM WHERE PM.cedula_persona = $this->cedula AND PM.id_mision=M.id_mision AND M.estado=1";
+     return "SELECT CI.nombre_comunidad  FROM comunidad_indigena CI, comunidad_indigena_personas CIP WHERE CIP.cedula_persona = :cedula AND CIP.id_comunidad_indigena=CI.id_comunidad_indigena AND CI.estado=1";
     }
 
     private function SQL_39():string
     {
-     return "SELECT P.*, PP.id_persona_proyecto  FROM proyecto P, persona_proyecto PP WHERE PP.cedula_persona = $this->cedula AND PP.id_proyecto=P.id_proyecto AND P.estado=1";
+     return "SELECT *  FROM org_politica O, org_politica_persona OP WHERE OP.cedula_persona = $cedula AND OP.id_org_politica=O.id_org_politica AND O.estado=1";
     }
 
     private function SQL_40():string
@@ -258,6 +258,11 @@ class Personas_Class extends Modelo
     private function SQL_41():string
     {
      return "SELECT *  FROM org_politica O, org_politica_persona OP WHERE OP.cedula_persona = $this->cedula AND OP.id_org_politica=O.id_org_politica AND O.estado=1";
+    }
+
+    private function SQL_42():string
+    {
+     return "SELECT Distinct descripcion_transporte FROM transporte WHERE estado=1";
     }
 
     // ===============================================================================
@@ -275,6 +280,23 @@ class Personas_Class extends Modelo
         } catch (PDOException $e) {
 
             return $this->Capturar_Error($e,"Personas");
+        }
+    }
+
+    public function Buscar_Usuario($cedula)
+    {
+
+        $tabla            = "SELECT * FROM personas WHERE cedula_persona=$cedula";
+        $respuestaArreglo = '';
+        try {
+            $datos = $this->conexion->prepare($tabla);
+            $datos->execute();
+            $datos->setFetchMode(PDO::FETCH_ASSOC);
+            $respuestaArreglo = $datos->fetchAll(PDO::FETCH_ASSOC);
+            return $respuestaArreglo;
+        } catch (PDOException $e) {
+
+            return $this->Capturar_Error($e,"Usuario");
         }
     }
 
@@ -309,7 +331,6 @@ class Personas_Class extends Modelo
     }
     public function Registrar($data)
     {
-
         try {
             $datos = $this->conexion->prepare('INSERT INTO personas (
                 cedula_persona,
@@ -408,7 +429,7 @@ class Personas_Class extends Modelo
             return true;
 
         } catch (PDOException $e) {
-            return $this->Capturar_Error($e,"Personas");
+            return $e;
         }
     }
 
@@ -436,7 +457,7 @@ class Personas_Class extends Modelo
             return true;
 
         } catch (PDOException $e) {
-            return $this->Capturar_Error($e,"Personas");
+            return $e;
         }
     }
 
@@ -741,7 +762,6 @@ class Personas_Class extends Modelo
         }
     }
 
-
             public function Registrar_proyecto($data)
     {
 
@@ -777,6 +797,7 @@ class Personas_Class extends Modelo
     {
 
         try {
+            if($data['fecha'] != '0000-00-00'){  
             $datos = $this->conexion->prepare('INSERT INTO persona_misiones(
                 id_mision,
                 cedula_persona,
@@ -790,19 +811,43 @@ class Personas_Class extends Modelo
                 :fecha,
                 :estado 
                 )');
+            }
+            else {
+                $datos = $this->conexion->prepare('INSERT INTO persona_misiones(
+                    id_mision,
+                    cedula_persona,
+                    recibe_actualmente, 
+                    estado         
+                    ) VALUES (
+                    :id_mision,
+                    :cedula_persona,
+                    :recibe_actualmente, 
+                    :estado 
+                    )');
+            }
 
+            if($data['fecha'] != '0000-00-00'){  
             $datos->execute([
                 'id_mision'              =>$data['id_mision'],
                 'cedula_persona'         =>$data['cedula_persona'],
                 'recibe_actualmente'    =>$data['recibe_actualmente'],
-                'fecha'                 =>$data['fecha'],
+                'fecha'                  =>$data['fecha'],
                 'estado'              =>  1
             ]);
+            }
+            else{
+                $datos->execute([
+                    'id_mision'              =>$data['id_mision'],
+                    'cedula_persona'         =>$data['cedula_persona'],
+                    'recibe_actualmente'    =>$data['recibe_actualmente'],
+                    'estado'              =>  1
+                ]);
+            }
 
             return true;
 
         } catch (PDOException $e) {
-            return $this->Capturar_Error($e,"Personas");
+            return $e;
         }
     }
    
@@ -912,7 +957,7 @@ class Personas_Class extends Modelo
             return true;
 
         } catch (PDOException $e) {
-            return $this->Capturar_Error($e,"Personas");
+            return $e;
         }
     }
 
@@ -959,7 +1004,7 @@ class Personas_Class extends Modelo
             return $this->Capturar_Error($e,"Personas");
         }
     }
-    //=======================================================================
+    // =======================================================================
 
    
 
@@ -1018,7 +1063,7 @@ class Personas_Class extends Modelo
       public function get_transportes()
      {
 
-         $tabla            = "SELECT * FROM transporte WHERE estado=1";
+         $tabla            = "SELECT Distinct descripcion_transporte FROM transporte WHERE estado=1";
          $respuestaArreglo = '';
          try {
              $datos = $this->conexion->prepare($tabla);
@@ -1200,7 +1245,25 @@ public function get_organizaciones()
              $datos->execute();
              $datos->setFetchMode(PDO::FETCH_ASSOC);
              $respuestaArreglo = $datos->fetchAll(PDO::FETCH_ASSOC);
-             return $respuestaArreglo;
+             $resp=[];
+             foreach($respuestaArreglo as $ra) {
+                if (count($resp) == 0) {
+                    $resp[] = $ra;
+                }
+                else{
+                    $existe = false;
+                    foreach($resp as $r) {
+                       if($r['nombre_cond_laboral'] == $ra['nombre_cond_laboral']){
+                        $existe=true;
+                       }
+                    }
+
+                    if(!$existe){
+                        $resp[] = $ra;
+                    }
+                }
+             }
+             return $resp;
          } catch (PDOException $e) {
 
             return $this->Capturar_Error($e,"Personas");
@@ -1369,8 +1432,42 @@ public function get_organizaciones()
          }
      }
 
+     public function Locked_Login($user,$accion){
+        $intentos=$user['user_locked'];
+        $respuesta="";
+        if($intentos!="locked"){
+            $intentos=intval($intentos);
+            if($intentos<2){
+                $intentos++;
+            }
+            else{
+                $intentos="locked";
+            }
+            $accion==0?$intentos=$intentos:$intentos=0;
+            try {
+                $query = $this->conexion->prepare("UPDATE personas  SET
+                    user_locked              =:user_locked
 
+                    WHERE cedula_persona    =:cedula_persona"
+                );
+    
+                $query->execute([
+                    'cedula_persona'            =>$user['cedula_persona'], 
+                    'user_locked'               =>$intentos
+    
+                ]);
+    
+                $respuesta=$intentos;
+    
+            } catch (PDOException $e) {
+                $respuesta=$this->Capturar_Error($e,"Usuario");
+            }
+        }
+        else{
+            $respuesta="locked";
+        }
 
-
+        return $respuesta;
+    }
 }
 ?>

@@ -80,7 +80,7 @@
                             "data": "fecha_ingreso",
                         }, {
                             "data": function(data) {
-                                if (data.fecha_salida != "0000-00-00") {
+                                if (data.fecha_salida != null) {
                                     return data.fecha_salida;
                                 } else {
                                     return "Activo";
@@ -235,7 +235,7 @@
                             } else {
                                 swal({
                                     title: "ERROR!",
-                                    text: "Ha ocurrido un Error.</br>" + datos,
+                                    text:  datos,
                                     type: "error",
                                     html: true,
                                     showConfirmButton: true,

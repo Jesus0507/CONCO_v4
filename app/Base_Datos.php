@@ -2,20 +2,20 @@
 
 ini_set("max_execution_time", "0");
 error_reporting(E_ERROR);
+require_once "traits/Componentes.php";
 
 use PDO as pdo;
 
 class BASE_DATOS extends PDO
 {
+    use Componentes {Conexion as private;}
 
-    private $servidor = SERVIDOR;
-    private $host     = HOST;
-    private $bd       = BD;
-
-    private $port_mysql     = PORT_MYSQL;
-    private $user_mysql     = USER_MYSQL;
-    private $password_mysql = PASSWORD_MYSQL;
-
+    private $servidor;
+    private $host;
+    private $bd;
+    private $port_mysql;
+    private $user_mysql;
+    private $password_mysql;
     private $DNS;
     private $opciones;
 
@@ -25,6 +25,13 @@ class BASE_DATOS extends PDO
 
     public function __construct()
     {
+        $this->servidor       = $this->Conexion()["Mysql"]["Servidor"];
+        $this->host           = $this->Conexion()["Mysql"]["Host"];
+        $this->bd             = $this->Conexion()["Mysql"]["Base_Datos"];
+        $this->port_mysql     = $this->Conexion()["Mysql"]["Puerto"];
+        $this->user_mysql     = $this->Conexion()["Mysql"]["Usuario"];
+        $this->password_mysql = $this->Conexion()["Mysql"]["Contraseña"];
+
         try
         {
             $this->DNS = "{$this->servidor}:host={$this->host};dbname={$this->bd};";
@@ -38,7 +45,7 @@ class BASE_DATOS extends PDO
             );
 
             // $this->conexion = parent::__construct($this->DNS, $this->user_mysql, $this->password_mysql, $this->opciones);
-            $this->conexion = new PDO($this->DNS, $this->user_mysql, $this->password_mysql, $this->opciones);
+            $this->conexion       = new PDO($this->DNS, $this->user_mysql, $this->password_mysql, $this->opciones);
             $this->error_conexion = "No se han encontrado errores.";
             $this->comprobar      = 1;
             return $this->conexion;
@@ -84,13 +91,13 @@ class BASE_DATOS extends PDO
         }
     }
 
-    public function Conectar()
+    function Conectar()
     {return $this->conexion;}
 
-    public function Probar_Conexion()
+    function Probar_Conexion()
     {return $this->comprobar;}
 
-    public function Error_Conexion()
+    function Error_Conexion()
     {return $this->error_conexion;}
 
 }

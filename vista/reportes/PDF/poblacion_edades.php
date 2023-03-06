@@ -97,7 +97,7 @@
                                         Total:
                                     </td>
                                     <td colspan="5">
-
+                                        <?php echo count($this->poblacion_edades) ?>
                                     </td>
                                 </tr>
                             </tbody>

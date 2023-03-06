@@ -129,7 +129,7 @@ function borrar_enfermedad(id, cedula_param) {
                         data: {
                             peticion: "Eliminar_Enfermedad",
                             "id_persona_enfermedad": id,
-                            "cedula_persona": cedula_param
+                            "cedula": cedula_param
                         },
                     }).done(function (result) {
                         result = JSON.parse(result);

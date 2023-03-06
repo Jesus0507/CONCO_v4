@@ -521,7 +521,7 @@
                             Generar Reportes
                         </p>
                         <i class="right fas fa-angle-left"></i>
-                        <span class="badge badge-info right">5</span>
+                        
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item" onclick="cambio_modulo('Generar Censos')">
@@ -551,7 +551,7 @@
                                 </p>
                             </a>
                         </li>
-
+                        <?php if($_SESSION['Solicitudes']['registrar']=='1'){ ?>
                         <li class="nav-item">
                             <a href="javascript:void(0)" class="nav-link"
                                 onclick="$('#solicitar_constancia').modal('show');" data-toggle="dropdown">
@@ -561,7 +561,7 @@
                                 </p>
                             </a>
                         </li>
-
+ <?php }?>
                         <li class="nav-item">
                             <a href="<?php Direcciones::_039_(); ?>" class="nav-link">
                                 <i class="fa fa-signal nav-icon"></i>

@@ -188,8 +188,15 @@ btn_agregar_techo.onclick = function () {
         techos_input.style.borderColor = 'red';
         techos_input.focus();
     } else {
+        var existe = 0;
         valid_techos.innerHTML = '';
         techos_input.style.borderColor = '';
+        for (const tec of techos) {
+            if(tec['id_tipo_techo'] == techos_input.value){
+                existe++;
+            }
+        }
+        if(existe == 0){
         var tipos_techos = new Object();
         var texto_techos = "";
         tipos_techos['id_tipo_techo'] = techos_input.value;
@@ -223,6 +230,12 @@ btn_agregar_techo.onclick = function () {
             techos.splice(techos.indexOf(tipos_techos), 1);
         }
     }
+    else {
+        valid_techos.innerHTML = 'Este tipo de techo ya fue seleccionado';
+        techos_input.style.borderColor = 'red';
+        techos_input.focus();
+    }
+    }
 }
 btn_agregar_pared.onclick = function () {
     if ((paredes_input.style.display != 'none' && paredes_input.value == '')) {
@@ -232,6 +245,13 @@ btn_agregar_pared.onclick = function () {
     } else {
         valid_paredes.innerHTML = '';
         paredes_input.style.borderColor = '';
+        var existe = 0;
+        for (const par of paredes) {
+            if(par['id_tipo_pared'] == paredes_input.value){
+                existe++;
+            }
+        }
+        if(existe == 0){
         var tipos_pared = new Object();
         var texto_pared = "";
         tipos_pared['id_tipo_pared'] = paredes_input.value;
@@ -265,6 +285,12 @@ btn_agregar_pared.onclick = function () {
             paredes.splice(paredes.indexOf(tipos_pared), 1);
         }
     }
+    else {
+        valid_paredes.innerHTML = 'Este tipo de pared ya fue seleccionado';
+        paredes_input.style.borderColor = 'red';
+        paredes_input.focus();
+    }
+    }
 }
 btn_agregar_piso.onclick = function () {
     if ((pisos_input.style.display != 'none' && pisos_input.value == '')) {
@@ -274,6 +300,13 @@ btn_agregar_piso.onclick = function () {
     } else {
         valid_pisos.innerHTML = '';
         pisos_input.style.borderColor = '';
+        var existe = 0;
+        for (const pis of pisos) {
+            if(pis['id_tipo_piso'] == pisos_input.value){
+                existe++;
+            }
+        }
+        if(existe == 0){
         var tipos_piso = new Object();
         var texto_piso = "";
         tipos_piso['id_tipo_piso'] = pisos_input.value;
@@ -307,6 +340,12 @@ btn_agregar_piso.onclick = function () {
             pisos.splice(pisos.indexOf(tipos_piso), 1);
         }
     }
+    else {
+        valid_pisos.innerHTML = 'Este tipo de piso ya fue seleccionado';
+        pisos_input.style.borderColor = 'red';
+        pisos_input.focus();
+    }
+}
 }
 
 function valid_electrodomesticos_agregados() {
@@ -593,7 +632,6 @@ $(document).ready(function () {
         info_vivienda['insectos_roedores'] = document.getElementById("insectos_roedores").value;
         info_vivienda['estado'] = 1;
         if (validar_vivienda()) {
-
 
             $.ajax({
                 type: "POST",

@@ -1,21 +1,14 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<phpunit 
-    bootstrap="vendor/autoload.php"
-    colors="true"
-    verbose="true"
-    stopOnFailure="false"
-    convertErrorsToExceptions = "true"
-    convertNoticesToExceptions = "true"
-    convertWarningsToExceptions = "true">
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit colors="true" bootstrap="vendor/autoload.php">
     <testsuites>
-        <testsuite name="Pruebas del Proyecto">
+        <testsuite name="Mi Suite de Pruebas">
             <directory>tests</directory>
         </testsuite>
     </testsuites>
 
-    <filter>
-        <whitelist>
-            <directory suffix=".php">modelo/</directory>
-        </whitelist>
-    </filter>
+    <logging>
+        <log type="coverage-html" target="tests/resultados/coverage" />
+        <log type="coverage-clover" target="tests/resultados/coverage.xml" />
+        <log type="junit" target="tests/resultados/junit.xml" />
+    </logging>
 </phpunit>

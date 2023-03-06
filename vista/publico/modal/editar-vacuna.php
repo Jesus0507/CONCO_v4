@@ -8,7 +8,7 @@
                 </button>
             </div>
             <div class="modal-body"> 
-            <form action="<?php echo constant('URL'); ?>" enctype="multipart/form-data"
+            <form action="" enctype="multipart/form-data"
                     id="formulario" method="POST" name="formulario">
                     <div class="form-group row justify-content-center">
 
@@ -21,8 +21,6 @@
                                         class="form-control " placeholder="Cedula de Persona" />
                                 </div>
                             </div>
-
-
                             <div class="col-md-12 mt-2">
                                 <label for="">
                                     Vacunas
@@ -33,7 +31,10 @@
 
                                             <div class="input-group">
                                                 <select class="custom-select" id="dosis_vacuna" name="dosis[]">
-                                                    <option value="Primera Dosis">
+                                                <option value="0">
+                                                        - Seleccione una dosis -
+                                                    </option>    
+                                                <option value="Primera Dosis">
                                                         Primera Dosis
                                                     </option>
                                                     <option value="Segunda Dosis">
@@ -54,7 +55,7 @@
                                         <td class="">
                                             <div class="input-group ">
                                                 <button type="button" name="agregar" id="agregar_dosis"
-                                                    class="btn btn-success">Agregar</button>
+                                                    class="btn bg-info">Agregar</button>
                                             </div>
 
                                         </td>

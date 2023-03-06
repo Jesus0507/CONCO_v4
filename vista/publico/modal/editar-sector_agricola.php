@@ -24,7 +24,7 @@
                                 </div>
                             </div>
 
-                            
+                             
                             <div class="col-md-6 mt-2">
                             <label for="org_agricola">
                                 Pertenece a una Organizacion Agricola
@@ -82,6 +82,18 @@
                                     <input class="form-control mb-10 dinero" id="financiado2" name="datos[financiado]"
                                         placeholder="Financiado" type="text" />
                                 </div>
+                                 <script type="text/javascript">
+                                                $(".dinero").on({
+                                                    "focus": function(event) {
+                                                        $(event.target).select();
+                                                    },
+                                                    "keyup": function(event) {
+                                                        $(event.target).val(function(index, value) {
+                                                            return value.replace(/\D/g, "").replace(/([0-9])([0-9]{2})$/, '$1,$2').replace(/\B(?=(\d{3})+(?!\d)\.?)/g, ".");
+                                                        });
+                                                    }
+                                                });
+                                            </script>
                             </div>
 
                             <div class="col-md-6 mt-2">

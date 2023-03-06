@@ -37,13 +37,17 @@ class Parto_Humanizado_Validacion extends Validacion
                                 if ($this->Comprobar($this->datos["fecha_aprox_parto"])) {
                                     $this->Errores[] = 'El campo fecha aproximada de parto es obligatorio';
                                 } else {
+                                    if (date('m', strtotime($this->datos["fecha_aprox_parto"])) == date('m')) {
+                                        $this->Errores[] = "La fecha ingresada no puede ser del mes actual";
+                                    }else{
                                     if ($this->Validar("fechas", $this->datos["fecha_aprox_parto"])) {
                                         $this->Errores[] = "la fecha introducida es inválida.";
                                     } else {
                                         if ($this->Validar_Estado($this->datos["estado"])) {
                                             $this->Errores[] = 'el estado es invalido ';
                                         }
-                                    }
+                                        }
+                                    } 
                                 }
                             }
                         }

@@ -39,21 +39,19 @@ class Negocios_Validacion extends Validacion
                                 if ($this->Comprobar($this->Datos_Validos()["nombre_negocio"])) {
                                     $this->Errores[] = 'El campo nombre del negocio es obligatorio';
                                 } else {
-                                    $this->Datos_Filtro($this->Datos_Validos()["nombre_negocio"], "caracteres");
-                                    if ($this->Validar()) {
+                                    if ($this->Validar("caracteres", $this->Datos_Validos()["nombre_negocio"])) {
                                         $this->Errores[] = "El campo nombre del negocio no debe tener caracteres especiales.";
                                     } else {
                                         if ($this->Comprobar($this->Datos_Validos()["cedula_propietario"])) {
                                             $this->Errores[] = 'El campo cedula del propietario es obligatorio';
                                         } else {
-                                            $this->Datos_Filtro($this->Datos_Validos()["cedula_propietario"], "cedula");
-                                            if ($this->Validar()) {
+                                            if ($this->Validar("cedula",$this->Datos_Validos()["cedula_propietario"])) {
                                                 $this->Errores[] = "La cedula es invalida.";
                                             } else {
                                                 if ($this->Comprobar($this->Datos_Validos()["rif_negocio"])) {
                                                     $this->Errores[] = 'El campo rif del negocio es obligatorio';
                                                 } else {
-                                                    if ($this->Validar_Rif($this->Datos_Validos()["rif_negocio"])) {
+                                                    if ($this->Validar("rif",$this->Datos_Validos()["rif_negocio"])) {
                                                         $this->Errores[] = 'El rif es inválido verifique que la informacion sea correcta.';
                                                     } else {
                                                         if ($this->Validar_Estado($this->Datos_Validos()["estado"])) {

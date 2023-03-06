@@ -509,7 +509,7 @@ function ver_evento(texto, fecha) {
     }
     swal({
         title: "Eventos del " + fecha,
-        text: "<center><em class='fa fa-calendar' style='font-size:50px;color:black;'></em></center><br><br><div style='width:100%;height:280px;color:white;background:#9A8BBA; overflow-y:scroll'>" + contenido + "</div>",
+        text: "<center><em class='fa fa-calendar' style='font-size:50px;color:black;'></em></center><br><br><div style='width:100%;height:280px;color:white;background:#20c997; overflow-y:scroll'>" + contenido + "</div>",
         html: true
     });
 }

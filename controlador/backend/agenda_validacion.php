@@ -9,7 +9,7 @@ class Agenda_Validacion extends Validacion
     public function __construct()
     {
         parent::__construct();
-        $this->datos            = $_POST['datos'];
+        $this->datos            = isset($_POST['datos']) ? $_POST['datos']: null;
         $this->datos["creador"] = $_SESSION['cedula_usuario'];
     }
 
@@ -28,7 +28,7 @@ class Agenda_Validacion extends Validacion
                 if ($this->Comprobar($this->datos["tipo_evento"])) {
                     $this->Errores[] = 'Debe especificar qué tipo de evento se está creando';
                 } else {
-                    if ($this->Validar_Caracteres($this->datos["tipo_evento"])) {
+                    if ($this->Validar("caracteres", $this->Datos_Validos()["tipo_evento"])) {
                         $this->Errores[] = "El campo tipo de evento no debe tener caracteres especiales.";
                     } else {
                         if ($this->Comprobar($this->datos["fechas"])) {
@@ -52,7 +52,8 @@ class Agenda_Validacion extends Validacion
                                                 if ($this->Comprobar($this->datos["detalle_evento"])) {
                                                     $this->Errores[] = "El campo detalles es obligatorio";
                                                 } else {
-                                                    if ($this->Validar_Caracteres($this->datos["detalle_evento"])) {
+
+                                                    if ($this->Validar("caracteres", $this->Datos_Validos()["detalle_evento"])) {
                                                         $this->Errores[] = "El campo detalles no debe tener caracteres especiales.";
                                                     } else {
                                                         if ($this->Validar_Estado($this->datos["estado"])) {

@@ -28,7 +28,8 @@ btn_vivienda_nueva.onclick = function() {
     document.getElementById("formulario_familia").style.display = "none";
 }
 btn_nuevo_integrante.onclick = function() {
-    window.open(BASE_URL + "Personas/Registros_habitante");
+    Direccionar_blank('Personas/Registros_habitante');
+        //window.open(BASE_URL + "Personas/Registros_habitante"); 
 }
 btn_guardar.onclick = function() {
     enviar_informacion();

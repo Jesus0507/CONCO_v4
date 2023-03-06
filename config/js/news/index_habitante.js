@@ -114,13 +114,12 @@ function send_request() {
     datos_persona['cedula_persona'] = document.getElementById("user_cedula").value;
     datos_persona['tipo_constancia'] = doc.value;
     datos_persona['motivo_constancia'] = mot.value;
-    console.log(datos_persona);
 
     $.ajax({
         type: "POST",
         url: BASE_URL + "app/Direcciones.php",
         data: {
-            direction: "Solicitudes/Nueva_solicitud",
+            direction: "Solicitudes/Administrar",
             accion: "codificar"
         },
         success: function (direccion_segura) {
@@ -128,10 +127,10 @@ function send_request() {
                 type: "POST",
                 url: BASE_URL + direccion_segura,
                 data: {
-                    "datos": datos_persona
+                    "datos": datos_persona,
+                    peticion: "Nueva_solicitud_cambio_contrasenia"
                 }
             }).done(function (result) {
-
                 if (result == 1) {
                     swal({
                         title: "Éxito",

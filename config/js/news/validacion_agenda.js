@@ -167,9 +167,10 @@ function guardar_eventos() {
                                 url: BASE_URL + direccion_segura,
                                 data: {
                                     datos: datos,
-                                    peticion: "Receptores",
+                                    peticion: "Receptores", 
                                 },
                             }).done(function(result) {
+                                // console.log(result);
                                 var users = JSON.parse(result);
                                 for (var i = 0; i < users.length; i++) {
                                     var datos_notificacion = new Object();
@@ -206,7 +207,7 @@ function guardar_eventos() {
                     setTimeout(function() {
                         swal({
                             title: "ERROR!",
-                            text: "Ha ocurrido un Error.</br>" + result,
+                            text:  result,
                             type: "error",
                             html: true,
                             showConfirmButton: true,

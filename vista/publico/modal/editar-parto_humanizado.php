@@ -29,7 +29,7 @@
                                 Nombre y Apellido
                             </label>
                             <div class="input-group">
-                                <input list="cedula_p" id="nombre_apellido" name="datos[nombre_apellido]"
+                                <input list="cedula_p" id="nombre_apellido2" name="datos[nombre_apellido]"
                                     disabled class="form-control " placeholder="Cedula de Persona" />
                             </div>
                         </div>

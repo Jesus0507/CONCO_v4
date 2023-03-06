@@ -19,6 +19,15 @@ class Direcciones
         unset($metodo,$llave,$iv,$accion,$sting,$salida);
     }
 
+    public static function URL() {
+        $protocol = empty($_SERVER['HTTPS']) ? 'http://' : 'https://';
+        $domain = $_SERVER['HTTP_HOST'];
+        $root = str_replace('/index.php', '', $_SERVER['SCRIPT_NAME'])."/";
+        $url = $protocol . $domain . $root;
+        unset($protocol, $domain, $root);
+        return $url;
+    }
+
     public static function _001_()
     {
         echo URL . self::Seguridad('Inicio/', 'codificar');
@@ -86,12 +95,12 @@ class Direcciones
 
     public static function _014_()
     {
-        echo URL . self::Seguridad('Personas/Vacuna/', 'codificar');
+        echo URL . self::Seguridad('Vacunados/Administrar/Registros/', 'codificar');
     }
 
     public static function _015_()
     {
-        echo URL . self::Seguridad('Personas/Vacunados/', 'codificar');
+        echo URL . self::Seguridad('Vacunados/Administrar/Consultas/', 'codificar');
     }
 
     public static function _016_()
@@ -186,7 +195,7 @@ class Direcciones
 
     public static function _034_()
     {
-        echo URL . self::Seguridad('Seguridad/Roles/', 'codificar');
+        echo URL . self::Seguridad('Seguridad/Administrar/Roles/', 'codificar');
     }
 
     public static function _035_()
@@ -196,17 +205,17 @@ class Direcciones
 
     public static function _036_()
     {
-        echo URL . self::Seguridad('Reportes/Censos/', 'codificar');
+        echo URL . self::Seguridad('Reportes/Administrar/Censos/', 'codificar');
     }
 
     public static function _037_()
     {
-        echo URL . self::Seguridad('Reportes/Listados/', 'codificar');
+        echo URL . self::Seguridad('Reportes/Administrar/Listados/', 'codificar');
     }
 
     public static function _038_()
     {
-        echo URL . self::Seguridad('Reportes/Historial_Familiar/', 'codificar');
+        echo URL . self::Seguridad('Reportes/Administrar/Historial_Familiar/', 'codificar');
     }
 
     public static function _039_()
@@ -241,7 +250,7 @@ class Direcciones
 
     public static function _045_()
     {
-        echo URL . self::Seguridad('Reportes/Grupos_Deportivos', 'codificar');
+        echo URL . self::Seguridad('Reportes/Administrar/Grupos_Deportivos', 'codificar');
     }
 
     public static function _000_($value)

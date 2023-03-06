@@ -21,10 +21,10 @@ var condicion_ocupacion_input = document.getElementById("input_condicion_ocupaci
 var boton_otro_cond = document.getElementById("nueva_condicion_ocupacion");
 var valid_cond_ocupacion = document.getElementById("valid_cond_ocupacion");
 btn_vivienda_nueva.onclick = function() {
-    window.open(BASE_URL + "Viviendas/Administrar/Registros/");
+    Direccionar_blank("Viviendas/Administrar/Registros");
 }
 btn_nuevo_integrante.onclick = function() {
-    window.open(BASE_URL + "Personas/Registros/");
+    Direccionar_blank("Personas/Registros");
 }
 btn_guardar.onclick = function() {
     enviar_informacion();

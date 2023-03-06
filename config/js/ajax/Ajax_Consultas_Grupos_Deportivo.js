@@ -376,6 +376,7 @@
                      peticion: "Obtener_Integrantes",
                  },
              }).done(function(result) {
+                revisar(result)
                  var integrantes = document.getElementById('integrantes_agregados');
                  integrantes.innerHTML = "";
                  result = JSON.parse(result);

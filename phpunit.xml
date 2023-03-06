@@ -1,13 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?>
-<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bootstrap="vendor/autoload.php" colors="true" verbose="true" stopOnFailure="false" convertErrorsToExceptions="true" convertNoticesToExceptions="true" convertWarningsToExceptions="true" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd">
-  <coverage>
-    <include>
-      <directory suffix=".php">modelo/</directory>
-    </include>
-  </coverage>
-  <testsuites>
-    <testsuite name="Pruebas del Proyecto">
-      <directory>tests</directory>
-    </testsuite>
-  </testsuites>
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Declaración de XML con la versión y codificación -->
+<phpunit bootstrap="vendor/autoload.php" colors="true">
+    <coverage><!-- Configuración de la cobertura de código -->
+        <include><!-- Inclusión de archivos y directorios en la cobertura -->
+            <directory suffix="_class.php"><!-- Incluye los archivos cuyo sufijo es "_class.php" -->   
+                modelo/<!-- Directorio modelo -->
+            </directory>
+        </include>
+    </coverage>
+    <testsuites><!-- Configuración de los conjuntos de pruebas -->
+        <testsuite name="Pruebas del Proyecto"><!-- Conjunto de pruebas con nombre "Pruebas del Proyecto" -->
+            <directory suffix="_test.php"><!-- Incluye los archivos cuyo sufijo es "_test.php" -->
+                tests<!-- Directorio tests -->
+            </directory>
+        </testsuite>
+    </testsuites>
 </phpunit>

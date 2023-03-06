@@ -200,6 +200,8 @@
                 $(document).on('click', '.btnEditar', function() {
                     fila = $(this).closest("tr");
                     id = fila.find('td:eq(4)').text();
+nombre = fila.find('td:eq(1)').text();
+                         $('#nombre_apellido2').val(nombre);
                     $.ajax({
                         url: BASE_URL + direccion_segura,
                         type: "POST",
@@ -209,7 +211,9 @@
                             sql: "_05_",
                         },
                     }).done(function(result) {
+                        console.log(result);
                         var result = JSON.parse(result);
+                        
                         $('#cedula_persona2').val(result[0]["cedula_persona"]);
                         $('#recibe_micronutrientes2').val(result[0]["recibe_micronutrientes"]);
                         $('#tiempo_gestacion2').val(result[0]["tiempo_gestacion"]);
@@ -219,7 +223,7 @@
                         var datos = {
                             id_parto_humanizado: id,
                             cedula_persona: document.getElementById("cedula_persona2").value,
-                            recibe_micronutrientes: document.getElementById("recibe_micronutrientes2").selectedIndex,
+                            recibe_micronutrientes: document.getElementById("recibe_micronutrientes2").value,
                             tiempo_gestacion: document.getElementById("tiempo_gestacion2").value,
                             fecha_aprox_parto: document.getElementById("fecha_aprox_parto2").value,
                             estado: 1
@@ -229,7 +233,7 @@
                             url: BASE_URL + direccion_segura,
                             data: {
                                 datos: datos,
-                                peticion: "Administrar",
+                                peticion: "Editar",
                                 sql: "SQL_03",
                                 accion: "Se ha Actualizado la  Embarazada: " + fila.find("td:eq(1)").text(),
                             },

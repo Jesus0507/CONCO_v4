@@ -100,7 +100,7 @@
                                 </label>
                                 <div class="input-group">
                                     <input class="form-control mb-10 letras_numeros" id="rif_negocio" name="datos[rif_negocio]"
-                                        placeholder="Rif del Negocio" type="text" oninput="Limitar(this,12);"/>
+                                        placeholder="(VEJPG)(1234566)" type="text" oninput="Limitar(this,12);"/>
                                 </div>
                                 <span id="mensaje_rif"></span>
                             </div>

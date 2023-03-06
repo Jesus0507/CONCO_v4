@@ -1,40 +1,60 @@
 <?php
 
-class Habitante extends Controlador 
-{ 
+class Habitante extends Controlador
+{
+    #Public: acceso sin restricción.
+    #Private:Solo puede ser accesado por la clase que lo define.
+    private $permisos; #permisos correspondiente del modulo
+    private $sql; #nombre de la sentencia SQL que se ejecutara en el modelo
+    private $datos_consulta; #array con los datos necesarios para el modulo (consultas)
+    private $mensaje; #mensaje que se mandara a la vista
+
+    // ==================ESTABLECER DATOS=========================
     public function __construct()
     {
         parent::__construct();
-      // $this->Cargar_Modelo("habitante");
+        $this->permisos["rol"] = $_SESSION['rol_inicio'];
+        // $this->Cargar_Modelo("habitante");
     }
- 
-    public function Establecer_Consultas() 
+
+    private function Establecer_Consultas()
     {
-        $this->modelo->__SET("tipo", "0");$this->modelo->__SET("SQL", "_01_");
-        $this->modelo->__SET("consultar", array("tabla" => "calles", "estado" => 1, "orden" => "nombre_calle"));
-        $this->datos["calles"] = $this->modelo->Administrar();
-        $this->modelo->__SET("consultar", array("tabla" => "vivienda", "estado" => 1, "orden" => "id_vivienda"));
-        $this->datos["viviendas"] = $this->modelo->Administrar();
-        $this->modelo->__SET("consultar", array("tabla" => "tipo_vivienda", "estado" => 1, "orden" => "nombre_tipo_vivienda"));
-        $this->datos["tipo_vivienda"] = $this->modelo->Administrar();
-        $this->modelo->__SET("consultar", array("tabla" => "tipo_techo", "estado" => 1, "orden" => "techo"));
-        $this->datos["tipo_techo"] = $this->modelo->Administrar();
-        $this->modelo->__SET("consultar", array("tabla" => "tipo_pared", "estado" => 1, "orden" => "pared"));
-        $this->datos["tipo_pared"] = $this->modelo->Administrar();
-        $this->modelo->__SET("consultar", array("tabla" => "tipo_piso", "estado" => 1, "orden" => "piso"));
-        $this->datos["tipo_piso"] = $this->modelo->Administrar();
-        $this->modelo->__SET("consultar", array("tabla" => "servicio_gas", "estado" => 1, "orden" => "nombre_servicio_gas"));
-        $this->datos["servicios_gas"] = $this->modelo->Administrar();
-        $this->modelo->__SET("consultar", array("tabla" => "electrodomesticos", "estado" => 1, "orden" => "id_electrodomestico"));
-        $this->datos["electrodomesticos"] = $this->modelo->Administrar();
-        $this->modelo->__SET("SQL", "SQL_01");$this->datos["personas"] = $this->modelo->Administrar();
-        $this->vista->datos = $this->datos;
+        $this->modelo->_Tipo_(0);
+        $this->modelo->_SQL_("SQL_02");
+        $this->datos_consulta["calles"]        = $this->modelo->Administrar();
+        $this->modelo->_SQL_("SQL_03");
+        $this->datos_consulta["viviendas"]     = $this->modelo->Administrar();
+        $this->modelo->_SQL_("SQL_04");
+        $this->datos_consulta["tipo_vivienda"] = $this->modelo->Administrar();
+        $this->modelo->_SQL_("SQL_05");
+        $this->datos_consulta["tipo_techo"]    = $this->modelo->Administrar();
+        $this->modelo->_SQL_("SQL_06");
+        $this->datos_consulta["tipo_pared"]    = $this->modelo->Administrar();
+        $this->modelo->_SQL_("SQL_07");
+        $this->datos_consulta["tipo_piso"]     = $this->modelo->Administrar();
+        $this->modelo->_SQL_("SQL_08");
+        $this->datos_consulta["servicios_gas"] = $this->modelo->Administrar();
+        $this->modelo->_SQL_("SQL_09");
+        $this->datos_consulta["electrodomesticos"] = $this->modelo->Administrar();
+        $this->modelo->_SQL_("SQL_01");
+        $this->datos_consulta["personas"]       = $this->modelo->Administrar();
+        $this->vista->datos                     = $this->Get_Datos_Vista();
     }
+    // ==================GETTERS=========================
+    #getters usados para obtener la informacion de las variables privadas
+    # retornan tipo string o array
+
+    private function Get_Datos_Vista(): array{return $this->datos_consulta;}
+
+    // ==============================================================================
 
     public function Cargar_Vistas()
     {
-        $this->Establecer_Consultas();$this->Seguridad_de_Session();$this->vista->Cargar_Vistas('habitante/index'); 
-    }   
+        $this->Seguridad_de_Session();
+        $this->Establecer_Consultas();
+        if ($this->permisos["rol"] === "Habitante") {
+            $this->vista->Cargar_Vistas('habitante/index');
+        } else { $this->_403_();}
+    }
 
 }
-?> 

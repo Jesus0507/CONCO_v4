@@ -2,113 +2,219 @@
 
 class Seguridad extends Controlador
 {
+    #Public: acceso sin restricción.
+    #Private:Solo puede ser accesado por la clase que lo define.
+    private $permisos; #permisos correspondiente del modulo
+    private $peticion; #peticion a ejecutar de la funcion administrar
+    private $sql; #nombre de la sentencia SQL que se ejecutara en el modelo
+    private $datos_ejecutar; #array con datos para enviar a la bd
+    private $datos_consulta; #array con los datos necesarios para el modulo (consultas)
+    private $mensaje; #mensaje que se mandara a la vista
+    private $crud; #array con peticion generica sql
+
+    // DATOS independientes usados para el manejo del modulo
+    private $usuarios;
+    private $estado;
+    private $cedula_persona;
+    public $retornar;
+    public $permisos_modulo;
+    public $rol_inicio;
+    public $rol;
+
+    // ==================ESTABLECER DATOS=========================
     public function __construct()
     {
         parent::__construct();
+        $this->permisos       = $_SESSION["Seguridad"];
+        $this->datos_ejecutar = isset($_POST['datos']) ? $_POST['datos']: null;
+        $this->rol_inicio     = $_SESSION['rol_inicio'];
+        $this->rol            = isset($_POST['rol']) ? $_POST["rol"]: null;
+        $this->estado         = isset($_POST['estado']) ? $_POST["estado"]: null;
+        $this->cedula_persona = isset($_POST['cedula_persona']) ? $_POST["cedula_persona"]: null;
         // $this->Cargar_Modelo("seguridad");
     }
+
+    // ==================GETTERS=========================
+    #getters usados para obtener la informacion de las variables privadas
+    # retornan tipo string o array
+    private function Get_Sql(): string
+    {return $this->sql;}
+    private function Get_Accion(): string
+    {return $this->accion;}
+    private function Get_Mensaje(): string
+    {return $this->mensaje;}
+    private function Get_Datos(): array
+    {return $this->datos_ejecutar;}
+    private function Get_Crud_Sql(): array
+    {return $this->crud;}
+    // ==============================================================================
 
     public function Cargar_Vistas()
     {
         $this->Seguridad_de_Session();
-        $this->vista->Cargar_Vistas('seguridad/index');
+        if ($this->permisos["consultar"] === 1) {
+            $this->vista->Cargar_Vistas('seguridad/index');
+        } else { $this->_403_();}
     }
-    public function Roles()
+
+    // ==============================================================================
+    public function Administrar($peticion = null)
     {
         $this->Seguridad_de_Session();
-        $this->vista->Cargar_Vistas('seguridad/roles');
-    }
+        $this->peticion = (isset($_POST['peticion'])) ? $_POST['peticion'] : $peticion[0];
+        switch ($this->peticion) {
+            case 'Seguridad':
+                if ($this->permisos["consultar"] === 1) {
+                    $this->vista->Cargar_Vistas('seguridad/index');
+                } else { $this->_403_();}
+                break;
 
-    public function get_info_permisos()
-    {
-        $usuarios = $this->modelo->consultar_personas_seguridad();
-        $retornar = [];
+            case 'Roles':
+                if ($this->permisos["consultar"] === 1) {
+                    $this->vista->Cargar_Vistas('seguridad/roles');
+                } else { $this->_403_();}
+                break;
 
-        foreach ($usuarios as $u) {
-            $permisos = $this->modelo->get_permisos($u['cedula_persona']);
+            case 'Cambiar_Permiso':
 
-            if ($u['estado'] == '1') {
-                $estado = "<em class='fa fa-minus-circle negativo' onclick='cambiar_estado_persona(`" . $u['cedula_persona'] . "`,0)'></em><span style='display:none'>Activo</span>";
-            } else {
-                $estado = "<em class='fa fa-plus-circle positivo' onclick='cambiar_estado_persona(`" . $u['cedula_persona'] . "`,1)'></em><span style='display:none'>Bloqueado</span>";
-            }
+                if ($this->permisos["registrar"] === 1 || $this->permisos["modificar"] === 1) {
 
-            $retornar[] = [
-                "cedula_usuario" => $u['cedula_persona'],
-                "usuario"        => $u['primer_nombre'] . " " . $u['primer_apellido'],
-                "estado"         => $estado,
-                "rol"            => $u['rol_inicio'],
-                "editar"         => "<button class='btn btn-info' title='Modificar rol o clave de usuario'><span class='fa fa-edit' type='button' onclick='modificar_rol(`" . $u['rol_inicio'] . "`,`" . $this->Decodificar($u['contrasenia']) . "`,`" . $u['cedula_persona'] . "`)'></span></button>",
+                    $this->modelo->_Tipo_(1);
+                    $this->modelo->_ID_($this->Get_Datos()["campo"]);
+                    $this->modelo->_SQL_("SQL_04");
 
-            ];
+                    $this->datos_ejecutar = [
+                        $this->datos_ejecutar["campo"] => $this->datos_ejecutar["permiso"],
+                        "rol"                          => $this->datos_ejecutar["rol"],
+                        "id_modulo"                    => $this->datos_ejecutar["id_modulo"],
+                    ];
 
+                    $this->modelo->_Datos_($this->Get_Datos());
+
+                    if ($this->modelo->Administrar()) {
+                        $this->modelo->_Tipo_(2);
+                        $this->modelo->_SQL_("SQL_01");
+                        $this->modelo->_Datos_(["rol" => $this->Get_Datos()["rol"]]);
+                        $this->Escribir_JSON($this->modelo->Administrar());
+                    } else {
+                        echo 0;
+                    }
+
+                } else { $this->_403_();}
+                break;
+
+            case 'Cambiar_Roles':
+
+                if ($this->permisos["registrar"] === 1 || $this->permisos["modificar"] === 1) {
+
+                    $this->modelo->_Tipo_(1);
+                    $this->modelo->_SQL_("SQL_05");
+                    $this->datos_ejecutar = array(
+                        'rol_inicio'     => $this->datos_ejecutar["rol"],
+                        'cedula_usuario' => $this->datos_ejecutar["cedula_usuario"],
+                        'contrasenia'    => $this->Codificar($this->Get_Datos()['clave']),
+                    );
+                    $this->modelo->_Datos_($this->Get_Datos());
+                    echo $this->modelo->Administrar();
+
+                } else { $this->_403_();}
+                break;
+
+            case 'Cambiar_Estado':
+
+                if ($this->permisos["registrar"] === 1 || $this->permisos["modificar"] === 1) {
+
+                    $this->modelo->_Datos_($this->Get_Datos());
+                    $this->modelo->_SQL_("SQL_06");
+                    $this->modelo->_Tipo_(1);
+                    echo $this->modelo->Administrar();
+
+                } else { $this->_403_();}
+                break;
+
+            case 'Obtener_Permisos_Rol':
+
+                if ($this->permisos["registrar"] === 1 || $this->permisos["modificar"] === 1) {
+
+                    $this->modelo->_Tipo_(2);
+                    $this->modelo->_SQL_("SQL_01");
+                    $this->modelo->_Datos_(["rol" => $this->rol]);
+                    $this->Escribir_JSON($this->modelo->Administrar());
+
+                } else { $this->_403_();}
+                break;
+
+            case 'Obtener_Permisos':
+
+                if ($this->permisos["consultar"] === 1) {
+
+                    $this->modelo->_Tipo_(2);
+                    $this->modelo->_SQL_("SQL_01");
+                    $this->modelo->_Datos_(["rol" => $this->rol_inicio]);
+                    $this->permisos_modulo = $this->modelo->Administrar();
+
+                    $_SESSION['Solicitudes']       = $this->permisos_modulo[0];
+                    $_SESSION['Personas']          = $this->permisos_modulo[1];
+                    $_SESSION['Agenda']            = $this->permisos_modulo[2];
+                    $_SESSION['Comite']            = $this->permisos_modulo[3];
+                    $_SESSION['Grupos deportivos'] = $this->permisos_modulo[4];
+                    $_SESSION['Parto humanizado']  = $this->permisos_modulo[5];
+                    $_SESSION['Enfermos']          = $this->permisos_modulo[6];
+                    $_SESSION['Negocios']          = $this->permisos_modulo[7];
+                    $_SESSION['Nucleo familiar']   = $this->permisos_modulo[8];
+                    $_SESSION['Sector agricola']   = $this->permisos_modulo[9];
+                    $_SESSION['Centros votacion']  = $this->permisos_modulo[10];
+                    $_SESSION['Viviendas']         = $this->permisos_modulo[11];
+                    $_SESSION['Inmuebles']         = $this->permisos_modulo[12];
+                    $_SESSION['Discapacitados']    = $this->permisos_modulo[13];
+                    $_SESSION['Vacunados COVID']   = $this->permisos_modulo[14];
+                    $_SESSION['Seguridad']         = $this->permisos_modulo[15];
+
+                    echo json_encode($this->permisos_modulo);
+
+                } else { $this->_403_();}
+                break;
+
+            case 'Consulta_Ajax':
+                if ($this->permisos["consultar"] === 1) {
+                    $this->modelo->_SQL_("SQL_02");
+                    $this->modelo->_Tipo_(0);
+
+                    $this->usuarios = $this->modelo->Administrar();
+                    $this->retornar = [];
+
+                    foreach ($this->usuarios as $u) {
+
+                        $this->modelo->_Tipo_(2);
+                        $this->modelo->_SQL_("SQL_01");
+                        $this->modelo->_Datos_(["rol" => $u['rol_inicio']]);
+                        $this->permisos_modulo = $this->modelo->Administrar();
+                        if ($u['estado'] == '1') {
+                            $this->estado = "<em class='fa fa-minus-circle negativo' onclick='cambiar_estado_persona(`" . $u['cedula_persona'] . "`,0)'></em><span style='display:none'>Activo</span>";
+                        } else {
+                            $this->estado = "<em class='fa fa-plus-circle positivo' onclick='cambiar_estado_persona(`" . $u['cedula_persona'] . "`,1)'></em><span style='display:none'>Bloqueado</span>";
+                        }
+
+                        $this->retornar[] = [
+                            "cedula_usuario" => $u['cedula_persona'],
+                            "usuario"        => $u['primer_nombre'] . " " . $u['primer_apellido'],
+                            "estado"         => $this->estado,
+                            "rol"            => $u['rol_inicio'],
+                            "editar"         => "<button class='btn btn-info' title='Modificar rol o clave de usuario'><span class='fa fa-edit' type='button' onclick='modificar_rol(`" . $u['rol_inicio'] . "`,`" . $this->Decodificar($u['contrasenia']) . "`,`" . $u['cedula_persona'] . "`)'></span></button>",
+
+                        ];
+
+                    }
+
+                    $this->Escribir_JSON($this->retornar);
+                } else { $this->_403_();}
+                break;
+
+            default:$this->vista->Cargar_Vistas('error/400');
+                break;
         }
+        exit();
 
-        $this->Escribir_JSON($retornar);
-    }
-
-    public function change_permiso()
-    {
-
-        $datos = $_POST['datos'];
-
-        if ($this->modelo->change_permiso($datos)) {
-            $this->Escribir_JSON($this->modelo->get_permisos_rol($datos['rol']));
-        } else {
-            echo 0;
-        }
-
-    }
-
-    public function cambiar_roles()
-    {
-
-        $datos                = $_POST['datos'];
-        $datos['contrasenia'] = $this->Codificar($datos['clave']);
-        $listo                = false;
-
-        echo $this->modelo->change_roles($datos);
-
-    }
-
-    public function obtener_permisos_dinamico()
-    {
-
-        $permisos = $this->modelo->get_permisos_rol($_SESSION['rol_inicio']);
-
-        $_SESSION['Solicitudes']       = $permisos[0];
-        $_SESSION['Personas']          = $permisos[1];
-        $_SESSION['Agenda']            = $permisos[2];
-        $_SESSION['Comite']            = $permisos[3];
-        $_SESSION['Grupos deportivos'] = $permisos[4];
-        $_SESSION['Parto humanizado']  = $permisos[5];
-        $_SESSION['Enfermos']          = $permisos[6];
-        $_SESSION['Negocios']          = $permisos[7];
-        $_SESSION['Nucleo familiar']   = $permisos[8];
-        $_SESSION['Sector agricola']   = $permisos[9];
-        $_SESSION['Centros votacion']  = $permisos[10];
-        $_SESSION['Viviendas']         = $permisos[11];
-        $_SESSION['Inmuebles']         = $permisos[12];
-        $_SESSION['Discapacitados']    = $permisos[13];
-        $_SESSION['Vacunados COVID']   = $permisos[14];
-        $_SESSION['Seguridad']         = $permisos[15];
-
-        echo json_encode($permisos); //json_encode($permisos);
-    }
-
-    public function cambio_estado()
-    {
-        echo $this->modelo->cambio_estado([
-            "cedula_persona" => $_POST["cedula_persona"],
-            "estado"         => $_POST['estado'],
-        ]);
-
-    }
-
-    public function get_permisos_rol()
-    {
-        $permisos = $this->modelo->get_permisos_rol($_POST["rol"]);
-        echo json_encode($permisos);
     }
 
 }

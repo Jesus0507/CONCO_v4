@@ -252,7 +252,7 @@ function cargar_techos(id_vivienda) {
             }).done(function (result) {
                 var techos = JSON.parse(result);
                 for (var i = 0; i < techos.length; i++) {
-                    document.getElementById("tabla_techo").innerHTML += "<tr><td><input readOnly='readOnly' type='text' value='" + techos[i]["techo"] + "' class='form-control' placeholder='Tipo techo'></td><td><button type='button' class='btn btn-danger' onclick='borrar_techo(" + techos[i]["id_vivienda_tipo_techo"] + "," + id_vivienda + ")'>X</button></td></tr>";
+                    document.getElementById("tabla_techo").innerHTML += "<div class='mt-4 d-flex flex-row justify-content-between'><div>" + techos[i]["techo"] + "</div><div><button type='button' class='btn btn-danger' onclick='borrar_techo(" + techos[i]["id_vivienda_tipo_techo"] + "," + id_vivienda + ")'>X</button></div></div><hr>";
                 }
             });
         },
@@ -411,7 +411,7 @@ function cargar_paredes(id_vivienda) {
             }).done(function (result) {
                 var paredes = JSON.parse(result);
                 for (var i = 0; i < paredes.length; i++) {
-                    document.getElementById("tabla_pared").innerHTML += "<tr><td><input readOnly='readOnly' type='text' value='" + paredes[i]["pared"] + "' class='form-control'></td><td><button type='button' class='btn btn-danger' onclick='borrar_pared(" + paredes[i]["id_vivienda_tipo_pared"] + "," + id_vivienda + ")'>X</button></td></tr>";
+                    document.getElementById("tabla_pared").innerHTML += "<div class='mt-4 d-flex flex-row justify-content-between'><div>" + paredes[i]["pared"] + "</div><div><button type='button' class='btn btn-danger' onclick='borrar_pared(" + paredes[i]["id_vivienda_tipo_pared"] + "," + id_vivienda + ")'>X</button></div></div><hr>";
                 }
             });
         },
@@ -556,8 +556,8 @@ function cargar_pisos(id_vivienda) {
             }).done(function (result) {
                 var pisos = JSON.parse(result);
                 for (var i = 0; i < pisos.length; i++) {
-                    document.getElementById("tabla_piso").innerHTML += "<tr><td><input readOnly='readOnly' type='text' value='" + pisos[i]["piso"] + "' class='form-control'></td><td><button type='button' class='btn btn-danger' onclick='borrar_piso(" + pisos[i]["id_vivienda_tipo_piso"] + "," + id_vivienda + ")'>X</button></td></tr>";
-                }
+                    document.getElementById("tabla_piso").innerHTML += "<div class='mt-4 d-flex flex-row justify-content-between'><div>" + pisos[i]["piso"] + "</div><div><button type='button' class='btn btn-danger' onclick='borrar_piso(" + pisos[i]["id_vivienda_tipo_piso"] + "," + id_vivienda + ")'>X</button></div></div><hr>";
+            }
             });
         },
         error: function () {
@@ -945,11 +945,13 @@ document.getElementById("agregar_servicio").onclick = function () {
         document.getElementById("gas_input").style.display = "none";
         document.getElementById("gas_select").style.display = "";
         document.getElementById("gas_input").value = "";
+        document.getElementById("agregar_servicio").innerHTML = 'Nuevo servicio';
     } else {
         document.getElementById("gas_select").style.display = "none";
         document.getElementById("gas_input").style.display = "";
         document.getElementById("gas_input").focus();
         document.getElementById("gas_select").value = "vacio";
+        document.getElementById("agregar_servicio").innerHTML = 'Atras';
     }
 }
 document.getElementById("agregar_gas").onclick = function () {
@@ -1166,11 +1168,13 @@ document.getElementById("nuevo_electrodomestico").onclick = function () {
         document.getElementById("electrodomestico_input").style.display = "none";
         document.getElementById("electrodomestico_select").style.display = "";
         document.getElementById("electrodomestico_input").value = "";
+        document.getElementById("nuevo_electrodomestico").innerHTML = "Nuevo electrodoméstico"
     } else {
         document.getElementById("electrodomestico_select").style.display = "none";
         document.getElementById("electrodomestico_input").style.display = "";
         document.getElementById("electrodomestico_input").focus();
         document.getElementById("electrodomestico_select").value = "vacio";
+        document.getElementById("nuevo_electrodomestico").innerHTML = "Atras";
     }
 }
 document.getElementById("agregar_electrodomestico").onclick = function () {

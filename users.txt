@@ -1,0 +1,14 @@
+rol:	 Habitante
+usuario: 0000000
+clave:	 clave
+firma digital: firma
+
+rol:	 Administrador
+usuario: 1234567
+clave:	 clave
+firma digital: firma
+
+rol:	 Super Usuario
+usuario: 7654321
+clave:	 clave
+firma digital: firma
