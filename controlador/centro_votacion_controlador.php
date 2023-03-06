@@ -225,12 +225,16 @@ class Centro_Votacion extends Controlador
                 break;
             
             case 'Consultar_votante':
+                $votante_existe = 0;
                 $this->modelo->_SQL_("SQL_07");
                 $this->modelo->_Tipo_(0);
-                $this->modelo->_Datos_([
-                    'cedula_votante' => $this->datos_ejecutar
-                ]);
-                echo $this->modelo->Administrar();
+                $votantes = $this->modelo->Administrar();
+                foreach ($votantes as $v) {
+                    if($v['cedula_votante'] == $this->datos_ejecutar){
+                        $votante_existe++;
+                    }
+                }
+                echo $votante_existe;
                 break;
 
             case 'Editar':

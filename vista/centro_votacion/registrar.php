@@ -60,9 +60,17 @@
                                 <div class="input-group">
                                     <input list="centro" id="nombre_centro" name="datos[nombre_centro]" class="form-control no-simbolos " placeholder="Centro de Votacion" oninput="Limitar(this,45);" />
                                     <datalist id="centro">
-                                        <?php foreach($this->datos["centros_votacion"] as $centro){   ?>
+                                        <?php foreach($this->datos["centros_votacion"] as $centro){  
+                                            $parroquia='';
+                                        foreach($this->datos['parroquias'] as $p){
+                                              if($p['id_parroquia'] == $centro['id_parroquia']){
+                                                $parroquia = $p['nombre_parroquia'];
+                                              }
+                                        }
+                                        ?>
                                         <option value="<?php echo $centro["nombre_centro"];?>"> 
-                                        </option>
+                                        <?php echo '('.$parroquia.')'; ?>    
+                                    </option>
                                     <?php  }   ?>
                                     </datalist>
                                     

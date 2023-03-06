@@ -85,7 +85,7 @@ class Centro_Votacion_Class extends Modelo
 
     private function SQL_07():string
     {
-        return "SELECT * FROM votantes_centro_votacion WHERE cedula_votante = :cedula_votante";
+        return "SELECT * FROM votantes_centro_votacion WHERE estado = 1";
     }
 
 }
