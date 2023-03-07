@@ -51,4 +51,35 @@ class ControladorTest extends TestCase
         $privateKey = $controlador->GenerateRSAKeys($keys);
         $this->assertIsString($privateKey);
     }
+
+    public function testEncryptBits()
+    {
+        $myObject = new Controlador();
+        $this->assertEquals('!AMBZ!?', $myObject->EncryptBits('1234567890'));
+        $this->assertEquals('!', $myObject->EncryptBits('1'));
+        $this->assertEquals('X', $myObject->EncryptBits('0'));
+        $this->assertEquals('A?', $myObject->EncryptBits('23'));
+    }
+
+    public function testEscribirJSON()
+    {
+        $myObject = new Controlador();
+        ob_start();
+        $myObject->Escribir_JSON(['nombre' => 'Juan', 'edad' => 35]);
+        $output = ob_get_contents();
+        ob_end_clean();
+        $this->assertJsonStringEqualsJsonString('{"nombre":"Juan","edad":35}', $output);
+    }
+
+    public function testVerArray()
+    {
+        $myObject = new Controlador();
+        ob_start();
+        $myObject->Ver_Array(['nombre' => 'Juan', 'edad' => 35]);
+        $output = ob_get_contents();
+        ob_end_clean();
+        $this->assertStringContainsString('array(2)', $output);
+        $this->assertStringContainsString('["nombre"]=>', $output);
+        $this->assertStringContainsString('["edad"]=>', $output);
+    }
 }

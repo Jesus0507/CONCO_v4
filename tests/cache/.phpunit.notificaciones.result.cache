@@ -1,0 +1,1 @@
+{"version":1,"defects":{"NotificacionesTest::test_SQL_02_SELECT_1":3,"NotificacionesTest::test_SQL_04_DELETE":3},"times":{"NotificacionesTest::test_SQL_01_INSERT":0.008,"NotificacionesTest::test_SQL_02_SELECT_1":0.002,"NotificacionesTest::test_SQL_03_UPDATE":0.001,"NotificacionesTest::test_SQL_04_DELETE":0.003,"NotificacionesTest::test_SQL_05_SELECT_2":0.003}}
