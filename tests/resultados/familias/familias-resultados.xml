@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tests>
+  <test className="FamiliasTest" methodName="test_SQL_01_SELECT_1" prettifiedClassName="Familias" prettifiedMethodName="SQL 01 SELECT 1" status="0" time="0.0069739" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="FamiliasTest" methodName="test_SQL_02_SELECT_2" prettifiedClassName="Familias" prettifiedMethodName="SQL 02 SELECT 2" status="0" time="0.0008069" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="FamiliasTest" methodName="test_SQL_03_INSERT_1" prettifiedClassName="Familias" prettifiedMethodName="SQL 03 INSERT 1" status="0" time="0.0044212" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="FamiliasTest" methodName="test_SQL_04_UPDATE" prettifiedClassName="Familias" prettifiedMethodName="SQL 04 UPDATE" status="0" time="0.0024462" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="FamiliasTest" methodName="test_SQL_05_INSERT_2" prettifiedClassName="Familias" prettifiedMethodName="SQL 05 INSERT 2" status="0" time="0.0026442" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="FamiliasTest" methodName="test_SQL_06_SELECT_3" prettifiedClassName="Familias" prettifiedMethodName="SQL 06 SELECT 3" status="0" time="0.0007882" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+</tests>
