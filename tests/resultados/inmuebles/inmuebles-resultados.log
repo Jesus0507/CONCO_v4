@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="InmueblesTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\InmueblesTest.php" tests="1" assertions="0" errors="0" warnings="1" failures="0" skipped="0" time="0.010636">
+    <testcase name="Warning" assertions="0" time="0.010636">
+      <warning type="PHPUnit\Framework\Warning">Warning
+No tests found in class "InmueblesTest".</warning>
+    </testcase>
+  </testsuite>
+</testsuites>
