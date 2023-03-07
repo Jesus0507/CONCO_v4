@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite assertions="6" errors="0" failures="0" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\Consejo_ComunalTest.php" name="Consejo_ComunalTest" skipped="0" tests="4" time="0.801998" warnings="0">
+        <testcase assertions="2" class="Consejo_ComunalTest" classname="Consejo_ComunalTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\Consejo_ComunalTest.php" line="33" name="test_SQL_01_SELECT" time="0.501319">
+        </testcase>
+        <testcase assertions="1" class="Consejo_ComunalTest" classname="Consejo_ComunalTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\Consejo_ComunalTest.php" line="42" name="test_SQL_02_INSERT" time="0.280975">
+        </testcase>
+        <testcase assertions="1" class="Consejo_ComunalTest" classname="Consejo_ComunalTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\Consejo_ComunalTest.php" line="51" name="test_SQL_03_UPDATE" time="0.016876">
+        </testcase>
+        <testcase assertions="2" class="Consejo_ComunalTest" classname="Consejo_ComunalTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\Consejo_ComunalTest.php" line="60" name="test_SQL_04_SELECT" time="0.002827">
+        </testcase>
+    </testsuite>
+</testsuites>
