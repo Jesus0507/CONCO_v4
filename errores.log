@@ -1,9 +1,0 @@
-stdClass Object
-(
-    [Modulo] => ------Centro_Votacion------
-    [Fecha] => Lunes , 06 de Marzo del 2023
-    [Hora] => 03:31:25 PM
-    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\centro_votacion_class.php
-    [Linea] => 32
-    [Mensaje] => SQLSTATE[HY093]: Invalid parameter number
-)
