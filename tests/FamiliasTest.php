@@ -1,5 +1,7 @@
 <?php
 
+require_once "modelo/familias_class.php";
+
 use PHPUnit\Framework\TestCase;
 
 class FamiliasTest extends TestCase
