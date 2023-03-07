@@ -1,1 +1,1 @@
-{"version":1,"defects":{"Warning":6},"times":{"Warning":0.011}}
+{"version":1,"defects":{"Warning":6},"times":{"Warning":0.011,"InmueblesTest::test_SQL_01_SELECT":0.008,"InmueblesTest::test_SQL_02_INSERT":0.004,"InmueblesTest::test_SQL_03_UPDATE":0.003}}
