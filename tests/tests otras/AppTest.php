@@ -60,4 +60,51 @@ class IniciarSistemaTest extends TestCase
         // Verificar que se hayan pasado los parámetros correctamente a la función específica (Editar)
         $this->assertEquals(['123'], $iniciarSistema->getParametros());
     }
+
+    public function testCargar_Controladores()
+    {
+        $this->assertTrue($this->iniciarSistema->Cargar_Controladores());
+    }
+
+    public function testCargar_Funciones()
+    {
+        $this->assertTrue($this->iniciarSistema->Cargar_Funciones());
+    }
+
+    public function testValidar_Archivos()
+    {
+        $this->assertTrue($this->iniciarSistema->Validar_Archivos());
+    }
+
+    public function testValidar_Controlador()
+    {
+        $this->assertTrue($this->iniciarSistema->Validar_Controlador());
+    }
+
+    public function testValidar_Modelo()
+    {
+        $this->assertTrue($this->iniciarSistema->Validar_Modelo());
+    }
+
+    public function testValidar_Funcion()
+    {
+        $this->assertTrue($this->iniciarSistema->Validar_Funcion());
+    }
+
+    public function testValidar_URL()
+    {
+        $_GET['url'] = 'test/url';
+        $this->assertTrue($this->iniciarSistema->Validar_URL());
+    }
+
+    public function testValidar_Conexion()
+    {
+        $this->assertTrue($this->iniciarSistema->Validar_Conexion());
+    }
+
+    public function testGuardar_Error()
+    {
+        $this->expectOutputRegex('/stdClass/');
+        $this->iniciarSistema->Guardar_Error();
+    }
 }
