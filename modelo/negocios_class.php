@@ -25,8 +25,6 @@ class Negocios_Class extends Modelo
     {
         $this->sentencia = $this->{$this->SQL}(); #funcion anonima en espera de asignar nombre
 
-        // $this->sentencia = $this->Sentencias_Sql()[$this->SQL];
-        
         try {
             switch ($this->tipo) {
                 case '0':           #tipo 0 trae consultas de la bd retorna a un array con los datos 
