@@ -1,24 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tests>
-  <test className="Grupos_DeportivosTest" methodName="test_SQL_01_INSERT_1" prettifiedClassName="Grupos_Deportivos" prettifiedMethodName="SQL 01 INSERT 1" status="0" time="0.0084415" size="-1" groups="default">
-    <group name="default"/>
-  </test>
-  <test className="Grupos_DeportivosTest" methodName="test_SQL_02_UPDATE" prettifiedClassName="Grupos_Deportivos" prettifiedMethodName="SQL 02 UPDATE" status="0" time="0.0024828" size="-1" groups="default">
-    <group name="default"/>
-  </test>
-  <test className="Grupos_DeportivosTest" methodName="test_SQL_03_SELECT_1" prettifiedClassName="Grupos_Deportivos" prettifiedMethodName="SQL 03 SELECT 1" status="0" time="0.0017087" size="-1" groups="default">
-    <group name="default"/>
-  </test>
-  <test className="Grupos_DeportivosTest" methodName="test_SQL_04_SELECT_2" prettifiedClassName="Grupos_Deportivos" prettifiedMethodName="SQL 04 SELECT 2" status="0" time="0.0055787" size="-1" groups="default">
-    <group name="default"/>
-  </test>
-  <test className="Grupos_DeportivosTest" methodName="test_SQL_05_SELECT_3" prettifiedClassName="Grupos_Deportivos" prettifiedMethodName="SQL 05 SELECT 3" status="0" time="0.0010049" size="-1" groups="default">
-    <group name="default"/>
-  </test>
-  <test className="Grupos_DeportivosTest" methodName="test_SQL_06_INSERT_2" prettifiedClassName="Grupos_Deportivos" prettifiedMethodName="SQL 06 INSERT 2" status="0" time="0.0026358" size="-1" groups="default">
-    <group name="default"/>
-  </test>
-  <test className="Grupos_DeportivosTest" methodName="test_SQL_07_SELECT_4" prettifiedClassName="Grupos_Deportivos" prettifiedMethodName="SQL 07 SELECT 4" status="0" time="0.0008139" size="-1" groups="default">
-    <group name="default"/>
-  </test>
+    <test classname="Grupos_DeportivosTest" groups="default" methodname="test_SQL_01_INSERT_1" prettifiedclassname="Grupos_Deportivos" prettifiedmethodname="SQL 01 INSERT 1" size="-1" status="0" time="0.1274653">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="Grupos_DeportivosTest" groups="default" methodname="test_SQL_02_UPDATE" prettifiedclassname="Grupos_Deportivos" prettifiedmethodname="SQL 02 UPDATE" size="-1" status="0" time="0.1113195">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="Grupos_DeportivosTest" groups="default" methodname="test_SQL_03_SELECT_1" prettifiedclassname="Grupos_Deportivos" prettifiedmethodname="SQL 03 SELECT 1" size="-1" status="0" time="0.0078925">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="Grupos_DeportivosTest" groups="default" methodname="test_SQL_04_SELECT_2" prettifiedclassname="Grupos_Deportivos" prettifiedmethodname="SQL 04 SELECT 2" size="-1" status="0" time="0.0070955">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="Grupos_DeportivosTest" groups="default" methodname="test_SQL_05_SELECT_3" prettifiedclassname="Grupos_Deportivos" prettifiedmethodname="SQL 05 SELECT 3" size="-1" status="0" time="0.0053567">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="Grupos_DeportivosTest" groups="default" methodname="test_SQL_06_INSERT_2" prettifiedclassname="Grupos_Deportivos" prettifiedmethodname="SQL 06 INSERT 2" size="-1" status="0" time="0.0385699">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="Grupos_DeportivosTest" groups="default" methodname="test_SQL_07_SELECT_4" prettifiedclassname="Grupos_Deportivos" prettifiedmethodname="SQL 07 SELECT 4" size="-1" status="0" time="0.0029587">
+        <group name="default">
+        </group>
+    </test>
 </tests>
