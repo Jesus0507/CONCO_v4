@@ -15,7 +15,6 @@ class VistaTest extends TestCase
 
     public function testCargarVistas()
     {
-        // Crear una instancia de la clase Vista
         $vista = new Vista();
         $this->expectException(\PHPUnit\Framework\Error\Error::class);
         $this->expectExceptionMessage('require(vista/nombre_vista.php): failed to open stream: No such file or directory');
@@ -24,7 +23,6 @@ class VistaTest extends TestCase
 
     public function testSesion()
     {
-        // Crear una instancia de la clase Vista
         $vista = new Vista();
         $vista->_SESSION_('nombre_sesion');
         $this->assertEquals('nombre_sesion', $vista->SESSION());

@@ -1,6 +1,8 @@
 <?php
 
-class ValidacionTest extends PHPUnit\Framework\TestCase
+use PHPUnit\Framework\TestCase;
+
+class ValidacionTest extends TestCase
 {
     public function testValidarCedula()
     {

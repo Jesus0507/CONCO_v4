@@ -18,7 +18,6 @@ class ModeloTest extends TestCase
 
     public function testCRUD(): void
     {
-        // Asignar valores a la propiedad $estado
         $estado = array(
             'tabla' => 'mi_tabla',
             'id_tabla' => 'mi_id_tabla',
