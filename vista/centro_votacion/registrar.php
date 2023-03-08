@@ -69,7 +69,7 @@
                                         }
                                         ?>
                                         <option value="<?php echo $centro["nombre_centro"];?>"> 
-                                        <?php echo '('.$parroquia.')'; ?>    
+                                       ( <span><?php echo $parroquia; ?></span> )    
                                     </option>
                                     <?php  }   ?>
                                     </datalist>

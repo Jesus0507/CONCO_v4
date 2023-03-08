@@ -124,3 +124,29 @@ document.getElementById('enviar').onclick = function () {
     }
 }
 
+
+document.getElementById('nombre_centro').onchange=function(){
+    var opt_input = document.getElementById('centro').querySelectorAll('option');
+    var opt_parroquias = document.getElementById('id_parroquia').querySelectorAll('option');
+    var opt_selected = '';
+    for(var i = 0 ; i < opt_input.length; i++) {
+        if(opt_input[i].value == document.getElementById('nombre_centro').value) {
+            opt_selected = opt_input[i]; 
+        }
+    }
+
+    opt_selected = opt_selected.querySelector('span').innerHTML;
+
+        for(var j = 0; j<opt_parroquias.length; j++) {
+            if(opt_parroquias[j].label == opt_selected){
+                document.getElementById('id_parroquia').value = opt_parroquias[j].value;
+            }
+        }
+}
+
+window.addEventListener("keypress", function(event){
+    if (event.keyCode == 13){
+        event.preventDefault();
+    }
+}, false);
+

@@ -163,18 +163,62 @@ class Centro_Votacion extends Controlador
                         }
                     }
                     else {
-                        $this->modelo->_SQL_("SQL_03");
-                                $this->modelo->_Tipo_(1);
-                                $this->datos_ejecutar = array(
-                                    "id_centro_votacion" => $cont,
-                                    "cedula_votante"     => $this->Get_Datos()['persona'],
-                                    "estado"             => 1,
-                                );
-                                $this->modelo->_Datos_($this->Get_Datos());
-                                if ($this->modelo->Administrar()) {
-                                    $this->Accion($this->Get_Accion());
-                                    echo $this->Get_Mensaje();
+                        $index = 0;
+                        foreach ($this->datos_consulta["centros_votacion"] as $cv) {
+                            if (strtolower($cv['nombre_centro']) == strtolower($this->datos_ejecutar['nombre_centro'])) {
+                                if($cv['id_parroquia'] == $this->Get_Datos()['parroquia']){
+                                    $index++;
                                 }
+                            }
+                        }
+
+
+                         if($index != 0) {
+                            $this->modelo->_SQL_("SQL_03");
+                            $this->modelo->_Tipo_(1);
+                            $this->datos_ejecutar = array(
+                                "id_centro_votacion" => $cont,
+                                "cedula_votante"     => $this->Get_Datos()['persona'],
+                                "estado"             => 1,
+                            );
+                            $this->modelo->_Datos_($this->Get_Datos());
+                            if ($this->modelo->Administrar()) {
+                                $this->Accion($this->Get_Accion());
+                                echo $this->Get_Mensaje();
+                            }
+                         }
+                          else{
+                            $this->modelo->_SQL_("SQL_04");
+                            $this->modelo->_Tipo_(1);
+                            $datos_registro = [
+                                'id_parroquia' => $this->Get_Datos()['parroquia'],
+                                'nombre_centro' => $this->Get_Datos()['nombre_centro'],
+                                'estado' => 1
+                            ];
+                            $this->modelo->_Datos_($datos_registro);
+                            if ($this->modelo->Administrar()) {
+                                $this->modelo->_SQL_("_03_");
+                                $this->modelo->_Tipo_(0);
+                                $this->crud["ultimo"] = array("tabla" => "centros_votacion", "id" => "id_centro_votacion");
+                                $this->modelo->_CRUD_($this->Get_Crud_Sql());
+                                $this->id = $this->modelo->Administrar();
+                                foreach ($this->id as $i) {
+                                    $this->modelo->_SQL_("SQL_03");
+                                    $this->modelo->_Tipo_(1);
+                                    $this->datos_ejecutar = array(
+                                        "id_centro_votacion" => $i['MAX(id_centro_votacion)'],
+                                        "cedula_votante"     => $this->Get_Datos()['persona'],
+                                        "estado"             => 1,
+                                    );
+                                    $this->modelo->_Datos_($this->Get_Datos());
+                                    if ($this->modelo->Administrar()) {
+                                        $this->Accion($this->Get_Accion());
+                                        echo $this->Get_Mensaje();
+                                    }
+                                }      
+                            }
+                         }
+                       
                     }
                 } else {
                     $this->_403_();
