@@ -1,1 +1,7 @@
-{"version":1,"defects":{"LoginTest::test_SQL_01_SELECT":3},"times":{"LoginTest::test_SQL_01_SELECT":0.006}}
+{
+  "version": 1,
+  "defects": {},
+  "times": {
+    "LoginTest::test_SQL_01_SELECT": 0.025
+  }
+}
