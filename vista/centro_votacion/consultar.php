@@ -53,32 +53,18 @@
       var cedula_persona = td[0].innerHTML;
       var nombre_centro = td[2].innerHTML;
       var parroquia = td[3].innerHTML;
+      var parroquias = document.getElementById('id_parroquia2').querySelectorAll('option');
+      for (var i = 0 ; i < parroquias.length; i++) {
+        if(parroquias[i].label.toLowerCase() == parroquia.toLowerCase()){
+            parroquia = parroquias[i].value;
+        }
+      }
       document.getElementById("cedula_persona2").value = cedula_persona;
       document.getElementById("nombre_centro2").value = nombre_centro;
-      $.ajax({
-          type: "POST",
-          url: BASE_URL + "app/Direcciones.php",
-          data: {
-              direction: "Centro_Votacion/Administrar",
-              accion: "codificar"
-          },
-          success: function(direccion_segura) {
-              $.ajax({
-                  type: "POST",
-                  url: BASE_URL + direccion_segura,
-                  data: {
-                      peticion: "Parroquias",
-                      id: parroquia
-                  },
-              }).done(function(result) {
-                  document.getElementById("id_parroquia2").value = parseInt(result);
-                  $("#actualizar").modal("show");
-              })
-          },
-          error: function() {
-              alert('Error al codificar dirreccion');
-          }
-      });
+      document.getElementById('id_parroquia2').value = parroquia;
+      $("#actualizar").modal("show");
+
+
       document.getElementById("enviar").onclick = function() {
           if (document.getElementById("nombre_centro2").value == "") {
               swal({
@@ -113,29 +99,30 @@
                               sql: "SQL_05"
                           },
                       }).done(function(datos) {
-                          if (datos == 1) {
-                              swal({
-                                  type: "success",
-                                  title: "Éxito",
-                                  text: "Los cambios se han realizado exitosamente",
-                                  timer: 2000,
-                                  showConfirmButton: false
-                              });
-                              setTimeout(function() {
-                                  $('#example1').DataTable().clear().destroy();
-                                  cargar_tabla();
-                                  $("#actualizar").modal("hide");
-                              }, 1000);
-                          } else {
-                              swal({
-                                  title: "ERROR!",
-                                  text: "Ha ocurrido un Error.</br>" + datos,
-                                  type: "error",
-                                  html: true,
-                                  showConfirmButton: true,
-                                  customClass: "bigSwalV2",
-                              });
-                          }
+                        console.log(datos);
+                              if (datos == 1) {
+                                  swal({
+                                      type: "success",
+                                      title: "Éxito",
+                                      text: "Los cambios se han realizado exitosamente",
+                                      timer: 2000,
+                                      showConfirmButton: false
+                                  });
+                                  setTimeout(function() {
+                                      $('#example1').DataTable().clear().destroy();
+                                      cargar_tabla();
+                                      $("#actualizar").modal("hide");
+                                  }, 1000);
+                              } else {
+                                  swal({
+                                      title: "ERROR!",
+                                      text: "Ha ocurrido un Error.</br>" + datos,
+                                      type: "error",
+                                      html: true,
+                                      showConfirmButton: true,
+                                      customClass: "bigSwalV2",
+                                  });
+                              }
                       })
                   },
                   error: function() {

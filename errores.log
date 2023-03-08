@@ -1,0 +1,54 @@
+stdClass Object
+(
+    [Modulo] => ------Centro_Votacion------
+    [Fecha] => Miercoles , 08 de Marzo del 2023
+    [Hora] => 04:25:53 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\centro_votacion_class.php
+    [Linea] => 31
+    [Mensaje] => SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') FROM' at line 1
+)
+stdClass Object
+(
+    [Modulo] => ------Centro_Votacion------
+    [Fecha] => Miercoles , 08 de Marzo del 2023
+    [Hora] => 04:29:26 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\centro_votacion_class.php
+    [Linea] => 31
+    [Mensaje] => SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') FROM' at line 1
+)
+stdClass Object
+(
+    [Modulo] => ------Centro_Votacion------
+    [Fecha] => Miercoles , 08 de Marzo del 2023
+    [Hora] => 05:01:34 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\centro_votacion_class.php
+    [Linea] => 31
+    [Mensaje] => SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') FROM' at line 1
+)
+stdClass Object
+(
+    [Modulo] => ------Centro_Votacion------
+    [Fecha] => Miercoles , 08 de Marzo del 2023
+    [Hora] => 05:01:34 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\centro_votacion_class.php
+    [Linea] => 41
+    [Mensaje] => SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'id_centro_votacion' cannot be null
+)
+stdClass Object
+(
+    [Modulo] => ------Centro_Votacion------
+    [Fecha] => Miercoles , 08 de Marzo del 2023
+    [Hora] => 05:01:45 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\centro_votacion_class.php
+    [Linea] => 31
+    [Mensaje] => SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') FROM' at line 1
+)
+stdClass Object
+(
+    [Modulo] => ------Centro_Votacion------
+    [Fecha] => Miercoles , 08 de Marzo del 2023
+    [Hora] => 05:01:45 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\centro_votacion_class.php
+    [Linea] => 41
+    [Mensaje] => SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'id_centro_votacion' cannot be null
+)
