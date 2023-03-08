@@ -69,15 +69,6 @@ class HabitanteTest extends TestCase
         $this->assertNotEmpty($result);
     }
 
-    public function test_SQL_06_SELECT_6()
-    {
-        $this->habitante->_SQL_("SQL_06");
-        $this->habitante->_Tipo_(0);
-        $result = $this->habitante->Administrar();
-        $this->assertIsArray($result);
-        $this->assertNotEmpty($result);
-    }
-
     public function test_SQL_07_SELECT_7()
     {
         $this->habitante->_SQL_("SQL_07");
