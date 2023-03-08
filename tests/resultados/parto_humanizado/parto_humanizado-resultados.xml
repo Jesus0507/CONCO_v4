@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tests>
-  <test className="Parto_HumanizadoTest" methodName="test_SQL_01_SELECT_1" prettifiedClassName="Parto_Humanizado" prettifiedMethodName="SQL 01 SELECT 1" status="0" time="0.0113453" size="-1" groups="default">
-    <group name="default"/>
-  </test>
-  <test className="Parto_HumanizadoTest" methodName="test_SQL_02_INSERT" prettifiedClassName="Parto_Humanizado" prettifiedMethodName="SQL 02 INSERT" status="0" time="0.0036743" size="-1" groups="default">
-    <group name="default"/>
-  </test>
-  <test className="Parto_HumanizadoTest" methodName="test_SQL_03_UPDATE" prettifiedClassName="Parto_Humanizado" prettifiedMethodName="SQL 03 UPDATE" status="0" time="0.0040762" size="-1" groups="default">
-    <group name="default"/>
-  </test>
-  <test className="Parto_HumanizadoTest" methodName="test_SQL_04_SELECT_2" prettifiedClassName="Parto_Humanizado" prettifiedMethodName="SQL 04 SELECT 2" status="0" time="0.0013992" size="-1" groups="default">
-    <group name="default"/>
-  </test>
+    <test classname="Parto_HumanizadoTest" groups="default" methodname="test_SQL_01_SELECT_1" prettifiedclassname="Parto_Humanizado" prettifiedmethodname="SQL 01 SELECT 1" size="-1" status="0" time="0.0599436">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="Parto_HumanizadoTest" groups="default" methodname="test_SQL_02_INSERT" prettifiedclassname="Parto_Humanizado" prettifiedmethodname="SQL 02 INSERT" size="-1" status="0" time="0.074466">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="Parto_HumanizadoTest" groups="default" methodname="test_SQL_03_UPDATE" prettifiedclassname="Parto_Humanizado" prettifiedmethodname="SQL 03 UPDATE" size="-1" status="0" time="0.0027257">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="Parto_HumanizadoTest" groups="default" methodname="test_SQL_04_SELECT_2" prettifiedclassname="Parto_Humanizado" prettifiedmethodname="SQL 04 SELECT 2" size="-1" status="0" time="0.0030564">
+        <group name="default">
+        </group>
+    </test>
 </tests>
