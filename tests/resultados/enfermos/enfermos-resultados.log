@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="EnfermosTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\EnfermosTest.php" tests="7" assertions="13" errors="0" warnings="0" failures="0" skipped="0" time="0.019842">
-    <testcase name="test_SQL_01_SELECT_1" class="EnfermosTest" classname="EnfermosTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\EnfermosTest.php" line="29" assertions="2" time="0.006709"/>
-    <testcase name="test_SQL_02_SELECT_2" class="EnfermosTest" classname="EnfermosTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\EnfermosTest.php" line="38" assertions="2" time="0.006876"/>
-    <testcase name="test_SQL_03_SELECT_3" class="EnfermosTest" classname="EnfermosTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\EnfermosTest.php" line="47" assertions="2" time="0.000921"/>
-    <testcase name="test_SQL_04_SELECT_4" class="EnfermosTest" classname="EnfermosTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\EnfermosTest.php" line="56" assertions="2" time="0.000838"/>
-    <testcase name="test_SQL_05_INSERT" class="EnfermosTest" classname="EnfermosTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\EnfermosTest.php" line="66" assertions="1" time="0.003103"/>
-    <testcase name="test_SQL_06_SELECT_5" class="EnfermosTest" classname="EnfermosTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\EnfermosTest.php" line="75" assertions="2" time="0.000748"/>
-    <testcase name="test_SQL_07_SELECT_6" class="EnfermosTest" classname="EnfermosTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\EnfermosTest.php" line="84" assertions="2" time="0.000647"/>
-  </testsuite>
+    <testsuite assertions="13" errors="0" failures="0" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\EnfermosTest.php" name="EnfermosTest" skipped="0" tests="7" time="0.138366" warnings="0">
+        <testcase assertions="2" class="EnfermosTest" classname="EnfermosTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\EnfermosTest.php" line="29" name="test_SQL_01_SELECT_1" time="0.027823">
+        </testcase>
+        <testcase assertions="2" class="EnfermosTest" classname="EnfermosTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\EnfermosTest.php" line="38" name="test_SQL_02_SELECT_2" time="0.016690">
+        </testcase>
+        <testcase assertions="2" class="EnfermosTest" classname="EnfermosTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\EnfermosTest.php" line="47" name="test_SQL_03_SELECT_3" time="0.003907">
+        </testcase>
+        <testcase assertions="2" class="EnfermosTest" classname="EnfermosTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\EnfermosTest.php" line="56" name="test_SQL_04_SELECT_4" time="0.007251">
+        </testcase>
+        <testcase assertions="1" class="EnfermosTest" classname="EnfermosTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\EnfermosTest.php" line="66" name="test_SQL_05_INSERT" time="0.076000">
+        </testcase>
+        <testcase assertions="2" class="EnfermosTest" classname="EnfermosTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\EnfermosTest.php" line="75" name="test_SQL_06_SELECT_5" time="0.003111">
+        </testcase>
+        <testcase assertions="2" class="EnfermosTest" classname="EnfermosTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\EnfermosTest.php" line="84" name="test_SQL_07_SELECT_6" time="0.003584">
+        </testcase>
+    </testsuite>
 </testsuites>

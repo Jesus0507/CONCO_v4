@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tests>
+  <test className="SeguridadTest" methodName="test_SQL_01_SELECT_1" prettifiedClassName="Seguridad" prettifiedMethodName="SQL 01 SELECT 1" status="0" time="0.0343619" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="SeguridadTest" methodName="test_SQL_02_SELECT_2" prettifiedClassName="Seguridad" prettifiedMethodName="SQL 02 SELECT 2" status="0" time="0.0055931" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="SeguridadTest" methodName="test_SQL_03_SELECT_3" prettifiedClassName="Seguridad" prettifiedMethodName="SQL 03 SELECT 3" status="0" time="0.0049919" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="SeguridadTest" methodName="test_SQL04_UPDATE_1" prettifiedClassName="Seguridad" prettifiedMethodName="SQL04 UPDATE 1" status="0" time="0.0064477" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="SeguridadTest" methodName="test_SQL05_UPDATE_2" prettifiedClassName="Seguridad" prettifiedMethodName="SQL05 UPDATE 2" status="0" time="0.0030855" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="SeguridadTest" methodName="test_SQL06_UPDATE_3" prettifiedClassName="Seguridad" prettifiedMethodName="SQL06 UPDATE 3" status="0" time="0.0034468" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="SeguridadTest" methodName="test_SQL07_UPDATE_4" prettifiedClassName="Seguridad" prettifiedMethodName="SQL07 UPDATE 4" status="0" time="0.0052734" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+</tests>
