@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tests>
-  <test className="NegociosTest" methodName="test_SQL_01_SELECT_1" prettifiedClassName="Negocios" prettifiedMethodName="SQL 01 SELECT 1" status="0" time="0.0075031" size="-1" groups="default">
-    <group name="default"/>
-  </test>
-  <test className="NegociosTest" methodName="test_SQL_02_INSERT" prettifiedClassName="Negocios" prettifiedMethodName="SQL 02 INSERT" status="0" time="0.0063316" size="-1" groups="default">
-    <group name="default"/>
-  </test>
-  <test className="NegociosTest" methodName="test_SQL_03_UPDATE" prettifiedClassName="Negocios" prettifiedMethodName="SQL 03 UPDATE" status="0" time="0.0033067" size="-1" groups="default">
-    <group name="default"/>
-  </test>
-  <test className="NegociosTest" methodName="test_SQL_04_SELECT_2" prettifiedClassName="Negocios" prettifiedMethodName="SQL 04 SELECT 2" status="0" time="0.0010771" size="-1" groups="default">
-    <group name="default"/>
-  </test>
+    <test classname="NegociosTest" groups="default" methodname="test_SQL_01_SELECT_1" prettifiedclassname="Negocios" prettifiedmethodname="SQL 01 SELECT 1" size="-1" status="0" time="0.041258">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="NegociosTest" groups="default" methodname="test_SQL_02_INSERT" prettifiedclassname="Negocios" prettifiedmethodname="SQL 02 INSERT" size="-1" status="0" time="0.0580207">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="NegociosTest" groups="default" methodname="test_SQL_03_UPDATE" prettifiedclassname="Negocios" prettifiedmethodname="SQL 03 UPDATE" size="-1" status="0" time="0.00294">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="NegociosTest" groups="default" methodname="test_SQL_04_SELECT_2" prettifiedclassname="Negocios" prettifiedmethodname="SQL 04 SELECT 2" size="-1" status="0" time="0.0030526">
+        <group name="default">
+        </group>
+    </test>
 </tests>
