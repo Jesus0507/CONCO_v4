@@ -33,9 +33,6 @@ class FamiliasTest extends TestCase
             'estado'                => 1,
             'id_familia'            => 1,
         ],
-        'DELETE'   => [
-
-        ],
     );
 
     protected function setUp(): void

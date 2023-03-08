@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="FamiliasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\FamiliasTest.php" tests="6" assertions="9" errors="0" warnings="0" failures="0" skipped="0" time="0.013908">
-    <testcase name="test_SQL_01_SELECT_1" class="FamiliasTest" classname="FamiliasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\FamiliasTest.php" line="47" assertions="2" time="0.006855"/>
-    <testcase name="test_SQL_02_SELECT_2" class="FamiliasTest" classname="FamiliasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\FamiliasTest.php" line="56" assertions="2" time="0.000947"/>
-    <testcase name="test_SQL_03_INSERT_1" class="FamiliasTest" classname="FamiliasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\FamiliasTest.php" line="66" assertions="1" time="0.003367"/>
-    <testcase name="test_SQL_04_UPDATE" class="FamiliasTest" classname="FamiliasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\FamiliasTest.php" line="75" assertions="1" time="0.000706"/>
-    <testcase name="test_SQL_05_INSERT_2" class="FamiliasTest" classname="FamiliasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\FamiliasTest.php" line="84" assertions="1" time="0.001352"/>
-    <testcase name="test_SQL_06_SELECT_3" class="FamiliasTest" classname="FamiliasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\FamiliasTest.php" line="93" assertions="2" time="0.000681"/>
-  </testsuite>
+    <testsuite assertions="9" errors="0" failures="0" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\FamiliasTest.php" name="FamiliasTest" skipped="0" tests="6" time="0.203948" warnings="0">
+        <testcase assertions="2" class="FamiliasTest" classname="FamiliasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\FamiliasTest.php" line="47" name="test_SQL_01_SELECT_1" time="0.041420">
+        </testcase>
+        <testcase assertions="2" class="FamiliasTest" classname="FamiliasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\FamiliasTest.php" line="56" name="test_SQL_02_SELECT_2" time="0.031650">
+        </testcase>
+        <testcase assertions="1" class="FamiliasTest" classname="FamiliasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\FamiliasTest.php" line="66" name="test_SQL_03_INSERT_1" time="0.064076">
+        </testcase>
+        <testcase assertions="1" class="FamiliasTest" classname="FamiliasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\FamiliasTest.php" line="75" name="test_SQL_04_UPDATE" time="0.002667">
+        </testcase>
+        <testcase assertions="1" class="FamiliasTest" classname="FamiliasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\FamiliasTest.php" line="84" name="test_SQL_05_INSERT_2" time="0.060819">
+        </testcase>
+        <testcase assertions="2" class="FamiliasTest" classname="FamiliasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\FamiliasTest.php" line="93" name="test_SQL_06_SELECT_3" time="0.003315">
+        </testcase>
+    </testsuite>
 </testsuites>
