@@ -20,6 +20,7 @@ class Notificaciones_Class extends Modelo
     public function _Datos_(array $datos): void     {$this->datos = $datos;}
     public function _Estado_(array $estado): void   {$this->estado = $estado;}
     public function _Cedula_(string $cedula): void   {$this->cedula = $cedula;}
+    
     public function Administrar()
     {
         $this->sentencia = $this->{$this->SQL}(); #funcion anonima en espera de asignar nombre
