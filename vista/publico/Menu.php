@@ -185,7 +185,7 @@
                     <a href="javascript:void(0)" class="nav-link">
                         <i class="nav-icon fa fa-ambulance"></i>
                         <p>
-                            Gestionar Enfermos
+                            Gestionar Patologías
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
@@ -193,7 +193,7 @@
                         <li class="nav-item" onclick="cambio_modulo('Registrar enfermos')">
                             <a href="<?php Direcciones::_016_();?>" class="nav-link">
                                 <i class="fa fa-plus-circle nav-icon text-success"></i>
-                                <p>Registrar Enfermos</p>
+                                <p>Registrar Patologías</p>
                             </a>
                         </li>
                         <?php }?>
@@ -201,7 +201,7 @@
                         <li class="nav-item" onclick="cambio_modulo('Consultar enfermos')">
                             <a href="<?php Direcciones::_017_();?>" class="nav-link">
                                 <i class="fa fa-list nav-icon text-info"></i>
-                                <p>Consultar Enfermos</p>
+                                <p>Consultar Patologías</p>
                             </a>
                         </li>
                         <?php }?>
