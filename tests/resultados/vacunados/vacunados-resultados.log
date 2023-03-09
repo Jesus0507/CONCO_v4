@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite assertions="3" errors="0" failures="0" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\VacunadosTest.php" name="VacunadosTest" skipped="0" tests="2" time="0.108244" warnings="0">
+        <testcase assertions="2" class="VacunadosTest" classname="VacunadosTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\VacunadosTest.php" line="26" name="test_SQL_01_SELECT" time="0.038798">
+        </testcase>
+        <testcase assertions="1" class="VacunadosTest" classname="VacunadosTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\VacunadosTest.php" line="35" name="test_SQL_02_INSERT" time="0.069446">
+        </testcase>
+    </testsuite>
+</testsuites>
