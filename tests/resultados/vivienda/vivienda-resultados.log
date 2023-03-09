@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite assertions="25" errors="0" failures="0" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\ViviendasTest.php" name="ViviendasTest" skipped="0" tests="17" time="0.598828" warnings="0">
+        <testcase assertions="2" class="ViviendasTest" classname="ViviendasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\ViviendasTest.php" line="92" name="test_SQL_01_SELECT_1" time="0.035956">
+        </testcase>
+        <testcase assertions="2" class="ViviendasTest" classname="ViviendasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\ViviendasTest.php" line="101" name="test_SQL_02_SELECT_2" time="0.003375">
+        </testcase>
+        <testcase assertions="2" class="ViviendasTest" classname="ViviendasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\ViviendasTest.php" line="110" name="test_SQL_03_SELECT_3" time="0.003188">
+        </testcase>
+        <testcase assertions="2" class="ViviendasTest" classname="ViviendasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\ViviendasTest.php" line="120" name="test_SQL_04_SELECT_4" time="0.002667">
+        </testcase>
+        <testcase assertions="2" class="ViviendasTest" classname="ViviendasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\ViviendasTest.php" line="130" name="test_SQL_05_SELECT_5" time="0.002848">
+        </testcase>
+        <testcase assertions="2" class="ViviendasTest" classname="ViviendasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\ViviendasTest.php" line="140" name="test_SQL_07_SELECT_7" time="0.002880">
+        </testcase>
+        <testcase assertions="2" class="ViviendasTest" classname="ViviendasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\ViviendasTest.php" line="150" name="test_SQL_08_SELECT_8" time="0.002894">
+        </testcase>
+        <testcase assertions="2" class="ViviendasTest" classname="ViviendasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\ViviendasTest.php" line="160" name="test_SQL_09_SELECT_9" time="0.003050">
+        </testcase>
+        <testcase assertions="1" class="ViviendasTest" classname="ViviendasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\ViviendasTest.php" line="170" name="test_SQL_10_INSERT_1" time="0.101947">
+        </testcase>
+        <testcase assertions="1" class="ViviendasTest" classname="ViviendasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\ViviendasTest.php" line="179" name="test_SQL_11_UPDATE_1" time="0.003362">
+        </testcase>
+        <testcase assertions="1" class="ViviendasTest" classname="ViviendasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\ViviendasTest.php" line="188" name="test_SQL_12_INSERT_2" time="0.045213">
+        </testcase>
+        <testcase assertions="1" class="ViviendasTest" classname="ViviendasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\ViviendasTest.php" line="197" name="test_SQL_13_INSERT_2" time="0.037277">
+        </testcase>
+        <testcase assertions="1" class="ViviendasTest" classname="ViviendasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\ViviendasTest.php" line="206" name="test_SQL_14_INSERT_3" time="0.038719">
+        </testcase>
+        <testcase assertions="1" class="ViviendasTest" classname="ViviendasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\ViviendasTest.php" line="215" name="test_SQL_15_INSERT_4" time="0.037703">
+        </testcase>
+        <testcase assertions="1" class="ViviendasTest" classname="ViviendasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\ViviendasTest.php" line="224" name="test_SQL_16_INSERT_5" time="0.138077">
+        </testcase>
+        <testcase assertions="1" class="ViviendasTest" classname="ViviendasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\ViviendasTest.php" line="233" name="test_SQL_17_INSERT_6" time="0.136720">
+        </testcase>
+        <testcase assertions="1" class="ViviendasTest" classname="ViviendasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\ViviendasTest.php" line="242" name="test_SQL_18_DELETE_1" time="0.002951">
+        </testcase>
+    </testsuite>
+</testsuites>

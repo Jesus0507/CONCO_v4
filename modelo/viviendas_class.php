@@ -1,6 +1,6 @@
 <?php
  
-class Viviendas_Class extends Modelo
+class Viviendas_Class extends Modelo 
 {
     #Public: acceso sin restricción.
     #Private:Solo puede ser accesado por la clase que lo define.
@@ -61,7 +61,7 @@ class Viviendas_Class extends Modelo
 
     private function SQL_02():string
     {
-        return "SELECT s.id_servicio, s.id_agua_consumo, ac.nombre_agua_consumo, s.id_aguas_negras, an.nombre_aguas_negras, s.id_residuos_solidos, rs.nombre_residuos, s.id_television, tv.nombre_television, cable_telefonico, internet, servicio_electrico, s.estado FROM servicios s INNER JOIN agua_consumo ac, aguas_negras an, residuos_solidos rs, television tv WHERE s.estado = 1 AND s.id_agua_consumo = ac.id_agua_consumo AND s.id_aguas_negras = an.id_aguas_negras AND s.id_residuos_solidos = rs.id_residuos_solidos AND s.id_television = tv.id_television";
+        return "SELECT * FROM servicios s WHERE s.estado = 1";
     }
 
     private function SQL_03():string
@@ -127,7 +127,7 @@ class Viviendas_Class extends Modelo
     }
     private function SQL_18():string
     {
-        return "DELETE FROM vivienda WHERE id_vivienda = :id_vivienda;DELETE FROM servicios WHERE id_servicio =:id_servicio";
+        return "DELETE FROM vivienda WHERE id_vivienda = :id_vivienda";
     }
 
 }
