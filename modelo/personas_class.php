@@ -1,6 +1,6 @@
 <?php
 
-class Personas_Class extends Modelo 
+class Personas_Class extends Modelo  
 { 
     #Public: acceso sin restricción.
     #Private:Solo puede ser accesado por la clase que lo define.
@@ -41,6 +41,15 @@ class Personas_Class extends Modelo
                     $this->PDO->execute($this->datos);
                     $this->conexion->commit();
                     return true;
+                 case '2':           #tipo 0 trae consultas de la bd retorna a un array con los datos 
+                    $this->conexion->beginTransaction(); # Inicia una transacción
+                    $this->PDO = $this->conexion->prepare($this->sentencia);
+                    $this->PDO->execute($this->datos);
+                    $this->conexion->commit(); #Consigna una transacción
+                    $this->PDO->setFetchMode(PDO::FETCH_ASSOC);
+                    $this->resultado = $this->PDO->fetchAll(PDO::FETCH_ASSOC);
+                    return $this->resultado;
+                    break;
                     break;
                 default:        # mensaje error si la peticion fue incorrecta
                     die('[Error 400] => "La Peticion es Incorrecta, solo se permite peticion de tipo 0/1."');
@@ -117,7 +126,7 @@ class Personas_Class extends Modelo
     
     private function SQL_13():string
     {
-        return 'INSERT INTO condicion_laboral (cedula_persona,nombre_cond_laboral,sector_laboral,pertenece,estad) VALUES (:cedula_persona,:nombre_cond_laboral,:sector_laboral,:pertenece,:estado)';
+        return 'INSERT INTO condicion_laboral (cedula_persona,nombre_cond_laboral,sector_laboral,pertenece,estado) VALUES (:cedula_persona,:nombre_cond_laboral,:sector_laboral,:pertenece,:estado)';
     }
 
     private function SQL_14():string
@@ -127,7 +136,7 @@ class Personas_Class extends Modelo
 
     private function SQL_15():string
     {
-        return "UPDATE personas  SET primer_nombre =:primer_nombre,segundo_nombre =:segundo_nombre, primer_apellido =:primer_apellido,segundo_apellido =:segundo_apellido,nacionalidad =:nacionalidad,jefe_familia =:jefe_familia,propietario_vivienda =:propietario_vivienda,afrodescendencia =:afrodescendencia,sexualidad =:sexualidad,fecha_nacimiento =:fecha_nacimiento,telefono =:telefono,correo =:correo,estado_civil =:estado_civil,privado_libertad =:privado_libertad,genero =:genero,whatsapp =:whatsapp,miliciano =:miliciano,antiguedad_comunidad =:antiguedad_comunidad,jefe_calle =:jefe_calle,nivel_educativo =:nivel_educativoWHERE cedula_persona =:cedula_persona";
+        return "UPDATE personas  SET primer_nombre =:primer_nombre,segundo_nombre =:segundo_nombre, primer_apellido =:primer_apellido,segundo_apellido =:segundo_apellido,nacionalidad =:nacionalidad,jefe_familia =:jefe_familia,propietario_vivienda =:propietario_vivienda,afrodescendencia =:afrodescendencia,sexualidad =:sexualidad,fecha_nacimiento =:fecha_nacimiento,telefono =:telefono,correo =:correo,estado_civil =:estado_civil,privado_libertad =:privado_libertad,genero =:genero,whatsapp =:whatsapp,miliciano =:miliciano,antiguedad_comunidad =:antiguedad_comunidad,jefe_calle =:jefe_calle,nivel_educativo =:nivel_educativo WHERE cedula_persona =:cedula_persona";
     }
 
     private function SQL_16():string
@@ -247,17 +256,17 @@ class Personas_Class extends Modelo
 
     private function SQL_39():string
     {
-     return "SELECT *  FROM org_politica O, org_politica_persona OP WHERE OP.cedula_persona = $cedula AND OP.id_org_politica=O.id_org_politica AND O.estado=1";
+     return "SELECT *  FROM org_politica O, org_politica_persona OP WHERE OP.cedula_persona = :cedula AND OP.id_org_politica=O.id_org_politica AND O.estado=1";
     }
 
     private function SQL_40():string
     {
-     return "SELECT CI.nombre_comunidad  FROM comunidad_indigena CI, comunidad_indigena_personas CIP WHERE CIP.cedula_persona = $this->cedula AND CIP.id_comunidad_indigena=CI.id_comunidad_indigena AND CI.estado=1";
+     return "SELECT CI.nombre_comunidad  FROM comunidad_indigena CI, comunidad_indigena_personas CIP WHERE CIP.cedula_persona = :cedula AND CIP.id_comunidad_indigena=CI.id_comunidad_indigena AND CI.estado=1";
     }
 
     private function SQL_41():string
     {
-     return "SELECT *  FROM org_politica O, org_politica_persona OP WHERE OP.cedula_persona = $this->cedula AND OP.id_org_politica=O.id_org_politica AND O.estado=1";
+     return "SELECT *  FROM org_politica O, org_politica_persona OP WHERE OP.cedula_persona = :cedula AND OP.id_org_politica=O.id_org_politica AND O.estado=1";
     }
 
     private function SQL_42():string
