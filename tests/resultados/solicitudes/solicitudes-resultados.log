@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite assertions="20" errors="0" failures="0" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\SolicitudesTest.php" name="SolicitudesTest" skipped="0" tests="11" time="0.283655" warnings="0">
+        <testcase assertions="1" class="SolicitudesTest" classname="SolicitudesTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\SolicitudesTest.php" line="32" name="test_SQL_01_INSERT" time="0.134881">
+        </testcase>
+        <testcase assertions="2" class="SolicitudesTest" classname="SolicitudesTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\SolicitudesTest.php" line="40" name="test_SQL_02_SELECT_1" time="0.094972">
+        </testcase>
+        <testcase assertions="2" class="SolicitudesTest" classname="SolicitudesTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\SolicitudesTest.php" line="49" name="test_SQL_03_SELECT_2" time="0.004778">
+        </testcase>
+        <testcase assertions="2" class="SolicitudesTest" classname="SolicitudesTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\SolicitudesTest.php" line="58" name="test_SQL_04_SELECT_3" time="0.004417">
+        </testcase>
+        <testcase assertions="2" class="SolicitudesTest" classname="SolicitudesTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\SolicitudesTest.php" line="68" name="test_SQL_05_SELECT_4" time="0.002928">
+        </testcase>
+        <testcase assertions="2" class="SolicitudesTest" classname="SolicitudesTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\SolicitudesTest.php" line="78" name="test_SQL_06_SELECT_5" time="0.003918">
+        </testcase>
+        <testcase assertions="2" class="SolicitudesTest" classname="SolicitudesTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\SolicitudesTest.php" line="88" name="test_SQL_07_SELECT_6" time="0.003899">
+        </testcase>
+        <testcase assertions="2" class="SolicitudesTest" classname="SolicitudesTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\SolicitudesTest.php" line="98" name="test_SQL_08_SELECT_7" time="0.003486">
+        </testcase>
+        <testcase assertions="2" class="SolicitudesTest" classname="SolicitudesTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\SolicitudesTest.php" line="108" name="test_SQL_09_SELECT_7" time="0.017342">
+        </testcase>
+        <testcase assertions="1" class="SolicitudesTest" classname="SolicitudesTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\SolicitudesTest.php" line="118" name="test_SQL_10_UPDATE" time="0.004480">
+        </testcase>
+        <testcase assertions="2" class="SolicitudesTest" classname="SolicitudesTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\SolicitudesTest.php" line="126" name="test_SQL_11_SELECT_8" time="0.008556">
+        </testcase>
+    </testsuite>
+</testsuites>
