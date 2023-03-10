@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tests>
+  <test className="DireccionesTest" methodName="test_SeguridadCodificar" prettifiedClassName="Direcciones" prettifiedMethodName="Seguridad codificar" status="0" time="0.0145946" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="DireccionesTest" methodName="test_Seguridad_Decodificar" prettifiedClassName="Direcciones" prettifiedMethodName="Seguridad Decodificar" status="0" time="0.0036242" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="DireccionesTest" methodName="test_Base_URL" prettifiedClassName="Direcciones" prettifiedMethodName="Base URL" status="0" time="0.0020996" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="DireccionesTest" methodName="test_000_" prettifiedClassName="Direcciones" prettifiedMethodName="000" status="0" time="0.0005213" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="DireccionesTest" methodName="test_Direcciones_000_045" prettifiedClassName="Direcciones" prettifiedMethodName="Direcciones 000 045" status="0" time="0.1269171" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+</tests>

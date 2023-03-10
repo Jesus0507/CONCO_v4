@@ -100,3 +100,7 @@ php vendor/bin/phpunit tests/app/ControladorTest.php --testdox-xml tests/resulta
 CONTROLADOR
 
 php vendor/bin/phpunit tests/app/ControladorTest.php --testdox-xml tests/resultados/app/controlador-resultados.xml  --testdox-html tests/resultados/app/controlador-resultados.html --testdox --log-junit tests/resultados/app/controlador-resultados.xml --testdox --log-junit tests/resultados/app/controlador-resultados.log   --cache-result-file tests/cache/.phpunit.controlador.result.cache --debug
+
+direcciones
+
+php vendor/bin/phpunit tests/app/UrlDireccionesTest.php --testdox-xml tests/resultados/app/url-resultados.xml  --testdox-html tests/resultados/app/url-resultados.html --testdox --log-junit tests/resultados/app/url-resultados.xml --testdox --log-junit tests/resultados/app/url-resultados.log   --cache-result-file tests/cache/.phpunit.url.result.cache --debug

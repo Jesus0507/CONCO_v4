@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="DireccionesTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\app\DireccionesTest.php" tests="5" assertions="98" errors="0" warnings="0" failures="0" skipped="0" time="0.147757">
+    <testcase name="test_SeguridadCodificar" class="DireccionesTest" classname="DireccionesTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\app\DireccionesTest.php" line="14" assertions="2" time="0.014595"/>
+    <testcase name="test_Seguridad_Decodificar" class="DireccionesTest" classname="DireccionesTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\app\DireccionesTest.php" line="22" assertions="2" time="0.003624"/>
+    <testcase name="test_Base_URL" class="DireccionesTest" classname="DireccionesTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\app\DireccionesTest.php" line="30" assertions="2" time="0.002100"/>
+    <testcase name="test_000_" class="DireccionesTest" classname="DireccionesTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\app\DireccionesTest.php" line="37" assertions="2" time="0.000521"/>
+    <testcase name="test_Direcciones_000_045" class="DireccionesTest" classname="DireccionesTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\app\DireccionesTest.php" line="47" assertions="90" time="0.126917"/>
+  </testsuite>
+</testsuites>
