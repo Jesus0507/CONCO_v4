@@ -5,10 +5,10 @@ class Controlador
     #Public: acceso sin restricción.
     #Protected:Solo puede ser accesado por una clase heredada y la clase que lo define.
     #Private:Solo puede ser accesado por la clase que lo define. 
-    protected $controlador;
-    protected $modelo;
-    protected $vista;
-    protected $validacion;
+    // protected $controlador;
+    // protected $modelo;
+    // protected $vista;
+    // protected $validacion;
 
 
     public function __construct()

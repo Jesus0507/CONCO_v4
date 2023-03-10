@@ -1,0 +1,1 @@
+{"version":1,"defects":{"VistaTest::test_CargarVistas":3,"VistaTest::test_Sesion":4},"times":{"VistaTest::test_CargarVistas":0.015,"VistaTest::test_Cargar_Vistas":0.018,"VistaTest::test_Sesion":0.003}}

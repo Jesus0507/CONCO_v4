@@ -86,3 +86,17 @@ Funcionamiento
 . vendor/bin/phpunit tests/SolicitudesTest.php --testdox-xml tests/resultados/solicitudes/solicitudes-resultados.xml --testdox-html tests/resultados/solicitudes/solicitudes-resultados.html --testdox --log-junit tests/resultados/solicitudes/solicitudes-resultados.xml  --testdox --log-junit tests/resultados/solicitudes/solicitudes-resultados.log  --cache-result-file tests/cache/.phpunit.solicitudes.result.cache --debug
 
 . vendor/bin/phpunit tests/ViviendaTest.php --testdox-xml tests/resultados/vivienda/vivienda-resultados.xml --testdox-html tests/resultados/vivienda/vivienda-resultados.html --testdox --log-junit tests/resultados/vivienda/vivienda-resultados.xml  --testdox --log-junit tests/resultados/vivienda/vivienda-resultados.log  --cache-result-file tests/cache/.phpunit.vivienda.result.cache --debug
+
+=============================================================================================================
+
+base de datos
+
+php vendor/bin/phpunit tests/app/Base_DatosTest.php --testdox-xml tests/resultados/app/base-datos-resultados.xml  --testdox-html tests/resultados/app/base-datos-resultados.html --testdox --log-junit tests/resultados/app/base-datos-resultados.xml --testdox --log-junit tests/resultados/app/base-datos-resultados.log   --cache-result-file tests/cache/.phpunit.base-datos.result.cache --debug
+
+vista
+
+php vendor/bin/phpunit tests/app/ControladorTest.php --testdox-xml tests/resultados/app/vista-resultados.xml  --testdox-html tests/resultados/app/vista-resultados.html --testdox --log-junit tests/resultados/app/vista-resultados.xml --testdox --log-junit tests/resultados/app/vista-resultados.log   --cache-result-file tests/cache/.phpunit.vista.result.cache --debug
+
+CONTROLADOR
+
+php vendor/bin/phpunit tests/app/ControladorTest.php --testdox-xml tests/resultados/app/controlador-resultados.xml  --testdox-html tests/resultados/app/controlador-resultados.html --testdox --log-junit tests/resultados/app/controlador-resultados.xml --testdox --log-junit tests/resultados/app/controlador-resultados.log   --cache-result-file tests/cache/.phpunit.controlador.result.cache --debug
