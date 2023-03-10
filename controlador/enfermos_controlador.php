@@ -120,13 +120,10 @@ class Enfermos extends Controlador
                         "id_tabla" => $this->estado["id_tabla"],
                     );
                     $this->id = $this->estado["param"];
-
                     $this->modelo->_CRUD_($this->Get_Crud_Sql());
-                    $this->modelo->_Datos_(["id_persona_enfermedad" => $this->id]);
-                    if ($this->modelo->Administrar()) {
-                        $this->Accion($this->Get_Accion());
-                        echo $this->Get_Mensaje();
-                    }
+                    $this->modelo->_Datos_(["cedula_persona" => $this->id]);
+                    echo  $this->modelo->Administrar();
+                    $this->Accion($this->Get_Accion());
                 } else { $this->_403_();}
                 break;
 
@@ -194,11 +191,13 @@ class Enfermos extends Controlador
                     foreach ($this->datos_consulta["enfermedades"] as $en) {
                         if ($en['cedula_persona'] == $e['cedula_persona']) {
                             $this->enfermedades_p .= $en['nombre_enfermedad'] . "<hr>";
-                            $this->medicamentos_p    = $en['medicamentos'];
+                            $en['medicamentos'] != 'No posee' ? $this->medicamentos_p    .= $en['medicamentos'].'<hr>' : $this->medicamentos_p    .= '';
                             $this->id_enfermedad_p[] = $en['id_persona_enfermedad'] . "/";
                         }
                     }
                     $this->enfermedades_p = "<div style='overflow-y:scroll;width:100%;height:100px;background:#C7F2EE;'>" . $this->enfermedades_p . "</div>";
+                    $this->medicamentos_p = "<div style='overflow-y:scroll;width:100%;height:100px;background:#C7F2EE;'>" . $this->medicamentos_p . "</div>";
+
                     $this->retornar[]     = [
                         "cedula"       => $e['cedula_persona'],
                         "nombre"       => $e['primer_nombre'] . " " . $e['primer_apellido'],
@@ -206,7 +205,7 @@ class Enfermos extends Controlador
                         "medicamentos" => $this->medicamentos_p,
                         "ver"          => "<button style='background: #4dbdbd !important;' type='button' class='btn btn-info' data-toggle='modal' data-target='#ver_enfermos'><em class='fa fa-eye'></em></button>",
                         "editar"       => "<button type='button' class='btn btn-info editar' data-toggle='modal' data-target='#actualizar'  onclick='editar(`" . $e['cedula_persona'] . "`)'><em class='fa fa-edit'></em></button>",
-                        "eliminar"     => "<button class='btn btn-danger' onclick='eliminar(`" . json_encode($this->id_enfermedad_p) . "`)' type='button'><em class='fa fa-trash'></em></button>",
+                        "eliminar"     => "<button class='btn btn-danger' onclick='eliminar(`" . $e['cedula_persona'] . "`)' type='button'><em class='fa fa-trash'></em></button>",
                     ];
                 }
                 $this->Escribir_JSON($this->retornar);
