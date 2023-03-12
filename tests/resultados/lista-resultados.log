@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite assertions="304" errors="0" failures="0" name="CONCO_v4\tests" skipped="0" tests="182" time="7.510662" warnings="0">
+        <testsuite assertions="9" errors="0" failures="0" file="CONCO_v4\tests\AgendaTest.php" name="AgendaTest" skipped="0" tests="6" time="0.189810" warnings="0">
+            <testcase assertions="2" class="AgendaTest" classname="AgendaTest" file="CONCO_v4\tests\AgendaTest.php" line="35" name="test_SQL_01_SELECT" time="0.109789">
+            </testcase>
+            <testcase assertions="1" class="AgendaTest" classname="AgendaTest" file="CONCO_v4\tests\AgendaTest.php" line="45" name="test_SQL_02_INSERT" time="0.065123">
+            </testcase>
+            <testcase assertions="1" class="AgendaTest" classname="AgendaTest" file="CONCO_v4\tests\AgendaTest.php" line="55" name="test_SQL_03_UPDATE" time="0.003035">
+            </testcase>
+            <testcase assertions="2" class="AgendaTest" classname="AgendaTest" file="CONCO_v4\tests\AgendaTest.php" line="65" name="test_SQL_04_SELECT" time="0.003535">
+            </testcase>
+            <testcase assertions="2" class="AgendaTest" classname="AgendaTest" file="CONCO_v4\tests\AgendaTest.php" line="75" name="test_SQL_05_SELECT_WHERE" time="0.003603">
+            </testcase>
+            <testcase assertions="1" class="AgendaTest" classname="AgendaTest" file="CONCO_v4\tests\AgendaTest.php" line="85" name="test_SQL_06_DELETE" time="0.004724">
+            </testcase>
+        </testsuite>
+        <testsuite assertions="5" errors="0" failures="0" file="CONCO_v4\tests\BitacoraTest.php" name="BitacoraTest" skipped="0" tests="4" time="0.185880" warnings="0">
+            <testcase assertions="2" class="BitacoraTest" classname="BitacoraTest" file="CONCO_v4\tests\BitacoraTest.php" line="33" name="test_SQL01_SELECT" time="0.115957">
+            </testcase>
+            <testcase assertions="1" class="BitacoraTest" classname="BitacoraTest" file="CONCO_v4\tests\BitacoraTest.php" line="42" name="test_SQL02_INSERT" time="0.064861">
+            </testcase>
+            <testcase assertions="1" class="BitacoraTest" classname="BitacoraTest" file="CONCO_v4\tests\BitacoraTest.php" line="51" name="test_SQL03_UPDATE_1" time="0.002494">
+            </testcase>
+            <testcase assertions="1" class="BitacoraTest" classname="BitacoraTest" file="CONCO_v4\tests\BitacoraTest.php" line="60" name="test_SQL04_UPDATE_2" time="0.002568">
+            </testcase>
+        </testsuite>
+        <testsuite assertions="11" errors="0" failures="0" file="CONCO_v4\tests\Centro_VotacionTest.php" name="Centro_VotacionTest" skipped="0" tests="7" time="0.236329" warnings="0">
+            <testcase assertions="2" class="Centro_VotacionTest" classname="Centro_VotacionTest" file="CONCO_v4\tests\Centro_VotacionTest.php" line="37" name="test_SQL_01_SELECT" time="0.043192">
+            </testcase>
+            <testcase assertions="2" class="Centro_VotacionTest" classname="Centro_VotacionTest" file="CONCO_v4\tests\Centro_VotacionTest.php" line="46" name="test_SQL_02_SELECT_2" time="0.018376">
+            </testcase>
+            <testcase assertions="1" class="Centro_VotacionTest" classname="Centro_VotacionTest" file="CONCO_v4\tests\Centro_VotacionTest.php" line="55" name="test_SQL_03_INSERT" time="0.056758">
+            </testcase>
+            <testcase assertions="1" class="Centro_VotacionTest" classname="Centro_VotacionTest" file="CONCO_v4\tests\Centro_VotacionTest.php" line="64" name="test_SQL_04_INSERT" time="0.080634">
+            </testcase>
+            <testcase assertions="1" class="Centro_VotacionTest" classname="Centro_VotacionTest" file="CONCO_v4\tests\Centro_VotacionTest.php" line="73" name="test_SQL_05_UPDATE" time="0.023555">
+            </testcase>
+            <testcase assertions="2" class="Centro_VotacionTest" classname="Centro_VotacionTest" file="CONCO_v4\tests\Centro_VotacionTest.php" line="81" name="test_SQL_06_SELECT_3" time="0.009557">
+            </testcase>
+            <testcase assertions="2" class="Centro_VotacionTest" classname="Centro_VotacionTest" file="CONCO_v4\tests\Centro_VotacionTest.php" line="90" name="test_SQL_07_SELECT_4" time="0.004257">
+            </testcase>
+        </testsuite>
+        <testsuite assertions="6" errors="0" failures="0" file="CONCO_v4\tests\Consejo_ComunalTest.php" name="Consejo_ComunalTest" skipped="0" tests="4" time="0.475372" warnings="0">
+            <testcase assertions="2" class="Consejo_ComunalTest" classname="Consejo_ComunalTest" file="CONCO_v4\tests\Consejo_ComunalTest.php" line="33" name="test_SQL_01_SELECT" time="0.009696">
+            </testcase>
+            <testcase assertions="1" class="Consejo_ComunalTest" classname="Consejo_ComunalTest" file="CONCO_v4\tests\Consejo_ComunalTest.php" line="42" name="test_SQL_02_INSERT" time="0.166679">
+            </testcase>
+            <testcase assertions="1" class="Consejo_ComunalTest" classname="Consejo_ComunalTest" file="CONCO_v4\tests\Consejo_ComunalTest.php" line="51" name="test_SQL_03_UPDATE" time="0.243198">
+            </testcase>
+            <testcase assertions="2" class="Consejo_ComunalTest" classname="Consejo_ComunalTest" file="CONCO_v4\tests\Consejo_ComunalTest.php" line="59" name="test_SQL_04_SELECT" time="0.055799">
+            </testcase>
+        </testsuite>
+        <testsuite assertions="13" errors="0" failures="0" file="CONCO_v4\tests\DiscapacitadosTest.php" name="DiscapacitadosTest" skipped="0" tests="7" time="0.273452" warnings="0">
+            <testcase assertions="2" class="DiscapacitadosTest" classname="DiscapacitadosTest" file="CONCO_v4\tests\DiscapacitadosTest.php" line="32" name="test_SQL_01_SELECT_1" time="0.037389">
+            </testcase>
+            <testcase assertions="2" class="DiscapacitadosTest" classname="DiscapacitadosTest" file="CONCO_v4\tests\DiscapacitadosTest.php" line="41" name="test_SQL_02_SELECT_2" time="0.113610">
+            </testcase>
+            <testcase assertions="2" class="DiscapacitadosTest" classname="DiscapacitadosTest" file="CONCO_v4\tests\DiscapacitadosTest.php" line="50" name="test_SQL_03_SELECT_3" time="0.006979">
+            </testcase>
+            <testcase assertions="2" class="DiscapacitadosTest" classname="DiscapacitadosTest" file="CONCO_v4\tests\DiscapacitadosTest.php" line="59" name="test_SQL_04_SELECT_4" time="0.055741">
+            </testcase>
+            <testcase assertions="2" class="DiscapacitadosTest" classname="DiscapacitadosTest" file="CONCO_v4\tests\DiscapacitadosTest.php" line="68" name="test_SQL_05_SELECT_5" time="0.006929">
+            </testcase>
+            <testcase assertions="1" class="DiscapacitadosTest" classname="DiscapacitadosTest" file="CONCO_v4\tests\DiscapacitadosTest.php" line="78" name="test_SQL_06_INSERT" time="0.049096">
+            </testcase>
+            <testcase assertions="2" class="DiscapacitadosTest" classname="DiscapacitadosTest" file="CONCO_v4\tests\DiscapacitadosTest.php" line="87" name="test_SQL_07_SELECT_6" time="0.003708">
+            </testcase>
+        </testsuite>
+        <testsuite assertions="13" errors="0" failures="0" file="CONCO_v4\tests\EnfermosTest.php" name="EnfermosTest" skipped="0" tests="7" time="0.120677" warnings="0">
+            <testcase assertions="2" class="EnfermosTest" classname="EnfermosTest" file="CONCO_v4\tests\EnfermosTest.php" line="29" name="test_SQL_01_SELECT_1" time="0.020643">
+            </testcase>
+            <testcase assertions="2" class="EnfermosTest" classname="EnfermosTest" file="CONCO_v4\tests\EnfermosTest.php" line="38" name="test_SQL_02_SELECT_2" time="0.021191">
+            </testcase>
+            <testcase assertions="2" class="EnfermosTest" classname="EnfermosTest" file="CONCO_v4\tests\EnfermosTest.php" line="47" name="test_SQL_03_SELECT_3" time="0.003659">
+            </testcase>
+            <testcase assertions="2" class="EnfermosTest" classname="EnfermosTest" file="CONCO_v4\tests\EnfermosTest.php" line="56" name="test_SQL_04_SELECT_4" time="0.004906">
+            </testcase>
+            <testcase assertions="1" class="EnfermosTest" classname="EnfermosTest" file="CONCO_v4\tests\EnfermosTest.php" line="66" name="test_SQL_05_INSERT" time="0.058067">
+            </testcase>
+            <testcase assertions="2" class="EnfermosTest" classname="EnfermosTest" file="CONCO_v4\tests\EnfermosTest.php" line="75" name="test_SQL_06_SELECT_5" time="0.006905">
+            </testcase>
+            <testcase assertions="2" class="EnfermosTest" classname="EnfermosTest" file="CONCO_v4\tests\EnfermosTest.php" line="84" name="test_SQL_07_SELECT_6" time="0.005306">
+            </testcase>
+        </testsuite>
+        <testsuite assertions="9" errors="0" failures="0" file="CONCO_v4\tests\FamiliasTest.php" name="FamiliasTest" skipped="0" tests="6" time="0.199849" warnings="0">
+            <testcase assertions="2" class="FamiliasTest" classname="FamiliasTest" file="CONCO_v4\tests\FamiliasTest.php" line="44" name="test_SQL_01_SELECT_1" time="0.033831">
+            </testcase>
+            <testcase assertions="2" class="FamiliasTest" classname="FamiliasTest" file="CONCO_v4\tests\FamiliasTest.php" line="53" name="test_SQL_02_SELECT_2" time="0.024586">
+            </testcase>
+            <testcase assertions="1" class="FamiliasTest" classname="FamiliasTest" file="CONCO_v4\tests\FamiliasTest.php" line="63" name="test_SQL_03_INSERT_1" time="0.073544">
+            </testcase>
+            <testcase assertions="1" class="FamiliasTest" classname="FamiliasTest" file="CONCO_v4\tests\FamiliasTest.php" line="72" name="test_SQL_04_UPDATE" time="0.002893">
+            </testcase>
+            <testcase assertions="1" class="FamiliasTest" classname="FamiliasTest" file="CONCO_v4\tests\FamiliasTest.php" line="81" name="test_SQL_05_INSERT_2" time="0.058567">
+            </testcase>
+            <testcase assertions="2" class="FamiliasTest" classname="FamiliasTest" file="CONCO_v4\tests\FamiliasTest.php" line="90" name="test_SQL_06_SELECT_3" time="0.006428">
+            </testcase>
+        </testsuite>
+        <testsuite assertions="11" errors="0" failures="0" file="CONCO_v4\tests\Grupos_DeportivosTest.php" name="Grupos_DeportivosTest" skipped="0" tests="7" time="0.394540" warnings="0">
+            <testcase assertions="1" class="Grupos_DeportivosTest" classname="Grupos_DeportivosTest" file="CONCO_v4\tests\Grupos_DeportivosTest.php" line="39" name="test_SQL_01_INSERT_1" time="0.044848">
+            </testcase>
+            <testcase assertions="1" class="Grupos_DeportivosTest" classname="Grupos_DeportivosTest" file="CONCO_v4\tests\Grupos_DeportivosTest.php" line="48" name="test_SQL_02_UPDATE" time="0.004470">
+            </testcase>
+            <testcase assertions="2" class="Grupos_DeportivosTest" classname="Grupos_DeportivosTest" file="CONCO_v4\tests\Grupos_DeportivosTest.php" line="57" name="test_SQL_03_SELECT_1" time="0.032386">
+            </testcase>
+            <testcase assertions="2" class="Grupos_DeportivosTest" classname="Grupos_DeportivosTest" file="CONCO_v4\tests\Grupos_DeportivosTest.php" line="66" name="test_SQL_04_SELECT_2" time="0.069439">
+            </testcase>
+            <testcase assertions="2" class="Grupos_DeportivosTest" classname="Grupos_DeportivosTest" file="CONCO_v4\tests\Grupos_DeportivosTest.php" line="75" name="test_SQL_05_SELECT_3" time="0.007395">
+            </testcase>
+            <testcase assertions="1" class="Grupos_DeportivosTest" classname="Grupos_DeportivosTest" file="CONCO_v4\tests\Grupos_DeportivosTest.php" line="85" name="test_SQL_06_INSERT_2" time="0.101267">
+            </testcase>
+            <testcase assertions="2" class="Grupos_DeportivosTest" classname="Grupos_DeportivosTest" file="CONCO_v4\tests\Grupos_DeportivosTest.php" line="94" name="test_SQL_07_SELECT_4" time="0.134736">
+            </testcase>
+        </testsuite>
+        <testsuite assertions="18" errors="0" failures="0" file="CONCO_v4\tests\HabitanteTest.php" name="HabitanteTest" skipped="0" tests="9" time="0.260546" warnings="0">
+            <testcase assertions="2" class="HabitanteTest" classname="HabitanteTest" file="CONCO_v4\tests\HabitanteTest.php" line="18" name="test_SQL_01_SELECT_1" time="0.006658">
+            </testcase>
+            <testcase assertions="2" class="HabitanteTest" classname="HabitanteTest" file="CONCO_v4\tests\HabitanteTest.php" line="27" name="test_SQL_02_SELECT_2" time="0.023742">
+            </testcase>
+            <testcase assertions="2" class="HabitanteTest" classname="HabitanteTest" file="CONCO_v4\tests\HabitanteTest.php" line="36" name="test_SQL_03_SELECT_3" time="0.003611">
+            </testcase>
+            <testcase assertions="2" class="HabitanteTest" classname="HabitanteTest" file="CONCO_v4\tests\HabitanteTest.php" line="45" name="test_SQL_04_SELECT_4" time="0.020539">
+            </testcase>
+            <testcase assertions="2" class="HabitanteTest" classname="HabitanteTest" file="CONCO_v4\tests\HabitanteTest.php" line="54" name="test_SQL_05_SELECT_5" time="0.021438">
+            </testcase>
+            <testcase assertions="2" class="HabitanteTest" classname="HabitanteTest" file="CONCO_v4\tests\HabitanteTest.php" line="63" name="test_SQL_06_SELECT_6" time="0.132772">
+            </testcase>
+            <testcase assertions="2" class="HabitanteTest" classname="HabitanteTest" file="CONCO_v4\tests\HabitanteTest.php" line="72" name="test_SQL_07_SELECT_7" time="0.015818">
+            </testcase>
+            <testcase assertions="2" class="HabitanteTest" classname="HabitanteTest" file="CONCO_v4\tests\HabitanteTest.php" line="81" name="test_SQL_08_SELECT_8" time="0.021924">
+            </testcase>
+            <testcase assertions="2" class="HabitanteTest" classname="HabitanteTest" file="CONCO_v4\tests\HabitanteTest.php" line="90" name="test_SQL_09_SELECT_9" time="0.014045">
+            </testcase>
+        </testsuite>
+        <testsuite assertions="4" errors="0" failures="0" file="CONCO_v4\tests\InmueblesTest.php" name="InmueblesTest" skipped="0" tests="3" time="0.151729" warnings="0">
+            <testcase assertions="2" class="InmueblesTest" classname="InmueblesTest" file="CONCO_v4\tests\InmueblesTest.php" line="36" name="test_SQL_01_SELECT" time="0.034911">
+            </testcase>
+            <testcase assertions="1" class="InmueblesTest" classname="InmueblesTest" file="CONCO_v4\tests\InmueblesTest.php" line="45" name="test_SQL_02_INSERT" time="0.113074">
+            </testcase>
+            <testcase assertions="1" class="InmueblesTest" classname="InmueblesTest" file="CONCO_v4\tests\InmueblesTest.php" line="54" name="test_SQL_03_UPDATE" time="0.003744">
+            </testcase>
+        </testsuite>
+        <testsuite assertions="2" errors="0" failures="0" file="CONCO_v4\tests\LoginTest.php" name="LoginTest" skipped="0" tests="1" time="0.006555" warnings="0">
+            <testcase assertions="2" class="LoginTest" classname="LoginTest" file="CONCO_v4\tests\LoginTest.php" line="16" name="test_SQL_01_SELECT" time="0.006555">
+            </testcase>
+        </testsuite>
+        <testsuite assertions="6" errors="0" failures="0" file="CONCO_v4\tests\NegociosTest.php" name="NegociosTest" skipped="0" tests="4" time="0.080663" warnings="0">
+            <testcase assertions="2" class="NegociosTest" classname="NegociosTest" file="CONCO_v4\tests\NegociosTest.php" line="38" name="test_SQL_01_SELECT_1" time="0.015844">
+            </testcase>
+            <testcase assertions="1" class="NegociosTest" classname="NegociosTest" file="CONCO_v4\tests\NegociosTest.php" line="47" name="test_SQL_02_INSERT" time="0.057455">
+            </testcase>
+            <testcase assertions="1" class="NegociosTest" classname="NegociosTest" file="CONCO_v4\tests\NegociosTest.php" line="56" name="test_SQL_03_UPDATE" time="0.004148">
+            </testcase>
+            <testcase assertions="2" class="NegociosTest" classname="NegociosTest" file="CONCO_v4\tests\NegociosTest.php" line="65" name="test_SQL_04_SELECT_2" time="0.003217">
+            </testcase>
+        </testsuite>
+        <testsuite assertions="7" errors="0" failures="0" file="CONCO_v4\tests\NotificacionesTest.php" name="NotificacionesTest" skipped="0" tests="5" time="0.143790" warnings="0">
+            <testcase assertions="1" class="NotificacionesTest" classname="NotificacionesTest" file="CONCO_v4\tests\NotificacionesTest.php" line="33" name="test_SQL_01_INSERT" time="0.122545">
+            </testcase>
+            <testcase assertions="2" class="NotificacionesTest" classname="NotificacionesTest" file="CONCO_v4\tests\NotificacionesTest.php" line="42" name="test_SQL_02_SELECT_1" time="0.004365">
+            </testcase>
+            <testcase assertions="1" class="NotificacionesTest" classname="NotificacionesTest" file="CONCO_v4\tests\NotificacionesTest.php" line="52" name="test_SQL_03_UPDATE" time="0.006944">
+            </testcase>
+            <testcase assertions="1" class="NotificacionesTest" classname="NotificacionesTest" file="CONCO_v4\tests\NotificacionesTest.php" line="61" name="test_SQL_04_DELETE" time="0.005752">
+            </testcase>
+            <testcase assertions="2" class="NotificacionesTest" classname="NotificacionesTest" file="CONCO_v4\tests\NotificacionesTest.php" line="70" name="test_SQL_05_SELECT_2" time="0.004184">
+            </testcase>
+        </testsuite>
+        <testsuite assertions="6" errors="0" failures="0" file="CONCO_v4\tests\Parto_HumanizadoTest.php" name="Parto_HumanizadoTest" skipped="0" tests="4" time="0.153820" warnings="0">
+            <testcase assertions="2" class="Parto_HumanizadoTest" classname="Parto_HumanizadoTest" file="CONCO_v4\tests\Parto_HumanizadoTest.php" line="36" name="test_SQL_01_SELECT_1" time="0.026707">
+            </testcase>
+            <testcase assertions="1" class="Parto_HumanizadoTest" classname="Parto_HumanizadoTest" file="CONCO_v4\tests\Parto_HumanizadoTest.php" line="45" name="test_SQL_02_INSERT" time="0.115205">
+            </testcase>
+            <testcase assertions="1" class="Parto_HumanizadoTest" classname="Parto_HumanizadoTest" file="CONCO_v4\tests\Parto_HumanizadoTest.php" line="54" name="test_SQL_03_UPDATE" time="0.006330">
+            </testcase>
+            <testcase assertions="2" class="Parto_HumanizadoTest" classname="Parto_HumanizadoTest" file="CONCO_v4\tests\Parto_HumanizadoTest.php" line="63" name="test_SQL_04_SELECT_2" time="0.005578">
+            </testcase>
+        </testsuite>
+        <testsuite assertions="70" errors="0" failures="0" file="CONCO_v4\tests\PersonasTest.php" name="PersonasTest" skipped="0" tests="42" time="1.932813" warnings="0">
+            <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="CONCO_v4\tests\PersonasTest.php" line="138" name="test_SQL_01_SELECT_1" time="0.018996">
+            </testcase>
+            <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="CONCO_v4\tests\PersonasTest.php" line="147" name="test_SQL_02_SELECT_2" time="0.005368">
+            </testcase>
+            <testcase assertions="1" class="PersonasTest" classname="PersonasTest" file="CONCO_v4\tests\PersonasTest.php" line="156" name="test_SQL_03_INSERT_1" time="0.041368">
+            </testcase>
+            <testcase assertions="1" class="PersonasTest" classname="PersonasTest" file="CONCO_v4\tests\PersonasTest.php" line="164" name="test_SQL_04_INSERT_2" time="0.057243">
+            </testcase>
+            <testcase assertions="1" class="PersonasTest" classname="PersonasTest" file="CONCO_v4\tests\PersonasTest.php" line="172" name="test_SQL_05_INSERT_3" time="0.189558">
+            </testcase>
+            <testcase assertions="1" class="PersonasTest" classname="PersonasTest" file="CONCO_v4\tests\PersonasTest.php" line="180" name="test_SQL_06_INSERT_4" time="0.067095">
+            </testcase>
+            <testcase assertions="1" class="PersonasTest" classname="PersonasTest" file="CONCO_v4\tests\PersonasTest.php" line="188" name="test_SQL_07_INSERT_5" time="0.102848">
+            </testcase>
+            <testcase assertions="1" class="PersonasTest" classname="PersonasTest" file="CONCO_v4\tests\PersonasTest.php" line="197" name="test_SQL_08_INSERT_6" time="0.090817">
+            </testcase>
+            <testcase assertions="1" class="PersonasTest" classname="PersonasTest" file="CONCO_v4\tests\PersonasTest.php" line="205" name="test_SQL_09_INSERT_7" time="0.085332">
+            </testcase>
+            <testcase assertions="1" class="PersonasTest" classname="PersonasTest" file="CONCO_v4\tests\PersonasTest.php" line="213" name="test_SQL_10_INSERT_8" time="0.095035">
+            </testcase>
+            <testcase assertions="1" class="PersonasTest" classname="PersonasTest" file="CONCO_v4\tests\PersonasTest.php" line="221" name="test_SQL_11_INSERT_9" time="0.081214">
+            </testcase>
+            <testcase assertions="1" class="PersonasTest" classname="PersonasTest" file="CONCO_v4\tests\PersonasTest.php" line="229" name="test_SQL_12_INSERT_10" time="0.100747">
+            </testcase>
+            <testcase assertions="1" class="PersonasTest" classname="PersonasTest" file="CONCO_v4\tests\PersonasTest.php" line="237" name="test_SQL_13_INSERT_11" time="0.057871">
+            </testcase>
+            <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="CONCO_v4\tests\PersonasTest.php" line="245" name="test_SQL_14_SELECT_3" time="0.101523">
+            </testcase>
+            <testcase assertions="1" class="PersonasTest" classname="PersonasTest" file="CONCO_v4\tests\PersonasTest.php" line="253" name="test_SQL_15_UPDATE_1" time="0.006477">
+            </testcase>
+            <testcase assertions="1" class="PersonasTest" classname="PersonasTest" file="CONCO_v4\tests\PersonasTest.php" line="261" name="test_SQL_16_UPDATE_2" time="0.004843">
+            </testcase>
+            <testcase assertions="1" class="PersonasTest" classname="PersonasTest" file="CONCO_v4\tests\PersonasTest.php" line="270" name="test_SQL_17_DELETE_1" time="0.075379">
+            </testcase>
+            <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="CONCO_v4\tests\PersonasTest.php" line="279" name="test_SQL_18_SELECT_5" time="0.068994">
+            </testcase>
+            <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="CONCO_v4\tests\PersonasTest.php" line="288" name="test_SQL_19_SELECT_6" time="0.005961">
+            </testcase>
+            <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="CONCO_v4\tests\PersonasTest.php" line="300" name="test_SQL_20_SELECT_7" time="0.006586">
+            </testcase>
+            <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="CONCO_v4\tests\PersonasTest.php" line="313" name="test_SQL_21_SELECT_8" time="0.011713">
+            </testcase>
+            <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="CONCO_v4\tests\PersonasTest.php" line="321" name="test_SQL_22_SELECT_9" time="0.016805">
+            </testcase>
+            <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="CONCO_v4\tests\PersonasTest.php" line="329" name="test_SQL_23_SELECT_10" time="0.047356">
+            </testcase>
+            <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="CONCO_v4\tests\PersonasTest.php" line="337" name="test_SQL_24_SELECT_11" time="0.004150">
+            </testcase>
+            <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="CONCO_v4\tests\PersonasTest.php" line="346" name="test_SQL_25_SELECT_11" time="0.005206">
+            </testcase>
+            <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="CONCO_v4\tests\PersonasTest.php" line="354" name="test_SQL_26_SELECT_12" time="0.024042">
+            </testcase>
+            <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="CONCO_v4\tests\PersonasTest.php" line="362" name="test_SQL_27_SELECT_13" time="0.012387">
+            </testcase>
+            <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="CONCO_v4\tests\PersonasTest.php" line="370" name="test_SQL_28_SELECT_14" time="0.003533">
+            </testcase>
+            <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="CONCO_v4\tests\PersonasTest.php" line="379" name="test_SQL_29_SELECT_13" time="0.003138">
+            </testcase>
+            <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="CONCO_v4\tests\PersonasTest.php" line="388" name="test_SQL_30_SELECT_14" time="0.014029">
+            </testcase>
+            <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="CONCO_v4\tests\PersonasTest.php" line="396" name="test_SQL_31_SELECT_15" time="0.007347">
+            </testcase>
+            <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="CONCO_v4\tests\PersonasTest.php" line="404" name="test_SQL_32_SELECT_16" time="0.006881">
+            </testcase>
+            <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="CONCO_v4\tests\PersonasTest.php" line="416" name="test_SQL_33_SELECT_16" time="0.003847">
+            </testcase>
+            <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="CONCO_v4\tests\PersonasTest.php" line="427" name="test_SQL_34_SELECT_17" time="0.003317">
+            </testcase>
+            <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="CONCO_v4\tests\PersonasTest.php" line="438" name="test_SQL_35_SELECT_18" time="0.007282">
+            </testcase>
+            <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="CONCO_v4\tests\PersonasTest.php" line="450" name="test_SQL_36_SELECT_19" time="0.049415">
+            </testcase>
+            <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="CONCO_v4\tests\PersonasTest.php" line="462" name="test_SQL_37_SELECT_20" time="0.005246">
+            </testcase>
+            <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="CONCO_v4\tests\PersonasTest.php" line="474" name="test_SQL_38_SELECT_21" time="0.003123">
+            </testcase>
+            <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="CONCO_v4\tests\PersonasTest.php" line="486" name="test_SQL_39_SELECT_22" time="0.004237">
+            </testcase>
+            <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="CONCO_v4\tests\PersonasTest.php" line="498" name="test_SQL_40_SELECT_23" time="0.006647">
+            </testcase>
+            <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="CONCO_v4\tests\PersonasTest.php" line="509" name="test_SQL_41_SELECT_24" time="0.006861">
+            </testcase>
+            <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="CONCO_v4\tests\PersonasTest.php" line="521" name="test_SQL_42_SELECT_25" time="0.422997">
+            </testcase>
+        </testsuite>
+        <testsuite assertions="50" errors="0" failures="0" file="CONCO_v4\tests\ReportesTest.php" name="ReportesTest" skipped="0" tests="25" time="1.159655" warnings="0">
+            <testcase assertions="2" class="ReportesTest" classname="ReportesTest" file="CONCO_v4\tests\ReportesTest.php" line="15" name="test_SQL_01_SELECT_1" time="0.555158">
+            </testcase>
+            <testcase assertions="2" class="ReportesTest" classname="ReportesTest" file="CONCO_v4\tests\ReportesTest.php" line="25" name="test_SQL_02_SELECT_2" time="0.006105">
+            </testcase>
+            <testcase assertions="2" class="ReportesTest" classname="ReportesTest" file="CONCO_v4\tests\ReportesTest.php" line="34" name="test_SQL_03_SELECT_3" time="0.018488">
+            </testcase>
+            <testcase assertions="2" class="ReportesTest" classname="ReportesTest" file="CONCO_v4\tests\ReportesTest.php" line="43" name="test_SQL_04_SELECT_4" time="0.007955">
+            </testcase>
+            <testcase assertions="2" class="ReportesTest" classname="ReportesTest" file="CONCO_v4\tests\ReportesTest.php" line="52" name="test_SQL_05_SELECT_5" time="0.034782">
+            </testcase>
+            <testcase assertions="2" class="ReportesTest" classname="ReportesTest" file="CONCO_v4\tests\ReportesTest.php" line="61" name="test_SQL_06_SELECT_6" time="0.029909">
+            </testcase>
+            <testcase assertions="2" class="ReportesTest" classname="ReportesTest" file="CONCO_v4\tests\ReportesTest.php" line="70" name="test_SQL_07_SELECT_7" time="0.036968">
+            </testcase>
+            <testcase assertions="2" class="ReportesTest" classname="ReportesTest" file="CONCO_v4\tests\ReportesTest.php" line="79" name="test_SQL_08_SELECT_8" time="0.023786">
+            </testcase>
+            <testcase assertions="2" class="ReportesTest" classname="ReportesTest" file="CONCO_v4\tests\ReportesTest.php" line="88" name="test_SQL_09_SELECT_9" time="0.011250">
+            </testcase>
+            <testcase assertions="2" class="ReportesTest" classname="ReportesTest" file="CONCO_v4\tests\ReportesTest.php" line="97" name="test_SQL_10_SELECT_10" time="0.003796">
+            </testcase>
+            <testcase assertions="2" class="ReportesTest" classname="ReportesTest" file="CONCO_v4\tests\ReportesTest.php" line="106" name="test_SQL_11_SELECT_11" time="0.072848">
+            </testcase>
+            <testcase assertions="2" class="ReportesTest" classname="ReportesTest" file="CONCO_v4\tests\ReportesTest.php" line="115" name="test_SQL_12_SELECT_12" time="0.014157">
+            </testcase>
+            <testcase assertions="2" class="ReportesTest" classname="ReportesTest" file="CONCO_v4\tests\ReportesTest.php" line="124" name="test_SQL_13_SELECT_13" time="0.026220">
+            </testcase>
+            <testcase assertions="2" class="ReportesTest" classname="ReportesTest" file="CONCO_v4\tests\ReportesTest.php" line="133" name="test_SQL_14_SELECT_14" time="0.004634">
+            </testcase>
+            <testcase assertions="2" class="ReportesTest" classname="ReportesTest" file="CONCO_v4\tests\ReportesTest.php" line="142" name="test_SQL_15_SELECT_15" time="0.036188">
+            </testcase>
+            <testcase assertions="2" class="ReportesTest" classname="ReportesTest" file="CONCO_v4\tests\ReportesTest.php" line="151" name="test_SQL_16_SELECT_16" time="0.006816">
+            </testcase>
+            <testcase assertions="2" class="ReportesTest" classname="ReportesTest" file="CONCO_v4\tests\ReportesTest.php" line="160" name="test_SQL_17_SELECT_17" time="0.050737">
+            </testcase>
+            <testcase assertions="2" class="ReportesTest" classname="ReportesTest" file="CONCO_v4\tests\ReportesTest.php" line="169" name="test_SQL_18_SELECT_18" time="0.030481">
+            </testcase>
+            <testcase assertions="2" class="ReportesTest" classname="ReportesTest" file="CONCO_v4\tests\ReportesTest.php" line="177" name="test_SQL_19_SELECT_19" time="0.015546">
+            </testcase>
+            <testcase assertions="2" class="ReportesTest" classname="ReportesTest" file="CONCO_v4\tests\ReportesTest.php" line="185" name="test_SQL_20_SELECT_20" time="0.041083">
+            </testcase>
+            <testcase assertions="2" class="ReportesTest" classname="ReportesTest" file="CONCO_v4\tests\ReportesTest.php" line="194" name="test_SQL_21_SELECT_21" time="0.034098">
+            </testcase>
+            <testcase assertions="2" class="ReportesTest" classname="ReportesTest" file="CONCO_v4\tests\ReportesTest.php" line="203" name="test_SQL_22_SELECT_22" time="0.028644">
+            </testcase>
+            <testcase assertions="2" class="ReportesTest" classname="ReportesTest" file="CONCO_v4\tests\ReportesTest.php" line="213" name="test_SQL_23_SELECT_23" time="0.050646">
+            </testcase>
+            <testcase assertions="2" class="ReportesTest" classname="ReportesTest" file="CONCO_v4\tests\ReportesTest.php" line="223" name="test_SQL_24_SELECT_24" time="0.014894">
+            </testcase>
+            <testcase assertions="2" class="ReportesTest" classname="ReportesTest" file="CONCO_v4\tests\ReportesTest.php" line="233" name="test_SQL_25_SELECT_25" time="0.004466">
+            </testcase>
+        </testsuite>
+        <testsuite assertions="6" errors="0" failures="0" file="CONCO_v4\tests\Sector_AgricolaTest.php" name="Sector_AgricolaTest" skipped="0" tests="4" time="0.225381" warnings="0">
+            <testcase assertions="1" class="Sector_AgricolaTest" classname="Sector_AgricolaTest" file="CONCO_v4\tests\Sector_AgricolaTest.php" line="51" name="test_SQL_01_INSERT" time="0.192448">
+            </testcase>
+            <testcase assertions="2" class="Sector_AgricolaTest" classname="Sector_AgricolaTest" file="CONCO_v4\tests\Sector_AgricolaTest.php" line="60" name="test_SQL_02_SELECT_1" time="0.023619">
+            </testcase>
+            <testcase assertions="1" class="Sector_AgricolaTest" classname="Sector_AgricolaTest" file="CONCO_v4\tests\Sector_AgricolaTest.php" line="69" name="test_SQL_03_UPDATE" time="0.005470">
+            </testcase>
+            <testcase assertions="2" class="Sector_AgricolaTest" classname="Sector_AgricolaTest" file="CONCO_v4\tests\Sector_AgricolaTest.php" line="78" name="test_SQL_04_SELECT_2" time="0.003844">
+            </testcase>
+        </testsuite>
+        <testsuite assertions="10" errors="0" failures="0" file="CONCO_v4\tests\SeguridadTest.php" name="SeguridadTest" skipped="0" tests="7" time="0.075000" warnings="0">
+            <testcase assertions="2" class="SeguridadTest" classname="SeguridadTest" file="CONCO_v4\tests\SeguridadTest.php" line="40" name="test_SQL_01_SELECT_1" time="0.038589">
+            </testcase>
+            <testcase assertions="2" class="SeguridadTest" classname="SeguridadTest" file="CONCO_v4\tests\SeguridadTest.php" line="50" name="test_SQL_02_SELECT_2" time="0.006595">
+            </testcase>
+            <testcase assertions="2" class="SeguridadTest" classname="SeguridadTest" file="CONCO_v4\tests\SeguridadTest.php" line="59" name="test_SQL_03_SELECT_3" time="0.007177">
+            </testcase>
+            <testcase assertions="1" class="SeguridadTest" classname="SeguridadTest" file="CONCO_v4\tests\SeguridadTest.php" line="68" name="test_SQL04_UPDATE_1" time="0.007668">
+            </testcase>
+            <testcase assertions="1" class="SeguridadTest" classname="SeguridadTest" file="CONCO_v4\tests\SeguridadTest.php" line="76" name="test_SQL05_UPDATE_2" time="0.004659">
+            </testcase>
+            <testcase assertions="1" class="SeguridadTest" classname="SeguridadTest" file="CONCO_v4\tests\SeguridadTest.php" line="84" name="test_SQL06_UPDATE_3" time="0.005396">
+            </testcase>
+            <testcase assertions="1" class="SeguridadTest" classname="SeguridadTest" file="CONCO_v4\tests\SeguridadTest.php" line="92" name="test_SQL07_UPDATE_4" time="0.004916">
+            </testcase>
+        </testsuite>
+        <testsuite assertions="20" errors="0" failures="0" file="CONCO_v4\tests\SolicitudesTest.php" name="SolicitudesTest" skipped="0" tests="11" time="0.234716" warnings="0">
+            <testcase assertions="1" class="SolicitudesTest" classname="SolicitudesTest" file="CONCO_v4\tests\SolicitudesTest.php" line="32" name="test_SQL_01_INSERT" time="0.122716">
+            </testcase>
+            <testcase assertions="2" class="SolicitudesTest" classname="SolicitudesTest" file="CONCO_v4\tests\SolicitudesTest.php" line="40" name="test_SQL_02_SELECT_1" time="0.028927">
+            </testcase>
+            <testcase assertions="2" class="SolicitudesTest" classname="SolicitudesTest" file="CONCO_v4\tests\SolicitudesTest.php" line="49" name="test_SQL_03_SELECT_2" time="0.003791">
+            </testcase>
+            <testcase assertions="2" class="SolicitudesTest" classname="SolicitudesTest" file="CONCO_v4\tests\SolicitudesTest.php" line="58" name="test_SQL_04_SELECT_3" time="0.005810">
+            </testcase>
+            <testcase assertions="2" class="SolicitudesTest" classname="SolicitudesTest" file="CONCO_v4\tests\SolicitudesTest.php" line="68" name="test_SQL_05_SELECT_4" time="0.003211">
+            </testcase>
+            <testcase assertions="2" class="SolicitudesTest" classname="SolicitudesTest" file="CONCO_v4\tests\SolicitudesTest.php" line="78" name="test_SQL_06_SELECT_5" time="0.005776">
+            </testcase>
+            <testcase assertions="2" class="SolicitudesTest" classname="SolicitudesTest" file="CONCO_v4\tests\SolicitudesTest.php" line="88" name="test_SQL_07_SELECT_6" time="0.003110">
+            </testcase>
+            <testcase assertions="2" class="SolicitudesTest" classname="SolicitudesTest" file="CONCO_v4\tests\SolicitudesTest.php" line="98" name="test_SQL_08_SELECT_7" time="0.004794">
+            </testcase>
+            <testcase assertions="2" class="SolicitudesTest" classname="SolicitudesTest" file="CONCO_v4\tests\SolicitudesTest.php" line="108" name="test_SQL_09_SELECT_7" time="0.049096">
+            </testcase>
+            <testcase assertions="1" class="SolicitudesTest" classname="SolicitudesTest" file="CONCO_v4\tests\SolicitudesTest.php" line="118" name="test_SQL_10_UPDATE" time="0.003263">
+            </testcase>
+            <testcase assertions="2" class="SolicitudesTest" classname="SolicitudesTest" file="CONCO_v4\tests\SolicitudesTest.php" line="126" name="test_SQL_11_SELECT_8" time="0.004223">
+            </testcase>
+        </testsuite>
+        <testsuite assertions="3" errors="0" failures="0" file="CONCO_v4\tests\VacunadosTest.php" name="VacunadosTest" skipped="0" tests="2" time="0.052790" warnings="0">
+            <testcase assertions="2" class="VacunadosTest" classname="VacunadosTest" file="CONCO_v4\tests\VacunadosTest.php" line="26" name="test_SQL_01_SELECT" time="0.013244">
+            </testcase>
+            <testcase assertions="1" class="VacunadosTest" classname="VacunadosTest" file="CONCO_v4\tests\VacunadosTest.php" line="35" name="test_SQL_02_INSERT" time="0.039546">
+            </testcase>
+        </testsuite>
+        <testsuite assertions="25" errors="0" failures="0" file="CONCO_v4\tests\ViviendasTest.php" name="ViviendasTest" skipped="0" tests="17" time="0.957293" warnings="0">
+            <testcase assertions="2" class="ViviendasTest" classname="ViviendasTest" file="CONCO_v4\tests\ViviendasTest.php" line="92" name="test_SQL_01_SELECT_1" time="0.009976">
+            </testcase>
+            <testcase assertions="2" class="ViviendasTest" classname="ViviendasTest" file="CONCO_v4\tests\ViviendasTest.php" line="101" name="test_SQL_02_SELECT_2" time="0.006672">
+            </testcase>
+            <testcase assertions="2" class="ViviendasTest" classname="ViviendasTest" file="CONCO_v4\tests\ViviendasTest.php" line="110" name="test_SQL_03_SELECT_3" time="0.005793">
+            </testcase>
+            <testcase assertions="2" class="ViviendasTest" classname="ViviendasTest" file="CONCO_v4\tests\ViviendasTest.php" line="120" name="test_SQL_04_SELECT_4" time="0.003958">
+            </testcase>
+            <testcase assertions="2" class="ViviendasTest" classname="ViviendasTest" file="CONCO_v4\tests\ViviendasTest.php" line="130" name="test_SQL_05_SELECT_5" time="0.003306">
+            </testcase>
+            <testcase assertions="2" class="ViviendasTest" classname="ViviendasTest" file="CONCO_v4\tests\ViviendasTest.php" line="140" name="test_SQL_07_SELECT_7" time="0.005758">
+            </testcase>
+            <testcase assertions="2" class="ViviendasTest" classname="ViviendasTest" file="CONCO_v4\tests\ViviendasTest.php" line="150" name="test_SQL_08_SELECT_8" time="0.004077">
+            </testcase>
+            <testcase assertions="2" class="ViviendasTest" classname="ViviendasTest" file="CONCO_v4\tests\ViviendasTest.php" line="160" name="test_SQL_09_SELECT_9" time="0.006239">
+            </testcase>
+            <testcase assertions="1" class="ViviendasTest" classname="ViviendasTest" file="CONCO_v4\tests\ViviendasTest.php" line="170" name="test_SQL_10_INSERT_1" time="0.072105">
+            </testcase>
+            <testcase assertions="1" class="ViviendasTest" classname="ViviendasTest" file="CONCO_v4\tests\ViviendasTest.php" line="178" name="test_SQL_11_UPDATE_1" time="0.058040">
+            </testcase>
+            <testcase assertions="1" class="ViviendasTest" classname="ViviendasTest" file="CONCO_v4\tests\ViviendasTest.php" line="187" name="test_SQL_12_INSERT_2" time="0.201439">
+            </testcase>
+            <testcase assertions="1" class="ViviendasTest" classname="ViviendasTest" file="CONCO_v4\tests\ViviendasTest.php" line="196" name="test_SQL_13_INSERT_2" time="0.178871">
+            </testcase>
+            <testcase assertions="1" class="ViviendasTest" classname="ViviendasTest" file="CONCO_v4\tests\ViviendasTest.php" line="205" name="test_SQL_14_INSERT_3" time="0.115261">
+            </testcase>
+            <testcase assertions="1" class="ViviendasTest" classname="ViviendasTest" file="CONCO_v4\tests\ViviendasTest.php" line="214" name="test_SQL_15_INSERT_4" time="0.069025">
+            </testcase>
+            <testcase assertions="1" class="ViviendasTest" classname="ViviendasTest" file="CONCO_v4\tests\ViviendasTest.php" line="223" name="test_SQL_16_INSERT_5" time="0.057450">
+            </testcase>
+            <testcase assertions="1" class="ViviendasTest" classname="ViviendasTest" file="CONCO_v4\tests\ViviendasTest.php" line="232" name="test_SQL_17_INSERT_6" time="0.101776">
+            </testcase>
+            <testcase assertions="1" class="ViviendasTest" classname="ViviendasTest" file="CONCO_v4\tests\ViviendasTest.php" line="241" name="test_SQL_18_DELETE_1" time="0.057546">
+            </testcase>
+        </testsuite>
+    </testsuite>
+</testsuites>

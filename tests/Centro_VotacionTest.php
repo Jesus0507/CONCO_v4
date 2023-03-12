@@ -90,8 +90,7 @@ class Centro_VotacionTest extends TestCase
     public function test_SQL_07_SELECT_4()
     {
         $this->centro_votacion->_SQL_("SQL_07");
-        $this->centro_votacion->_Tipo_(2);
-        $this->centro_votacion->_Datos_($this->datos["SELECT"]);
+        $this->centro_votacion->_Tipo_(0);
         $result = $this->centro_votacion->Administrar();
         $this->assertIsArray($result);
         $this->assertNotEmpty($result);
