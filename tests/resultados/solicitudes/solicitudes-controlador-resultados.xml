@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tests>
+    <test classname="SolicitudesTestControlador" groups="default" methodname="test_Cargar_Vistas" prettifiedclassname="Solicitudes Test Controlador" prettifiedmethodname="Cargar Vistas" size="-1" status="0" time="0.019621">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="SolicitudesTestControlador" groups="default" methodname="test_Establecer_Consultas" prettifiedclassname="Solicitudes Test Controlador" prettifiedmethodname="Establecer Consultas" size="-1" status="0" time="0.0059788">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="SolicitudesTestControlador" groups="default" methodname="test_Getters" prettifiedclassname="Solicitudes Test Controlador" prettifiedmethodname="Getters" size="-1" status="0" time="0.0068999">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="SolicitudesTestControlador" groups="default" methodname="test_Administrar_Vistas_Consultas_Registros" prettifiedclassname="Solicitudes Test Controlador" prettifiedmethodname="Administrar Vistas Consultas Registros" size="-1" status="0" time="0.0070209">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="SolicitudesTestControlador" groups="default" methodname="test_Administrar_Registrar" prettifiedclassname="Solicitudes Test Controlador" prettifiedmethodname="Administrar Registrar" size="-1" status="0" time="0.0085301">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="SolicitudesTestControlador" groups="default" methodname="test_Administrar_Consulta_Ajax" prettifiedclassname="Solicitudes Test Controlador" prettifiedmethodname="Administrar Consulta Ajax" size="-1" status="0" time="0.0055277">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="SolicitudesTestControlador" groups="default" methodname="test_Administrar_Editar" prettifiedclassname="Solicitudes Test Controlador" prettifiedmethodname="Administrar Editar" size="-1" status="0" time="0.0077403">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="SolicitudesTestControlador" groups="default" methodname="test_Administrar_Eliminar" prettifiedclassname="Solicitudes Test Controlador" prettifiedmethodname="Administrar Eliminar" size="-1" status="0" time="0.0069792">
+        <group name="default">
+        </group>
+    </test>
+</tests>
