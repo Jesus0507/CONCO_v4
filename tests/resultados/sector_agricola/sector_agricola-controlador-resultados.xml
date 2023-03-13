@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tests>
+    <test classname="Sector_AgricolaTestControlador" groups="default" methodname="test_Cargar_Vistas" prettifiedclassname="Sector_Agricola Test Controlador" prettifiedmethodname="Cargar Vistas" size="-1" status="0" time="0.0179775">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="Sector_AgricolaTestControlador" groups="default" methodname="test_Establecer_Consultas" prettifiedclassname="Sector_Agricola Test Controlador" prettifiedmethodname="Establecer Consultas" size="-1" status="0" time="0.0096302">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="Sector_AgricolaTestControlador" groups="default" methodname="test_Getters" prettifiedclassname="Sector_Agricola Test Controlador" prettifiedmethodname="Getters" size="-1" status="0" time="0.0084924">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="Sector_AgricolaTestControlador" groups="default" methodname="test_Administrar_Vistas_Consultas_Registros" prettifiedclassname="Sector_Agricola Test Controlador" prettifiedmethodname="Administrar Vistas Consultas Registros" size="-1" status="0" time="0.0054069">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="Sector_AgricolaTestControlador" groups="default" methodname="test_Administrar_Registrar" prettifiedclassname="Sector_Agricola Test Controlador" prettifiedmethodname="Administrar Registrar" size="-1" status="0" time="0.0074423">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="Sector_AgricolaTestControlador" groups="default" methodname="test_Administrar_Consulta_Ajax" prettifiedclassname="Sector_Agricola Test Controlador" prettifiedmethodname="Administrar Consulta Ajax" size="-1" status="0" time="0.005182">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="Sector_AgricolaTestControlador" groups="default" methodname="test_Administrar_Editar" prettifiedclassname="Sector_Agricola Test Controlador" prettifiedmethodname="Administrar Editar" size="-1" status="0" time="0.0078512">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="Sector_AgricolaTestControlador" groups="default" methodname="test_Administrar_Eliminar" prettifiedclassname="Sector_Agricola Test Controlador" prettifiedmethodname="Administrar Eliminar" size="-1" status="0" time="0.0073398">
+        <group name="default">
+        </group>
+    </test>
+</tests>
