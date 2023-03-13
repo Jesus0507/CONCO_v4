@@ -1,44 +1,57 @@
 <?php
 
+require_once "controlador/habitante_controlador.php";
+require_once "modelo/habitante_class.php";
+
 use PHPUnit\Framework\TestCase;
 
+$_SESSION['cedula_usuario'] = "7654321";
+$_SESSION['Habitante']         = [
+    "consultar" => 1,
+    "registrar" => 1,
+    "eliminar"  => 1,
+    "modificar" => 1,
+];
+$_POST = [
+    'estado'   => [
+        "tabla"  => "habitante",
+        "id"     => "id_habitante",
+        "data"   => 1,
+        "estado" => 1,
+    ],
+    'sql'      => 'SQL_1',
+];
 
 class HabitanteTestControlador extends TestCase
 {
-    private $vista;
+    private $Habitante;
 
-    protected function setUp(): void
-    {
-        $this->vista = new Vista();
-    }
+    protected function setUp(): void     {$this->Habitante = new Habitante();}
 
-    protected function tearDown(): void
-    {$this->Agenda = null;}
+    protected function tearDown(): void  {$this->Habitante = null;}
 
-    // AGENDA
     public function test_Cargar_Vistas()
     {
-        ob_start();
-        $this->vista->Cargar_Vistas('inicio/index');
-        $contenido_vista = ob_get_clean();
-        $this->assertNotEmpty($contenido_vista);
+        $this->Habitante->vista = $this->getMockBuilder(Vista::class)->disableOriginalConstructor()->getMock();
+        $this->Habitante->vista->expects($this->once())->method('Cargar_Vistas')->with('Habitante/consultar');
+        $this->Habitante->Cargar_Vistas();
+        $this->assertTrue(true);
     }
 
     public function test_Establecer_Consultas()
     {
-        ob_start();
-        $this->vista->Cargar_Vistas('inicio/index');
-        $contenido_vista = ob_get_clean();
-        $this->assertNotEmpty($contenido_vista);
+        $this->Habitante->Establecer_Consultas();
+        $this->assertNotEmpty($this->Habitante->Get_Datos_Vista());
     }
 
     public function test_Getters()
     {
-       ob_start();
-        $this->vista->Cargar_Vistas('inicio/index');
-        $contenido_vista = ob_get_clean();
-        $this->assertNotEmpty($contenido_vista);
+        $this->assertIsString($this->Habitante->Get_Sql());
+        $this->assertIsString($this->Habitante->Get_Accion());
+        $this->assertIsString($this->Habitante->Get_Mensaje());
+        $this->assertIsArray($this->Habitante->Get_Datos());
+        $this->assertIsArray($this->Habitante->Get_Estado());
+        $this->assertIsArray($this->Habitante->Get_Estado_Ejecutar());
     }
-
     // =================================================================
 }
