@@ -3,24 +3,16 @@
     <testsuites>
         <testsuite name="Reportes">
             <file>
-                tests/reportes_test.php
+                tests/ReportesTest.php
             </file>
         </testsuite>
     </testsuites>
-    <!-- Filtra los archivos de prueba en la carpeta "tests" con extensión "_test.php" -->
+    <!-- Filtra los archivos de prueba en la carpeta "tests" con extensión "Test.php" -->
     <filter>
         <whitelist>
-            <directory suffix="_test.php">
+            <directory suffix="Test.php">
                 tests/
             </directory>
         </whitelist>
     </filter>
-    <logging>
-        <!-- Generar un informe de pruebas en formato JUnit (resultado estructurado) -->
-        <junit outputfile="tests/resultados/reportes/reportes-lista-resultados.xml">
-        </junit>
-        <!-- Guardar los resultados de las pruebas en un archivo de texto -->
-        <testdoxtext outputfile="tests/resultados/reportes/reportes-lista-resultados.txt">
-        </testdoxtext>
-    </logging>
 </phpunit>
