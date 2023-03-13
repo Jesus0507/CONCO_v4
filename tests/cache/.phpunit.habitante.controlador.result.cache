@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "defects": [],
+  "times": {
+    "HabitanteTestControlador::test_Cargar_Vistas": 0.022,
+    "HabitanteTestControlador::test_Establecer_Consultas": 0.006,
+    "HabitanteTestControlador::test_Getters": 0.007
+  }
+}
