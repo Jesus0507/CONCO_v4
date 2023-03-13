@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tests>
+    <test classname="PersonasTestControlador" groups="default" methodname="test_Cargar_Vistas" prettifiedclassname="Personas Test Controlador" prettifiedmethodname="Cargar Vistas" size="-1" status="0" time="0.0241096">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="PersonasTestControlador" groups="default" methodname="test_Establecer_Consultas" prettifiedclassname="Personas Test Controlador" prettifiedmethodname="Establecer Consultas" size="-1" status="0" time="0.0068719">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="PersonasTestControlador" groups="default" methodname="test_Getters" prettifiedclassname="Personas Test Controlador" prettifiedmethodname="Getters" size="-1" status="0" time="0.0070683">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="PersonasTestControlador" groups="default" methodname="test_Administrar_Vistas_Consultas_Registros" prettifiedclassname="Personas Test Controlador" prettifiedmethodname="Administrar Vistas Consultas Registros" size="-1" status="0" time="0.0052392">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="PersonasTestControlador" groups="default" methodname="test_Administrar_Registrar" prettifiedclassname="Personas Test Controlador" prettifiedmethodname="Administrar Registrar" size="-1" status="0" time="0.007147">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="PersonasTestControlador" groups="default" methodname="test_Administrar_Consulta_Ajax" prettifiedclassname="Personas Test Controlador" prettifiedmethodname="Administrar Consulta Ajax" size="-1" status="0" time="0.0061088">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="PersonasTestControlador" groups="default" methodname="test_Administrar_Editar" prettifiedclassname="Personas Test Controlador" prettifiedmethodname="Administrar Editar" size="-1" status="0" time="0.0060183">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="PersonasTestControlador" groups="default" methodname="test_Administrar_Eliminar" prettifiedclassname="Personas Test Controlador" prettifiedmethodname="Administrar Eliminar" size="-1" status="0" time="0.0077826">
+        <group name="default">
+        </group>
+    </test>
+</tests>
