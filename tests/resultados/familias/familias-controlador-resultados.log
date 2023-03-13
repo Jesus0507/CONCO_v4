@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite assertions="8" errors="0" failures="0" file="CONCO_v4\tests\FamiliasTestControlador.php" name="FamiliasTestControlador" skipped="0" tests="8" time="0.083716" warnings="0">
+        <testcase assertions="1" class="FamiliasTestControlador" classname="FamiliasTestControlador" file="CONCO_v4\tests\FamiliasTestControlador.php" line="19" name="test_Cargar_Vistas" time="0.037689">
+        </testcase>
+        <testcase assertions="1" class="FamiliasTestControlador" classname="FamiliasTestControlador" file="CONCO_v4\tests\FamiliasTestControlador.php" line="27" name="test_Establecer_Consultas" time="0.005488">
+        </testcase>
+        <testcase assertions="1" class="FamiliasTestControlador" classname="FamiliasTestControlador" file="CONCO_v4\tests\FamiliasTestControlador.php" line="35" name="test_Getters" time="0.005623">
+        </testcase>
+        <testcase assertions="1" class="FamiliasTestControlador" classname="FamiliasTestControlador" file="CONCO_v4\tests\FamiliasTestControlador.php" line="43" name="test_Administrar_Vistas_Consultas_Registros" time="0.005519">
+        </testcase>
+        <testcase assertions="1" class="FamiliasTestControlador" classname="FamiliasTestControlador" file="CONCO_v4\tests\FamiliasTestControlador.php" line="51" name="test_Administrar_Registrar" time="0.005560">
+        </testcase>
+        <testcase assertions="1" class="FamiliasTestControlador" classname="FamiliasTestControlador" file="CONCO_v4\tests\FamiliasTestControlador.php" line="59" name="test_Administrar_Consulta_Ajax" time="0.007526">
+        </testcase>
+        <testcase assertions="1" class="FamiliasTestControlador" classname="FamiliasTestControlador" file="CONCO_v4\tests\FamiliasTestControlador.php" line="67" name="test_Administrar_Editar" time="0.005671">
+        </testcase>
+        <testcase assertions="1" class="FamiliasTestControlador" classname="FamiliasTestControlador" file="CONCO_v4\tests\FamiliasTestControlador.php" line="75" name="test_Administrar_Eliminar" time="0.010641">
+        </testcase>
+    </testsuite>
+</testsuites>
