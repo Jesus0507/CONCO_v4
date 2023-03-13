@@ -12,7 +12,7 @@ class NotificacionesTestControlador extends TestCase
         $this->vista = new Vista();
     }
 
-    protected function tearDown(): void
+    protected function tearDown(): void 
     {$this->Agenda = null;}
 
     // AGENDA
@@ -40,15 +40,8 @@ class NotificacionesTestControlador extends TestCase
         $this->assertNotEmpty($contenido_vista);
     }
 
-    public function test_Administrar_Vistas_Consultas_Registros()
-    {
-       ob_start();
-        $this->vista->Cargar_Vistas('inicio/index');
-        $contenido_vista = ob_get_clean();
-        $this->assertNotEmpty($contenido_vista);
-    }
 
-    public function test_Administrar_Registrar()
+    public function test_Administrar_Nueva()
     {
        ob_start();
         $this->vista->Cargar_Vistas('inicio/index');
@@ -57,22 +50,6 @@ class NotificacionesTestControlador extends TestCase
     }
 
     public function test_Administrar_Consulta_Ajax()
-    {
-       ob_start();
-        $this->vista->Cargar_Vistas('inicio/index');
-        $contenido_vista = ob_get_clean();
-        $this->assertNotEmpty($contenido_vista);
-    }
-
-    public function test_Administrar_Editar()
-    {
-       ob_start();
-        $this->vista->Cargar_Vistas('inicio/index');
-        $contenido_vista = ob_get_clean();
-        $this->assertNotEmpty($contenido_vista);
-    }
-
-    public function test_Administrar_Eliminar()
     {
        ob_start();
         $this->vista->Cargar_Vistas('inicio/index');

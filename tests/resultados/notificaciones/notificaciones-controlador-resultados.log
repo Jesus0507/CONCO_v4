@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite assertions="5" errors="0" failures="0" file="CONCO_v4\tests\NotificacionesTestControlador.php" name="NotificacionesTestControlador" skipped="0" tests="5" time="0.043758" warnings="0">
+        <testcase assertions="1" class="NotificacionesTestControlador" classname="NotificacionesTestControlador" file="CONCO_v4\tests\NotificacionesTestControlador.php" line="19" name="test_Cargar_Vistas" time="0.017226">
+        </testcase>
+        <testcase assertions="1" class="NotificacionesTestControlador" classname="NotificacionesTestControlador" file="CONCO_v4\tests\NotificacionesTestControlador.php" line="27" name="test_Establecer_Consultas" time="0.006809">
+        </testcase>
+        <testcase assertions="1" class="NotificacionesTestControlador" classname="NotificacionesTestControlador" file="CONCO_v4\tests\NotificacionesTestControlador.php" line="35" name="test_Getters" time="0.005206">
+        </testcase>
+        <testcase assertions="1" class="NotificacionesTestControlador" classname="NotificacionesTestControlador" file="CONCO_v4\tests\NotificacionesTestControlador.php" line="44" name="test_Administrar_Nueva" time="0.005659">
+        </testcase>
+        <testcase assertions="1" class="NotificacionesTestControlador" classname="NotificacionesTestControlador" file="CONCO_v4\tests\NotificacionesTestControlador.php" line="52" name="test_Administrar_Consulta_Ajax" time="0.008858">
+        </testcase>
+    </testsuite>
+</testsuites>
