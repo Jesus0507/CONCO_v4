@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite assertions="4" errors="0" failures="0" file="CONCO_v4\tests\ReportesTestControlador.php" name="ReportesTestControlador" skipped="0" tests="4" time="0.043092" warnings="0">
+        <testcase assertions="1" class="ReportesTestControlador" classname="ReportesTestControlador" file="CONCO_v4\tests\ReportesTestControlador.php" line="19" name="test_Cargar_Vistas" time="0.024571">
+        </testcase>
+        <testcase assertions="1" class="ReportesTestControlador" classname="ReportesTestControlador" file="CONCO_v4\tests\ReportesTestControlador.php" line="27" name="test_Establecer_Consultas" time="0.005787">
+        </testcase>
+        <testcase assertions="1" class="ReportesTestControlador" classname="ReportesTestControlador" file="CONCO_v4\tests\ReportesTestControlador.php" line="35" name="test_Getters" time="0.007369">
+        </testcase>
+        <testcase assertions="1" class="ReportesTestControlador" classname="ReportesTestControlador" file="CONCO_v4\tests\ReportesTestControlador.php" line="43" name="test_Administrar_Reportes_PDF" time="0.005366">
+        </testcase>
+    </testsuite>
+</testsuites>
