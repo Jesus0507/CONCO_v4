@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tests>
+    <test classname="InmueblesTestControlador" groups="default" methodname="test_Cargar_Vistas" prettifiedclassname="Inmuebles Test Controlador" prettifiedmethodname="Cargar Vistas" size="-1" status="0" time="0.0227935">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="InmueblesTestControlador" groups="default" methodname="test_Establecer_Consultas" prettifiedclassname="Inmuebles Test Controlador" prettifiedmethodname="Establecer Consultas" size="-1" status="0" time="0.0057542">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="InmueblesTestControlador" groups="default" methodname="test_Getters" prettifiedclassname="Inmuebles Test Controlador" prettifiedmethodname="Getters" size="-1" status="0" time="0.0060586">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="InmueblesTestControlador" groups="default" methodname="test_Administrar_Vistas_Consultas_Registros" prettifiedclassname="Inmuebles Test Controlador" prettifiedmethodname="Administrar Vistas Consultas Registros" size="-1" status="0" time="0.0078538">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="InmueblesTestControlador" groups="default" methodname="test_Administrar_Registrar" prettifiedclassname="Inmuebles Test Controlador" prettifiedmethodname="Administrar Registrar" size="-1" status="0" time="0.0078316">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="InmueblesTestControlador" groups="default" methodname="test_Administrar_Consulta_Ajax" prettifiedclassname="Inmuebles Test Controlador" prettifiedmethodname="Administrar Consulta Ajax" size="-1" status="0" time="0.0057594">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="InmueblesTestControlador" groups="default" methodname="test_Administrar_Editar" prettifiedclassname="Inmuebles Test Controlador" prettifiedmethodname="Administrar Editar" size="-1" status="0" time="0.0102588">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="InmueblesTestControlador" groups="default" methodname="test_Administrar_Eliminar" prettifiedclassname="Inmuebles Test Controlador" prettifiedmethodname="Administrar Eliminar" size="-1" status="0" time="0.0060504">
+        <group name="default">
+        </group>
+    </test>
+</tests>
