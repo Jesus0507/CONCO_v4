@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite assertions="8" errors="0" failures="0" file="CONCO_v4\tests\AgendaTestControlador.php" name="AgendaTestControlador" skipped="0" tests="8" time="0.066446" warnings="0">
+        <testcase assertions="1" class="AgendaTestControlador" classname="AgendaTestControlador" file="CONCO_v4\tests\AgendaTestControlador.php" line="21" name="test_Cargar_Vistas" time="0.023067">
+        </testcase>
+        <testcase assertions="1" class="AgendaTestControlador" classname="AgendaTestControlador" file="CONCO_v4\tests\AgendaTestControlador.php" line="29" name="test_Establecer_Consultas" time="0.005199">
+        </testcase>
+        <testcase assertions="1" class="AgendaTestControlador" classname="AgendaTestControlador" file="CONCO_v4\tests\AgendaTestControlador.php" line="37" name="test_Getters" time="0.005315">
+        </testcase>
+        <testcase assertions="1" class="AgendaTestControlador" classname="AgendaTestControlador" file="CONCO_v4\tests\AgendaTestControlador.php" line="45" name="test_Administrar_Vistas_Consultas_Registros" time="0.005287">
+        </testcase>
+        <testcase assertions="1" class="AgendaTestControlador" classname="AgendaTestControlador" file="CONCO_v4\tests\AgendaTestControlador.php" line="53" name="test_Administrar_Registrar" time="0.007340">
+        </testcase>
+        <testcase assertions="1" class="AgendaTestControlador" classname="AgendaTestControlador" file="CONCO_v4\tests\AgendaTestControlador.php" line="61" name="test_Administrar_Consulta_Ajax" time="0.005159">
+        </testcase>
+        <testcase assertions="1" class="AgendaTestControlador" classname="AgendaTestControlador" file="CONCO_v4\tests\AgendaTestControlador.php" line="69" name="test_Administrar_Editar" time="0.008073">
+        </testcase>
+        <testcase assertions="1" class="AgendaTestControlador" classname="AgendaTestControlador" file="CONCO_v4\tests\AgendaTestControlador.php" line="77" name="test_Administrar_Eliminar" time="0.007005">
+        </testcase>
+    </testsuite>
+</testsuites>
