@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite assertions="8" errors="0" failures="0" file="CONCO_v4\tests\Centro_VotacionTestControlador.php" name="Centro_VotacionTestControlador" skipped="0" tests="8" time="0.073968" warnings="0">
+        <testcase assertions="1" class="Centro_VotacionTestControlador" classname="Centro_VotacionTestControlador" file="CONCO_v4\tests\Centro_VotacionTestControlador.php" line="19" name="test_Cargar_Vistas" time="0.021972">
+        </testcase>
+        <testcase assertions="1" class="Centro_VotacionTestControlador" classname="Centro_VotacionTestControlador" file="CONCO_v4\tests\Centro_VotacionTestControlador.php" line="27" name="test_Establecer_Consultas" time="0.008424">
+        </testcase>
+        <testcase assertions="1" class="Centro_VotacionTestControlador" classname="Centro_VotacionTestControlador" file="CONCO_v4\tests\Centro_VotacionTestControlador.php" line="35" name="test_Getters" time="0.005160">
+        </testcase>
+        <testcase assertions="1" class="Centro_VotacionTestControlador" classname="Centro_VotacionTestControlador" file="CONCO_v4\tests\Centro_VotacionTestControlador.php" line="43" name="test_Administrar_Vistas_Consultas_Registros" time="0.009180">
+        </testcase>
+        <testcase assertions="1" class="Centro_VotacionTestControlador" classname="Centro_VotacionTestControlador" file="CONCO_v4\tests\Centro_VotacionTestControlador.php" line="51" name="test_Administrar_Registrar" time="0.006395">
+        </testcase>
+        <testcase assertions="1" class="Centro_VotacionTestControlador" classname="Centro_VotacionTestControlador" file="CONCO_v4\tests\Centro_VotacionTestControlador.php" line="59" name="test_Administrar_Consulta_Ajax" time="0.009476">
+        </testcase>
+        <testcase assertions="1" class="Centro_VotacionTestControlador" classname="Centro_VotacionTestControlador" file="CONCO_v4\tests\Centro_VotacionTestControlador.php" line="67" name="test_Administrar_Editar" time="0.004991">
+        </testcase>
+        <testcase assertions="1" class="Centro_VotacionTestControlador" classname="Centro_VotacionTestControlador" file="CONCO_v4\tests\Centro_VotacionTestControlador.php" line="75" name="test_Administrar_Eliminar" time="0.008370">
+        </testcase>
+    </testsuite>
+</testsuites>
