@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "defects": [],
+  "times": {
+    "VacunadosTestControlador::test_Cargar_Vistas": 0.017,
+    "VacunadosTestControlador::test_Establecer_Consultas": 0.007,
+    "VacunadosTestControlador::test_Getters": 0.005,
+    "VacunadosTestControlador::test_Administrar_Vistas_Consultas_Registros": 0.007,
+    "VacunadosTestControlador::test_Administrar_Registrar": 0.006,
+    "VacunadosTestControlador::test_Administrar_Consulta_Ajax": 0.01,
+    "VacunadosTestControlador::test_Administrar_Editar": 0.005,
+    "VacunadosTestControlador::test_Administrar_Eliminar": 0.009
+  }
+}

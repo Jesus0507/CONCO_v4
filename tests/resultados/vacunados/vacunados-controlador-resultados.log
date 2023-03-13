@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite assertions="8" errors="0" failures="0" file="CONCO_v4\tests\VacunadosTestControlador.php" name="VacunadosTestControlador" skipped="0" tests="8" time="0.068103" warnings="0">
+        <testcase assertions="1" class="VacunadosTestControlador" classname="VacunadosTestControlador" file="CONCO_v4\tests\VacunadosTestControlador.php" line="19" name="test_Cargar_Vistas" time="0.017474">
+        </testcase>
+        <testcase assertions="1" class="VacunadosTestControlador" classname="VacunadosTestControlador" file="CONCO_v4\tests\VacunadosTestControlador.php" line="27" name="test_Establecer_Consultas" time="0.007011">
+        </testcase>
+        <testcase assertions="1" class="VacunadosTestControlador" classname="VacunadosTestControlador" file="CONCO_v4\tests\VacunadosTestControlador.php" line="35" name="test_Getters" time="0.005356">
+        </testcase>
+        <testcase assertions="1" class="VacunadosTestControlador" classname="VacunadosTestControlador" file="CONCO_v4\tests\VacunadosTestControlador.php" line="43" name="test_Administrar_Vistas_Consultas_Registros" time="0.007441">
+        </testcase>
+        <testcase assertions="1" class="VacunadosTestControlador" classname="VacunadosTestControlador" file="CONCO_v4\tests\VacunadosTestControlador.php" line="51" name="test_Administrar_Registrar" time="0.005787">
+        </testcase>
+        <testcase assertions="1" class="VacunadosTestControlador" classname="VacunadosTestControlador" file="CONCO_v4\tests\VacunadosTestControlador.php" line="59" name="test_Administrar_Consulta_Ajax" time="0.010380">
+        </testcase>
+        <testcase assertions="1" class="VacunadosTestControlador" classname="VacunadosTestControlador" file="CONCO_v4\tests\VacunadosTestControlador.php" line="67" name="test_Administrar_Editar" time="0.005469">
+        </testcase>
+        <testcase assertions="1" class="VacunadosTestControlador" classname="VacunadosTestControlador" file="CONCO_v4\tests\VacunadosTestControlador.php" line="75" name="test_Administrar_Eliminar" time="0.009186">
+        </testcase>
+    </testsuite>
+</testsuites>
