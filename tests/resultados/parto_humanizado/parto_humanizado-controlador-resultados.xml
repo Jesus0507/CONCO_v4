@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tests>
+    <test classname="Parto_HumanizadoTestControlador" groups="default" methodname="test_Cargar_Vistas" prettifiedclassname="Parto_Humanizado Test Controlador" prettifiedmethodname="Cargar Vistas" size="-1" status="0" time="0.0317928">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="Parto_HumanizadoTestControlador" groups="default" methodname="test_Establecer_Consultas" prettifiedclassname="Parto_Humanizado Test Controlador" prettifiedmethodname="Establecer Consultas" size="-1" status="0" time="0.0070423">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="Parto_HumanizadoTestControlador" groups="default" methodname="test_Getters" prettifiedclassname="Parto_Humanizado Test Controlador" prettifiedmethodname="Getters" size="-1" status="0" time="0.0080885">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="Parto_HumanizadoTestControlador" groups="default" methodname="test_Administrar_Vistas_Consultas_Registros" prettifiedclassname="Parto_Humanizado Test Controlador" prettifiedmethodname="Administrar Vistas Consultas Registros" size="-1" status="0" time="0.0059545">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="Parto_HumanizadoTestControlador" groups="default" methodname="test_Administrar_Registrar" prettifiedclassname="Parto_Humanizado Test Controlador" prettifiedmethodname="Administrar Registrar" size="-1" status="0" time="0.0083137">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="Parto_HumanizadoTestControlador" groups="default" methodname="test_Administrar_Consulta_Ajax" prettifiedclassname="Parto_Humanizado Test Controlador" prettifiedmethodname="Administrar Consulta Ajax" size="-1" status="0" time="0.0059527">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="Parto_HumanizadoTestControlador" groups="default" methodname="test_Administrar_Editar" prettifiedclassname="Parto_Humanizado Test Controlador" prettifiedmethodname="Administrar Editar" size="-1" status="0" time="0.0085843">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="Parto_HumanizadoTestControlador" groups="default" methodname="test_Administrar_Eliminar" prettifiedclassname="Parto_Humanizado Test Controlador" prettifiedmethodname="Administrar Eliminar" size="-1" status="0" time="0.0094638">
+        <group name="default">
+        </group>
+    </test>
+</tests>
