@@ -89,6 +89,10 @@ btn_seleccionar.onclick = function () {
                     if (result == 0) {
                         valid_persona.innerHTML = "Esta persona no se encuentra registrada";
                     } else {
+                        if(result == 1 ){
+                            valid_persona.innerHTML = "Esta persona ya posee patologías agregadas";
+                        }
+                        else {
                         valid_persona.innerHTML = "";
                         var datos = JSON.parse(result);
                         span_persona.innerHTML = datos[0]['primer_nombre'] + " " + datos[0]['primer_apellido'];
@@ -96,6 +100,7 @@ btn_seleccionar.onclick = function () {
                         btn_seleccionar.style.display = 'none';
                         div_info.style.display = '';
                         //    registrar_btn.style.display = 'none';
+                        }
                     }
                 })
             },

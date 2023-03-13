@@ -272,7 +272,20 @@ class Enfermos extends Controlador
                 $this->modelo->_SQL_("SQL_07");
                 $this->modelo->_ID_($this->cedula);
                 $this->persona = $this->modelo->Administrar();
-                if (count($this->persona) == 0) {echo 0;} else { $this->Escribir_JSON($this->persona);}
+                if (count($this->persona) == 0) {
+                    echo 0;
+                } else { 
+                    $this->modelo->_SQL_("SQL_04");
+                    $this->modelo->_Tipo_(0);
+                    $this->modelo->_ID_($this->cedula);
+                    $resultado = $this->modelo->Administrar();
+                    if(count($resultado) > 0 ){
+                        echo 1;
+                    }
+                    else{
+                    $this->Escribir_JSON($this->persona);
+                    }
+                }
                 unset($this->persona, $_POST);
                 break;
 

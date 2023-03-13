@@ -70,3 +70,102 @@ stdClass Object
     [Linea] => 42
     [Mensaje] => SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
 )
+stdClass Object
+(
+    [Modulo] => ------Discapacitados------
+    [Fecha] => Domingo , 12 de Marzo del 2023
+    [Hora] => 03:20:10 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\discapacitados_class.php
+    [Linea] => 42
+    [Mensaje] => SQLSTATE[22007]: Invalid datetime format: 1292 Truncated incorrect INTEGER value: '9/'
+)
+stdClass Object
+(
+    [Modulo] => ------Enfermos------
+    [Fecha] => Domingo , 12 de Marzo del 2023
+    [Hora] => 05:21:19 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\enfermos_class.php
+    [Linea] => 32
+    [Mensaje] => SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND PE.id_enfermedad=E.id_enfermedad AND E.estado=1' at line 1
+)
+stdClass Object
+(
+    [Modulo] => ------Enfermos------
+    [Fecha] => Domingo , 12 de Marzo del 2023
+    [Hora] => 05:21:37 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\enfermos_class.php
+    [Linea] => 32
+    [Mensaje] => SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND PE.id_enfermedad=E.id_enfermedad AND E.estado=1' at line 1
+)
+stdClass Object
+(
+    [Modulo] => ------Enfermos------
+    [Fecha] => Domingo , 12 de Marzo del 2023
+    [Hora] => 05:22:18 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\enfermos_class.php
+    [Linea] => 32
+    [Mensaje] => SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND PE.id_enfermedad=E.id_enfermedad AND E.estado=1' at line 1
+)
+stdClass Object
+(
+    [Modulo] => ------Enfermos------
+    [Fecha] => Domingo , 12 de Marzo del 2023
+    [Hora] => 05:24:08 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\enfermos_class.php
+    [Linea] => 32
+    [Mensaje] => SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND PE.id_enfermedad=E.id_enfermedad AND E.estado=1' at line 1
+)
+stdClass Object
+(
+    [Modulo] => ------Discapacitados------
+    [Fecha] => Domingo , 12 de Marzo del 2023
+    [Hora] => 05:50:06 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\discapacitados_class.php
+    [Linea] => 42
+    [Mensaje] => SQLSTATE[22007]: Invalid datetime format: 1292 Truncated incorrect INTEGER value: '14/'
+)
+stdClass Object
+(
+    [Modulo] => ------Discapacitados------
+    [Fecha] => Domingo , 12 de Marzo del 2023
+    [Hora] => 05:57:39 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\discapacitados_class.php
+    [Linea] => 42
+    [Mensaje] => SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+)
+stdClass Object
+(
+    [Modulo] => ------Discapacitados------
+    [Fecha] => Domingo , 12 de Marzo del 2023
+    [Hora] => 06:00:13 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\discapacitados_class.php
+    [Linea] => 42
+    [Mensaje] => SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+)
+stdClass Object
+(
+    [Modulo] => ------Discapacitados------
+    [Fecha] => Domingo , 12 de Marzo del 2023
+    [Hora] => 06:00:52 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\discapacitados_class.php
+    [Linea] => 42
+    [Mensaje] => SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+)
+stdClass Object
+(
+    [Modulo] => ------Discapacitados------
+    [Fecha] => Domingo , 12 de Marzo del 2023
+    [Hora] => 06:01:51 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\discapacitados_class.php
+    [Linea] => 42
+    [Mensaje] => SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+)
+stdClass Object
+(
+    [Modulo] => ------Discapacitados------
+    [Fecha] => Domingo , 12 de Marzo del 2023
+    [Hora] => 06:04:26 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\discapacitados_class.php
+    [Linea] => 42
+    [Mensaje] => SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+)
