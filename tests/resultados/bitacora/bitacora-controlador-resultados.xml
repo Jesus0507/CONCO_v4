@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tests>
+    <test classname="BitacoraTestControlador" groups="default" methodname="test_Cargar_Vistas" prettifiedclassname="Bitacora Test Controlador" prettifiedmethodname="Cargar Vistas" size="-1" status="0" time="0.0205107">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="BitacoraTestControlador" groups="default" methodname="test_Establecer_Consultas" prettifiedclassname="Bitacora Test Controlador" prettifiedmethodname="Establecer Consultas" size="-1" status="0" time="0.0056145">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="BitacoraTestControlador" groups="default" methodname="test_Getters" prettifiedclassname="Bitacora Test Controlador" prettifiedmethodname="Getters" size="-1" status="0" time="0.0056081">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="BitacoraTestControlador" groups="default" methodname="test_Administrar_Vistas_Consultas" prettifiedclassname="Bitacora Test Controlador" prettifiedmethodname="Administrar Vistas Consultas" size="-1" status="0" time="0.0059622">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="BitacoraTestControlador" groups="default" methodname="test_Administrar" prettifiedclassname="Bitacora Test Controlador" prettifiedmethodname="Administrar" size="-1" status="0" time="0.005513">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="BitacoraTestControlador" groups="default" methodname="test_Administrar_Consulta_Ajax" prettifiedclassname="Bitacora Test Controlador" prettifiedmethodname="Administrar Consulta Ajax" size="-1" status="0" time="0.0058869">
+        <group name="default">
+        </group>
+    </test>
+</tests>

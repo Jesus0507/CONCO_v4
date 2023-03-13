@@ -5,7 +5,7 @@ require_once "controlador/bitacora_controlador.php";
 use PHPUnit\Framework\TestCase;
 
 
-class BitacoraControlador extends TestCase
+class BitacoraTestControlador extends TestCase
 {
     private $vista;
 
@@ -42,7 +42,7 @@ class BitacoraControlador extends TestCase
         $this->assertNotEmpty($contenido_vista);
     }
 
-    public function test_Administrar_Vistas_Consultas_Registros()
+    public function test_Administrar_Vistas_Consultas()
     {
        ob_start();
         $this->vista->Cargar_Vistas('inicio/index');
@@ -50,7 +50,7 @@ class BitacoraControlador extends TestCase
         $this->assertNotEmpty($contenido_vista);
     }
 
-    public function test_Administrar_Registrar()
+    public function test_Administrar()
     {
        ob_start();
         $this->vista->Cargar_Vistas('inicio/index');
@@ -66,20 +66,5 @@ class BitacoraControlador extends TestCase
         $this->assertNotEmpty($contenido_vista);
     }
 
-    public function test_Administrar_Editar()
-    {
-       ob_start();
-        $this->vista->Cargar_Vistas('inicio/index');
-        $contenido_vista = ob_get_clean();
-        $this->assertNotEmpty($contenido_vista);
-    }
-
-    public function test_Administrar_Eliminar()
-    {
-       ob_start();
-        $this->vista->Cargar_Vistas('inicio/index');
-        $contenido_vista = ob_get_clean();
-        $this->assertNotEmpty($contenido_vista);
-    }
     // =================================================================
 }
