@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tests>
+    <test classname="SeguridadTestControlador" groups="default" methodname="test_Cargar_Vistas" prettifiedclassname="Seguridad Test Controlador" prettifiedmethodname="Cargar Vistas" size="-1" status="0" time="0.0223098">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="SeguridadTestControlador" groups="default" methodname="test_Getters" prettifiedclassname="Seguridad Test Controlador" prettifiedmethodname="Getters" size="-1" status="0" time="0.0059937">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="SeguridadTestControlador" groups="default" methodname="test_Administrar" prettifiedclassname="Seguridad Test Controlador" prettifiedmethodname="Administrar" size="-1" status="0" time="0.0096653">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="SeguridadTestControlador" groups="default" methodname="test_Administrar_Vistas_" prettifiedclassname="Seguridad Test Controlador" prettifiedmethodname="Administrar Vistas" size="-1" status="0" time="0.0061957">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="SeguridadTestControlador" groups="default" methodname="test_Administrar_Consulta_Ajax" prettifiedclassname="Seguridad Test Controlador" prettifiedmethodname="Administrar Consulta Ajax" size="-1" status="0" time="0.0101153">
+        <group name="default">
+        </group>
+    </test>
+</tests>
