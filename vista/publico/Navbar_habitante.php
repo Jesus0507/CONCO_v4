@@ -83,7 +83,7 @@
                  <!-- Menu Footer-->
                  <li class="user-footer">
 
-                     <a href="<?php Direcciones::_005_();?>" class="btn btn-danger btn-flat float-right">
+                     <a id='close-button' href="<?php Direcciones::_005_();?>" class="btn btn-danger btn-flat float-right">
                          <i class="fas fa-power-off fa-fw"></i>
                          Salir
                      </a>

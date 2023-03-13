@@ -44,7 +44,7 @@
              </div>
          </li>
          
-        <li class="nav-item dropdown">
+         <li class="nav-item dropdown">
             <div class="theme-switch-wrapper nav-link">
                 <label class="theme-switch" for="checkbox">
                     <input type="checkbox" id="checkbox" />
@@ -165,7 +165,7 @@
                  <!-- Menu Footer-->
                  <li class="user-footer">
 
-                     <a href="<?php Direcciones::_005_();?>" class="btn btn-danger btn-flat float-right">
+                     <a id='close-button' href="<?php Direcciones::_005_();?>" class="btn btn-danger btn-flat float-right">
                          <i class="fas fa-power-off fa-fw"></i>
                          Salir
                      </a>

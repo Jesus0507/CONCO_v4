@@ -2,6 +2,7 @@ var cantidad = document.getElementById("cant_notificaciones");
 var notificaciones_no_leidas = document.getElementById("notificaciones-no-leidas");
 var notificaciones = document.getElementById("body-notificaciones");
 var verTodas = document.getElementById("ver-todas");
+
 getNotifications();
 
 function getNotifications() {
@@ -12,14 +13,14 @@ function getNotifications() {
             direction: 'Notificaciones/Administrar',
             accion: "codificar"
         },
-    }).done(function(direccion_segura) {
+    }).done(function (direccion_segura) {
         $.ajax({
             type: 'POST',
             url: BASE_URL + direccion_segura,
             data: {
                 peticion: "Consulta_Ajax",
             },
-        }).done(function(datos) {
+        }).done(function (datos) {
             // console.log(datos);
             var result = JSON.parse(datos);
             var cant = 0;
@@ -82,7 +83,7 @@ function getNotifications() {
             }
         });
     });
-    setTimeout(function() {
+    setTimeout(function () {
         getNotifications();
     }, 5000);
 }
@@ -123,7 +124,7 @@ function setStatus(id) {
             direction: 'Notificaciones/Administrar',
             accion: "codificar"
         },
-    }).done(function(direccion_segura) {
+    }).done(function (direccion_segura) {
         $.ajax({
             type: 'POST',
             url: BASE_URL + direccion_segura,
@@ -132,7 +133,7 @@ function setStatus(id) {
                 peticion: "Administrar",
                 sql: "SQL_03",
             },
-        }).done(function(datos) {
+        }).done(function (datos) {
             if (datos == 1) {
                 getNotifications();
                 $.ajax({
@@ -142,7 +143,7 @@ function setStatus(id) {
                         direction: "Notificaciones/Administrar/Consultas",
                         accion: "codificar"
                     },
-                }).done(function(direccion) {
+                }).done(function (direccion) {
                     window.open(BASE_URL + direccion + '?id=' + id);
                 });
             } else {
@@ -181,7 +182,7 @@ function nueva_notificacion(datos) {
             direction: "Notificaciones/Administrar",
             accion: "codificar"
         },
-    }).done(function(direccion_segura) {
+    }).done(function (direccion_segura) {
         $.ajax({
             type: 'POST',
             url: BASE_URL + direccion_segura,
@@ -190,7 +191,7 @@ function nueva_notificacion(datos) {
                 peticion: "Nueva",
                 sql: "SQL_01",
             },
-        }).done(function(result) {
+        }).done(function (result) {
             console.log(result);
             getNotifications();
         });
