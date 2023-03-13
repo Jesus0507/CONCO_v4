@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tests>
+    <test classname="Consejo_ComunalTestControlador" groups="default" methodname="test_Cargar_Vistas" prettifiedclassname="Consejo_Comunal Test Controlador" prettifiedmethodname="Cargar Vistas" size="-1" status="0" time="0.0216253">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="Consejo_ComunalTestControlador" groups="default" methodname="test_Establecer_Consultas" prettifiedclassname="Consejo_Comunal Test Controlador" prettifiedmethodname="Establecer Consultas" size="-1" status="0" time="0.006506">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="Consejo_ComunalTestControlador" groups="default" methodname="test_Getters" prettifiedclassname="Consejo_Comunal Test Controlador" prettifiedmethodname="Getters" size="-1" status="0" time="0.0083663">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="Consejo_ComunalTestControlador" groups="default" methodname="test_Administrar_Vistas_Consultas_Registros" prettifiedclassname="Consejo_Comunal Test Controlador" prettifiedmethodname="Administrar Vistas Consultas Registros" size="-1" status="0" time="0.0064536">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="Consejo_ComunalTestControlador" groups="default" methodname="test_Administrar_Registrar" prettifiedclassname="Consejo_Comunal Test Controlador" prettifiedmethodname="Administrar Registrar" size="-1" status="0" time="0.0071849">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="Consejo_ComunalTestControlador" groups="default" methodname="test_Administrar_Consulta_Ajax" prettifiedclassname="Consejo_Comunal Test Controlador" prettifiedmethodname="Administrar Consulta Ajax" size="-1" status="0" time="0.0051687">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="Consejo_ComunalTestControlador" groups="default" methodname="test_Administrar_Editar" prettifiedclassname="Consejo_Comunal Test Controlador" prettifiedmethodname="Administrar Editar" size="-1" status="0" time="0.0085231">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="Consejo_ComunalTestControlador" groups="default" methodname="test_Administrar_Eliminar" prettifiedclassname="Consejo_Comunal Test Controlador" prettifiedmethodname="Administrar Eliminar" size="-1" status="0" time="0.007471">
+        <group name="default">
+        </group>
+    </test>
+</tests>
