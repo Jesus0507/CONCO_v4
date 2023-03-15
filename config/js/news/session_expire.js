@@ -1,6 +1,6 @@
 var keep = document.getElementById('keep');
 var close_session = document.getElementById('close');
-var count = 20;  // cambiar por 1800
+var count = 1800;  // cambiar por 1800
 var paused = false;
 var n = 10;
 var counter_modal = document.getElementById('modal_count');
@@ -8,7 +8,7 @@ var counter_modal = document.getElementById('modal_count');
 keep.onclick = function(){
     $("#modal-session").modal("hide");
     paused = false;
-    count = 20;
+    count = 1800;
     n = 10;
 }
 
@@ -22,14 +22,14 @@ window.setInterval(function () {
         document.onmousemove = function () {
             if(count > 0) {
                 paused = false;
-                count = 20;
+                count = 1800;
             }
         }
 
         document.onclick = function () {
             if(count > 0) {
                 paused = false;
-                count = 20;
+                count = 1800;
             }
         }
         count--;
@@ -57,7 +57,7 @@ window.setInterval(function () {
         });
     }
 
-}, 1200);
+}, 1000);
 
 function expirar_session_modal() {
     counter_modal.innerText = n;

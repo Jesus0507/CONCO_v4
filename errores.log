@@ -169,3 +169,21 @@ stdClass Object
     [Linea] => 42
     [Mensaje] => SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
 )
+stdClass Object
+(
+    [Modulo] => ------Bitacora------
+    [Fecha] => Martes , 14 de Marzo del 2023
+    [Hora] => 09:54:50 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\bitacora_class.php
+    [Linea] => 40
+    [Mensaje] => SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+)
+stdClass Object
+(
+    [Modulo] => ------Bitacora------
+    [Fecha] => Martes , 14 de Marzo del 2023
+    [Hora] => 09:54:50 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\bitacora_class.php
+    [Linea] => 40
+    [Mensaje] => SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+)
