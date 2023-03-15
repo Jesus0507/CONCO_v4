@@ -1,51 +1,53 @@
 <?php
 
+require_once "controlador/reportes_controlador.php";
+require_once "modelo/reportes_class.php";
+
 use PHPUnit\Framework\TestCase;
 
+$_SESSION['cedula_usuario'] = "7654321";
 
 class ReportesTestControlador extends TestCase
 {
-    private $vista;
+    private $Reportes;
 
     protected function setUp(): void
     {
-        $this->vista = new Vista();
+        $this->Reportes = new Reportes();
     }
 
     protected function tearDown(): void
-    {$this->Agenda = null;}
+    {$this->Reportes = null;}
 
-    // AGENDA
     public function test_Cargar_Vistas()
     {
-        ob_start();
-        $this->vista->Cargar_Vistas('inicio/index');
-        $contenido_vista = ob_get_clean();
-        $this->assertNotEmpty($contenido_vista);
+        $this->Reportes->vista = $this->getMockBuilder(Vista::class)->disableOriginalConstructor()->getMock();
+        $this->Reportes->vista->expects($this->once())->method('Cargar_Vistas')->with('Reportes/reportes');
+        $this->Reportes->Cargar_Vistas();
+        $this->assertTrue(true);
     }
 
     public function test_Establecer_Consultas()
     {
-        ob_start();
-        $this->vista->Cargar_Vistas('inicio/index');
-        $contenido_vista = ob_get_clean();
-        $this->assertNotEmpty($contenido_vista);
+        $this->Reportes->Establecer_Consultas();
+        $this->assertNotEmpty($this->Reportes->Get_Datos_Vista());
     }
 
     public function test_Getters()
     {
-       ob_start();
-        $this->vista->Cargar_Vistas('inicio/index');
-        $contenido_vista = ob_get_clean();
-        $this->assertNotEmpty($contenido_vista);
+        $this->assertIsString($this->Reportes->Get_Sql());
+        $this->assertIsString($this->Reportes->Get_Accion());
+        $this->assertIsString($this->Reportes->Get_Mensaje());
+        $this->assertIsArray($this->Reportes->Get_Datos());
+        $this->assertIsArray($this->Reportes->Get_Estado());
+        $this->assertIsArray($this->Reportes->Get_Estado_Ejecutar());
     }
 
     public function test_Administrar_Reportes_PDF()
     {
-       ob_start();
-        $this->vista->Cargar_Vistas('inicio/index');
-        $contenido_vista = ob_get_clean();
-        $this->assertNotEmpty($contenido_vista);
+        $this->Reportes->modelo = $this->getMockBuilder(Reportes_Class::class)->disableOriginalConstructor()->getMock();
+        $result                 = $this->Reportes->Administrar("Consulta_Ajax");
+        $this->expectOutputString($result);
     }
 
     // =================================================================
