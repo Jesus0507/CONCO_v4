@@ -1,14 +1,14 @@
-rol:	 Habitante
-usuario: 0000000
-clave:	 clave
-firma digital: firma
 
-rol:	 Administrador
-usuario: 1234567
-clave:	 clave
-firma digital: firma
+usuario Habitante
+03030303  
+clave 
 
-rol:	 Super Usuario
-usuario: 7654321
-clave:	 clave
+usuario Administrador
+02020202
+clave
+
+super usuario 
+01010101
+clave
+
 firma digital: firma
