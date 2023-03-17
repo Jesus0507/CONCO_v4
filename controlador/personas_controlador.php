@@ -277,7 +277,7 @@ class Personas extends Controlador
                 }
             }
         } else {
-            echo $this->validacion->Fallo();
+            echo 'validacion';
         }
     }
 

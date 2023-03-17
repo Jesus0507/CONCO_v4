@@ -606,7 +606,7 @@ $(document).ready(function() {
                         url: BASE_URL + direccion_segura,
                         type: "POST",
                         data: {
-                            peticion: "Registrar",
+                            peticion: "Registrar_vivienda_habitante",
                             sql: "SQL_10",
                             vivienda: info_vivienda,
                             techos: techos,
@@ -617,26 +617,46 @@ $(document).ready(function() {
                             accion: "La vivienda: " + document.getElementById("numero_casa").value + " fue puesta en solicitud de registro",
                         },
                     }).done(function(datos) {
-                        if (datos == 1) {
-                            swal({
-                                title: "Éxito",
-                                text: "Su solicitud de registro de vivienda fue enviado con éxito",
-                                type: "success",
-                                showConfirmButton: false
+                            var datos_persona = new Object();
+                            datos_persona['cedula_persona'] = document.getElementById("user_cedula").value;
+                            datos_persona['tipo_constancia'] = "Vivienda";
+                            datos_persona['motivo_constancia'] = "Registro de vivienda";
+                            datos_persona['observaciones'] = datos;
+
+                            $.ajax({
+                                type: "POST",
+                                url: BASE_URL + "app/Direcciones.php",
+                                data: {
+                                    direction: "Solicitudes/Administrar",
+                                    accion: "codificar"
+                                },
+                                success: function (direccion_segura) {
+                                    $.ajax({
+                                        type: "POST",
+                                        url: BASE_URL + direccion_segura,
+                                        data: {
+                                            "datos": datos_persona,
+                                            peticion: "Nueva_solicitud_cambio_contrasenia"
+                                        }
+                                    }).done(function (result) {
+                                        if (result == 1) {
+                                            swal({
+                                                title: "Éxito",
+                                                text: "Su solicitud de registro de vivienda fue enviado con éxito",
+                                                type: "success",
+                                                showConfirmButton: false
+                                            });
+                                            setTimeout(function() {
+                                                location.reload();
+                                            }, 1000);
+                                        }
+                                    });
+                                },
+                                error: function () {
+                                    alert('Error al codificar dirreccion');
+                                }
                             });
-                            setTimeout(function() {
-                                location.reload();
-                            }, 1000);
-                        } else {
-                            swal({
-                                title: "ERROR!",
-                                text: "Ha ocurrido un Error.</br>" + datos,
-                                type: "error",
-                                html: true,
-                                showConfirmButton: true,
-                                customClass: "bigSwalV2",
-                            });
-                        }
+                        
                     })
                 },
                 error: function() {

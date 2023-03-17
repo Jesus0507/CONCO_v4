@@ -130,4 +130,9 @@ class Viviendas_Class extends Modelo
         return "DELETE FROM vivienda WHERE id_vivienda = :id_vivienda";
     }
 
+    private function SQL_19():string
+    {
+        return "UPDATE vivienda SET estado = 1 WHERE id_vivienda = :id_vivienda";
+    }
+
 }

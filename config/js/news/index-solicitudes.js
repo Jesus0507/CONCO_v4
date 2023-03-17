@@ -33,6 +33,7 @@ function getSolicitudesIndex() {
                     var fecha_solicitud = new Date(solicitudes_datos[i]['fecha_solicitud']);
                     var date_solicitud = fecha_solicitud.getDate() + "-" + (fecha_solicitud.getMonth() + 1) + "-" + fecha_solicitud.getFullYear();
                     var icono_solicitud = "";
+                    var direction;
                     switch (solicitudes_datos[i]['tipo_constancia']) {
                         case "Residencia":
                             icono_solicitud = "fas fa-hotel";
@@ -40,8 +41,11 @@ function getSolicitudesIndex() {
                         case "Buena conducta":
                             icono_solicitud = "fas fa-address-card";
                             break;
+                        case "No poseer vivienda":
+                            cono_solicitud = "fas fa-home";
+                            break;
                         case "Vivienda":
-                            icono_solicitud = "fas fa-home";
+                            icono_solicitud = "fas fa-plus-square";
                             break;
                         case "Familia":
                             icono_solicitud = "fas fa-users";
@@ -50,6 +54,7 @@ function getSolicitudesIndex() {
                             icono_solicitud = "fas fa-key";
                             break;
                     }
+
                     switch (solicitudes_datos[i]['procesada']) {
                         case 1: //aprobada
                             cuerpo_aprobadas += "<table onclick='openLink(`" + solicitudes_datos[i]["id_solicitud"] + "`,`2`);'";
@@ -79,19 +84,44 @@ function getSolicitudesIndex() {
                             cuerpo_rechazadas += "</tr></table><hr>";
                             cont_rechazada++;
                             break;
-                        default: //pendiente
-                            cuerpo_pendientes += "<table style='width:100%;cursor:pointer;border-radius:5px' onmouseover='this.style.background=`#A9CFB3`'";
-                            cuerpo_pendientes += "onmouseout='this.style.background=``' ";
-                            cuerpo_pendientes += " onclick='openLink(`" + solicitudes_datos[i]["id_solicitud"] + "`,`1`);' ><tr>";
-                            cuerpo_pendientes += "<td colspan='2' style='text-align:right;font-size:12px' >" + date_solicitud + "</td></tr>";
-                            cuerpo_pendientes += "<tr><td><em class='fa fa-user-circle'></em>";
-                            cuerpo_pendientes += "<span style='font-weight: bolder'>";
-                            cuerpo_pendientes += solicitudes_datos[i]["primer_nombre"] + " " + solicitudes_datos[i]['primer_apellido'];
-                            cuerpo_pendientes += "</span></td></tr><tr><td style='font-size:12px'>";
-                            cuerpo_pendientes += "Constancia de " + solicitudes_datos[i]['tipo_constancia'];
-                            cuerpo_pendientes += " <em class='" + icono_solicitud + "'></em></td>";
-                            cuerpo_pendientes += "</tr></table><hr>";
+                        default : //pendiente
+                            var cuerpo_sol = '';
+                           cuerpo_sol += "<table style='width:100%;cursor:pointer;border-radius:5px' onmouseover='this.style.background=`#A9CFB3`'";
+                           cuerpo_sol += "onmouseout='this.style.background=``' ";
+                            if(icono_solicitud == 'fas fa-key' || icono_solicitud == 'fas fa-plus-square' ){
+                               cuerpo_sol += " onclick='openLink(`" + solicitudes_datos[i]["id_solicitud"] + "`,`3`);' ><tr>"; 
+                            }
+                            else{
+                               cuerpo_sol += " onclick='openLink(`" + solicitudes_datos[i]["id_solicitud"] + "`,`1`);' ><tr>";
+                            }
+                            
+                           cuerpo_sol += "<td colspan='2' style='text-align:right;font-size:12px' >" + date_solicitud + "</td></tr>";
+                           cuerpo_sol += "<tr><td><em class='fa fa-user-circle'></em>";
+                           cuerpo_sol += "<span style='font-weight: bolder'>";
+                           cuerpo_sol += solicitudes_datos[i]["primer_nombre"] + " " + solicitudes_datos[i]['primer_apellido'];
+                           cuerpo_sol += "</span></td></tr><tr><td style='font-size:12px'>";
+                           if(icono_solicitud == 'fas fa-key' || icono_solicitud == 'fas fa-plus-square' ){
+                            cuerpo_sol += "Solicitud de " + solicitudes_datos[i]['tipo_constancia'];
+                         }
+                         else{
+                            cuerpo_sol += "Constancia de " + solicitudes_datos[i]['tipo_constancia'];
+                         }
+                           cuerpo_sol += " <em class='" + icono_solicitud + "'></em></td>";
+                           cuerpo_sol += "</tr></table><hr>";
+                           if(solicitudes_datos[i]['tipo_constancia'] == 'Cambio de contraseña' && solicitudes_datos[i]['procesada']==3 && document.getElementById('rol_inicio').value == 'Super Usuario'){
+                           cuerpo_pendientes += cuerpo_sol;
+                           cont_pendiente++;
+                           }
+
+                           if(solicitudes_datos[i]['tipo_constancia'] == 'Cambio de contraseña' && solicitudes_datos[i]['procesada']==0 && document.getElementById('rol_inicio').value == 'Administrador'){
+                            cuerpo_pendientes += cuerpo_sol;
                             cont_pendiente++;
+                            }
+
+                            if(solicitudes_datos[i]['tipo_constancia'] != 'Cambio de contraseña' && solicitudes_datos[i]['procesada']==0){
+                                cuerpo_pendientes += cuerpo_sol;
+                                cont_pendiente++;
+                                }
                             break;
                     }
                 }
@@ -129,6 +159,7 @@ function openLink(id, tipo) {
             }
         });
     } else {
+        if(tipo==2){
         $.ajax({
             type: "POST",
             url: BASE_URL + "app/Direcciones.php",
@@ -143,5 +174,21 @@ function openLink(id, tipo) {
                 alert('Error al codificar dirreccion');
             }
         });
+    } 
+    else{
+        var solicitudes_pen = document.getElementById("body-solicitudes");
+        for (var i=0; i<solicitudes_pen.children.length;i++){
+            var div = document.createElement('div');
+            div.appendChild(solicitudes_pen.children[i]);
+            if(div.innerHTML.includes("&quot;id_solicitud&quot;:"+id)){
+                div.querySelector('a').click();
+            }
+            else {
+                if(div.innerHTML.includes("goToSolicitud(`"+id)){
+                    div.querySelector('a').click();
+                }
+            }
+        }
+    }
     }
 }

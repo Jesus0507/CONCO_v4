@@ -187,3 +187,43 @@ stdClass Object
     [Linea] => 40
     [Mensaje] => SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
 )
+stdClass Object
+(
+    [Fecha] => Jueves , 16 de Marzo del 2023
+    [Hora] => 05:24:36 pm
+    [Mensaje] => Array
+        (
+            [0] => [Error Funcion] => "La Funcion: [ Set_status() ] No se encuentra definida, en el controlador: [ Notificaciones ]"
+        )
+
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 16 de Marzo del 2023
+    [Hora] => 05:24:44 pm
+    [Mensaje] => Array
+        (
+            [0] => [Error Funcion] => "La Funcion: [ Set_status() ] No se encuentra definida, en el controlador: [ Notificaciones ]"
+        )
+
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 16 de Marzo del 2023
+    [Hora] => 05:27:06 pm
+    [Mensaje] => Array
+        (
+            [0] => [Error Funcion] => "La Funcion: [ Set_status() ] No se encuentra definida, en el controlador: [ Notificaciones ]"
+        )
+
+)
+stdClass Object
+(
+    [Fecha] => Jueves , 16 de Marzo del 2023
+    [Hora] => 05:27:10 pm
+    [Mensaje] => Array
+        (
+            [0] => [Error Funcion] => "La Funcion: [ Set_status() ] No se encuentra definida, en el controlador: [ Notificaciones ]"
+        )
+
+)
