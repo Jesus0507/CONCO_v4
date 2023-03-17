@@ -133,8 +133,33 @@ class Grupos_Deportivos extends Controlador
                     foreach ($this->datos_consulta["deportes"] as $key => $value) {
                         if ($value["nombre_deporte"] == $this->datos_ejecutar["id_deporte"]) {
                             $this->datos_ejecutar["id_deporte"] = $value["id_deporte"];
+                        } else {
+                            $deporte = false;
                         }
                     }
+
+                    if ($deporte == false) {
+                        $this->modelo->_SQL_("_02_");
+                        $this->modelo->_Tipo_(1);
+                        $this->crud["registrar"] = array(
+                            "tabla"   => "deportes",
+                            "columna" => "nombre_deporte",
+                        );
+                        $this->modelo->_CRUD_($this->Get_Crud_Sql());
+                        $this->modelo->_Datos_(["nombre_deporte" => $this->datos_ejecutar["id_deporte"],"estado" =>1]);
+                        if ($this->modelo->Administrar()) {
+                            $this->modelo->_SQL_("_03_");
+                        $this->modelo->_Tipo_(0);
+                            $this->crud["ultimo"] = array(
+                                "tabla" => "deportes",
+                                "id"    => "id_deporte",
+                            );
+                            $this->modelo->_CRUD_($this->Get_Crud_Sql());
+                            $this->id = $this->modelo->Administrar();
+                            $this->datos_ejecutar["id_deporte"] = $this->id[0]['MAX(id_deporte)'];
+                        }
+                    }
+                    
                     $this->modelo->_SQL_($this->Get_Sql());
                     $this->modelo->_Tipo_(1);
                     $this->modelo->_Datos_($this->Get_Datos());
@@ -154,7 +179,7 @@ class Grupos_Deportivos extends Controlador
                             $this->modelo->_Tipo_(1);
                             $this->datos_ejecutar = array(
                                 "cedula_persona"     => $inte["integrantes"],
-                                "id_grupo_deportivo" => $this->id ,
+                                "id_grupo_deportivo" => $this->id,
                                 "estado"             => 1,
                             );
                             $this->modelo->_Datos_($this->Get_Datos());
@@ -197,7 +222,7 @@ class Grupos_Deportivos extends Controlador
             case 'Obtener_Integrantes':
                 $this->modelo->_Tipo_(0);
                 $this->modelo->_SQL_("_05_");
-                
+
                 $this->crud["consultar"] = array(
                     "tabla"   => "personas_grupo_deportivo",
                     "columna" => "id_grupo_deportivo",
@@ -224,7 +249,7 @@ class Grupos_Deportivos extends Controlador
             case 'Agregar':
                 $this->modelo->_Tipo_(0);
                 $this->modelo->_SQL_("_05_");
-                
+
                 $this->crud["consultar"] = array(
                     "tabla"   => "personas_grupo_deportivo",
                     "columna" => "id_grupo_deportivo",
@@ -309,7 +334,7 @@ class Grupos_Deportivos extends Controlador
             default:$this->vista->Cargar_Vistas('error/400');
                 break;
         }
-        
+
         exit();
     }
 }
