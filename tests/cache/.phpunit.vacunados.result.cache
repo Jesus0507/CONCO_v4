@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "defects": {},
+  "times": {
+    "Warning": 0.027,
+    "VacunadosTest::test_SQL_01_SELECT": 0.039,
+    "VacunadosTest::test_SQL_02_INSERT": 0.069
+  }
+}

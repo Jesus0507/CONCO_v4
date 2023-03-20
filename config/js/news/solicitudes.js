@@ -530,6 +530,26 @@ document.getElementById('decodificarFirma').onclick = function() {
                             }
                         }, 2000)
                     }
+                    else {
+                        setTimeout(function(){
+                            document.getElementById('span_su').style.color = 'red';
+                            document.getElementById('span_su').className = 'fa fa-times';
+                            document.getElementById('span_su').style.fontSize = '23px';
+                            setTimeout(function(){
+                                document.getElementById('span_admin').style.color = 'red';
+                                document.getElementById('span_admin').style.fontSize = '23px';
+                                document.getElementById('span_admin').className = 'fa fa-times';
+
+                                swal({
+                                    type: 'error',
+                                    title: 'Error',
+                                    text: 'La clave privada ingresada no es válida'
+                                });
+                            },2000);
+                        },2000);
+                        
+
+                    }
                 });
             },
             error: function() {

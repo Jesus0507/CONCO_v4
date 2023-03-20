@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tests>
+    <test classname="VacunadosTest" groups="default" methodname="test_SQL_01_SELECT" prettifiedclassname="Vacunados" prettifiedmethodname="SQL 01 SELECT" size="-1" status="0" time="0.0387978">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="VacunadosTest" groups="default" methodname="test_SQL_02_INSERT" prettifiedclassname="Vacunados" prettifiedmethodname="SQL 02 INSERT" size="-1" status="0" time="0.0694459">
+        <group name="default">
+        </group>
+    </test>
+</tests>

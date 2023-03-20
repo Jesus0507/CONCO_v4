@@ -163,18 +163,62 @@ class Centro_Votacion extends Controlador
                         }
                     }
                     else {
-                        $this->modelo->_SQL_("SQL_03");
-                                $this->modelo->_Tipo_(1);
-                                $this->datos_ejecutar = array(
-                                    "id_centro_votacion" => $cont,
-                                    "cedula_votante"     => $this->Get_Datos()['persona'],
-                                    "estado"             => 1,
-                                );
-                                $this->modelo->_Datos_($this->Get_Datos());
-                                if ($this->modelo->Administrar()) {
-                                    $this->Accion($this->Get_Accion());
-                                    echo $this->Get_Mensaje();
+                        $index = 0;
+                        foreach ($this->datos_consulta["centros_votacion"] as $cv) {
+                            if (strtolower($cv['nombre_centro']) == strtolower($this->datos_ejecutar['nombre_centro'])) {
+                                if($cv['id_parroquia'] == $this->Get_Datos()['parroquia']){
+                                    $index++;
                                 }
+                            }
+                        }
+
+
+                         if($index != 0) {
+                            $this->modelo->_SQL_("SQL_03");
+                            $this->modelo->_Tipo_(1);
+                            $this->datos_ejecutar = array(
+                                "id_centro_votacion" => $cont,
+                                "cedula_votante"     => $this->Get_Datos()['persona'],
+                                "estado"             => 1,
+                            );
+                            $this->modelo->_Datos_($this->Get_Datos());
+                            if ($this->modelo->Administrar()) {
+                                $this->Accion($this->Get_Accion());
+                                echo $this->Get_Mensaje();
+                            }
+                         }
+                          else{
+                            $this->modelo->_SQL_("SQL_04");
+                            $this->modelo->_Tipo_(1);
+                            $datos_registro = [
+                                'id_parroquia' => $this->Get_Datos()['parroquia'],
+                                'nombre_centro' => $this->Get_Datos()['nombre_centro'],
+                                'estado' => 1
+                            ];
+                            $this->modelo->_Datos_($datos_registro);
+                            if ($this->modelo->Administrar()) {
+                                $this->modelo->_SQL_("_03_");
+                                $this->modelo->_Tipo_(0);
+                                $this->crud["ultimo"] = array("tabla" => "centros_votacion", "id" => "id_centro_votacion");
+                                $this->modelo->_CRUD_($this->Get_Crud_Sql());
+                                $this->id = $this->modelo->Administrar();
+                                foreach ($this->id as $i) {
+                                    $this->modelo->_SQL_("SQL_03");
+                                    $this->modelo->_Tipo_(1);
+                                    $this->datos_ejecutar = array(
+                                        "id_centro_votacion" => $i['MAX(id_centro_votacion)'],
+                                        "cedula_votante"     => $this->Get_Datos()['persona'],
+                                        "estado"             => 1,
+                                    );
+                                    $this->modelo->_Datos_($this->Get_Datos());
+                                    if ($this->modelo->Administrar()) {
+                                        $this->Accion($this->Get_Accion());
+                                        echo $this->Get_Mensaje();
+                                    }
+                                }      
+                            }
+                         }
+                       
                     }
                 } else {
                     $this->_403_();
@@ -225,27 +269,32 @@ class Centro_Votacion extends Controlador
                 break;
             
             case 'Consultar_votante':
+                $votante_existe = 0;
                 $this->modelo->_SQL_("SQL_07");
                 $this->modelo->_Tipo_(0);
-                $this->modelo->_Datos_([
-                    'cedula_votante' => $this->datos_ejecutar
-                ]);
-                echo $this->modelo->Administrar();
+                $votantes = $this->modelo->Administrar();
+                foreach ($votantes as $v) {
+                    if($v['cedula_votante'] == $this->datos_ejecutar){
+                        $votante_existe++;
+                    }
+                }
+                echo $votante_existe;
                 break;
 
             case 'Editar':
-                if ($this->permisos["modificar"] === 1) {
+                 if ($this->permisos["modificar"] === 1) {
                     $cont   = 0;
                     $existe = 0;
-                    foreach ($this->datos_ejecutar["centros_votacion"] as $cv) {
-                        if (strtolower($cv['nombre_centro']) == strtolower($_POST['nombre_centro']) && $cv['id_parroquia'] == $_POST['id_parroquia']) {
+                    foreach ($this->datos_consulta["centros_votacion"] as $cv) { 
+                        if (strtolower($cv['nombre_centro']) == strtolower($this->datos_ejecutar['nombre_centro']) && $cv['id_parroquia'] == $this->datos_ejecutar['id_parroquia']) {
                             $existe = $cv['id_centro_votacion'];
                         }
                     }
+
                     if ($existe == 0) {
                         $this->modelo->_SQL_("SQL_04");
                         $this->modelo->_Tipo_(1);
-                        $this->modelo->Datos([
+                        $this->modelo->_Datos_([
                             "id_parroquia"  => $this->datos_ejecutar['id_parroquia'],
                             "nombre_centro" => $this->datos_ejecutar['nombre_centro'],
                             "estado"        => $this->datos_ejecutar['estado'],
@@ -257,14 +306,15 @@ class Centro_Votacion extends Controlador
 
                         $this->modelo->_SQL_("_03_");
                         $this->modelo->_Tipo_(0);
-                        $this->modelo->__SET("ultimo", array("tabla" => "centros_votacion", "id" => "id_centro_votacion"));
-                        $id = $this->modelo->Administrar();
+                        $this->crud["ultimo"] = array("tabla" => "centros_votacion", "id" => "id_centro_votacion");
+                        $this->modelo->_CRUD_($this->Get_Crud_Sql());
+                        $this->id = $this->modelo->Administrar();
 
                         $this->modelo->_SQL_("SQL_05");
                         $this->modelo->_Tipo_(1);
-                        $this->modelo->Datos([
+                        $this->modelo->_Datos_([
                             "id_votante_centro_votacion" => $this->datos_ejecutar['id_votante_centro_votacion'],
-                            "id_centro_votacion"         => $id[0]['MAX(id_centro_votacion)'],
+                            "id_centro_votacion"         => $this->id[0]['MAX(id_centro_votacion)'],
                             "cedula_votante"             => $this->datos_ejecutar['cedula_persona'],
                             "estado"                     => $this->datos_ejecutar['estado'],
                         ]);
@@ -274,7 +324,7 @@ class Centro_Votacion extends Controlador
                     } else {
                         $this->modelo->_SQL_("SQL_05");
                         $this->modelo->_Tipo_(1);
-                        $this->modelo->Datos([
+                        $this->modelo->_Datos_([
                             "id_votante_centro_votacion" => $this->datos_ejecutar['id'],
                             "id_centro_votacion"         => $existe,
                             "cedula_votante"             => $this->datos_ejecutar['cedula_persona'],

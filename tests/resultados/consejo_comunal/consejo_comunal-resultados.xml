@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tests>
+    <test classname="Consejo_ComunalTest" groups="default" methodname="test_SQL_01_SELECT" prettifiedclassname="Consejo_Comunal" prettifiedmethodname="SQL 01 SELECT" size="-1" status="0" time="0.5013194">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="Consejo_ComunalTest" groups="default" methodname="test_SQL_02_INSERT" prettifiedclassname="Consejo_Comunal" prettifiedmethodname="SQL 02 INSERT" size="-1" status="0" time="0.2809751">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="Consejo_ComunalTest" groups="default" methodname="test_SQL_03_UPDATE" prettifiedclassname="Consejo_Comunal" prettifiedmethodname="SQL 03 UPDATE" size="-1" status="0" time="0.0168765">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="Consejo_ComunalTest" groups="default" methodname="test_SQL_04_SELECT" prettifiedclassname="Consejo_Comunal" prettifiedmethodname="SQL 04 SELECT" size="-1" status="0" time="0.0028268">
+        <group name="default">
+        </group>
+    </test>
+</tests>

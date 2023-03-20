@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite assertions="70" errors="0" failures="0" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\PersonasTest.php" name="PersonasTest" skipped="0" tests="42" time="3.370640" warnings="0">
+        <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\PersonasTest.php" line="138" name="test_SQL_01_SELECT_1" time="0.026604">
+        </testcase>
+        <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\PersonasTest.php" line="147" name="test_SQL_02_SELECT_2" time="0.004331">
+        </testcase>
+        <testcase assertions="1" class="PersonasTest" classname="PersonasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\PersonasTest.php" line="157" name="test_SQL_03_INSERT_1" time="0.181451">
+        </testcase>
+        <testcase assertions="1" class="PersonasTest" classname="PersonasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\PersonasTest.php" line="166" name="test_SQL_04_INSERT_2" time="0.159299">
+        </testcase>
+        <testcase assertions="1" class="PersonasTest" classname="PersonasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\PersonasTest.php" line="175" name="test_SQL_05_INSERT_3" time="0.219396">
+        </testcase>
+        <testcase assertions="1" class="PersonasTest" classname="PersonasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\PersonasTest.php" line="184" name="test_SQL_06_INSERT_4" time="0.460598">
+        </testcase>
+        <testcase assertions="1" class="PersonasTest" classname="PersonasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\PersonasTest.php" line="193" name="test_SQL_07_INSERT_5" time="0.123626">
+        </testcase>
+        <testcase assertions="1" class="PersonasTest" classname="PersonasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\PersonasTest.php" line="202" name="test_SQL_08_INSERT_6" time="0.106610">
+        </testcase>
+        <testcase assertions="1" class="PersonasTest" classname="PersonasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\PersonasTest.php" line="211" name="test_SQL_09_INSERT_7" time="0.111645">
+        </testcase>
+        <testcase assertions="1" class="PersonasTest" classname="PersonasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\PersonasTest.php" line="220" name="test_SQL_10_INSERT_8" time="0.114580">
+        </testcase>
+        <testcase assertions="1" class="PersonasTest" classname="PersonasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\PersonasTest.php" line="229" name="test_SQL_11_INSERT_9" time="0.136462">
+        </testcase>
+        <testcase assertions="1" class="PersonasTest" classname="PersonasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\PersonasTest.php" line="238" name="test_SQL_12_INSERT_10" time="0.081736">
+        </testcase>
+        <testcase assertions="1" class="PersonasTest" classname="PersonasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\PersonasTest.php" line="247" name="test_SQL_13_INSERT_11" time="0.072597">
+        </testcase>
+        <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\PersonasTest.php" line="256" name="test_SQL_14_SELECT_3" time="0.005665">
+        </testcase>
+        <testcase assertions="1" class="PersonasTest" classname="PersonasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\PersonasTest.php" line="265" name="test_SQL_15_UPDATE_1" time="0.003101">
+        </testcase>
+        <testcase assertions="1" class="PersonasTest" classname="PersonasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\PersonasTest.php" line="274" name="test_SQL_16_UPDATE_2" time="0.003939">
+        </testcase>
+        <testcase assertions="1" class="PersonasTest" classname="PersonasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\PersonasTest.php" line="283" name="test_SQL_17_DELETE_1" time="0.248176">
+        </testcase>
+        <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\PersonasTest.php" line="292" name="test_SQL_18_SELECT_5" time="0.004180">
+        </testcase>
+        <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\PersonasTest.php" line="302" name="test_SQL_19_SELECT_6" time="0.004119">
+        </testcase>
+        <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\PersonasTest.php" line="315" name="test_SQL_20_SELECT_7" time="0.003665">
+        </testcase>
+        <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\PersonasTest.php" line="328" name="test_SQL_21_SELECT_8" time="0.010312">
+        </testcase>
+        <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\PersonasTest.php" line="337" name="test_SQL_22_SELECT_9" time="0.208800">
+        </testcase>
+        <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\PersonasTest.php" line="346" name="test_SQL_23_SELECT_10" time="0.027348">
+        </testcase>
+        <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\PersonasTest.php" line="355" name="test_SQL_24_SELECT_11" time="0.122680">
+        </testcase>
+        <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\PersonasTest.php" line="364" name="test_SQL_25_SELECT_11" time="0.133975">
+        </testcase>
+        <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\PersonasTest.php" line="373" name="test_SQL_26_SELECT_12" time="0.017195">
+        </testcase>
+        <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\PersonasTest.php" line="382" name="test_SQL_27_SELECT_13" time="0.019697">
+        </testcase>
+        <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\PersonasTest.php" line="391" name="test_SQL_28_SELECT_14" time="0.076104">
+        </testcase>
+        <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\PersonasTest.php" line="400" name="test_SQL_29_SELECT_13" time="0.140986">
+        </testcase>
+        <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\PersonasTest.php" line="409" name="test_SQL_30_SELECT_14" time="0.439616">
+        </testcase>
+        <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\PersonasTest.php" line="418" name="test_SQL_31_SELECT_15" time="0.004355">
+        </testcase>
+        <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\PersonasTest.php" line="427" name="test_SQL_32_SELECT_16" time="0.004846">
+        </testcase>
+        <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\PersonasTest.php" line="439" name="test_SQL_33_SELECT_16" time="0.004158">
+        </testcase>
+        <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\PersonasTest.php" line="451" name="test_SQL_34_SELECT_17" time="0.004083">
+        </testcase>
+        <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\PersonasTest.php" line="463" name="test_SQL_35_SELECT_18" time="0.003462">
+        </testcase>
+        <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\PersonasTest.php" line="475" name="test_SQL_36_SELECT_19" time="0.053014">
+        </testcase>
+        <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\PersonasTest.php" line="487" name="test_SQL_37_SELECT_20" time="0.003306">
+        </testcase>
+        <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\PersonasTest.php" line="499" name="test_SQL_38_SELECT_21" time="0.003201">
+        </testcase>
+        <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\PersonasTest.php" line="511" name="test_SQL_39_SELECT_22" time="0.005627">
+        </testcase>
+        <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\PersonasTest.php" line="523" name="test_SQL_40_SELECT_23" time="0.003695">
+        </testcase>
+        <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\PersonasTest.php" line="535" name="test_SQL_41_SELECT_24" time="0.003740">
+        </testcase>
+        <testcase assertions="2" class="PersonasTest" classname="PersonasTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\PersonasTest.php" line="547" name="test_SQL_42_SELECT_25" time="0.008657">
+        </testcase>
+    </testsuite>
+</testsuites>

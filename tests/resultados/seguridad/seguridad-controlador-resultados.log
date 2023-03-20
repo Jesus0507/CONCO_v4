@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite assertions="5" errors="0" failures="0" file="CONCO_v4\tests\SeguridadTestControlador.php" name="SeguridadTestControlador" skipped="0" tests="5" time="0.054280" warnings="0">
+        <testcase assertions="1" class="SeguridadTestControlador" classname="SeguridadTestControlador" file="CONCO_v4\tests\SeguridadTestControlador.php" line="19" name="test_Cargar_Vistas" time="0.022310">
+        </testcase>
+        <testcase assertions="1" class="SeguridadTestControlador" classname="SeguridadTestControlador" file="CONCO_v4\tests\SeguridadTestControlador.php" line="26" name="test_Getters" time="0.005994">
+        </testcase>
+        <testcase assertions="1" class="SeguridadTestControlador" classname="SeguridadTestControlador" file="CONCO_v4\tests\SeguridadTestControlador.php" line="34" name="test_Administrar" time="0.009665">
+        </testcase>
+        <testcase assertions="1" class="SeguridadTestControlador" classname="SeguridadTestControlador" file="CONCO_v4\tests\SeguridadTestControlador.php" line="42" name="test_Administrar_Vistas_" time="0.006196">
+        </testcase>
+        <testcase assertions="1" class="SeguridadTestControlador" classname="SeguridadTestControlador" file="CONCO_v4\tests\SeguridadTestControlador.php" line="50" name="test_Administrar_Consulta_Ajax" time="0.010115">
+        </testcase>
+    </testsuite>
+</testsuites>

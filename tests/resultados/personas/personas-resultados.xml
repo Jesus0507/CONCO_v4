@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tests>
+    <test classname="PersonasTest" groups="default" methodname="test_SQL_01_SELECT_1" prettifiedclassname="Personas" prettifiedmethodname="SQL 01 SELECT 1" size="-1" status="0" time="0.026604">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="PersonasTest" groups="default" methodname="test_SQL_02_SELECT_2" prettifiedclassname="Personas" prettifiedmethodname="SQL 02 SELECT 2" size="-1" status="0" time="0.0043313">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="PersonasTest" groups="default" methodname="test_SQL_03_INSERT_1" prettifiedclassname="Personas" prettifiedmethodname="SQL 03 INSERT 1" size="-1" status="0" time="0.1814512">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="PersonasTest" groups="default" methodname="test_SQL_04_INSERT_2" prettifiedclassname="Personas" prettifiedmethodname="SQL 04 INSERT 2" size="-1" status="0" time="0.1592993">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="PersonasTest" groups="default" methodname="test_SQL_05_INSERT_3" prettifiedclassname="Personas" prettifiedmethodname="SQL 05 INSERT 3" size="-1" status="0" time="0.2193965">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="PersonasTest" groups="default" methodname="test_SQL_06_INSERT_4" prettifiedclassname="Personas" prettifiedmethodname="SQL 06 INSERT 4" size="-1" status="0" time="0.4605979">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="PersonasTest" groups="default" methodname="test_SQL_07_INSERT_5" prettifiedclassname="Personas" prettifiedmethodname="SQL 07 INSERT 5" size="-1" status="0" time="0.1236262">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="PersonasTest" groups="default" methodname="test_SQL_08_INSERT_6" prettifiedclassname="Personas" prettifiedmethodname="SQL 08 INSERT 6" size="-1" status="0" time="0.1066102">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="PersonasTest" groups="default" methodname="test_SQL_09_INSERT_7" prettifiedclassname="Personas" prettifiedmethodname="SQL 09 INSERT 7" size="-1" status="0" time="0.1116455">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="PersonasTest" groups="default" methodname="test_SQL_10_INSERT_8" prettifiedclassname="Personas" prettifiedmethodname="SQL 10 INSERT 8" size="-1" status="0" time="0.1145803">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="PersonasTest" groups="default" methodname="test_SQL_11_INSERT_9" prettifiedclassname="Personas" prettifiedmethodname="SQL 11 INSERT 9" size="-1" status="0" time="0.1364619">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="PersonasTest" groups="default" methodname="test_SQL_12_INSERT_10" prettifiedclassname="Personas" prettifiedmethodname="SQL 12 INSERT 10" size="-1" status="0" time="0.0817355">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="PersonasTest" groups="default" methodname="test_SQL_13_INSERT_11" prettifiedclassname="Personas" prettifiedmethodname="SQL 13 INSERT 11" size="-1" status="0" time="0.0725966">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="PersonasTest" groups="default" methodname="test_SQL_14_SELECT_3" prettifiedclassname="Personas" prettifiedmethodname="SQL 14 SELECT 3" size="-1" status="0" time="0.0056654">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="PersonasTest" groups="default" methodname="test_SQL_15_UPDATE_1" prettifiedclassname="Personas" prettifiedmethodname="SQL 15 UPDATE 1" size="-1" status="0" time="0.0031008">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="PersonasTest" groups="default" methodname="test_SQL_16_UPDATE_2" prettifiedclassname="Personas" prettifiedmethodname="SQL 16 UPDATE 2" size="-1" status="0" time="0.003939">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="PersonasTest" groups="default" methodname="test_SQL_17_DELETE_1" prettifiedclassname="Personas" prettifiedmethodname="SQL 17 DELETE 1" size="-1" status="0" time="0.2481763">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="PersonasTest" groups="default" methodname="test_SQL_18_SELECT_5" prettifiedclassname="Personas" prettifiedmethodname="SQL 18 SELECT 5" size="-1" status="0" time="0.0041801">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="PersonasTest" groups="default" methodname="test_SQL_19_SELECT_6" prettifiedclassname="Personas" prettifiedmethodname="SQL 19 SELECT 6" size="-1" status="0" time="0.0041195">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="PersonasTest" groups="default" methodname="test_SQL_20_SELECT_7" prettifiedclassname="Personas" prettifiedmethodname="SQL 20 SELECT 7" size="-1" status="0" time="0.0036651">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="PersonasTest" groups="default" methodname="test_SQL_21_SELECT_8" prettifiedclassname="Personas" prettifiedmethodname="SQL 21 SELECT 8" size="-1" status="0" time="0.0103118">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="PersonasTest" groups="default" methodname="test_SQL_22_SELECT_9" prettifiedclassname="Personas" prettifiedmethodname="SQL 22 SELECT 9" size="-1" status="0" time="0.2087998">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="PersonasTest" groups="default" methodname="test_SQL_23_SELECT_10" prettifiedclassname="Personas" prettifiedmethodname="SQL 23 SELECT 10" size="-1" status="0" time="0.0273477">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="PersonasTest" groups="default" methodname="test_SQL_24_SELECT_11" prettifiedclassname="Personas" prettifiedmethodname="SQL 24 SELECT 11" size="-1" status="0" time="0.1226805">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="PersonasTest" groups="default" methodname="test_SQL_25_SELECT_11" prettifiedclassname="Personas" prettifiedmethodname="SQL 25 SELECT 11" size="-1" status="0" time="0.1339748">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="PersonasTest" groups="default" methodname="test_SQL_26_SELECT_12" prettifiedclassname="Personas" prettifiedmethodname="SQL 26 SELECT 12" size="-1" status="0" time="0.0171949">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="PersonasTest" groups="default" methodname="test_SQL_27_SELECT_13" prettifiedclassname="Personas" prettifiedmethodname="SQL 27 SELECT 13" size="-1" status="0" time="0.0196972">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="PersonasTest" groups="default" methodname="test_SQL_28_SELECT_14" prettifiedclassname="Personas" prettifiedmethodname="SQL 28 SELECT 14" size="-1" status="0" time="0.0761036">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="PersonasTest" groups="default" methodname="test_SQL_29_SELECT_13" prettifiedclassname="Personas" prettifiedmethodname="SQL 29 SELECT 13" size="-1" status="0" time="0.1409864">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="PersonasTest" groups="default" methodname="test_SQL_30_SELECT_14" prettifiedclassname="Personas" prettifiedmethodname="SQL 30 SELECT 14" size="-1" status="0" time="0.4396163">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="PersonasTest" groups="default" methodname="test_SQL_31_SELECT_15" prettifiedclassname="Personas" prettifiedmethodname="SQL 31 SELECT 15" size="-1" status="0" time="0.0043555">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="PersonasTest" groups="default" methodname="test_SQL_32_SELECT_16" prettifiedclassname="Personas" prettifiedmethodname="SQL 32 SELECT 16" size="-1" status="0" time="0.0048461">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="PersonasTest" groups="default" methodname="test_SQL_33_SELECT_16" prettifiedclassname="Personas" prettifiedmethodname="SQL 33 SELECT 16" size="-1" status="0" time="0.0041584">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="PersonasTest" groups="default" methodname="test_SQL_34_SELECT_17" prettifiedclassname="Personas" prettifiedmethodname="SQL 34 SELECT 17" size="-1" status="0" time="0.0040832">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="PersonasTest" groups="default" methodname="test_SQL_35_SELECT_18" prettifiedclassname="Personas" prettifiedmethodname="SQL 35 SELECT 18" size="-1" status="0" time="0.0034615">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="PersonasTest" groups="default" methodname="test_SQL_36_SELECT_19" prettifiedclassname="Personas" prettifiedmethodname="SQL 36 SELECT 19" size="-1" status="0" time="0.0530144">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="PersonasTest" groups="default" methodname="test_SQL_37_SELECT_20" prettifiedclassname="Personas" prettifiedmethodname="SQL 37 SELECT 20" size="-1" status="0" time="0.0033065">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="PersonasTest" groups="default" methodname="test_SQL_38_SELECT_21" prettifiedclassname="Personas" prettifiedmethodname="SQL 38 SELECT 21" size="-1" status="0" time="0.0032007">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="PersonasTest" groups="default" methodname="test_SQL_39_SELECT_22" prettifiedclassname="Personas" prettifiedmethodname="SQL 39 SELECT 22" size="-1" status="0" time="0.0056271">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="PersonasTest" groups="default" methodname="test_SQL_40_SELECT_23" prettifiedclassname="Personas" prettifiedmethodname="SQL 40 SELECT 23" size="-1" status="0" time="0.0036948">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="PersonasTest" groups="default" methodname="test_SQL_41_SELECT_24" prettifiedclassname="Personas" prettifiedmethodname="SQL 41 SELECT 24" size="-1" status="0" time="0.0037396">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="PersonasTest" groups="default" methodname="test_SQL_42_SELECT_25" prettifiedclassname="Personas" prettifiedmethodname="SQL 42 SELECT 25" size="-1" status="0" time="0.0086569">
+        <group name="default">
+        </group>
+    </test>
+</tests>

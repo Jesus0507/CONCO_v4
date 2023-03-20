@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite assertions="2" errors="0" failures="0" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\LoginTest.php" name="LoginTest" skipped="0" tests="1" time="0.025190" warnings="0">
+        <testcase assertions="2" class="LoginTest" classname="LoginTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\LoginTest.php" line="16" name="test_SQL_01_SELECT" time="0.025190">
+        </testcase>
+    </testsuite>
+</testsuites>

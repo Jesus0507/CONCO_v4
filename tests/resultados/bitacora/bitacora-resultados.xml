@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tests>
+    <test classname="BitacoraTest" groups="default" methodname="test_SQL01_SELECT" prettifiedclassname="Bitacora" prettifiedmethodname="SQL01 SELECT" size="-1" status="0" time="0.0261911">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="BitacoraTest" groups="default" methodname="test_SQL02_INSERT" prettifiedclassname="Bitacora" prettifiedmethodname="SQL02 INSERT" size="-1" status="0" time="0.0872324">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="BitacoraTest" groups="default" methodname="test_SQL03_UPDATE_1" prettifiedclassname="Bitacora" prettifiedmethodname="SQL03 UPDATE 1" size="-1" status="0" time="0.0026959">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="BitacoraTest" groups="default" methodname="test_SQL04_UPDATE_2" prettifiedclassname="Bitacora" prettifiedmethodname="SQL04 UPDATE 2" size="-1" status="0" time="0.0032408">
+        <group name="default">
+        </group>
+    </test>
+</tests>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="ControladorTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\app\ControladorTest.php" tests="10" assertions="16" errors="0" warnings="0" failures="0" skipped="0" time="0.128012">
+    <testcase name="test_Cargar_Controlador" class="ControladorTest" classname="ControladorTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\app\ControladorTest.php" line="13" assertions="1" time="0.022937"/>
+    <testcase name="test_Cargar_Modelo" class="ControladorTest" classname="ControladorTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\app\ControladorTest.php" line="19" assertions="1" time="0.006725"/>
+    <testcase name="test_Validacion" class="ControladorTest" classname="ControladorTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\app\ControladorTest.php" line="25" assertions="1" time="0.006173"/>
+    <testcase name="test_Codificar" class="ControladorTest" classname="ControladorTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\app\ControladorTest.php" line="31" assertions="1" time="0.004077"/>
+    <testcase name="test_Decodificar" class="ControladorTest" classname="ControladorTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\app\ControladorTest.php" line="39" assertions="1" time="0.003834"/>
+    <testcase name="test_Seguridad_Password" class="ControladorTest" classname="ControladorTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\app\ControladorTest.php" line="47" assertions="1" time="0.008287"/>
+    <testcase name="test_GenerateRSAKeys" class="ControladorTest" classname="ControladorTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\app\ControladorTest.php" line="53" assertions="1" time="0.004060"/>
+    <testcase name="test_EncryptBits" class="ControladorTest" classname="ControladorTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\app\ControladorTest.php" line="60" assertions="3" time="0.005808"/>
+    <testcase name="test_EscribirJSON" class="ControladorTest" classname="ControladorTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\app\ControladorTest.php" line="67" assertions="3" time="0.009043"/>
+    <testcase name="test_VerArray" class="ControladorTest" classname="ControladorTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\app\ControladorTest.php" line="77" assertions="3" time="0.057069"/>
+  </testsuite>
+</testsuites>

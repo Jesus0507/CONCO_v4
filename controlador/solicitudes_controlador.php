@@ -123,35 +123,19 @@ class Solicitudes extends Controlador
         $this->peticion = (isset($_POST['peticion'])) ? $_POST['peticion'] : $peticion[0];
         switch ($this->peticion) {
             case 'Solicitudes':
-                if ($this->permisos["consultar"] === 1) {
                     $this->vista->Cargar_Vistas('solicitudes/index');
-                } else {
-                    $this->_403_();
-                }
                 break;
 
             case 'Solicitud':
-                if ($this->permisos["consultar"] === 1) {
                     $this->vista->Cargar_Vistas('solicitudes/consultar');
-                } else {
-                    $this->_403_();
-                }
                 break;
 
             case 'Solicitud_Vivienda':
-                if ($this->permisos["consultar"] === 1) {
                     $this->vista->Cargar_Vistas('solicitudes/consultar_vivienda');
-                } else {
-                    $this->_403_();
-                }
                 break;
 
             case 'Solicitud_View_Only':
-                if ($this->permisos["consultar"] === 1) {
                     $this->vista->Cargar_Vistas('solicitudes/consultar_only_view');
-                } else {
-                    $this->_403_();
-                }
                 break;
 
             case 'Consulta_Ajax':
@@ -359,8 +343,8 @@ class Solicitudes extends Controlador
                 $this->modelo->_SQL_("SQL_04");
                 $this->modelo->_ID_($this->id_solicitud);
                 $this->solicitud = $this->modelo->Administrar();
-                $this->modelo->_ID_($this->solicitud[0]['observaciones']);
-                $this->modelo->_SQL_("SQL_05");
+                 $this->modelo->_ID_($this->solicitud[0]['observaciones']);
+                 $this->modelo->_SQL_("SQL_05");
                 $this->solicitud[0]['servicio_gas'] = $this->modelo->Administrar();
                 $this->modelo->_SQL_("SQL_06");
                 $this->solicitud[0]['tipos_techo'] = $this->modelo->Administrar();
@@ -378,6 +362,40 @@ class Solicitudes extends Controlador
                     $this->solicitud[0]['gas_detalle'] .= "<td>" . $g['tipo_bombona'] . "</td><td>" . $g['dias_duracion'] . "</td></tr>";
                 }
                 $this->solicitud[0]['gas_detalle'] .= "</table>";
+
+                $this->solicitud[0]['techos_detalle'] = "<div style='width:100%;text-align:center' class='d-flex flex-column justify-content-around'>";
+                foreach ($this->solicitud[0]['tipos_techo'] as $g) {
+                    $this->solicitud[0]['techos_detalle'] .= "<div class='mx-auto'>" . $g['techo'] . "</div>";
+                }
+                $this->solicitud[0]['techos_detalle'] .= "</div>";
+                $this->solicitud[0]['tipos_techo'] = $this->solicitud[0]['techos_detalle'];
+
+                
+                $this->solicitud[0]['pisos_detalle'] = "<div style='width:100%;text-align:center' class='d-flex flex-column justify-content-around'>";
+                foreach ($this->solicitud[0]['tipos_piso'] as $g) {
+                    $this->solicitud[0]['pisos_detalle'] .= "<div class='mx-auto'>" . $g['piso'] . "</div>";
+                }
+                $this->solicitud[0]['pisos_detalle'] .= "</div>";
+                $this->solicitud[0]['tipos_piso'] = $this->solicitud[0]['pisos_detalle'];
+
+                
+                $this->solicitud[0]['paredes_detalle'] = "<div style='width:100%;text-align:center' class='d-flex flex-column justify-content-around'>";
+                foreach ($this->solicitud[0]['tipos_pared'] as $g) {
+                    $this->solicitud[0]['paredes_detalle'] .= "<div class='mx-auto'>" . $g['pared'] . "</div>";
+                }
+                $this->solicitud[0]['paredes_detalle'] .= "</div>";
+                $this->solicitud[0]['tipos_pared'] = $this->solicitud[0]['paredes_detalle'];
+
+                
+                $this->solicitud[0]['electrodomesticos_detalle'] = "<table style='width:100%'><tr><td>Electrodoméstico</td>";
+                $this->solicitud[0]['electrodomesticos_detalle'] .= "<td>cantidad</td></tr>";
+
+                foreach ($this->solicitud[0]['electrodomesticos'] as $g) {
+                    $this->solicitud[0]['electrodomesticos_detalle'] .= "<td>" . $g['nombre_electrodomestico'] . "</td><td>" . $g['cantidad'] . "</td></tr>";
+                }
+                $this->solicitud[0]['electrodomesticos_detalle'] .= "</table>";
+
+                $this->solicitud[0]['electrodomesticos'] = $this->solicitud[0]['electrodomesticos_detalle'];
 
                 $this->Escribir_JSON($this->solicitud);
                 unset($this->solicitud);
@@ -398,7 +416,9 @@ class Solicitudes extends Controlador
                 }
                 break;
             case 'Nueva_solicitud_cambio_contrasenia':
-                $this->datos_ejecutar['observaciones'] = "";
+                if($this->datos_ejecutar['observaciones'] == null || $this->datos_ejecutar['observaciones'] == '') {
+                    $this->datos_ejecutar['observaciones'] =  "";;
+                }
                 $this->datos_ejecutar['procesada']     = 0;
                 $this->datos_ejecutar;
                 $this->modelo->_Datos_($this->Get_Datos());

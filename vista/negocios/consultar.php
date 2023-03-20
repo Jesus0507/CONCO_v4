@@ -32,6 +32,7 @@
                             <th>Calle</th>
                             <th>Dirección</th>
                             <th>Nombre del negocio</th>
+                            <th>Cedula</th>
                             <th>Propietario</th>
                             <th>Rif de negocio</th>
                             <th style="width: 20px;">Ver</th>
@@ -75,7 +76,11 @@
                             data: "nombre_negocio",
                         }, {
                             data: function(data) {
-                                return (data.cedula_propietario+" "+data.primer_nombre+" "+data.primer_apellido);
+                                return (data.cedula_propietario);
+                            },
+                        },{
+                            data: function(data) {
+                                return (data.primer_nombre+" "+data.primer_apellido);
                             },
                         }, {
                             data: "rif_negocio",
@@ -111,7 +116,7 @@
                 }).buttons().container().appendTo("#example1_wrapper .col-md-6:eq(0)");
                 $("#example1").on("click", ".mensaje-eliminar", function() {
                     fila = $(this).closest("tr");
-                    id = fila.find("td:eq(5)").text();
+                    id = fila.find("td:eq(6)").text();
                     var estado = {
                         tabla: "negocios",
                         id_tabla: "id_negocio",
@@ -172,7 +177,7 @@
                     direccion = fila.find("td:eq(1)").text();
                     nombre_negocio = fila.find("td:eq(2)").text();
                     cedula_propietario = fila.find("td:eq(3)").text();
-                    rif_negocio = fila.find("td:eq(4)").text();
+                    rif_negocio = fila.find("td:eq(5)").text();
                     $("#calle").val(calle);
                     $("#direccion").val(direccion);
                     $("#nombre_negocio").val(nombre_negocio);
@@ -181,12 +186,12 @@
                 });
                 $(document).on("click", ".btnEditar", function() {
                     fila = $(this).closest("tr");
-                    id = fila.find("td:eq(5)").text();
+                    id = fila.find("td:eq(6)").text();
                     calle = fila.find("td:eq(0)").text();
                     direccion = fila.find("td:eq(1)").text();
                     nombre_negocio = fila.find("td:eq(2)").text();
                     cedula_propietario = fila.find("td:eq(3)").text();
-                    rif_negocio = fila.find("td:eq(4)").text();
+                    rif_negocio = fila.find("td:eq(5)").text();
                     $("#direccion_negocio2").val(direccion);
                     $("#nombre_negocio2").val(nombre_negocio);
                     $("#cedula_propietario2").val(cedula_propietario);
@@ -265,6 +270,7 @@
                             <th>Calle</th>
                             <th>Dirección</th>
                             <th>Nombre del negocio</th>
+                            <th>Cedula</th>
                             <th>Propietario</th>
                             <th>Rif de negocio</th> 
                             <th style="width: 20px;">Ver</th>

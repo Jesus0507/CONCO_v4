@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="VistaTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\app\VistaTest.php" tests="2" assertions="1" errors="1" warnings="0" failures="0" skipped="0" time="0.020236">
+    <testcase name="test_Cargar_Vistas" class="VistaTest" classname="VistaTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\app\VistaTest.php" line="15" assertions="1" time="0.017547"/>
+    <testcase name="test_Sesion" class="VistaTest" classname="VistaTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\app\VistaTest.php" line="23" assertions="0" time="0.002689">
+      <error type="Error">VistaTest::test_Sesion
+Error: Call to private method Vista::_SESSION_() from context 'VistaTest'
+
+C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\app\VistaTest.php:25</error>
+    </testcase>
+  </testsuite>
+</testsuites>

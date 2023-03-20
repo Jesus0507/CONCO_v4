@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite assertions="3" errors="0" failures="0" file="CONCO_v4\tests\HabitanteTestControlador.php" name="HabitanteTestControlador" skipped="0" tests="3" time="0.034987" warnings="0">
+        <testcase assertions="1" class="HabitanteTestControlador" classname="HabitanteTestControlador" file="CONCO_v4\tests\HabitanteTestControlador.php" line="19" name="test_Cargar_Vistas" time="0.022358">
+        </testcase>
+        <testcase assertions="1" class="HabitanteTestControlador" classname="HabitanteTestControlador" file="CONCO_v4\tests\HabitanteTestControlador.php" line="27" name="test_Establecer_Consultas" time="0.005790">
+        </testcase>
+        <testcase assertions="1" class="HabitanteTestControlador" classname="HabitanteTestControlador" file="CONCO_v4\tests\HabitanteTestControlador.php" line="35" name="test_Getters" time="0.006839">
+        </testcase>
+    </testsuite>
+</testsuites>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tests>
+  <test className="ControladorTest" methodName="test_Cargar_Controlador" prettifiedClassName="Controlador" prettifiedMethodName="Cargar Controlador" status="0" time="0.0229367" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="ControladorTest" methodName="test_Cargar_Modelo" prettifiedClassName="Controlador" prettifiedMethodName="Cargar Modelo" status="0" time="0.006725" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="ControladorTest" methodName="test_Validacion" prettifiedClassName="Controlador" prettifiedMethodName="Validacion" status="0" time="0.0061732" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="ControladorTest" methodName="test_Codificar" prettifiedClassName="Controlador" prettifiedMethodName="Codificar" status="0" time="0.0040766" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="ControladorTest" methodName="test_Decodificar" prettifiedClassName="Controlador" prettifiedMethodName="Decodificar" status="0" time="0.003834" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="ControladorTest" methodName="test_Seguridad_Password" prettifiedClassName="Controlador" prettifiedMethodName="Seguridad Password" status="0" time="0.0082869" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="ControladorTest" methodName="test_GenerateRSAKeys" prettifiedClassName="Controlador" prettifiedMethodName="Generate r s a keys" status="0" time="0.0040599" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="ControladorTest" methodName="test_EncryptBits" prettifiedClassName="Controlador" prettifiedMethodName="Encrypt bits" status="0" time="0.0058078" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="ControladorTest" methodName="test_EscribirJSON" prettifiedClassName="Controlador" prettifiedMethodName="Escribir j s o n" status="0" time="0.0090435" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="ControladorTest" methodName="test_VerArray" prettifiedClassName="Controlador" prettifiedMethodName="Ver array" status="0" time="0.0570686" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+</tests>

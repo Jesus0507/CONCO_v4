@@ -59,6 +59,7 @@
                                         },
                                     }).done(function(datos) {
                                         var data = JSON.parse(datos);
+                                        document.getElementById('discapacidades_previas').innerHTML = datos;
                                         var discapacidades = [];
                                         var div_discapacidades = document.getElementById(
                                             "discapacidades_agregadas");
@@ -99,128 +100,115 @@
                                             $('#nombre').val(nombre);
                                         });
                                         $(document).on('click', '#agregar', function() {
-                                            if ((discapacidad_input.style.display !=
-                                                    'none' && discapacidad_input
-                                                    .value == '') || (
-                                                    discapacidad_input.style
-                                                    .display == 'none' &&
-                                                    discapacidad_select.value ==
-                                                    'vacio')) {
-                                                valid_discapacidad.innerHTML =
-                                                    'Ingrese la discapacidad';
-                                                discapacidad_input.style
-                                                    .borderColor = 'red';
-                                                discapacidad_input.focus();
-                                            } else {
-                                                valid_discapacidad.innerHTML = '';
-                                                discapacidad_input.style
-                                                    .borderColor = '';
-                                                var disc = new Object();
-                                                var textoDiscapacidad = "";
-                                                var textoNecesidades = necesidades
-                                                    .value;
-                                                var textoObservaciones =
-                                                    observaciones.value;
-                                                var textoEnCama = en_cama.options[
-                                                    en_cama.selectedIndex].text;
-                                                var en_cama_valor = en_cama.value;
-                                                discapacidad_input.style.display !=
-                                                    'none' ? disc['discapacidad'] =
-                                                    discapacidad_input.value : disc[
-                                                        'discapacidad'] =
-                                                    discapacidad_select.value;
-                                                discapacidad_input.style.display !=
-                                                    'none' ? textoDiscapacidad =
-                                                    discapacidad_input.value :
-                                                    textoDiscapacidad =
-                                                    discapacidad_select.options[
-                                                        discapacidad_select
-                                                        .selectedIndex].text;
-                                                discapacidad_input.style.display !=
-                                                    'none' ? disc['nuevo'] = '1' :
-                                                    disc['nuevo'] = '0';
-                                                disc['en_cama'] = en_cama_valor;
-                                                textoNecesidades == '' ? disc[
-                                                        'necesidades'] =
-                                                    "No posee" : disc[
-                                                    'necesidades'] =
-                                                    textoNecesidades;
-                                                textoObservaciones == '' ? disc[
-                                                        'observaciones'] =
-                                                    "No posee" : disc[
-                                                        'observaciones'] =
-                                                    textoNecesidades;
-                                                var div = document.createElement(
-                                                    "div");
-                                                var table = document.createElement(
-                                                    "table");
-                                                table.style.width = '100%';
-                                                var tr = document.createElement(
-                                                    "tr");
-                                                var td1 = document.createElement(
-                                                    "td");
-                                                var td2 = document.createElement(
-                                                    "td");
-                                                var td3 = document.createElement(
-                                                    "td");
-                                                var td4 = document.createElement(
-                                                    "td");
-                                                var td5 = document.createElement(
-                                                    "td");
-                                                td5.style.textAlign = 'right';
-                                                td1.innerHTML = textoDiscapacidad;
-                                                td2.innerHTML = textoEnCama;
-                                                td3.innerHTML = textoNecesidades;
-                                                td4.innerHTML = textoObservaciones;
-                                                necesidades.value = '';
-                                                observaciones.value = '';
-                                                discapacidad_select.value = 'vacio';
-                                                discapacidad_input.value = '';
-                                                en_cama.value = 'vacio';
-                                                var button = document.createElement(
-                                                    "input");
-                                                button.type = 'button';
-                                                button.value = 'X';
-                                                button.className = 'btn btn-danger';
-                                                td5.appendChild(button);
-                                                tr.appendChild(td1);
-                                                tr.appendChild(td2);
-                                                tr.appendChild(td3);
-                                                tr.appendChild(td4);
-                                                tr.appendChild(td5);
-                                                table.appendChild(tr);
-                                                div.appendChild(table);
-                                                var hr = document.createElement(
-                                                    "hr");
-                                                discapacidades.push(disc);
-                                                div.appendChild(hr);
-                                                div_discapacidades.appendChild(div);
-                                                button.onclick = function() {
-                                                    div_discapacidades
-                                                        .removeChild(div);
-                                                    discapacidades.splice(
-                                                        discapacidades
-                                                        .indexOf(disc), 1);
-                                                }
+                                            var discapacidad_input = document.getElementById("discapacidad_input");
+                                             var discapacidad_select = document.getElementById("discapacidad_select");
+                                             var en_cama = document.getElementById('en_cama');
+                                             var necesidades = document.getElementById('necesidades');
+                                             var observaciones = document.getElementById('observaciones');
+                                             var valid_discapacidad = document.getElementById("valid_discapacidad");
+                                             var div_discapacidades = document.getElementById("discapacidades_agregadas");
+                                             var discapacidades_previas = JSON.parse(document.getElementById('discapacidades_previas').innerHTML);
+
+                                            if ((discapacidad_input.style.display != 'none' && discapacidad_input.value == '') || (
+                                                discapacidad_input.style.display == 'none' && discapacidad_select.value == 'vacio')) {
+                                                   
+                                                    valid_discapacidad.innerHTML = 'Ingrese la discapacidad';
+                                                    discapacidad_input.style.borderColor = 'red';
+                                                    discapacidad_input.focus();
+
+                                                } 
+                                                else {
+                                                    if(en_cama.value == 'vacio'){
+                                                    valid_discapacidad.innerHTML = 'Señale si está en cama';
+                                                    en_cama.style.borderColor = 'red';
+                                                    en_cama.focus();
+                                                    }
+                                                    else{
+                                                    valid_discapacidad.innerHTML = '';
+                                                    en_cama.style.borderColor = '';
+                                                    en_cama.blur();
+                                                    var agregado = false;
+
+                                                    for (var i = 0; i < discapacidades_previas.length; i++) {
+
+                                                    if (discapacidad_input.style.display != 'none') {
+
+                                                    if (discapacidades_previas[i]['nombre_discapacidad'].toLowerCase() == discapacidad_input.value.toLowerCase()) {
+                                                            agregado = true;
+                                                        }
+
+                                                        if (!agregado) {
+                                                            var opt_select = discapacidad_select.options;
+                                                            for (var j = 0; j < opt_select.length; j++) {
+                                                                if (opt_select[j].label.toLowerCase() == discapacidad_input.value.toLowerCase()) {
+                                                                    if (opt_select[j].value == discapacidades_previas[i]['id_discapacidad']) {
+                                                                        agregado = true;
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    } else {
+
+                                                        if (discapacidad_select.value == discapacidades_previas[i]['id_discapacidad']) {
+                                                            agregado = true;
+                                                        }
+
+                                                        if (!agregado) {
+                                                            if (discapacidad_select.options[discapacidad_select.selectedIndex].text.toLowerCase() == discapacidades_previas[i]['nombre_discapacidad'].toLowerCase()) {
+                                                                agregado = true;
+                                                            }
+                                                        }
+                                                    }
+                                                    }
+
+                                                    if(agregado) {
+                                                    valid_discapacidad.innerHTML = 'Esta discapacidad ya se encuentra agregada';
+                                                    discapacidad_input.style.borderColor = 'red';
+                                                    discapacidad_input.focus();
+                                                    }
+                                                    else {
+                                                        valid_discapacidad.innerHTML = '';
+                                                        discapacidad_input.style.borderColor = '';
+                                                        var disc = new Object();
+                                                        var textoDiscapacidad = "";
+                                                        var textoNecesidades = necesidades.value;
+                                                        var textoObservaciones = observaciones.value;
+                                                        var textoEnCama = en_cama.options[en_cama.selectedIndex].text;
+                                                        var en_cama_valor = en_cama.value;
+                                                        discapacidad_input.style.display != 'none' ? disc['discapacidad'] = discapacidad_input.value : disc['discapacidad'] = discapacidad_select.value;
+                                                        discapacidad_input.style.display != 'none' ? textoDiscapacidad = discapacidad_input.value : textoDiscapacidad = discapacidad_select.options[discapacidad_select.selectedIndex].text;
+                                                        discapacidad_input.style.display != 'none' ? disc['nuevo'] = '1' : disc['nuevo'] = '0';
+                                                        disc['en_cama'] = en_cama_valor;
+                                                        textoNecesidades == '' ? disc['necesidades'] = "No posee" : disc['necesidades'] = textoNecesidades;
+                                                        textoObservaciones == '' ? disc['observaciones'] = "No posee" : disc['observaciones'] = textoObservaciones;
+                                                        discapacidades.push(disc);
+                                                        $.ajax({
+                                                        type: "POST",
+                                                        url: BASE_URL +
+                                                            direccion_segura,
+                                                        data: {
+                                                            cedula: $('#cedula').val(),
+                                                            discapacidades: discapacidades,
+                                                            peticion: "Administrar",
+                                                            sql: "SQL_06",
+                                                            accion: "Se ha Actualizado el  Discapacitado pordator de la Cedula: " +
+                                                                $('#cedula').val(),
+                                                        },
+                                                        }).done(function(result) {
+                                                            if(result == 1){
+                                                                discapacidades = [];
+                                                                editar($('#cedula').val());
+                                                                discapacidad_input.value = discapacidad_select.style.display = necesidades.value = observaciones.value = '';
+                                                                discapacidad_select.value = en_cama.value ='vacio';
+                                                                discapacidad_input.style.display = 'none';
+                                                                btn_nueva_discapacidad.innerHTML = 'Nueva discapacidad';
+                                                            }
+                                                    });
+                                                        }    }
                                             }
                                         });
                                         $(document).on('click', '#enviar', function() {
-                                            $.ajax({
-                                                type: "POST",
-                                                url: BASE_URL +
-                                                    direccion_segura,
-                                                data: {
-                                                    cedula: $('#cedula')
-                                                        .val(),
-                                                    discapacidades: discapacidades,
-                                                    peticion: "Administrar",
-                                                    sql: "SQL_06",
-                                                    accion: "Se ha Actualizado el  Discapacitado pordator de la Cedula: " +
-                                                        $('#cedula').val(),
-                                                },
-                                            }).done(function(result) {
-                                                if (result == 1) {
-                                                    swal({
+                                            swal({
                                                         title: "Actualizado!",
                                                         text: "El elemento fue Actualizado con exito.",
                                                         type: "success",
@@ -230,18 +218,6 @@
                                                         location
                                                             .reload();
                                                     }, 2000);
-                                                } else {
-                                                    swal({
-                                                        title: "ERROR!",
-                                                        text: "Ha ocurrido un Error.</br>" +
-                                                            result,
-                                                        type: "error",
-                                                        html: true,
-                                                        showConfirmButton: true,
-                                                        customClass: "bigSwalV2",
-                                                    });
-                                                }
-                                            });
                                         });
                                         $(document).on('click', '#btn_nueva_discapacidad',
                                             function() {

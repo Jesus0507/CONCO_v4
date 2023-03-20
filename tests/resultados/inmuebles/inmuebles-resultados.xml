@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tests>
+    <test classname="InmueblesTest" groups="default" methodname="test_SQL_01_SELECT" prettifiedclassname="Inmuebles" prettifiedmethodname="SQL 01 SELECT" size="-1" status="0" time="0.0369475">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="InmueblesTest" groups="default" methodname="test_SQL_02_INSERT" prettifiedclassname="Inmuebles" prettifiedmethodname="SQL 02 INSERT" size="-1" status="0" time="0.0837175">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="InmueblesTest" groups="default" methodname="test_SQL_03_UPDATE" prettifiedclassname="Inmuebles" prettifiedmethodname="SQL 03 UPDATE" size="-1" status="0" time="0.075484">
+        <group name="default">
+        </group>
+    </test>
+</tests>

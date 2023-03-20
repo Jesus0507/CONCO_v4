@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tests>
+    <test classname="ViviendasTest" groups="default" methodname="test_SQL_01_SELECT_1" prettifiedclassname="Viviendas" prettifiedmethodname="SQL 01 SELECT 1" size="-1" status="0" time="0.0359559">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="ViviendasTest" groups="default" methodname="test_SQL_02_SELECT_2" prettifiedclassname="Viviendas" prettifiedmethodname="SQL 02 SELECT 2" size="-1" status="0" time="0.0033747">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="ViviendasTest" groups="default" methodname="test_SQL_03_SELECT_3" prettifiedclassname="Viviendas" prettifiedmethodname="SQL 03 SELECT 3" size="-1" status="0" time="0.0031879">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="ViviendasTest" groups="default" methodname="test_SQL_04_SELECT_4" prettifiedclassname="Viviendas" prettifiedmethodname="SQL 04 SELECT 4" size="-1" status="0" time="0.0026669">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="ViviendasTest" groups="default" methodname="test_SQL_05_SELECT_5" prettifiedclassname="Viviendas" prettifiedmethodname="SQL 05 SELECT 5" size="-1" status="0" time="0.0028481">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="ViviendasTest" groups="default" methodname="test_SQL_07_SELECT_7" prettifiedclassname="Viviendas" prettifiedmethodname="SQL 07 SELECT 7" size="-1" status="0" time="0.0028797">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="ViviendasTest" groups="default" methodname="test_SQL_08_SELECT_8" prettifiedclassname="Viviendas" prettifiedmethodname="SQL 08 SELECT 8" size="-1" status="0" time="0.0028939">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="ViviendasTest" groups="default" methodname="test_SQL_09_SELECT_9" prettifiedclassname="Viviendas" prettifiedmethodname="SQL 09 SELECT 9" size="-1" status="0" time="0.0030505">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="ViviendasTest" groups="default" methodname="test_SQL_10_INSERT_1" prettifiedclassname="Viviendas" prettifiedmethodname="SQL 10 INSERT 1" size="-1" status="0" time="0.101947">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="ViviendasTest" groups="default" methodname="test_SQL_11_UPDATE_1" prettifiedclassname="Viviendas" prettifiedmethodname="SQL 11 UPDATE 1" size="-1" status="0" time="0.0033622">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="ViviendasTest" groups="default" methodname="test_SQL_12_INSERT_2" prettifiedclassname="Viviendas" prettifiedmethodname="SQL 12 INSERT 2" size="-1" status="0" time="0.0452134">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="ViviendasTest" groups="default" methodname="test_SQL_13_INSERT_2" prettifiedclassname="Viviendas" prettifiedmethodname="SQL 13 INSERT 2" size="-1" status="0" time="0.037277">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="ViviendasTest" groups="default" methodname="test_SQL_14_INSERT_3" prettifiedclassname="Viviendas" prettifiedmethodname="SQL 14 INSERT 3" size="-1" status="0" time="0.0387194">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="ViviendasTest" groups="default" methodname="test_SQL_15_INSERT_4" prettifiedclassname="Viviendas" prettifiedmethodname="SQL 15 INSERT 4" size="-1" status="0" time="0.0377026">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="ViviendasTest" groups="default" methodname="test_SQL_16_INSERT_5" prettifiedclassname="Viviendas" prettifiedmethodname="SQL 16 INSERT 5" size="-1" status="0" time="0.1380766">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="ViviendasTest" groups="default" methodname="test_SQL_17_INSERT_6" prettifiedclassname="Viviendas" prettifiedmethodname="SQL 17 INSERT 6" size="-1" status="0" time="0.1367205">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="ViviendasTest" groups="default" methodname="test_SQL_18_DELETE_1" prettifiedclassname="Viviendas" prettifiedmethodname="SQL 18 DELETE 1" size="-1" status="0" time="0.0029512">
+        <group name="default">
+        </group>
+    </test>
+</tests>

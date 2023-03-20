@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tests>
+    <test classname="DiscapacitadosTest" groups="default" methodname="test_SQL_01_SELECT_1" prettifiedclassname="Discapacitados" prettifiedmethodname="SQL 01 SELECT 1" size="-1" status="0" time="0.0375246">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="DiscapacitadosTest" groups="default" methodname="test_SQL_02_SELECT_2" prettifiedclassname="Discapacitados" prettifiedmethodname="SQL 02 SELECT 2" size="-1" status="0" time="0.0574777">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="DiscapacitadosTest" groups="default" methodname="test_SQL_03_SELECT_3" prettifiedclassname="Discapacitados" prettifiedmethodname="SQL 03 SELECT 3" size="-1" status="0" time="0.0030881">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="DiscapacitadosTest" groups="default" methodname="test_SQL_04_SELECT_4" prettifiedclassname="Discapacitados" prettifiedmethodname="SQL 04 SELECT 4" size="-1" status="0" time="0.002966">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="DiscapacitadosTest" groups="default" methodname="test_SQL_05_SELECT_5" prettifiedclassname="Discapacitados" prettifiedmethodname="SQL 05 SELECT 5" size="-1" status="0" time="0.0236481">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="DiscapacitadosTest" groups="default" methodname="test_SQL_06_INSERT" prettifiedclassname="Discapacitados" prettifiedmethodname="SQL 06 INSERT" size="-1" status="0" time="0.130602">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="DiscapacitadosTest" groups="default" methodname="test_SQL_07_SELECT_6" prettifiedclassname="Discapacitados" prettifiedmethodname="SQL 07 SELECT 6" size="-1" status="0" time="0.1146562">
+        <group name="default">
+        </group>
+    </test>
+</tests>

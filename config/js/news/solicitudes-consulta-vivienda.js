@@ -165,7 +165,8 @@ aprobar.onclick = function() {
                                 peticion: "Activar_Vivienda",
                                 "id_vivienda": id_servicio.value,
                             },
-                        }).done(function(result) {})
+                        }).done(function(result) {
+                        })
                     },
                     error: function() {
                         alert('Error al codificar dirreccion');

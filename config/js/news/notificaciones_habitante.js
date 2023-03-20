@@ -119,35 +119,50 @@ function getSpan(fechaN, fechaA) {
     return retornar;
 }
 
-function setStatus(id, texto) {
+function setStatus(id,texto) {
     swal({
         title: "Información de la notificación",
         text: "<b>" + texto + "</b>",
         html: true,
     });
+
+    var datos = {
+        id_notificacion: id,
+        leido: 1
+    };
     $.ajax({
         type: "POST",
         url: BASE_URL + "app/Direcciones.php",
         data: {
-            direction: "Notificaciones/Set_status",
+            direction: 'Notificaciones/Administrar',
             accion: "codificar"
         },
-        success: function(direccion_segura) {
-            $.ajax({
-                type: "POST",
-                url: BASE_URL + direccion_segura,
-                data: {
-                    id: id
-                },
-            }).done(function(datos) {
+    }).done(function (direccion_segura) {
+        $.ajax({
+            type: 'POST',
+            url: BASE_URL + direccion_segura,
+            data: {
+                datos: datos,
+                peticion: "Administrar",
+                sql: "SQL_03",
+            },
+        }).done(function (datos) {
+            if (datos == 1) {
                 getNotifications_habitante();
-            });
-        },
-        error: function() {
-            alert('Error al codificar dirreccion');
-        }
+            } else {
+                swal({
+                    title: "ERROR!",
+                    text: "Ha ocurrido un Error.</br>" + datos,
+                    type: "error",
+                    html: true,
+                    showConfirmButton: true,
+                    customClass: "bigSwalV2",
+                });
+            }
+        });
     });
 }
+
 
 function getRecortado(text) {
     var retornar = "";

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tests>
+    <test classname="LoginTest" groups="default" methodname="test_SQL_01_SELECT" prettifiedclassname="Login" prettifiedmethodname="SQL 01 SELECT" size="-1" status="0" time="0.0251901">
+        <group name="default">
+        </group>
+    </test>
+</tests>

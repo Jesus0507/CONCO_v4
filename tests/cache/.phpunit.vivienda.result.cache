@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "defects": {},
+  "times": {
+    "ViviendasTest::test_SQL_01_SELECT_1": 0.036,
+    "ViviendasTest::test_SQL_02_SELECT_2": 0.003,
+    "ViviendasTest::test_SQL_03_SELECT_3": 0.003,
+    "ViviendasTest::test_SQL_04_SELECT_4": 0.003,
+    "ViviendasTest::test_SQL_05_SELECT_5": 0.003,
+    "ViviendasTest::test_SQL_07_SELECT_7": 0.003,
+    "ViviendasTest::test_SQL_08_SELECT_8": 0.003,
+    "ViviendasTest::test_SQL_09_SELECT_9": 0.003,
+    "ViviendasTest::test_SQL_10_INSERT_1": 0.102,
+    "ViviendasTest::test_SQL_11_UPDATE_1": 0.003,
+    "ViviendasTest::test_SQL_12_INSERT_2": 0.045,
+    "ViviendasTest::test_SQL_13_INSERT_2": 0.037,
+    "ViviendasTest::test_SQL_14_INSERT_3": 0.039,
+    "ViviendasTest::test_SQL_15_INSERT_4": 0.038,
+    "ViviendasTest::test_SQL_16_INSERT_5": 0.138,
+    "ViviendasTest::test_SQL_17_INSERT_6": 0.137,
+    "ViviendasTest::test_SQL_18_DELETE_1": 0.003
+  }
+}

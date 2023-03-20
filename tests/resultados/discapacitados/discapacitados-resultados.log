@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite assertions="13" errors="0" failures="0" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\DiscapacitadosTest.php" name="DiscapacitadosTest" skipped="0" tests="7" time="0.369963" warnings="0">
+        <testcase assertions="2" class="DiscapacitadosTest" classname="DiscapacitadosTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\DiscapacitadosTest.php" line="32" name="test_SQL_01_SELECT_1" time="0.037525">
+        </testcase>
+        <testcase assertions="2" class="DiscapacitadosTest" classname="DiscapacitadosTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\DiscapacitadosTest.php" line="41" name="test_SQL_02_SELECT_2" time="0.057478">
+        </testcase>
+        <testcase assertions="2" class="DiscapacitadosTest" classname="DiscapacitadosTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\DiscapacitadosTest.php" line="50" name="test_SQL_03_SELECT_3" time="0.003088">
+        </testcase>
+        <testcase assertions="2" class="DiscapacitadosTest" classname="DiscapacitadosTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\DiscapacitadosTest.php" line="59" name="test_SQL_04_SELECT_4" time="0.002966">
+        </testcase>
+        <testcase assertions="2" class="DiscapacitadosTest" classname="DiscapacitadosTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\DiscapacitadosTest.php" line="68" name="test_SQL_05_SELECT_5" time="0.023648">
+        </testcase>
+        <testcase assertions="1" class="DiscapacitadosTest" classname="DiscapacitadosTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\DiscapacitadosTest.php" line="78" name="test_SQL_06_INSERT" time="0.130602">
+        </testcase>
+        <testcase assertions="2" class="DiscapacitadosTest" classname="DiscapacitadosTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\DiscapacitadosTest.php" line="87" name="test_SQL_07_SELECT_6" time="0.114656">
+        </testcase>
+    </testsuite>
+</testsuites>

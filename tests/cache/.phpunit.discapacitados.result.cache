@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "defects": [],
+  "times": {
+    "DiscapacitadosTest::test_SQL_01_SELECT_1": 0.038,
+    "DiscapacitadosTest::test_SQL_02_SELECT_2": 0.057,
+    "DiscapacitadosTest::test_SQL_03_SELECT_3": 0.003,
+    "DiscapacitadosTest::test_SQL_04_SELECT_4": 0.003,
+    "DiscapacitadosTest::test_SQL_05_SELECT_5": 0.024,
+    "DiscapacitadosTest::test_SQL_06_INSERT": 0.131,
+    "DiscapacitadosTest::test_SQL_07_SELECT_6": 0.115
+  }
+}

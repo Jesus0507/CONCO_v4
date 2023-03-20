@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tests>
+    <test classname="VacunadosTestControlador" groups="default" methodname="test_Cargar_Vistas" prettifiedclassname="Vacunados Test Controlador" prettifiedmethodname="Cargar Vistas" size="-1" status="0" time="0.0174737">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="VacunadosTestControlador" groups="default" methodname="test_Establecer_Consultas" prettifiedclassname="Vacunados Test Controlador" prettifiedmethodname="Establecer Consultas" size="-1" status="0" time="0.0070111">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="VacunadosTestControlador" groups="default" methodname="test_Getters" prettifiedclassname="Vacunados Test Controlador" prettifiedmethodname="Getters" size="-1" status="0" time="0.0053562">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="VacunadosTestControlador" groups="default" methodname="test_Administrar_Vistas_Consultas_Registros" prettifiedclassname="Vacunados Test Controlador" prettifiedmethodname="Administrar Vistas Consultas Registros" size="-1" status="0" time="0.0074406">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="VacunadosTestControlador" groups="default" methodname="test_Administrar_Registrar" prettifiedclassname="Vacunados Test Controlador" prettifiedmethodname="Administrar Registrar" size="-1" status="0" time="0.0057866">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="VacunadosTestControlador" groups="default" methodname="test_Administrar_Consulta_Ajax" prettifiedclassname="Vacunados Test Controlador" prettifiedmethodname="Administrar Consulta Ajax" size="-1" status="0" time="0.0103796">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="VacunadosTestControlador" groups="default" methodname="test_Administrar_Editar" prettifiedclassname="Vacunados Test Controlador" prettifiedmethodname="Administrar Editar" size="-1" status="0" time="0.0054691">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="VacunadosTestControlador" groups="default" methodname="test_Administrar_Eliminar" prettifiedclassname="Vacunados Test Controlador" prettifiedmethodname="Administrar Eliminar" size="-1" status="0" time="0.0091858">
+        <group name="default">
+        </group>
+    </test>
+</tests>

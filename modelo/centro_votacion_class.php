@@ -29,7 +29,7 @@ class Centro_Votacion_Class extends Modelo
                 case '0':           #tipo 0 trae consultas de la bd retorna a un array con los datos 
                     $this->conexion->beginTransaction(); # Inicia una transacción
                     $this->PDO = $this->conexion->prepare($this->sentencia);
-                     $this->PDO->execute();
+                    $this->PDO->execute();
                     $this->conexion->commit(); #Consigna una transacción
                     $this->PDO->setFetchMode(PDO::FETCH_ASSOC);
                     $this->resultado = $this->PDO->fetchAll(PDO::FETCH_ASSOC);
@@ -42,6 +42,16 @@ class Centro_Votacion_Class extends Modelo
                     $this->conexion->commit();
                     return true;   
                     break;
+                case '2':           #tipo 0 trae consultas de la bd retorna a un array con los datos 
+                    $this->conexion->beginTransaction(); # Inicia una transacción
+                    $this->PDO = $this->conexion->prepare($this->sentencia);
+                    $this->PDO->execute($this->datos);
+                    $this->conexion->commit(); #Consigna una transacción
+                    $this->PDO->setFetchMode(PDO::FETCH_ASSOC);
+                    $this->resultado = $this->PDO->fetchAll(PDO::FETCH_ASSOC);
+                    return $this->resultado;
+                    break;
+
                 default:        # mensaje error si la peticion fue incorrecta
                     die('[Error 400] => "La Peticion es Incorrecta, solo se permite peticion de tipo 0/1."');
                     break;
@@ -85,7 +95,7 @@ class Centro_Votacion_Class extends Modelo
 
     private function SQL_07():string
     {
-        return "SELECT * FROM votantes_centro_votacion WHERE cedula_votante = :cedula_votante";
+        return "SELECT * FROM votantes_centro_votacion WHERE estado = 1";
     }
 
 }

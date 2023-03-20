@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "defects": [],
+  "times": {
+    "Grupos_DeportivosTestControlador::test_Cargar_Vistas": 0.02,
+    "Grupos_DeportivosTestControlador::test_Establecer_Consultas": 0.008,
+    "Grupos_DeportivosTestControlador::test_Getters": 0.005,
+    "Grupos_DeportivosTestControlador::test_Administrar_Vistas_Consultas_Registros": 0.006,
+    "Grupos_DeportivosTestControlador::test_Administrar_Registrar": 0.006,
+    "Grupos_DeportivosTestControlador::test_Administrar_Consulta_Ajax": 0.006,
+    "Grupos_DeportivosTestControlador::test_Administrar_Editar": 0.01,
+    "Grupos_DeportivosTestControlador::test_Administrar_Eliminar": 0.01
+  }
+}

@@ -105,6 +105,15 @@ class Notificaciones extends Controlador
             $this->Escribir_JSON($this->Get_Datos_Vista()["notificaciones"]);
                 break;
 
+            case 'Expirar':
+                if($this->datos_ejecutar <= 0){
+                   echo 0;
+                }
+                else {
+                    echo $this->datos_ejecutar;
+                }
+                break;
+
             default:$this->vista->Cargar_Vistas('error/400');
                 break;
         }

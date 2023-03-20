@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tests>
+  <test className="VistaTest" methodName="test_Cargar_Vistas" prettifiedClassName="Vista" prettifiedMethodName="Cargar Vistas" status="0" time="0.0175472" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+  <test className="VistaTest" methodName="test_Sesion" prettifiedClassName="Vista" prettifiedMethodName="Sesion" status="4" time="0.0026891" size="-1" groups="default" exceptionMessage="Call to private method Vista::_SESSION_() from context 'VistaTest'">
+    <group name="default"/>
+  </test>
+</tests>

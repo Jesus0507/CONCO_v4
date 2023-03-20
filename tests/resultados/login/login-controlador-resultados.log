@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite assertions="6" errors="0" failures="0" file="CONCO_v4\tests\LoginTestControlador.php" name="LoginTestControlador" skipped="0" tests="6" time="0.063645" warnings="0">
+        <testcase assertions="1" class="LoginTestControlador" classname="LoginTestControlador" file="CONCO_v4\tests\LoginTestControlador.php" line="18" name="test_Cargar_Vistas" time="0.024854">
+        </testcase>
+        <testcase assertions="1" class="LoginTestControlador" classname="LoginTestControlador" file="CONCO_v4\tests\LoginTestControlador.php" line="26" name="test_Getters" time="0.008835">
+        </testcase>
+        <testcase assertions="1" class="LoginTestControlador" classname="LoginTestControlador" file="CONCO_v4\tests\LoginTestControlador.php" line="34" name="test_Administrar_Ingreso" time="0.007226">
+        </testcase>
+        <testcase assertions="1" class="LoginTestControlador" classname="LoginTestControlador" file="CONCO_v4\tests\LoginTestControlador.php" line="42" name="test_Administrar_Consulta_Ajax" time="0.008545">
+        </testcase>
+        <testcase assertions="1" class="LoginTestControlador" classname="LoginTestControlador" file="CONCO_v4\tests\LoginTestControlador.php" line="50" name="test_Administrar_Salir" time="0.006023">
+        </testcase>
+        <testcase assertions="1" class="LoginTestControlador" classname="LoginTestControlador" file="CONCO_v4\tests\LoginTestControlador.php" line="58" name="test_Administrar_Recuperar" time="0.008162">
+        </testcase>
+    </testsuite>
+</testsuites>

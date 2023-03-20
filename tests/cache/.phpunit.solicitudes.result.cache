@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "defects": {},
+  "times": {
+    "SolicitudesTest::test_SQL_01_INSERT": 0.135,
+    "SolicitudesTest::test_SQL_02_SELECT_1": 0.095,
+    "SolicitudesTest::test_SQL_03_SELECT_2": 0.005,
+    "SolicitudesTest::test_SQL_04_SELECT_3": 0.004,
+    "SolicitudesTest::test_SQL_05_SELECT_4": 0.003,
+    "SolicitudesTest::test_SQL_06_SELECT_5": 0.004,
+    "SolicitudesTest::test_SQL_07_SELECT_6": 0.004,
+    "SolicitudesTest::test_SQL_08_SELECT_7": 0.003,
+    "SolicitudesTest::test_SQL_09_SELECT_7": 0.017,
+    "SolicitudesTest::test_SQL_10_UPDATE": 0.004,
+    "SolicitudesTest::test_SQL_11_SELECT_8": 0.009
+  }
+}

@@ -1,26 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <phpunit bootstrap="vendor/autoload.php" colors="true" converterrorstoexceptions="true" convertnoticestoexceptions="true" convertwarningstoexceptions="true" stoponfailure="false" verbose="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nonamespaceschemalocation="https://schema.phpunit.de/9.3/phpunit.xsd">
     <testsuites>
-        <testsuite name="discapacitados">
+        <testsuite name="Discapacitados">
             <file>
-                tests/discapacitados_test.php
+                tests/DiscapacitadosTest.php
             </file>
         </testsuite>
     </testsuites>
-    <!-- Filtra los archivos de prueba en la carpeta "tests" con extensión "_test.php" -->
+    <!-- Filtra los archivos de prueba en la carpeta "tests" con extensión "Test.php" -->
     <filter>
         <whitelist>
-            <directory suffix="_test.php">
+            <directory suffix="Test.php">
                 tests/
             </directory>
         </whitelist>
     </filter>
-    <logging>
-        <!-- Generar un informe de pruebas en formato JUnit (resultado estructurado) -->
-        <junit outputfile="tests/resultados/discapacitados/discapacitados-lista-resultados.xml">
-        </junit>
-        <!-- Guardar los resultados de las pruebas en un archivo de texto -->
-        <testdoxtext outputfile="tests/resultados/discapacitados/discapacitados-lista-resultados.txt">
-        </testdoxtext>
-    </logging>
 </phpunit>

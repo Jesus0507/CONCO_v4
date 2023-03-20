@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tests>
+    <test classname="Sector_AgricolaTest" groups="default" methodname="test_SQL_01_INSERT" prettifiedclassname="Sector_Agricola" prettifiedmethodname="SQL 01 INSERT" size="-1" status="0" time="0.0943409">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="Sector_AgricolaTest" groups="default" methodname="test_SQL_02_SELECT_1" prettifiedclassname="Sector_Agricola" prettifiedmethodname="SQL 02 SELECT 1" size="-1" status="0" time="0.0119621">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="Sector_AgricolaTest" groups="default" methodname="test_SQL_03_UPDATE" prettifiedclassname="Sector_Agricola" prettifiedmethodname="SQL 03 UPDATE" size="-1" status="0" time="0.0028954">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="Sector_AgricolaTest" groups="default" methodname="test_SQL_04_SELECT_2" prettifiedclassname="Sector_Agricola" prettifiedmethodname="SQL 04 SELECT 2" size="-1" status="0" time="0.003534">
+        <group name="default">
+        </group>
+    </test>
+</tests>

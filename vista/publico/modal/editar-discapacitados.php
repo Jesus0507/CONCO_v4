@@ -84,6 +84,7 @@
    </div>
 </form>
 </div>
+<div class='d-none' id="discapacidades_previas"></div>
 <div class="modal-footer ">
     <input type="submit" class="btn  btn-info m-r-10" name="" id="enviar" value="Guardar">
     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>

@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "defects": [],
+  "times": {
+    "Consejo_ComunalTest::test_SQL_01_SELECT": 0.501,
+    "Consejo_ComunalTest::test_SQL_02_INSERT": 0.281,
+    "Consejo_ComunalTest::test_SQL_03_UPDATE": 0.017,
+    "Consejo_ComunalTest::test_SQL_04_SELECT": 0.003
+  }
+}

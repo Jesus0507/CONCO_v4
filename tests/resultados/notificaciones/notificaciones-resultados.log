@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite assertions="7" errors="0" failures="0" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\NotificacionesTest.php" name="NotificacionesTest" skipped="0" tests="5" time="0.224990" warnings="0">
+        <testcase assertions="1" class="NotificacionesTest" classname="NotificacionesTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\NotificacionesTest.php" line="33" name="test_SQL_01_INSERT" time="0.123255">
+        </testcase>
+        <testcase assertions="2" class="NotificacionesTest" classname="NotificacionesTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\NotificacionesTest.php" line="42" name="test_SQL_02_SELECT_1" time="0.014484">
+        </testcase>
+        <testcase assertions="1" class="NotificacionesTest" classname="NotificacionesTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\NotificacionesTest.php" line="52" name="test_SQL_03_UPDATE" time="0.002644">
+        </testcase>
+        <testcase assertions="1" class="NotificacionesTest" classname="NotificacionesTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\NotificacionesTest.php" line="61" name="test_SQL_04_DELETE" time="0.080376">
+        </testcase>
+        <testcase assertions="2" class="NotificacionesTest" classname="NotificacionesTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\NotificacionesTest.php" line="70" name="test_SQL_05_SELECT_2" time="0.004231">
+        </testcase>
+    </testsuite>
+</testsuites>

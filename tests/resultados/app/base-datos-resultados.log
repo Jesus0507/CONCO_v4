@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Base_DatosTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\app\Base_DatosTest.php" tests="1" assertions="3" errors="0" warnings="0" failures="0" skipped="0" time="0.064578">
+    <testcase name="testConexion" class="Base_DatosTest" classname="Base_DatosTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\app\Base_DatosTest.php" line="11" assertions="3" time="0.064578"/>
+  </testsuite>
+</testsuites>

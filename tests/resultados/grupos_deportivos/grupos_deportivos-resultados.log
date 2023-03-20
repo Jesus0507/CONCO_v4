@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite assertions="11" errors="0" failures="0" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\Grupos_DeportivosTest.php" name="Grupos_DeportivosTest" skipped="0" tests="7" time="0.300658" warnings="0">
+        <testcase assertions="1" class="Grupos_DeportivosTest" classname="Grupos_DeportivosTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\Grupos_DeportivosTest.php" line="39" name="test_SQL_01_INSERT_1" time="0.127465">
+        </testcase>
+        <testcase assertions="1" class="Grupos_DeportivosTest" classname="Grupos_DeportivosTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\Grupos_DeportivosTest.php" line="48" name="test_SQL_02_UPDATE" time="0.111320">
+        </testcase>
+        <testcase assertions="2" class="Grupos_DeportivosTest" classname="Grupos_DeportivosTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\Grupos_DeportivosTest.php" line="57" name="test_SQL_03_SELECT_1" time="0.007893">
+        </testcase>
+        <testcase assertions="2" class="Grupos_DeportivosTest" classname="Grupos_DeportivosTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\Grupos_DeportivosTest.php" line="66" name="test_SQL_04_SELECT_2" time="0.007096">
+        </testcase>
+        <testcase assertions="2" class="Grupos_DeportivosTest" classname="Grupos_DeportivosTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\Grupos_DeportivosTest.php" line="75" name="test_SQL_05_SELECT_3" time="0.005357">
+        </testcase>
+        <testcase assertions="1" class="Grupos_DeportivosTest" classname="Grupos_DeportivosTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\Grupos_DeportivosTest.php" line="85" name="test_SQL_06_INSERT_2" time="0.038570">
+        </testcase>
+        <testcase assertions="2" class="Grupos_DeportivosTest" classname="Grupos_DeportivosTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\Grupos_DeportivosTest.php" line="94" name="test_SQL_07_SELECT_4" time="0.002959">
+        </testcase>
+    </testsuite>
+</testsuites>

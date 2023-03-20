@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Registrar personas enfermas</h1>
+                    <h1 class="m-0">Registrar personas con patologías</h1>
                 </div><!-- /.col -->
                 <!-- /.col -->
             </div><!-- /.row -->
@@ -55,8 +55,8 @@
 
                          <div class="col-md-12">
 
-                             <label>Enfermedad</label> <span id='valid_enfermedad' style='color:red'></span>
                              <table style='width:100%'><tr><td class="col-md-6">
+                             <label>Enfermedad</label> <span id='valid_enfermedad' style='color:red'></span>
                                  <input type="text" style='display:none' maxlength="30" placeholder="Enfermedad..." class='form-control ' id='enfermedad_input' name="" oninput="Limitar(this,35)">
 
                                  <select class='form-control no-simbolos' id='enfermedad_select'>
@@ -66,7 +66,9 @@
                                  <?php }?>
                              </select></td>
 
-                             <td class="col-md-6"><textarea id='medicamentos' class='form-control no-simbolos' placeholder="Ej: Parecetamol, Loratadina, Lozartan, etc..." rows="1"></textarea></td>
+                             <td class="col-md-6">
+                             <label>Medicamentos</label>   
+                             <textarea id='medicamentos' class='form-control no-simbolos' placeholder="Ej: Parecetamol, Loratadina, Lozartan, etc..." rows="1"></textarea></td>
                             
                          </tr></table>
 

@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "defects": [],
+  "times": {
+    "ReportesTestControlador::test_Cargar_Vistas": 0.025,
+    "ReportesTestControlador::test_Establecer_Consultas": 0.006,
+    "ReportesTestControlador::test_Getters": 0.007,
+    "ReportesTestControlador::test_Administrar_Reportes_PDF": 0.005
+  }
+}

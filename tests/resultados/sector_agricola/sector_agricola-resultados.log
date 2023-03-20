@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite assertions="6" errors="0" failures="0" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\Sector_AgricolaTest.php" name="Sector_AgricolaTest" skipped="0" tests="4" time="0.112732" warnings="0">
+        <testcase assertions="1" class="Sector_AgricolaTest" classname="Sector_AgricolaTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\Sector_AgricolaTest.php" line="51" name="test_SQL_01_INSERT" time="0.094341">
+        </testcase>
+        <testcase assertions="2" class="Sector_AgricolaTest" classname="Sector_AgricolaTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\Sector_AgricolaTest.php" line="60" name="test_SQL_02_SELECT_1" time="0.011962">
+        </testcase>
+        <testcase assertions="1" class="Sector_AgricolaTest" classname="Sector_AgricolaTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\Sector_AgricolaTest.php" line="69" name="test_SQL_03_UPDATE" time="0.002895">
+        </testcase>
+        <testcase assertions="2" class="Sector_AgricolaTest" classname="Sector_AgricolaTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\Sector_AgricolaTest.php" line="78" name="test_SQL_04_SELECT_2" time="0.003534">
+        </testcase>
+    </testsuite>
+</testsuites>

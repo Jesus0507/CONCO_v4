@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tests>
+    <test classname="EnfermosTest" groups="default" methodname="test_SQL_01_SELECT_1" prettifiedclassname="Enfermos" prettifiedmethodname="SQL 01 SELECT 1" size="-1" status="0" time="0.0278228">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="EnfermosTest" groups="default" methodname="test_SQL_02_SELECT_2" prettifiedclassname="Enfermos" prettifiedmethodname="SQL 02 SELECT 2" size="-1" status="0" time="0.0166897">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="EnfermosTest" groups="default" methodname="test_SQL_03_SELECT_3" prettifiedclassname="Enfermos" prettifiedmethodname="SQL 03 SELECT 3" size="-1" status="0" time="0.0039073">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="EnfermosTest" groups="default" methodname="test_SQL_04_SELECT_4" prettifiedclassname="Enfermos" prettifiedmethodname="SQL 04 SELECT 4" size="-1" status="0" time="0.0072507">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="EnfermosTest" groups="default" methodname="test_SQL_05_INSERT" prettifiedclassname="Enfermos" prettifiedmethodname="SQL 05 INSERT" size="-1" status="0" time="0.0760001">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="EnfermosTest" groups="default" methodname="test_SQL_06_SELECT_5" prettifiedclassname="Enfermos" prettifiedmethodname="SQL 06 SELECT 5" size="-1" status="0" time="0.003111">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="EnfermosTest" groups="default" methodname="test_SQL_07_SELECT_6" prettifiedclassname="Enfermos" prettifiedmethodname="SQL 07 SELECT 6" size="-1" status="0" time="0.0035842">
+        <group name="default">
+        </group>
+    </test>
+</tests>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite assertions="18" errors="0" failures="0" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\HabitanteTest.php" name="HabitanteTest" skipped="0" tests="9" time="0.139748" warnings="0">
+        <testcase assertions="2" class="HabitanteTest" classname="HabitanteTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\HabitanteTest.php" line="18" name="test_SQL_01_SELECT_1" time="0.026672">
+        </testcase>
+        <testcase assertions="2" class="HabitanteTest" classname="HabitanteTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\HabitanteTest.php" line="27" name="test_SQL_02_SELECT_2" time="0.067728">
+        </testcase>
+        <testcase assertions="2" class="HabitanteTest" classname="HabitanteTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\HabitanteTest.php" line="36" name="test_SQL_03_SELECT_3" time="0.004143">
+        </testcase>
+        <testcase assertions="2" class="HabitanteTest" classname="HabitanteTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\HabitanteTest.php" line="45" name="test_SQL_04_SELECT_4" time="0.003651">
+        </testcase>
+        <testcase assertions="2" class="HabitanteTest" classname="HabitanteTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\HabitanteTest.php" line="54" name="test_SQL_05_SELECT_5" time="0.003120">
+        </testcase>
+        <testcase assertions="2" class="HabitanteTest" classname="HabitanteTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\HabitanteTest.php" line="63" name="test_SQL_06_SELECT_6" time="0.003334">
+        </testcase>
+        <testcase assertions="2" class="HabitanteTest" classname="HabitanteTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\HabitanteTest.php" line="72" name="test_SQL_07_SELECT_7" time="0.004278">
+        </testcase>
+        <testcase assertions="2" class="HabitanteTest" classname="HabitanteTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\HabitanteTest.php" line="81" name="test_SQL_08_SELECT_8" time="0.003338">
+        </testcase>
+        <testcase assertions="2" class="HabitanteTest" classname="HabitanteTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\HabitanteTest.php" line="90" name="test_SQL_09_SELECT_9" time="0.023484">
+        </testcase>
+    </testsuite>
+</testsuites>

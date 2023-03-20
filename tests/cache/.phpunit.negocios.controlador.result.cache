@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "defects": [],
+  "times": {
+    "NegociosTestControlador::test_Cargar_Vistas": 0.022,
+    "NegociosTestControlador::test_Establecer_Consultas": 0.007,
+    "NegociosTestControlador::test_Getters": 0.009,
+    "NegociosTestControlador::test_Administrar_Vistas_Consultas_Registros": 0.007,
+    "NegociosTestControlador::test_Administrar_Registrar": 0.01,
+    "NegociosTestControlador::test_Administrar_Consulta_Ajax": 0.007,
+    "NegociosTestControlador::test_Administrar_Editar": 0.007,
+    "NegociosTestControlador::test_Administrar_Eliminar": 0.008
+  }
+}

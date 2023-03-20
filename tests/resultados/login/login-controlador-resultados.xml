@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tests>
+    <test classname="LoginTestControlador" groups="default" methodname="test_Cargar_Vistas" prettifiedclassname="Login Test Controlador" prettifiedmethodname="Cargar Vistas" size="-1" status="0" time="0.0248536">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="LoginTestControlador" groups="default" methodname="test_Getters" prettifiedclassname="Login Test Controlador" prettifiedmethodname="Getters" size="-1" status="0" time="0.0088346">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="LoginTestControlador" groups="default" methodname="test_Administrar_Ingreso" prettifiedclassname="Login Test Controlador" prettifiedmethodname="Administrar Ingreso" size="-1" status="0" time="0.0072257">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="LoginTestControlador" groups="default" methodname="test_Administrar_Consulta_Ajax" prettifiedclassname="Login Test Controlador" prettifiedmethodname="Administrar Consulta Ajax" size="-1" status="0" time="0.0085452">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="LoginTestControlador" groups="default" methodname="test_Administrar_Salir" prettifiedclassname="Login Test Controlador" prettifiedmethodname="Administrar Salir" size="-1" status="0" time="0.0060233">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="LoginTestControlador" groups="default" methodname="test_Administrar_Recuperar" prettifiedclassname="Login Test Controlador" prettifiedmethodname="Administrar Recuperar" size="-1" status="0" time="0.0081622">
+        <group name="default">
+        </group>
+    </test>
+</tests>

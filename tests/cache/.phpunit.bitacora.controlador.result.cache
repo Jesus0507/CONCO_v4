@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "defects": [],
+  "times": {
+    "BitacoraTestControlador::test_Cargar_Vistas": 0.021,
+    "BitacoraTestControlador::test_Establecer_Consultas": 0.006,
+    "BitacoraTestControlador::test_Getters": 0.006,
+    "BitacoraTestControlador::test_Administrar_Vistas_Consultas": 0.006,
+    "BitacoraTestControlador::test_Administrar": 0.006,
+    "BitacoraTestControlador::test_Administrar_Consulta_Ajax": 0.006
+  }
+}

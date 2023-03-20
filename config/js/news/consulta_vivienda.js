@@ -129,9 +129,9 @@ function Ver(valores, techos, pisos, paredes, gas, electrodomesticos) {
     var electrodomestico_v = JSON.parse(electrodomesticos);
     var texto_tabla = "<center><em style='font-size:60px' class='fa fa-home'></em><br><br>";
     texto_tabla += "<table style='width:98%' border='1'><tr style='background:#057E9F;color:white;'>";
-    texto_tabla += "<td style='width:25%'>Calle</td><td style='width:25%'>Dirección</td><td style='width:25%'>Tipo de vivienda</td><td style='width:25%'>Familia</td></tr>";
+    texto_tabla += "<td style='width:25%'>Calle</td><td style='width:25%'>Dirección</td><td style='width:25%'>Tipo de vivienda</td></tr>";
     texto_tabla += "<tr><td style='width:25%'><em class='fa fa-road'></em> " + values["nombre_calle"] + "</td><td style='width:25%'><em class='fa fa-map-marker'></em> " + values["direccion_vivienda"] + "</td>";
-    texto_tabla += "<td style='width:25%'><em class='fa fa-home'></em> " + values["nombre_tipo_vivienda"] + "</td><td style='width:25%'><em class='fa fa-users'></em> " + values["familia"] + "</td></tr>";
+    texto_tabla += "<td style='width:25%'><em class='fa fa-home'></em> " + values["nombre_tipo_vivienda"] + "</td></tr>";
     texto_tabla += "</table>";
     texto_tabla += "<br><table style='width:98%' border='1'><tr style='background:#057E9F;color:white;'>";
     texto_tabla += "<td style='width:25%'>Espacio de Siembra</td><td style='width:25%'>Hacinamiento</td><td style='width:25%'>Baño sanitario</td><td style='width:25%'>Condición</td></tr>";

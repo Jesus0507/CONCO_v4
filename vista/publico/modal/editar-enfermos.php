@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-lg" style="max-width: 80%;">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Editar Datos de Enfermos</h4>
+                <h4 class="modal-title">Editar Datos de Patologías</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -34,12 +34,12 @@
 
                     <div class="col-md-12 mt-2">
 
-                       <label>Enfermedad</label> <span id='valid_enfermedad' style='color:red'></span>
+                       <label>Patología</label> <span id='valid_enfermedad' style='color:red'></span>
                        <table style='width:100%'><tr><td>
                            <input type="text" oninput="Limitar(this,20);" style='display:none' maxlength="30" placeholder="Enfermedad..." class='form-control no-simbolos letras_numeros' id='enfermedad_input' name="">
 
                            <select class='form-control no-simbolos' id='enfermedad_select'>
-                             <option value='vacio'>-Enfermedad-</option>
+                             <option value='vacio'>-Patología-</option>
                              <?php foreach ($this->datos["enfermedad"] as $e) {?>
                                <option value='<?php echo $e['id_enfermedad']; ?>'><?php echo $e['nombre_enfermedad']; ?></option>
                            <?php }?>
@@ -57,7 +57,7 @@
                    </div>
 
                    <div class="col-md-12 mt-2">
-                       <label>Enfermedades agregadas a
+                       <label>Patologías agregadas a
                         <span id='nombre_persona'></span>
                     </label>
                     <center>
@@ -70,6 +70,7 @@
                 </div>
             </form>
         </div>
+        <div class='d-none' id="enfermedades_previas"></div>
         <div class="modal-footer ">
             <input type="submit" class="btn  btn-info m-r-10" name="" id="enviar" value="Guardar">
             <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>

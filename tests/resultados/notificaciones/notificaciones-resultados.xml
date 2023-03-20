@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tests>
+    <test classname="NotificacionesTest" groups="default" methodname="test_SQL_01_INSERT" prettifiedclassname="Notificaciones" prettifiedmethodname="SQL 01 INSERT" size="-1" status="0" time="0.1232546">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="NotificacionesTest" groups="default" methodname="test_SQL_02_SELECT_1" prettifiedclassname="Notificaciones" prettifiedmethodname="SQL 02 SELECT 1" size="-1" status="0" time="0.0144841">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="NotificacionesTest" groups="default" methodname="test_SQL_03_UPDATE" prettifiedclassname="Notificaciones" prettifiedmethodname="SQL 03 UPDATE" size="-1" status="0" time="0.0026442">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="NotificacionesTest" groups="default" methodname="test_SQL_04_DELETE" prettifiedclassname="Notificaciones" prettifiedmethodname="SQL 04 DELETE" size="-1" status="0" time="0.0803762">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="NotificacionesTest" groups="default" methodname="test_SQL_05_SELECT_2" prettifiedclassname="Notificaciones" prettifiedmethodname="SQL 05 SELECT 2" size="-1" status="0" time="0.0042312">
+        <group name="default">
+        </group>
+    </test>
+</tests>

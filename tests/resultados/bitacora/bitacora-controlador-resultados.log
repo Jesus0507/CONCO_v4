@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite assertions="6" errors="0" failures="0" file="CONCO_v4\tests\BitacoraTestControlador.php" name="BitacoraTestControlador" skipped="0" tests="6" time="0.049095" warnings="0">
+        <testcase assertions="1" class="BitacoraTestControlador" classname="BitacoraTestControlador" file="CONCO_v4\tests\BitacoraTestControlador.php" line="21" name="test_Cargar_Vistas" time="0.020511">
+        </testcase>
+        <testcase assertions="1" class="BitacoraTestControlador" classname="BitacoraTestControlador" file="CONCO_v4\tests\BitacoraTestControlador.php" line="29" name="test_Establecer_Consultas" time="0.005614">
+        </testcase>
+        <testcase assertions="1" class="BitacoraTestControlador" classname="BitacoraTestControlador" file="CONCO_v4\tests\BitacoraTestControlador.php" line="37" name="test_Getters" time="0.005608">
+        </testcase>
+        <testcase assertions="1" class="BitacoraTestControlador" classname="BitacoraTestControlador" file="CONCO_v4\tests\BitacoraTestControlador.php" line="45" name="test_Administrar_Vistas_Consultas" time="0.005962">
+        </testcase>
+        <testcase assertions="1" class="BitacoraTestControlador" classname="BitacoraTestControlador" file="CONCO_v4\tests\BitacoraTestControlador.php" line="53" name="test_Administrar" time="0.005513">
+        </testcase>
+        <testcase assertions="1" class="BitacoraTestControlador" classname="BitacoraTestControlador" file="CONCO_v4\tests\BitacoraTestControlador.php" line="61" name="test_Administrar_Consulta_Ajax" time="0.005887">
+        </testcase>
+    </testsuite>
+</testsuites>

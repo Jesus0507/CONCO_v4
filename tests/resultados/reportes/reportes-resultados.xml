@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tests>
+    <test classname="ReportesTest" groups="default" methodname="test_SQL_01_SELECT_1" prettifiedclassname="Reportes" prettifiedmethodname="SQL 01 SELECT 1" size="-1" status="0" time="0.044823">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="ReportesTest" groups="default" methodname="test_SQL_02_SELECT_2" prettifiedclassname="Reportes" prettifiedmethodname="SQL 02 SELECT 2" size="-1" status="0" time="0.004635">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="ReportesTest" groups="default" methodname="test_SQL_03_SELECT_3" prettifiedclassname="Reportes" prettifiedmethodname="SQL 03 SELECT 3" size="-1" status="0" time="0.0184945">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="ReportesTest" groups="default" methodname="test_SQL_04_SELECT_4" prettifiedclassname="Reportes" prettifiedmethodname="SQL 04 SELECT 4" size="-1" status="0" time="0.0039268">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="ReportesTest" groups="default" methodname="test_SQL_05_SELECT_5" prettifiedclassname="Reportes" prettifiedmethodname="SQL 05 SELECT 5" size="-1" status="0" time="0.0127444">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="ReportesTest" groups="default" methodname="test_SQL_06_SELECT_6" prettifiedclassname="Reportes" prettifiedmethodname="SQL 06 SELECT 6" size="-1" status="0" time="0.0180729">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="ReportesTest" groups="default" methodname="test_SQL_07_SELECT_7" prettifiedclassname="Reportes" prettifiedmethodname="SQL 07 SELECT 7" size="-1" status="0" time="0.0091829">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="ReportesTest" groups="default" methodname="test_SQL_08_SELECT_8" prettifiedclassname="Reportes" prettifiedmethodname="SQL 08 SELECT 8" size="-1" status="0" time="0.006457">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="ReportesTest" groups="default" methodname="test_SQL_09_SELECT_9" prettifiedclassname="Reportes" prettifiedmethodname="SQL 09 SELECT 9" size="-1" status="0" time="0.0119679">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="ReportesTest" groups="default" methodname="test_SQL_10_SELECT_10" prettifiedclassname="Reportes" prettifiedmethodname="SQL 10 SELECT 10" size="-1" status="0" time="0.006461">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="ReportesTest" groups="default" methodname="test_SQL_11_SELECT_11" prettifiedclassname="Reportes" prettifiedmethodname="SQL 11 SELECT 11" size="-1" status="0" time="0.0135004">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="ReportesTest" groups="default" methodname="test_SQL_12_SELECT_12" prettifiedclassname="Reportes" prettifiedmethodname="SQL 12 SELECT 12" size="-1" status="0" time="0.0235762">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="ReportesTest" groups="default" methodname="test_SQL_13_SELECT_13" prettifiedclassname="Reportes" prettifiedmethodname="SQL 13 SELECT 13" size="-1" status="0" time="0.0131008">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="ReportesTest" groups="default" methodname="test_SQL_14_SELECT_14" prettifiedclassname="Reportes" prettifiedmethodname="SQL 14 SELECT 14" size="-1" status="0" time="0.0035647">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="ReportesTest" groups="default" methodname="test_SQL_15_SELECT_15" prettifiedclassname="Reportes" prettifiedmethodname="SQL 15 SELECT 15" size="-1" status="0" time="0.0104917">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="ReportesTest" groups="default" methodname="test_SQL_16_SELECT_16" prettifiedclassname="Reportes" prettifiedmethodname="SQL 16 SELECT 16" size="-1" status="0" time="0.0059482">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="ReportesTest" groups="default" methodname="test_SQL_17_SELECT_17" prettifiedclassname="Reportes" prettifiedmethodname="SQL 17 SELECT 17" size="-1" status="0" time="0.0043351">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="ReportesTest" groups="default" methodname="test_SQL_18_SELECT_18" prettifiedclassname="Reportes" prettifiedmethodname="SQL 18 SELECT 18" size="-1" status="0" time="0.0091195">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="ReportesTest" groups="default" methodname="test_SQL_19_SELECT_19" prettifiedclassname="Reportes" prettifiedmethodname="SQL 19 SELECT 19" size="-1" status="0" time="0.0155911">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="ReportesTest" groups="default" methodname="test_SQL_20_SELECT_20" prettifiedclassname="Reportes" prettifiedmethodname="SQL 20 SELECT 20" size="-1" status="0" time="0.0050503">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="ReportesTest" groups="default" methodname="test_SQL_21_SELECT_21" prettifiedclassname="Reportes" prettifiedmethodname="SQL 21 SELECT 21" size="-1" status="0" time="0.0060021">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="ReportesTest" groups="default" methodname="test_SQL_22_SELECT_22" prettifiedclassname="Reportes" prettifiedmethodname="SQL 22 SELECT 22" size="-1" status="0" time="0.006231">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="ReportesTest" groups="default" methodname="test_SQL_23_SELECT_23" prettifiedclassname="Reportes" prettifiedmethodname="SQL 23 SELECT 23" size="-1" status="0" time="0.0042207">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="ReportesTest" groups="default" methodname="test_SQL_24_SELECT_24" prettifiedclassname="Reportes" prettifiedmethodname="SQL 24 SELECT 24" size="-1" status="0" time="0.0068192">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="ReportesTest" groups="default" methodname="test_SQL_25_SELECT_25" prettifiedclassname="Reportes" prettifiedmethodname="SQL 25 SELECT 25" size="-1" status="0" time="0.0040585">
+        <group name="default">
+        </group>
+    </test>
+</tests>

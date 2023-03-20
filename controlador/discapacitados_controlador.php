@@ -122,7 +122,7 @@ class Discapacitados extends Controlador
                     $this->id = $this->estado["param"];
 
                     $this->modelo->_CRUD_($this->Get_Crud_Sql());
-                    $this->modelo->_Datos_(["id_discapacidad_persona" => $this->id]);
+                    $this->modelo->_Datos_(["cedula_persona" => $this->estado["param"]]);
                     if ($this->modelo->Administrar()) {
                         $this->Accion($this->Get_Accion());
                         echo $this->Get_Mensaje();
@@ -131,7 +131,6 @@ class Discapacitados extends Controlador
                 break;
             case 'Administrar':
                 if ($this->permisos["registrar"] === 1 || $this->permisos["modificar"] === 1) {
-                    
                     if ($this->validar->Validacion_Registro()) {
                         for ($i = 0; $i < count($this->discapacitados); $i++) {
                         if ($this->discapacitados[$i]['nuevo'] == '0') { 
@@ -214,7 +213,7 @@ class Discapacitados extends Controlador
                         "nombre"         => $d['primer_nombre'] . " " . $d['primer_apellido'],
                         "discapacidades" => $this->discapacidades_p,
                         "editar"         => "<button type='button' class='btn btn-info editar' onclick='editar(`" . $d['cedula_persona'] . "`)' data-toggle='modal' data-target='#actualizar'><em class='fa fa-edit'></em></button>",
-                        "eliminar"       => "<button class='btn btn-danger' onclick='eliminar(`" . json_encode($this->id_discapacidad_p) . "`)' type='button'><em class='fa fa-trash'></em></button>",
+                        "eliminar"       => "<button class='btn btn-danger' onclick='eliminar(`" . $d['cedula_persona'] . "`)' type='button'><em class='fa fa-trash'></em></button>",
                     ];
                 }
                 $this->Escribir_JSON($this->retornar);
@@ -279,7 +278,20 @@ class Discapacitados extends Controlador
                 $this->modelo->_SQL_("SQL_07");
                 $this->modelo->_ID_($this->cedula);
                 $this->persona = $this->modelo->Administrar();
-                if (count($this->persona) == 0) {echo 0;} else { $this->Escribir_JSON($this->persona);}
+                if (count($this->persona) == 0) {
+                    echo 0;
+                } else { 
+                    $this->modelo->_SQL_("SQL_05");
+                    $this->modelo->_Tipo_(0);
+                    $this->modelo->_ID_($this->cedula);
+                    $resultado = $this->modelo->Administrar();
+                    if(count($resultado) > 0){
+                        echo 1;
+                    }
+                    else{
+                    $this->Escribir_JSON($this->persona);
+                    }
+                }
                 unset($this->persona, $_POST);
                 break;
 

@@ -58,32 +58,26 @@ class Discapacitados_Class extends Modelo
     {
         return "SELECT * FROM discapacidad WHERE estado=1";
     }
-
     private function SQL_02():string
     {
         return "SELECT DISTINCT DP.cedula_persona, P.* FROM discapacidad_persona DP, personas P WHERE DP.cedula_persona=P.cedula_persona AND P.estado=1";
     }
-
     private function SQL_03():string
     {
         return "SELECT p.cedula_persona,p.primer_nombre,p.primer_apellido FROM personas p WHERE p.estado = 1 ORDER BY p.cedula_persona ASC";
     }
-
     private function SQL_04():string
     {
         return "SELECT D.*,DP.* FROM discapacidad D, discapacidad_persona DP WHERE DP.id_discapacidad=D.id_discapacidad AND D.estado=1";
     }
-
     private function SQL_05():string
     {
         return "SELECT D.*,DP.* FROM discapacidad D, discapacidad_persona DP WHERE  DP.id_discapacidad=D.id_discapacidad AND D.estado=1 AND DP.cedula_persona = $this->id";
     }
-
     private function SQL_06():string
     {
         return "INSERT INTO discapacidad_persona (cedula_persona, id_discapacidad, necesidades_discapacidad, observacion_discapacidad, en_cama) VALUES (:cedula_persona, :id_discapacidad, :necesidades_discapacidad, :observacion_discapacidad, :en_cama)";
     }
-
     private function SQL_07():string
     {
         return "SELECT cedula_persona,primer_nombre, primer_apellido FROM `personas` WHERE cedula_persona = $this->id";

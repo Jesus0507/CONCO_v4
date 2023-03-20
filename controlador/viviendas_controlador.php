@@ -334,6 +334,200 @@ class Viviendas extends Controlador
                 } else { $this->_403_();}
                 break;
 
+                case 'Registrar_vivienda_habitante':
+                    if ($this->permisos["registrar"] === 1) {
+                        $this->modelo->_SQL_("SQL_12");
+                        $this->modelo->_Tipo_(1);
+                        $this->modelo->_Datos_($this->id_servicio);
+                        if ($this->modelo->Administrar()) {
+                            $this->existe = 0;
+                            $this->modelo->_SQL_("_03_");
+                            $this->modelo->_Tipo_(0);
+                            $this->crud["ultimo"] = array("tabla" => "servicios", "id" => "id_servicio");
+                            $this->modelo->_CRUD_($this->Get_Crud_Sql());
+                            $this->servicio                      = $this->modelo->Administrar();
+                            $this->datos_ejecutar['id_servicio'] = $this->servicio[0]['MAX(id_servicio)'];
+    
+                            foreach ($this->datos_consulta["tipo_vivienda"] as $tv) {
+                                if (strtolower($tv['nombre_tipo_vivienda']) == strtolower($this->datos_ejecutar['id_tipo_vivienda'])) {
+                                    $this->existe = $tv['id_tipo_vivienda'];
+                                }
+                            }
+                            if ($this->existe == 0) {
+                                $this->modelo->_SQL_("_02_");
+                                $this->modelo->_Tipo_(1);
+                                $this->crud["registrar"] = array(
+                                    "tabla"   => "tipo_vivienda",
+                                    "columna" => "nombre_tipo_vivienda",
+                                );
+                                $this->modelo->_CRUD_($this->Get_Crud_Sql());
+                                $this->modelo->_Datos_(["nombre_tipo_vivienda" => $this->Get_Datos_()['id_tipo_vivienda'], "estado" => 1]);
+                                if ($this->modelo->Administrar()) {
+                                    $this->modelo->_SQL_("_03_");
+                                    $this->modelo->_Tipo_(0);
+                                    $this->crud["ultimo"] = array("tabla" => "tipo_vivienda", "id" => "id_tipo_vivienda");
+                                    $this->modelo->_CRUD_($this->Get_Crud_Sql());
+                                    $this->id                                 = $this->modelo->Administrar();
+                                    $this->datos_ejecutar['id_tipo_vivienda'] = $this->id[0]['MAX(id_tipo_vivienda)'];
+                                }
+                            } else {
+                                $this->datos_ejecutar['id_tipo_vivienda'] = $this->existe;
+                            }
+    
+                            $this->modelo->_SQL_($this->Get_Sql());
+                            $this->modelo->_Tipo_(1);
+                            $this->modelo->_Datos_($this->Get_Datos());
+                            if ($this->modelo->Administrar()) {
+                                $this->mensaje = 1;
+                                $this->modelo->_SQL_("_03_");
+                                $this->modelo->_Tipo_(0);
+                                $this->crud["ultimo"] = array("tabla" => "vivienda", "id" => "id_vivienda");
+                                $this->modelo->_CRUD_($this->Get_Crud_Sql());
+                                $this->id = $this->modelo->Administrar();
+                                $this->id = $this->id[0]['MAX(id_vivienda)'];
+                                foreach ($this->datos_consulta["tipo_techo"] as $techo) {
+                                    foreach ($this->techos as $tipo) {
+                                        if ($techo["techo"] == $tipo["id_tipo_techo"]) {$this->id_tipo_techo[] = $techo["id_tipo_techo"];}
+                                    }
+                                }
+                                foreach ($this->datos_consulta["tipo_pared"] as $pared) {
+                                    foreach ($this->paredes as $tipo) {
+                                        if ($pared["pared"] == $tipo["id_tipo_pared"]) {$this->id_tipo_pared[] = $pared["id_tipo_pared"];}
+                                    }
+                                }
+                                foreach ($this->datos_consulta["tipo_piso"] as $piso) {
+                                    foreach ($this->pisos as $tipo) {
+                                        if ($piso["piso"] == $tipo["id_tipo_piso"]) {$this->id_tipo_piso[] = $piso["id_tipo_piso"];}
+                                    }
+                                }
+                                if (isset($this->id_tipo_techo)) {
+                                    for ($i = 0; $i < count($this->id_tipo_techo); $i++) {
+                                        $this->modelo->_SQL_("SQL_13");
+                                        $this->modelo->_Tipo_(1);
+                                        $this->modelo->_Datos_([
+                                            'id_tipo_techo' => $this->id_tipo_techo[$i],
+                                            'id_vivienda'   => $this->id,
+                                            'estado'        => 1,
+                                        ]);
+                                        $this->modelo->Administrar();
+                                    }
+                                }
+    
+                                if (isset($this->id_tipo_pared)) {
+                                    for ($i = 0; $i < count($this->id_tipo_pared); $i++) {
+                                        $this->modelo->_SQL_("SQL_14");
+                                        $this->modelo->_Tipo_(1);
+                                        $this->modelo->_Datos_([
+                                            'id_tipo_pared' => $this->id_tipo_pared[$i],
+                                            'id_vivienda'   => $this->id,
+                                            'estado'        => 1,
+                                        ]);
+                                        $this->modelo->Administrar();
+                                    }
+                                }
+                                if (isset($this->id_tipo_piso)) {
+                                    for ($i = 0; $i < count($this->id_tipo_piso); $i++) {
+                                        $this->modelo->_SQL_("SQL_15");
+                                        $this->modelo->_Tipo_(1);
+                                        $this->modelo->_Datos_([
+                                            'id_tipo_piso' => $this->id_tipo_piso[$i],
+                                            'id_vivienda'  => $this->id,
+                                            'estado'       => 1,
+                                        ]);
+                                        $this->modelo->Administrar();
+                                    }
+                                }
+                                for ($i = 0; $i < count($this->gases); $i++) {
+                                    if ($this->gases[$i]['nuevo'] == '0') {
+                                        $this->modelo->_SQL_("SQL_16");
+                                        $this->modelo->_Tipo_(1);
+                                        $this->modelo->_Datos_([
+                                            "id_servicio_gas" => $this->gases[$i]['servicio_gas'],
+                                            "id_vivienda"     => $this->id,
+                                            "tipo_bombona"    => $this->gases[$i]['tipo_bombona'],
+                                            "dias_duracion"   => $this->gases[$i]['tiempo_duracion'],
+                                            "estado"          => 1,
+                                        ]);
+                                        $this->modelo->Administrar();
+                                    } else {
+                                        $this->modelo->_SQL_("_02_");
+                                        $this->modelo->_Tipo_(1);
+                                        $this->crud["registrar"] = array(
+                                            "tabla"   => "servicio_gas",
+                                            "columna" => "nombre_servicio_gas");
+                                        $this->modelo->_CRUD_($this->Get_Crud_Sql());
+                                        $this->modelo->_Datos_(["nombre_servicio_gas" => $this->gases[$i]['servicio_gas'], "estado" => 1]);
+                                        if ($this->modelo->Administrar()) {
+                                            $this->modelo->_SQL_("_03_");
+                                            $this->modelo->_Tipo_(0);
+                                            $this->crud["ultimo"] = array("tabla" => "servicio_gas", "id" => "id_servicio_gas");
+                                            $this->modelo->_CRUD_($this->Get_Crud_Sql());
+                                            $this->id_gas = $this->modelo->Administrar();
+                                        }
+                                        $this->modelo->_SQL_("SQL_16");
+                                        $this->modelo->_Tipo_(1);
+                                        $this->modelo->_Datos_([
+                                            "id_servicio_gas" => $this->id_gas[0]['MAX(id_servicio_gas)'],
+                                            "id_vivienda"     => $this->id,
+                                            "tipo_bombona"    => $this->gases[$i]['tipo_bombona'],
+                                            "dias_duracion"   => $this->gases[$i]['tiempo_duracion'],
+                                            "estado"          => 1,
+                                        ]);
+                                        $this->modelo->Administrar();
+                                    }
+                                }
+                                for ($i = 0; $i < count($this->electrodomesticos); $i++) {
+                                    if ($this->electrodomesticos[$i]['nuevo'] == '0') {
+                                        $this->modelo->_SQL_("SQL_17");
+                                        $this->modelo->_Tipo_(1);
+                                        $this->modelo->_Datos_([
+                                            "id_electrodomestico" => $this->electrodomesticos[$i]['electrodomestico'],
+                                            "id_vivienda"         => $this->id,
+                                            "cantidad"            => $this->electrodomesticos[$i]['cantidad'],
+                                            "estado"              => 1,
+                                        ]);
+                                        $this->modelo->Administrar();
+                                    } else {
+                                        $this->modelo->_SQL_("_02_");
+                                        $this->modelo->_Tipo_(1);
+                                        $this->crud["registrar"] = array(
+                                            "tabla"   => "electrodomesticos",
+                                            "columna" => "nombre_electrodomestico",
+                                        );
+                                        $this->modelo->_CRUD_($this->Get_Crud_Sql());
+                                        $this->modelo->_Datos_(["nombre_electrodomestico" => $this->electrodomesticos[$i]['electrodomestico'], "estado" => 1]);
+                                        if ($this->modelo->Administrar()) {
+                                            $this->modelo->_SQL_("_03_");
+                                            $this->modelo->_Tipo_(0);
+                                            $this->crud["ultimo"] = array("tabla" => "electrodomesticos", "id" => "id_electrodomestico");
+                                            $this->modelo->_CRUD_($this->Get_Crud_Sql());
+                                            $this->id_elect = $this->modelo->Administrar();
+                                        }
+                                        $this->modelo->_SQL_("SQL_16");
+                                        $this->modelo->_Tipo_(1);
+                                        $this->id_elect = $this->id_elect[0]['MAX(id_electrodomestico)'];
+                                        $this->modelo->_Datos_([
+                                            "id_electrodomestico" => $this->id_elect,
+                                            "id_vivienda"         => $this->id,
+                                            "cantidad"            => $this->electrodomesticos[$i]['cantidad'],
+                                            "estado"              => 1,
+                                        ]);
+                                        $this->modelo->Administrar();
+                                    }
+                                }
+                            }
+    
+                        }
+                        $this->Accion($this->Get_Accion());
+                        $this->modelo->_SQL_("_03_");
+                        $this->modelo->_Tipo_(0);
+                        $this->crud["ultimo"] = array("tabla" => "vivienda", "id" => "id_vivienda");
+                        $this->modelo->_CRUD_($this->Get_Crud_Sql());
+                        $id_vivienda                      = $this->modelo->Administrar();
+                        echo $id_vivienda[0]['MAX(id_vivienda)'];;
+                    } else { $this->_403_();}
+                    break;
+
             case 'Actualizar':
                 if ($this->permisos["modificar"] === 1) {
                     $this->modelo->_Tipo_(0);
@@ -752,25 +946,13 @@ class Viviendas extends Controlador
 
             case 'Activar_Vivienda':
                 $this->ids    = explode("-", $this->id_vivienda);
-                $this->estado = array(
-                    "tabla"    => "viviendas",
-                    "id_tabla" => "id_vivienda",
-                    "param"    => $this->ids,
-                    "estado"   => 1,
-                );
-                $this->estado_ejecutar = array(
-                    $this->estado["id_tabla"] => $this->estado["param"],
-                    "estado"                  => $this->estado["estado"],
-                );
-                $this->modelo->_Estado_($this->Get_Estado());
-                    $this->modelo->_Datos_($this->Get_Estado_Ejecutar());
-                $this->modelo->_SQL_($this->Get_Sql());
+                
+                $this->modelo->_Datos_(array(
+                    "id_vivienda" => $this->ids[1]
+                ));
+                $this->modelo->_SQL_("SQL_19");
                 $this->modelo->_Tipo_(1);
-                if ($this->modelo->Administrar()) {
-                    $this->Accion($this->Get_Accion());
-                    echo $this->Get_Mensaje();
-                }
-                unset($this->mensaje);
+                echo $this->modelo->Administrar();
                 break;
 
             default:$this->vista->Cargar_Vistas('error/400');

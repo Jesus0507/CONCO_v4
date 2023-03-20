@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "defects": {},
+  "times": {
+    "Parto_HumanizadoTest::test_SQL_01_SELECT_1": 0.06,
+    "Parto_HumanizadoTest::test_SQL_02_INSERT": 0.074,
+    "Parto_HumanizadoTest::test_SQL_03_UPDATE": 0.003,
+    "Parto_HumanizadoTest::test_SQL_04_SELECT_2": 0.003
+  }
+}

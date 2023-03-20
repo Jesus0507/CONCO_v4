@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite assertions="10" errors="0" failures="0" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\SeguridadTest.php" name="SeguridadTest" skipped="0" tests="7" time="0.052394" warnings="0">
+        <testcase assertions="2" class="SeguridadTest" classname="SeguridadTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\SeguridadTest.php" line="40" name="test_SQL_01_SELECT_1" time="0.026622">
+        </testcase>
+        <testcase assertions="2" class="SeguridadTest" classname="SeguridadTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\SeguridadTest.php" line="50" name="test_SQL_02_SELECT_2" time="0.004950">
+        </testcase>
+        <testcase assertions="2" class="SeguridadTest" classname="SeguridadTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\SeguridadTest.php" line="59" name="test_SQL_03_SELECT_3" time="0.004166">
+        </testcase>
+        <testcase assertions="1" class="SeguridadTest" classname="SeguridadTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\SeguridadTest.php" line="68" name="test_SQL04_UPDATE_1" time="0.006370">
+        </testcase>
+        <testcase assertions="1" class="SeguridadTest" classname="SeguridadTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\SeguridadTest.php" line="76" name="test_SQL05_UPDATE_2" time="0.002892">
+        </testcase>
+        <testcase assertions="1" class="SeguridadTest" classname="SeguridadTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\SeguridadTest.php" line="84" name="test_SQL06_UPDATE_3" time="0.002598">
+        </testcase>
+        <testcase assertions="1" class="SeguridadTest" classname="SeguridadTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\SeguridadTest.php" line="92" name="test_SQL07_UPDATE_4" time="0.004797">
+        </testcase>
+    </testsuite>
+</testsuites>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tests>
+  <test className="Base_DatosTest" methodName="testConexion" prettifiedClassName="Base_Datos" prettifiedMethodName="Conexion" status="0" time="0.0645776" size="-1" groups="default">
+    <group name="default"/>
+  </test>
+</tests>

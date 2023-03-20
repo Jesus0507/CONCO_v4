@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tests>
+    <test classname="NotificacionesTestControlador" groups="default" methodname="test_Cargar_Vistas" prettifiedclassname="Notificaciones Test Controlador" prettifiedmethodname="Cargar Vistas" size="-1" status="0" time="0.0172262">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="NotificacionesTestControlador" groups="default" methodname="test_Establecer_Consultas" prettifiedclassname="Notificaciones Test Controlador" prettifiedmethodname="Establecer Consultas" size="-1" status="0" time="0.006809">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="NotificacionesTestControlador" groups="default" methodname="test_Getters" prettifiedclassname="Notificaciones Test Controlador" prettifiedmethodname="Getters" size="-1" status="0" time="0.0052061">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="NotificacionesTestControlador" groups="default" methodname="test_Administrar_Nueva" prettifiedclassname="Notificaciones Test Controlador" prettifiedmethodname="Administrar Nueva" size="-1" status="0" time="0.0056588">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="NotificacionesTestControlador" groups="default" methodname="test_Administrar_Consulta_Ajax" prettifiedclassname="Notificaciones Test Controlador" prettifiedmethodname="Administrar Consulta Ajax" size="-1" status="0" time="0.0088582">
+        <group name="default">
+        </group>
+    </test>
+</tests>

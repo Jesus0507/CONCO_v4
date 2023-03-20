@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "defects": [],
+  "times": {
+    "SeguridadTestControlador::test_Cargar_Vistas": 0.022,
+    "SeguridadTestControlador::test_Getters": 0.006,
+    "SeguridadTestControlador::test_Administrar": 0.01,
+    "SeguridadTestControlador::test_Administrar_Vistas_": 0.006,
+    "SeguridadTestControlador::test_Administrar_Consulta_Ajax": 0.01
+  }
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite assertions="4" errors="0" failures="0" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\InmueblesTest.php" name="InmueblesTest" skipped="0" tests="3" time="0.196149" warnings="0">
+        <testcase assertions="2" class="InmueblesTest" classname="InmueblesTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\InmueblesTest.php" line="36" name="test_SQL_01_SELECT" time="0.036948">
+        </testcase>
+        <testcase assertions="1" class="InmueblesTest" classname="InmueblesTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\InmueblesTest.php" line="45" name="test_SQL_02_INSERT" time="0.083718">
+        </testcase>
+        <testcase assertions="1" class="InmueblesTest" classname="InmueblesTest" file="C:\xampp\htdocs\dashboard\www\CONCO_v4\tests\InmueblesTest.php" line="54" name="test_SQL_03_UPDATE" time="0.075484">
+        </testcase>
+    </testsuite>
+</testsuites>

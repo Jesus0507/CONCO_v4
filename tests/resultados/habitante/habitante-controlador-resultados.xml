@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tests>
+    <test classname="HabitanteTestControlador" groups="default" methodname="test_Cargar_Vistas" prettifiedclassname="Habitante Test Controlador" prettifiedmethodname="Cargar Vistas" size="-1" status="0" time="0.0223583">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="HabitanteTestControlador" groups="default" methodname="test_Establecer_Consultas" prettifiedclassname="Habitante Test Controlador" prettifiedmethodname="Establecer Consultas" size="-1" status="0" time="0.0057903">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="HabitanteTestControlador" groups="default" methodname="test_Getters" prettifiedclassname="Habitante Test Controlador" prettifiedmethodname="Getters" size="-1" status="0" time="0.0068386">
+        <group name="default">
+        </group>
+    </test>
+</tests>

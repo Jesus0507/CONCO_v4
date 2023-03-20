@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tests>
+    <test classname="ReportesTestControlador" groups="default" methodname="test_Cargar_Vistas" prettifiedclassname="Reportes Test Controlador" prettifiedmethodname="Cargar Vistas" size="-1" status="0" time="0.0245706">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="ReportesTestControlador" groups="default" methodname="test_Establecer_Consultas" prettifiedclassname="Reportes Test Controlador" prettifiedmethodname="Establecer Consultas" size="-1" status="0" time="0.0057867">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="ReportesTestControlador" groups="default" methodname="test_Getters" prettifiedclassname="Reportes Test Controlador" prettifiedmethodname="Getters" size="-1" status="0" time="0.0073692">
+        <group name="default">
+        </group>
+    </test>
+    <test classname="ReportesTestControlador" groups="default" methodname="test_Administrar_Reportes_PDF" prettifiedclassname="Reportes Test Controlador" prettifiedmethodname="Administrar Reportes PDF" size="-1" status="0" time="0.0053658">
+        <group name="default">
+        </group>
+    </test>
+</tests>

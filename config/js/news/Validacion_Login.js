@@ -100,7 +100,6 @@ function Validar_Datos() {
 }
 
 function Respuesta_Controlador(respuesta, form) {
-    console.log(respuesta);
     switch (respuesta) {
         case '0':
             $("#cedula").css("border-color", "#F14B4B");
@@ -139,9 +138,18 @@ function Respuesta_Controlador(respuesta, form) {
             }, 4000);
             break;
         default:
+            if(respuesta != 'validacion'){
             $("#contrasenia").css("border-color", "#F14B4B");
             $("#contrasenia").focus();
             $("#mensaje-contrasenia").html(respuesta);
+            }
+            else {
+                swal({
+                    type: 'error',
+                    title: 'Error',
+                    text: 'Existe algun error con los datos ingresados, asegurese que la cedula poseea como minimo 7 caracteres numéricos',
+                })
+            }
             break;
     }
 }

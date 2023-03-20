@@ -1,4 +1,4 @@
-function eliminar(id) {
+function eliminar(cedula) {
     swal({
         type: "warning",
         title: "Atención",
@@ -8,15 +8,13 @@ function eliminar(id) {
         confirmButtonText: "Si"
     }, function (isConfirm) {
         if (isConfirm) {
-            var ids = JSON.parse(id);
-            for (var i = 0; i < ids.length; i++) {
                 var estado = {
                     tabla: "personas_enfermedades",
-                    id_tabla: "id_persona_enfermedad",
-                    param: ids[i],
-                    estado: 0
+                    id_tabla: "cedula_persona",
+                    param: cedula,
+                    estado: 0,
+                    cedula : cedula
                 };
-
                 $.ajax({
                     type: "POST",
                     url: BASE_URL + "app/Direcciones.php",
@@ -37,15 +35,18 @@ function eliminar(id) {
                             },
                         }).done(function (result) {
                             if (result == 1) {
-                                swal({
-                                    title: "Eliminado!",
-                                    text: "El elemento fue eliminado con exito.",
-                                    type: "success",
-                                    showConfirmButton: false,
-                                });
                                 setTimeout(function () {
-                                    location.reload();
-                                }, 2000);
+                                    swal({
+                                        title: "Eliminado!",
+                                        text: "El elemento fue eliminado con exito.",
+                                        type: "success",
+                                        showConfirmButton: false,
+                                        timer: 2000
+                                    });
+                                    setTimeout(function () {
+                                        location.reload();
+                                    }, 2000);
+                                }, 500);
                             } else {
                                 swal({
                                     title: "ERROR!",
@@ -62,7 +63,6 @@ function eliminar(id) {
                         alert('Error al codificar dirreccion');
                     }
                 });
-            }
         }
     })
 }
@@ -86,13 +86,16 @@ function editar(cedula) {
                 },
             }).done(function (datos) {
                 var data = JSON.parse(datos);
+                document.getElementById('enfermedades_previas').innerHTML = datos;
                 var enfermedades = document.getElementById('enfermedades_agregadas');
                 if (data.length == 0) {
                     enfermedades.innerHTML = "No aplica";
                 } else {
                     enfermedades.innerHTML = "";
                     for (var i = 0; i < data.length; i++) {
-                        var tabl = enfermedades.innerHTML += " <table style='width:95%'><tr><hr><td>-" + data[i]["nombre_enfermedad"] + "</td><td style='text-align:right'><span onclick='borrar_enfermedad(" + data[i]['id_persona_enfermedad'] + "," + data[i]["cedula_persona"] + ")' class='iconDelete fa fa-times-circle' title='Eliminar Enfermedad' style='font-size:22px'></span></td></tr></table><br><hr>";
+                        var med = '';
+                        data[i]['medicamentos'] != 'No posee' ? med = data[i]['medicamentos'] : med = '';
+                        var tabl = enfermedades.innerHTML += " <div class='w-100'><hr><div style='width:90%' class='d-flex flex-row justify-content-between'><div>-" + data[i]["nombre_enfermedad"] + "</div><div>" + med + "</div><div><button type='button' onclick='borrar_enfermedad(" + data[i]['id_persona_enfermedad'] + "," + data[i]["cedula_persona"] + ")' class='btn btn-danger' title='Eliminar Enfermedad' style='font-size:22px'>X</button></div></div></div><hr>";
                     }
                 }
 
@@ -132,9 +135,43 @@ function borrar_enfermedad(id, cedula_param) {
                             "cedula": cedula_param
                         },
                     }).done(function (result) {
-                        result = JSON.parse(result);
-                        actualizar_enfermedad(result, cedula_param);
-                        editar(cedula_param);
+                        $.ajax({
+                            type: "POST",
+                            url: BASE_URL + "app/Direcciones.php",
+                            data: {
+                                direction: "Enfermos/Administrar",
+                                accion: "codificar"
+                            },
+                            success: function (direccion_segura) {
+                                $.ajax({
+                                    type: "POST",
+                                    url: BASE_URL + direccion_segura,
+                                    type: "POST",
+                                    data: {
+                                        peticion: "Datos",
+                                        'cedula': $('#cedula').val()
+                                    },
+                                }).done(function (datos) {
+                                    var data = JSON.parse(datos);
+                                    document.getElementById('enfermedades_previas').innerHTML = datos;
+                                    var enfermedades = document.getElementById('enfermedades_agregadas');
+                                    if (data.length == 0) {
+                                        enfermedades.innerHTML = "No aplica";
+                                    } else {
+                                        enfermedades.innerHTML = "";
+                                        for (var i = 0; i < data.length; i++) {
+                                            var med = '';
+                                            data[i]['medicamentos'] != 'No posee' ? med = data[i]['medicamentos'] : med = '';
+                                            var tabl = enfermedades.innerHTML += " <div class='w-100'><hr><div style='width:90%' class='d-flex flex-row justify-content-between'><div>-" + data[i]["nombre_enfermedad"] + "</div><div>" + med + "</div><div><button type='button' onclick='borrar_enfermedad(" + data[i]['id_persona_enfermedad'] + "," + data[i]["cedula_persona"] + ")' class='btn btn-danger' title='Eliminar Enfermedad' style='font-size:22px'>X</button></div></div></div><hr>";
+                                         }
+                                    }
+
+                                });
+                            },
+                            error: function () {
+                                alert('Error al codificar dirreccion');
+                            }
+                        });
 
                     })
                 },
@@ -156,3 +193,4 @@ function actualizar_enfermedad(result, cedula_param) {
         }
     }
 }
+
