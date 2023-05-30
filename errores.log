@@ -8,3 +8,62 @@ stdClass Object
     [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
     [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
 )
+stdClass Object
+(
+    [Fecha] => Martes , 21 de Marzo del 2023
+    [Hora] => 09:23 AM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 48
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Fecha] => Martes , 21 de Marzo del 2023
+    [Hora] => 10:06 AM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 48
+    [Codigo] => 1045
+    [Mensaje] => SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+    [Tipo] => Acceso denegado,  Contraseña de MSQL Incorrecta.
+)
+stdClass Object
+(
+    [Modulo] => ------Personas------
+    [Fecha] => Martes , 21 de Marzo del 2023
+    [Hora] => 10:10:15 AM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\modelo\personas_class.php
+    [Linea] => 1095
+    [Mensaje] => SQLSTATE[42S02]: Base table or view not found: 1146 Table 'conco.comunidad_indigena' doesn't exist
+)
+stdClass Object
+(
+    [Fecha] => Lunes , 22 de Mayo del 2023
+    [Hora] => 03:02 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 48
+    [Codigo] => 1049
+    [Mensaje] => SQLSTATE[HY000] [1049] Unknown database 'conco2'
+    [Tipo] => Acceso denegado,  Nombre de la Base de Datos Incorrecto.
+)
+stdClass Object
+(
+    [Fecha] => Lunes , 22 de Mayo del 2023
+    [Hora] => 03:04 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 48
+    [Codigo] => 1049
+    [Mensaje] => SQLSTATE[HY000] [1049] Unknown database 'conco2'
+    [Tipo] => Acceso denegado,  Nombre de la Base de Datos Incorrecto.
+)
+stdClass Object
+(
+    [Fecha] => Lunes , 22 de Mayo del 2023
+    [Hora] => 03:04 PM
+    [Archivo] => C:\xampp\htdocs\dashboard\www\CONCO_v4\app\Base_Datos.php
+    [Linea] => 48
+    [Codigo] => 1049
+    [Mensaje] => SQLSTATE[HY000] [1049] Unknown database 'conco2'
+    [Tipo] => Acceso denegado,  Nombre de la Base de Datos Incorrecto.
+)

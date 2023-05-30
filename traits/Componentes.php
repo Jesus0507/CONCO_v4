@@ -8,10 +8,10 @@ trait Componentes
             'Mysql' => array(
                 'Servidor'   => 'mysql',
                 'Host'       => 'localhost',
-                'Base_Datos' => 'conco',
+                'Base_Datos' => 'prueba',
                 'Puerto'     => '3306',
                 'Usuario'    => 'root',
-                'Contraseña' => 'root',
+                'Contraseña' => '',
             ),
             'ByHost' => array(
                 'Servidor'   => 'mysql',

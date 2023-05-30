@@ -8,7 +8,7 @@ define('ATAJO', 		'123456');
 
 define('SERVIDOR', 	'mysql'); 
 define('HOST', 		'localhost'); 
-define('BD', 		'conco');
+define('BD', 		'prueba');
 
 // MYSQL contraseña
 define('PORT_MYSQL', 		'3306');
